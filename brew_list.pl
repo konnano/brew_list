@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 
+exit if "Darwin\n" ne `uname`;
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
 my( $time,$year,$mon,$day,@an,$tap,$test,$cn,$en );
