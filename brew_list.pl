@@ -10,7 +10,6 @@ my $pri = 1 if $ARGV[0] and $ARGV[0] eq '-i';
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
-
 if( -f $cur ){
 $time = [split(" ",`ls -lT ~/.Q_BREW.html|awk '{print \$6,\$7,\$9}'`)];
 ( $year,$mon,$day ) = (
@@ -24,7 +23,6 @@ if( not -f $cur or  $year > $time->[2] or
 my $url = 'https://formulae.brew.sh/formula/index.html';
  system('curl','-so',$cur,$url);
 }
-
 @list = `ls /usr/local/Cellar/*|\
 sed -E 's/\\/usr\\/local\\/Cellar\\/(.+):/ \\1/'|\
 sed 's/_[1-9]\$//'|sed '/^\$/d'`;
@@ -32,7 +30,6 @@ sed 's/_[1-9]\$//'|sed '/^\$/d'`;
 
 sub Linux{
 exit unless `ls /home/linuxbrew/.linuxbrew/Cellar 2>/dev/null`;
-
 if( -f $cur ){
 my $ls = `ls --full-time ~/.Q_BREW.html|awk '{print \$6}'`;
 ( $year,$mon,$day ) = split('-',$ls);
@@ -46,7 +43,6 @@ if( not -f $cur or $time->[0] > $year or
 my $url = 'https://formulae.brew.sh/formula-linux/index.html';
  system('curl','-so',$cur,$url);
 }
-
 @list = `ls /home/linuxbrew/.linuxbrew/Cellar/*|\
 sed -E 's/\\/home\\/linuxbrew\\/.linuxbrew\\/Cellar\\/(.+):/ \\1/'|\
 sed 's/_[1-9]\$//'|sed '/^\$/d'`;
