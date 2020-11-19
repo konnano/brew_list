@@ -5,7 +5,6 @@ use warnings;
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
 my( @list,@an,$time,$year,$mon,$day,$tap,$test,$cn,$en );
 my $pri = 1 if $ARGV[0] and $ARGV[0] eq '-i';
-
 "Darwin\n" eq `uname` ? Darwin() : "Linux\n" eq `uname` ? Linux() : exit;
 
 sub Darwin{
@@ -68,7 +67,6 @@ search( \@list,\@an,0,0,0,0,'' );
 
 sub search{
 my( $list,$an,$in,$i,$nst,$pop,$tap,$loop ) = @_;
-
 for(;$an->[$i];$i++){
 my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
  if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
