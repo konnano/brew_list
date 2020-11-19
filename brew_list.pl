@@ -2,12 +2,13 @@
 use strict;
 use warnings;
 
-exit if "Darwin\n" ne `uname`;
-exit unless `ls /usr/local/Cellar 2>/dev/null`;
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
 my( $time,$year,$mon,$day,@an,$tap,$test,$cn,$en );
 my $pri = 1 if $ARGV[0] and $ARGV[0] eq '-i';
 
+"Darwin\n" eq `uname` ? Darwin() : "Linux\n" eq `uname` ? Linux() : exit;
+
+sub Darwin{
 if( -f $cur ){
 $time = [split(" ",`ls -lT ~/.Q_BREW.html|awk '{print \$6,\$7,\$9}'`)];
 ( $year,$mon,$day ) = (
@@ -25,6 +26,29 @@ my $url = 'https://formulae.brew.sh/formula/index.html';
 my @list = `ls /usr/local/Cellar/*|\
 sed -E 's/\\/usr\\/local\\/Cellar\\/(.+):/ \\1/'|\
 sed 's/_[1-9]\$//'|sed '/^\$/d'`;
+}
+
+sub Linux{
+exit unless `ls /home/linuxbrew/.linuxbrew/Cellar 2>/dev/null`;
+
+if( -f $cur ){
+my $ls = `ls --full-time ~/.Q_BREW.html|awk '{print \$6}'`;
+( $year,$mon,$day ) = split('-',$ls);
+ $time = [( ((localtime(time))[5] + 1900),
+  ((localtime(time))[4]+1),
+   ((localtime(time))[3]) )];
+}
+if( not -f $cur or $time->[0] > $year or
+	$time->[1] > $mon or $time->[2] > $day ){
+ unlink $cur;
+my $url = 'https://formulae.brew.sh/formula-linux/index.html';
+ system('curl','-so',$cur,$url);
+}
+
+@list = `ls /home/linuxbrew/.linuxbrew/Cellar/*|\
+sed -E 's/\\/home\\/linuxbrew\\/.linuxbrew\\/Cellar\\/(.+):/ \\1/'|\
+sed 's/_[1-9]\$//'|sed '/^\$/d'`;
+}
 
 open my $BREW,$cur or die $!,"\n";
 while(my $brew = <$BREW>){
