@@ -9,6 +9,8 @@ my $pri = 1 if $ARGV[0] and $ARGV[0] eq '-i';
 "Darwin\n" eq `uname` ? Darwin() : "Linux\n" eq `uname` ? Linux() : exit;
 
 sub Darwin{
+exit unless `ls /usr/local/Cellar 2>/dev/null`;
+
 if( -f $cur ){
 $time = [split(" ",`ls -lT ~/.Q_BREW.html|awk '{print \$6,\$7,\$9}'`)];
 ( $year,$mon,$day ) = (
@@ -23,7 +25,7 @@ my $url = 'https://formulae.brew.sh/formula/index.html';
  system('curl','-so',$cur,$url);
 }
 
-my @list = `ls /usr/local/Cellar/*|\
+@list = `ls /usr/local/Cellar/*|\
 sed -E 's/\\/usr\\/local\\/Cellar\\/(.+):/ \\1/'|\
 sed 's/_[1-9]\$//'|sed '/^\$/d'`;
 }
