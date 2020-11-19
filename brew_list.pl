@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
-my( $time,$year,$mon,$day,@an,$tap,$test,$cn,$en );
+my( @list,@an,$time,$year,$mon,$day,$tap,$test,$cn,$en );
 my $pri = 1 if $ARGV[0] and $ARGV[0] eq '-i';
 
 "Darwin\n" eq `uname` ? Darwin() : "Linux\n" eq `uname` ? Linux() : exit;
