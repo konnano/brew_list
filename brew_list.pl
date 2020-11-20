@@ -5,7 +5,7 @@ use warnings;
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
 my( @list,@an,$time,$year,$mon,$day,$tap,$test,$cn,$en );
 my $pri = 1 if $ARGV[0] and $ARGV[0] eq '-i';
-`uname` eq "Darwin\n" ? Darwin() : `uname` eq "Linux\n" ? Linux() : exit;
+`uname` =~ /Darwin/ ? Darwin() : `uname` =~ /Linux/ ? Linux() : exit;
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
