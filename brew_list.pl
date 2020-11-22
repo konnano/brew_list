@@ -30,9 +30,10 @@ sed 's/_[1-9]\$//'|sed '/^\$/d'`;
 sub Linux{
 exit unless `ls /home/linuxbrew/.linuxbrew/Cellar 2>/dev/null`;
 if( -f $cur ){
-my $ls = `ls --full-time ~/.Q_BREW.html|awk '{print \$6}'`;
-( $year,$mon,$day ) = split('-',$ls);
- $time = [( ((localtime(time))[5] + 1900),
+( $year,$mon,$day ) =
+ split('-',`ls --full-time ~/.Q_BREW.html|awk '{print \$6}'`);
+$time = [(
+ ((localtime(time))[5] + 1900),
   ((localtime(time))[4]+1),
    ((localtime(time))[3]) )];
 }
