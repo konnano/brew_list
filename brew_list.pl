@@ -4,7 +4,7 @@ use warnings;
 
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
 my( @list,@an,$time,$year,$mon,$day,$tap,$test,$cn,$en );
-my $pri = 1 if $ARGV[0] and $ARGV[0] eq '-i';
+$ARGV[0] and $ARGV[0] eq '-i' ? my $pri = 1 : die " Option -i\n";
 `uname` =~ /Darwin/ ? Darwin() : `uname` =~ /Linux/ ? Linux() : exit;
 
 sub Darwin{
