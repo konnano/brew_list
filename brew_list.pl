@@ -26,7 +26,7 @@ if( $ARGV[0] eq '-l' ){ $con = $re; $dir = $cur;
 $ARGV[1] ? $re->{'OPT'} = $ARGV[1] : die " type search name\n" if $re->{'SEARCH'};
 
  `uname` =~ /Darwin/ ? Darwin($dir,$con) :
- `uname` =~ /Linux/ ? Linux($dir,$con) : exit;
+ `uname` =~ /Linux/ ? Linux($cur,$re) : exit;
 
 if( $re->{'SEARCH'} and `uname` =~ /Darwin/ ){
  $ref->{'CAS'} = 1; $ref->{'SEARCH'} = 1;
@@ -84,7 +84,6 @@ $time = [(
 }
 if( not -f $cur or $time->[0] > $year or
 	$time->[1] > $mon or $time->[2] > $day ){
- unlink $cur;
 my $url = 'https://formulae.brew.sh/formula-linux/index.html';
  system('curl','-so',$cur,$url);
 }
