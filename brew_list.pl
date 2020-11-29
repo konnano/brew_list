@@ -7,9 +7,9 @@ my $cas = $ENV{'HOME'}.'/.Q_CASK.html';
 my $con; my $dir;
 my $re  = { 'LEN' => 1,'ARR' => [] }; my $ref = { 'LEN' => 1,'ARR' => [] };
 die "  Option
-  -l list : -i instaled list
-  -c cask list : -ci cask instaled list
-  -s search\n" unless $ARGV[0];
+  -l list : -i instaled list : -s type search name
+  Darwin Option
+  -c cask list : -ci cask instaled list\n" unless $ARGV[0];
 
 if( $ARGV[0] eq '-l' ){ $con = $re; $dir = $cur;
 	$re->{'LIST'} = 1; $re->{'FOR'} = 1;
