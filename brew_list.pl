@@ -5,41 +5,45 @@ use warnings;
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
 my $cas = $ENV{'HOME'}.'/.Q_CASK.html';
 my $con; my $dir;
-my $re  = { 'LEN' => 1,'ARR' => [] }; my $ref = { 'LEN' => 1,'ARR' => [] };
+my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[]};
+my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[]};
 die "  Option
   -l list : -i instaled list : -s type search name
   Darwin Option
   -c cask list : -ci cask instaled list\n" unless $ARGV[0];
 
-if( $ARGV[0] eq '-l' ){ $con = $re; $dir = $cur;
-	$re->{'LIST'} = 1; $re->{'FOR'} = 1;
-}elsif( $ARGV[0] eq '-i' ){ $con = $re; $dir = $cur;
-	$re->{'PRINT'} = 1; $re->{'FOR'} = 1;
-}elsif( $ARGV[0] eq '-c' ){ $con = $ref; $dir = $cas;
-	$ref->{'LIST'} = 1; $ref->{'CAS'} = 1;
-}elsif( $ARGV[0] eq '-ci'){ $con = $ref; $dir = $cas;
-	$ref->{'PRINT'} = 1; $ref->{'CAS'} = 1;
-}elsif( $ARGV[0] eq '-s' ){ $con = $re; $dir = $cur;
-        $re->{'SEARCH'} = 1; $re->{'FOR'} = 1;
+if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
+}elsif( $ARGV[0] eq '-i' ){ $con = $re;  $dir = $cur; $re->{'PRINT'} = 1;
+}elsif( $ARGV[0] eq '-c' ){ $con = $ref; $dir = $cas; $ref->{'LIST'} = 1;
+}elsif( $ARGV[0] eq '-ci'){ $con = $ref; $dir = $cas; $ref->{'PRINT'} = 1;
+}elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = 1;
 }else{ exit; }
-
 $ARGV[1] ? $re->{'OPT'} = $ARGV[1] : die " type search name\n" if $re->{'SEARCH'};
 
- `uname` =~ /Darwin/ ? Darwin($dir,$con) :
- `uname` =~ /Linux/ ? Linux($cur,$re) : exit;
-
+if( `uname` =~ /Linux/ ){ Linux($cur,$re); Format($re); }
 if( $re->{'SEARCH'} and `uname` =~ /Darwin/ ){
- $ref->{'CAS'} = 1; $ref->{'SEARCH'} = 1;
- $ref->{'OPT'} = $re->{'OPT'};
- Darwin($cas,$ref);
-}
+$ref->{'OPT'} = $re->{'OPT'};
+ $ref->{'SEARCH'} = 1;
+ my $pid = fork;
+ if($pid){
+  Darwin($cas,$ref);
+  waitpid($pid,0);
+ }else{
+  Darwin($cur,$re);
+ }
+ if($pid){
+  Format($ref);
+ }else{
+  Format($re);
+ }
+}else{ Darwin($dir,$con); Format($con); }
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
  my( $cur,$re,$time,$year,$mon,$day,@list ) = @_;
 if( -f $cur ){
-$time = [split(" ",`ls -lT ~/.Q_BREW.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'FOR'};
-$time = [split(" ",`ls -lT ~/.Q_CASK.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'CAS'};
+$time=[split(" ",`ls -lT ~/.Q_BREW.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'FOR'};
+$time=[split(" ",`ls -lT ~/.Q_CASK.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'CAS'};
 ( $year,$mon,$day ) = (
  ((localtime(time))[5] + 1900),
   ((localtime(time))[4]+1),
@@ -94,6 +98,7 @@ sed 's/_[1-9]\$//'|sed '/^\$/d'`;
 }
 
 sub File{
+my $size = `tput cols`; ###
 my( $list,$cur,$re,$cas,$test,$tap,@an ) = @_;
 open my $BREW,$cur or die $!,"\n";
 while(my $brew = <$BREW>){
@@ -107,13 +112,15 @@ while(my $brew = <$BREW>){
   $test = 0;
  }
  $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
+  if( $tap and $size > 79 and length $tap > $size-20 ){
+   $tap = substr($tap,0,$size-20); $tap .= "\n";
+  }
  push @an,$tap if $tap;
  $tap = '';
 }
 close $BREW;
 @an = sort{$a cmp $b}@an;
 Search( $list,\@an,0,0,0,0,$re,'' );
-Format($re);
 }
 
 sub Search{
@@ -217,6 +224,8 @@ my $re = shift;
 print"\n";
 }
 __END__
-check
+Check Darwin
 diff <(ls /usr/local/Cellar) <(brew list --formula)
+diff <(ls /usr/local/Caskroom) <(brew list --cask)
+Check Linux
 diff <(ls /home/linuxbrew/.linuxbrew/Cellar) <(brew list --formula)
