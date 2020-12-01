@@ -1,9 +1,13 @@
 # brew_list
 
-標準で formulaeリストが表示されます
+-l オプションでformulaeリストが表示されます
 
-The formula list is displayed by default
+Formula list is displayed by the -l option.
 
 -i オプションでインストール済みリストが表示されます
 
-The installed list is displayed by the -i option.
+Installed list is displayed by the -i option.
+
+-s オプションで検索されリストが表示されます
+
+Search list is displayed by the -s option.
