@@ -1,6 +1,6 @@
 # brew_list
 
--l オプションでformulaeリストが表示されます
+-l オプションでFormulaeリストが表示されます
 
 Formula list is displayed by the -l option.
 
