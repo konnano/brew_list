@@ -211,7 +211,7 @@ my $re = shift;
  }elsif( $re->{'SEARCH'} ){
   my $size = int `tput cols`/($re->{'LEN'}+2);
   my $in = 1;
- print" ==>cask\n" if $re->{'CAS'} and @{$re->{'ARR'}};
+ print" ==>casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
    for( @{$re->{'ARR'}} ){
     for(my $i=$re->{'HA'}{$_};$i<$re->{'LEN'}+2;$i++){
     $_ .= ' ';
