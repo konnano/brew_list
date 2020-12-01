@@ -98,7 +98,7 @@ sed 's/_[1-9]\$//'|sed '/^\$/d'`;
 }
 
 sub File{
-my $size = `tput cols`; ###
+my $size = `tput cols`;
 my( $list,$cur,$re,$cas,$test,$tap,@an ) = @_;
 open my $BREW,$cur or die $!,"\n";
 while(my $brew = <$BREW>){
