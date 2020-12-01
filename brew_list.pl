@@ -207,7 +207,7 @@ sub Format{
 my $re = shift;
  if( $re->{'LIST'} or $re->{'PRINT'} ){
   print"$re->{'ALL'}";
-  print " item $re->{'CN'} : install $re->{'EN'}";
+  print " item $re->{'CN'} : install $re->{'EN'}\n";
  }elsif( $re->{'SEARCH'} ){
   my $size = int `tput cols`/($re->{'LEN'}+2);
   my $in = 1;
@@ -221,7 +221,7 @@ my $re = shift;
   $in++;
    }
  }
-print"\n";
+print"\n" if @{$re->{'ARR'}};
 }
 __END__
 Check Darwin
