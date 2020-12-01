@@ -5,8 +5,8 @@ use warnings;
 my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
 my $cas = $ENV{'HOME'}.'/.Q_CASK.html';
 my $con; my $dir;
-my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[]};
-my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[]};
+my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0};
+my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0};
 die "  Option
   -l list : -i instaled list : -s type search name
   Darwin Option
