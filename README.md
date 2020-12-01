@@ -8,6 +8,6 @@ Formula list is displayed by the -l option.
 
 Installed list is displayed by the -i option.
 
--s オプションで検索されリストが表示されます
+-s オプションで検索リストが表示されます
 
 Search list is displayed by the -s option.
