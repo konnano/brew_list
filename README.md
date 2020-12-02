@@ -12,7 +12,7 @@ Formulae Installed list is displayed by the -i option.
 
 Search list is displayed by the -s option.
 
- Only Darwin
+ Only Mac
 
 -c オプションでCasksリストが表示されます
 
