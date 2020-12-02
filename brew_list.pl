@@ -227,7 +227,7 @@ print"\n" if @{$re->{'ARR'}};
 print " Not connected\n" if $re->{'CUR'};
 }
 __END__
-Check Darwin
+Check Mac
 diff <(ls /usr/local/Cellar) <(brew list --formula)
 diff <(ls /usr/local/Caskroom) <(brew list --cask)
 Check Linux
