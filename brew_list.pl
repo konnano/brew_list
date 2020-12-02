@@ -28,14 +28,14 @@ if( `uname` =~ /Linux/ ){
 }elsif( `uname` =~ /Darwin/ and $re->{'SEARCH'} ){
  my $pid = fork;
 die "Not fork $!\n" unless defined $pid;
-  if($pid){
+  if( $pid ){
    $ref->{'NEX'} = 1;
    Darwin($cas,$ref);
    waitpid($pid,0);
   }else{
    Darwin($cur,$re);
   }
-  if($pid){
+  if( $pid ){
    Format($ref);
   }else{
    Format($re); exit;
@@ -102,7 +102,7 @@ sub File{
 my $size = `tput cols`;
 my( $list,$cur,$re,$cas,$test,$tap,@an ) = @_;
 open my $BREW,$cur or die "$!\n";
-while(my $brew = <$BREW>){
+while( my $brew = <$BREW> ){
  if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
   $tap = "$brew\t"; next;
  }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
