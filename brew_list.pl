@@ -29,7 +29,6 @@ if( `uname` =~ /Linux/ ){
  my $pid = fork;
 die "Not fork $!\n" unless defined $pid;
   if( $pid ){
-   $ref->{'NEX'} = 1;
    Darwin($cas,$ref);
    waitpid($pid,0);
   }else{
