@@ -9,7 +9,7 @@ my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0};
 die "  Option
   -l List : -i Instaled list : -s Type search name
-  Darwin Option
+  Mac Option
   -c Casks list : -ci Casks instaled list\n" unless $ARGV[0];
 
 if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
