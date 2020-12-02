@@ -27,7 +27,7 @@ if( `uname` =~ /Linux/ ){
  Darwin($dir,$con); Format($con);
 }elsif( `uname` =~ /Darwin/ and $re->{'SEARCH'} ){
  my $pid = fork;
-die "Not fork: $!\n" unless defined $pid;
+die "Not fork $!\n" unless defined $pid;
   if($pid){
    $ref->{'NEX'} = 1;
    Darwin($cas,$ref);
