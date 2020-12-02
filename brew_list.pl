@@ -8,35 +8,39 @@ my $con; my $dir;
 my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0};
 die "  Option
-  -l list : -i instaled list : -s type search name
+  -l List : -i Instaled list : -s Type search name
   Darwin Option
-  -c cask list : -ci cask instaled list\n" unless $ARGV[0];
+  -c Casks list : -ci Casks instaled list\n" unless $ARGV[0];
 
 if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){ $con = $re;  $dir = $cur; $re->{'PRINT'} = 1;
 }elsif( $ARGV[0] eq '-c' ){ $con = $ref; $dir = $cas; $ref->{'LIST'} = 1;
 }elsif( $ARGV[0] eq '-ci'){ $con = $ref; $dir = $cas; $ref->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = 1;
+}elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{ exit; }
-$ARGV[1] ? $re->{'OPT'} = $ARGV[1] : die " type search name\n" if $re->{'SEARCH'};
+$ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = $ARGV[1] : die " Type search name\n"
+	if $re->{'SEARCH'};
 
-if( `uname` =~ /Linux/ ){ Linux($cur,$re); Format($re); }
-if( $re->{'SEARCH'} and `uname` =~ /Darwin/ ){
-$ref->{'OPT'} = $re->{'OPT'};
- $ref->{'SEARCH'} = 1;
+if( `uname` =~ /Linux/ ){
+ Linux($cur,$re); Format($re);
+}elsif( `uname` =~ /Darwin/ and not $re->{'SEARCH'} ){
+ Darwin($dir,$con); Format($con);
+}elsif( `uname` =~ /Darwin/ and $re->{'SEARCH'} ){
  my $pid = fork;
- if($pid){
-  Darwin($cas,$ref);
-  waitpid($pid,0);
- }else{
-  Darwin($cur,$re);
- }
- if($pid){
-  Format($ref);
- }else{
-  Format($re);
- }
-}else{ Darwin($dir,$con); Format($con); }
+die "Not fork: $!\n" unless defined $pid;
+  if($pid){
+   $ref->{'NEX'} = 1;
+   Darwin($cas,$ref);
+   waitpid($pid,0);
+  }else{
+   Darwin($cur,$re);
+  }
+  if($pid){
+   Format($ref);
+  }else{
+   Format($re); exit;
+  }
+}else{ exit; }
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
@@ -55,21 +59,18 @@ my $curl = $ENV{'HOME'}.'/.Q_BREW.html';
 my $casl = $ENV{'HOME'}.'/.Q_CASK.html';
 my $url = 'https://formulae.brew.sh/formula/index.html';
 my $uca = 'https://formulae.brew.sh/cask/index.html';
- system('curl','-so',$curl,$url);
- system('curl','-so',$casl,$uca)
+$re->{'CUR'} = 1 if system('curl','-so',$curl,$url);
+$re->{'CUR'} = 1 if system('curl','-so',$casl,$uca);
 }
+if( $re->{'FOR'} ){
 @list = `ls /usr/local/Cellar/*|\
-sed -E 's/\\/usr\\/local\\/Cellar\\/(.+):/ \\1/'|\
-sed 's/_[1-9]\$//'|sed '/^\$/d'` if $re->{'FOR'};
-
-if( $re->{'CAS'} ){
+sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/d'`
+}elsif( $re->{'CAS'} ){
 @list = `ls /usr/local/Caskroom/*|\
-sed -E 's/\\/usr\\/local\\/Caskroom\\/(.+):/ \\1/'|\
-sed 's/_[1-9]\$//'|sed '/^\$/d'`;
+sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
  if( @list == 1 ){
   $list[1] = $list[0];
-  $list[0] = `ls /usr/local/Caskroom/`;
-  $list[0] =~ s/^/ /;
+  $list[0] = `ls /usr/local/Caskroom/|sed 's/^/ /'`;
  }
 }
 File(\@list,$cur,$re);
@@ -89,18 +90,18 @@ $time = [(
 if( not -f $cur or $time->[0] > $year or
 	$time->[1] > $mon or $time->[2] > $day ){
 my $url = 'https://formulae.brew.sh/formula-linux/index.html';
- system('curl','-so',$cur,$url);
+$re->{'CUR'} = 1 if system('curl','-so',$cur,$url);
 }
 my @list = `ls /home/linuxbrew/.linuxbrew/Cellar/*|\
 sed -E 's/\\/home\\/linuxbrew\\/.linuxbrew\\/Cellar\\/(.+):/ \\1/'|\
-sed 's/_[1-9]\$//'|sed '/^\$/d'`;
+sed -e 's/_[1-9]\$//' -e '/^\$/d'`;
  File(\@list,$cur,$re);
 }
 
 sub File{
 my $size = `tput cols`;
 my( $list,$cur,$re,$cas,$test,$tap,@an ) = @_;
-open my $BREW,$cur or die $!,"\n";
+open my $BREW,$cur or die "$!\n";
 while(my $brew = <$BREW>){
  if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
   $tap = "$brew\t"; next;
@@ -111,7 +112,7 @@ while(my $brew = <$BREW>){
   $tap .= $brew;
   $test = 0;
  }
- $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
+ $tap =~ s/^(.+)\t(.+)\t(.+)\n$/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
   if( $tap and $size > 79 and length $tap > $size-20 ){
    $tap = substr($tap,0,$size-20); $tap .= "\n";
   }
@@ -182,12 +183,12 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
  if( $list->[$in] and not $loop ){
   if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
    $tap = $list->[$in++] if $list->[$in] =~ s/\n/\t/;
-   if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-   $re->{'ALL'} .= " Check folder /usr/local/Cellar/ =>$list->[$in - 1]\n";
-    while(1){ $in++;
-     last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
-    }
-   } 
+    if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+    $re->{'ALL'} .= " Check folder /usr/local/Cellar/ =>$list->[$in - 1]\n";
+     while(1){ $in++;
+      last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+     }
+    } 
    $re->{'ALL'} .= " i $tap$list->[$in]";
    $re->{'CN'}++; $re->{'EN'}++;
     if( $re->{'OPT'} and $tap =~ /$re->{'OPT'}/ ){
@@ -211,17 +212,19 @@ my $re = shift;
  }elsif( $re->{'SEARCH'} ){
   my $size = int `tput cols`/($re->{'LEN'}+2);
   my $in = 1;
- print" ==>casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
-   for( @{$re->{'ARR'}} ){
-    for(my $i=$re->{'HA'}{$_};$i<$re->{'LEN'}+2;$i++){
-    $_ .= ' ';
+ print" ==>Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
+ print" ==>Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
+   for my $arr( @{$re->{'ARR'}} ){
+    for(my $i=$re->{'HA'}{$arr};$i<$re->{'LEN'}+2;$i++){
+    $arr .= ' ';
     }
-  print"$_";
+  print"$arr";
   print"\n" unless $in % $size;
   $in++;
    }
  }
 print"\n" if @{$re->{'ARR'}};
+print " Not connected\n" if $re->{'CUR'};
 }
 __END__
 Check Darwin
