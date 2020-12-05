@@ -7,6 +7,7 @@ my $cas = $ENV{'HOME'}.'/.Q_CASK.html';
 my $con; my $dir;
 my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0};
+$re->{'MAC'} = $ref->{'MAC'} = 1 if `uname` =~ /Darwin/;
 die "  Option
   -l List : -i Instaled list : -s Type search name
   Darwin Option
@@ -20,7 +21,6 @@ if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
 }else{ exit; }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
 	if $re->{'SEARCH'};
-$re->{'MAC'} = 1 if `uname` =~ /Darwin/;
 if( `uname` =~ /Linux/ ){
  Linux($cur,$re); Format($re);
 }elsif( $re->{'MAC'} and not $re->{'SEARCH'} ){
@@ -36,6 +36,7 @@ die "Not fork: $!\n" unless defined $pid;
   }
   if($pid){
    waitpid($pid,0);
+   $ref->{'CAS'} = 0;
    Format($ref);
   }else{
    Format($re); exit;
