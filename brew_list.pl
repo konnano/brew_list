@@ -9,7 +9,7 @@ my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0};
 die "  Option
   -l List : -i Instaled list : -s Type search name
-  Mac Option
+  Darwin Option
   -c Casks list : -ci Casks instaled list\n" unless $ARGV[0];
 
 if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
@@ -18,23 +18,24 @@ if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-ci'){ $con = $ref; $dir = $cas; $ref->{'PRINT'} = 1;
 }elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{ exit; }
-$ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = $ARGV[1] : die " Type search name\n"
+$ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
 	if $re->{'SEARCH'};
-
+$re->{'MAC'} = 1 if `uname` =~ /Darwin/;
 if( `uname` =~ /Linux/ ){
  Linux($cur,$re); Format($re);
-}elsif( `uname` =~ /Darwin/ and not $re->{'SEARCH'} ){
+}elsif( $re->{'MAC'} and not $re->{'SEARCH'} ){
  Darwin($dir,$con); Format($con);
-}elsif( `uname` =~ /Darwin/ and $re->{'SEARCH'} ){
+}elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
  my $pid = fork;
-die "Not fork $!\n" unless defined $pid;
-  if( $pid ){
+die "Not fork: $!\n" unless defined $pid;
+  if($pid){
    Darwin($cas,$ref);
    waitpid($pid,0);
   }else{
    Darwin($cur,$re);
   }
-  if( $pid ){
+  if($pid){
+   waitpid($pid,0);
    Format($ref);
   }else{
    Format($re); exit;
@@ -43,17 +44,17 @@ die "Not fork $!\n" unless defined $pid;
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
- my( $cur,$re,$time,$year,$mon,$day,@list ) = @_;
+ my( $cur,$re,$time,@list ) = @_;
 if( -f $cur ){
 $time=[split(" ",`ls -lT ~/.Q_BREW.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'FOR'};
 $time=[split(" ",`ls -lT ~/.Q_CASK.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'CAS'};
-( $year,$mon,$day ) = (
+( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
  ((localtime(time))[5] + 1900),
   ((localtime(time))[4]+1),
    ((localtime(time))[3]) );
 }
-if( not -f $cur or  $year > $time->[2] or
-	$mon > $time->[0] or $day > $time->[1] ){
+if( not -f $cur or  $re->{'YEA'} > $time->[2] or 
+	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
 my $curl = $ENV{'HOME'}.'/.Q_BREW.html';
 my $casl = $ENV{'HOME'}.'/.Q_CASK.html';
 my $url = 'https://formulae.brew.sh/formula/index.html';
@@ -100,8 +101,8 @@ sed -e 's/_[1-9]\$//' -e '/^\$/d'`;
 sub File{
 my $size = `tput cols`;
 my( $list,$cur,$re,$cas,$test,$tap,@an ) = @_;
-open my $BREW,$cur or die "$!\n";
-while( my $brew = <$BREW> ){
+open my $BREW,$cur or die " $!\n";
+while(my $brew = <$BREW>){
  if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
   $tap = "$brew\t"; next;
  }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
@@ -119,8 +120,19 @@ while( my $brew = <$BREW> ){
  $tap = '';
 }
 close $BREW;
+Font( \@an ) if $re->{'CAS'} and $re->{'OPT'} and $re->{'OPT'} =~ /f?o?n?t?/;
 @an = sort{$a cmp $b}@an;
 Search( $list,\@an,0,0,0,0,$re,'' );
+}
+
+sub Font{
+my $an = shift;
+my $font = $ENV{'HOME'}.'/.Q_FONT.txt';
+open my $BREW,$font or return;
+ while( my $brew = <$BREW> ){
+  push @{$an},$brew if $brew =~ s/(.+)\.rb\n$/$1/;
+ }
+close $BREW;
 }
 
 sub Search{
@@ -133,7 +145,7 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
   $tap = "    $brew_1\t";
   $in++; $re->{'EN'}++; $pop = 1;
    if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
-    my $mit = $brew_1.' [i]';
+    my $mit = $brew_1.' ✅';
     $re->{'HA'}{$mit} = length $mit;
     push @{$re->{'ARR'}},$mit;
     $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
@@ -146,7 +158,8 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
     $re->{'LEN'} = $re->{'HA'}{$brew_1} if $re->{'LEN'} < $re->{'HA'}{$brew_1};
    }
  }
- if( $pop ){
+ if( $brew_2 ){
+  if( $pop ){
    if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
     $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in - 1]";
     Search( $list,$an,$in,$i,++$nst,0,$re,'' );
@@ -164,17 +177,18 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
     $tap =~ s/^\s{3}/ i /;
    }
    $tap .= "$brew_2\t";
- }else{
-  $re->{'ALL'} .= "$brew_2\t" unless $re->{'PRINT'};
- }
- if( $pop ){
-  $tap .= $brew_3;
-  $pop = 0;
- }else{
-  $re->{'ALL'} .= "$brew_3" unless $re->{'PRINT'};
- }
+  }else{
+   $re->{'ALL'} .= "$brew_2\t" unless $re->{'PRINT'};
+  }
+  if( $pop ){
+   $tap .= $brew_3;
+   $pop = 0;
+  }else{
+   $re->{'ALL'} .= "$brew_3" unless $re->{'PRINT'};
+  }
  $re->{'ALL'} .= $tap;
  $tap = ''; $re->{'CN'}++;
+ }
 }
  if( $nst > 9 ){
   print " Deep recursion on subroutine\n"; exit;
@@ -222,11 +236,22 @@ my $re = shift;
   $in++;
    }
  }
-print"\n" if @{$re->{'ARR'}};
-print " Not connected\n" if $re->{'CUR'};
+print "\n" if @{$re->{'ARR'}};
+print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
+nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
+}
+
+sub nohup{
+my $re = shift;
+ my $font = $ENV{'HOME'}.'/.Q_FONT.txt';
+my $time=[split(" ",`ls -lT ~/.Q_FONT.txt|awk '{print \$6,\$7,\$9}'`)] if -f $font;
+ if( not -f $font or  $re->{'YEA'} > $time->[2] or
+	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
+ `nohup ./font.sh >/dev/null &`;
+ }
 }
 __END__
-Check Mac
+Check Darwin
 diff <(ls /usr/local/Cellar) <(brew list --formula)
 diff <(ls /usr/local/Caskroom) <(brew list --cask)
 Check Linux
