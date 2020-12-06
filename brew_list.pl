@@ -2,45 +2,42 @@
 use strict;
 use warnings;
 
-my $cur = $ENV{'HOME'}.'/.BREW_LIST/Q_BREW.html';
-my $cas = $ENV{'HOME'}.'/.BREW_LIST/Q_CASK.html';
-my $con; my $dir;
-my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0};
-my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0};
+my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0,
+'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
+my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
+'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 $re->{'MAC'} = $ref->{'MAC'} = 1 if `uname` =~ /Darwin/;
 unless( $ARGV[0] ){
 `nohup mkdir -p ~/.BREW_LIST &`;
-print<<EOF;
-  Option
+print "  Option
   -l List : -i Instaled list : -s Type search name
   Darwin Option
-  -c Casks list : -ci Casks instaled list
-EOF
+  -c Casks list : -ci Casks instaled list\n";
 exit;
 }else{
 `mkdir ~/.BREW_LIST` if not -d $ENV{'HOME'}.'/.BREW_LIST';
 }
-
-if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
-}elsif( $ARGV[0] eq '-i' ){ $con = $re;  $dir = $cur; $re->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-c' ){ $con = $ref; $dir = $cas; $ref->{'LIST'} = 1;
-}elsif( $ARGV[0] eq '-ci'){ $con = $ref; $dir = $cas; $ref->{'PRINT'} = 1;
+ my $con;
+if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
+}elsif( $ARGV[0] eq '-i' ){ $con = $re;  $re->{'PRINT'} = 1;
+}elsif( $ARGV[0] eq '-c' ){ $con = $ref; $ref->{'LIST'} = 1;
+}elsif( $ARGV[0] eq '-ci'){ $con = $ref; $ref->{'PRINT'} = 1;
 }elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{ exit; }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
 	if $re->{'SEARCH'};
 if( `uname` =~ /Linux/ ){
- Linux($cur,$re); Format($re);
+ Linux($re); Format($re);
 }elsif( $re->{'MAC'} and not $re->{'SEARCH'} ){
- Darwin($dir,$con); Format($con);
+ Darwin($con); Format($con);
 }elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
  my $pid = fork;
 die "Not fork: $!\n" unless defined $pid;
   if($pid){
-   Darwin($cas,$ref);
+   Darwin($ref);
    waitpid($pid,0);
   }else{
-   Darwin($cur,$re);
+   Darwin($re);
   }
   if($pid){
    waitpid($pid,0);
@@ -52,8 +49,8 @@ die "Not fork: $!\n" unless defined $pid;
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
- my( $cur,$re,$time,$curl,@list ) = @_;
-if( -f $cur ){
+ my( $re,$time,@list ) = @_;
+if( -f $re->{'DIR'} ){
 $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$6,\$7,\$9}'`)]
 	if $re->{'FOR'};
 $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$6,\$7,\$9}'`)]
@@ -63,14 +60,14 @@ $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$6,\$7,\$9}'`)]
  ((localtime(time))[5] + 1900),
   ((localtime(time))[4]+1),
    ((localtime(time))[3]) );
-if( not -f $cur or  $re->{'YEA'} > $time->[2] or 
+if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[2] or 
 	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
 my $ufo = 'https://formulae.brew.sh/formula/index.html';
 my $uca = 'https://formulae.brew.sh/cask/index.html';
  if( $re->{'FOR'} ){
-  $re->{'CUR'} = 1 if system('curl','-so',$cur,$ufo);
+  $re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$ufo);
  }else{
-  $re->{'CUR'} = 1 if system('curl','-so',$cur,$uca);
+  $re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$uca);
  }
 }
 if( $re->{'FOR'} ){
@@ -84,13 +81,13 @@ sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
   $list[0] = `ls /usr/local/Caskroom/|sed 's/^/ /'`;
  }
 }
-File(\@list,$cur,$re);
+File(\@list,$re);
 }
 
 sub Linux{
 exit unless `ls /home/linuxbrew/.linuxbrew/Cellar 2>/dev/null`;
- my( $cur,$re,$time,$year,$mon,$day ) = @_;
-if( -f $cur ){
+ my( $re,$time,$year,$mon,$day ) = @_;
+if( -f $re->{'DIR'} ){
 ( $year,$mon,$day ) =
  split('-',`ls --full-time ~/.BREW_LIST/Q_BREW.html|awk '{print \$6}'`);
 $time = [(
@@ -98,21 +95,21 @@ $time = [(
   ((localtime(time))[4]+1),
    ((localtime(time))[3]) )];
 }
-if( not -f $cur or $time->[0] > $year or
+if( not -f $re->{'DIR'} or $time->[0] > $year or
 	$time->[1] > $mon or $time->[2] > $day ){
 my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-$re->{'CUR'} = 1 if system('curl','-so',$cur,$url);
+$re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$url);
 }
 my @list = `ls /home/linuxbrew/.linuxbrew/Cellar/*|\
 sed -E 's/\\/home\\/linuxbrew\\/.linuxbrew\\/Cellar\\/(.+):/ \\1/'|\
 sed -e 's/_[1-9]\$//' -e '/^\$/d'`;
- File(\@list,$cur,$re);
+ File(\@list,$re);
 }
 
 sub File{
 my $size = `tput cols`;
-my( $list,$cur,$re,$cas,$test,$tap,@an ) = @_;
-open my $BREW,$cur or die " $!\n";
+my( $list,$re,$test,$tap,@an ) = @_;
+open my $BREW,$re->{'DIR'} or die " $!\n";
 while(my $brew = <$BREW>){
  if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
   $tap = "$brew\t"; next;
@@ -131,15 +128,14 @@ while(my $brew = <$BREW>){
  $tap = '';
 }
 close $BREW;
-Font( \@an ) if $re->{'CAS'} and $re->{'OPT'} and $re->{'OPT'} =~ /f?o?n?t?/;
+Font( \@an,$re ) if $re->{'CAS'} and $re->{'OPT'} and $re->{'OPT'} =~ /f?o?n?t?/;
 @an = sort{$a cmp $b}@an;
 Search( $list,\@an,0,0,0,0,$re,'' );
 }
 
 sub Font{
-my $an = shift;
-my $font = $ENV{'HOME'}.'/.BREW_LIST/Q_FONT.txt';
-open my $BREW,$font or return;
+my( $an,$re ) = @_;
+open my $BREW,$re->{'FON'} or return;
  while( my $brew = <$BREW> ){
   push @{$an},$brew if $brew =~ s/(.+)\.rb\n$/$1/;
  }
@@ -255,10 +251,9 @@ nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 
 sub nohup{
 my $re = shift;
- my $font = $ENV{'HOME'}.'/.BREW_LIST/Q_FONT.txt';
 my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$6,\$7,\$9}'`)]
-	if -f $font;
- if( not -f $font or  $re->{'YEA'} > $time->[2] or
+	if -f $re->{'FON'};
+ if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[2] or
 	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
  `nohup ./font.sh >/dev/null &`;
  }
