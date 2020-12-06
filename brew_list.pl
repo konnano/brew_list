@@ -8,7 +8,7 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 $re->{'MAC'} = $ref->{'MAC'} = 1 if `uname` =~ /Darwin/;
 unless( $ARGV[0] ){
-`nohup mkdir -p ~/.BREW_LIST 2>/dev/null &`;
+`nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &`;
 print "  Option
   -l List : -i Instaled list : -s Type search name
   Darwin Option
@@ -255,7 +255,7 @@ my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$6,\$7,\$9}'`)]
 	if -f $re->{'FON'};
  if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[2] or
 	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
- `nohup ./font.sh >/dev/null &`;
+ `nohup ./font.sh >/dev/null 2>&1 &`;
  }
 }
 __END__
