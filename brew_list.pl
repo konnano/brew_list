@@ -2,16 +2,24 @@
 use strict;
 use warnings;
 
-my $cur = $ENV{'HOME'}.'/.Q_BREW.html';
-my $cas = $ENV{'HOME'}.'/.Q_CASK.html';
+my $cur = $ENV{'HOME'}.'/.BREW_LIST/Q_BREW.html';
+my $cas = $ENV{'HOME'}.'/.BREW_LIST/Q_CASK.html';
 my $con; my $dir;
 my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0};
 $re->{'MAC'} = $ref->{'MAC'} = 1 if `uname` =~ /Darwin/;
-die "  Option
+unless( $ARGV[0] ){
+`nohup mkdir -p ~/.BREW_LIST &`;
+print<<EOF;
+  Option
   -l List : -i Instaled list : -s Type search name
   Darwin Option
-  -c Casks list : -ci Casks instaled list\n" unless $ARGV[0];
+  -c Casks list : -ci Casks instaled list
+EOF
+exit;
+}else{
+`mkdir ~/.BREW_LIST` if not -d $ENV{'HOME'}.'/.BREW_LIST';
+}
 
 if( $ARGV[0] eq '-l' ){     $con = $re;  $dir = $cur; $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){ $con = $re;  $dir = $cur; $re->{'PRINT'} = 1;
@@ -36,7 +44,6 @@ die "Not fork: $!\n" unless defined $pid;
   }
   if($pid){
    waitpid($pid,0);
-   $ref->{'CAS'} = 0;
    Format($ref);
   }else{
    Format($re); exit;
@@ -45,28 +52,31 @@ die "Not fork: $!\n" unless defined $pid;
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
- my( $cur,$re,$time,@list ) = @_;
+ my( $cur,$re,$time,$curl,@list ) = @_;
 if( -f $cur ){
-$time=[split(" ",`ls -lT ~/.Q_BREW.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'FOR'};
-$time=[split(" ",`ls -lT ~/.Q_CASK.html|awk '{print \$6,\$7,\$9}'`)] if $re->{'CAS'};
+$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$6,\$7,\$9}'`)]
+	if $re->{'FOR'};
+$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$6,\$7,\$9}'`)]
+	if $re->{'CAS'};
+}
 ( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
  ((localtime(time))[5] + 1900),
   ((localtime(time))[4]+1),
    ((localtime(time))[3]) );
-}
 if( not -f $cur or  $re->{'YEA'} > $time->[2] or 
 	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
-my $curl = $ENV{'HOME'}.'/.Q_BREW.html';
-my $casl = $ENV{'HOME'}.'/.Q_CASK.html';
-my $url = 'https://formulae.brew.sh/formula/index.html';
+my $ufo = 'https://formulae.brew.sh/formula/index.html';
 my $uca = 'https://formulae.brew.sh/cask/index.html';
-$re->{'CUR'} = 1 if system('curl','-so',$curl,$url);
-$re->{'CUR'} = 1 if system('curl','-so',$casl,$uca);
+ if( $re->{'FOR'} ){
+  $re->{'CUR'} = 1 if system('curl','-so',$cur,$ufo);
+ }else{
+  $re->{'CUR'} = 1 if system('curl','-so',$cur,$uca);
+ }
 }
 if( $re->{'FOR'} ){
 @list = `ls /usr/local/Cellar/*|\
 sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/d'`
-}elsif( $re->{'CAS'} ){
+}else{
 @list = `ls /usr/local/Caskroom/*|\
 sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
  if( @list == 1 ){
@@ -82,7 +92,7 @@ exit unless `ls /home/linuxbrew/.linuxbrew/Cellar 2>/dev/null`;
  my( $cur,$re,$time,$year,$mon,$day ) = @_;
 if( -f $cur ){
 ( $year,$mon,$day ) =
- split('-',`ls --full-time ~/.Q_BREW.html|awk '{print \$6}'`);
+ split('-',`ls --full-time ~/.BREW_LIST/Q_BREW.html|awk '{print \$6}'`);
 $time = [(
  ((localtime(time))[5] + 1900),
   ((localtime(time))[4]+1),
@@ -128,7 +138,7 @@ Search( $list,\@an,0,0,0,0,$re,'' );
 
 sub Font{
 my $an = shift;
-my $font = $ENV{'HOME'}.'/.Q_FONT.txt';
+my $font = $ENV{'HOME'}.'/.BREW_LIST/Q_FONT.txt';
 open my $BREW,$font or return;
  while( my $brew = <$BREW> ){
   push @{$an},$brew if $brew =~ s/(.+)\.rb\n$/$1/;
@@ -236,6 +246,7 @@ my $re = shift;
   print"\n" unless $in % $size;
   $in++;
    }
+ $re->{'CAS'} = 0;
  }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
@@ -244,8 +255,9 @@ nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 
 sub nohup{
 my $re = shift;
- my $font = $ENV{'HOME'}.'/.Q_FONT.txt';
-my $time=[split(" ",`ls -lT ~/.Q_FONT.txt|awk '{print \$6,\$7,\$9}'`)] if -f $font;
+ my $font = $ENV{'HOME'}.'/.BREW_LIST/Q_FONT.txt';
+my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$6,\$7,\$9}'`)]
+	if -f $font;
  if( not -f $font or  $re->{'YEA'} > $time->[2] or
 	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
  `nohup ./font.sh >/dev/null &`;
