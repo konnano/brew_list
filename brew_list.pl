@@ -8,7 +8,7 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 $re->{'MAC'} = $ref->{'MAC'} = 1 if `uname` =~ /Darwin/;
 unless( $ARGV[0] ){
-`nohup mkdir -p ~/.BREW_LIST &`;
+`nohup mkdir -p ~/.BREW_LIST 2>/dev/null &`;
 print "  Option
   -l List : -i Instaled list : -s Type search name
   Darwin Option
