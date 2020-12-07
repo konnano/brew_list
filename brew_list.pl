@@ -44,7 +44,7 @@ die "Not fork: $!\n" unless defined $pid;
   }else{
    Format($re); exit;
   }
-}else{  Darwin($con); Format($con); }
+}else{ Darwin($con); Format($con); }
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
