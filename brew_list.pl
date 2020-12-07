@@ -6,7 +6,8 @@ my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0,
 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
-$re->{'MAC'} = $ref->{'MAC'} = 1 if `uname` =~ /Darwin/;
+ `uname` =~ /^Darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
+  `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
 unless( $ARGV[0] ){
 `nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &`;
 print "  Option
@@ -26,10 +27,8 @@ if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
 }else{ exit; }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
 	if $re->{'SEARCH'};
-if( `uname` =~ /Linux/ ){
+if( $re->{'LIN'} ){
  Linux($re); Format($re);
-}elsif( $re->{'MAC'} and not $re->{'SEARCH'} ){
- Darwin($con); Format($con);
 }elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
  my $pid = fork;
 die "Not fork: $!\n" unless defined $pid;
@@ -45,7 +44,7 @@ die "Not fork: $!\n" unless defined $pid;
   }else{
    Format($re); exit;
   }
-}else{ exit; }
+}else{  Darwin($con); Format($con); }
 
 sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
