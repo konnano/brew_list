@@ -169,7 +169,7 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
     $re->{'LEN'} = $re->{'HA'}{$brew_1} if $re->{'LEN'} < $re->{'HA'}{$brew_1};
    }
  }
- unless( $re->{'SEARCH'} ){
+if( $re->{'LIN'} or not $re->{'SEARCH'} ){
   if( $pop ){
    if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
     $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in - 1]";
