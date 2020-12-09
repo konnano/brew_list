@@ -50,17 +50,17 @@ sub Darwin{
 exit unless `ls /usr/local/Cellar 2>/dev/null`;
  my( $re,$time,@list ) = @_;
 if( -f $re->{'DIR'} ){
-$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$6,\$7,\$9}'`)]
+$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$9,\$6,\$7}'`)]
 	if $re->{'FOR'};
-$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$6,\$7,\$9}'`)]
+$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$9,\$6,\$7}'`)]
 	if $re->{'CAS'};
 }
 ( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
  ((localtime(time))[5] + 1900),
   ((localtime(time))[4]+1),
    ((localtime(time))[3]) );
-if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[2] or 
-	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
+if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[0] or 
+	$re->{'MON'} > $time->[1] or $re->{'DAY'} > $time->[2] ){
 my $ufo = 'https://formulae.brew.sh/formula/index.html';
 my $uca = 'https://formulae.brew.sh/cask/index.html';
  if( $re->{'FOR'} ){
@@ -69,16 +69,21 @@ my $uca = 'https://formulae.brew.sh/cask/index.html';
   $re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$uca);
  }
 }
-if( $re->{'FOR'} ){
+if( $re->{'FOR'} and not $re->{'SEARCH'} ){
 @list = `ls /usr/local/Cellar/*|\
 sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/d'`
-}else{
+}elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
+@list = `ls  /usr/local/Cellar|sed 's/^/ /'`;
+}
+if( $re->{'CAS'} and not $re->{'SEARCH'} ){
 @list = `ls /usr/local/Caskroom/*|\
 sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
  if( @list == 1 ){
   $list[1] = $list[0];
   $list[0] = `ls /usr/local/Caskroom/|sed 's/^/ /'`;
  }
+}elsif( $re->{'CAS'} and $re->{'SEARCH'} ){
+@list = `ls  /usr/local/Caskroom|sed 's/^/ /'`;
 }
 File(\@list,$re);
 }
@@ -164,7 +169,7 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
     $re->{'LEN'} = $re->{'HA'}{$brew_1} if $re->{'LEN'} < $re->{'HA'}{$brew_1};
    }
  }
- if( $brew_2 ){
+ unless( $re->{'SEARCH'} ){
   if( $pop ){
    if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
     $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in - 1]";
@@ -200,24 +205,24 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
   print " Deep recursion on subroutine\n"; exit;
  }
  if( $list->[$in] and not $loop ){
-  if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+
+  if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ ){
+   my $mit = $list->[$in].' ✅' if $list->[$in] =~ s/^\s(.+)\n/$1/;
+   $re->{'HA'}{$mit} = length $mit;
+   push @{$re->{'ARR'}},$mit;
+   $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
+  }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){ ###
    $tap = $list->[$in++] if $list->[$in] =~ s/\n/\t/;
-    if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+   if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
     $re->{'ALL'} .= " Check folder /usr/local/Cellar/ =>$list->[$in - 1]\n";
-     while(1){ $in++;
-      last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
-     }
-    } 
+    while(1){ $in++;
+     last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+    }
+   } 
    $re->{'ALL'} .= " i $tap$list->[$in]";
    $re->{'CN'}++; $re->{'EN'}++;
-    if( $re->{'OPT'} and $tap =~ /$re->{'OPT'}/ ){
-     my $mit = $tap.' [i]' if $tap =~ s/^\s(.+)\t$/$1/;
-     $re->{'HA'}{$mit} = length $mit;
-     push @{$re->{'ARR'}},$mit;
-     $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
-    }
   }else{
-  $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in]";
+   $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in]";
   }
  Search( $list,$an,++$in,$i,++$nst,0,$re,'' );
  }
