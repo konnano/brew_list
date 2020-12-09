@@ -205,7 +205,6 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
   print " Deep recursion on subroutine\n"; exit;
  }
  if( $list->[$in] and not $loop ){
-
   if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ ){
    my $mit = $list->[$in].' ✅' if $list->[$in] =~ s/^\s(.+)\n/$1/;
    $re->{'HA'}{$mit} = length $mit;
