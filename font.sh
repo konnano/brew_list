@@ -9,7 +9,7 @@ trap '
 rm ~/.BREW_LIST/master.zip  2>/dev/null
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master
 rmdir ~/.BREW_LIST/LOCK  2>/dev/null
-exit' 1 2 3 15
+exit' 1 2 3 15 20
 
 wget -q --no-check-certificate -P ~/.BREW_LIST https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip || exit
 unzip -qo ~/.BREW_LIST/master.zip -d ~/.BREW_LIST
