@@ -6,8 +6,10 @@ my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0,
 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
- `uname` =~ /^Darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
-  `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
+`uname` =~ /^Darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
+ `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
+if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar'; }
+ if( $re->{'MAC'} ){ exit unless -d '/usr/local/Cellar'; }
 unless( $ARGV[0] ){
 `nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &`;
 print "  Option
@@ -21,8 +23,8 @@ exit;
  my $con;
 if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){ $con = $re;  $re->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-c' ){ $con = $ref; $ref->{'LIST'} = 1;
-}elsif( $ARGV[0] eq '-ci'){ $con = $ref; $ref->{'PRINT'} = 1;
+}elsif( $ARGV[0] eq '-c' ){ $con = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
+}elsif( $ARGV[0] eq '-ci'){ $con = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{ exit; }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
@@ -47,7 +49,6 @@ die "Not fork: $!\n" unless defined $pid;
 }else{ Darwin($con); Format($con); }
 
 sub Darwin{
-exit unless -d '/usr/local/Cellar';
  my( $re,$time,@list ) = @_;
 if( -f $re->{'DIR'} ){
 $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$9,\$6,\$7}'`)]
@@ -78,8 +79,7 @@ sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/
  }
 }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
 @list = `ls  /usr/local/Cellar|sed 's/^/ /'`;
-}
-if( $re->{'CAS'} and not $re->{'SEARCH'} ){
+}elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
 @list = `ls /usr/local/Caskroom/* 2>/dev/null|\
 sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
  if( @list == 1 ){
@@ -93,8 +93,7 @@ File(\@list,$re);
 }
 
 sub Linux{
-exit unless -d '/home/linuxbrew/.linuxbrew/Cellar';
- my( $re,$time,$year,$mon,$day ) = @_;
+ my( $re,$time,$year,$mon,$day,@list ) = @_;
 if( -f $re->{'DIR'} ){
 ( $year,$mon,$day ) =
  split('-',`ls --full-time ~/.BREW_LIST/Q_BREW.html|awk '{print \$6}'`);
@@ -108,14 +107,18 @@ if( not -f $re->{'DIR'} or $time->[0] > $year or
 my $url = 'https://formulae.brew.sh/formula-linux/index.html';
 $re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$url);
 }
-my @list = `ls /home/linuxbrew/.linuxbrew/Cellar/* 2>/dev/null|\
+unless( $re->{'SEARCH'} ){
+@list = `ls /home/linuxbrew/.linuxbrew/Cellar/* 2>/dev/null|\
 sed -E 's/\\/home\\/linuxbrew\\/.linuxbrew\\/Cellar\\/(.+):/ \\1/'|\
 sed -e 's/_[1-9]\$//' -e '/^\$/d'`;
  if( @list == 1 ){
   $list[1] = $list[0];
   $list[0] = `ls /home/linuxbrew/.linuxbrew/Cellar|sed 's/^/ /'`;
  }
- File(\@list,$re);
+}else{
+@list = `ls /home/linuxbrew/.linuxbrew/Cellar|sed 's/^/ /'`;
+}
+File(\@list,$re);
 }
 
 sub File{
