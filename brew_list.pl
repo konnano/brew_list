@@ -47,7 +47,7 @@ die "Not fork: $!\n" unless defined $pid;
 }else{ Darwin($con); Format($con); }
 
 sub Darwin{
-exit unless `ls /usr/local/Cellar 2>/dev/null`;
+exit if `ls /usr/local/Cellar 1>/dev/null`;
  my( $re,$time,@list ) = @_;
 if( -f $re->{'DIR'} ){
 $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$9,\$6,\$7}'`)]
@@ -70,17 +70,21 @@ my $uca = 'https://formulae.brew.sh/cask/index.html';
  }
 }
 if( $re->{'FOR'} and not $re->{'SEARCH'} ){
-@list = `ls /usr/local/Cellar/*|\
-sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/d'`
+@list = `ls /usr/local/Cellar/* 2>/dev/null|\
+sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/d'`;
+ if( @list == 1 ){
+  $list[1] = $list[0];
+  $list[0] = `ls /usr/local/Cellar|sed 's/^/ /'`;
+ }
 }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
 @list = `ls  /usr/local/Cellar|sed 's/^/ /'`;
 }
 if( $re->{'CAS'} and not $re->{'SEARCH'} ){
-@list = `ls /usr/local/Caskroom/*|\
+@list = `ls /usr/local/Caskroom/* 2>/dev/null|\
 sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
  if( @list == 1 ){
   $list[1] = $list[0];
-  $list[0] = `ls /usr/local/Caskroom/|sed 's/^/ /'`;
+  $list[0] = `ls /usr/local/Caskroom|sed 's/^/ /'`;
  }
 }elsif( $re->{'CAS'} and $re->{'SEARCH'} ){
 @list = `ls  /usr/local/Caskroom|sed 's/^/ /'`;
@@ -89,7 +93,7 @@ File(\@list,$re);
 }
 
 sub Linux{
-exit unless `ls /home/linuxbrew/.linuxbrew/Cellar 2>/dev/null`;
+exit if `ls /home/linuxbrew/.linuxbrew/Cellar 1>/dev/null`;
  my( $re,$time,$year,$mon,$day ) = @_;
 if( -f $re->{'DIR'} ){
 ( $year,$mon,$day ) =
@@ -104,9 +108,13 @@ if( not -f $re->{'DIR'} or $time->[0] > $year or
 my $url = 'https://formulae.brew.sh/formula-linux/index.html';
 $re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$url);
 }
-my @list = `ls /home/linuxbrew/.linuxbrew/Cellar/*|\
+my @list = `ls /home/linuxbrew/.linuxbrew/Cellar/* 2>/dev/null|\
 sed -E 's/\\/home\\/linuxbrew\\/.linuxbrew\\/Cellar\\/(.+):/ \\1/'|\
 sed -e 's/_[1-9]\$//' -e '/^\$/d'`;
+ if( @list == 1 ){
+  $list[1] = $list[0];
+  $list[0] = `ls /home/linuxbrew/.linuxbrew/Cellar|sed 's/^/ /'`;
+ }
  File(\@list,$re);
 }
 
@@ -249,7 +257,7 @@ my $re = shift;
  }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
-nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
+nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} or $re->{'SEARCH'} );
 }
 
 sub nohup{
