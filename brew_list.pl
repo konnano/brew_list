@@ -47,6 +47,7 @@ die "Not fork: $!\n" unless defined $pid;
 }else{ Darwin($con); Format($con); }
 
 sub Darwin{
+exit unless -d '/usr/local/Cellar';
  my( $re,$time,@list ) = @_;
 if( -f $re->{'DIR'} ){
 $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$9,\$6,\$7}'`)]
@@ -92,6 +93,7 @@ File(\@list,$re);
 }
 
 sub Linux{
+exit unless -d '/home/linuxbrew/.linuxbrew/Cellar';
  my( $re,$time,$year,$mon,$day ) = @_;
 if( -f $re->{'DIR'} ){
 ( $year,$mon,$day ) =
