@@ -154,7 +154,7 @@ sub Font{
 my( $an,$re ) = @_;
 open my $BREW,$re->{'FON'} or return;
  while( my $brew = <$BREW> ){
-  push @{$an},$brew if $brew =~ s/(.+)\.rb\n$/$1/;
+  push @{$an},$brew if $brew =~ s/(.+)\.rb\n/$1/;
  }
 close $BREW;
 }
@@ -262,7 +262,7 @@ my $re = shift;
  }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
-nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} or $re->{'SEARCH'} );
+nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
 sub nohup{
