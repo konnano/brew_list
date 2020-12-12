@@ -10,15 +10,12 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
  `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
 if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar'; }
  if( $re->{'MAC'} ){ exit unless -d '/usr/local/Cellar'; }
-unless( $ARGV[0] ){
 `nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &`;
-print "  Option
+unless( $ARGV[0] ){
+die "  Option
   -l List : -i Instaled list : -s Type search name
   Darwin Option
   -c Casks list : -ci Casks instaled list\n";
-exit;
-}else{
-`mkdir ~/.BREW_LIST` if not -d $ENV{'HOME'}.'/.BREW_LIST';
 }
  my $con;
 if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
@@ -26,7 +23,12 @@ if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-c' ){ $con = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-ci'){ $con = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
-}else{ exit; }
+}else{
+ die "  Option
+  -l List : -i Instaled list : -s Type search name
+  Darwin Option
+  -c Casks list : -ci Casks instaled list\n";
+}
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
 	if $re->{'SEARCH'};
 if( $re->{'LIN'} ){
@@ -77,8 +79,6 @@ sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/
   $list[1] = $list[0];
   $list[0] = `ls /usr/local/Cellar|sed 's/^/ /'`;
  }
-}elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
-@list = `ls  /usr/local/Cellar|sed 's/^/ /'`;
 }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
 @list = `ls /usr/local/Caskroom/* 2>/dev/null|\
 sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
@@ -86,7 +86,9 @@ sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
   $list[1] = $list[0];
   $list[0] = `ls /usr/local/Caskroom|sed 's/^/ /'`;
  }
-}elsif( $re->{'CAS'} and $re->{'SEARCH'} ){
+}elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
+@list = `ls  /usr/local/Cellar|sed 's/^/ /'`;
+}else{
 @list = `ls  /usr/local/Caskroom|sed 's/^/ /'`;
 }
 File(\@list,$re);
@@ -180,7 +182,7 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
     $re->{'LEN'} = $re->{'HA'}{$brew_1} if $re->{'LEN'} < $re->{'HA'}{$brew_1};
    }
  }
- if( $re->{'LIN'} or not $re->{'SEARCH'} ){
+ unless( $re->{'SEARCH'} ){
   if( $pop ){
    if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
     $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in - 1]";
