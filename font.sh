@@ -1,14 +1,14 @@
 #!/bin/bash
 
 if LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`);then
-TI=(`date +"%Y %-m %-d"`)
-if [ ${TI[0]} -gt ${LS[8]} -o ${TI[1]} -gt ${LS[5]} -o ${TI[2]} -gt ${LS[6]} ];then
-rmdir ~/.BREW_LIST/LOCK
-fi
+ TI=(`date +"%Y %-m %-d"`)
+ if [ ${TI[0]} -gt ${LS[8]} -o ${TI[1]} -gt ${LS[5]} -o ${TI[2]} -gt ${LS[6]} ];then
+  rmdir ~/.BREW_LIST/LOCK
+ fi
 fi
 
 if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
-exit
+ exit
 fi
 
 trap '
