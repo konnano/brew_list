@@ -3,16 +3,17 @@ use strict;
 use warnings;
 
 my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0,
-'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
+ 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
+  'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
-'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
+ 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html"};
 `uname` =~ /^Darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
 if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar'; }
  if( $re->{'MAC'} ){ exit unless -d '/usr/local/Cellar'; }
 `nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &`;
 unless( $ARGV[0] ){
-die "  Option
+ die "  Option
   -l List : -i Instaled list : -s Type search name
   Darwin Option
   -c Casks list : -ci Casks instaled list\n";
@@ -145,18 +146,10 @@ while(my $brew = <$BREW>){
  $tap = '';
 }
 close $BREW;
-Font( \@an,$re ) if $re->{'CAS'} and $re->{'OPT'} and $re->{'OPT'} =~ /f?o?n?t?/;
+push @an,split("\n",`cat ~/.BREW_LIST/Q_FONT.txt 2>/dev/null`)
+if $re->{'CAS'} and $re->{'OPT'} and $re->{'OPT'} =~ /f?o?n?t?/;
 @an = sort{$a cmp $b}@an;
 Search( $list,\@an,0,0,0,0,$re,'' );
-}
-
-sub Font{
-my( $an,$re ) = @_;
-open my $BREW,$re->{'FON'} or return;
- while( my $brew = <$BREW> ){
-  push @{$an},$brew if $brew =~ s/(.+)\.rb\n/$1/;
- }
-close $BREW;
 }
 
 sub Search{
