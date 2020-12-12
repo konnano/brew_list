@@ -7,8 +7,7 @@ rmdir ~/.BREW_LIST/LOCK
 fi
 fi
 
-if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null
-then
+if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
 exit
 fi
 
