@@ -8,7 +8,6 @@ if LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`);then
 fi
 
 if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
- echo LOCK ###
  exit
 fi
 
