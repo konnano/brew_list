@@ -6,7 +6,8 @@ my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0,
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
- 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html"};
+ 'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
+  'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 `uname` =~ /^Darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
 if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar'; }
