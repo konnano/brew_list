@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`);then
 TI=(`date +"%Y %-m %-d"`)
