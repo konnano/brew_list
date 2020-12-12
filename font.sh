@@ -8,6 +8,7 @@ if LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`);then
 fi
 
 if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
+ echo LOCK ###
  exit
 fi
 
@@ -17,10 +18,10 @@ rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master
 rmdir ~/.BREW_LIST/LOCK 2>/dev/null
 exit' 1 2 3 15 20
 
-wget -q --no-check-certificate -P ~/.BREW_LIST https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
+curl -sLo ~/.BREW_LIST/master.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
 { rmdir ~/.BREW_LIST/LOCK; exit; }
 /usr/bin/unzip -q ~/.BREW_LIST/master.zip -d ~/.BREW_LIST
-ls ~/.BREW_LIST/homebrew-cask-fonts-master/Casks > ~/.BREW_LIST/Q_FONT.txt
+ls ~/.BREW_LIST/homebrew-cask-fonts-master/Casks|sed 's/\(.*\)\.rb$/\1/' > ~/.BREW_LIST/Q_FONT.txt
 rm ~/.BREW_LIST/master.zip
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master
 rmdir ~/.BREW_LIST/LOCK
