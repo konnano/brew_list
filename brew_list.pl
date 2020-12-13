@@ -255,8 +255,8 @@ my $re = shift;
  }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
-system('printf', '\033[?7h') if $re->{'MAC'};
-system('setterm','-linewrap','on') if $re->{'LIN'};
+ system('printf', '\033[?7h') if $re->{'MAC'};
+ system('setterm','-linewrap','on') if $re->{'LIN'};
 nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
