@@ -140,9 +140,6 @@ while(my $brew = <$BREW>){
   $test = 0;
  }
  $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
-#  if( $tap and $size > 79 and length $tap > $size-20 ){
-#   $tap = substr($tap,0,$size-20); $tap .= "\n";
-#  }
  push @an,$tap if $tap;
  $tap = '';
 }
