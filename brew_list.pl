@@ -244,8 +244,8 @@ my $re = shift;
  }elsif( $re->{'SEARCH'} ){
   my $size = int `tput cols`/($re->{'LEN'}+2);
   my $in = 1;
- print" ==>Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
- print" ==>Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
+  print" ==>Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
+  print" ==>Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
    for my $arr( @{$re->{'ARR'}} ){
     for(my $i=$re->{'HA'}{$arr};$i<$re->{'LEN'}+2;$i++){
     $arr .= ' ';
