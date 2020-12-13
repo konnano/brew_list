@@ -126,7 +126,6 @@ File(\@list,$re);
 }
 
 sub File{
-my $size = `tput cols`;
 my( $list,$re,$test,$tap,@an ) = @_;
 open my $BREW,$re->{'DIR'} or die " $!\n";
 while(my $brew = <$BREW>){
@@ -242,7 +241,7 @@ my $re = shift;
    system('setterm','-linewrap','on') if $re->{'LIN'};
  }elsif( $re->{'SEARCH'} ){
   my $size = int `tput cols`/($re->{'LEN'}+2);
-  my $in = 1;
+   my $in = 1;
   print" ==>Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
   print" ==>Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
    for my $arr( @{$re->{'ARR'}} ){
