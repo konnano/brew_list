@@ -235,9 +235,11 @@ sub Format{
 my $re = shift;
  if( $re->{'LIST'} or $re->{'PRINT'} ){
   system('printf', '\033[?7l') if $re->{'MAC'};
-  system('setterm','-linewrap','off') if $re->{'LIN'};
+   system('setterm','-linewrap','off') if $re->{'LIN'};
   print"$re->{'ALL'}";
-  print " item $re->{'CN'} : install $re->{'EN'}\n";
+   print " item $re->{'CN'} : install $re->{'EN'}\n";
+  system('printf', '\033[?7h') if $re->{'MAC'};
+   system('setterm','-linewrap','on') if $re->{'LIN'};
  }elsif( $re->{'SEARCH'} ){
   my $size = int `tput cols`/($re->{'LEN'}+2);
   my $in = 1;
@@ -255,8 +257,6 @@ my $re = shift;
  }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
- system('printf', '\033[?7h') if $re->{'MAC'};
- system('setterm','-linewrap','on') if $re->{'LIN'};
 nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
