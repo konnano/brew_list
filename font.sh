@@ -25,4 +25,3 @@ ls ~/.BREW_LIST/homebrew-cask-fonts-master/Casks|sed 's/\(.*\)\.rb$/\1/' > ~/.BR
 rm ~/.BREW_LIST/master.zip
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master
 rmdir ~/.BREW_LIST/LOCK
-
