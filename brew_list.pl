@@ -16,7 +16,7 @@ mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
 unless( $ARGV[0] ){
  die "  Option
   -l List : -i Instaled list : -s Type search name
-  Darwin Option
+  Only mac
   -c Casks list : -ci Casks instaled list\n";
 }
  my $con;
@@ -28,7 +28,7 @@ if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
 }else{
  die "  Option
   -l List : -i Instaled list : -s Type search name
-  Darwin Option
+  Only mac
   -c Casks list : -ci Casks instaled list\n";
 }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
