@@ -12,7 +12,7 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
  `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
 if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar'; }
  if( $re->{'MAC'} ){ exit unless -d '/usr/local/Cellar'; }
-system('nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &');
+mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
 unless( $ARGV[0] ){
  die "  Option
   -l List : -i Instaled list : -s Type search name
