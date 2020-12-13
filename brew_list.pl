@@ -12,7 +12,7 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
  `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
 if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar'; }
  if( $re->{'MAC'} ){ exit unless -d '/usr/local/Cellar'; }
-system("nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &");
+system('nohup mkdir -p ~/.BREW_LIST >/dev/null 2>&1 &');
 unless( $ARGV[0] ){
  die "  Option
   -l List : -i Instaled list : -s Type search name
@@ -69,9 +69,9 @@ if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[0] or
 my $ufo = 'https://formulae.brew.sh/formula/index.html';
 my $uca = 'https://formulae.brew.sh/cask/index.html';
  if( $re->{'FOR'} ){
-  $re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$ufo);
+  $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
  }else{
-  $re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$uca);
+  $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
  }
 }
 if( $re->{'FOR'} and not $re->{'SEARCH'} ){
@@ -109,7 +109,7 @@ $time = [(
 if( not -f $re->{'DIR'} or $time->[0] > $year or
 	$time->[1] > $mon or $time->[2] > $day ){
 my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-$re->{'CUR'} = 1 if system('curl','-so',$re->{'DIR'},$url);
+ $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
 }
 unless( $re->{'SEARCH'} ){
 @list = `ls /home/linuxbrew/.linuxbrew/Cellar/* 2>/dev/null|\
@@ -233,12 +233,12 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
 sub Format{
 my $re = shift;
  if( $re->{'LIST'} or $re->{'PRINT'} ){
-  system('printf', '\033[?7l') if $re->{'MAC'};
-   system('setterm','-linewrap','off') if $re->{'LIN'};
+  system('printf','\033[?7l') if $re->{'MAC'};
+   system('setterm -linewrap off') if $re->{'LIN'};
   print"$re->{'ALL'}";
    print " item $re->{'CN'} : install $re->{'EN'}\n";
-  system('printf', '\033[?7h') if $re->{'MAC'};
-   system('setterm','-linewrap','on') if $re->{'LIN'};
+  system('printf','\033[?7h') if $re->{'MAC'};
+   system('setterm -linewrap on') if $re->{'LIN'};
  }elsif( $re->{'SEARCH'} ){
   my $size = int `tput cols`/($re->{'LEN'}+2);
    my $in = 1;
@@ -265,7 +265,7 @@ my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$6,\$7,\$9}'`)]
 	if -f $re->{'FON'};
  if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[2] or
 	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
-  system("nohup ./font.sh >/dev/null 2>&1 &");
+  system('nohup ./font.sh >/dev/null 2>&1 &');
  }
 }
 __END__
