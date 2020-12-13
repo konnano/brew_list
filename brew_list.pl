@@ -140,9 +140,9 @@ while(my $brew = <$BREW>){
   $test = 0;
  }
  $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
-  if( $tap and $size > 79 and length $tap > $size-20 ){
-   $tap = substr($tap,0,$size-20); $tap .= "\n";
-  }
+#  if( $tap and $size > 79 and length $tap > $size-20 ){
+#   $tap = substr($tap,0,$size-20); $tap .= "\n";
+#  }
  push @an,$tap if $tap;
  $tap = '';
 }
@@ -237,6 +237,8 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
 sub Format{
 my $re = shift;
  if( $re->{'LIST'} or $re->{'PRINT'} ){
+  system('printf', '\033[?7l') if $re->{'MAC'};
+  system('setterm','-linewrap','off') if $re->{'LIN'};
   print"$re->{'ALL'}";
   print " item $re->{'CN'} : install $re->{'EN'}\n";
  }elsif( $re->{'SEARCH'} ){
@@ -256,6 +258,8 @@ my $re = shift;
  }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
+system('printf', '\033[?7h') if $re->{'MAC'};
+system('setterm','-linewrap','on') if $re->{'LIN'};
 nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
