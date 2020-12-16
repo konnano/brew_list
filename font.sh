@@ -3,8 +3,9 @@
 if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
  if LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`);then
   TI=(`date +"%Y %-m %-d"`)
-  [ ${TI[0]} -gt ${LS[8]} -o ${TI[1]} -gt ${LS[5]} -o ${TI[2]} -gt ${LS[6]} ] &&\
-  rm -rf ~/.BREW_LIST/LOCK
+  if[ ${TI[0]} -gt ${LS[8]} -o ${TI[1]} -gt ${LS[5]} -o ${TI[2]} -gt ${LS[6]} ];then
+   rm -rf ~/.BREW_LIST/LOCK
+  fi
  fi
 exit
 fi
