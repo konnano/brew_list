@@ -23,4 +23,6 @@ rm -f ~/.BREW_LIST/master.zip
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master
 rm -rf ~/.BREW_LIST/LOCK
 
-[ ! -s ~/.BREW_LIST/Q_FONT.txt ] && rm -f ~/.BREW_LIST/Q_FONT.txt
+if [ ! -s ~/.BREW_LIST/Q_FONT.txt ];then
+ rm -f ~/.BREW_LIST/Q_FONT.txt
+fi
