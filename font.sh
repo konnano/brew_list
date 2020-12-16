@@ -1,5 +1,10 @@
 #!/bin/bash
 
+TI=(`date +"%Y %-m %-d"`) &&\
+LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) &&\
+[ ${TI[0]} -gt ${LS[8]} -o ${TI[1]} -gt ${LS[5]} -o ${TI[2]} -gt ${LS[6]} ] &&\
+rm -rf ~/.BREW_LIST/LOCK
+
 if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
 exit
 fi
