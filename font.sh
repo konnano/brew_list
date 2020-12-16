@@ -6,7 +6,7 @@ LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) &&\
 rm -rf ~/.BREW_LIST/LOCK
 
 if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
-exit
+ exit
 fi
 
 trap '
