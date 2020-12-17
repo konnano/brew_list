@@ -143,8 +143,7 @@ while(my $brew = <$BREW>){
  $tap = '';
 }
 close $BREW;
-push @an,split("\n",`cat ~/.BREW_LIST/Q_FONT.txt 2>/dev/null`)
- if $re->{'CAS'} and $re->{'OPT'} and $re->{'OPT'} =~ /f?o?n?t?/;
+push @an,split("\n",`cat ~/.BREW_LIST/Q_FONT.txt 2>/dev/null`) if $re->{'CAS'};
 @an = sort{$a cmp $b}@an;
 Search( $list,\@an,0,0,0,0,$re,'' );
 }
