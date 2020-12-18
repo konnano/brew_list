@@ -12,6 +12,7 @@ fi
 trap '
 rm -f ~/.BREW_LIST/master.zip
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master
+rm -f ~/.BREW_LIST/Q_FONT.txt
 rm -rf ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
