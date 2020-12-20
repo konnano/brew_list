@@ -55,10 +55,11 @@ die "Not fork: $!\n" unless defined $pid;
 sub Darwin{
  my( $re,$time,@list ) = @_;
 if( -f $re->{'DIR'} ){
-$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$9,\$6,\$7}'`)]
-	if $re->{'FOR'};
-$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$9,\$6,\$7}'`)]
-	if $re->{'CAS'};
+ if( $re->{'FOR'} ){
+$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$9,\$6,\$7}'`)];
+ }else{
+$time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$9,\$6,\$7}'`)];
+ }
 }
 ( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
  ((localtime(time))[5] + 1900),
