@@ -240,7 +240,7 @@ my $re = shift;
    print " item $re->{'CN'} : install $re->{'EN'}\n";
   system(" printf '\033[?7h' ") if $re->{'MAC'};
    system('setterm -linewrap on') if $re->{'LIN'};
- }elsif( $re->{'SEARCH'} ){
+ }else{
   my $size = int `tput cols`/($re->{'LEN'}+2);
    my $in = 1;
   print" ==>Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
