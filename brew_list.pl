@@ -67,11 +67,11 @@ $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$9,\$6,\$7}'`)];
    ((localtime(time))[3]) );
 if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[0] or 
 	$re->{'MON'} > $time->[1] or $re->{'DAY'} > $time->[2] ){
-my $ufo = 'https://formulae.brew.sh/formula/index.html';
-my $uca = 'https://formulae.brew.sh/cask/index.html';
  if( $re->{'FOR'} ){
+  my $ufo = 'https://formulae.brew.sh/formula/index.html';
   $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
  }else{
+  my $uca = 'https://formulae.brew.sh/cask/index.html';
   $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
  }
 }
