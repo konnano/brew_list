@@ -34,25 +34,25 @@ if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
 	if $re->{'SEARCH'};
 if( $re->{'LIN'} ){
- Linux($re); Format($re);
+ Linux_1($re); Format_1($re);
 }elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
  my $pid = fork;
 die "Not fork: $!\n" unless defined $pid;
   if($pid){
-   Darwin($ref);
+   Darwin_1($ref);
    waitpid($pid,0);
   }else{
-   Darwin($re);
+   Darwin_1($re);
   }
   if($pid){
    waitpid($pid,0);
-   Format($ref);
+   Format_1($ref);
   }else{
-   Format($re); exit;
+   Format_1($re); exit;
   }
-}else{ Darwin($con); Format($con); }
+}else{ Darwin_1($con); Format_1($con); }
 
-sub Darwin{
+sub Darwin_1{
  my( $re,$time,@list ) = @_;
 if( -f $re->{'DIR'} ){
  if( $re->{'FOR'} ){
@@ -94,10 +94,10 @@ sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
 }else{
 @list = `ls  /usr/local/Caskroom|sed 's/^/ /'`;
 }
-File(\@list,$re);
+File_1(\@list,$re);
 }
 
-sub Linux{
+sub Linux_1{
  my( $re,$time,$year,$mon,$day,@list ) = @_;
 if( -f $re->{'DIR'} ){
 ( $year,$mon,$day ) =
@@ -123,10 +123,10 @@ sed -e 's/_[1-9]\$//' -e '/^\$/d'`;
 }else{
 @list = `ls /home/linuxbrew/.linuxbrew/Cellar|sed 's/^/ /'`;
 }
-File(\@list,$re);
+File_1(\@list,$re);
 }
 
-sub File{
+sub File_1{
 my( $list,$re,$test,$tap,@an ) = @_;
 open my $BREW,'<',$re->{'DIR'} or die " $!\n";
 while(my $brew = <$BREW>){
@@ -147,10 +147,10 @@ close $BREW;
 push @an,split("\n",`cat ~/.BREW_LIST/Q_FONT.txt 2>/dev/null`)
  if $re->{'CAS'} and $re->{'SEARCH'};
 @an = sort{$a cmp $b}@an;
-Search( $list,\@an,0,0,0,0,$re,'' );
+Search_1( $list,\@an,0,0,0,0,$re,'' );
 }
 
-sub Search{
+sub Search_1{
 my( $list,$an,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
 for(;$an->[$i];$i++){
 my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
@@ -177,7 +177,7 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
   if( $pop ){
    if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
     $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in - 1]";
-    Search( $list,$an,$in,$i,++$nst,0,$re,'' );
+    Search_1( $list,$an,$in,$i,++$nst,0,$re,'' );
      $loop = 1;
      last;
    }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
@@ -227,11 +227,11 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
   }else{
    $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in]";
   }
- Search( $list,$an,++$in,$i,++$nst,0,$re,'' );
+ Search_1( $list,$an,++$in,$i,++$nst,0,$re,'' );
  }
 }
 
-sub Format{
+sub Format_1{
 my $re = shift;
  if( $re->{'LIST'} or $re->{'PRINT'} ){
   system(" printf '\033[?7l' ") if $re->{'MAC'};
@@ -257,10 +257,10 @@ my $re = shift;
  }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
-nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
+Nohup_1( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
-sub nohup{
+sub Nohup_1{
 my $re = shift;
 my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$9,\$6,\$7}'`)]
 	if -f $re->{'FON'};
