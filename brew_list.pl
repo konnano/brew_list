@@ -128,7 +128,7 @@ File(\@list,$re);
 
 sub File{
 my( $list,$re,$test,$tap,@an ) = @_;
-open my $BREW,$re->{'DIR'} or die " $!\n";
+open my $BREW,'<',$re->{'DIR'} or die " $!\n";
 while(my $brew = <$BREW>){
  if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
   $tap = "$brew\t"; next;
