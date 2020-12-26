@@ -262,10 +262,10 @@ nohup( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 
 sub nohup{
 my $re = shift;
-my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$6,\$7,\$9}'`)]
+my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$9,\$6,\$7}'`)]
 	if -f $re->{'FON'};
- if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[2] or
-	$re->{'MON'} > $time->[0] or $re->{'DAY'} > $time->[1] ){
+ if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[0] or
+	$re->{'MON'} > $time->[1] or $re->{'DAY'} > $time->[2] ){
   system('nohup ./font.sh >/dev/null 2>&1 &');
  }
 }
