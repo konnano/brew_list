@@ -166,7 +166,7 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
     $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
    }
  }else{
-  $re->{'ALL'} .= "    $brew_1\t" unless $re->{'PRINT'};
+  $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'};
    if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
     $re->{'HA'}{$brew_1} = length $brew_1;
     push @{$re->{'ARR'}},$brew_1;
@@ -193,13 +193,13 @@ my( $brew_1,$brew_2,$brew_3 ) = split("\t",$an->[$i]);
    }
    $tap .= "$brew_2\t";
   }else{
-   $re->{'ALL'} .= "$brew_2\t" unless $re->{'PRINT'};
+   $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'};
   }
   if( $pop ){
    $tap .= $brew_3;
    $pop = 0;
   }else{
-   $re->{'ALL'} .= "$brew_3" unless $re->{'PRINT'};
+   $re->{'ALL'} .= "$brew_3" if $re->{'LIST'};
   }
  $re->{'ALL'} .= $tap;
  $tap = ''; $re->{'CN'}++;
