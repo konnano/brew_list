@@ -187,7 +187,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
        $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in - 1]";
-       Search_1( $list,$file,$in,$i,$nst,0,$re,'' );
+       Search_1( $list,$file,$in,$i,++$nst,0,$re,'' );
        $loop = 1;
        last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
