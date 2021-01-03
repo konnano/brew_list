@@ -2,11 +2,11 @@
 use strict;
 use warnings;
 
-my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'EN'=>0,
+my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 
-my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'EN'=>0,
+my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 
@@ -22,11 +22,11 @@ unless( $ARGV[0] ){
   Only mac
   -c Casks list : -ci Casks instaled list\n";
 }
- my $con;
-if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
-}elsif( $ARGV[0] eq '-i' ){ $con = $re;  $re->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-c' ){ $con = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-ci'){ $con = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
+ my $name;
+if( $ARGV[0] eq '-l' ){     $name = $re;  $re->{'LIST'}  = 1;
+}elsif( $ARGV[0] eq '-i' ){ $name = $re;  $re->{'PRINT'} = 1;
+}elsif( $ARGV[0] eq '-c' ){ $name = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
+}elsif( $ARGV[0] eq '-ci'){ $name = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{
  die "  Option
@@ -36,6 +36,7 @@ if( $ARGV[0] eq '-l' ){     $con = $re;  $re->{'LIST'}  = 1;
 }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
 	if $re->{'SEARCH'};
+$name->{'SER'} = lc $ARGV[1] if $ARGV[1] and $name->{'LIST'};
 
 if( $re->{'LIN'} ){
  Linux_1($re); Format_1($re);
@@ -54,7 +55,7 @@ if( $re->{'LIN'} ){
   }else{
    Format_1($re); exit;
   }
-}else{ Darwin_1($con); Format_1($con); }
+}else{ Darwin_1($name); Format_1($name); }
 
 sub Darwin_1{
  my( $re,$time,@list ) = @_;
@@ -163,11 +164,13 @@ sub Search_1{
 my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
+   my $MEM = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
+
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      last;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      $tap = "    $brew_1\t";
-     $in++; $re->{'EN'}++; $pop = 1;
+     $in++; $re->{'IN'}++; $pop = 1;
       if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
        my $mit = $brew_1.' ✅';
        $re->{'HA'}{$mit} = length $mit;
@@ -175,7 +178,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
        $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
       }
     }else{
-     $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'};
+     $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and  $MEM;
+     $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $MEM;
       if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
        $re->{'HA'}{$brew_1} = length $brew_1;
        push @{$re->{'ARR'}},$brew_1;
@@ -203,18 +207,20 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
       }
      $tap .= "$brew_2\t";
     }else{
-     $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'};
+     $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and  $MEM;
+     $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $MEM;
     }
 
     if( $pop ){
      $tap .= $brew_3;
      $pop = 0;
     }else{
-     $re->{'ALL'} .= "$brew_3" if $re->{'LIST'};
+     $re->{'POP'} .= "$brew_3" if $re->{'LIST'} and $MEM;
+     $re->{'ALL'} .= "$brew_3" if $re->{'LIST'} and not $MEM;
     }
-
-    $re->{'ALL'} .= $tap;
-    $tap = ''; $re->{'CN'}++;
+      if( $MEM ){ $re->{'POP'} .= $tap;
+      }else{ $re->{'ALL'} .= $tap; }
+    $tap = ''; $re->{'AN'}++; $MEM = 0;
    }
   }
 
@@ -235,9 +241,10 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
         while(1){ $in++;
          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
         }
-      } 
+      }
+     $re->{'POP'} .= " i $tap$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
      $re->{'ALL'} .= " i $tap$list->[$in]";
-     $re->{'CN'}++; $re->{'EN'}++;
+     $re->{'AN'}++; $re->{'IN'}++;
     }else{
      $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in]";
     }
@@ -250,8 +257,8 @@ my $re = shift;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
    system(" printf '\033[?7l' ") if $re->{'MAC'};
    system('setterm -linewrap off') if $re->{'LIN'};
-   print"$re->{'ALL'}";
-   print " item $re->{'CN'} : install $re->{'EN'}\n";
+   $re->{'SER'} ? print"$re->{'POP'}" : print"$re->{'ALL'}";
+   print " item $re->{'AN'} : install $re->{'IN'}\n";
    system(" printf '\033[?7h' ") if $re->{'MAC'};
    system('setterm -linewrap on') if $re->{'LIN'};
   }else{
