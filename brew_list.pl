@@ -243,7 +243,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
         }
       }
      $re->{'POP'} .= " i $tap$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-     $re->{'ALL'} .= " i $tap$list->[$in]";
+     $re->{'ALL'} .= " i $tap$list->[$in]" if not $re->{'SER'};
      $re->{'AN'}++; $re->{'IN'}++;
     }else{
      $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in]";
