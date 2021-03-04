@@ -10,10 +10,10 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt"};
 
-`uname` =~ /^Darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
- `uname ` =~ /^Linux/ ? $re->{'LIN'} = 1 : exit;
-if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar'; }
- if( $re->{'MAC'} ){ exit unless -d '/usr/local/Cellar'; }
+$^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
+ $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
+if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar';
+ }else{ exit unless -d '/usr/local/Cellar'; }
 mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
 
 unless( $ARGV[0] ){
@@ -23,11 +23,13 @@ unless( $ARGV[0] ){
   -c Casks list : -ci Casks instaled list\n";
 }
  my $name;
-if( $ARGV[0] eq '-l' ){     $name = $re;  $re->{'LIST'}  = 1;
-}elsif( $ARGV[0] eq '-i' ){ $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-c' ){ $name = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-ci'){ $name = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-s' ){ $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
+if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
+}elsif( $ARGV[0] eq '-ld' ){ $name = $re;  $re->{'LIST'} = 1;  $re->{'DEB'} = 1;
+}elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
+}elsif( $ARGV[0] eq '-id' ){ $name = $re;  $re->{'PRINT'} = 1; $re->{'DEB'} = 1;
+}elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
+}elsif( $ARGV[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
+}elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{
  die "  Option
   -l List : -i Instaled list : -s Type search name
@@ -35,44 +37,41 @@ if( $ARGV[0] eq '-l' ){     $name = $re;  $re->{'LIST'}  = 1;
   -c Casks list : -ci Casks instaled list\n";
 }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
-	if $re->{'SEARCH'};
+       if $re->{'SEARCH'};
 $name->{'SER'} = lc $ARGV[1] if $ARGV[1] and $name->{'LIST'};
 
 if( $re->{'LIN'} ){
- Linux_1($re); Format_1($re);
+ Linux_1( $re ); Format_1( $re );
 }elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
  my $pid = fork;
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
-   Darwin_1($ref);
+   Darwin_1( $ref );
    waitpid($pid,0);
   }else{
-   Darwin_1($re);
+   Darwin_1( $re );
   }
   if($pid){
    waitpid($pid,0);
-   Format_1($ref);
+   Format_1( $ref );
   }else{
-   Format_1($re); exit;
+   Format_1( $re ); exit;
   }
-}else{ Darwin_1($name); Format_1($name); }
+}else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Darwin_1{
- my( $re,$time,@list ) = @_;
+ my( $re,$time,$list ) = @_;
   if( -f $re->{'DIR'} ){
-    if( $re->{'FOR'} ){
- $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_BREW.html|awk '{print \$9,\$6,\$7}'`)];
-    }else{
- $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_CASK.html|awk '{print \$9,\$6,\$7}'`)];
-    }
+  $time = [localtime((stat($re->{'DIR'}))[8])];
+   $time->[5] += 1900;
+    $time->[4]++;
   }
- ( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
-  ((localtime(time))[5] + 1900),
-   ((localtime(time))[4]+1),
-    ((localtime(time))[3]) );
-
-  if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[0] or 
-	$re->{'MON'} > $time->[1] or $re->{'DAY'} > $time->[2] ){
+  ( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
+   ((localtime(time))[5] + 1900),
+    ((localtime(time))[4]+1),
+     ((localtime(time))[3]) );
+  if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[5] or 
+        $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
     if( $re->{'FOR'} ){
      my $ufo = 'https://formulae.brew.sh/formula/index.html';
      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
@@ -81,62 +80,75 @@ sub Darwin_1{
      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
     }
   }
-
   if( $re->{'FOR'} and not $re->{'SEARCH'} ){
-   @list = `ls /usr/local/Cellar/* 2>/dev/null|\
-   sed -e 's/\\/usr\\/local\\/Cellar\\/\\(.*\\):/ \\1/' -e 's/_[1-9]\$//' -e '/^\$/d'`;
-    if( @list == 1 ){
-     $list[1] = $list[0];
-     $list[0] = `ls /usr/local/Cellar|sed 's/^/ /'`;
-    }
+    $list = dirs_1('/usr/local/Cellar',1,$re);
   }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
-   @list = `ls /usr/local/Caskroom/* 2>/dev/null|\
-   sed -e 's/\\/usr\\/local\\/Caskroom\\/\\(.*\\):/ \\1/' -e '/^\$/d'`;
-    if( @list == 1 ){
-     $list[1] = $list[0];
-     $list[0] = `ls /usr/local/Caskroom|sed 's/^/ /'`;
-    }
+    $list = dirs_1('/usr/local/Caskroom',1,$re);
   }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
-   @list = `ls  /usr/local/Cellar|sed 's/^/ /'`;
+    $list = dirs_1('/usr/local/Cellar',0,$re);
   }else{
-   @list = `ls  /usr/local/Caskroom|sed 's/^/ /'`;
+    $list = dirs_1('/usr/local/Caskroom',0,$re);
   }
- File_1(\@list,$re);
+ File_1( $list,$re );
 }
 
 sub Linux_1{
- my( $re,$time,$year,$mon,$day,@list ) = @_;
+ my( $re,$time,$stime,$list ) = @_;
   if( -f $re->{'DIR'} ){
-   ( $year,$mon,$day ) =
-    split('-',`ls --full-time ~/.BREW_LIST/Q_BREW.html|awk '{print \$6}'`);
+   $stime =[localtime((stat($re->{'DIR'}))[8])];
+    $stime->[5] += 1900;
+     $stime->[4]++;
    $time = [(
     ((localtime(time))[5] + 1900),
      ((localtime(time))[4]+1),
       ((localtime(time))[3]) )];
   }
-
-  if( not -f $re->{'DIR'} or $time->[0] > $year or
-	$time->[1] > $mon or $time->[2] > $day ){
+  if( not -f $re->{'DIR'} or $time->[0] > $stime->[5] or
+       $time->[1] > $stime->[4] or $time->[2] > $stime->[3] ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
   }
-
   unless( $re->{'SEARCH'} ){
-   @list = `ls /home/linuxbrew/.linuxbrew/Cellar/* 2>/dev/null|\
-   sed -E 's/\\/home\\/linuxbrew\\/.linuxbrew\\/Cellar\\/(.+):/ \\1/'|\
-   sed -e 's/_[1-9]\$//' -e '/^\$/d'`;
-    if( @list == 1 ){
-     $list[1] = $list[0];
-     $list[0] = `ls /home/linuxbrew/.linuxbrew/Cellar|sed 's/^/ /'`;
-    }
+    $list = dirs_1('/home/linuxbrew/.linuxbrew/Cellar',1,$re);
   }else{
-   @list = `ls /home/linuxbrew/.linuxbrew/Cellar|sed 's/^/ /'`;
+    $list = dirs_1('/home/linuxbrew/.linuxbrew/Cellar',0,$re);
   }
- File_1(\@list,$re);
+ File_1( $list,$re );
+}
+
+sub dirs_1{
+my( $url,$ls,$re,$an,$bn ) = @_;
+
+opendir my $dir_1,"$url" or die " $!\n";
+ for my $hand_1( readdir($dir_1) ){
+  next if $hand_1 =~ /^\./;
+  $re->{'FILE'} .= "File exists $url/$hand_1\n"
+   if -f "$url/$hand_1";
+  next unless -d "$url/$hand_1";
+   $ls ? push @{$an},$hand_1 : push @{$an}," $hand_1\n";
+ }
+closedir $dir_1;
+ @{$an} = sort{$a cmp $b}@{$an};
+  return $an unless $ls;
+
+for( my $in=0;$in<@{$an};$in++ ){
+ push @{$bn}," ${$an}[$in]\n";
+ opendir my $dir_2,"$url/${$an}[$in]";
+  for my $hand_2( readdir($dir_2) ){
+   next if $hand_2 =~ /^\./;
+   $re->{'FILE'} .= "File exists $url/${$an}[$in]/$hand_2\n"
+     if -f "$url/${$an}[$in]/$hand_2";
+  next unless -d "$url/${$an}[$in]/$hand_2";
+   $hand_2 =~ s/_[1-9]$//;
+  push @{$bn},"$hand_2\n";
+  }
+  closedir $dir_2;
+ }
+ return $bn;
 }
 
 sub File_1{
-my( $list,$re,$test,$tap,@file ) = @_;
+my( $list,$re,$test,$tap,$file ) = @_;
 open my $BREW,'<',$re->{'DIR'} or die " $!\n";
   while(my $brew = <$BREW>){
     if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
@@ -149,19 +161,26 @@ open my $BREW,'<',$re->{'DIR'} or die " $!\n";
      $test = 0;
     }
    $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
-   push @file,$tap if $tap;
+   push @{$file},$tap if $tap;
    $tap = '';
   }
 close $BREW;
+Font_1( $re,$file ) if $re->{'CAS'} and $re->{'SEARCH'};
+ @{$file} = sort{$a cmp $b}@{$file};
+  Search_1( $list,$file,0,0,0,0,$re,'' );
+}
 
-push @file,split("\n",`cat ~/.BREW_LIST/Q_FONT.txt 2>/dev/null`)
-  if $re->{'CAS'} and $re->{'SEARCH'};
-@file = sort{$a cmp $b}@file;
-Search_1( $list,\@file,0,0,0,0,$re,'' );
+sub Font_1{
+my( $re,$file ) = @_;
+  open my $font,'<',$re->{'FON'} or return;
+  while(my $fo = <$font>){ chomp $fo;
+  push @{$file},$fo;
+  }
+  close $font;
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$usr,$loop ) = @_;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
    my $MEM = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
@@ -190,12 +209,21 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
    unless( $re->{'SEARCH'} ){
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
-       $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in - 1]";
+       $re->{'ALL'} .= " Empty folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]";
        Search_1( $list,$file,$in,$i,$nst,0,$re,'' );
-       $loop = 1;
-       last;
+        $loop = 1;
+         last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-       $re->{'ALL'} .= " Check folder /usr/local/Cellar/ =>$list->[$in - 1]";
+       $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]";
+ if( $re->{'DEB'} and $re->{'MAC'} ){
+       $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
+        $usr = `ls -l /usr/local/bin|grep ' $list->[$in - 1] '`;
+         $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]` unless $usr;
+          $usr =~ s/.*->(.*)(?:\n.*)*/$1\n/;
+       $re->{'ALL'} .= $usr;
+        $re->{'ALL'} .= '  '.`ls -F /usr/local/Cellar/$list->[$in - 1]|\
+         perl -pe 's/\n/\t/'`."\n";
+ }
         while(1){ $in++;
          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
         }
@@ -231,23 +259,41 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$loop ) = @_;
   if( $list->[$in] and not $loop ){
     if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ ){
      my $mit = $list->[$in].' ✅' if $list->[$in] =~ s/^\s(.+)\n/$1/;
-     $re->{'HA'}{$mit} = length $mit;
-     push @{$re->{'ARR'}},$mit;
+      $re->{'HA'}{$mit} = length $mit;
+       push @{$re->{'ARR'}},$mit;
      $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
-    }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){ ###
-     $tap = $list->[$in++] if $list->[$in] =~ s/\n/\t/;
-      if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-       $re->{'ALL'} .= " Check folder /usr/local/Cellar/ =>$list->[$in - 1]\n";
-        while(1){ $in++;
-         last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
-        }
+    }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+     $tap = $list->[$in++] if $list->[$in] =~ s/^\s(.*)\n/$1/;
+     if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+      $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n";
+ if( $re->{'DEB'} and $re->{'MAC'} ){
+      $usr = `ls -l /usr/local/bin|grep ' $list->[$in - 1] '`;
+       $usr= `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]` unless $usr;
+        $usr =~ s/.*->(.*)(?:\n.*)*/$1\n/;
+      $re->{'ALL'} .= $usr;
+       $re->{'ALL'} .= '  '.`ls -F /usr/local/Cellar/$list->[$in - 1]|\
+        perl -pe 's/\n/\t/'`."\n";
+ }
+ if( $re->{'FOR'} and $re->{'MAC'} ){
+      $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]|\
+       sed 's|.*/$list->[$in - 1]/\\(.*\\)/bin/.*|\\1|'`;
+        $re->{'NUM'} = 1;
+ }
+      while(1){ $in++;
+       last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
       }
-     $re->{'POP'} .= " i $tap$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-     $re->{'ALL'} .= " i $tap$list->[$in]" if not $re->{'SER'};
+     }
+ unless( $re->{'NUM'} ){
+    $re->{'POP'} .= " i  $tap\t$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
+    $re->{'ALL'} .= " i  $tap\t$list->[$in]" if not $re->{'SER'};
+ }else{
+    $re->{'POP'} .= " i  $tap\t$usr" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
+    $re->{'ALL'} .= " i  $tap\t$usr" if not $re->{'SER'};
+ }
      $re->{'AN'}++; $re->{'IN'}++;
     }else{
-     $re->{'ALL'} .= " Empty folder /usr/local/Cellar/ =>$list->[$in]";
-    }
+     $re->{'ALL'} .= " Empty folder /usr/local/Cellar or Caskroom =>$list->[$in]";
+    } $re->{'NUM'} = 0;
    Search_1( $list,$file,++$in,$i,++$nst,0,$re,'' );
   }
 }
@@ -257,8 +303,8 @@ my $re = shift;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
    system(" printf '\033[?7l' ") if $re->{'MAC'};
    system('setterm -linewrap off') if $re->{'LIN'};
-   $re->{'SER'} ? print"$re->{'POP'}" : print"$re->{'ALL'}";
-   print " item $re->{'AN'} : install $re->{'IN'}\n";
+    $re->{'SER'} ? print"$re->{'POP'}" : print"$re->{'ALL'}";
+    print " item $re->{'AN'} : install $re->{'IN'}\n";
    system(" printf '\033[?7h' ") if $re->{'MAC'};
    system('setterm -linewrap on') if $re->{'LIN'};
   }else{
@@ -278,17 +324,21 @@ my $re = shift;
   }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
+print "\033[31m$re->{'FILE'}\033[37m\n" if $re->{'FILE'};
 Nohup_1( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
 sub Nohup_1{
-my $re = shift;
-my $time=[split(" ",`ls -lT ~/.BREW_LIST/Q_FONT.txt|awk '{print \$9,\$6,\$7}'`)]
-	if -f $re->{'FON'};
-  if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[0] or
-	$re->{'MON'} > $time->[1] or $re->{'DAY'} > $time->[2] ){
+my( $re,$time ) = @_;
+ if( -f $re->{'FON'} ){
+  $time = [localtime((stat($re->{'FON'}))[8])];
+   $time->[5] += 1900;
+    $time->[4]++;
+ }
+ if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
+      $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
    system('nohup ./font.sh >/dev/null 2>&1 &');
-  }
+ }
 }
 __END__
 Check Darwin
