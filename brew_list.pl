@@ -24,9 +24,7 @@ unless( $ARGV[0] ){
 }
  my $name;
 if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
-}elsif( $ARGV[0] eq '-ld' ){ $name = $re;  $re->{'LIST'} = 1;  $re->{'DEB'} = 1;
 }elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-id' ){ $name = $re;  $re->{'PRINT'} = 1; $re->{'DEB'} = 1;
 }elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
@@ -81,13 +79,13 @@ sub Darwin_1{
     }
   }
   if( $re->{'FOR'} and not $re->{'SEARCH'} ){
-    $list = dirs_1('/usr/local/Cellar',1,$re);
-  }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
-    $list = dirs_1('/usr/local/Caskroom',1,$re);
-  }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
     $list = dirs_1('/usr/local/Cellar',0,$re);
-  }else{
+  }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
     $list = dirs_1('/usr/local/Caskroom',0,$re);
+  }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
+    $list = dirs_1('/usr/local/Cellar',1,$re);
+  }else{
+    $list = dirs_1('/usr/local/Caskroom',1,$re);
   }
  File_1( $list,$re );
 }
@@ -109,9 +107,9 @@ sub Linux_1{
    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
   }
   unless( $re->{'SEARCH'} ){
-    $list = dirs_1('/home/linuxbrew/.linuxbrew/Cellar',1,$re);
-  }else{
     $list = dirs_1('/home/linuxbrew/.linuxbrew/Cellar',0,$re);
+  }else{
+    $list = dirs_1('/home/linuxbrew/.linuxbrew/Cellar',1,$re);
   }
  File_1( $list,$re );
 }
@@ -122,21 +120,23 @@ my( $url,$ls,$re,$an,$bn ) = @_;
 opendir my $dir_1,"$url" or die " $!\n";
  for my $hand_1( readdir($dir_1) ){
   next if $hand_1 =~ /^\./;
-  $re->{'FILE'} .= "File exists $url/$hand_1\n"
-   if -f "$url/$hand_1";
+  $re->{'FILE'} .= " File exists $url/$hand_1\n"
+   if -f "$url/$hand_1" and $ls != 2;
   next unless -d "$url/$hand_1";
-   $ls ? push @{$an},$hand_1 : push @{$an}," $hand_1\n";
+  $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
+    push @{$an}," $hand_1\t" : push @{$an},$hand_1;
  }
 closedir $dir_1;
- @{$an} = sort{$a cmp $b}@{$an};
-  return $an unless $ls;
+ @{$an} = sort{$a cmp $b}@{$an} if $ls != 2;
+  push @{$an},"\n" if $ls == 2;
+  return $an if $ls;
 
 for( my $in=0;$in<@{$an};$in++ ){
  push @{$bn}," ${$an}[$in]\n";
  opendir my $dir_2,"$url/${$an}[$in]";
   for my $hand_2( readdir($dir_2) ){
    next if $hand_2 =~ /^\./;
-   $re->{'FILE'} .= "File exists $url/${$an}[$in]/$hand_2\n"
+   $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
   next unless -d "$url/${$an}[$in]/$hand_2";
    $hand_2 =~ s/_[1-9]$//;
@@ -165,28 +165,28 @@ open my $BREW,'<',$re->{'DIR'} or die " $!\n";
    $tap = '';
   }
 close $BREW;
-Font_1( $re,$file ) if $re->{'CAS'} and $re->{'SEARCH'};
- @{$file} = sort{$a cmp $b}@{$file};
-  Search_1( $list,$file,0,0,0,0,$re,'' );
-}
 
-sub Font_1{
-my( $re,$file ) = @_;
-  open my $font,'<',$re->{'FON'} or return;
-  while(my $fo = <$font>){ chomp $fo;
-  push @{$file},$fo;
-  }
-  close $font;
+ if( $re->{'CAS'} and $re->{'SEARCH'} and -f $re->{'FON'} ){
+  open my $FONT,'<',$re->{'FON'} or die " $!\n";
+   while(my $font = <$FONT>){ chomp $font;
+    push @{$file},$font;
+   }
+  close $FONT;
+ }
+
+ @{$file} = sort{$a cmp $b}@{$file};
+  Search_1( $list,$file,0,0,0,0,$re,'',0 );
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$usr,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$loop ) = @_;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-   my $MEM = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
+    $mem = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
-     last;
+     $mem = 1 if $re->{'SER'} and $list->[$in] =~ /$re->{'SER'}/;
+      last;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      $tap = "    $brew_1\t";
      $in++; $re->{'IN'}++; $pop = 1;
@@ -197,8 +197,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$usr,$loop ) = @_;
        $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
       }
     }else{
-     $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and  $MEM;
-     $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $MEM;
+     $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and  $mem;
+     $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $mem;
       if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
        $re->{'HA'}{$brew_1} = length $brew_1;
        push @{$re->{'ARR'}},$brew_1;
@@ -210,20 +210,20 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$usr,$loop ) = @_;
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
        $re->{'ALL'} .= " Empty folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]";
-       Search_1( $list,$file,$in,$i,$nst,0,$re,'' );
+       Search_1( $list,$file,$in,$i,$nst,0,$re,'',0 );
         $loop = 1;
          last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-       $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]";
- if( $re->{'DEB'} and $re->{'MAC'} ){
+       $re->{'POP'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]"
+           if $mem;
+       $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]"
+           unless $mem;
+
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        $usr = `ls -l /usr/local/bin|grep ' $list->[$in - 1] '`;
-         $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]` unless $usr;
-          $usr =~ s/.*->(.*)(?:\n.*)*/$1\n/;
-       $re->{'ALL'} .= $usr;
-        $re->{'ALL'} .= '  '.`ls -F /usr/local/Cellar/$list->[$in - 1]|\
-         perl -pe 's/\n/\t/'`."\n";
- }
+        my $dir_1 = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+         if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir_1} ); }
+          unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir_1} ); }
+
         while(1){ $in++;
          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
         }
@@ -235,20 +235,20 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$usr,$loop ) = @_;
       }
      $tap .= "$brew_2\t";
     }else{
-     $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and  $MEM;
-     $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $MEM;
+     $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and  $mem;
+     $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $mem;
     }
 
     if( $pop ){
      $tap .= $brew_3;
      $pop = 0;
     }else{
-     $re->{'POP'} .= "$brew_3" if $re->{'LIST'} and $MEM;
-     $re->{'ALL'} .= "$brew_3" if $re->{'LIST'} and not $MEM;
+     $re->{'POP'} .= "$brew_3" if $re->{'LIST'} and $mem;
+     $re->{'ALL'} .= "$brew_3" if $re->{'LIST'} and not $mem;
     }
-      if( $MEM ){ $re->{'POP'} .= $tap;
+      if( $mem ){ $re->{'POP'} .= $tap;
       }else{ $re->{'ALL'} .= $tap; }
-    $tap = ''; $re->{'AN'}++; $MEM = 0;
+    $tap = ''; $re->{'AN'}++; $mem = 0;
    }
   }
 
@@ -265,23 +265,25 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$usr,$loop ) = @_;
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
      $tap = $list->[$in++] if $list->[$in] =~ s/^\s(.*)\n/$1/;
      if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-      $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n";
- if( $re->{'DEB'} and $re->{'MAC'} ){
-      $usr = `ls -l /usr/local/bin|grep ' $list->[$in - 1] '`;
-       $usr= `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]` unless $usr;
-        $usr =~ s/.*->(.*)(?:\n.*)*/$1\n/;
-      $re->{'ALL'} .= $usr;
-       $re->{'ALL'} .= '  '.`ls -F /usr/local/Cellar/$list->[$in - 1]|\
-        perl -pe 's/\n/\t/'`."\n";
- }
- if( $re->{'FOR'} and $re->{'MAC'} ){
-      $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]|\
-       sed 's|.*/$list->[$in - 1]/\\(.*\\)/bin/.*|\\1|'`;
-        $re->{'NUM'} = 1;
- }
-      while(1){ $in++;
-       last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+      $re->{'POP'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n"
+           if $mem;
+      $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n"
+           unless $mem;
+
+     $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
+      my $dir_2 = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+       if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir_2} ); }
+        unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir_2} ); }
+
+      if( $re->{'FOR'} ){
+       $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]|\
+        sed 's|.*/$list->[$in - 1]/\\(.*\\)/bin/.*|\\1|'`;
+         $re->{'NUM'} = 1;
       }
+
+       while(1){ $in++;
+        last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+       }
      }
  unless( $re->{'NUM'} ){
     $re->{'POP'} .= " i  $tap\t$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
@@ -294,7 +296,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$usr,$loop ) = @_;
     }else{
      $re->{'ALL'} .= " Empty folder /usr/local/Cellar or Caskroom =>$list->[$in]";
     } $re->{'NUM'} = 0;
-   Search_1( $list,$file,++$in,$i,++$nst,0,$re,'' );
+   Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0 );
   }
 }
 
@@ -324,7 +326,7 @@ my $re = shift;
   }
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
-print "\033[31m$re->{'FILE'}\033[37m\n" if $re->{'FILE'};
+print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'};
 Nohup_1( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
