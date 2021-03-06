@@ -316,8 +316,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
        $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in]" unless $mem;
         $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in]" if $mem;
       }else{
-       $re->{'ALL'} .= " Empty folder $re->{'DEL'} =>$list->[$in - 1]" unless $mem;
-        $re->{'POP'} .= " Empty folder $re->{'DEL'} =>$list->[$in - 1]" if $mem;
+       $re->{'ALL'} .= " Empty folder $re->{'DEL'} =>$list->[$in]" unless $mem;
+        $re->{'POP'} .= " Empty folder $re->{'DEL'} =>$list->[$in]" if $mem;
       }
     } $re->{'NUM'} = 0;
    Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0 );
