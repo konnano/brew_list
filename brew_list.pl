@@ -240,12 +240,13 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
         }
       }
-      if( "$brew_2\n" gt $list->[$in++] ){
-       $tap =~ s/^\s{3}/(i)/;
-      }else{
-       $tap =~ s/^\s{3}/ i /;
-      }
-     $tap .= "$brew_2\t";
+      
+       if( "$brew_2\n" gt $list->[$in++] ){
+        $tap =~ s/^\s{3}/(i)/;
+       }else{
+        $tap =~ s/^\s{3}/ i /;
+       }
+      $tap .= "$brew_2\t";
     }else{
      $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and  $mem;
      $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $mem;
