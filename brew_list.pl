@@ -214,23 +214,27 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
         $loop = 1;
          last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-       $re->{'POP'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]"
-           if $mem;
-       $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]"
-           unless $mem;
 
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        if( $re-{'MAC'} ){
-         if( $re->{'FOR'} ){
-          $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
-         }else{
-          $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
-         }
+        if( $re->{'MAC'} ){
+      $re->{'POP'} .= " Check folder /usr/local/Cellar or Caskroom => $list->[$in - 1]\n"
+             if $mem;
+      $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom => $list->[$in - 1]\n"
+             unless $mem;
+          if( $re->{'FOR'} ){
+           $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+          }else{
+           $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
+          }
         }else{
-          $dir = dirs_1("/home/linuxbrew/.linuxbrew/Cellar/$list->[$in - 1]",2,$re);
+      $re->{'POP'} .= " Check folder /home/linuxbrew/.linuxbrew/Cellar => $list->[$in - 1]\n"
+             if $mem;
+      $re->{'ALL'} .= " Check folder /home/linuxbrew/.linuxbrew/Cellar => $list->[$in - 1]\n"
+             unless $mem;
+           $dir = dirs_1("/home/linuxbrew/.linuxbrew/Cellar/$list->[$in - 1]",2,$re);
         }
-          if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
-           unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
+          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} ); }
+           unless( $mem ){$re->{'ALL'} .= $_ for( @{$dir} ); }
     
         while(1){ $in++;
          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
@@ -273,23 +277,27 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
      $tap = $list->[$in++] if $list->[$in] =~ s/^\s(.*)\n/$1/;
      if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-      $re->{'POP'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n"
-           if $mem;
-      $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n"
-           unless $mem;
 
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        if( $re-{'MAC'} ){
+        if( $re->{'MAC'} ){
+      $re->{'POP'} .= " Check folder /usr/local/Cellar or Caskroom => $list->[$in - 1]\n"
+             if $mem;
+      $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom => $list->[$in - 1]\n"
+             unless $mem;
          if( $re->{'FOR'} ){
           $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
          }else{
           $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
          }
         }else{
+      $re->{'POP'} .= " Check folder /home/linuxbrew/.linuxbrew/Cellar => $list->[$in - 1]\n"
+             if $mem;
+      $re->{'ALL'} .= " Check folder /home/linuxbrew/.linuxbrew/Cellar => $list->[$in - 1]\n"
+             unless $mem;
           $dir = dirs_1("/home/linuxbrew/.linuxbrew/Cellar/$list->[$in - 1]",2,$re);
         }   
-       if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
-        unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
+       if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} ); }
+        unless( $mem ){$re->{'ALL'} .= $_ for( @{$dir} ); }
 
       if( $re->{'FOR'} ){
        $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]|\
