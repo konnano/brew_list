@@ -129,7 +129,7 @@ opendir my $dir_1,"$url" or die " $url dir_1 $!\n";
 closedir $dir_1;
  @{$an} = sort{$a cmp $b}@{$an} if $ls != 2;
   push @{$an},"\n" if $ls == 2;
-  return $an if $ls;
+   return $an if $ls;
 
 for( my $in=0;$in<@{$an};$in++ ){
  push @{$bn}," ${$an}[$in]\n";
@@ -179,7 +179,7 @@ close $BREW;
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$dir,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
     $mem = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
@@ -220,14 +220,18 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$dir,$loop ) = @_;
            unless $mem;
 
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        if( $re->{'FOR'} ){
-         $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+        if( $re-{'MAC'} ){
+         if( $re->{'FOR'} ){
+          $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+         }else{
+          $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
+         }
         }else{
-         $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
+          $dir = dirs_1("/home/linuxbrew/.linuxbrew/Cellar/$list->[$in - 1]",2,$re);
         }
-        if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
-         unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
-
+          if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
+           unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
+    
         while(1){ $in++;
          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
         }
@@ -274,12 +278,16 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$dir,$loop ) = @_;
       $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n"
            unless $mem;
 
-      $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-       if( $re->{'FOR'} ){
-        $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
-       }else{
-        $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
-       }      
+       $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
+        if( $re-{'MAC'} ){
+         if( $re->{'FOR'} ){
+          $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+         }else{
+          $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
+         }
+        }else{
+          $dir = dirs_1("/home/linuxbrew/.linuxbrew/Cellar/$list->[$in - 1]",2,$re);
+        }   
        if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
         unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
 
