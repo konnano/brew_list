@@ -60,9 +60,9 @@ if( $re->{'LIN'} ){
 sub Darwin_1{
  my( $re,$time,$list ) = @_;
   if( -f $re->{'DIR'} ){
-  $time = [localtime((stat($re->{'DIR'}))[8])];
-   $time->[5] += 1900;
-    $time->[4]++;
+   $time = [localtime((stat($re->{'DIR'}))[8])];
+    $time->[5] += 1900;
+     $time->[4]++;
   }
   ( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
    ((localtime(time))[5] + 1900),
@@ -117,11 +117,11 @@ sub Linux_1{
 sub dirs_1{
 my( $url,$ls,$re,$an,$bn ) = @_;
 
-opendir my $dir_1,"$url" or die " $!\n";
+opendir my $dir_1,"$url" or die " $url dir_1 $!\n";
  for my $hand_1( readdir($dir_1) ){
   next if $hand_1 =~ /^\./;
   $re->{'FILE'} .= " File exists $url/$hand_1\n"
-   if -f "$url/$hand_1" and $ls != 2;
+   if -f "$url/$hand_1" and not $ls;
   next unless -d "$url/$hand_1";
   $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
     push @{$an}," $hand_1\t" : push @{$an},$hand_1;
@@ -133,11 +133,11 @@ closedir $dir_1;
 
 for( my $in=0;$in<@{$an};$in++ ){
  push @{$bn}," ${$an}[$in]\n";
- opendir my $dir_2,"$url/${$an}[$in]";
+ opendir my $dir_2,"$url/${$an}[$in]" or die " dir_2 $!\n";
   for my $hand_2( readdir($dir_2) ){
    next if $hand_2 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
-     if -f "$url/${$an}[$in]/$hand_2";
+     if -f "$url/${$an}[$in]/$hand_2" and not $ls;
   next unless -d "$url/${$an}[$in]/$hand_2";
    $hand_2 =~ s/_[1-9]$//;
   push @{$bn},"$hand_2\n";
@@ -149,7 +149,7 @@ for( my $in=0;$in<@{$an};$in++ ){
 
 sub File_1{
 my( $list,$re,$test,$tap,$file ) = @_;
-open my $BREW,'<',$re->{'DIR'} or die " $!\n";
+open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
   while(my $brew = <$BREW>){
     if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
      $tap = "$brew\t"; next;
@@ -167,7 +167,7 @@ open my $BREW,'<',$re->{'DIR'} or die " $!\n";
 close $BREW;
 
  if( $re->{'CAS'} and $re->{'SEARCH'} and -f $re->{'FON'} ){
-  open my $FONT,'<',$re->{'FON'} or die " $!\n";
+  open my $FONT,'<',$re->{'FON'} or die " Font $!\n";
    while(my $font = <$FONT>){ chomp $font;
     push @{$file},$font;
    }
@@ -179,7 +179,7 @@ close $BREW;
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$dir,$loop ) = @_;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
     $mem = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
@@ -220,9 +220,13 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$loop ) = @_;
            unless $mem;
 
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        my $dir_1 = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
-         if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir_1} ); }
-          unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir_1} ); }
+        if( $re->{'FOR'} ){
+         $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+        }else{
+         $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
+        }
+        if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
+         unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
 
         while(1){ $in++;
          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
@@ -270,10 +274,14 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$usr,$loop ) = @_;
       $re->{'ALL'} .= " Check folder /usr/local/Cellar or Caskroom =>$list->[$in - 1]\n"
            unless $mem;
 
-     $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-      my $dir_2 = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
-       if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir_2} ); }
-        unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir_2} ); }
+      $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
+       if( $re->{'FOR'} ){
+        $dir = dirs_1("/usr/local/Cellar/$list->[$in - 1]",2,$re);
+       }else{
+        $dir = dirs_1("/usr/local/Caskroom/$list->[$in - 1]",2,$re);
+       }      
+       if( $mem ){ $re->{'POP'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
+        unless( $mem ){$re->{'ALL'} .= "\033[36m$_\033[37m" for( @{$dir} ); }
 
       if( $re->{'FOR'} ){
        $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]|\
