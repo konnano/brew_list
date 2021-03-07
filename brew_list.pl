@@ -5,8 +5,7 @@ use warnings;
 my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-   'DEL'=>'/home/linuxbrew/.linuxbrew/Cellar',
-    'CEL'=>'/usr/local/Cellar'};
+   'CEL'=>'/usr/local/Cellar'};
 
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
@@ -15,8 +14,8 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
 
 $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
-if( $re->{'LIN'} ){ exit unless -d '/home/linuxbrew/.linuxbrew/Cellar';
- }else{ exit unless -d '/usr/local/Cellar'; }
+$re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar' if $re->{'LIN'};
+ exit unless -d $re->{'CEL'};
 mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
 
 unless( $ARGV[0] ){
@@ -63,7 +62,7 @@ if( $re->{'LIN'} ){
 sub Darwin_1{
  my( $re,$time,$list ) = @_;
   if( -f $re->{'DIR'} ){
-   $time = [localtime((stat($re->{'DIR'}))[8])];
+   $time = [localtime((stat($re->{'DIR'}))[9])];
     $time->[5] += 1900;
      $time->[4]++;
   }
@@ -96,7 +95,7 @@ sub Darwin_1{
 sub Linux_1{
  my( $re,$time,$stime,$list ) = @_;
   if( -f $re->{'DIR'} ){
-   $stime =[localtime((stat($re->{'DIR'}))[8])];
+   $stime =[localtime((stat($re->{'DIR'}))[9])];
     $stime->[5] += 1900;
      $stime->[4]++;
    $time = [(
@@ -120,7 +119,7 @@ sub Linux_1{
 sub Dirs_1{
 my( $url,$ls,$re,$an,$bn ) = @_;
 
-opendir my $dir_1,"$url" or die " $url dir_1 $!\n";
+opendir my $dir_1,"$url" or die " Dir_1 $!\n";
  for my $hand_1( readdir($dir_1) ){
   next if $hand_1 =~ /^\./;
   $re->{'FILE'} .= " File exists $url/$hand_1\n"
@@ -136,11 +135,11 @@ closedir $dir_1;
 
 for( my $in=0;$in<@{$an};$in++ ){
  push @{$bn}," ${$an}[$in]\n";
- opendir my $dir_2,"$url/${$an}[$in]" or die " dir_2 $!\n";
+ opendir my $dir_2,"$url/${$an}[$in]" or die " Dir_2 $!\n";
   for my $hand_2( readdir($dir_2) ){
    next if $hand_2 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
-     if -f "$url/${$an}[$in]/$hand_2" and not $ls;
+     if -f "$url/${$an}[$in]/$hand_2";
   next unless -d "$url/${$an}[$in]/$hand_2";
    $hand_2 =~ s/_[1-9]$//;
   push @{$bn},"$hand_2\n";
@@ -200,8 +199,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
        $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
       }
     }else{
-     $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and  $mem;
      $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $mem;
+     $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and $mem;
       if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
        $re->{'HA'}{$brew_1} = length $brew_1;
        push @{$re->{'ARR'}},$brew_1;
@@ -212,34 +211,25 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
    unless( $re->{'SEARCH'} ){
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
-       if( $re->{'MAC'} ){
-        $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]" unless $mem;
-         $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]" if $mem;
-       }else{
-        $re->{'ALL'} .= " Empty folder $re->{'DEL'} =>$list->[$in - 1]" unless $mem; 
-         $re->{'POP'} .= " Empty folder $re->{'DEL'} =>$list->[$in - 1]" if $mem;
-       }
-        Search_1( $list,$file,$in,$i,$nst,0,$re,'',0 );
-         $loop = 1;
-          last;
+        if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
+        }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
+        }
+         Search_1( $list,$file,$in,$i,$nst,0,$re,'',0 );
+          $loop = 1;
+           last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
 
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        if( $re->{'MAC'} ){
-         $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n" unless $mem;
-          $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n" if $mem;
-           $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
-        }else{
-         $re->{'ALL'} .= " Check folder $re->{'DEL'} => $list->[$in - 1]\n" unless $mem;
-          $re->{'POP'} .= " Check folder $re->{'DEL'} => $list->[$in - 1]\n" if $mem;
-           $dir = Dirs_1("$re->{'DEL'}/$list->[$in - 1]",2,$re);
+        if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
+        }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
-          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} ); }
-           unless( $mem ){$re->{'ALL'} .= $_ for( @{$dir} ); }
-    
-        while(1){ $in++;
-         last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
-        }
+          $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
+         if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
+         }else{$re->{'ALL'} .= $_ for( @{$dir} );
+         }
+          while(1){ $in++;
+           last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+          }
       }
 
        if( "$brew_2\n" gt $list->[$in++] ){
@@ -250,7 +240,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
       $tap .= "$brew_2\t";
     }else{
      $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $mem;
-      $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and  $mem;
+      $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and $mem;
     }
 
     if( $pop ){
@@ -261,7 +251,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
       $re->{'POP'} .= "$brew_3" if $re->{'LIST'} and $mem;
     }
      if( $mem ){ $re->{'POP'} .= $tap;
-     }else{ $re->{'ALL'} .= $tap; }
+     }else{ $re->{'ALL'} .= $tap;
+     }
       $tap = ''; $re->{'AN'}++; $mem = 0;
    }
   }
@@ -281,17 +272,12 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
      if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
 
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        if( $re->{'MAC'} ){
-         $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n" unless $mem;
-          $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n" if $mem;
-           $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
-        }else{
-         $re->{'ALL'} .= " Check folder $re->{'DEL'} => $list->[$in - 1]\n" unless $mem;
-          $re->{'POP'} .= " Check folder $re->{'DEL'} => $list->[$in - 1]\n" if $mem;
-           $dir = Dirs_1("$re->{'DEL'}/$list->[$in - 1]",2,$re);
-        }   
-       if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} ); }
-        unless( $mem ){$re->{'ALL'} .= $_ for( @{$dir} ); }
+        if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
+        }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
+        }
+          $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
+         if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
+         }else{$re->{'ALL'} .= $_ for( @{$dir} ); }
 =cut
       if( $re->{'FOR'} and $re->{'MAC'} ){
        $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]|\
@@ -299,9 +285,9 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
          $re->{'NUM'} = 1;
       }
 =cut
-       while(1){ $in++;
-        last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
-       }
+         while(1){ $in++;
+          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+         }
      }
  unless( $re->{'NUM'} ){
    $re->{'POP'} .= " i  $tap\t$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
@@ -312,12 +298,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
  }
      $re->{'AN'}++; $re->{'IN'}++;
     }else{
-      if( $re->{'MAC'} ){
-       $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in]" unless $mem;
-        $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in]" if $mem;
-      }else{
-       $re->{'ALL'} .= " Empty folder $re->{'DEL'} =>$list->[$in]" unless $mem;
-        $re->{'POP'} .= " Empty folder $re->{'DEL'} =>$list->[$in]" if $mem;
+      if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
+      }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
       }
     } $re->{'NUM'} = 0;
    Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0 );
@@ -357,7 +339,7 @@ Nohup_1( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 sub Nohup_1{
 my( $re,$time ) = @_;
  if( -f $re->{'FON'} ){
-  $time = [localtime((stat($re->{'FON'}))[8])];
+  $time = [localtime((stat($re->{'FON'}))[9])];
    $time->[5] += 1900;
     $time->[4]++;
  }
