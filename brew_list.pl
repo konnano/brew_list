@@ -21,6 +21,7 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  }
   exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
+ 
  $ref->{'YEA'} = $re->{'YEA'} = ((localtime(time))[5] + 1900);
   $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
    $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
