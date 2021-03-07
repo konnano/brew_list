@@ -322,7 +322,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
         }
          $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
-         }else{$re->{'ALL'} .= $_ for( @{$dir} ); }
+         }else{$re->{'ALL'} .= $_ for( @{$dir} );
+         }
           while(1){ $in++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
