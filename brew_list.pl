@@ -109,9 +109,9 @@ sub Linux_1{
    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
   }
   unless( $re->{'SEARCH'} ){
-    $list = Dirs_1($re->{'DEL'},0,$re);
+    $list = Dirs_1($re->{'CEL'},0,$re);
   }else{
-    $list = Dirs_1($re->{'DEL'},1,$re);
+    $list = Dirs_1($re->{'CEL'},1,$re);
   }
  File_1( $list,$re );
 }
