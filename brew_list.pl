@@ -342,7 +342,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$loop ) = @_;
       if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
       }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
       }
-    } $re->{'NUM'} = 0;
+    }
    Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0 );
   }
 }
