@@ -378,16 +378,12 @@ Nohup_1( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
 }
 
 sub Nohup_1{
-my( $re,$time ) = @_;
- if( -f $re->{'FON'} ){
-  $time = [localtime((stat($re->{'FON'}))[9])];
-   $time->[5] += 1900;
-    $time->[4]++;
- }
- if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
+my $re = shift;
+ my $time = Time_1( $re->{'FON'} ) if -f $re->{'FON'};
+  if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
    system('nohup ./font.sh >/dev/null 2>&1 &');
- }
+  }
 }
 __END__
 Check Darwin
