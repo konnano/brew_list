@@ -313,7 +313,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$loop ) = @_;
 
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
      $tap = $list->[$in++] if $list->[$in] =~ s/^\s(.*)\n/$1/;
-       $usr = DBM_1( $re,1,$list->[$in - 1] );
+      $usr = DBM_1( $re,1,$list->[$in - 1] ) if $re->{'FOR'};
 
       if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
