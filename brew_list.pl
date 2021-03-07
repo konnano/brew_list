@@ -29,16 +29,16 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
 $ref->{'YEA'}=$re->{'YEA'}; $ref->{'MON'}=$re->{'MON'}; $ref->{'DAY'}=$re->{'DAY'};
  my $time;
   $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.db" )
-    if $re->{'MAC'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
+   if $re->{'MAC'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
   $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.dir" )
-    if $re->{'LIN'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir";
-    
-  if( $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-      $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" or
-       $re->{'YEA'} > $time->[5] or $re->{'MON'} > $time->[4] or
-        $re->{'DAY'} > $time->[3] ){
+   if $re->{'LIN'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir";
+
+   if( $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
+       $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" or
+        $re->{'YEA'} > $time->[5] or $re->{'MON'} > $time->[4] or
+         $re->{'DAY'} > $time->[3] ){
      DBM_1( $re,0 );
-  }
+   }
 
 unless( $ARGV[0] ){
  die "  Option
@@ -215,11 +215,11 @@ close $BREW;
  }
 
  @{$file} = sort{$a cmp $b}@{$file};
-  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
+  Search_1( $list,$file,0,0,0,0,$re,'',0 );
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$loop ) = @_;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
     $mem = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
@@ -254,7 +254,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
         if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
         }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
         }
-         Search_1( $list,$file,$in,$i,$nst,0,$re,'',0,0 );
+         Search_1( $list,$file,$in,$i,$nst,0,$re,'',0 );
           $loop = 1;
            last;
 
@@ -295,7 +295,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
      if( $mem ){ $re->{'POP'} .= $tap;
      }else{ $re->{'ALL'} .= $tap;
      }
-      $tap = ''; $re->{'AN'}++; $mem = 0; $com = 0;
+      $tap = ''; $re->{'AN'}++; $mem = 0;
    }
   }
 
@@ -322,8 +322,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
         }
          $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
-         }else{$re->{'ALL'} .= $_ for( @{$dir} );
-         }
+         }else{$re->{'ALL'} .= $_ for( @{$dir} ); }
           while(1){ $in++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
@@ -345,7 +344,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
       }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
       }
     } $re->{'NUM'} = 0;
-   Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
+   Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0 );
   }
 }
 
