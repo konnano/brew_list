@@ -314,7 +314,6 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
      $tap = $list->[$in++] if $list->[$in] =~ s/^\s(.*)\n/$1/;
        $usr = DBM_1( $re,1,$list->[$in - 1] );
-        $re->{'NUM'} = 1 if $usr;
 
       if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
@@ -329,7 +328,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
           }
       }
 
-      if( $re->{'FOR'} and not $re->{'NUM'} ){
+      if( $re->{'FOR'} and not $usr ){
        $re->{'POP'} .= " X  $tap\tNot Command\n" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
        $re->{'ALL'} .= " X  $tap\tNot Command\n" if not $re->{'SER'};
       }elsif( $re->{'CAS'} ){
