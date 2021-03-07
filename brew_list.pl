@@ -32,8 +32,11 @@ $ref->{'YEA'}=$re->{'YEA'}; $ref->{'MON'}=$re->{'MON'}; $ref->{'DAY'}=$re->{'DAY
     if $re->{'MAC'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
   $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.dir" )
     if $re->{'LIN'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir";
-   if( not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or $re->{'YEA'} > $time->[5] or
-    $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
+    
+  if( $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
+      $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" or
+       $re->{'YEA'} > $time->[5] or$re->{'MON'} > $time->[4] or
+        $re->{'DAY'} > $time->[3] ){
      DBM_1( $re,0 );
   }
 
