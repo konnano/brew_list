@@ -21,12 +21,9 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  }
   exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-
-( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
-  ((localtime(time))[5] + 1900),
-   ((localtime(time))[4]+1),
-    ((localtime(time))[3]) );
-$ref->{'YEA'}=$re->{'YEA'}; $ref->{'MON'}=$re->{'MON'}; $ref->{'DAY'}=$re->{'DAY'};
+ $ref->{'YEA'} = $re->{'YEA'} = ((localtime(time))[5] + 1900);
+  $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
+   $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
  my $time;
   $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.db" )
    if $re->{'MAC'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
@@ -322,7 +319,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$loop ) = @_;
         }
          $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
-         }else{$re->{'ALL'} .= $_ for( @{$dir} ); }
+         }else{$re->{'ALL'} .= $_ for( @{$dir} );
+         }
           while(1){ $in++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
