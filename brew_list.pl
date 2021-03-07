@@ -5,7 +5,8 @@ use warnings;
 my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-   'CEL'=>'/usr/local/Cellar'};
+   'CEL'=>'/usr/local/Cellar',
+    'BIN'=>'/usr/local/bin'};
 
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
@@ -14,9 +15,25 @@ my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
 
 $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
-$re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar' if $re->{'LIN'};
- exit unless -d $re->{'CEL'};
-mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
+ if( $re->{'LIN'} ){
+  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
+   $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/bin';
+ }
+  exit unless -d $re->{'CEL'};
+ mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
+
+( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
+  ((localtime(time))[5] + 1900),
+   ((localtime(time))[4]+1),
+    ((localtime(time))[3]) );
+$ref->{'YEA'}=$re->{'YEA'}; $ref->{'MON'}=$re->{'MON'}; $ref->{'DAY'}=$re->{'DAY'};
+
+ my $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.db" )
+  if -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
+   if( not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or $re->{'YEA'} > $time->[5] or
+    $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
+     DBM_1( $re,0 );
+  }
 
 unless( $ARGV[0] ){
  die "  Option
@@ -61,25 +78,17 @@ if( $re->{'LIN'} ){
 
 sub Darwin_1{
  my( $re,$time,$list ) = @_;
-  if( -f $re->{'DIR'} ){
-   $time = [localtime((stat($re->{'DIR'}))[9])];
-    $time->[5] += 1900;
-     $time->[4]++;
-  }
-  ( $re->{'YEA'},$re->{'MON'},$re->{'DAY'} ) = (
-   ((localtime(time))[5] + 1900),
-    ((localtime(time))[4]+1),
-     ((localtime(time))[3]) );
-  if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[5] or 
+  $time = Time_1( $re->{'DIR'} )if -f $re->{'DIR'};
+   if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[5] or 
         $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-    if( $re->{'FOR'} ){
-     my $ufo = 'https://formulae.brew.sh/formula/index.html';
-     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
-    }else{
-     my $uca = 'https://formulae.brew.sh/cask/index.html';
-     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
-    }
-  }
+     if( $re->{'FOR'} ){
+      my $ufo = 'https://formulae.brew.sh/formula/index.html';
+      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
+     }else{
+      my $uca = 'https://formulae.brew.sh/cask/index.html';
+      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
+     }
+   }
   if( $re->{'FOR'} and not $re->{'SEARCH'} ){
     $list = Dirs_1($re->{'CEL'},0,$re);
   }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
@@ -93,27 +102,51 @@ sub Darwin_1{
 }
 
 sub Linux_1{
- my( $re,$time,$stime,$list ) = @_;
-  if( -f $re->{'DIR'} ){
-   $stime =[localtime((stat($re->{'DIR'}))[9])];
-    $stime->[5] += 1900;
-     $stime->[4]++;
-   $time = [(
-    ((localtime(time))[5] + 1900),
-     ((localtime(time))[4]+1),
-      ((localtime(time))[3]) )];
-  }
-  if( not -f $re->{'DIR'} or $time->[0] > $stime->[5] or
-       $time->[1] > $stime->[4] or $time->[2] > $stime->[3] ){
-   my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-   $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
-  }
+ my( $re,$time,$list ) = @_;
+  $time = Time_1( $re->{'DIR'} ) if -f $re->{'DIR'};
+   if( not -f $re->{'DIR'} or $re->{'YEA'} > $time->[5] or
+       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
+    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
+     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
+   }
   unless( $re->{'SEARCH'} ){
     $list = Dirs_1($re->{'CEL'},0,$re);
   }else{
     $list = Dirs_1($re->{'CEL'},1,$re);
   }
  File_1( $list,$re );
+}
+
+sub Time_1{
+my( $file,$time ) = @_;
+ $time =[localtime((stat($file))[9])];
+  $time->[5] += 1900;
+   $time->[4]++;
+ return $time;
+}
+
+sub DBM_1{
+use Fcntl;
+use NDBM_File;
+my( $re,$ls,$ser,$var,%HA ) = @_;
+
+ unless( $ls ){
+  tie %HA,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
+   opendir my $dir,$re->{'BIN'} or die " $!\n";
+    for my $com(readdir($dir)){
+     my $hand = readlink("$re->{'BIN'}/$com");
+      next if not $hand or $hand and $hand !~ /Cellar/;
+     my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*).*?/bin/|;
+      $HA{$an} = $bn;
+    }
+   closedir $dir;
+  untie %HA;
+ }else{
+  tie %HA,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR,0644;
+   $var = $HA{$ser};
+  untie %HA;
+ }
+return $var if $ls and $var;
 }
 
 sub Dirs_1{
@@ -144,9 +177,9 @@ for( my $in=0;$in<@{$an};$in++ ){
    $hand_2 =~ s/_[1-9]$//;
   push @{$bn},"$hand_2\n";
   }
-  closedir $dir_2;
+ closedir $dir_2;
  }
- return $bn;
+return $bn;
 }
 
 sub File_1{
@@ -177,15 +210,15 @@ close $BREW;
  }
 
  @{$file} = sort{$a cmp $b}@{$file};
-  Search_1( $list,$file,0,0,0,0,$re,'',0 );
+  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$com,$dir,$loop ) = @_;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
     $mem = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
-
+ 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      $mem = 1 if $re->{'SER'} and $list->[$in] =~ /$re->{'SER'}/;
       last;
@@ -199,6 +232,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
        $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
       }
     }else{
+
      $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $mem;
      $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and $mem;
       if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
@@ -211,12 +245,14 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
    unless( $re->{'SEARCH'} ){
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
+
         if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
         }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
         }
-         Search_1( $list,$file,$in,$i,$nst,0,$re,'',0 );
+         Search_1( $list,$file,$in,$i,$nst,0,$re,'',0,0 );
           $loop = 1;
            last;
+
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
 
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
@@ -239,6 +275,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
        }
       $tap .= "$brew_2\t";
     }else{
+
      $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $mem;
       $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and $mem;
     }
@@ -253,7 +290,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
      if( $mem ){ $re->{'POP'} .= $tap;
      }else{ $re->{'ALL'} .= $tap;
      }
-      $tap = ''; $re->{'AN'}++; $mem = 0;
+      $tap = ''; $re->{'AN'}++; $mem = 0; $com = 0;
    }
   }
 
@@ -261,16 +298,20 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
    print " Deep recursion on subroutine\n"; exit;
   }
 
-  if( $list->[$in] and not $loop ){
+  if( $list->[$in] and not $loop ){  my( $time,$usr );
     if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ ){
+
      my $mit = $list->[$in].' ✅' if $list->[$in] =~ s/^\s(.+)\n/$1/;
       $re->{'HA'}{$mit} = length $mit;
        push @{$re->{'ARR'}},$mit;
      $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
+
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
      $tap = $list->[$in++] if $list->[$in] =~ s/^\s(.*)\n/$1/;
-     if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+       $usr = DBM_1( $re,1,$list->[$in - 1] );
+        $re->{'NUM'} = 1 if $usr;
 
+      if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
        $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
         if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
@@ -278,31 +319,28 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$usr,$loop ) = @_;
           $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
          }else{$re->{'ALL'} .= $_ for( @{$dir} ); }
-=cut
-      if( $re->{'FOR'} and $re->{'MAC'} ){
-       $usr = `ls -l /usr/local/bin|grep /Cellar/$list->[$in - 1]|\
-        sed 's|.*/$list->[$in - 1]/\\(.*\\)/bin/.*|\\1|'`;
-         $re->{'NUM'} = 1;
+          while(1){ $in++;
+           last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+          }
       }
-=cut
-         while(1){ $in++;
-          last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
-         }
-     }
- unless( $re->{'NUM'} ){
-   $re->{'POP'} .= " i  $tap\t$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-    $re->{'ALL'} .= " i  $tap\t$list->[$in]" if not $re->{'SER'};
- }else{
-   $re->{'POP'} .= " i  $tap\t$usr" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-    $re->{'ALL'} .= " i  $tap\t$usr" if not $re->{'SER'};
- }
+
+      if( $re->{'FOR'} and not $re->{'NUM'} ){
+       $re->{'POP'} .= " X  $tap\tNot Command\n" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
+       $re->{'ALL'} .= " X  $tap\tNot Command\n" if not $re->{'SER'};
+      }elsif( $re->{'CAS'} ){
+       $re->{'POP'} .= " i  $tap\t$list->[$in]" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
+       $re->{'ALL'} .= " i  $tap\t$list->[$in]" if not $re->{'SER'};
+      }else{
+       $re->{'POP'} .= " i  $tap\t$usr\n" if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
+       $re->{'ALL'} .= " i  $tap\t$usr\n" if not $re->{'SER'};
+      }
      $re->{'AN'}++; $re->{'IN'}++;
     }else{
       if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
       }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
       }
     } $re->{'NUM'} = 0;
-   Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0 );
+   Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
   }
 }
 
