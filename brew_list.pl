@@ -301,7 +301,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$dir,$loop ) = @_;
    print " Deep recursion on subroutine\n"; exit;
   }
 
-  if( $list->[$in] and not $loop ){  my( $time,$usr );
+  if( $list->[$in] and not $loop ){  my $usr;
     if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ ){
 
      my $mit = $list->[$in].' ✅' if $list->[$in] =~ s/^\s(.+)\n/$1/;
