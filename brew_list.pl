@@ -29,7 +29,7 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
   $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.db" )
    if $re->{'MAC'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
   $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.pag" )
-   if $re->{'LIN'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir";
+   if $re->{'LIN'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag";
 
    if( $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
        $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag" or
