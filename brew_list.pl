@@ -28,11 +28,11 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  my $time;
   $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.db" )
    if $re->{'MAC'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
-  $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.dir" )
+  $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.pag" )
    if $re->{'LIN'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir";
 
    if( $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-       $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" or
+       $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag" or
         $re->{'YEA'} > $time->[5] or $re->{'MON'} > $time->[4] or
          $re->{'DAY'} > $time->[3] ){
      DBM_1( $re,0 );
