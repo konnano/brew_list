@@ -125,7 +125,7 @@ my( $file,$time ) = @_;
  $time =[localtime((stat($file))[9])];
   $time->[5] += 1900;
    $time->[4]++;
- return $time;
+$time;
 }
 
 sub DBM_1{
@@ -149,7 +149,7 @@ my( $re,$ls,$ser,$var,%HA ) = @_;
    $var = $HA{$ser};
   untie %HA;
  }
-return $var if $ls and $var;
+$var if $ls and $var;
 }
 
 sub Dirs_1{
@@ -182,7 +182,7 @@ for( my $in=0;$in<@{$an};$in++ ){
   }
  closedir $dir_2;
  }
-return $bn;
+$bn;
 }
 
 sub File_1{
