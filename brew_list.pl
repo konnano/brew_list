@@ -303,11 +303,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
       $tap = ''; $re->{'AN'}++; $mem = 0; $cou = 0;
    }
   }
-
-  if( $nst > 50 ){
-   print " Deep recursion on subroutine\n"; exit;
-  }
-
+  
   if( $list->[$in] and not $loop ){
     if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ ){
 
