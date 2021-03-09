@@ -285,7 +285,6 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         $tap .= "$brew_2\t";
        }
     }else{
-
      $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $mem;
       $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and $mem;
     }
