@@ -250,7 +250,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
         }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
         }
-         Search_1( $list,$file,$in,$i,$nst,0,$re,'',0,0 );
+         Search_1( $list,$file,$in,$i,++$nst,0,$re,'',0,0 );
           $loop = 1;
            last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
@@ -272,7 +272,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
          if( $mem ){ $re->{'POP'} .= "$tap\tNot Formula\n";
          }else{ $re->{'ALL'} .= "$tap\tNot Formula\n";
          }
-          Search_1( $list,$file,++$in,$i,$nst,0,$re,'',0,0 );
+          Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
            $loop = 1;
             last;
        }else{ 
