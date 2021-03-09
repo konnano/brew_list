@@ -216,8 +216,9 @@ close $BREW;
 
 sub Search_1{
 my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
- DBM_1( $re,1 ) if $re->{'FOR'} and not %{$re->{'HASH'}};
-#while(my($ke,$va)=each %{$re->{'HASH'}}){ print"$ke : $va\n"; }
+ if( $nst > 50 ){ print " Deep recursion on subroutine\n"; exit; }
+  DBM_1( $re,1 ) if $re->{'FOR'} and not %{$re->{'HASH'}};
+  
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
     $mem = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
