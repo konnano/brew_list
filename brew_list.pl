@@ -6,7 +6,8 @@ my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
    'CEL'=>'/usr/local/Cellar','HASH'=>{},
-    'OPT'=>'/usr/local/opt'};
+    'DBM'=>"$ENV{'HOME'}/.BREW_LIST/DBM.db",
+     'BIN'=>'/usr/local/opt'};
 
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
@@ -17,7 +18,8 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
-   $re->{'OPT'} = '/home/linuxbrew/.linuxbrew/opt';
+   $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
+    $re->{'DBM'} = "$ENV{'HOME'}/.BREW_LIST/DBM.pag",
  }
   exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
@@ -25,36 +27,21 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  $ref->{'YEA'} = $re->{'YEA'} = ((localtime(time))[5] + 1900);
   $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
    $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
- my $time;
-  $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.db" )
-   if $re->{'MAC'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db";
-  $time = Time_1( "$ENV{'HOME'}/.BREW_LIST/DBM.pag" )
-   if $re->{'LIN'} and -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag";
 
-  if( $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-      $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag" or
-       $re->{'YEA'} > $time->[5] or $re->{'MON'} > $time->[4] or
-        $re->{'DAY'} > $time->[3] ){
+ my $time = Time_1( $re->{'DBM'} ) if -f $re->{'DBM'};# print"$time->[5]\n";
+  if( not -f $re->{'DBM'} or $re->{'YEA'} > $time->[5] or
+       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
      DBM_1( $re,0 );
   }
+ Died_1() unless $ARGV[0];
 
-unless( $ARGV[0] ){
- die "  Option
-  -l List : -i Instaled list : -s Type search name
-  Only mac
-  -c Casks list : -ci Casks instaled list\n";
-}
  my $name;
 if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  exit if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; exit if $re->{'LIN'};
+}elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
+}elsif( $ARGV[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
-}else{
- die "  Option
-  -l List : -i Instaled list : -s Type search name
-  Only mac
-  -c Casks list : -ci Casks instaled list\n";
+}else{  Died_1();
 }
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
        if $re->{'SEARCH'};
@@ -77,7 +64,15 @@ if( $re->{'LIN'} ){
   }else{
    Format_1( $re ); exit;
   }
-}else{ Darwin_1( $name ); Format_1( $name ); }
+}else{ Darwin_1( $name ); Format_1( $name );
+}
+
+sub Died_1{
+ die "  Option
+  -l List : -i Instaled list : -s Type search name
+  Only mac
+  -c Casks list : -ci Casks instaled list\n";
+}
 
 sub Darwin_1{
  my( $re,$time,$list ) = @_;
@@ -101,6 +96,7 @@ sub Darwin_1{
   }else{
     $list = Dirs_1($re->{'CEL'},1,$re);
   }
+  die " Empty folder\n" unless @{$list};
  File_1( $list,$re );
 }
 
@@ -117,6 +113,7 @@ sub Linux_1{
   }else{
     $list = Dirs_1($re->{'CEL'},1,$re);
   }
+  die " Empty folder\n" unless @{$list};
  File_1( $list,$re );
 }
 
@@ -129,14 +126,14 @@ $time;
 }
 
 sub DBM_1{
+my( $re,$ls,%HA ) = @_;
 use Fcntl ':DEFAULT';
 use NDBM_File;
-my( $re,$ls,%HA ) = @_;
  unless( $ls ){
   tie %HA,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
-   opendir my $dir,$re->{'OPT'} or die " $!\n";
+   opendir my $dir,$re->{'BIN'} or die " $!\n";
     for my $com(readdir($dir)){
-     my $hand = readlink("$re->{'OPT'}/$com");
+     my $hand = readlink("$re->{'BIN'}/$com");
       next if not $hand or $hand and $hand !~ /Cellar/;
      my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
       $HA{$an} = $bn;
@@ -214,9 +211,19 @@ close $BREW;
   Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
+sub Mine_1{
+my( $name,$re,$ls ) = @_;
+ my $list = Dirs_1("$re->{'CEL'}/$name",2,$re) if $re->{'CAS'};
+  $ls = 0 if $re->{'CAS'} and $list->[0] =~ /^\s$/;
+ $name = $name.' ✅' if $ls;
+  $re->{'HA'}{$name} = length $name;
+   push @{$re->{'ARR'}},$name;
+ $re->{'LEN'} = $re->{'HA'}{$name} if $re->{'LEN'} < $re->{'HA'}{$name};
+}
+
 sub Search_1{
 my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
- if( $nst > 50 ){ print " Deep recursion on subroutine\n"; exit; }
+ die " Deep recursion on subroutine\n" if $nst > 50;
   DBM_1( $re,1 ) if $re->{'FOR'} and not %{$re->{'HASH'}};
   
   for(;$file->[$i];$i++){
@@ -227,22 +234,23 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
      $mem = 1 if $re->{'SER'} and $list->[$in] =~ /$re->{'SER'}/;
       last;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
-     $tap = "    $brew_1\t";
-     $in++; $re->{'IN'}++; $pop = 1;
-      if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
-       my $mit = $brew_1.' ✅';
-       $re->{'HA'}{$mit} = length $mit;
-       push @{$re->{'ARR'}},$mit;
-       $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
+      if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ and $re->{'CAS'} or
+          $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ and $re->{'HASH'}{$brew_1} ){
+            Mine_1( $brew_1,$re,1 );
+      }elsif( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ and not $re->{'HASH'}{$brew_1} ){
+            Mine_1( $brew_1,$re,0 );
       }
+       $tap = "    $brew_1\t";
+        $in++; $re->{'IN'}++; $pop = 1;
+
     }else{
-     $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $mem;
-     $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and $mem;
       if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
        $re->{'HA'}{$brew_1} = length $brew_1;
        push @{$re->{'ARR'}},$brew_1;
        $re->{'LEN'} = $re->{'HA'}{$brew_1} if $re->{'LEN'} < $re->{'HA'}{$brew_1};
       }
+       $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $mem;
+        $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and $mem;
     }
 
    unless( $re->{'SEARCH'} ){
@@ -304,18 +312,14 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
   }
   
   if( $list->[$in] and not $loop ){
-    if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ ){
-
-     my $mit = $list->[$in].' ✅' if $list->[$in] =~ s/^\s(.+)\n/$1/;
-      $re->{'HA'}{$mit} = length $mit;
-       push @{$re->{'ARR'}},$mit;
-     $re->{'LEN'} = $re->{'HA'}{$mit} if $re->{'LEN'} < $re->{'HA'}{$mit};
-
+   $list->[$in] =~ s/^\s(.*)\n/$1/;
+    if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ and $re->{'CAS'} or
+        $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ and $re->{'HASH'}{$list->[$in]}){
+            Mine_1( $list->[$in],$re,1 );
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-     $tap = $list->[$in++] if $list->[$in] =~ s/^\s(.*)\n/$1/;
-      if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-       $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
 
+     $tap = $list->[$in++];
+      if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
         if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
@@ -339,15 +343,15 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         $re->{'ALL'} .= " i  $tap\t$list->[$in]"
           if not $re->{'SER'};
       }else{
-       $re->{'POP'} .= " i  $tap\t${$re->{'HASH'}}{$list->[$in - $cou - 1]}\n"
+       $re->{'POP'} .= " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n"
          if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-        $re->{'ALL'} .= " i  $tap\t${$re->{'HASH'}}{$list->[$in - $cou - 1]}\n"
+        $re->{'ALL'} .= " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n"
           if not $re->{'SER'};
       }
      $re->{'AN'}++; $re->{'IN'}++;
     }else{
-      if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
-      }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in]";
+      if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} => $list->[$in]\n";
+      }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $list->[$in]\n";
       }
     }
    Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
