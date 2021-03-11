@@ -6,8 +6,7 @@ my $re  = {'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
    'CEL'=>'/usr/local/Cellar','HASH'=>{},
-    'DBM'=>"$ENV{'HOME'}/.BREW_LIST/DBM.db",
-     'BIN'=>'/usr/local/opt'};
+    'BIN'=>'/usr/local/opt'};
 
 my $ref = {'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'POP'=>'',
  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
@@ -19,7 +18,6 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
-    $re->{'DBM'} = "$ENV{'HOME'}/.BREW_LIST/DBM.pag",
  }
   exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
@@ -28,14 +26,8 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
   $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
    $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
 
- my $time = Time_1( $re->{'DBM'} ) if -f $re->{'DBM'};# print"$time->[5]\n";
-  if( not -f $re->{'DBM'} or $re->{'YEA'} > $time->[5] or
-       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-     DBM_1( $re,0 );
-  }
  Died_1() unless $ARGV[0];
-
- my $name;
+  my $name;
 if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
 }elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
@@ -125,31 +117,21 @@ my( $file,$time ) = @_;
 $time;
 }
 
-sub DBM_1{
-my( $re,$ls,%HA ) = @_;
-use Fcntl ':DEFAULT';
-use NDBM_File;
- unless( $ls ){
-  tie %HA,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
-   opendir my $dir,$re->{'BIN'} or die " $!\n";
-    for my $com(readdir($dir)){
-     my $hand = readlink("$re->{'BIN'}/$com");
-      next if not $hand or $hand and $hand !~ /Cellar/;
-     my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
-      $HA{$an} = $bn;
-    }
-   closedir $dir;
-  untie %HA;
- }else{
-  tie %HA,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDONLY,0;
-   %{$re->{'HASH'}} = %HA;
-  untie %HA;
- }
+sub DB_1{
+my $re = shift;
+ opendir my $dir,$re->{'BIN'} or die " $!\n";
+  for my $com(readdir($dir)){
+   my $hand = readlink("$re->{'BIN'}/$com");
+    next if not $hand or $hand and $hand !~ /Cellar/;
+   my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
+    $re->{'HASH'}{$an} = $bn;
+  }
+ closedir $dir;
 }
 
 sub Dirs_1{
-my( $url,$ls,$re,$an,$bn ) = @_;
-
+my( $url,$ls,$re ) = @_;
+my $an = []; my $bn = [];
 opendir my $dir_1,"$url" or die " Dir_1 $!\n";
  for my $hand_1( readdir($dir_1) ){
   next if $hand_1 =~ /^\./;
@@ -160,7 +142,7 @@ opendir my $dir_1,"$url" or die " Dir_1 $!\n";
     push @{$an}," $hand_1\t" : push @{$an},$hand_1;
  }
 closedir $dir_1;
- @{$an} = sort{$a cmp $b}@{$an} if $ls != 2;
+ @{$an} = sort{$a cmp $b}@{$an};
   push @{$an},"\n" if $ls == 2;
    return $an if $ls;
 
@@ -213,18 +195,18 @@ close $BREW;
 
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
- my $list = Dirs_1("$re->{'CEL'}/$name",2,$re) if $re->{'CAS'};
-  $ls = 0 if $re->{'CAS'} and $list->[0] =~ /^\s$/;
- $name = $name.' ✅' if $ls;
-  $re->{'HA'}{$name} = length $name;
-   push @{$re->{'ARR'}},$name;
+ my $list = Dirs_1("$re->{'CEL'}/$name",1,$re) if $re->{'CAS'};
+  $ls = 0 if $re->{'CAS'} and not @{$list};
+   $name = $name.' ✅' if $ls;
+   $re->{'HA'}{$name} = length $name;
+  push @{$re->{'ARR'}},$name;
  $re->{'LEN'} = $re->{'HA'}{$name} if $re->{'LEN'} < $re->{'HA'}{$name};
 }
 
 sub Search_1{
 my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 50;
-  DBM_1( $re,1 ) if $re->{'FOR'} and not %{$re->{'HASH'}};
+  DB_1( $re ) if $re->{'FOR'} and not %{$re->{'HASH'}};
   
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
