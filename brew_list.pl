@@ -164,7 +164,7 @@ $bn;
 
 sub File_1{
 my( $list,$re,$test,$tap,$file ) = @_;
-open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
+ open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
   while(my $brew = <$BREW>){
     if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
      $tap = "$brew\t"; next;
@@ -179,7 +179,7 @@ open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
     push @{$file},$tap if $tap;
      $tap = '';
   }
-close $BREW;
+ close $BREW;
 
  if( $re->{'CAS'} and $re->{'SEARCH'} and -f $re->{'FON'} ){
   open my $FONT,'<',$re->{'FON'} or die " Font $!\n";
