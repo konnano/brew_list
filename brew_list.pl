@@ -119,7 +119,7 @@ $time;
 
 sub DB_1{
 my $re = shift;
- opendir my $dir,$re->{'BIN'} or die " $!\n";
+ opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
   for my $com(readdir($dir)){
    my $hand = readlink("$re->{'BIN'}/$com");
     next if not $hand or $hand and $hand !~ /Cellar/;
@@ -130,9 +130,9 @@ my $re = shift;
 }
 
 sub Dirs_1{
-my( $url,$ls,$re ) = @_;
-my $an = []; my $bn = [];
-opendir my $dir_1,"$url" or die " Dir_1 $!\n";
+my( $url,$ls,$re,$bn ) = @_;
+ my $an = [];
+opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
  for my $hand_1( readdir($dir_1) ){
   next if $hand_1 =~ /^\./;
   $re->{'FILE'} .= " File exists $url/$hand_1\n"
@@ -148,7 +148,7 @@ closedir $dir_1;
 
 for( my $in=0;$in<@{$an};$in++ ){
  push @{$bn}," ${$an}[$in]\n";
- opendir my $dir_2,"$url/${$an}[$in]" or die " Dir_2 $!\n";
+ opendir my $dir_2,"$url/${$an}[$in]" or die " Dirs_2 $!\n";
   for my $hand_2( readdir($dir_2) ){
    next if $hand_2 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
@@ -164,8 +164,8 @@ $bn;
 
 sub File_1{
 my( $list,$re,$test,$tap,$file ) = @_;
- open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
-  while(my $brew = <$BREW>){
+  open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
+   while(my $brew = <$BREW>){
     if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
      $tap = "$brew\t"; next;
     }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
@@ -178,8 +178,8 @@ my( $list,$re,$test,$tap,$file ) = @_;
    $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
     push @{$file},$tap if $tap;
      $tap = '';
-  }
- close $BREW;
+   }
+  close $BREW;
 
  if( $re->{'CAS'} and $re->{'SEARCH'} and -f $re->{'FON'} ){
   open my $FONT,'<',$re->{'FON'} or die " Font $!\n";
@@ -195,8 +195,8 @@ my( $list,$re,$test,$tap,$file ) = @_;
 
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
- my $list = Dirs_1("$re->{'CEL'}/$name",1,$re) if $re->{'CAS'};
-  $ls = 0 if $re->{'CAS'} and not @{$list};
+ my $list = Dirs_1("$re->{'CEL'}/$name",1,$re) if $re->{'CAS'} and $ls;
+  $ls = 0 if $re->{'CAS'} and $ls and not @{$list};
    $name = $name.' ✅' if $ls;
    $re->{'HA'}{$name} = length $name;
   push @{$re->{'ARR'}},$name;
@@ -224,13 +224,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
       }
        $tap = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
-
     }else{
-      if( $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/ ){
-       $re->{'HA'}{$brew_1} = length $brew_1;
-       push @{$re->{'ARR'}},$brew_1;
-       $re->{'LEN'} = $re->{'HA'}{$brew_1} if $re->{'LEN'} < $re->{'HA'}{$brew_1};
-      }
+      Mine_1( $brew_1,$re,0 ) if $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/;
        $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $mem;
         $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and $mem;
     }
@@ -298,8 +293,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
     if( $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ and $re->{'CAS'} or
         $re->{'OPT'} and $list->[$in] =~ /$re->{'OPT'}/ and $re->{'HASH'}{$list->[$in]}){
             Mine_1( $list->[$in],$re,1 );
-    }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
 
+    }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
      $tap = $list->[$in++];
       if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
         if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
