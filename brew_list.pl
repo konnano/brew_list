@@ -88,7 +88,6 @@ sub Darwin_1{
   }else{
     $list = Dirs_1($re->{'CEL'},1,$re);
   }
-  die " Empty folder\n" unless @{$list};
  File_1( $list,$re );
 }
 
@@ -105,7 +104,6 @@ sub Linux_1{
   }else{
     $list = Dirs_1($re->{'CEL'},1,$re);
   }
-  die " Empty folder\n" unless @{$list};
  File_1( $list,$re );
 }
 
