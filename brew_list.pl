@@ -56,8 +56,7 @@ if( $re->{'LIN'} ){
   }else{
    Format_1( $re ); exit;
   }
-}else{ Darwin_1( $name ); Format_1( $name );
-}
+}else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
  die "  Option
