@@ -250,8 +250,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
           $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2 );
-         if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
-         }else{ $re->{'ALL'} .= $_ for( @{$dir} );
+         if( $mem ){ $re->{'POP'} .= $_ for(@{$dir});
+         }else{ $re->{'ALL'} .= $_ for(@{$dir});
          }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
@@ -307,8 +307,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
          $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2 );
-         if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
-         }else{ $re->{'ALL'} .= $_ for( @{$dir} );
+         if( $mem ){ $re->{'POP'} .= $_ for(@{$dir});
+         }else{ $re->{'ALL'} .= $_ for(@{$dir});
          }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
