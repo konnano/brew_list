@@ -148,7 +148,7 @@ sub Dirs_1{
 my( $url,$ls,$re,$bn ) = @_;
  my $an = [];
 opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
- for my $hand_1( readdir($dir_1) ){
+ for my $hand_1(readdir($dir_1)){
   next if $hand_1 =~ /^\./;
   $re->{'FILE'} .= " File exists $url/$hand_1\n"
    if -f "$url/$hand_1" and not $ls;
@@ -164,7 +164,7 @@ closedir $dir_1;
 for( my $in=0;$in<@{$an};$in++ ){
  push @{$bn}," ${$an}[$in]\n";
  opendir my $dir_2,"$url/${$an}[$in]" or die " Dirs_2 $!\n";
-  for my $hand_2( readdir($dir_2) ){
+  for my $hand_2(readdir($dir_2)){
    next if $hand_2 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
@@ -315,8 +315,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
           }
       }
 
-      if( $re->{'FOR'} and not ${$re->{'HASH'}}{$list->[$in - $cou - 1]} or
-          $re->{'CAS'} and not ${$re->{'DMG'}}{$list->[$in - $cou - 1]}){
+      if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
+          $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]}){
        $re->{'POP'} .= " X  $tap\tNot Formula\n"
          if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
         $re->{'ALL'} .= " X  $tap\tNot Formula\n"
