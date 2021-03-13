@@ -125,7 +125,8 @@ my $re = shift;
      $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir;
- }elsif( $re->{'MAC'} ){
+ }
+ if( $re->{'MAC'} ){
   my $dmg = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",3 );
   my $cas = Dirs_1( $re->{'CEL'},4 );
    for my $in1(@{$cas}){
