@@ -257,9 +257,9 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
       }
-        $list->[$in - 1 - $cou] =~ s/^\s(.*)\n/$1/;
-       if( $re->{'FOR'} and not ${$re->{'HASH'}}{$list->[$in - $cou - 1]} or
-           $re->{'CAS'} and not ${$re->{'DMG'}}{$list->[$in - $cou - 1]} ){
+        $list->[$in - $cou - 1] =~ s/^\s(.*)\n/$1/;
+       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
+           $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
         $tap =~ s/^\s{4}$brew_1\t/ X  $brew_1/;
          if( $mem ){ $re->{'POP'} .= "$tap\tNot Formula\n";
          }else{ $re->{'ALL'} .= "$tap\tNot Formula\n";
