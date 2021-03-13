@@ -70,13 +70,13 @@ sub Darwin_1{
   $time = Time_1( $re->{'DIR'} )if -f $re->{'DIR'};
    if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[5] or 
         $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-     if( $re->{'FOR'} ){
-      my $ufo = 'https://formulae.brew.sh/formula/index.html';
-      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
-     }else{
-      my $uca = 'https://formulae.brew.sh/cask/index.html';
-      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
-     }
+    if( $re->{'FOR'} ){
+     my $ufo = 'https://formulae.brew.sh/formula/index.html';
+     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
+    }else{
+     my $uca = 'https://formulae.brew.sh/cask/index.html';
+     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
+    }
    }
   if( $re->{'FOR'} and not $re->{'SEARCH'} ){
     $list = Dirs_1($re->{'CEL'},0,$re);
@@ -125,8 +125,7 @@ my $re = shift;
      $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir;
- }
- if( $re->{'MAC'} ){
+ }elsif( $re->{'MAC'} ){
   my $dmg = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",3 );
   my $cas = Dirs_1( $re->{'CEL'},4 );
    for my $in1(@{$cas}){
@@ -196,16 +195,15 @@ my( $list,$re,$test,$tap,$file ) = @_;
    }
   close $FONT;
  }
-
  @{$file} = sort{$a cmp $b}@{$file};
   Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
-   $name = $name.' ✅' if $ls;
-   $re->{'HA'}{$name} = length $name;
-  push @{$re->{'ARR'}},$name;
+ $name = $name.' ✅' if $ls;
+  $re->{'HA'}{$name} = length $name;
+   push @{$re->{'ARR'}},$name;
  $re->{'LEN'} = $re->{'HA'}{$name} if $re->{'LEN'} < $re->{'HA'}{$name};
 }
 
