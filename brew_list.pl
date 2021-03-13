@@ -249,7 +249,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
-          $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2,$re );
+          $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2 );
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
          }else{ $re->{'ALL'} .= $_ for( @{$dir} );
          }
@@ -306,7 +306,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
-         $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2,$re );
+         $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2 );
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
          }else{ $re->{'ALL'} .= $_ for( @{$dir} );
          }
