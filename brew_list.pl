@@ -322,7 +322,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         $re->{'ALL'} .= " X  $tap\tNot Formula\n"
           if not $re->{'SER'};
 
-      }elsif( $re->{'CAS'}){
+      }elsif( $re->{'CAS'} ){
        $re->{'POP'} .= " i  $tap\t$list->[$in]"
          if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
         $re->{'ALL'} .= " i  $tap\t$list->[$in]"
