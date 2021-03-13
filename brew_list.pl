@@ -19,15 +19,10 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
  }
-  exit unless -d $re->{'CEL'};
+exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
- 
- $ref->{'YEA'} = $re->{'YEA'} = ((localtime(time))[5] + 1900);
-  $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
-   $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
-
- Died_1() unless $ARGV[0];
-  my $name;
+  Died_1() unless $ARGV[0];
+ my $name;
 if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
 }elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
@@ -35,6 +30,10 @@ if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{  Died_1();
 }
+ $ref->{'YEA'} = $re->{'YEA'} = ((localtime(time))[5] + 1900);
+  $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
+   $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
+   
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
        if $re->{'SEARCH'};
 $name->{'SER'} = lc $ARGV[1] if $ARGV[1] and $name->{'LIST'};
