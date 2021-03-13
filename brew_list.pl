@@ -69,7 +69,7 @@ sub Darwin_1{
  my( $re,$time,$list ) = @_;
   $time = Time_1( $re->{'DIR'} )if -f $re->{'DIR'};
    if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[5] or 
-        $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
+       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
     if( $re->{'FOR'} ){
      my $ufo = 'https://formulae.brew.sh/formula/index.html';
      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
