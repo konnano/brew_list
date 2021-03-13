@@ -79,13 +79,13 @@ sub Darwin_1{
     }
    }
   if( $re->{'FOR'} and not $re->{'SEARCH'} ){
-    $list = Dirs_1($re->{'CEL'},0,$re);
+    $list = Dirs_1( $re->{'CEL'},0,$re );
   }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
-    $list = Dirs_1($re->{'CEL'},0,$re);
+    $list = Dirs_1( $re->{'CEL'},0,$re );
   }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
-    $list = Dirs_1($re->{'CEL'},1,$re);
+    $list = Dirs_1( $re->{'CEL'},1 );
   }else{
-    $list = Dirs_1($re->{'CEL'},1,$re);
+    $list = Dirs_1( $re->{'CEL'},1 );
   }
  File_1( $list,$re );
 }
@@ -99,9 +99,9 @@ sub Linux_1{
      $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
    }
   unless( $re->{'SEARCH'} ){
-    $list = Dirs_1($re->{'CEL'},0,$re);
+    $list = Dirs_1( $re->{'CEL'},0,$re );
   }else{
-    $list = Dirs_1($re->{'CEL'},1,$re);
+    $list = Dirs_1( $re->{'CEL'},1 );
   }
  File_1( $list,$re );
 }
@@ -114,26 +114,34 @@ my( $file,$time ) = @_;
 $time;
 }
 
-sub DB_1{
-my $re = shift;
- if( $re->{'FOR'} ){
-  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
-   for my $com(readdir($dir)){
-    my $hand = readlink("$re->{'BIN'}/$com");
-     next if not $hand or $hand and $hand !~ /Cellar/;
-    my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
-     $re->{'HASH'}{$an} = $bn;
-   }
-  closedir $dir;
- }elsif( $re->{'MAC'} ){
-  my $dmg = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",3 );
-  my $cas = Dirs_1( $re->{'CEL'},4 );
-   for my $in1(@{$cas}){
-    for my $in2(@{$dmg}){
-     $re->{'DMG'}{$in1} = $in2 if $in2 =~ /^$in1/;
+sub File_1{
+my( $list,$re,$test,$tap,$file ) = @_;
+  open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
+   while(my $brew = <$BREW>){
+    if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
+     $tap = "$brew\t"; next;
+    }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
+     $tap .= "$brew\t";
+     $test = 1; next;
+    }elsif( $test and $brew =~ s[\s+<td>(.+)</td>][$1] ){
+     $tap .= $brew;
+     $test = 0;
     }
+   $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
+    push @{$file},$tap if $tap;
+     $tap = '';
    }
+  close $BREW;
+
+ if( $re->{'CAS'} and $re->{'SEARCH'} and -f $re->{'FON'} ){
+  open my $FONT,'<',$re->{'FON'} or die " Font $!\n";
+   while(my $font = <$FONT>){ chomp $font;
+    push @{$file},$font;
+   }
+  close $FONT;
  }
+ @{$file} = sort{$a cmp $b}@{$file};
+  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
 sub Dirs_1{
@@ -169,34 +177,26 @@ for( my $in=0;$in<@{$an};$in++ ){
 $bn;
 }
 
-sub File_1{
-my( $list,$re,$test,$tap,$file ) = @_;
-  open my $BREW,'<',$re->{'DIR'} or die " File $!\n";
-   while(my $brew = <$BREW>){
-    if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
-     $tap = "$brew\t"; next;
-    }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
-     $tap .= "$brew\t";
-     $test = 1; next;
-    }elsif( $test and $brew =~ s[\s+<td>(.+)</td>][$1] ){
-     $tap .= $brew;
-     $test = 0;
+sub DB_1{
+my $re = shift;
+ if( $re->{'FOR'} ){
+  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
+   for my $com(readdir($dir)){
+    my $hand = readlink("$re->{'BIN'}/$com");
+     next if not $hand or $hand and $hand !~ /Cellar/;
+    my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
+     $re->{'HASH'}{$an} = $bn;
+   }
+  closedir $dir;
+ }elsif( $re->{'MAC'} ){
+  my $dmg = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",3 );
+  my $cas = Dirs_1( $re->{'CEL'},4 );
+   for my $in1(@{$cas}){
+    for my $in2(@{$dmg}){
+     $re->{'DMG'}{$in1} = $in2 if $in2 =~ /^$in1/;
     }
-   $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
-    push @{$file},$tap if $tap;
-     $tap = '';
    }
-  close $BREW;
-
- if( $re->{'CAS'} and $re->{'SEARCH'} and -f $re->{'FON'} ){
-  open my $FONT,'<',$re->{'FON'} or die " Font $!\n";
-   while(my $font = <$FONT>){ chomp $font;
-    push @{$file},$font;
-   }
-  close $FONT;
  }
- @{$file} = sort{$a cmp $b}@{$file};
-  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
 sub Mine_1{
@@ -249,7 +249,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
-          $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
+          $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2,$re );
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
          }else{$re->{'ALL'} .= $_ for( @{$dir} );
          }
@@ -306,7 +306,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
         }
-         $dir = Dirs_1("$re->{'CEL'}/$list->[$in - 1]",2,$re);
+         $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2,$re );
          if( $mem ){ $re->{'POP'} .= $_ for( @{$dir} );
          }else{$re->{'ALL'} .= $_ for( @{$dir} );
          }
