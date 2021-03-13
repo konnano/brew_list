@@ -193,7 +193,7 @@ my $re = shift;
   my $cas = Dirs_1( $re->{'CEL'},4 );
    for my $in1(@{$cas}){
     for my $in2(@{$dmg}){
-     $re->{'DMG'}{$in1} = $in2 if $in2 =~ /^$in1/;
+     $re->{'DMG'}{$in1} = 1 if $in2 =~ /^$in1/;
     }
    }
  }
