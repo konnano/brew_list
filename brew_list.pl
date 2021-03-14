@@ -145,6 +145,28 @@ my( $list,$re,$test,$tap,$file ) = @_;
  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
+sub DB_1{
+my $re = shift;
+ if( $re->{'FOR'} ){
+  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
+   for my $com(readdir($dir)){
+    my $hand = readlink("$re->{'BIN'}/$com");
+     next if not $hand or $hand and $hand !~ /Cellar/;
+    my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
+     $re->{'HASH'}{$an} = $bn;
+   }
+  closedir $dir;
+ }elsif( $re->{'CAS'} ){
+  my $dmg = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",3 );
+  my $cas = Dirs_1( $re->{'CEL'},4 );
+   for my $in1(@{$cas}){
+    for my $in2(@{$dmg}){
+     $re->{'DMG'}{$in1} = 1 if $in2 =~ /^$in1/;
+    }
+   }
+ }
+}
+
 sub Dirs_1{
 my( $url,$ls,$re,$bn ) = @_;
  my $an = [];
@@ -176,28 +198,6 @@ for( my $in=0;$in<@{$an};$in++ ){
  closedir $dir_2;
  }
 $bn;
-}
-
-sub DB_1{
-my $re = shift;
- if( $re->{'FOR'} ){
-  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
-   for my $com(readdir($dir)){
-    my $hand = readlink("$re->{'BIN'}/$com");
-     next if not $hand or $hand and $hand !~ /Cellar/;
-    my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
-     $re->{'HASH'}{$an} = $bn;
-   }
-  closedir $dir;
- }elsif( $re->{'CAS'} ){
-  my $dmg = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",3 );
-  my $cas = Dirs_1( $re->{'CEL'},4 );
-   for my $in1(@{$cas}){
-    for my $in2(@{$dmg}){
-     $re->{'DMG'}{$in1} = 1 if $in2 =~ /^$in1/;
-    }
-   }
- }
 }
 
 sub Mine_1{
