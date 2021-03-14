@@ -22,7 +22,7 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
   Died_1() unless $ARGV[0];
-  
+
  my $name;
 if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
@@ -34,7 +34,7 @@ if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
  $ref->{'YEA'} = $re->{'YEA'} = ((localtime(time))[5] + 1900);
   $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
    $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
-   
+
 $ARGV[1] ? $re->{'OPT'} = $ref->{'OPT'} = lc $ARGV[1] : die " Type search name\n"
        if $re->{'SEARCH'};
 $name->{'SER'} = lc $ARGV[1] if $ARGV[1] and $name->{'LIST'};
@@ -150,11 +150,11 @@ my( $url,$ls,$re,$bn ) = @_;
 opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
  for my $hand_1(readdir($dir_1)){
   next if $hand_1 =~ /^\./;
-  $re->{'FILE'} .= " File exists $url/$hand_1\n"
-   if -f "$url/$hand_1" and not $ls;
-    if( $ls != 3 ){ next unless -d "$url/$hand_1"; }
-     $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
-      push @{$an}," $hand_1\t" : push @{$an},$hand_1;
+   $re->{'FILE'} .= " File exists $url/$hand_1\n"
+    if -f "$url/$hand_1" and not $ls;
+  if( $ls != 3 ){ next unless -d "$url/$hand_1"; }
+   $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
+    push @{$an}," $hand_1\t" : push @{$an},$hand_1;
  }
 closedir $dir_1;
  @{$an} = sort{$a cmp $b}@{$an};
@@ -166,7 +166,7 @@ for( my $in=0;$in<@{$an};$in++ ){
  opendir my $dir_2,"$url/${$an}[$in]" or die " Dirs_2 $!\n";
   for my $hand_2(readdir($dir_2)){
    next if $hand_2 =~ /^\./;
-   $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
+    $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
   next unless -d "$url/${$an}[$in]/$hand_2";
    $hand_2 =~ s/_[1-9]$//;
@@ -207,6 +207,26 @@ my( $name,$re,$ls ) = @_;
  $re->{'LEN'} = $re->{'HA'}{$name} if $re->{'LEN'} < $re->{'HA'}{$name};
 }
 
+sub Memo_1{
+my( $dir,$re,$mem ) = @_;
+ if( $dir ){
+  my $file = Dirs_1( "$re->{'CEL'}/$dir",3 );
+   if( @{$file} ){
+    if( $mem ){ $re->{'POP'} .= " file exists folder $re->{'CEL'} => $dir\n";
+    }else{ $re->{'ALL'} .= " file exists folder $re->{'CEL'} => $dir\n";
+    }
+   }else{
+    if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} => $dir\n";
+    }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $dir\n";
+    }
+   }
+ }else{
+  if( $mem ){ $re->{'POP'} .= $re->{'MEM'};
+  }else{ $re->{'ALL'} .= $re->{'MEM'};
+  }
+ }
+}
+
 sub Search_1{
 my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 50;
@@ -231,28 +251,24 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
       Mine_1( $brew_1,$re,0 ) if $re->{'OPT'} and $brew_1 =~ /$re->{'OPT'}/;
-       $re->{'ALL'} .= "    $brew_1\t" if $re->{'LIST'} and not $mem;
-        $re->{'POP'} .= "    $brew_1\t" if $re->{'LIST'} and $mem;
+       $re->{'MEM'} = "    $brew_1\t";
+        Memo_1( 0,$re,$mem ) if $re->{'LIST'};
     }
 
    unless( $re->{'SEARCH'} ){
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
-        if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
-        }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} =>$list->[$in - 1]";
-        }
+        Memo_1( $brew_1,$re,$mem );
          Search_1( $list,$file,$in,$i,++$nst,0,$re,'',0,0 );
           $loop = 1;
            last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-       $list->[$in - 1] =~ s/^\s(.+)\n/$1/;
-        if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
-        }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
-        }
-          $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2 );
-         if( $mem ){ $re->{'POP'} .= $_ for(@{$dir});
-         }else{ $re->{'ALL'} .= $_ for(@{$dir});
-         }
+       $re->{'MEM'} = " Check folder $re->{'CEL'} => $brew_1\n";
+        Memo_1( 0,$re,$mem );
+         $dir = Dirs_1( "$re->{'CEL'}/$brew_1",2 );
+          if( $mem ){ $re->{'POP'} .= $_ for(@{$dir});
+          }else{ $re->{'ALL'} .= $_ for(@{$dir});
+          }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
@@ -261,12 +277,11 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
        if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
            $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
         $tap =~ s/^\s{4}$brew_1\t/ X  $brew_1/;
-         if( $mem ){ $re->{'POP'} .= "$tap\tNot Formula\n";
-         }else{ $re->{'ALL'} .= "$tap\tNot Formula\n";
-         }
-          Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
-           $loop = 1;
-            last;
+         $re->{'MEM'} = "$tap\tNot Formula\n";
+          Memo_1( 0,$re,$mem );
+           Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
+            $loop = 1;
+             last;
        }else{ 
          if( "$brew_2\n" gt $list->[$in++] ){
           $tap =~ s/^\s{3}/(i)/;
@@ -276,16 +291,16 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
         $tap .= "$brew_2\t";
        }
     }else{
-     $re->{'ALL'} .= "$brew_2\t" if $re->{'LIST'} and not $mem;
-      $re->{'POP'} .= "$brew_2\t" if $re->{'LIST'} and $mem;
+      $re->{'MEM'} = "$brew_2\t";
+       Memo_1( 0,$re,$mem ) if $re->{'LIST'};
     }
 
     if( $pop ){
      $tap .= $brew_3;
       $pop = 0;
     }else{
-     $re->{'ALL'} .= "$brew_3" if $re->{'LIST'} and not $mem;
-      $re->{'POP'} .= "$brew_3" if $re->{'LIST'} and $mem;
+      $re->{'MEM'} = "$brew_3";
+       Memo_1( 0,$re,$mem ) if $re->{'LIST'};
     }
      if( $mem ){ $re->{'POP'} .= $tap;
      }else{ $re->{'ALL'} .= $tap;
@@ -303,13 +318,12 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
      $tap = $list->[$in++];
       if( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-        if( $mem ){ $re->{'POP'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
-        }else{ $re->{'ALL'} .= " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
-        }
-         $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2 );
-         if( $mem ){ $re->{'POP'} .= $_ for(@{$dir});
-         }else{ $re->{'ALL'} .= $_ for(@{$dir});
-         }
+        $re->{'MEM'} = " Check folder $re->{'CEL'} => $list->[$in - 1]\n";
+         Memo_1( 0,$re,$mem );
+          $dir = Dirs_1( "$re->{'CEL'}/$list->[$in - 1]",2 );
+           if( $mem ){ $re->{'POP'} .= $_ for(@{$dir});
+           }else{ $re->{'ALL'} .= $_ for(@{$dir});
+           }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
@@ -317,28 +331,21 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
 
       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
           $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]}){
-       $re->{'POP'} .= " X  $tap\tNot Formula\n"
-         if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-        $re->{'ALL'} .= " X  $tap\tNot Formula\n"
-          if not $re->{'SER'};
-
+           $re->{'MEM'} = " X  $tap\tNot Formula\n";
+           ($re->{'SER'} and $tap =~ /$re->{'SER'}/) ?
+              Memo_1( 0,$re,1 ) : Memo_1( 0,$re,0 );
       }elsif( $re->{'CAS'} ){
-       $re->{'POP'} .= " i  $tap\t$list->[$in]"
-         if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-        $re->{'ALL'} .= " i  $tap\t$list->[$in]"
-          if not $re->{'SER'};
-
+          $re->{'MEM'} = " i  $tap\t$list->[$in]";
+           ($re->{'SER'} and $tap =~ /$re->{'SER'}/) ?
+              Memo_1( 0,$re,1 ) : Memo_1( 0,$re,0 );
       }else{
-       $re->{'POP'} .= " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n"
-         if $re->{'SER'} and $tap =~ /$re->{'SER'}/;
-        $re->{'ALL'} .= " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n"
-          if not $re->{'SER'};
+          $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n";
+           $re->{'SER'} and $tap =~ /$re->{'SER'}/ ?
+              Memo_1( 0,$re,1 ) : Memo_1( 0,$re,0 );
       }
      $re->{'AN'}++; $re->{'IN'}++;
     }else{
-      if( $mem ){ $re->{'POP'} .= " Empty folder $re->{'CEL'} => $list->[$in]\n";
-      }else{ $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $list->[$in]\n";
-      }
+     Memo_1( $list->[$in],$re,$mem );
     }
    Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
   }
