@@ -141,7 +141,8 @@ my( $list,$re,$test,$tap,$file ) = @_;
   close $FONT;
  }
  @{$file} = sort{$a cmp $b}@{$file};
-  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
+ DB_1( $re );
+ Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
 sub Dirs_1{
@@ -230,9 +231,6 @@ my( $dir,$re,$mem ) = @_;
 sub Search_1{
 my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 50;
-  DB_1( $re ) if $re->{'FOR'} and not %{$re->{'HASH'}} or
-                 $re->{'CAS'} and not %{$re->{'DMG'}};
-
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
     $mem = 1 if $re->{'SER'} and $brew_1 =~ /$re->{'SER'}/;
