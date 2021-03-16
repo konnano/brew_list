@@ -156,7 +156,7 @@ my $re = shift;
      $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir;
- }elsif( $re->{'CAS'} ){
+ }else{
   opendir my $in,"$ENV{'HOME'}/Library/Caches/Homebrew/Cask" or die " DB_2 $!\n";
    for my $out(readdir($in)){
      next if $out =~ /^\./;
@@ -281,7 +281,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
             $loop = 1;
              last;
        }else{
-         if( $brew_2 gt $list->[$in - $cou] ){
+         if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$list->[$in - $cou - 1]} or
+             $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$list->[$in - $cou -1]} ){
           $tap =~ s/^\s{3}/(i)/;
          }else{
           $tap =~ s/^\s{3}/ i /;
@@ -326,20 +327,19 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
       }
-
       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
           $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
-           $re->{'MEM'} = " X  $tap\tNot Formula\n";
-           ($re->{'SER'} and $tap =~ /$re->{'SER'}/) ?
-              Memo_1( $re,$mem,0 ) : Memo_1( $re,$mem,0 ); ### push comment
-      }elsif( $re->{'CAS'} ){
-          $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$list->[$in - $cou - 1]}\n";
-           ($re->{'SER'} and $tap =~ /$re->{'SER'}/) ?
-              Memo_1( $re,$mem,0 ) : Memo_1( $re,$mem,0 ); ### push comment
-      }else{
+           if( $list->[$in - $cou] =~ /^latest/ ){ ### latest of Font Dir
+            $re->{'MEM'} = " i  $tap\t$list->[$in - $cou]";
+           }else{
+            $re->{'MEM'} = " X  $tap\tNot Formula\n";
+           }   Memo_1( $re,$mem,0 ); ### push comment
+      }elsif( $re->{'FOR'} ){
           $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n";
-           $re->{'SER'} and $tap =~ /$re->{'SER'}/ ?
-              Memo_1( $re,$mem,0 ) : Memo_1( $re,$mem,0 ); ### push comment
+               Memo_1( $re,$mem,0 ); ### push comment
+      }else{
+          $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$list->[$in - $cou - 1]}\n";
+               Memo_1( $re,$mem,0 ); ### push comment
       }
      $re->{'AN'}++; $re->{'IN'}++;
     }else{
