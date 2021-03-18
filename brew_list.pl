@@ -159,9 +159,13 @@ my $re = shift;
  }else{
   opendir my $in,"$ENV{'HOME'}/Library/Caches/Homebrew/Cask" or die " DB_2 $!\n";
    for my $out(readdir($in)){
-     next if $out =~ /^\./;
-    my( $name,$vers ) = $out =~ /^(.*)--(\d.*)\.(?:dmg|pkg|zip)$/;
-    $re->{'DMG'}{$name} = $vers if $name and $vers;
+    next if $out =~ /^\./;
+     $out =~ s/(\.7z|\.bz2)$//;
+      my( $name1,$vers1 ) = $out =~ /^(font-.*)--([^.]*)/;
+       $vers1 =~ s/svn/latest/ if $name1 and $vers1;
+      my( $name2,$vers2 ) = $out =~ /^(.*)--(.*\d)/;
+       $re->{'DMG'}{$name1} = $vers1 if $name1 and $vers1;
+        $re->{'DMG'}{$name2} = $vers2 if $name2 and $vers2;
    }
   closedir $in;
  }
@@ -329,16 +333,12 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$dir,$loop ) = @_;
       }
       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
           $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
-           if( $list->[$in - $cou] =~ /^latest/ ){ ### latest of Font Dir
-            $re->{'MEM'} = " i  $tap\t$list->[$in - $cou]";
-           }else{
-            $re->{'MEM'} = " X  $tap\tNot Formula\n";
-           }   Memo_1( $re,$mem,0 ); ### push comment
-      }elsif( $re->{'FOR'} ){
-          $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n";
+             $re->{'MEM'} = " X  $tap\tNot Formula\n";
                Memo_1( $re,$mem,0 ); ### push comment
-      }else{
-          $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$list->[$in - $cou - 1]}\n";
+      }elsif( $re->{'FOR'} ){
+             $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$in - $cou - 1]}\n";
+               Memo_1( $re,$mem,0 ); ### push comment
+      }else{ $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$list->[$in - $cou - 1]}\n";
                Memo_1( $re,$mem,0 ); ### push comment
       }
      $re->{'AN'}++; $re->{'IN'}++;
@@ -361,8 +361,8 @@ my $re = shift;
   }else{
    my $size = int `tput cols`/($re->{'LEN'}+2);
    my $in = 1;
-   print" ==>Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
-   print" ==>Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
+   print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
+   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
     for my $arr( @{$re->{'ARR'}} ){
       for(my $i=$re->{'HA'}{$arr};$i<$re->{'LEN'}+2;$i++){
        $arr .= ' ';
