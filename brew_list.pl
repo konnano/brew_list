@@ -162,10 +162,10 @@ my $re = shift;
     next if $out =~ /^\./;
      $out =~ s/(\.7z|\.bz2)$//;
       my( $name1,$vers1 ) = $out =~ /^(font-.*)--([^.]*)/;
-       $vers1 =~ s/svn/latest/ if $name1 and $vers1;
+     $vers1 =~ s/svn/latest/ if $name1 and $vers1;
       my( $name2,$vers2 ) = $out =~ /^(.*)--(.*\d)/;
        $re->{'DMG'}{$name1} = $vers1 if $name1 and $vers1;
-        $re->{'DMG'}{$name2} = $vers2 if $name2 and $vers2;
+       $re->{'DMG'}{$name2} = $vers2 if $name2 and $vers2;
    }
   closedir $in;
  }
