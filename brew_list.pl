@@ -74,17 +74,15 @@ sub Died_1{
 
 sub Darwin_1{
  my( $re,$time,$list ) = @_;
-  $time = Time_1( $re->{'DIR'} )if -f $re->{'DIR'};
-   if( not -f $re->{'DIR'} or  $re->{'YEA'} > $time->[5] or 
-       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-    if( $re->{'FOR'} ){
-     my $ufo = 'https://formulae.brew.sh/formula/index.html';
-     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
-    }else{
-     my $uca = 'https://formulae.brew.sh/cask/index.html';
-     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
-    }
+  if( not -f $re->{'DIR'} ){
+   if( $re->{'FOR'} ){
+    my $ufo = 'https://formulae.brew.sh/formula/index.html';
+    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
+   }else{
+    my $uca = 'https://formulae.brew.sh/cask/index.html';
+    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
    }
+  }
   if( $re->{'FOR'} and not $re->{'SEARCH'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
   }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
@@ -99,26 +97,16 @@ sub Darwin_1{
 
 sub Linux_1{
  my( $re,$time,$list ) = @_;
-  $time = Time_1( $re->{'DIR'} ) if -f $re->{'DIR'};
-   if( not -f $re->{'DIR'} or $re->{'YEA'} > $time->[5] or
-       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
-   }
+  if( not -f $re->{'DIR'} ){
+   my $url = 'https://formulae.brew.sh/formula-linux/index.html';
+    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
+  }
   unless( $re->{'SEARCH'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
   }else{
     $list = Dirs_1( $re->{'CEL'},1 );
   }
  File_1( $list,$re );
-}
-
-sub Time_1{
-my( $file,$time ) = @_;
- $time =[localtime((stat($file))[9])];
-  $time->[5] += 1900;
-   $time->[4]++;
-$time;
 }
 
 sub File_1{
@@ -441,12 +429,14 @@ my( $re,$ls,$sl ) = @_;
 print "\n" if @{$re->{'ARR'}};
 print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
 print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'};
-Nohup_1( $re ) if $re->{'MAC'} and ( $re->{'CAS'} or $re->{'FOR'} );
+Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
 sub Nohup_1{
 my $re = shift;
- my $time = Time_1( $re->{'FON'} ) if -f $re->{'FON'};
+ my $time =[localtime((stat($re->{'FON'}))[9])];
+  $time->[5] += 1900;
+   $time->[4]++;
   if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
    system('nohup ./font.sh >/dev/null 2>&1 &');
