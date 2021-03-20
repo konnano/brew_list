@@ -16,26 +16,26 @@ rm -f ~/.BREW_LIST/Q_FONT.txt ~/.BREW_LIST/Q_DRIV.txt
 rm -rf ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
-curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
-{ rm -rf ~/.BREW_LIST/LOCK; exit; }
-curl -sLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
-{ rm -rf ~/.BREW_LIST/LOCK; exit; }
-
 if [ `uname` = Darwin ];then
 curl -so ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
 { rm -rf ~/.BREW_LIST/LOCK; exit; }
 curl -sLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip ||\
 { rm -rf ~/.BREW_LIST/LOCK; exit; }
+/usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST
+ls ~/.BREW_LIST/homebrew-cask-drivers-master/Casks|sed 's/\(.*\)\.rb$/\1/' >~/.BREW_LIST/Q_DRIV.txt
 fi
 
+curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
+{ rm -rf ~/.BREW_LIST/LOCK; exit; }
+curl -sLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
+{ rm -rf ~/.BREW_LIST/LOCK; exit; }
 /usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST
-/usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST
-ls ~/.BREW_LIST/homebrew-cask-fonts-master/Casks|sed 's/\(.*\)\.rb$/\1/' >~/.BREW_LIST/Q_FONT.txt
-ls ~/.BREW_LIST/homebrew-cask-drivers-master/Casks|sed 's/\(.*\)\.rb$/\1/' >~/.BREW_LIST/Q_DRIV.txt
+s ~/.BREW_LIST/homebrew-cask-fonts-master/Casks|sed 's/\(.*\)\.rb$/\1/' >~/.BREW_LIST/Q_FONT.txt
+
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
 rm -rf ~/.BREW_LIST/LOCK
 
-if [ ! -s ~/.BREW_LIST/Q_FONT.txt -o ! -s ~/.BREW_LIST/Q_DRIV.txt ];then
+if [ ! -s ~/.BREW_LIST/Q_FONT.txt ];then
  rm -f ~/.BREW_LIST/Q_FONT.txt ~/.BREW_LIST/Q_DRIV.txt
 fi
