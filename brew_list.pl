@@ -77,10 +77,12 @@ sub Darwin_1{
   if( not -f $re->{'DIR'} ){
    if( $re->{'FOR'} ){
     my $ufo = 'https://formulae.brew.sh/formula/index.html';
-    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $ufo");
+     print " \033[31mNot connected\033[37m\n"
+      if system("curl -so $re->{'DIR'} $ufo");
    }else{
     my $uca = 'https://formulae.brew.sh/cask/index.html';
-    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $uca");
+     print " \033[31mNot connected\033[37m\n"
+      if system("curl -so $re->{'DIR'} $uca");
    }
   }
   if( $re->{'FOR'} and not $re->{'SEARCH'} ){
@@ -427,14 +429,13 @@ my( $re,$ls,$sl ) = @_;
    $re->{'CAS'} = 0;
   }
 print "\n" if @{$re->{'ARR'}};
-print " \033[31mNot connected\033[37m\n" if $re->{'CUR'};
 print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'};
 Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
 sub Nohup_1{
 my $re = shift;
- my $time =[localtime((stat($re->{'FON'}))[9])];
+ my $time =[localtime((stat($re->{'FON'}))[9])] if -f $re->{'FON'};
   $time->[5] += 1900;
    $time->[4]++;
   if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
