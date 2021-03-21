@@ -442,8 +442,7 @@ use FindBin;
     $time->[4]++;
   if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-   my $dir = "nohup $FindBin::Bin/font.sh >/dev/null 2>&1 &";
-    system($dir);
+       system("nohup $FindBin::Bin/font.sh >/dev/null 2>&1 &");
   }
 }
 __END__
