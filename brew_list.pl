@@ -25,7 +25,9 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  }
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  Died_1() unless $ARGV[0];
+  system('cp $(cd $(dirname $0);pwd)/font.sh ~/.BREW_LIST/font.sh')
+   unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh";
+ Died_1() unless $ARGV[0];
 
  my $name;
 if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
@@ -35,9 +37,6 @@ if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{  Died_1();
 }
- $ref->{'YEA'} = $re->{'YEA'} = ((localtime(time))[5] + 1900);
-  $ref->{'MON'} = $re->{'MON'} = ((localtime(time))[4]+1);
-   $ref->{'DAY'} = $re->{'DAY'} = ((localtime(time))[3]);
 
 $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
@@ -435,14 +434,15 @@ Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
 sub Nohup_1{
-use FindBin;
  my $re = shift;
   my $time =[localtime((stat($re->{'FON'}))[9])] if -f $re->{'FON'};
    $time->[5] += 1900;
     $time->[4]++;
-  if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
-      $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-       system("nohup $FindBin::Bin/font.sh >/dev/null 2>&1 &");
+  my( $year,$mon,$day ) = (
+   ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
+  if( not -f $re->{'FON'} or  $year > $time->[5] or
+     $mon > $time->[4] or $day > $time->[3] ){
+      system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
   }
 }
 __END__
