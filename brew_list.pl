@@ -314,7 +314,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
          my $dir = Dirs_1( "$re->{'CEL'}/$brew_1",2 );
           if( $mem ){ $re->{'EXC'} .= $_ for(@{$dir});
           }else{ $re->{'ALL'} .= $_ for(@{$dir});
-          }
+         }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
           }
@@ -434,13 +434,15 @@ Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
 sub Nohup_1{
-my $re = shift;
- my $time =[localtime((stat($re->{'FON'}))[9])] if -f $re->{'FON'};
-  $time->[5] += 1900;
-   $time->[4]++;
+use FindBin;
+ my $re = shift;
+  my $time =[localtime((stat($re->{'FON'}))[9])] if -f $re->{'FON'};
+   $time->[5] += 1900;
+    $time->[4]++;
   if( not -f $re->{'FON'} or  $re->{'YEA'} > $time->[5] or
       $re->{'MON'} > $time->[4] or $re->{'DAY'} > $time->[3] ){
-   system('nohup ./font.sh >/dev/null 2>&1 &');
+   my $dir = "nohup $FindBin::Bin/font.sh >/dev/null 2>&1 &";
+    system($dir);
   }
 }
 __END__
