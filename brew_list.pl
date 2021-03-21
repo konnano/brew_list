@@ -25,8 +25,9 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  }
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  system('cp $(cd $(dirname $0);pwd)/font.sh ~/.BREW_LIST/font.sh')
-   unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh";
+  system('cp $(cd $(dirname $0);pwd)/font.sh ~/.BREW_LIST/font.sh 2>/dev/null ||\
+   echo " # Not exisit =>" $(cd $(dirname $0);pwd)/font.sh')
+    unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh";
  Died_1() unless $ARGV[0];
 
  my $name;
