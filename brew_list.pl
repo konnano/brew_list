@@ -275,8 +275,9 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
     $mem = 1 if $re->{'SEARCH_2'} and $brew_1 =~ /$re->{'SEARCH_2'}/;
  
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
-     Tap_1( $list,$re,$mem,\$in );
-      $i--; next;
+     $mem = 1 if $re->{'SEARCH_2'} and $list->[$in] =~ /$re->{'SEARCH_2'}/;
+      Tap_1( $list,$re,$mem,\$in );
+       $i--; $mem = 0; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
       if( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$brew_1} or
           $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$brew_1} ){
