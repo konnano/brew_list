@@ -411,13 +411,13 @@ my( $re,$ls,$sl ) = @_;
    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
    print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
     for my $arr( @{$re->{'ARR'}} ){
-     if( $arr =~ m|^homebrew/cask-drivers| and not $ls ){
-      print"\n brew tap :  homebrew/cask-drivers\n\n";
-       $leng = $re->{'LEN3'};
-        $size = int $tput/($leng+2);  $ls = 1;
-     }elsif( $arr =~ m|^homebrew/cask-fonts| and not $sl ){
+     if( $arr =~ m|^homebrew/cask-fonts| and not $ls ){
       print"\n brew tap : homebrew/cask-fonts\n\n";
        $leng = $re->{'LEN2'};
+        $size = int $tput/($leng+2);  $ls = 1;
+     }elsif( $arr =~ m|^homebrew/cask-drivers| and not $sl ){
+      print"\n brew tap :  homebrew/cask-drivers\n\n";
+       $leng = $re->{'LEN3'};
         $size = int $tput/($leng+2);  $sl = 1;
      }
       for(my $i=$re->{'HA'}{$arr};$i<$leng+2;$i++){
