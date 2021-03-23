@@ -33,22 +33,26 @@ exit unless -d $re->{'CEL'};
  my $name;
 if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
+}elsif( $ARGV[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
 }elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
+}elsif( $ARGV[0] eq '-s' ){  $re->{'SEA_1'} = $ref->{'SEA_1'} = 1;
 }else{  Died_1();
 }
 
 $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
 
-$ARGV[1] ? $re->{'S_OPT'} = $ref->{'S_OPT'} = lc $ARGV[1] : die " Type search name\n"
-       if $re->{'SEARCH'};
-$name->{'SEARCH_2'} = lc $ARGV[1] if $ARGV[1] and $name->{'LIST'};
+ my $OP1 = ''; my $OP2 = '';
+$ARGV[1] ? $OP1 = lc $ARGV[1] : Died_1() if $re->{'SEA_1'};
+ $re->{'S_OPT'} = $ref->{'S_OPT'} = ($OP1 and $OP1 =~ s|^/(.*)/$|$1|) ? $OP1 : "\Q$OP1\E";
+
+$OP2 = lc $ARGV[1] if $ARGV[1] and ( $name->{'LIST'} or $re->{'COM'} );
+ $name->{'SEA_2'} = ($OP2 and $OP2 =~ s|^/(.*)/$|$1|) ? $OP2 : "\Q$OP2\E";
 
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
-}elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
+}elsif( $re->{'MAC'} and $re->{'SEA_1'} ){
  my $pid = fork;
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
@@ -85,13 +89,13 @@ sub Darwin_1{
       if system("curl -so $re->{'DIR'} $uca");
    }
   }
-  if( $re->{'FOR'} and not $re->{'SEARCH'} ){
+  if( $re->{'FOR'} and not $re->{'SEA_1'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
-  }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
+  }elsif( $re->{'CAS'} and not $re->{'SEA_1'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
-  }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
+  }elsif( $re->{'FOR'} and $re->{'SEA_1'} ){
     $list = Dirs_1( $re->{'CEL'},1 );
-  }else{
+  }else{ ### CAS and SEA_1 or COM
     $list = Dirs_1( $re->{'CEL'},1 );
   }
  File_1( $list,$re );
@@ -103,9 +107,9 @@ sub Linux_1{
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
   }
-  unless( $re->{'SEARCH'} ){
+  unless( $re->{'SEA_1'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
-  }else{
+  }else{ ### SEA_1 or COM
     $list = Dirs_1( $re->{'CEL'},1 );
   }
  File_1( $list,$re );
@@ -132,7 +136,7 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
 
  @{$file} = sort{$a cmp $b}@{$file} if $re->{'FOR'};
 
- if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
+ if( $re->{'CAS'} and $re->{'SEA_1'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
   $fin = $re->{'FDIR'} ? File_2( $re->{'FON'},0 ) : File_2( $re->{'FON'},1 );
   $din = $re->{'DDIR'} ? File_2( $re->{'DRI'},0 ) : File_2( $re->{'DRI'},2 );
 
@@ -154,7 +158,8 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
       push @{$file},@{$din};
    }
  }
- DB_1( $re ); ### check existe
+ DB_1( $re ) if $re->{'FOR'}; ### check existe
+ $re->{'COM'} ? Command_1( $list,$re,0 ) :
  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
@@ -176,7 +181,6 @@ $file;
 
 sub DB_1{
 my $re = shift;
- if( $re->{'FOR'} ){
   opendir my $dir_1,$re->{'BIN'} or die " DB_1 $!\n";
    for my $com(readdir($dir_1)){
     my $hand = readlink("$re->{'BIN'}/$com");
@@ -185,19 +189,6 @@ my $re = shift;
      $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir_1;
- }else{
-  opendir my $dir_2,"$ENV{'HOME'}/Library/Caches/Homebrew/Cask" or die " DB_2 $!\n";
-   for my $out(readdir($dir_2)){
-    next if $out =~ /^\./;
-     $out =~ s/(\.7z|\.bz2)$//;
-      my( $name1,$vers1 ) = $out =~ /^(font-.*)--([^.]*)/;
-     $vers1 =~ s/svn/latest/ if $name1 and $vers1;
-      my( $name2,$vers2 ) = $out =~ /^(.*)--(.*\d)/;
-       $re->{'DMG'}{$name1} = $vers1 if $name1 and $vers1;
-       $re->{'DMG'}{$name2} = $vers2 if $name2 and $vers2; ### over write if number
-   }
-  closedir $dir_2;
- }
 }
 
 sub Dirs_1{
@@ -224,8 +215,7 @@ for( my $in=0;$in<@{$an};$in++ ){
    next if $hand_2 =~ /^\./;
     $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
-  next unless -d "$url/${$an}[$in]/$hand_2";
-   $hand_2 =~ s/_[1-9]$//;
+   next unless -d "$url/${$an}[$in]/$hand_2";
   push @{$bn},"$hand_2\n";
   }
  closedir $dir_2;
@@ -272,18 +262,19 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 98;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-    $mem = 1 if $re->{'SEARCH_2'} and $brew_1 =~ /$re->{'SEARCH_2'}/;
- 
+    $mem = 1 if $re->{'SEA_2'} and $brew_1 =~ /$re->{'SEA_2'}/;
+
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
-     $mem = 1 if $re->{'SEARCH_2'} and $list->[$in] =~ /$re->{'SEARCH_2'}/;
+     $mem = 1 if $re->{'SEA_2'} and $list->[$in] =~ /$re->{'SEA_2'}/;
       Tap_1( $list,$re,$mem,\$in );
        $i--; $mem = 0; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
-      if( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$brew_1} or
-          $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$brew_1} ){
+      if( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ ){
+        if( $re->{'CAS'} or $re->{'HASH'}{$brew_1} ){
             Mine_1( $brew_1,$re,1 ); ### search existis Formula
-      }elsif( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ ){
+        }else{
             Mine_1( $brew_1,$re,0 ); ### search not existis Formula
+        }
       }
        $tap = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
@@ -294,7 +285,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
        my $cou = () = $opt =~ /-/g;
         for(my $n=0;$n<=$cou;$n++){
          my( $reg ) = $opt =~ /(?:[^-]*-){$n}([^-]*)/;
-          Mine_1( $brew_1,$re,0 ) if $reg =~ /^$re->{'S_OPT'}$/;
+          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/;
         }
       }else{ Mine_1( $brew_1,$re,0 );
       }
@@ -303,7 +294,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
         Memo_1( $re,$mem,0 ) if $re->{'LIST'}; ### ALL push
     }
 
-   unless( $re->{'SEARCH'} ){
+   unless( $re->{'SEA_1'} ){
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 ); ### push comment for Folder
@@ -321,8 +312,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
           }
       }
         $list->[$in - $cou - 1] =~ s/^\s(.*)\n/$1/;
-       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
-           $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
+       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} ){
         $tap =~ s/^\s{4}$brew_1\t/ X  $brew_1/;
          $re->{'MEM'} = "$tap\tNot Formula\n";
           Memo_1( $re,$mem,0 ); ### push comment
@@ -330,7 +320,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
             last;
        }else{
          if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$list->[$in - $cou - 1]} or
-             $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$list->[$in - $cou -1]} ){
+             $re->{'CAS'} and $brew_2 gt $list->[$in - $cou] ){
           $tap =~ s/^\s{3}/(i)/;
          }else{
           $tap =~ s/^\s{3}/ i /;
@@ -355,14 +345,36 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
       $tap = ''; $re->{'AN'}++; $mem = 0; $cou = 0;
    }
   }
+ if( $list->[$in] ){ print"#=> $list->[$in]\n";
+  Tap_1( $list,$re,$mem,\$in ) while($list->[$in]);
+ }
+}
+
+sub Command_1{
+my( $list,$re,$in,$com ) = @_;
+ for(;$list->[$in];$in++){
+  $list->[$in] =~ s/^\s(.*)\n/$1/;
+  if( $list->[$in] =~ /^$re->{'S_OPT'}$/){
+   chomp $list->[$in + 1];
+    if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin"){
+     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin",3 );
+      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin/$_\n" for(@{$com});
+
+    }elsif( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin" ){
+     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin",3 );
+      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin/$_\n" for(@{$com});
+    }
+   exit;
+  }
+ }
 }
 
 sub Tap_1{
 my( $list,$re,$mem,$in ) = @_; my $cou = 0;
  $list->[$$in] =~ s/^\s(.*)\n/$1/;
-  if( $re->{'S_OPT'} and $list->[$$in] =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$list->[$$in]} or
+  if( $re->{'S_OPT'} and $list->[$$in] =~ /$re->{'S_OPT'}/ and $re->{'CAS'} or
       $re->{'S_OPT'} and $list->[$$in] =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$list->[$$in]}){
-         Mine_1( $list->[$$in],$re,1 ); ### search existis Formula
+        Mine_1( $list->[$$in++],$re,1 ); ### search existis Formula
 
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
    my $tap = $list->[$$in++];
@@ -377,18 +389,18 @@ my( $list,$re,$mem,$in ) = @_; my $cou = 0;
           last if not $list->[$$in + 1] or $list->[$$in + 1] =~ /^\s/;
          }
     }
-    if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$$in - $cou - 1]} or
-        $re->{'CAS'} and not $re->{'DMG'}{$list->[$$in - $cou - 1]} ){
+    if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$$in - $cou - 1]} ){
           $re->{'MEM'} = " X  $tap\tNot Formula\n";
             Memo_1( $re,$mem,0 ); ### push comment
     }elsif( $re->{'FOR'} ){
         $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$$in - $cou - 1]}\n";
            Memo_1( $re,$mem,0 ); ### ALL push
-    }else{ $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$list->[$$in - $cou - 1]}\n";
+    }else{ $re->{'MEM'} = " i  $tap\t$list->[$$in - $cou]";
            Memo_1( $re,$mem,0 ); ### ALL push
     }
      $re->{'AN'}++; $re->{'IN'}++;
   }else{
+
      Memo_1( $re,$mem,$list->[$$in] ); ### push comment for Folder
   }
  $$in++;
@@ -399,7 +411,7 @@ my( $re,$ls,$sl ) = @_;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
    system(" printf '\033[?7l' ") if $re->{'MAC'};
     system('setterm -linewrap off') if $re->{'LIN'};
-     $re->{'SEARCH_2'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}";
+     $re->{'SEA_2'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}";
       print " item $re->{'AN'} : install $re->{'IN'}\n";
    system(" printf '\033[?7h' ") if $re->{'MAC'};
     system('setterm -linewrap on') if $re->{'LIN'};
