@@ -345,7 +345,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
       $tap = ''; $re->{'AN'}++; $mem = 0; $cou = 0;
    }
   }
- if( $list->[$in] ){ print"#=> $list->[$in]\n";
+ if( $list->[$in] ){
   Tap_1( $list,$re,$mem,\$in ) while($list->[$in]);
  }
 }
