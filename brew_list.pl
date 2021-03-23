@@ -159,7 +159,7 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
    }
  }
  DB_1( $re ) if $re->{'FOR'}; ### check existe
- $re->{'COM'} ? Command_1( $list,$re,0 ) :
+  $re->{'COM'} ? Command_1( $list,$re,0 ) :
  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
