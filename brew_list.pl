@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use FindBin;
 
 my $re  = {
  'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
@@ -25,8 +26,8 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  }
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  system('cp $(cd $(dirname $0);pwd)/font.sh ~/.BREW_LIST/font.sh 2>/dev/null ||\
-   echo " # Not exisit =>" $(cd $(dirname $0);pwd)/font.sh')
+  system("cp $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh 2>/dev/null ||\
+   echo ' # Not exisit => '$FindBin::Bin/font.sh")
     unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh";
  Died_1() unless $ARGV[0];
 
@@ -403,7 +404,7 @@ my( $list,$re,$in,$com ) = @_;
      $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin",3 );
       print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin/$_\n" for(@{$com});
     }
-   exit;
+    exit;
   }
  }
 }
