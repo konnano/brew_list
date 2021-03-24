@@ -7,7 +7,7 @@ my $re  = {
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
     'CEL'=>'/usr/local/Cellar','HASH'=>{},
-     'BIN'=>'/usr/local/opt'};
+     'BIN'=>'/usr/local/opt','SEA_1'=>''};
 
 my $ref = {
  'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
@@ -36,23 +36,24 @@ if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $ARGV[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
 }elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
 }elsif( $ARGV[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-s' ){  $re->{'SEA_1'} = $ref->{'SEA_1'} = 1;
+}elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{  Died_1();
 }
 
 $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
 
- my $OP1 = ''; my $OP2 = '';
-$ARGV[1] ? $OP1 = lc $ARGV[1] : Died_1() if $re->{'SEA_1'};
- $re->{'S_OPT'} = $ref->{'S_OPT'} = ($OP1 and $OP1 =~ s|^/(.*)/$|$1|) ? $OP1 : "\Q$OP1\E";
+$ARGV[1] ? $re->{'SEA_1'} = lc $ARGV[1] : Died_1() if $re->{'SEARCH'};
+ $re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
+  $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
 
-$OP2 = lc $ARGV[1] if $ARGV[1] and ( $name->{'LIST'} or $re->{'COM'} );
- $name->{'SEA_2'} = ($OP2 and $OP2 =~ s|^/(.*)/$|$1|) ? $OP2 : "\Q$OP2\E";
+$re->{'SEA_1'} = lc $ARGV[1] if $ARGV[1] and ( $name->{'LIST'} or $re->{'COM'} );
+ $re->{'SEA_2'} = $ref->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
+   $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
 
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
-}elsif( $re->{'MAC'} and $re->{'SEA_1'} ){
+}elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
  my $pid = fork;
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
@@ -71,7 +72,8 @@ if( $re->{'LIN'} ){
 
 sub Died_1{
  die "  Option
-  -l List : -i Instaled list : -s Type search name
+  -l List : -i Instaled list 
+  -s Type search name : -co search to comannd
   Only mac
   -c Casks list : -ci Casks instaled list\n";
 }
@@ -89,13 +91,13 @@ sub Darwin_1{
       if system("curl -so $re->{'DIR'} $uca");
    }
   }
-  if( $re->{'FOR'} and not $re->{'SEA_1'} ){
+  if( $re->{'FOR'} and not $re->{'SEARCH'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
-  }elsif( $re->{'CAS'} and not $re->{'SEA_1'} ){
+  }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
-  }elsif( $re->{'FOR'} and $re->{'SEA_1'} ){
+  }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
     $list = Dirs_1( $re->{'CEL'},1 );
-  }else{ ### CAS and SEA_1 or COM
+  }else{
     $list = Dirs_1( $re->{'CEL'},1 );
   }
  File_1( $list,$re );
@@ -107,9 +109,9 @@ sub Linux_1{
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
     $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
   }
-  unless( $re->{'SEA_1'} ){
+  unless( $re->{'SEARCH'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
-  }else{ ### SEA_1 or COM
+  }else{
     $list = Dirs_1( $re->{'CEL'},1 );
   }
  File_1( $list,$re );
@@ -136,7 +138,7 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
 
  @{$file} = sort{$a cmp $b}@{$file} if $re->{'FOR'};
 
- if( $re->{'CAS'} and $re->{'SEA_1'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
+ if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
   $fin = $re->{'FDIR'} ? File_2( $re->{'FON'},0 ) : File_2( $re->{'FON'},1 );
   $din = $re->{'DDIR'} ? File_2( $re->{'DRI'},0 ) : File_2( $re->{'DRI'},2 );
 
@@ -159,7 +161,7 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
    }
  }
  DB_1( $re ) if $re->{'FOR'}; ### check existe
-  $re->{'COM'} ? Command_1( $list,$re,0 ) :
+ $re->{'COM'} ? Command_1( $list,$re,0 ) :
  Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
@@ -294,7 +296,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
         Memo_1( $re,$mem,0 ) if $re->{'LIST'}; ### ALL push
     }
 
-   unless( $re->{'SEA_1'} ){
+   unless( $re->{'SEARCH'} ){
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 ); ### push comment for Folder
@@ -350,25 +352,6 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
  }
 }
 
-sub Command_1{
-my( $list,$re,$in,$com ) = @_;
- for(;$list->[$in];$in++){
-  $list->[$in] =~ s/^\s(.*)\n/$1/;
-  if( $list->[$in] =~ /^$re->{'S_OPT'}$/){
-   chomp $list->[$in + 1];
-    if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin"){
-     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin",3 );
-      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin/$_\n" for(@{$com});
-
-    }elsif( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin" ){
-     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin",3 );
-      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin/$_\n" for(@{$com});
-    }
-   exit;
-  }
- }
-}
-
 sub Tap_1{
 my( $list,$re,$mem,$in ) = @_; my $cou = 0;
  $list->[$$in] =~ s/^\s(.*)\n/$1/;
@@ -404,6 +387,25 @@ my( $list,$re,$mem,$in ) = @_; my $cou = 0;
      Memo_1( $re,$mem,$list->[$$in] ); ### push comment for Folder
   }
  $$in++;
+}
+
+sub Command_1{
+my( $list,$re,$in,$com ) = @_;
+ for(;$list->[$in];$in++){
+  $list->[$in] =~ s/^\s(.*)\n/$1/;
+  if( $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/){
+   chomp $list->[$in + 1];
+    if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin"){
+     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin",3 );
+      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin/$_\n" for(@{$com});
+
+    }elsif( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin" ){
+     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin",3 );
+      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin/$_\n" for(@{$com});
+    }
+   exit;
+  }
+ }
 }
 
 sub Format_1{
