@@ -49,7 +49,7 @@ $ARGV[1] ? $re->{'SEA_1'} = lc $ARGV[1] : Died_1() if $re->{'SEARCH'};
   $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
 
 $re->{'SEA_1'} = lc $ARGV[1] if $ARGV[1] and ( $name->{'LIST'} or $re->{'COM'} );
- $re->{'SEA_2'} = $ref->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
+ $name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
    $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
 
 if( $re->{'LIN'} ){
