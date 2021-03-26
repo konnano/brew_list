@@ -16,7 +16,7 @@ my $ref = {
    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
     'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
      'CEL'=>'/usr/local/Caskroom',
-      'LEN2'=>1,'LEN3'=>1,'DMG'=>{}};
+      'LEN2'=>1,'LEN3'=>1};
 
 $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
@@ -108,7 +108,8 @@ sub Linux_1{
  my( $re,$time,$list ) = @_;
   if( not -f $re->{'DIR'} ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-    $re->{'CUR'} = 1 if system("curl -so $re->{'DIR'} $url");
+    print " \033[31mNot connected\033[37m\n"
+     if system("curl -so $re->{'DIR'} $url");
   }
   unless( $re->{'SEARCH'} ){
     $list = Dirs_1( $re->{'CEL'},0,$re );
