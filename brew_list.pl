@@ -400,8 +400,8 @@ my( $list,$re,$in,$com ) = @_;
     if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin"){
      $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin",3 );
       print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin/$_\n" for(@{$com});
-
-    }elsif( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin" ){
+    }
+    if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin" ){
      $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin",3 );
       print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin/$_\n" for(@{$com});
     }
