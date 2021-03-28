@@ -44,12 +44,20 @@ if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
 
-$ARGV[1] ? $re->{'SEA_1'} = lc $ARGV[1] : Died_1() if $re->{'SEARCH'};
- $re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
-  $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
+ my @AR = @ARGV; my $SPA;
+if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
+ for(my $i= 1;$i<@AR;$i++){ $SPA .= lc $AR[$i];
+ }
+}
 
-$re->{'SEA_1'} = lc $ARGV[1] if $ARGV[1] and ( $name->{'LIST'} or $re->{'COM'} );
- $name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
+$SPA ? $re->{'SEA_1'} = $SPA : $ARGV[1] ?
+ $re->{'SEA_1'} = $ARGV[1] : Died_1() if $re->{'SEARCH'};
+  $re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
+   $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
+
+$SPA ? $re->{'SEA_1'} = $SPA : $ARGV[1] ?
+ $re->{'SEA_1'} = $ARGV[1] : Died_1() if $re->{'COM'} or $ARGV[1] and $name->{'LIST'};
+  $name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/.*$|$1| ) ?
    $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
 
 if( $re->{'LIN'} ){
@@ -203,7 +211,11 @@ opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
   next if $hand_1 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/$hand_1\n"
     if -f "$url/$hand_1" and not $ls;
-  if( $ls != 3 ){ next unless -d "$url/$hand_1"; }
+     if( $ls != 3 ){
+      if( $ls == 4 ){ next if -d "$url/$hand_1";
+      }else{ next unless -d "$url/$hand_1";
+      }
+     }
    $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
     push @{$an}," $hand_1\t" : push @{$an},$hand_1;
  }
@@ -220,7 +232,7 @@ for( my $in=0;$in<@{$an};$in++ ){
     $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
    next unless -d "$url/${$an}[$in]/$hand_2";
-   ### $hand_2 =~ s/_[1-9]$//;
+  ### $hand_2 =~ s/_[1-9]$//;
   push @{$bn},"$hand_2\n";
   }
  closedir $dir_2;
@@ -405,10 +417,41 @@ my( $list,$re,$in,$com ) = @_;
     if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin" ){
      $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin",3 );
       print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin/$_\n" for(@{$com});
+    } 
+
+   Dirs_2( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]",$re );
+    $list->[$in] = "\Q$list->[$in]\E";
+     $re->{'SEA_1'} = "\Q$re->{'SEA_1'}\E";
+      my %HA; my %OP;
+   for my $ls1(@{$re->{'ARR'}}){
+    next if $ls1 =~ m[/$re->{'SEA_1'}/\d[^/]+/[^/]+$] or
+     $ls1 =~ m|/$list->[$in]/$list->[$in + 1]/s?bin/|;
+      my $ls2 = $ls1;
+       $ls1 =~ s|/man\d||;
+      $ls1 =~ s|($re->{'CEL'}/$list->[$in]/$list->[$in + 1]/[^/]+/[^/]+)/.+(/.+)|$1$2|;
+     $HA{$ls1}++ if $ls1=~s|(.+)/.+$|$1|;
+    $OP{$ls1} = $ls2 if $ls2 =~ s|$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/[^/]+/[^/]+/(.+)|$1|;
+   }
+   for my $key(sort keys %HA){
+    if( $HA{$key} == 1 ){ print"$key/$OP{$key}\n";
+    }else{ print"$key/ ($HA{$key} file)\n";
     }
-    exit;
+   }
+  exit;
   }
  }
+}
+
+sub Dirs_2{
+my( $an,$re ) = @_;
+ opendir my $dir,$an or die " $!\n";
+  for my $bn(readdir($dir)){
+   next if $bn =~/^\./;
+    my $cd = "$an/$bn";
+   push @{$re->{'ARR'}},$cd if -f $cd;
+  Dirs_2( $cd,$re ) if -d $cd and not -l $cd;
+  }
+ closedir $dir;
 }
 
 sub Format_1{
