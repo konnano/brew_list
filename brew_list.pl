@@ -220,6 +220,7 @@ for( my $in=0;$in<@{$an};$in++ ){
     $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
    next unless -d "$url/${$an}[$in]/$hand_2";
+   ### $hand_2 =~ s/_[1-9]$//;
   push @{$bn},"$hand_2\n";
   }
  closedir $dir_2;
