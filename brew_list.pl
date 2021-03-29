@@ -170,9 +170,9 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
       push @{$file},@{$din};
    }
  }
- DB_1( $re ) if $re->{'FOR'}; ### check existe
- $re->{'COM'} ? Command_1( $list,$re,0 ) :
- Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
+ Dirs_1( $re->{'BIN'},4,$re ) if $re->{'FOR'}; ### check existe
+  $re->{'COM'} ? Command_1( $list,$re,0 ) :
+   Search_1( $list,$file,0,0,0,0,$re,'',0,0 );
 }
 
 sub File_2{
@@ -191,18 +191,6 @@ my( $dir,$ls,$file ) = @_;
 $file;
 }
 
-sub DB_1{
-my $re = shift;
-  opendir my $dir_1,$re->{'BIN'} or die " DB_1 $!\n";
-   for my $com(readdir($dir_1)){
-    my $hand = readlink("$re->{'BIN'}/$com");
-     next if not $hand or $hand and $hand !~ /Cellar/;
-    my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
-     $re->{'HASH'}{$an} = $bn;
-   }
-  closedir $dir_1;
-}
-
 sub Dirs_1{
 my( $url,$ls,$re,$bn ) = @_;
  my $an = [];
@@ -211,10 +199,12 @@ opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
   next if $hand_1 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/$hand_1\n"
     if -f "$url/$hand_1" and not $ls;
-     if( $ls != 3 ){
-      if( $ls == 4 ){ next if -d "$url/$hand_1";
-      }else{ next unless -d "$url/$hand_1";
-      }
+     if( $ls == 4){
+      my $hand = readlink("$re->{'BIN'}/$hand_1");
+       my( $an,$bn ) = $hand =~ m|/Cellar/([^/]+)/([^_]*)|;
+       $re->{'HASH'}{$an} = $bn;
+      next; 
+     }elsif( $ls != 3 ){ next unless -d "$url/$hand_1";
      }
    $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
     push @{$an}," $hand_1\t" : push @{$an},$hand_1;
@@ -232,7 +222,6 @@ for( my $in=0;$in<@{$an};$in++ ){
     $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
    next unless -d "$url/${$an}[$in]/$hand_2";
-  ### $hand_2 =~ s/_[1-9]$//;
   push @{$bn},"$hand_2\n";
   }
  closedir $dir_2;
@@ -276,7 +265,7 @@ my( $re,$mem,$ls ) = @_;
 
 sub Search_1{
 my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
- die " Deep recursion on subroutine\n" if $nst > 98;
+ die " Deep recursion on subroutine\n" if $nst > 97;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
     $mem = 1 if $re->{'SEA_2'} and $brew_1 =~ /$re->{'SEA_2'}/;
@@ -348,7 +337,6 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
       $re->{'MEM'} = "$brew_2\t";
        Memo_1( $re,$mem,0 ) if $re->{'LIST'}; ### ALL push
     }
-
     if( $pop ){
      $tap .= $brew_3;
       $pop = 0;
@@ -370,8 +358,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
 sub Tap_1{
 my( $list,$re,$mem,$in ) = @_; my $cou = 0;
  $list->[$$in] =~ s/^\s(.*)\n/$1/;
-  if( $re->{'S_OPT'} and $list->[$$in] =~ /$re->{'S_OPT'}/ and $re->{'CAS'} or
-      $re->{'S_OPT'} and $list->[$$in] =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$list->[$$in]}){
+  if( $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'CAS'} or
+      $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'HASH'}{$list->[$$in]}){
         Mine_1( $list->[$$in++],$re,1 ); ### search existis Formula
 
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
@@ -398,7 +386,6 @@ my( $list,$re,$mem,$in ) = @_; my $cou = 0;
     }
      $re->{'AN'}++; $re->{'IN'}++;
   }else{
-
      Memo_1( $re,$mem,$list->[$$in] ); ### push comment for Folder
   }
  $$in++;
@@ -409,32 +396,40 @@ my( $list,$re,$in,$com ) = @_;
  for(;$list->[$in];$in++){
   $list->[$in] =~ s/^\s(.*)\n/$1/;
   if( $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/){
-   chomp $list->[$in + 1];
-    if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin"){
-     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin",3 );
-      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/bin/$_\n" for(@{$com});
+   my $name = $list->[$in];
+    my $num = $list->[$in + 1]; chomp $num;
+    if( -d "$re->{'CEL'}/$name/$num/bin"){
+     $com = Dirs_1( "$re->{'CEL'}/$name/$num/bin",3 );
+      print"$re->{'CEL'}/$name/$num/bin/$_\n" for(@{$com});
     }
-    if( -d "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin" ){
-     $com = Dirs_1( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin",3 );
-      print"$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/sbin/$_\n" for(@{$com});
+    if( -d "$re->{'CEL'}/$name/$num/sbin" ){
+     $com = Dirs_1( "$re->{'CEL'}/$name/$num/sbin",3 );
+      print"$re->{'CEL'}/$name/$num/sbin/$_\n" for(@{$com});
     } 
 
-   Dirs_2( "$re->{'CEL'}/$list->[$in]/$list->[$in + 1]",$re );
+   Dirs_2( "$re->{'CEL'}/$name/$num",$re );
     $list->[$in] = "\Q$list->[$in]\E";
      $re->{'SEA_1'} = "\Q$re->{'SEA_1'}\E";
-      my %HA; my %OP;
-   for my $ls1(@{$re->{'ARR'}}){
+      my( %HA,%OP,$ls1,$ls2,$ls3 );
+   for $ls1(@{$re->{'ARR'}}){
     next if $ls1 =~ m[/$re->{'SEA_1'}/\d[^/]+/[^/]+$] or
-     $ls1 =~ m|/$list->[$in]/$list->[$in + 1]/s?bin/|;
-      my $ls2 = $ls1;
-       $ls1 =~ s|/man\d||;
-      $ls1 =~ s|($re->{'CEL'}/$list->[$in]/$list->[$in + 1]/[^/]+/[^/]+)/.+(/.+)|$1$2|;
-     $HA{$ls1}++ if $ls1=~s|(.+)/.+$|$1|;
-    $OP{$ls1} = $ls2 if $ls2 =~ s|$re->{'CEL'}/$list->[$in]/$list->[$in + 1]/[^/]+/[^/]+/(.+)|$1|;
+     $ls1 =~ m|/$name/$num/s?bin/|;
+       $ls3 = $ls2 = $ls1;
+    if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a]$|){
+           print"$ls1\n"; $re->{'IN'} = 1;
+    }else{
+      $ls1 =~ s|($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|;
+       $HA{$ls1}++ if $ls1=~s|(.+)/.+|$1|;
+      $ls2 =~ s|$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|;
+       $OP{$ls1} = $ls2;
+    }
    }
    for my $key(sort keys %HA){
-    if( $HA{$key} == 1 ){ print"$key/$OP{$key}\n";
-    }else{ print"$key/ ($HA{$key} file)\n";
+    if( $HA{$key} == 1 ){
+     $OP{$key} =~ /^$re->{'CEL'}/ ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
+    }else{
+     ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/$name/$num/lib$| ) ?
+      print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
     }
    }
   exit;
