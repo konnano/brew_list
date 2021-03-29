@@ -441,7 +441,7 @@ sub Dirs_2{
 my( $an,$re ) = @_;
  opendir my $dir,$an or die " $!\n";
   for my $bn(readdir($dir)){
-   next if $bn =~/^\./;
+   next if $bn eq '.' or $bn eq '..';
     my $cd = "$an/$bn";
    push @{$re->{'ARR'}},$cd if -f $cd;
   Dirs_2( $cd,$re ) if -d $cd and not -l $cd;
