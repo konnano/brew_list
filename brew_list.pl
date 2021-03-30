@@ -53,7 +53,7 @@ if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
 $SPA ? $re->{'SEA_1'} = $SPA : $ARGV[1] ?
  $re->{'SEA_1'} = lc $ARGV[1] : Died_1() if $re->{'SEARCH'};
 $re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
-  $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
+ $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
 
 $SPA ? $re->{'SEA_1'} = $SPA : $ARGV[1] ?
  $re->{'SEA_1'} = lc $ARGV[1] : Died_1() if $re->{'COM'} or $ARGV[1] and $name->{'LIST'};
