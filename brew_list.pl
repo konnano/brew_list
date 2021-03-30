@@ -131,16 +131,16 @@ sub File_1{
 my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
  open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
   while(my $brew = <$BREW>){
-   if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
+   if( $brew =~ s|\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
     $tap = "$brew\t"; next;
-   }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
+   }elsif( not $test and $brew =~ s|\s+<td>(.+)</td>\n|$1| ){
     $tap .= "$brew\t";
     $test = 1; next;
-   }elsif( $test and $brew =~ s[\s+<td>(.+)</td>][$1] ){
+   }elsif( $test and $brew =~ s|\s+<td>(.+)</td>|$1| ){
     $tap .= $brew;
     $test = 0;
    }
-   $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
+   $tap =~ s|(.+)\t(.+)\t(.+)\n|$1\t$3\t$2\n| if $tap and $re->{'CAS'};
     push @{$file},$tap if $tap;
      $tap = '';
   }
