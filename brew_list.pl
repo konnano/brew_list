@@ -412,7 +412,7 @@ my( $list,$re,$in,$com ) = @_;
     $name = "\Q$name\E";
      my( %HA,%OP,$ls1,$ls2 );
    for $ls1(@{$re->{'ARR'}}){
-    next if $ls1 =~ m[/Cellar/$name/$num/[^/]+$] or $ls1 =~ m|/$name/$num/s?bin/|;
+    next if $ls1 =~ m|/Cellar/$name/$num/[^/]+$| or $ls1 =~ m|/$name/$num/s?bin/|;
         $ls2 = $ls1;
     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|){
            print"$ls1\n"; $re->{'IN'} = 1;
