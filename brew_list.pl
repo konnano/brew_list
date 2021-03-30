@@ -393,9 +393,10 @@ my( $list,$re,$mem,$in ) = @_; my $cou = 0;
 
 sub Command_1{
 my( $list,$re,$in,$com ) = @_;
+ $re->{'SEA_1'} = "\Q$re->{'SEA_1'}\E";
  for(;$list->[$in];$in++){
   $list->[$in] =~ s/^\s(.*)\n/$1/;
-  if( $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/){
+  if( $list->[$in] =~ /^$re->{'SEA_1'}$/){
    my $name = $list->[$in];
     my $num = $list->[$in + 1]; chomp $num;
     if( -d "$re->{'CEL'}/$name/$num/bin"){
@@ -408,13 +409,11 @@ my( $list,$re,$in,$com ) = @_;
     } 
 
    Dirs_2( "$re->{'CEL'}/$name/$num",$re );
-    $list->[$in] = "\Q$list->[$in]\E";
-     $re->{'SEA_1'} = "\Q$re->{'SEA_1'}\E";
-      my( %HA,%OP,$ls1,$ls2,$ls3 );
+    $name = "\Q$name\E";
+     my( %HA,%OP,$ls1,$ls2 );
    for $ls1(@{$re->{'ARR'}}){
-    next if $ls1 =~ m[/$re->{'SEA_1'}/\d[^/]+/[^/]+$] or
-     $ls1 =~ m|/$name/$num/s?bin/|;
-       $ls3 = $ls2 = $ls1;
+    next if $ls1 =~ m[/$re->{'SEA_1'}/\d[^/]+/[^/]+$] or $ls1 =~ m|/$name/$num/s?bin/|;
+        $ls2 = $ls1;
     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a]$|){
            print"$ls1\n"; $re->{'IN'} = 1;
     }else{
@@ -441,10 +440,9 @@ sub Dirs_2{
 my( $an,$re ) = @_;
  opendir my $dir,$an or die " $!\n";
   for my $bn(readdir($dir)){
-   next if $bn eq '.' or $bn eq '..';
-    my $cd = "$an/$bn";
-   push @{$re->{'ARR'}},$cd if -f $cd;
-  Dirs_2( $cd,$re ) if -d $cd and not -l $cd;
+   next if $bn =~ /^\.{1,2}$/;
+    ( -d "$an/$bn" and not -l "$an/$bn" ) ?
+    Dirs_2( "$an/$bn",$re ) : push @{$re->{'ARR'}},"$an/$bn";
   }
  closedir $dir;
 }
