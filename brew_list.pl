@@ -63,7 +63,7 @@ $SPA ? $re->{'SEA_1'} = $SPA : $AR[1] ?
  $re->{'SEA_1'} = lc $AR[1] : Died_1() if $re->{'COM'} or $AR[1] and $name->{'LIST'};
 $name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
  $re->{'SEA_1'} : "\Q$re->{'SEA_1'}";
-### print"l $name->{SEA_2} : s $re->{S_OPT} : r $re->{SEA_1}\n";
+
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
 }elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
