@@ -45,21 +45,25 @@ $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
 
  my @AR = @ARGV; my $SPA;
+  my $reg = '[\+\*\?\(\)\[\|]';
+ die "Quantifier follows nothing in regex\n" if $AR[1] and $AR[1] =~ m#^/$reg#;
 if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
- for(my $i= 1;$i<@AR;$i++){ $SPA .= lc $AR[$i];
- }
+ die "Quantifier follows nothing in regex\n" if $AR[2] and $AR[2] =~ /^$reg/;
+  for(my $i= 1;$i<@AR;$i++){
+   $SPA .= lc $AR[$i];
+  }
 }
 
-$SPA ? $re->{'SEA_1'} = $SPA : $ARGV[1] ?
- $re->{'SEA_1'} = lc $ARGV[1] : Died_1() if $re->{'SEARCH'};
+$SPA ? $re->{'SEA_1'} = $SPA : $AR[1] ?
+ $re->{'SEA_1'} = lc $AR[1] : Died_1() if $re->{'SEARCH'};
 $re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
- $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
+ $re->{'SEA_1'} : "\Q$re->{'SEA_1'}";
 
-$SPA ? $re->{'SEA_1'} = $SPA : $ARGV[1] ?
- $re->{'SEA_1'} = lc $ARGV[1] : Died_1() if $re->{'COM'} or $ARGV[1] and $name->{'LIST'};
+$SPA ? $re->{'SEA_1'} = $SPA : $AR[1] ?
+ $re->{'SEA_1'} = lc $AR[1] : Died_1() if $re->{'COM'} or $AR[1] and $name->{'LIST'};
 $name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
- $re->{'SEA_1'} : "\Q$re->{'SEA_1'}\E";
-
+ $re->{'SEA_1'} : "\Q$re->{'SEA_1'}";
+### print"l $name->{SEA_2} : s $re->{S_OPT} : r $re->{SEA_1}\n";
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
 }elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
@@ -131,16 +135,16 @@ sub File_1{
 my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
  open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
   while(my $brew = <$BREW>){
-   if( $brew =~ s|\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
+   if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
     $tap = "$brew\t"; next;
-   }elsif( not $test and $brew =~ s|\s+<td>(.+)</td>\n|$1| ){
+   }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
     $tap .= "$brew\t";
     $test = 1; next;
-   }elsif( $test and $brew =~ s|\s+<td>(.+)</td>|$1| ){
+   }elsif( $test and $brew =~ s[\s+<td>(.+)</td>][$1] ){
     $tap .= $brew;
     $test = 0;
    }
-   $tap =~ s|(.+)\t(.+)\t(.+)\n|$1\t$3\t$2\n| if $tap and $re->{'CAS'};
+   $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
     push @{$file},$tap if $tap;
      $tap = '';
   }
@@ -264,7 +268,7 @@ my( $re,$mem,$ls ) = @_;
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 97;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
@@ -285,19 +289,18 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
        $tap = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}| ){
+     if( $re->{'S_OPT'} and $brew_1 =~ m|.*/?$re->{'S_OPT'}| ){
        my $opt = $brew_1;
       if( $opt =~ s|^homebrew/.*/(.*)|$1| ){
        my $cou = () = $opt =~ /-/g;
         for(my $n=0;$n<=$cou;$n++){
          my( $reg ) = $opt =~ /(?:[^-]*-){$n}([^-]*)/;
-          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/;
+          Mine_1( $brew_1,$re,0 ) if $reg =~ /^$re->{'S_OPT'}$/;
         }
       }else{ Mine_1( $brew_1,$re,0 );
       }
      }
-       $re->{'MEM'} = "    $brew_1\t";
-        Memo_1( $re,$mem,0 ) if $re->{'LIST'}; ### ALL push
+      $re->{'MEM'} = "    $brew_1\t";
     }
 
    unless( $re->{'SEARCH'} ){
@@ -305,7 +308,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 ); ### push comment for Folder
          Search_1( $list,$file,$in,$i,++$nst,0,$re,'',0,0 );
-          last;
+          $loop = 1;
+           last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
        $re->{'MEM'} = " Check folder $re->{'CEL'} => $brew_1\n";
         Memo_1( $re,$mem,0 ); ### push comment for Folder
@@ -323,7 +327,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
          $re->{'MEM'} = "$tap\tNot Formula\n";
           Memo_1( $re,$mem,0 ); ### push comment
            Search_1( $list,$file,++$in,$i,++$nst,0,$re,'',0,0 );
-            last;
+            $loop = 1;
+             last;
        }else{
          if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$list->[$in - $cou - 1]} or
              $re->{'CAS'} and $brew_2 gt $list->[$in - $cou] ){
@@ -334,14 +339,13 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
         $tap .= "$brew_2\t"; $in++;
        }
     }else{
-      $re->{'MEM'} = "$brew_2\t";
-       Memo_1( $re,$mem,0 ) if $re->{'LIST'}; ### ALL push
+     $re->{'MEM'} .= "$brew_2\t";
     }
     if( $pop ){
      $tap .= $brew_3;
       $pop = 0;
     }else{
-      $re->{'MEM'} = "$brew_3";
+      $re->{'MEM'} .= "$brew_3";
        Memo_1( $re,$mem,0 ) if $re->{'LIST'}; ### ALL push
     }
      if( $mem ){ $re->{'EXC'} .= $tap;
@@ -350,7 +354,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$tap,$mem,$cou ) = @_;
       $tap = ''; $re->{'AN'}++; $mem = 0; $cou = 0;
    }
   }
- if( $list->[$in] ){
+ if( $list->[$in] and not $loop ){
   Tap_1( $list,$re,$mem,\$in ) while($list->[$in]);
  }
 }
@@ -393,7 +397,7 @@ my( $list,$re,$mem,$in ) = @_; my $cou = 0;
 
 sub Command_1{
 my( $list,$re,$in,$com ) = @_;
- $re->{'SEA_1'} = "\Q$re->{'SEA_1'}\E";
+ $re->{'SEA_1'} = "\Q$re->{'SEA_1'}";
  for(;$list->[$in];$in++){
   $list->[$in] =~ s/^\s(.*)\n/$1/;
   if( $list->[$in] =~ /^$re->{'SEA_1'}$/){
@@ -409,10 +413,10 @@ my( $list,$re,$in,$com ) = @_;
     } 
 
    Dirs_2( "$re->{'CEL'}/$name/$num",$re );
-    $name = "\Q$name\E";
+    $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
    for $ls1(@{$re->{'ARR'}}){
-    next if $ls1 =~ m|/Cellar/$name/$num/[^/]+$| or $ls1 =~ m|/$name/$num/s?bin/|;
+    next if $ls1 =~ m[/Cellar/$name/$num/[^/]+$] or $ls1 =~ m|/$name/$num/s?bin/|;
         $ls2 = $ls1;
     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|){
            print"$ls1\n"; $re->{'IN'} = 1;
@@ -440,7 +444,7 @@ sub Dirs_2{
 my( $an,$re ) = @_;
  opendir my $dir,$an or die " $!\n";
   for my $bn(readdir($dir)){
-   next if $bn =~ /^\.{1,2}$/;
+   next if $bn eq '.' or $bn eq '..';
     ( -d "$an/$bn" and not -l "$an/$bn" ) ?
     Dirs_2( "$an/$bn",$re ) : push @{$re->{'ARR'}},"$an/$bn";
   }
