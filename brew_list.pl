@@ -265,7 +265,7 @@ my( $re,$mem,$ls ) = @_;
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$tap,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 97;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
@@ -277,21 +277,21 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$tap,$loop ) = @_;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
       if( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ ){
         if( $re->{'CAS'} or $re->{'HASH'}{$brew_1} ){
-            Mine_1( $brew_1,$re,1 );
+          Mine_1( $brew_1,$re,1 );
         }else{
-            Mine_1( $brew_1,$re,0 );
+          Mine_1( $brew_1,$re,0 );
         }
       }
-       $tap = "    $brew_1\t";
+       $re->{'TAP'} = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}| ){
+     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)\Q$re->{'S_OPT'}\E| ){
        my $opt = $brew_1;
       if( $opt =~ s|^homebrew/.*/(.*)|$1| ){
        my $cou = () = $opt =~ /-/g;
         for(my $n=0;$n<=$cou;$n++){
          my( $reg ) = $opt =~ /(?:[^-]*-){$n}([^-]*)/;
-          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/;
+          Mine_1( $brew_1,$re,0 ) if $reg =~ /^$re->{'S_OPT'}$/;
         }
       }else{ Mine_1( $brew_1,$re,0 );
       }
@@ -319,14 +319,14 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$tap,$loop ) = @_;
       }
         $list->[$in - $cou - 1] =~ s/^\s(.*)\n/$1/;
        if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} ){
-        $tap =~ s/^\s{4}$brew_1\t/ X  $brew_1/;
-         $re->{'MEM'} = "$tap\tNot Formula\n";
+        $re->{'TAP'} =~ s/^\s{4}$brew_1\t/ X  $brew_1/;
+         $re->{'MEM'} = "$re->{'TAP'}\tNot Formula\n";
           Memo_1( $re,$mem,0 );
            Search_1( $list,$file,++$in,$i,++$nst,0,$re,0,0 );
             $loop = 1;
              last;
        }else{
-        $re->{'MEM'} = $tap;
+        $re->{'MEM'} = $re->{'TAP'};
          if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$list->[$in - $cou - 1]} or
              $re->{'CAS'} and $brew_2 gt $list->[$in - $cou] ){
           $re->{'MEM'} =~ s/^\s{3}/(i)/;
@@ -342,8 +342,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$tap,$loop ) = @_;
      $re->{'MEM'} .= $brew_3;
       Memo_1( $re,$mem,0 );
     }else{
-      $re->{'MEM'} .= "$brew_3";
-       Memo_1( $re,$mem,0 ) if $re->{'LIST'}; ### ALL push
+     $re->{'MEM'} .= "$brew_3";
+      Memo_1( $re,$mem,0 ) if $re->{'LIST'};
     }
      $re->{'AN'}++; $mem = 0; $cou = 0; $pop = 0;
    }
