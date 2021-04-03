@@ -376,7 +376,7 @@ sub Tap_1{
 my( $list,$re,$in ) = @_; my $cou = 0;
  $list->[$$in] =~ s/^\s(.*)\n/$1/;
  my $mem = 1 if $re->{'SEA_2'} and $list->[$$in] =~ /$re->{'SEA_2'}/;
-  if( $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'CAS'} or
+  if( $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'DMG'}{$list->[$$in]} or
       $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'HASH'}{$list->[$$in]}){
         Mine_1( $list->[$$in++],$re,1 ); ### search existis Formula
 
