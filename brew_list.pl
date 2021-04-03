@@ -49,7 +49,7 @@ $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
  die "Quantifier follows nothing in regex\n" if $AR[1] and $AR[1] =~ m#^/$reg#;
 if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
  die "Quantifier follows nothing in regex\n" if $AR[2] and $AR[2] =~ /^$reg/;
-  for(my $i= 1;$i<@AR;$i++){
+  for(my $i=1;$i<@AR;$i++){
    $SPA .= lc $AR[$i];
   }
 }
@@ -174,7 +174,7 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
       push @{$file},@{$din};
    }
  }
- Dirs_1( $re->{'BIN'},4,$re ) if $re->{'FOR'};
+ DB_1( $re );
   $re->{'COM'} ? Command_1( $list,$re,0 ) :
    Search_1( $list,$file,0,0,0,0,$re,0,0 );
 }
@@ -195,6 +195,30 @@ my( $dir,$ls,$file ) = @_;
 $file;
 }
 
+sub DB_1{
+my $re = shift;
+ if( $re->{'FOR'} ){
+  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
+   for my $com(readdir($dir)){
+    my $hand = readlink("$re->{'BIN'}/$com");
+     next if not $hand or $hand and $hand !~ /Cellar/;
+    my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
+     $re->{'HASH'}{$an} = $bn;
+   }
+  closedir $dir;
+ }else{
+ my $dirs = Dirs_1( '/usr/local/Caskroom',1 );
+  for(my $in=0;$in<@{$dirs};$in++){
+  my( $name ) = ${$dirs}[$in] =~ /^\s(.+)\n/;
+   if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
+    my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
+     ${$meta}[0] =~ s/\s(.+)\n/$1/;
+    $re->{'DMG'}{$name} = ${$meta}[0];
+   }
+  }
+ }
+}
+
 sub Dirs_1{
 my( $url,$ls,$re,$bn ) = @_;
  my $an = [];
@@ -203,13 +227,7 @@ opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
   next if $hand_1 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/$hand_1\n"
     if -f "$url/$hand_1" and not $ls;
-     if( $ls == 4){
-      my $hand = readlink("$re->{'BIN'}/$hand_1");
-       my( $an,$bn ) = $hand =~ m|/Cellar/([^/]+)/([^_]*)|;
-       $re->{'HASH'}{$an} = $bn;
-      next; 
-     }elsif( $ls != 3 ){ next unless -d "$url/$hand_1";
-     }
+     if( $ls != 3 ){ next unless -d "$url/$hand_1"; }
    $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
     push @{$an}," $hand_1\t" : push @{$an},$hand_1;
  }
@@ -269,14 +287,14 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 97;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-    $mem = 1 if $re->{'SEA_2'} and $brew_1 =~ /$re->{'SEA_2'}/;
+    $mem = 1 if $re->{'SEA_2'} and $brew_1 =~ /$re->{'SEA_2'}/o;
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
-      if( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/ ){
-        if( $re->{'CAS'} or $re->{'HASH'}{$brew_1} ){
+      if( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o ){
+        if(  $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ){
           Mine_1( $brew_1,$re,1 );
         }else{
           Mine_1( $brew_1,$re,0 );
@@ -285,13 +303,13 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
        $re->{'TAP'} = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}| ){
+     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
        my $opt = $brew_1;
       if( $opt =~ s|^homebrew/.*/(.*)|$1| ){
        my $cou = () = $opt =~ /-/g;
         for(my $n=0;$n<=$cou;$n++){
          my( $reg ) = $opt =~ /(?:[^-]*-){$n}([^-]*)/;
-          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/;
+          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/o;
         }
       }else{ Mine_1( $brew_1,$re,0 );
       }
@@ -318,7 +336,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
           }
       }
         $list->[$in - $cou - 1] =~ s/^\s(.*)\n/$1/;
-       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} ){
+       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
+            $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
         $re->{'TAP'} =~ s/^\s{4}$brew_1\t/ X  $brew_1/;
          $re->{'MEM'} = "$re->{'TAP'}\tNot Formula\n";
           Memo_1( $re,$mem,0 );
@@ -328,7 +347,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
        }else{
         $re->{'MEM'} = $re->{'TAP'};
          if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$list->[$in - $cou - 1]} or
-             $re->{'CAS'} and $brew_2 gt $list->[$in - $cou] ){
+             $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$list->[$in - $cou -1]} ){
           $re->{'MEM'} =~ s/^\s{3}/(i)/;
          }else{
           $re->{'MEM'} =~ s/^\s{3}/ i /;
@@ -374,13 +393,14 @@ my( $list,$re,$in ) = @_; my $cou = 0;
           last if not $list->[$$in + 1] or $list->[$$in + 1] =~ /^\s/;
          }
     }
-    if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$$in - $cou - 1]} ){
+    if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$$in - $cou - 1]} or
+        $re->{'CAS'} and not $re->{'DMG'}{$list->[$$in - $cou - 1]} ){
           $re->{'MEM'} = " X  $tap\tNot Formula\n";
             Memo_1( $re,$mem,0 );
     }elsif( $re->{'FOR'} ){
         $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$$in - $cou - 1]}\n";
            Memo_1( $re,$mem,0 );
-    }else{ $re->{'MEM'} = " i  $tap\t$list->[$$in - $cou]";
+    }else{ $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$list->[$$in - $cou - 1]}\n";
            Memo_1( $re,$mem,0 );
     }
      $re->{'AN'}++; $re->{'IN'}++;
@@ -394,7 +414,7 @@ sub Command_1{
 my( $list,$re,$in,$com ) = @_;
  for(;$list->[$in];$in++){
   $list->[$in] =~ s/^\s(.*)\n/$1/;
-  if( $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/){
+  if( $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/o ){
    my $name = $list->[$in];
     my $num = $list->[$in + 1]; chomp $num;
     if( -d "$re->{'CEL'}/$name/$num/bin"){
