@@ -174,7 +174,7 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
       push @{$file},@{$din};
    }
  }
- Dirs_1( $re->{'BIN'},4,$re ) if $re->{'FOR'}; ### check existe
+ Dirs_1( $re->{'BIN'},4,$re ) if $re->{'FOR'};
   $re->{'COM'} ? Command_1( $list,$re,0 ) :
    Search_1( $list,$file,0,0,0,0,$re,0,0 );
 }
@@ -365,7 +365,7 @@ my( $list,$re,$in ) = @_; my $cou = 0;
    my $tap = $list->[$$in++];
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
      $re->{'MEM'} = " Check folder $re->{'CEL'} => $list->[$$in - 1]\n";
-      Memo_1( $re,$mem,0 ); ### push comment for Folder
+      Memo_1( $re,$mem,0 );
        my $dir = Dirs_1( "$re->{'CEL'}/$list->[$$in - 1]",2 );
         if( $mem ){ $re->{'EXC'} .= $_ for(@{$dir});
         }elsif( not $re->{'SEA_2'} ){ $re->{'ALL'} .= $_ for(@{$dir});
@@ -379,7 +379,7 @@ my( $list,$re,$in ) = @_; my $cou = 0;
             Memo_1( $re,$mem,0 );
     }elsif( $re->{'FOR'} ){
         $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$$in - $cou - 1]}\n";
-           Memo_1( $re,$mem,0 ); ### push comment
+           Memo_1( $re,$mem,0 );
     }else{ $re->{'MEM'} = " i  $tap\t$list->[$$in - $cou]";
            Memo_1( $re,$mem,0 );
     }
