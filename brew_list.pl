@@ -285,13 +285,13 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
        $re->{'TAP'} = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)\Q$re->{'S_OPT'}\E| ){
+     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}| ){
        my $opt = $brew_1;
       if( $opt =~ s|^homebrew/.*/(.*)|$1| ){
        my $cou = () = $opt =~ /-/g;
         for(my $n=0;$n<=$cou;$n++){
          my( $reg ) = $opt =~ /(?:[^-]*-){$n}([^-]*)/;
-          Mine_1( $brew_1,$re,0 ) if $reg =~ /^$re->{'S_OPT'}$/;
+          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/;
         }
       }else{ Mine_1( $brew_1,$re,0 );
       }
