@@ -113,7 +113,9 @@ sub Darwin_1{
   }else{
     $list = Dirs_1( $re->{'CEL'},1 );
   }
- File_1( $list,$re );
+ DB_1( $re );
+  $re->{'COM'} ? Command_1( $list,$re ) :
+   File_1( $list,$re );
 }
 
 sub Linux_1{
@@ -128,7 +130,9 @@ sub Linux_1{
   }else{
     $list = Dirs_1( $re->{'CEL'},1 );
   }
- File_1( $list,$re );
+ DB_1( $re );
+  $re->{'COM'} ? Command_1( $list,$re ) :
+   File_1( $list,$re );
 }
 
 sub File_1{
@@ -174,9 +178,7 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
       push @{$file},@{$din};
    }
  }
- DB_1( $re );
-  $re->{'COM'} ? Command_1( $list,$re,0 ) :
-   Search_1( $list,$file,0,0,0,0,$re,0,0 );
+ Search_1( $list,$file,0,0,0,0,$re,0,0 );
 }
 
 sub File_2{
@@ -202,16 +204,16 @@ my $re = shift;
    for my $com(readdir($dir)){
     my $hand = readlink("$re->{'BIN'}/$com");
      next if not $hand or $hand and $hand !~ /Cellar/;
-    my( $an,$bn ) = $hand =~ m|/Cellar/(.*)/([^_]*)|;
-     $re->{'HASH'}{$an} = $bn;
+    my( $an,$bn ) = $hand =~ m|/Cellar/(.+)/(.+)|;
+   $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir;
  }else{
  my $dirs = Dirs_1( '/usr/local/Caskroom',1 );
   for(my $in=0;$in<@{$dirs};$in++){
-  my( $name ) = ${$dirs}[$in] =~ /^\s(.+)\n/;
+   my( $name ) = ${$dirs}[$in] =~ /^\s(.+)\n/;
    if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
-    my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
+     my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
      ${$meta}[0] =~ s/\s(.+)\n/$1/;
     $re->{'DMG'}{$name} = ${$meta}[0];
    }
@@ -229,7 +231,7 @@ opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
     if -f "$url/$hand_1" and not $ls;
      if( $ls != 3 ){ next unless -d "$url/$hand_1"; }
    $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
-    push @{$an}," $hand_1\t" : push @{$an},$hand_1;
+  push @{$an}," $hand_1\t" : push @{$an},$hand_1;
  }
 closedir $dir_1;
  @{$an} = sort{$a cmp $b}@{$an};
@@ -243,12 +245,12 @@ for( my $in=0;$in<@{$an};$in++ ){
    next if $hand_2 =~ /^\./;
     $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
      if -f "$url/${$an}[$in]/$hand_2";
-   next unless -d "$url/${$an}[$in]/$hand_2";
-  push @{$bn},"$hand_2\n";
+    next unless -d "$url/${$an}[$in]/$hand_2";
+   push @{$bn},"$hand_2\n";
   }
  closedir $dir_2;
  }
-$bn;
+ $bn;
 }
 
 sub Mine_1{
@@ -256,9 +258,9 @@ my( $name,$re,$ls ) = @_;
  $name = $name.' ✅' if $ls;
   $re->{'HA'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
- if( $name =~ m|^homebrew/cask-fonts| ){
+ if( $name =~ m|^homebrew/cask-fonts/| ){
   $re->{'LEN2'} = $re->{'HA'}{$name} if $re->{'LEN2'} < $re->{'HA'}{$name};
- }elsif( $name =~ m|^homebrew/cask-drivers| ){
+ }elsif( $name =~ m|^homebrew/cask-drivers/| ){
   $re->{'LEN3'} = $re->{'HA'}{$name} if $re->{'LEN3'} < $re->{'HA'}{$name};
  }else{
   $re->{'LEN'} = $re->{'HA'}{$name} if $re->{'LEN'} < $re->{'HA'}{$name};
@@ -303,12 +305,12 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
        $re->{'TAP'} = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
+     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
        my $opt = $brew_1;
-      if( $opt =~ s|^homebrew/.*/(.*)|$1| ){
+      if( $opt =~ s|^homebrew/.+/(.+)|$1| ){
        my $cou = () = $opt =~ /-/g;
         for(my $n=0;$n<=$cou;$n++){
-         my( $reg ) = $opt =~ /(?:[^-]*-){$n}([^-]*)/;
+         my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
           Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/o;
         }
       }else{ Mine_1( $brew_1,$re,0 );
@@ -411,13 +413,13 @@ my( $list,$re,$in ) = @_; my $cou = 0;
 }
 
 sub Command_1{
-my( $list,$re,$in,$com ) = @_;
- for(;$list->[$in];$in++){
-  $list->[$in] =~ s/^\s(.*)\n/$1/;
-  if( $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/o ){
+my( $list,$re,$com ) = @_;
+ for(my $in=0;$list->[$in];$in++){
+  if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/o ){
    my $name = $list->[$in];
-    my $num = $list->[$in + 1]; chomp $num;
-    if( -d "$re->{'CEL'}/$name/$num/bin"){
+    my $num = $re->{'HASH'}{$name};
+    exit unless $num;
+    if( -d "$re->{'CEL'}/$name/$num/bin" ){
      $com = Dirs_1( "$re->{'CEL'}/$name/$num/bin",3 );
       print"$re->{'CEL'}/$name/$num/bin/$_\n" for(@{$com});
     }
@@ -426,30 +428,30 @@ my( $list,$re,$in,$com ) = @_;
       print"$re->{'CEL'}/$name/$num/sbin/$_\n" for(@{$com});
     } 
 
-   Dirs_2( "$re->{'CEL'}/$name/$num",$re );
-    $name = "\Q$name";
+    Dirs_2( "$re->{'CEL'}/$name/$num",$re );
+     $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
-   for $ls1(@{$re->{'ARR'}}){
-    next if $ls1 =~ m[/Cellar/$name/$num/[^/]+$] or $ls1 =~ m|/$name/$num/s?bin/|;
+    for $ls1(@{$re->{'ARR'}}){
+     next if $ls1 =~ m|/Cellar/$name/$num/[^/]+$| or $ls1 =~ m|/Cellar/$name/$num/s?bin/|;
         $ls2 = $ls1;
-    if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|){
+     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|){
            print"$ls1\n"; $re->{'IN'} = 1;
-    }else{
+     }else{
       $ls1 =~ s|($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|;
        $HA{$ls1}++ if $ls1=~s|(.+)/.+|$1|;
       $ls2 =~ s|$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|;
        $OP{$ls1} = $ls2;
+     }
     }
-   }
-   for my $key(sort keys %HA){
-    if( $HA{$key} == 1 ){
-     $OP{$key} =~ /^$re->{'CEL'}/ ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
-    }else{
-     ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/$name/$num/lib$| ) ?
+    for my $key(sort keys %HA){
+     if( $HA{$key} == 1 ){
+      $OP{$key} =~ /^$re->{'CEL'}/ ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
+     }else{
+      ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/$name/$num/lib$| ) ?
       print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
+     }
     }
-   }
-  exit;
+   exit;
   }
  }
 }
@@ -482,11 +484,11 @@ my( $re,$ls,$sl ) = @_;
    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
    print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
     for my $arr( @{$re->{'ARR'}} ){
-     if( $arr =~ m|^homebrew/cask-fonts| and not $ls ){
+     if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
       print"\n brew tap : homebrew/cask-fonts\n\n";
        $leng = $re->{'LEN2'};
         $size = int $tput/($leng+2);  $ls = 1;
-     }elsif( $arr =~ m|^homebrew/cask-drivers| and not $sl ){
+     }elsif( $arr =~ m|^homebrew/cask-drivers/| and not $sl ){
       print"\n brew tap :  homebrew/cask-drivers\n\n";
        $leng = $re->{'LEN3'};
         $size = int $tput/($leng+2);  $sl = 1;
@@ -501,7 +503,7 @@ my( $re,$ls,$sl ) = @_;
    $re->{'CAS'} = 0;
   }
 print "\n" if @{$re->{'ARR'}};
-print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'};
+print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ($re->{'ALL'} or $re->{'EXC'});
 Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
