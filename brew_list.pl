@@ -432,22 +432,22 @@ my( $list,$re,$com ) = @_;
      $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|/Cellar/$name/$num/[^/]+$| or $ls1 =~ m|/Cellar/$name/$num/s?bin/|;
+     next if $ls1 =~ m|/Cellar/$name/$num/[^/]+$|o or $ls1 =~ m|/Cellar/$name/$num/s?bin/|o;
         $ls2 = $ls1;
-     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|){
+     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|o){
            print"$ls1\n"; $re->{'IN'} = 1;
      }else{
-      $ls1 =~ s|($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|;
+      $ls1 =~ s|^($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
        $HA{$ls1}++ if $ls1=~s|(.+)/.+|$1|;
-      $ls2 =~ s|$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|;
+      $ls2 =~ s|^$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|o;
        $OP{$ls1} = $ls2;
      }
     }
     for my $key(sort keys %HA){
      if( $HA{$key} == 1 ){
-      $OP{$key} =~ /^$re->{'CEL'}/ ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
+      $OP{$key} =~ /^$re->{'CEL'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
      }else{
-      ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/$name/$num/lib$| ) ?
+      ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/$name/$num/lib$|o ) ?
       print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
      }
     }
