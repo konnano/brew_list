@@ -56,12 +56,12 @@ if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
 
 $SPA ? $re->{'SEA_1'} = $SPA : $AR[1] ?
  $re->{'SEA_1'} = lc $AR[1] : Died_1() if $re->{'SEARCH'};
-$re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
+$re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.+)/$|$1| ) ?
  $re->{'SEA_1'} : "\Q$re->{'SEA_1'}";
 
 $SPA ? $re->{'SEA_1'} = $SPA : $AR[1] ?
  $re->{'SEA_1'} = lc $AR[1] : Died_1() if $re->{'COM'} or $AR[1] and $name->{'LIST'};
-$name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.*)/$|$1| ) ?
+$name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.+)/$|$1| ) ?
  $re->{'SEA_1'} : "\Q$re->{'SEA_1'}";
 
 if( $re->{'LIN'} ){
@@ -203,8 +203,8 @@ my $re = shift;
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for my $com(readdir($dir)){
     my $hand = readlink("$re->{'BIN'}/$com");
-     next if not $hand or $hand and $hand !~ /Cellar/;
-    my( $an,$bn ) = $hand =~ m|/Cellar/(.+)/(.+)|;
+     next if not $hand or $hand and $hand !~ m|^\.\./Cellar/|;
+    my( $an,$bn ) = $hand =~ m|^\.\./Cellar/(.+)/(.+)|;
    $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir;
@@ -418,27 +418,26 @@ my( $list,$re,$com ) = @_;
   if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/o ){
    my $name = $list->[$in];
     my $num = $re->{'HASH'}{$name};
-    exit unless $num;
-    if( -d "$re->{'CEL'}/$name/$num/bin" ){
-     $com = Dirs_1( "$re->{'CEL'}/$name/$num/bin",3 );
-      print"$re->{'CEL'}/$name/$num/bin/$_\n" for(@{$com});
+     exit unless $num;
+    for my $dir('bin','sbin'){
+     if( -d "$re->{'CEL'}/$name/$num/$dir" ){
+      $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",3 );
+       print"$re->{'CEL'}/$name/$num/$dir/$_\n" for(@{$com});
+     }
     }
-    if( -d "$re->{'CEL'}/$name/$num/sbin" ){
-     $com = Dirs_1( "$re->{'CEL'}/$name/$num/sbin",3 );
-      print"$re->{'CEL'}/$name/$num/sbin/$_\n" for(@{$com});
-    } 
 
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
      $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|/Cellar/$name/$num/[^/]+$|o or $ls1 =~ m|/Cellar/$name/$num/s?bin/|o;
-        $ls2 = $ls1;
+     next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or
+             $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
      if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|o){
-           print"$ls1\n"; $re->{'IN'} = 1;
+            print"$ls1\n"; $re->{'IN'} = 1;
      }else{
+            $ls2 = $ls1;
       $ls1 =~ s|^($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
-       $HA{$ls1}++ if $ls1=~s|(.+)/.+|$1|;
+       $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
       $ls2 =~ s|^$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|o;
        $OP{$ls1} = $ls2;
      }
@@ -504,7 +503,7 @@ my( $re,$ls,$sl ) = @_;
   }
 print "\n" if @{$re->{'ARR'}};
 print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ($re->{'ALL'} or $re->{'EXC'});
-Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
+ Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
 sub Nohup_1{
