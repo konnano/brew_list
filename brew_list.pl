@@ -203,7 +203,7 @@ my $re = shift;
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for my $com(readdir($dir)){
     my $hand = readlink("$re->{'BIN'}/$com");
-     next if not $hand or $hand and $hand !~ m|^\.\./Cellar/|;
+     next if not $hand or $hand !~ m|^\.\./Cellar/|;
     my( $an,$bn ) = $hand =~ m|^\.\./Cellar/(.+)/(.+)|;
    $re->{'HASH'}{$an} = $bn;
    }
