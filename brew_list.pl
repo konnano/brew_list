@@ -424,7 +424,7 @@ my( $list,$re,$com ) = @_;
        print"$re->{'CEL'}/$name/$num$dir/$_\n" for(@{$com});
      }
     }
-    Dirs_2( "$re->{'CEL'}/$name/$num",$re );### print"$_\n" for(@{$re->{'ARR'}});
+    Dirs_2( "$re->{'CEL'}/$name/$num",$re );
      $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
