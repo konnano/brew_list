@@ -7,16 +7,15 @@ my $re  = {
  'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-    'CEL'=>'/usr/local/Cellar','HASH'=>{},
-     'BIN'=>'/usr/local/opt','SEA_1'=>''};
+    'CEL'=>'/usr/local/Cellar','SEA_1'=>'',
+     'BIN'=>'/usr/local/opt'};
 
 my $ref = {
  'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
     'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
-     'CEL'=>'/usr/local/Caskroom',
-      'LEN2'=>1,'LEN3'=>1};
+     'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1};
 
 $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
