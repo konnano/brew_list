@@ -418,10 +418,10 @@ my( $list,$re,$com ) = @_;
    my $name = $list->[$in];
     my $num = $re->{'HASH'}{$name};
      exit unless $num;
-    for my $dir('/bin','/sbin'){
-     if( -d "$re->{'CEL'}/$name/$num$dir" ){
-      $com = Dirs_1( "$re->{'CEL'}/$name/$num$dir",3 );
-       print"$re->{'CEL'}/$name/$num$dir/$_\n" for(@{$com});
+    for my $dir('bin','sbin'){
+     if( -d "$re->{'CEL'}/$name/$num/$dir" ){
+      $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",3 );
+       print"$re->{'CEL'}/$name/$num/$dir/$_\n" for(@{$com});
      }
     }
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
