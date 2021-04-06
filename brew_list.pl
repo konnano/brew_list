@@ -431,9 +431,8 @@ my( $list,$re,$com ) = @_;
      next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or
              $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
      if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+dylib$|o){
-            print"$ls1\n"; $re->{'IN'} = 1;
-     }else{
-            $ls2 = $ls1;
+             print"$ls1\n"; $re->{'IN'} = 1;
+     }else{ $ls2 = $ls1;
       $ls1 =~ s|^($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
         $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
       $ls2 =~ s|^$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|o;
