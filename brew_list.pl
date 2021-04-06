@@ -71,7 +71,6 @@ if( $re->{'LIN'} ){
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
    Darwin_1( $ref );
-   waitpid($pid,0);
   }else{
    Darwin_1( $re );
   }
@@ -419,27 +418,26 @@ my( $list,$re,$com ) = @_;
    my $name = $list->[$in];
     my $num = $re->{'HASH'}{$name};
      exit unless $num;
-    for my $dir('bin','sbin'){
-     if( -d "$re->{'CEL'}/$name/$num/$dir" ){
-      $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",3 );
-       print"$re->{'CEL'}/$name/$num/$dir/$_\n" for(@{$com});
+    for my $dir('/bin','/sbin'){
+     if( -d "$re->{'CEL'}/$name/$num$dir" ){
+      $com = Dirs_1( "$re->{'CEL'}/$name/$num$dir",3 );
+       print"$re->{'CEL'}/$name/$num$dir/$_\n" for(@{$com});
      }
     }
-
-    Dirs_2( "$re->{'CEL'}/$name/$num",$re );
+    Dirs_2( "$re->{'CEL'}/$name/$num",$re );### print"$_\n" for(@{$re->{'ARR'}});
      $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
      next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or
              $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
-     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+[^a\d]$|o){
+     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+dylib$|o){
             print"$ls1\n"; $re->{'IN'} = 1;
      }else{
             $ls2 = $ls1;
       $ls1 =~ s|^($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
-       $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
+        $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
       $ls2 =~ s|^$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|o;
-       $OP{$ls1} = $ls2;
+        $OP{$ls1} = $ls2;
      }
     }
     for my $key(sort keys %HA){
