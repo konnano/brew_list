@@ -32,9 +32,9 @@ exit unless -d $re->{'CEL'};
    echo ' # Not exisit => '$FindBin::Bin/font.sh")
     unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh";
 
- my @AR = @ARGV;
+ my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
-   my $name;
+
 if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
 }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
