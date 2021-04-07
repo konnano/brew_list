@@ -28,13 +28,13 @@ $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
 
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  system("cp $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh 2>/dev/null ||\
-   echo ' # Not exisit => '$FindBin::Bin/font.sh")
-    unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh";
+  unless( -f "$ENV{'HOME'}/.BREW_LIST/font.sh" ){
+   die " # Not exisit => '$FindBin::Bin/font.sh\n"
+   if system("cp $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh 2>/dev/null");
+  }
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
-
 if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
 }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
