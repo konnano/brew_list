@@ -23,6 +23,9 @@ $^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
  }
+$ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+$ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
   system("cp $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh 2>/dev/null ||\
@@ -30,21 +33,16 @@ exit unless -d $re->{'CEL'};
     unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh";
  Died_1() unless $ARGV[0];
 
- my $name;
-if( $ARGV[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
-}elsif( $ARGV[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $ARGV[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
-}elsif( $ARGV[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $ARGV[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
+ my @AR = @ARGV; my $name;
+if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
+}elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
+}elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
+}elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{  Died_1();
 }
-
-$ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-$ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-
- my @AR = @ARGV; my $SPA;
-  my $reg = '[\+\*\?\(\)\[\|]';
+  my $reg = '[\+\*\?\(\)\[\|]'; my $SPA;
  die "Quantifier follows nothing in regex\n" if $AR[1] and $AR[1] =~ m#^/$reg#;
 if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
  die "Quantifier follows nothing in regex\n" if $AR[2] and $AR[2] =~ /^$reg/;
