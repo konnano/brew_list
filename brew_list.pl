@@ -7,7 +7,7 @@ my $re  = {
  'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-    'CEL'=>'/usr/local/Cellar','SEA_1'=>'',
+    'CEL'=>'/usr/local/Cellar','STDI'=>'',
      'BIN'=>'/usr/local/opt'};
 
 my $ref = {
@@ -53,15 +53,15 @@ if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
   }
 }
 
-$SPA ? $re->{'SEA_1'} = $SPA : $AR[1] ?
- $re->{'SEA_1'} = lc $AR[1] : Died_1() if $re->{'SEARCH'};
-$re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'SEA_1'} =~ s|^/(.+)/$|$1| ) ?
- $re->{'SEA_1'} : "\Q$re->{'SEA_1'}";
+$SPA ? $re->{'STDI'} = $SPA : $AR[1] ?
+ $re->{'STDI'} = lc $AR[1] : Died_1() if $re->{'SEARCH'};
+$re->{'S_OPT'} = $ref->{'S_OPT'} = ( $re->{'STDI'} =~ s|^/(.+)/$|$1| ) ?
+ $re->{'STDI'} : "\Q$re->{'STDI'}";
 
-$SPA ? $re->{'SEA_1'} = $SPA : $AR[1] ?
- $re->{'SEA_1'} = lc $AR[1] : Died_1() if $re->{'COM'} or $AR[1] and $name->{'LIST'};
-$name->{'SEA_2'} = ( $re->{'SEA_1'} =~ s|^/(.+)/$|$1| ) ?
- $re->{'SEA_1'} : "\Q$re->{'SEA_1'}";
+$SPA ? $re->{'STDI'} = $SPA : $AR[1] ?
+ $re->{'STDI'} = lc $AR[1] : Died_1() if $re->{'COM'} or $AR[1] and $name->{'LIST'};
+$name->{'SEA'} = ( $re->{'STDI'} =~ s|^/(.+)/$|$1| ) ?
+ $re->{'STDI'} : "\Q$re->{'STDI'}";
 
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
@@ -270,14 +270,14 @@ my( $re,$mem,$ls ) = @_;
  if( $ls ){
   my $file = Dirs_1( "$re->{'CEL'}/$ls",3 );
    if( @{$file} ){
-    $re->{'ALL'} .= " file exists folder $re->{'CEL'} => $ls\n" unless $re->{'SEA_2'};
+    $re->{'ALL'} .= " file exists folder $re->{'CEL'} => $ls\n" unless $re->{'SEA'};
      $re->{'EXC'} .= " file exists folder $re->{'CEL'} => $ls\n" if $mem;
    }else{
-    $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $ls\n" unless $re->{'SEA_2'};
+    $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $ls\n" unless $re->{'SEA'};
      $re->{'EXC'} .= " Empty folder $re->{'CEL'} => $ls\n" if $mem;
    }
  }else{
-   $re->{'ALL'} .= $re->{'MEM'} unless $re->{'SEA_2'};
+   $re->{'ALL'} .= $re->{'MEM'} unless $re->{'SEA'};
     $re->{'EXC'} .= $re->{'MEM'} if $mem;
  }
 }
@@ -287,7 +287,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 97;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-    $mem = 1 if $re->{'SEA_2'} and $brew_1 =~ /$re->{'SEA_2'}/o;
+    $mem = 1 if $re->{'SEA'} and $brew_1 =~ /$re->{'SEA'}/o;
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
@@ -329,7 +329,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
         Memo_1( $re,$mem,0 );
          my $dir = Dirs_1( "$re->{'CEL'}/$brew_1",2 );
          if( $mem ){ $re->{'EXC'} .= $_ for(@{$dir});
-         }elsif( not $re->{'SEA_2'} ){ $re->{'ALL'} .= $_ for(@{$dir});
+         }elsif( not $re->{'SEA'} ){ $re->{'ALL'} .= $_ for(@{$dir});
          }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
@@ -375,7 +375,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
 sub Tap_1{
 my( $list,$re,$in ) = @_; my $cou = 0;
  $list->[$$in] =~ s/^\s(.*)\n/$1/;
- my $mem = 1 if $re->{'SEA_2'} and $list->[$$in] =~ /$re->{'SEA_2'}/;
+ my $mem = 1 if $re->{'SEA'} and $list->[$$in] =~ /$re->{'SEA'}/;
   if( $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'DMG'}{$list->[$$in]} or
       $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'HASH'}{$list->[$$in]}){
         Mine_1( $list->[$$in++],$re,1 ); ### search existis Formula
@@ -387,7 +387,7 @@ my( $list,$re,$in ) = @_; my $cou = 0;
       Memo_1( $re,$mem,0 );
        my $dir = Dirs_1( "$re->{'CEL'}/$list->[$$in - 1]",2 );
         if( $mem ){ $re->{'EXC'} .= $_ for(@{$dir});
-        }elsif( not $re->{'SEA_2'} ){ $re->{'ALL'} .= $_ for(@{$dir});
+        }elsif( not $re->{'SEA'} ){ $re->{'ALL'} .= $_ for(@{$dir});
         }
          while(1){ $$in++; $cou++;
           last if not $list->[$$in + 1] or $list->[$$in + 1] =~ /^\s/;
@@ -413,7 +413,7 @@ my( $list,$re,$in ) = @_; my $cou = 0;
 sub Command_1{
 my( $list,$re,$com ) = @_;
  for(my $in=0;$list->[$in];$in++){
-  if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'SEA_1'}\E$/o ){
+  if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
     my $num = $re->{'HASH'}{$name};
      exit unless $num;
@@ -427,7 +427,8 @@ my( $list,$re,$com ) = @_;
      $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
+     next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or
+             $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
      if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+dylib$|o){
              print"$ls1\n"; $re->{'IN'} = 1;
      }else{ $ls2 = $ls1;
@@ -466,7 +467,7 @@ my( $re,$ls,$sl ) = @_;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
    system(" printf '\033[?7l' ") if $re->{'MAC'};
     system('setterm -linewrap off') if $re->{'LIN'};
-     $re->{'SEA_2'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
+     $re->{'SEA'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
    system(" printf '\033[?7h' ") if $re->{'MAC'};
     system('setterm -linewrap on') if $re->{'LIN'};
