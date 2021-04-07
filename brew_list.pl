@@ -427,8 +427,7 @@ my( $list,$re,$com ) = @_;
      $name = "\Q$name";
      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or
-             $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
+     next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
      if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+dylib$|o){
              print"$ls1\n"; $re->{'IN'} = 1;
      }else{ $ls2 = $ls1;
@@ -467,7 +466,7 @@ my( $re,$ls,$sl ) = @_;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
    system(" printf '\033[?7l' ") if $re->{'MAC'};
     system('setterm -linewrap off') if $re->{'LIN'};
-     $re->{'SEA_2'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}";
+     $re->{'SEA_2'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
    system(" printf '\033[?7h' ") if $re->{'MAC'};
     system('setterm -linewrap on') if $re->{'LIN'};
