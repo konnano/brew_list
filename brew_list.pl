@@ -29,7 +29,7 @@ $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
   unless( -f "$ENV{'HOME'}/.BREW_LIST/font.sh" ){
-   die " # Not exisit => '$FindBin::Bin/font.sh\n"
+   die " cp: $FindBin::Bin/font.sh : No such file\n"
    if system("cp $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh 2>/dev/null");
   }
 
