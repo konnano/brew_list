@@ -132,6 +132,30 @@ sub Linux_1{
    File_1( $list,$re );
 }
 
+sub DB_1{
+my $re = shift;
+ if( $re->{'FOR'} ){
+  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
+   for my $com(readdir($dir)){
+    my $hand = readlink("$re->{'BIN'}/$com");
+     next if not $hand or $hand !~ m|^\.\./Cellar/|;
+    my( $an,$bn ) = $hand =~ m|^\.\./Cellar/(.+)/(.+)|;
+   $re->{'HASH'}{$an} = $bn;
+   }
+  closedir $dir;
+ }else{
+ my $dirs = Dirs_1( '/usr/local/Caskroom',1 );
+  for(my $in=0;$in<@{$dirs};$in++){
+   my( $name ) = ${$dirs}[$in] =~ /^\s(.+)\n/;
+   if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
+    my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
+     ${$meta}[0] =~ s/\s(.+)\n/$1/;
+    $re->{'DMG'}{$name} = ${$meta}[0];
+   }
+  }
+ }
+}
+
 sub File_1{
 my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
  open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
@@ -192,30 +216,6 @@ my( $dir,$ls,$file ) = @_;
   }
  close $BREW;
 $file;
-}
-
-sub DB_1{
-my $re = shift;
- if( $re->{'FOR'} ){
-  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
-   for my $com(readdir($dir)){
-    my $hand = readlink("$re->{'BIN'}/$com");
-     next if not $hand or $hand !~ m|^\.\./Cellar/|;
-    my( $an,$bn ) = $hand =~ m|^\.\./Cellar/(.+)/(.+)|;
-   $re->{'HASH'}{$an} = $bn;
-   }
-  closedir $dir;
- }else{
- my $dirs = Dirs_1( '/usr/local/Caskroom',1 );
-  for(my $in=0;$in<@{$dirs};$in++){
-   my( $name ) = ${$dirs}[$in] =~ /^\s(.+)\n/;
-   if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
-     my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
-     ${$meta}[0] =~ s/\s(.+)\n/$1/;
-    $re->{'DMG'}{$name} = ${$meta}[0];
-   }
-  }
- }
 }
 
 sub Dirs_1{
@@ -423,17 +423,16 @@ my( $list,$re,$com ) = @_;
      }
     }
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
-     $name = "\Q$name";
-     my( %HA,%OP,$ls1,$ls2 );
+     $re->{'CEL'} = "$re->{'CEL'}/\Q$name\E/$num";
+      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|^$re->{'CEL'}/$name/$num/[^/]+$|o or
-             $ls1 =~ m|^$re->{'CEL'}/$name/$num/s?bin/|o;
-     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/$name/$num/lib/[^/]+dylib$|o){
+     next if $ls1 =~ m|^$re->{'CEL'}/[^/]+$|o or $ls1 =~ m|^$re->{'CEL'}/s?bin/|o;
+     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
              print"$ls1\n"; $re->{'IN'} = 1;
      }else{ $ls2 = $ls1;
-      $ls1 =~ s|^($re->{'CEL'}/$name/$num/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
+      $ls1 =~ s|^($re->{'CEL'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
         $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
-      $ls2 =~ s|^$re->{'CEL'}/$name/$num/[^/]+/[^/]+/(.+)|$1|o;
+      $ls2 =~ s|^$re->{'CEL'}/[^/]+/[^/]+/(.+)|$1|o;
         $OP{$ls1} = $ls2;
      }
     }
@@ -441,7 +440,7 @@ my( $list,$re,$com ) = @_;
      if( $HA{$key} == 1 ){
       $OP{$key} =~ /^$re->{'CEL'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
      }else{
-      ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/$name/$num/lib$|o ) ?
+      ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/lib$|o ) ?
       print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
      }
     }
