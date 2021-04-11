@@ -471,7 +471,7 @@ my( $re,$ls,$sl,$ze ) = @_;
      my $size = int $tput/($leng+2);
       my $in = 1;
    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
-   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0] !~ /^homebrew/;
+   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0] !~ |^homebrew/|;
     for my $arr( @{$re->{'ARR'}} ){
      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
       print"\n" if $ze;
