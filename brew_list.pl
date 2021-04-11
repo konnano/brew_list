@@ -471,16 +471,18 @@ my( $re,$ls,$sl,$ze ) = @_;
      my $size = int $tput/($leng+2);
       my $in = 1;
    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
-   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
+   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0] !~ /^homebrew/;
     for my $arr( @{$re->{'ARR'}} ){
      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
-      print"\n ==> brew tap : homebrew/cask-fonts\n";
-       $leng = $re->{'LEN2'};
-        $size = int $tput/($leng+2);  $in = $ls = 1;
+      print"\n" if $ze;
+       print" ==> brew tap : homebrew/cask-fonts\n";
+        $leng = $re->{'LEN2'};
+         $size = int $tput/($leng+2);  $in = $ls = 1;
      }elsif( $arr =~ m|^homebrew/cask-drivers/| and not $sl ){
-      print"\n ==> brew tap : homebrew/cask-drivers\n";
-       $leng = $re->{'LEN3'};
-        $size = int $tput/($leng+2);  $in = $sl = 1;
+       print"\n" if $ze;
+        print" ==> brew tap : homebrew/cask-drivers\n";
+         $leng = $re->{'LEN3'};
+          $size = int $tput/($leng+2);  $in = $sl = 1;
      }
       for(my $i=$re->{'HA'}{$arr};$i<$leng+2;$i++){
        $arr .= ' ';
