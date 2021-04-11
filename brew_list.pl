@@ -4,14 +4,14 @@ use warnings;
 use FindBin;
 
 my $re  = {
- 'LEN'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
+ 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
     'CEL'=>'/usr/local/Cellar','STDI'=>'',
      'BIN'=>'/usr/local/opt'};
 
 my $ref = {
- 'LEN'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
+ 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
     'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
@@ -174,26 +174,26 @@ my( $list,$re,$test,$tap,$file ) = @_;
      $tap = '';
   }
  close $BREW;
- 
+
  @{$file} = sort{$a cmp $b}@{$file} if $re->{'FOR'};
 
  if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
     push @{$file},@{ File_2( $re->{'FON'},0) };
-     push @{$file},@{ File_2( $re->{'DRI'},0) };
-      @{$file} = sort{$a cmp $b}@{$file};
+      push @{$file},@{ File_2( $re->{'DRI'},0) };
+       @{$file} = sort{$a cmp $b}@{$file};
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} ){
     push @{$file},@{ File_2( $re->{'FON'},0) };
-     @{$file} = sort{$a cmp $b}@{$file};
-      push @{$file},@{ File_2( $re->{'DRI'},2) };
+      @{$file} = sort{$a cmp $b}@{$file};
+       push @{$file},@{ File_2( $re->{'DRI'},2) };
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} ){
     push @{$file},@{ File_2( $re->{'DRI'},0) };
-     @{$file} = sort{$a cmp $b}@{$file};
-      push @{$file},@{ File_2( $re->{'FON'},1) };
+      @{$file} = sort{$a cmp $b}@{$file};
+       push @{$file},@{ File_2( $re->{'FON'},1) };
    }else{
     @{$file} = sort{$a cmp $b}@{$file};
-     push @{$file},@{ File_2( $re->{'FON'},1) };
-      push @{$file},@{ File_2( $re->{'DRI'},2) };
+      push @{$file},@{ File_2( $re->{'FON'},1) };
+       push @{$file},@{ File_2( $re->{'DRI'},2) };
    }
  }
  Search_1( $list,$file,0,0,0,0,$re,0,0 );
@@ -249,7 +249,7 @@ for( my $in=0;$in<@{$an};$in++ ){
 
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
- $name = $name.' ✅' if $ls;
+ $name = $name.' (I)' if $ls;
   $re->{'HA'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
  if( $name =~ m|^homebrew/cask-fonts/| ){
@@ -257,7 +257,7 @@ my( $name,$re,$ls ) = @_;
  }elsif( $name =~ m|^homebrew/cask-drivers/| ){
   $re->{'LEN3'} = $re->{'HA'}{$name} if $re->{'LEN3'} < $re->{'HA'}{$name};
  }else{
-  $re->{'LEN'} = $re->{'HA'}{$name} if $re->{'LEN'} < $re->{'HA'}{$name};
+  $re->{'LEN1'} = $re->{'HA'}{$name} if $re->{'LEN1'} < $re->{'HA'}{$name};
  }
 }
 
@@ -286,7 +286,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
     $mem = 1 if $re->{'SEA'} and $brew_1 =~ /$re->{'SEA'}/o;
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
-     Tap_1( $list,$re,\$in );
+     Tap_1( $list,$re,\$in,0 );
       $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
       if( $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o ){
@@ -364,12 +364,12 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
    }
   }
  if( $list->[$in] and not $loop ){
-  Tap_1( $list,$re,\$in ) while($list->[$in]);
+  Tap_1( $list,$re,\$in,0 ) while($list->[$in]);
  }
 }
 
 sub Tap_1{
-my( $list,$re,$in ) = @_; my $cou = 0;
+my( $list,$re,$in,$cou ) = @_;
  $list->[$$in] =~ s/^\s(.*)\n/$1/;
  my $mem = 1 if $re->{'SEA'} and $list->[$$in] =~ /$re->{'SEA'}/;
   if( $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'DMG'}{$list->[$$in]} or
@@ -407,7 +407,7 @@ my( $list,$re,$in ) = @_; my $cou = 0;
 }
 
 sub Command_1{
-my( $list,$re,$com ) = @_;
+my( $list,$re,$ls1,$ls2,%HA,%OP ) = @_;
  for(my $in=0;$list->[$in];$in++){
   if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
@@ -415,13 +415,12 @@ my( $list,$re,$com ) = @_;
      exit unless $num;
     for my $dir('bin','sbin'){
      if( -d "$re->{'CEL'}/$name/$num/$dir" ){
-      $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",3 );
+      my $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",3 );
        print"$re->{'CEL'}/$name/$num/$dir/$_\n" for(@{$com});
      }
     }
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
      $re->{'CEL'} = "$re->{'CEL'}/\Q$name\E/$num";
-      my( %HA,%OP,$ls1,$ls2 );
     for $ls1(@{$re->{'ARR'}}){
      next if $ls1 =~ m|^$re->{'CEL'}/[^/]+$|o or $ls1 =~ m|^$re->{'CEL'}/s?bin/|o;
      if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
@@ -458,7 +457,7 @@ my( $an,$re ) = @_;
 }
 
 sub Format_1{
-my( $re,$ls,$sl ) = @_;
+my( $re,$ls,$sl,$ze ) = @_;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
    system(" printf '\033[?7l' ") if $re->{'MAC'};
     system('setterm -linewrap off') if $re->{'LIN'};
@@ -467,7 +466,7 @@ my( $re,$ls,$sl ) = @_;
    system(" printf '\033[?7h' ") if $re->{'MAC'};
     system('setterm -linewrap on') if $re->{'LIN'};
   }else{
-   my $leng = $re->{'LEN'};
+   my $leng = $re->{'LEN1'};
     my $tput = `tput cols`;
      my $size = int $tput/($leng+2);
       my $in = 1;
@@ -475,11 +474,11 @@ my( $re,$ls,$sl ) = @_;
    print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}};
     for my $arr( @{$re->{'ARR'}} ){
      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
-      print"\n brew tap : homebrew/cask-fonts\n\n";
+      print"\n ==> brew tap : homebrew/cask-fonts\n";
        $leng = $re->{'LEN2'};
         $size = int $tput/($leng+2);  $in = $ls = 1;
      }elsif( $arr =~ m|^homebrew/cask-drivers/| and not $sl ){
-      print"\n brew tap :  homebrew/cask-drivers\n\n";
+      print"\n ==> brew tap : homebrew/cask-drivers\n";
        $leng = $re->{'LEN3'};
         $size = int $tput/($leng+2);  $in = $sl = 1;
      }
@@ -487,12 +486,12 @@ my( $re,$ls,$sl ) = @_;
        $arr .= ' ';
       }
      print"$arr";
-     print"\n" unless $in % $size;
+     print"\n" unless $ze = $in % $size;
      $in++;
     }
+    print"\n" if $ze;
    $re->{'CAS'} = 0;
   }
-print "\n" if @{$re->{'ARR'}};
 print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ($re->{'ALL'} or $re->{'EXC'});
  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
