@@ -157,7 +157,7 @@ my $re = shift;
 }
 
 sub File_1{
-my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
+my( $list,$re,$test,$tap,$file ) = @_;
  open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
   while(my $brew = <$BREW>){
    if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
@@ -178,25 +178,22 @@ my( $list,$re,$test,$tap,$file,$fin,$din ) = @_;
  @{$file} = sort{$a cmp $b}@{$file} if $re->{'FOR'};
 
  if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
-  $fin = $re->{'FDIR'} ? File_2( $re->{'FON'},0 ) : File_2( $re->{'FON'},1 );
-  $din = $re->{'DDIR'} ? File_2( $re->{'DRI'},0 ) : File_2( $re->{'DRI'},2 );
-
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
-    push @{$file},@{$fin};
-     push @{$file},@{$din};
+    push @{$file},@{ File_2( $re->{'FON'},0) };
+     push @{$file},@{ File_2( $re->{'DRI'},0) };
       @{$file} = sort{$a cmp $b}@{$file};
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} ){
-    push @{$file},@{$fin};
+    push @{$file},@{ File_2( $re->{'FON'},0) };
      @{$file} = sort{$a cmp $b}@{$file};
-      push @{$file},@{$din};
+      push @{$file},@{ File_2( $re->{'DRI'},2) };
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} ){
-    push @{$file},@{$din};
+    push @{$file},@{ File_2( $re->{'DRI'},0) };
      @{$file} = sort{$a cmp $b}@{$file};
-      push @{$file},@{$fin};
+      push @{$file},@{ File_2( $re->{'FON'},1) };
    }else{
     @{$file} = sort{$a cmp $b}@{$file};
-     push @{$file},@{$fin};
-      push @{$file},@{$din};
+     push @{$file},@{ File_2( $re->{'FON'},1) };
+      push @{$file},@{ File_2( $re->{'DRI'},2) };
    }
  }
  Search_1( $list,$file,0,0,0,0,$re,0,0 );
@@ -363,7 +360,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
      $re->{'MEM'} .= "$brew_3";
       Memo_1( $re,$mem,0 ) if $re->{'LIST'};
     }
-     $re->{'AN'}++; $mem = 0; $cou = 0; $pop = 0;
+     $re->{'AN'}++; $mem = $cou = $pop = 0;
    }
   }
  if( $list->[$in] and not $loop ){
@@ -480,11 +477,11 @@ my( $re,$ls,$sl ) = @_;
      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
       print"\n brew tap : homebrew/cask-fonts\n\n";
        $leng = $re->{'LEN2'};
-        $size = int $tput/($leng+2);  $ls = 1;
+        $size = int $tput/($leng+2);  $in = $ls = 1;
      }elsif( $arr =~ m|^homebrew/cask-drivers/| and not $sl ){
       print"\n brew tap :  homebrew/cask-drivers\n\n";
        $leng = $re->{'LEN3'};
-        $size = int $tput/($leng+2);  $sl = 1;
+        $size = int $tput/($leng+2);  $in = $sl = 1;
      }
       for(my $i=$re->{'HA'}{$arr};$i<$leng+2;$i++){
        $arr .= ' ';
