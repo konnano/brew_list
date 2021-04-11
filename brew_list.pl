@@ -505,7 +505,7 @@ sub Nohup_1{
    ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
   if( not -f $re->{'FON'} or  $year > $time->[5] or
      $mon > $time->[4] or $day > $time->[3] ){
-      system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
+    system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
   }
 }
 __END__
