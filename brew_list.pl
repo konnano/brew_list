@@ -174,6 +174,7 @@ my( $list,$re,$test,$tap,$file ) = @_;
      $tap = '';
   }
  close $BREW;
+ 
  @{$file} = sort{$a cmp $b}@{$file} if $re->{'FOR'};
 
  if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
