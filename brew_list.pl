@@ -145,8 +145,8 @@ my $re = shift;
   closedir $dir;
  }else{
  my $dirs = Dirs_1( '/usr/local/Caskroom',1 );
-  for(my $in=0;$in<@{$dirs};$in++){
-   my( $name ) = ${$dirs}[$in] =~ /^\s(.+)\n/;
+  for(my $in=0;$in<@$dirs;$in++){
+   my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
    if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
     my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
      ${$meta}[0] =~ s/\s(.+)\n/$1/;
