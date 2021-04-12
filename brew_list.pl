@@ -374,7 +374,7 @@ my( $list,$re,$in,$cou ) = @_;
  my $mem = 1 if $re->{'SEA'} and $list->[$$in] =~ /$re->{'SEA'}/;
   if( $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'DMG'}{$list->[$$in]} or
       $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'HASH'}{$list->[$$in]}){
-        Mine_1( $list->[$$in++],$re,1 ); ### search existis Formula
+        Mine_1( $list->[$$in++],$re,1 );
 
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
    my $tap = $list->[$$in++];
