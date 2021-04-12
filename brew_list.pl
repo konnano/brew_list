@@ -470,7 +470,7 @@ my( $re,$ls,$sl,$ze ) = @_;
     my $tput = `tput cols`;
      my $size = int $tput/($leng+2);
       my $in = 1;
-  print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0] !~ m|^homebrew/|;
+  print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0]!~m|^homebrew/|;
    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
     for my $arr( @{$re->{'ARR'}} ){
      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
