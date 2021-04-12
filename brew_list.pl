@@ -170,30 +170,30 @@ my( $list,$re,$test,$tap,$file ) = @_;
     $test = 0;
    }
    $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
-    push @{$file},$tap if $tap;
+    push @$file,$tap if $tap;
      $tap = '';
   }
  close $BREW;
 
- @{$file} = sort{$a cmp $b}@{$file} if $re->{'FOR'};
+ @$file = sort{$a cmp $b}@$file if $re->{'FOR'};
 
  if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
-    push @{$file},@{ File_2( $re->{'FON'},0) };
-      push @{$file},@{ File_2( $re->{'DRI'},0) };
-       @{$file} = sort{$a cmp $b}@{$file};
+    push @$file,@{ File_2( $re->{'FON'},0) };
+      push @$file,@{ File_2( $re->{'DRI'},0) };
+       @$file = sort{$a cmp $b}@$file;
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} ){
-    push @{$file},@{ File_2( $re->{'FON'},0) };
-      @{$file} = sort{$a cmp $b}@{$file};
-       push @{$file},@{ File_2( $re->{'DRI'},2) };
+    push @$file,@{ File_2( $re->{'FON'},0) };
+      @$file = sort{$a cmp $b}@$file;
+       push @$file,@{ File_2( $re->{'DRI'},2) };
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} ){
-    push @{$file},@{ File_2( $re->{'DRI'},0) };
-      @{$file} = sort{$a cmp $b}@{$file};
-       push @{$file},@{ File_2( $re->{'FON'},1) };
+    push @$file,@{ File_2( $re->{'DRI'},0) };
+      @$file = sort{$a cmp $b}@$file;
+       push @$file,@{ File_2( $re->{'FON'},1) };
    }else{
-    @{$file} = sort{$a cmp $b}@{$file};
-      push @{$file},@{ File_2( $re->{'FON'},1) };
-       push @{$file},@{ File_2( $re->{'DRI'},2) };
+    @$file = sort{$a cmp $b}@$file;
+      push @$file,@{ File_2( $re->{'FON'},1) };
+       push @$file,@{ File_2( $re->{'DRI'},2) };
    }
  }
  Search_1( $list,$file,0,0,0,0,$re,0,0 );
@@ -204,11 +204,11 @@ my( $dir,$ls,$file ) = @_;
  open my $BREW,'<',$dir or die " File_2 $!\n";
   while(my $brew = <$BREW>){ chomp $brew;
    if( $ls == 1 ){
-    push @{$file},"homebrew/cask-fonts/$brew";
+    push @$file,"homebrew/cask-fonts/$brew";
    }elsif( $ls == 2 ){
-    push @{$file},"homebrew/cask-drivers/$brew";
+    push @$file,"homebrew/cask-drivers/$brew";
    }else{
-    push @{$file},$brew;
+    push @$file,$brew;
    }
   }
  close $BREW;
@@ -224,23 +224,23 @@ opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
    $re->{'FILE'} .= " File exists $url/$hand_1\n"
     if -f "$url/$hand_1" and not $ls;
      if( $ls != 3 ){ next unless -d "$url/$hand_1"; }
-   $ls == 1 ? push @{$an}," $hand_1\n" : $ls == 2 ?
-  push @{$an}," $hand_1\t" : push @{$an},$hand_1;
+   $ls == 1 ? push @$an," $hand_1\n" : $ls == 2 ?
+  push @$an," $hand_1\t" : push @$an,$hand_1;
  }
 closedir $dir_1;
- @{$an} = sort{$a cmp $b}@{$an};
-  push @{$an},"\n" if $ls == 2;
+ @$an = sort{$a cmp $b}@$an;
+  push @$an,"\n" if $ls == 2;
    return $an if $ls;
 
-for( my $in=0;$in<@{$an};$in++ ){
- push @{$bn}," ${$an}[$in]\n";
- opendir my $dir_2,"$url/${$an}[$in]" or die " Dirs_2 $!\n";
+for( my $in=0;$in<@$an;$in++ ){
+ push @$bn," $$an[$in]\n";
+ opendir my $dir_2,"$url/$$an[$in]" or die " Dirs_2 $!\n";
   for my $hand_2(readdir($dir_2)){
    next if $hand_2 =~ /^\./;
-    $re->{'FILE'} .= " File exists $url/${$an}[$in]/$hand_2\n"
-     if -f "$url/${$an}[$in]/$hand_2";
-    next unless -d "$url/${$an}[$in]/$hand_2";
-   push @{$bn},"$hand_2\n";
+    $re->{'FILE'} .= " File exists $url/$$an[$in]/$hand_2\n"
+     if -f "$url/$$an[$in]/$hand_2";
+    next unless -d "$url/$$an[$in]/$hand_2";
+   push @$bn,"$hand_2\n";
   }
  closedir $dir_2;
  }
@@ -252,10 +252,10 @@ my( $name,$re,$ls ) = @_;
  $name = $name.' (I)' if $ls;
   $re->{'HA'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
- if( $name =~ m|^homebrew/cask-fonts/| ){
-  $re->{'LEN2'} = $re->{'HA'}{$name} if $re->{'LEN2'} < $re->{'HA'}{$name};
- }elsif( $name =~ m|^homebrew/cask-drivers/| ){
+ if( $name =~ m|^homebrew/cask-drivers/| ){
   $re->{'LEN3'} = $re->{'HA'}{$name} if $re->{'LEN3'} < $re->{'HA'}{$name};
+ }elsif( $name =~ m|^homebrew/cask-fonts/| ){
+  $re->{'LEN2'} = $re->{'HA'}{$name} if $re->{'LEN2'} < $re->{'HA'}{$name};
  }else{
   $re->{'LEN1'} = $re->{'HA'}{$name} if $re->{'LEN1'} < $re->{'HA'}{$name};
  }
@@ -265,7 +265,7 @@ sub Memo_1{
 my( $re,$mem,$ls ) = @_;
  if( $ls ){
   my $file = Dirs_1( "$re->{'CEL'}/$ls",3 );
-   if( @{$file} ){
+   if( @$file ){
     $re->{'ALL'} .= " file exists folder $re->{'CEL'} => $ls\n" unless $re->{'SEA'};
      $re->{'EXC'} .= " file exists folder $re->{'CEL'} => $ls\n" if $mem;
    }else{
@@ -324,8 +324,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
        $re->{'MEM'} = " Check folder $re->{'CEL'} => $brew_1\n";
         Memo_1( $re,$mem,0 );
          my $dir = Dirs_1( "$re->{'CEL'}/$brew_1",2 );
-         if( $mem ){ $re->{'EXC'} .= $_ for(@{$dir});
-         }elsif( not $re->{'SEA'} ){ $re->{'ALL'} .= $_ for(@{$dir});
+         if( $mem ){ $re->{'EXC'} .= $_ for(@$dir);
+         }elsif( not $re->{'SEA'} ){ $re->{'ALL'} .= $_ for(@$dir);
          }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
@@ -357,7 +357,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
      $re->{'MEM'} .= $brew_3;
       Memo_1( $re,$mem,0 );
     }else{
-     $re->{'MEM'} .= "$brew_3";
+     $re->{'MEM'} .= $brew_3;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'};
     }
      $re->{'AN'}++; $mem = $cou = $pop = 0;
@@ -382,8 +382,8 @@ my( $list,$re,$in,$cou ) = @_;
      $re->{'MEM'} = " Check folder $re->{'CEL'} => $list->[$$in - 1]\n";
       Memo_1( $re,$mem,0 );
        my $dir = Dirs_1( "$re->{'CEL'}/$list->[$$in - 1]",2 );
-        if( $mem ){ $re->{'EXC'} .= $_ for(@{$dir});
-        }elsif( not $re->{'SEA'} ){ $re->{'ALL'} .= $_ for(@{$dir});
+        if( $mem ){ $re->{'EXC'} .= $_ for(@$dir);
+        }elsif( not $re->{'SEA'} ){ $re->{'ALL'} .= $_ for(@$dir);
         }
          while(1){ $$in++; $cou++;
           last if not $list->[$$in + 1] or $list->[$$in + 1] =~ /^\s/;
@@ -470,8 +470,8 @@ my( $re,$ls,$sl,$ze ) = @_;
     my $tput = `tput cols`;
      my $size = int $tput/($leng+2);
       my $in = 1;
+  print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0] !~ m|^homebrew/|;
    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
-   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0] !~ m|^homebrew/|;
     for my $arr( @{$re->{'ARR'}} ){
      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
       print"\n" if $ze;
