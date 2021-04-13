@@ -306,7 +306,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
         for(my $n=0;$n<=$cou;$n++){
          my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
           if( $reg =~ /^\Q$re->{'S_OPT'}\E$/o ){
-           Mine_1( $brew_1,$re,0 ); last
+           Mine_1( $brew_1,$re,0 ); last;
           }
         }
       }else{ Mine_1( $brew_1,$re,0 );
