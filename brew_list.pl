@@ -150,7 +150,7 @@ my $re = shift;
    my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
    if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
     my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
-     ( $re->{'DMG'}{$name} ) = $$meta[0] =~ /\s(.+)\n/;
+     ( $re->{'DMG'}{$name} ) = $$meta[0] =~ /^\s(.+)\n/;
    }
   }
  }
@@ -160,16 +160,16 @@ sub File_1{
 my( $list,$re,$test,$tap,$file ) = @_;
  open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
   while(my $brew = <$BREW>){
-   if( $brew =~ s[\s+<td><a href[^>]+>(.+)</a></td>\n][$1] ){
+   if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
     $tap = "$brew\t"; next;
-   }elsif( not $test and $brew =~ s[\s+<td>(.+)</td>\n][$1] ){
+   }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
     $tap .= "$brew\t";
     $test = 1; next;
-   }elsif( $test and $brew =~ s[\s+<td>(.+)</td>][$1] ){
+   }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>|$1| ){
     $tap .= $brew;
     $test = 0;
    }
-   $tap =~ s/(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
+   $tap =~ s/^(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
     push @$file,$tap if $tap;
      $tap = '';
   }
@@ -503,12 +503,10 @@ print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ($re->{'ALL'} or $re-
 sub Nohup_1{
  my $re = shift;
   my $time =[localtime((stat($re->{'FON'}))[9])] if -f $re->{'FON'};
-   $time->[5] += 1900;
-    $time->[4]++;
   my( $year,$mon,$day ) = (
    ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
-  if( not -f $re->{'FON'} or  $year > $time->[5] or
-     $mon > $time->[4] or $day > $time->[3] ){
+  if( not -f $re->{'FON'} or  $year > ( $time->[5]+1900 ) or
+     $mon > ( $time->[4]+1 ) or $day > $time->[3] ){
     system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
   }
 }
