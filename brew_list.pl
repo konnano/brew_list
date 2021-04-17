@@ -28,8 +28,9 @@ $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
 
 exit unless -d $re->{'CEL'};
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  unless( -f "$ENV{'HOME'}/.BREW_LIST/font.sh" ){
-   die " cp: $FindBin::Bin/font.sh : No such file\n"
+  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or
+      -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` ){
+    die " cp: $FindBin::Bin/font.sh : No snuch file\n"
    if system("cp $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh 2>/dev/null");
   }
 
@@ -149,7 +150,7 @@ my $re = shift;
    my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
    if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
     my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
-    ( $re->{'DMG'}{$name} ) = ${$meta}[0] =~ /\s(.+)\n/;
+     ( $re->{'DMG'}{$name} ) = ${$meta}[0] =~ /\s(.+)\n/;
    }
   }
  }
@@ -295,7 +296,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
           Mine_1( $brew_1,$re,0 );
         }
       }
-       $re->{'TAP'} = "    $brew_1\t";
+       $re->{'MEM'} = "    $brew_1\t";
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
@@ -322,11 +323,13 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
           $loop = 1;
            last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-       $re->{'MEM'} = " Check folder $re->{'CEL'} => $brew_1\n";
-        Memo_1( $re,$mem,0 );
-         my $dir = Dirs_1( "$re->{'CEL'}/$brew_1",2 );
-         if( $mem ){ $re->{'EXC'} .= $_ for(@$dir);
-         }elsif( not $re->{'SEA'} ){ $re->{'ALL'} .= $_ for(@$dir);
+        my $dir = Dirs_1( "$re->{'CEL'}/$brew_1",2 );
+         if( $mem ){
+          $re->{'EXC'} .= " Check folder $re->{'CEL'} => $brew_1\n";
+           $re->{'EXC'} .= $_ for(@$dir);
+         }elsif( not $re->{'SEA'} ){
+          $re->{'ALL'} .= " Check folder $re->{'CEL'} => $brew_1\n";
+           $re->{'ALL'} .= $_ for(@$dir);
          }
           while(1){ $in++; $cou++;
            last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
@@ -335,14 +338,12 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
         $list->[$in - $cou - 1] =~ s/^\s(.*)\n/$1/;
        if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
             $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
-        $re->{'TAP'} =~ s/^\s{4}$brew_1\t/ X  $brew_1/;
-         $re->{'MEM'} = "$re->{'TAP'}\tNot Formula\n";
+        $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/;
           Memo_1( $re,$mem,0 );
            Search_1( $list,$file,++$in,$i,++$nst,0,$re,0,0 );
             $loop = 1;
              last;
        }else{
-        $re->{'MEM'} = $re->{'TAP'};
          if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$list->[$in - $cou - 1]} or
              $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$list->[$in - $cou -1]} ){
           $re->{'MEM'} =~ s/^\s{3}/(i)/;
