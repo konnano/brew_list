@@ -149,8 +149,7 @@ my $re = shift;
    my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
    if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
     my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
-     ${$meta}[0] =~ s/\s(.+)\n/$1/;
-    $re->{'DMG'}{$name} = ${$meta}[0];
+    ( $re->{'DMG'}{$name} ) = ${$meta}[0] =~ /\s(.+)\n/;
    }
   }
  }
