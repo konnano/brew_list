@@ -195,7 +195,7 @@ my( $list,$re,$test,$tap,$file ) = @_;
        push @$file,@{ File_2( $re->{'DRI'},2) };
    }
  }
- Search_1( $list,$file,0,0,0,0,$re,0,0 );
+ Search_1( $list,$file,0,0,0,0,$re,0 );
 }
 
 sub File_2{
@@ -277,7 +277,7 @@ my( $re,$mem,$dir ) = @_;
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
+my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
  die " Deep recursion on subroutine\n" if $nst > 97;
   for(;$file->[$i];$i++){
    my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
@@ -312,24 +312,23 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 );
-         Search_1( $list,$file,$in,$i,++$nst,0,$re,0,0 );
+         Search_1( $list,$file,$in,$i,++$nst,0,$re,0 );
           $loop = 1; last;
       }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 );
-       while(1){ $in++; $cou++;
+       while(1){ $in++;
         last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
        }
       }
-        $list->[$in - $cou - 1] =~ s/^\s(.*)\n/$1/;
-       if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$in - $cou - 1]} or
-           $re->{'CAS'} and not $re->{'DMG'}{$list->[$in - $cou - 1]} ){
+       if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
+           $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
         $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/;
           Memo_1( $re,$mem,0 );
-           Search_1( $list,$file,++$in,$i,++$nst,0,$re,0,0 );
+           Search_1( $list,$file,++$in,$i,++$nst,0,$re,0 );
             $loop = 1; last;
        }else{
-         if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$list->[$in - $cou - 1]} or
-             $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$list->[$in - $cou -1]} ){
+         if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
+             $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
           $re->{'MEM'} =~ s/^\s{3}/(i)/;
          }else{
           $re->{'MEM'} =~ s/^\s{3}/ i /;
@@ -346,7 +345,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
      $re->{'MEM'} .= $brew_3;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'};
     }
-    $re->{'AN'}++; $mem = $cou = $pop = 0;
+    $re->{'AN'}++; $mem = $pop = 0;
    }
   }
  if( $list->[$in] and not $loop ){
@@ -355,35 +354,34 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
 }
 
 sub Tap_1{
-my( $list,$re,$in,$cou ) = @_;
- $list->[$$in] =~ s/^\s(.*)\n/$1/;
- my $mem = 1 if $re->{'SEA'} and $list->[$$in] =~ /$re->{'SEA'}/;
-  if( $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'DMG'}{$list->[$$in]} or
-      $re->{'S_OPT'} and $list->[$$in]=~/$re->{'S_OPT'}/ and $re->{'HASH'}{$list->[$$in]}){
-        Mine_1( $list->[$$in++],$re,1 );
+my( $list,$re,$in ) = @_;
+ my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
+ my $mem = 1 if $re->{'SEA'} and $tap =~ /$re->{'SEA'}/;
+  if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
+      $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
+        Mine_1( $tap,$re,1 ); $$in++;
 
-  }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
-   my $tap = $list->[$$in++];
+  }elsif( $list->[++$$in] and $list->[$$in] !~ /^\s/ ){
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
-      Memo_1( $re,$mem,$list->[$$in - 1] );
-     while(1){ $$in++; $cou++;
+      Memo_1( $re,$mem,$tap );
+     while(1){ $$in++;
       last if not $list->[$$in + 1] or $list->[$$in + 1] =~ /^\s/;
      }
     }
-    if( $re->{'FOR'} and not $re->{'HASH'}{$list->[$$in - $cou - 1]} or
-        $re->{'CAS'} and not $re->{'DMG'}{$list->[$$in - $cou - 1]} ){
+    if( $re->{'FOR'} and not $re->{'HASH'}{$tap} or
+        $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
          $re->{'MEM'} = " X  $tap\tNot Formula\n";
           Memo_1( $re,$mem,0 );
     }elsif( $re->{'FOR'} ){
-        $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$list->[$$in - $cou - 1]}\n";
+        $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$tap}\n";
           Memo_1( $re,$mem,0 );
     }else{
-        $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$list->[$$in - $cou - 1]}\n";
+        $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$tap}\n";
           Memo_1( $re,$mem,0 );
     }
     $re->{'AN'}++; $re->{'IN'}++;
   }else{
-    Memo_1( $re,$mem,$list->[$$in] );
+    Memo_1( $re,$mem,$tap );
   }
  $$in++;
 }
