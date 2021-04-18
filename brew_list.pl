@@ -391,8 +391,7 @@ my( $list,$re,$ls1,$ls2,%HA,%OP ) = @_;
  for(my $in=0;$list->[$in];$in++){
   if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
-    my $num = $re->{'HASH'}{$name};
-     exit unless $num;
+    exit unless my $num = $re->{'HASH'}{$name};
     for my $dir('bin','sbin'){
      if( -d "$re->{'CEL'}/$name/$num/$dir" ){
       my $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",2 );
