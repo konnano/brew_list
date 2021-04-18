@@ -294,8 +294,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$cou,$loop ) = @_;
        $in++; $re->{'IN'}++; $pop = 1;
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
-       my $opt = $brew_1;
-      if( $opt =~ s|^homebrew/.+/(.+)|$1| ){
+      if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
        my $cou = () = $opt =~ /-/g;
         for(my $n=0;$n<=$cou;$n++){
          my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
