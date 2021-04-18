@@ -361,7 +361,7 @@ my( $list,$re,$in ) = @_;
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
         Mine_1( $tap,$re,1 ); $$in++;
 
-  }elsif( $list->[++$$in] and $list->[$$in] !~ /^\s/ ){
+  }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
       Memo_1( $re,$mem,$tap );
      while(1){ $$in++;
@@ -375,7 +375,7 @@ my( $list,$re,$in ) = @_;
     }elsif( $re->{'FOR'} ){
         $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$tap}\n";
           Memo_1( $re,$mem,0 );
-    }else{
+    }else{#	print" =>$tap\n";
         $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$tap}\n";
           Memo_1( $re,$mem,0 );
     }
@@ -391,7 +391,7 @@ my( $list,$re,$ls1,$ls2,%HA,%OP ) = @_;
  for(my $in=0;$list->[$in];$in++){
   if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
-    exit unless my $num = $re->{'HASH'}{$name};
+   exit unless my $num = $re->{'HASH'}{$name};
     for my $dir('bin','sbin'){
      if( -d "$re->{'CEL'}/$name/$num/$dir" ){
       my $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",2 );
