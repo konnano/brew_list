@@ -179,20 +179,20 @@ my( $list,$re,$test,$tap,$file ) = @_;
  if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
-      push @$file,@{ File_2( $re->{'DRI'},0) };
-       @$file = sort{$a cmp $b}@$file;
+     push @$file,@{ File_2( $re->{'DRI'},0) };
+      @$file = sort{$a cmp $b}@$file;
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
-      @$file = sort{$a cmp $b}@$file;
-       push @$file,@{ File_2( $re->{'DRI'},2) };
+     @$file = sort{$a cmp $b}@$file;
+      push @$file,@{ File_2( $re->{'DRI'},2) };
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} ){
     push @$file,@{ File_2( $re->{'DRI'},0) };
-      @$file = sort{$a cmp $b}@$file;
-       push @$file,@{ File_2( $re->{'FON'},1) };
+     @$file = sort{$a cmp $b}@$file;
+      push @$file,@{ File_2( $re->{'FON'},1) };
    }else{
     @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'FON'},1) };
-       push @$file,@{ File_2( $re->{'DRI'},2) };
+     push @$file,@{ File_2( $re->{'FON'},1) };
+      push @$file,@{ File_2( $re->{'DRI'},2) };
    }
  }
  Search_1( $list,$file,0,0,0,0,$re,0 );
