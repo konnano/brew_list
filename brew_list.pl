@@ -110,9 +110,8 @@ sub Darwin_1{
   }else{
     $list = Dirs_1( $re->{'CEL'},1 );
   }
- DB_1( $re );
-  $re->{'COM'} ? Command_1( $list,$re ) :
-   File_1( $list,$re );
+  DB_1( $re );
+ $re->{'COM'} ? Command_1( $list,$re ) : File_1( $list,$re );
 }
 
 sub Linux_1{
@@ -127,9 +126,8 @@ sub Linux_1{
   }else{
     $list = Dirs_1( $re->{'CEL'},1 );
   }
- DB_1( $re );
-  $re->{'COM'} ? Command_1( $list,$re ) :
-   File_1( $list,$re );
+  DB_1( $re );
+ $re->{'COM'} ? Command_1( $list,$re ) : File_1( $list,$re );
 }
 
 sub DB_1{
@@ -222,8 +220,8 @@ opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
   next if $hand_1 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/$hand_1\n"
     if -f "$url/$hand_1" and not $ls;
-     if( $ls != 2 ){ next unless -d "$url/$hand_1"; }
-   $ls == 1 ? push @$an," $hand_1\n" : push @$an,$hand_1;
+   if( $ls != 2 ){ next unless -d "$url/$hand_1"; }
+  $ls == 1 ? push @$an," $hand_1\n" : push @$an,$hand_1;
  }
 closedir $dir_1;
  @$an = sort{$a cmp $b}@$an;
@@ -236,7 +234,7 @@ for( my $in=0;$in<@$an;$in++ ){
    next if $hand_2 =~ /^\./;
   push @$bn,"$hand_2\n";
   }
- closedir $dir_2;
+  closedir $dir_2;
  }
  $bn;
 }
@@ -375,13 +373,13 @@ my( $list,$re,$in ) = @_;
     }elsif( $re->{'FOR'} ){
         $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$tap}\n";
           Memo_1( $re,$mem,0 );
-    }else{#	print" =>$tap\n";
+    }else{
         $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$tap}\n";
           Memo_1( $re,$mem,0 );
     }
     $re->{'AN'}++; $re->{'IN'}++;
   }else{
-    Memo_1( $re,$mem,$tap );
+   Memo_1( $re,$mem,$tap );
   }
  $$in++;
 }
@@ -430,7 +428,7 @@ my( $an,$re ) = @_;
   for my $bn(readdir($dir)){
    next if $bn =~ /^\.{1,2}$/;
     ( -d "$an/$bn" and not -l "$an/$bn" ) ?
-    Dirs_2( "$an/$bn",$re ) : push @{$re->{'ARR'}},"$an/$bn";
+   Dirs_2( "$an/$bn",$re ) : push @{$re->{'ARR'}},"$an/$bn";
   }
  closedir $dir;
 }
