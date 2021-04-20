@@ -336,13 +336,8 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
     }else{
      $re->{'MEM'} .= "$brew_2\t";
     }
-    if( $pop ){
-     $re->{'MEM'} .= $brew_3;
-      Memo_1( $re,$mem,0 );
-    }else{
-     $re->{'MEM'} .= $brew_3;
-      Memo_1( $re,$mem,0 ) if $re->{'LIST'};
-    }
+    $re->{'MEM'} .= $brew_3;
+     Memo_1( $re,$mem,0 ) if $pop or $re->{'LIST'};
     $re->{'AN'}++; $mem = $pop = 0;
    }
   }
