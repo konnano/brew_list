@@ -282,7 +282,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
     $mem = 1 if $re->{'SEA'} and $brew_1 =~ /$re->{'SEA'}/o;
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
-      Tap_1( $list,$re,\$in,0 );
+      Tap_1( $list,$re,\$in );
        $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
       $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ?
@@ -342,7 +342,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
    }
   }
  if( $list->[$in] and not $loop ){
-  Tap_1( $list,$re,\$in,0 ) while($list->[$in]);
+  Tap_1( $list,$re,\$in ) while($list->[$in]);
  }
 }
 
