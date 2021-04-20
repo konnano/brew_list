@@ -337,7 +337,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
      $re->{'MEM'} .= "$brew_2\t";
     }
     $re->{'MEM'} .= $brew_3;
-     Memo_1( $re,$mem,0 ) if $pop or $re->{'LIST'};
+     Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
     $re->{'AN'}++; $mem = $pop = 0;
    }
   }
