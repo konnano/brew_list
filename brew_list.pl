@@ -288,24 +288,21 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
       $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ?
         Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
          if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
-      $re->{'MEM'} = "    $brew_1\t";
        $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
-      if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
-       my $cou = () = $opt =~ /-/g;
-        for(my $n=0;$n<=$cou;$n++){
-         my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
-          if( $reg =~ /^\Q$re->{'S_OPT'}\E$/o ){
-           Mine_1( $brew_1,$re,0 ); last;
-          }
-        }
-      }else{ Mine_1( $brew_1,$re,0 );
+      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
+       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
+        my $cou = () = $opt =~ /-/g;
+         for(my $n=0;$n<=$cou;$n++){
+          my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
+           if( $reg =~ /^\Q$re->{'S_OPT'}\E$/o ){
+            Mine_1( $brew_1,$re,0 ); last;
+           } 
+         }
+       }else{  Mine_1( $brew_1,$re,0 );  }
       }
-     }
-     $re->{'MEM'} = "    $brew_1\t";
     }
-
+    $re->{'MEM'} = "    $brew_1\t";
    unless( $re->{'SEARCH'} ){
     if( $pop ){
       if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
@@ -331,19 +328,17 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
          }else{
           $re->{'MEM'} =~ s/^\s{3}/ i /;
          }
-        $re->{'MEM'} .= "$brew_2\t"; $in++;
        }
-    }else{
-     $re->{'MEM'} .= "$brew_2\t";
+     $in++;
     }
-    $re->{'MEM'} .= $brew_3;
+    $re->{'MEM'} .= "$brew_2\t$brew_3";
      Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
     $re->{'AN'}++; $mem = $pop = 0;
    }
   }
- if( $list->[$in] and not $loop ){
-  Tap_1( $list,$re,\$in ) while($list->[$in]);
- }
+   if( $list->[$in] and not $loop ){
+    Tap_1( $list,$re,\$in ) while($list->[$in]);
+   }
 }
 
 sub Tap_1{
