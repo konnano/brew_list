@@ -44,10 +44,10 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
 }else{  Died_1();
 }
-  my $SPA; my $reg = '[\+\*\?\(\)\[\|]';
- die "Quantifier follows nothing in regex\n" if $AR[1] and $AR[1] =~ m|^/$reg|;
+  my $SPA;
+ exit if $AR[1] and $AR[1] =~ m|^/[\+\*\?\(\)\[\|]|;
 if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
- die "Quantifier follows nothing in regex\n" if $AR[2] and $AR[2] =~ /^$reg/;
+ exit if $AR[2] and $AR[2] =~ /^[\+\*\?\(\)\[\|]/;
   for(my $i=1;$i<@AR;$i++){
    $SPA .= lc $AR[$i];
   }
