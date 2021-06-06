@@ -42,6 +42,7 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
+}elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1();
 }
   my $SPA;
@@ -64,7 +65,7 @@ $name->{'SEA'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STD
 
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
-}elsif( $re->{'MAC'} and $re->{'SEARCH'} ){
+}elsif( $re->{'MAC'} and ( $re->{'SEARCH'} or $re->{'BL'} ) ){
  my $pid = fork;
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
@@ -82,8 +83,8 @@ if( $re->{'LIN'} ){
 
 sub Died_1{
  die "  Option
-  -l List : -i Instaled list 
-  -s Type search name : -co search to comannd
+  -l List : -i Instaled list : - Brew List
+  -s Type search name : -co Search to Comannd
   Only mac
   -c Casks list : -ci Casks instaled list\n";
 }
@@ -193,7 +194,7 @@ my( $list,$re,$test,$tap,$file ) = @_;
       push @$file,@{ File_2( $re->{'DRI'},2) };
    }
  }
- Search_1( $list,$file,0,0,0,0,$re,0 );
+ Search_1( $list,$file,0,0,$re,0 );
 }
 
 sub File_2{
@@ -218,8 +219,7 @@ my( $url,$ls,$re,$bn ) = @_;
 opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
  for my $hand_1(readdir($dir_1)){
   next if $hand_1 =~ /^\./;
-   $re->{'FILE'} .= " File exists $url/$hand_1\n"
-    if -f "$url/$hand_1" and not $ls;
+   $re->{'FILE'} .= " File exists $url/$hand_1\n" if -f "$url/$hand_1" and not $ls;
    if( $ls != 2 ){ next unless -d "$url/$hand_1"; }
   $ls == 1 ? push @$an," $hand_1\n" : push @$an,$hand_1;
  }
@@ -257,17 +257,17 @@ sub Memo_1{
 my( $re,$mem,$dir ) = @_;
  if( $dir ){
   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
-   if( @$file ){
+  if( @$file ){
     $re->{'ALL'} .= " Check folder $re->{'CEL'} => $dir\n" unless $re->{'SEA'};
     $re->{'EXC'} .= " Check folder $re->{'CEL'} => $dir\n" if $mem;
-     for(my $i=0;$i<@$file;$i++){
-      $re->{'ALL'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" unless $re->{'SEA'};
-      $re->{'EXC'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" if $mem;
-     }
-   }else{
+   for(my $i=0;$i<@$file;$i++){
+    $re->{'ALL'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" unless $re->{'SEA'};
+    $re->{'EXC'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" if $mem;
+   }
+  }else{
     $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $dir\n" unless $re->{'SEA'};
     $re->{'EXC'} .= " Empty folder $re->{'CEL'} => $dir\n" if $mem;
-   }
+  }
  }else{
    $re->{'ALL'} .= $re->{'MEM'} unless $re->{'SEA'};
    $re->{'EXC'} .= $re->{'MEM'} if $mem;
@@ -275,70 +275,70 @@ my( $re,$mem,$dir ) = @_;
 }
 
 sub Search_1{
-my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
- die " Deep recursion on subroutine\n" if $nst > 97;
-  for(;$file->[$i];$i++){
-   my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-    $mem = 1 if $re->{'SEA'} and $brew_1 =~ /$re->{'SEA'}/o;
+my( $list,$file,$in,$pop,$re,$mem ) = @_;
+ for(my $i=0;$file->[$i];$i++){
+  my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
+   $mem = 1 if $re->{'SEA'} and $brew_1 =~ /$re->{'SEA'}/o;
 
-    if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
-      Tap_1( $list,$re,\$in );
-       $i--; next;
-    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
-      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
-       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
-        if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
-      $in++; $re->{'IN'}++; $pop = 1;
-    }else{
-      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
-       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
-        my $cou = () = $opt =~ /-/g;
-         for(my $n=0;$n<=$cou;$n++){
-          my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
-           if( $reg =~ /^\Q$re->{'S_OPT'}\E$/o ){
-            Mine_1( $brew_1,$re,0 ); last;
-           } 
-         }
-       }else{  Mine_1( $brew_1,$re,0 );  }
+   if( $re->{'BL'} and $list->[$in] ){
+    Tap_1( $list,$re,\$in );
+     last unless $list->[$in];
+   }elsif( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
+    Tap_1( $list,$re,\$in );
+     $i-- and next;
+   }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
+    ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
+     Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
+     if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
+    $in++; $re->{'IN'}++; $pop = 1;
+   }else{
+    if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
+     if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
+      my $cou = () = $opt =~ /-/g;
+      for(my $n=0;$n<=$cou;$n++){
+       my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
+        if( $reg =~ /^\Q$re->{'S_OPT'}\E$/o ){
+         Mine_1( $brew_1,$re,0 ); last;
+        } 
       }
+     }else{ Mine_1( $brew_1,$re,0 ); }
     }
+   }
     $re->{'MEM'} = "    $brew_1\t";
-   unless( $re->{'SEARCH'} ){
-    if( $pop ){
-      if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
+  unless( $re->{'SEARCH'} ){
+   if( $pop ){
+    if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 );
-         Search_1( $list,$file,$in,$i,++$nst,0,$re,0 );
-          $loop = 1; last;
-      }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+         $mem = $pop = 0; $i-- and next;
+    }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 );
-       while(1){ $in++;
-        last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
-       }
-      }
-       if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
-           $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
-        $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/;
-          Memo_1( $re,$mem,0 );
-           Search_1( $list,$file,++$in,$i,++$nst,0,$re,0 );
-            $loop = 1; last;
-       }else{
-         if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
-             $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
-          $re->{'MEM'} =~ s/^\s{3}/(i)/;
-         }else{
-          $re->{'MEM'} =~ s/^\s{3}/ i /;
-         }
-       }
-     $in++;
+     while(1){ $in++;
+      last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+     }
     }
-    $re->{'MEM'} .= "$brew_2\t$brew_3";
-     Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
-    $re->{'AN'}++; $mem = $pop = 0;
+     if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
+         $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
+       $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/;
+        Memo_1( $re,$mem,0 );
+         $mem = $pop = 0; $in++ and $i-- and next;
+     }else{
+      if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
+          $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
+        $re->{'MEM'} =~ s/^\s{3}/(i)/;
+      }else{
+        $re->{'MEM'} =~ s/^\s{3}/ i /;
+      }
+     }
+    $in++;
    }
+   $re->{'MEM'} .= "$brew_2\t$brew_3";
+    Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
+   $re->{'AN'}++; $mem = $pop = 0;
   }
-   if( $list->[$in] and not $loop ){
-    Tap_1( $list,$re,\$in ) while($list->[$in]);
-   }
+ }
+  if( $list->[$in] ){
+   Tap_1( $list,$re,\$in ) while($list->[$in]);
+  }
 }
 
 sub Tap_1{
@@ -348,7 +348,8 @@ my( $list,$re,$in ) = @_;
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
         Mine_1( $tap,$re,1 ); $$in++;
-
+  }elsif( $re->{'BL'} and ($re->{'DMG'}{$tap} or $re->{'HASH'}{$tap})){
+      Mine_1( $tap,$re,0 ); $$in++;
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
       Memo_1( $re,$mem,$tap );
