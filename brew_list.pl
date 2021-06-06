@@ -79,8 +79,6 @@ if( $re->{'LIN'} ){
   }else{
    Format_1( $re ); exit;
   }
-}elsif( $re->{'MAC'} and $re->{'BL'} ){
- Darwin_1( $re );   Darwin_1( $ref );
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
