@@ -347,7 +347,7 @@ my( $list,$re,$in ) = @_;
  my $mem = 1 if $re->{'SEA'} and $tap =~ /$re->{'SEA'}/;
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
-        Mine_1( $tap,$re,1 ); $$in++;
+      Mine_1( $tap,$re,1 ); $$in++;
   }elsif( $re->{'BL'} and ($re->{'DMG'}{$tap} or $re->{'HASH'}{$tap})){
       Mine_1( $tap,$re,0 ); $$in++;
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
