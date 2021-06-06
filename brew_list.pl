@@ -285,7 +285,7 @@ my( $list,$file,$in,$i,$nst,$pop,$re,$mem,$loop ) = @_;
       Tap_1( $list,$re,\$in );
        $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
-      $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ?
+      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
        Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
         if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
       $in++; $re->{'IN'}++; $pop = 1;
