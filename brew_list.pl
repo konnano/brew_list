@@ -65,7 +65,7 @@ $name->{'SEA'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STD
 
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
-}elsif( $re->{'MAC'} and ( $re->{'SEARCH'} or $re->{'BL'} ) ){
+}elsif( $re->{'MAC'} and ($re->{'SEARCH'} or $re->{'BL'})){
  my $pid = fork;
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
@@ -79,6 +79,8 @@ if( $re->{'LIN'} ){
   }else{
    Format_1( $re ); exit;
   }
+}elsif( $re->{'MAC'} and $re->{'BL'} ){
+ Darwin_1( $re );   Darwin_1( $ref );
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
@@ -102,17 +104,18 @@ sub Darwin_1{
       if system("curl -so $re->{'DIR'} $uca");
    }
   }
-  if( $re->{'FOR'} and not $re->{'SEARCH'} ){
-    $list = Dirs_1( $re->{'CEL'},0,$re );
-  }elsif( $re->{'CAS'} and not $re->{'SEARCH'} ){
-    $list = Dirs_1( $re->{'CEL'},0,$re );
-  }elsif( $re->{'FOR'} and $re->{'SEARCH'} ){
+  if( $re->{'SEARCH'} and ($re->{'FOR'} or $re->{'CAS'})){
     $list = Dirs_1( $re->{'CEL'},1 );
+  }elsif( $re->{'BL'} and ($re->{'FOR'} or $re->{'CAS'})){
+    $list = Dirs_1( $re->{'CEL'},1 );
+  }elsif( $re->{'FOR'} ){
+    $list = Dirs_1( $re->{'CEL'},0,$re );
   }else{
-    $list = Dirs_1( $re->{'CEL'},1 );
+    $list = Dirs_1( $re->{'CEL'},0,$re );
   }
   DB_1( $re );
- $re->{'COM'} ? Command_1( $list,$re ) : File_1( $list,$re );
+ $re->{'COM'} ? Command_1( $list,$re ) : $re->{'BL'} ?
+  Brew_1( $list,$re ) : File_1( $list,$re );
 }
 
 sub Linux_1{
@@ -122,13 +125,14 @@ sub Linux_1{
     print " \033[31mNot connected\033[37m\n"
      if system("curl -so $re->{'DIR'} $url");
   }
-  unless( $re->{'SEARCH'} ){
-    $list = Dirs_1( $re->{'CEL'},0,$re );
-  }else{
+  if( $re->{'SEARCH'} or $re->{'BL'} ){
     $list = Dirs_1( $re->{'CEL'},1 );
+  }else{
+    $list = Dirs_1( $re->{'CEL'},0,$re );
   }
   DB_1( $re );
- $re->{'COM'} ? Command_1( $list,$re ) : File_1( $list,$re );
+ $re->{'COM'} ? Command_1( $list,$re ) : $re->{'BL'} ? 
+  Brew_1( $list,$re ) : File_1( $list,$re );
 }
 
 sub DB_1{
@@ -151,6 +155,13 @@ my $re = shift;
     ($re->{'DMG'}{$name}) = $$meta[0] =~ /^\s(.+)\n/;
    }
   }
+ }
+}
+
+sub Brew_1{
+my( $list,$re ) = @_;
+ for(my $i=0;$i<@$list;$i++){  my( $tap ) = $list->[$i] =~ /^\s(.*)\n/;
+  Mine_1( $tap,$re,0 ) if $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap};
  }
 }
 
@@ -280,10 +291,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
   my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
    $mem = 1 if $re->{'SEA'} and $brew_1 =~ /$re->{'SEA'}/o;
 
-   if( $re->{'BL'} and $list->[$in] ){
-    Tap_1( $list,$re,\$in );
-     last unless $list->[$in];
-   }elsif( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
+   if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
     Tap_1( $list,$re,\$in );
      $i-- and next;
    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
@@ -347,9 +355,7 @@ my( $list,$re,$in ) = @_;
  my $mem = 1 if $re->{'SEA'} and $tap =~ /$re->{'SEA'}/;
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
-      Mine_1( $tap,$re,1 ); $$in++;
-  }elsif( $re->{'BL'} and ($re->{'DMG'}{$tap} or $re->{'HASH'}{$tap})){
-      Mine_1( $tap,$re,0 ); $$in++;
+      Mine_1( $tap,$re,1 );
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
       Memo_1( $re,$mem,$tap );
