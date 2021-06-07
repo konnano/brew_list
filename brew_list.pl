@@ -65,7 +65,7 @@ $name->{'SEA'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STD
 
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
-}elsif( $re->{'MAC'} and ($re->{'SEARCH'} or $re->{'BL'})){
+}elsif( $re->{'MAC'} and ($re->{'SEARCH'} or $re->{'BL'}) ){
  my $pid = fork;
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
