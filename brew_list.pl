@@ -102,12 +102,8 @@ sub Darwin_1{
       if system("curl -so $re->{'DIR'} $uca");
    }
   }
-  if( $re->{'SEARCH'} and ($re->{'FOR'} or $re->{'CAS'})){
+  if( $re->{'SEARCH'} or $re->{'BL'} ){
     $list = Dirs_1( $re->{'CEL'},1 );
-  }elsif( $re->{'BL'} and ($re->{'FOR'} or $re->{'CAS'})){
-    $list = Dirs_1( $re->{'CEL'},1 );
-  }elsif( $re->{'FOR'} ){
-    $list = Dirs_1( $re->{'CEL'},0,$re );
   }else{
     $list = Dirs_1( $re->{'CEL'},0,$re );
   }
