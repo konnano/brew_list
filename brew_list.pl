@@ -360,14 +360,12 @@ my( $list,$re,$in ) = @_;
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap} or
         $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
          $re->{'MEM'} = " X  $tap\tNot Formula\n";
-          Memo_1( $re,$mem,0 );
     }elsif( $re->{'FOR'} ){
         $re->{'MEM'} = " i  $tap\t$re->{'HASH'}{$tap}\n";
-          Memo_1( $re,$mem,0 );
     }else{
         $re->{'MEM'} = " i  $tap\t$re->{'DMG'}{$tap}\n";
-          Memo_1( $re,$mem,0 );
     }
+     Memo_1( $re,$mem,0 );
     $re->{'AN'}++; $re->{'IN'}++;
   }else{
    Memo_1( $re,$mem,$tap );
