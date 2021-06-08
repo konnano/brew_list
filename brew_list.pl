@@ -45,18 +45,13 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
 
-  my $SPA;
- exit if $AR[1] and $AR[1] =~ m|^/[\+\*\?\(\)\[\|]|;
-if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
- exit if $AR[2] and $AR[2] =~ /^[\+\*\?\(\)\[\|]/;
-  for(my $i=1;$i<@AR;$i++){ $SPA .= lc $AR[$i]; }
-}
+ exit if $AR[1] and $AR[1] =~ m|^/\^?[\+\*\?\(\)\[\|]|;
 
 if( $re->{'COM'} or $AR[1] and $name->{'LIST'} ){
- $SPA ? $re->{'STDI'} = $SPA : $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
+ $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
   $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}";
 }elsif( $re->{'S_OPT'} ){
- $SPA ? $ref->{'STDI'} = $SPA : $AR[1] ? $ref->{'STDI'} = lc $AR[1] : Died_1();
+ $AR[1] ? $ref->{'STDI'} = lc $AR[1] : Died_1();
   $re->{'S_OPT'} = $ref->{'S_OPT'} =
    $ref->{'STDI'} =~ s|^/(.+)/$|$1| ? $ref->{'STDI'} : "\Q$ref->{'STDI'}";
 }
