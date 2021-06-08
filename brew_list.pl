@@ -41,31 +41,29 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
 }elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-s' ){  $re->{'SEARCH'} = $ref->{'SEARCH'} = 1;
+}elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
-}else{  Died_1();
-}
+}else{  Died_1(); }
+
   my $SPA;
  exit if $AR[1] and $AR[1] =~ m|^/[\+\*\?\(\)\[\|]|;
 if( $AR[1] and $AR[1] =~ s|^(/.*)\s*|$1| and $AR[$#AR] =~ s|\s*(.*/)$|$1| ){
  exit if $AR[2] and $AR[2] =~ /^[\+\*\?\(\)\[\|]/;
-  for(my $i=1;$i<@AR;$i++){
-   $SPA .= lc $AR[$i];
-  }
+  for(my $i=1;$i<@AR;$i++){ $SPA .= lc $AR[$i]; }
 }
 
-$SPA ? $re->{'STDI'} = $SPA : $AR[1] ?
- $re->{'STDI'} = lc $AR[1] : Died_1() if $re->{'SEARCH'};
-$re->{'S_OPT'} = $ref->{'S_OPT'} =
- $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}";
-
-$SPA ? $re->{'STDI'} = $SPA : $AR[1] ?
- $re->{'STDI'} = lc $AR[1] : Died_1() if $re->{'COM'} or $AR[1] and $name->{'LIST'};
-$name->{'SEA'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}";
+if( $re->{'COM'} or $AR[1] and $name->{'LIST'} ){
+ $SPA ? $re->{'STDI'} = $SPA : $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
+  $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}";
+}elsif( $re->{'S_OPT'} ){
+ $SPA ? $ref->{'STDI'} = $SPA : $AR[1] ? $ref->{'STDI'} = lc $AR[1] : Died_1();
+  $re->{'S_OPT'} = $ref->{'S_OPT'} =
+   $ref->{'STDI'} =~ s|^/(.+)/$|$1| ? $ref->{'STDI'} : "\Q$ref->{'STDI'}";
+}
 
 if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
-}elsif( $re->{'SEARCH'} or $re->{'BL'} ){
+}elsif( $re->{'S_OPT'} or $re->{'BL'} ){
  my $pid = fork;
  die "Not fork: $!\n" unless defined $pid;
   if($pid){
@@ -102,7 +100,7 @@ sub Darwin_1{
       if system("curl -so $re->{'DIR'} $uca");
    }
   }
-  if( $re->{'SEARCH'} or $re->{'BL'} ){
+  if( $re->{'S_OPT'} or $re->{'BL'} ){
     $list = Dirs_1( $re->{'CEL'},1 );
   }else{
     $list = Dirs_1( $re->{'CEL'},0,$re );
@@ -119,7 +117,7 @@ sub Linux_1{
     print " \033[31mNot connected\033[37m\n"
      if system("curl -so $re->{'DIR'} $url");
   }
-  if( $re->{'SEARCH'} or $re->{'BL'} ){
+  if( $re->{'S_OPT'} or $re->{'BL'} ){
     $list = Dirs_1( $re->{'CEL'},1 );
   }else{
     $list = Dirs_1( $re->{'CEL'},0,$re );
@@ -180,7 +178,7 @@ my( $list,$re,$test,$tap,$file ) = @_;
 
  @$file = sort{$a cmp $b}@$file if $re->{'FOR'};
 
- if( $re->{'CAS'} and $re->{'SEARCH'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
+ if( $re->{'CAS'} and $re->{'S_OPT'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
      push @$file,@{ File_2( $re->{'DRI'},0) };
@@ -263,18 +261,18 @@ my( $re,$mem,$dir ) = @_;
  if( $dir ){
   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
   if( @$file ){
-    $re->{'ALL'} .= " Check folder $re->{'CEL'} => $dir\n" unless $re->{'SEA'};
+    $re->{'ALL'} .= " Check folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
     $re->{'EXC'} .= " Check folder $re->{'CEL'} => $dir\n" if $mem;
    for(my $i=0;$i<@$file;$i++){
-    $re->{'ALL'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" unless $re->{'SEA'};
+    $re->{'ALL'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" unless $re->{'L_OPT'};
     $re->{'EXC'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" if $mem;
    }
   }else{
-    $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $dir\n" unless $re->{'SEA'};
+    $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
     $re->{'EXC'} .= " Empty folder $re->{'CEL'} => $dir\n" if $mem;
   }
  }else{
-   $re->{'ALL'} .= $re->{'MEM'} unless $re->{'SEA'};
+   $re->{'ALL'} .= $re->{'MEM'} unless $re->{'L_OPT'};
    $re->{'EXC'} .= $re->{'MEM'} if $mem;
  }
 }
@@ -283,7 +281,7 @@ sub Search_1{
 my( $list,$file,$in,$pop,$re,$mem ) = @_;
  for(my $i=0;$file->[$i];$i++){
   my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-   $mem = 1 if $re->{'SEA'} and $brew_1 =~ /$re->{'SEA'}/o;
+   $mem = 1 if $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o;
 
    if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
     Tap_1( $list,$re,\$in );
@@ -299,7 +297,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
       my $cou = () = $opt =~ /-/g;
       for(my $n=0;$n<=$cou;$n++){
        my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
-        if( $reg =~ /^\Q$re->{'S_OPT'}\E$/o ){
+        if( $reg =~ /^\Q$re->{'STDI'}\E$/o ){
          Mine_1( $brew_1,$re,0 ); last;
         } 
       }
@@ -307,7 +305,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
     }
    }
     $re->{'MEM'} = "    $brew_1\t";
-  unless( $re->{'SEARCH'} ){
+  unless( $re->{'S_OPT'} ){
    if( $pop ){
     if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 );
@@ -346,7 +344,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
 sub Tap_1{
 my( $list,$re,$in ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
- my $mem = 1 if $re->{'SEA'} and $tap =~ /$re->{'SEA'}/;
+ my $mem = 1 if $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/;
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
       Mine_1( $tap,$re,1 );
@@ -367,7 +365,7 @@ my( $list,$re,$in ) = @_;
     }
      Memo_1( $re,$mem,0 );
     $re->{'AN'}++; $re->{'IN'}++;
-  }else{
+   }else{
    Memo_1( $re,$mem,$tap );
   }
  $$in++;
@@ -427,7 +425,7 @@ my( $re,$ls,$sl,$ze ) = @_;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
    system(" printf '\033[?7l' ") if $re->{'MAC'};
     system('setterm -linewrap off') if $re->{'LIN'};
-     $re->{'SEA'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
+     $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
    system(" printf '\033[?7h' ") if $re->{'MAC'};
     system('setterm -linewrap on') if $re->{'LIN'};
