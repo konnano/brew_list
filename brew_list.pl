@@ -245,14 +245,14 @@ for( my $in=0;$in<@$an;$in++ ){
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
  $name = $name.' (I)' if $ls;
-  $re->{'HA'}{$name} = length $name;
+  $re->{'LEN'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
  if( $name =~ m|^homebrew/cask-drivers/| ){
-  $re->{'LEN3'} = $re->{'HA'}{$name} if $re->{'LEN3'} < $re->{'HA'}{$name};
+  $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
  }elsif( $name =~ m|^homebrew/cask-fonts/| ){
-  $re->{'LEN2'} = $re->{'HA'}{$name} if $re->{'LEN2'} < $re->{'HA'}{$name};
+  $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
  }else{
-  $re->{'LEN1'} = $re->{'HA'}{$name} if $re->{'LEN1'} < $re->{'HA'}{$name};
+  $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
  }
 }
 
@@ -448,7 +448,7 @@ my( $re,$ls,$sl,$ze ) = @_;
          $leng = $re->{'LEN3'};
           $size = int $tput/($leng+2);  $in = $sl = 1;
      }
-      for(my $i=$re->{'HA'}{$arr};$i<$leng+2;$i++){
+      for(my $i=$re->{'LEN'}{$arr};$i<$leng+2;$i++){
        $arr .= ' ';
       }
      print"$arr";
