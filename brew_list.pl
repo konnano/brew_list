@@ -45,7 +45,11 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
 
- exit if $AR[1] and $AR[1] =~ m!^/[\+\*\?\(\)\[\]\|]+/|^/\^+[\+\*\?\(\)\[\]\|]+/!;
+ exit if $AR[1] and ( $AR[1] =~ m!^/\^*[\+\*\?\(\)\[\]\|\^\\]*/|/.*\\/! or
+                      $AR[1] =~ /\[[\^]*]|\([+*].*\)|\([\[]*\)/ );
+  my $cak1 = () = $AR[1] =~ /\[/g; my $cak2 = () = $AR[1] =~ /\]/g;
+  my $cak3 = () = $AR[1] =~ /\(/g; my $cak4 = () = $AR[1] =~ /\)/g;
+   exit if $cak1 != $cak2 or $cak3 != $cak4;
 
 if( $re->{'COM'} or $AR[1] and $name->{'LIST'} ){
  $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
