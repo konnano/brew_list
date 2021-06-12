@@ -45,11 +45,9 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
 
-if( $AR[1] and $AR[1] =~ m|^/.+/$| ){
- exit if $AR[1] =~ m!/\^*[+*?^]*/|/\^*[+*?]+.*/|.*\\/|\[[\\^]*]|\([+*?\\]+.*\)!;
-  my $cak1 = () = $AR[1] =~ /\[/g; my $cak2 = () = $AR[1] =~ /\]/g;
-  my $cak3 = () = $AR[1] =~ /\(/g; my $cak4 = () = $AR[1] =~ /\)/g;
-   exit if $cak1 != $cak2 or $cak3 != $cak4;
+if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
+ die" nothing in regex\n" 
+  if system("perl -e '$AR[1]=~/$reg/' 2>/dev/null") or $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
 }
 
 if( $re->{'COM'} or $AR[1] and $name->{'LIST'} ){
