@@ -52,11 +52,11 @@ if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
 
 if( $re->{'COM'} or $AR[1] and $name->{'LIST'} ){
  $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
-  $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}";
+  $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
 }elsif( $re->{'S_OPT'} ){
  $AR[1] ? $ref->{'STDI'} = lc $AR[1] : Died_1();
   $re->{'S_OPT'} = $ref->{'S_OPT'} =
-   $ref->{'STDI'} =~ s|^/(.+)/$|$1| ? $ref->{'STDI'} : "\Q$ref->{'STDI'}";
+   $ref->{'STDI'} =~ s|^/(.+)/$|$1| ? $ref->{'STDI'} : "\Q$ref->{'STDI'}\E";
 }
 
 if( $re->{'LIN'} ){
