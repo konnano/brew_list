@@ -45,9 +45,11 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
 
-if( $AR[1]=~/\\Q|\\E/i ){ die" nothing in regex\n" if $AR[1]!~/.*\\Q.+\\E.*/; }
- my( $in1,$in2,$in3 ) = $AR[1] =~ m|/(.*)\\Q(.+)\\E(.*)/|;
-  $AR[1] = "/$in1\Q$in2\E$in3/" if $in2;
+if( $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
+ die" nothing in regex\n" if $AR[1] !~ /.*\\Q.+\\E.*/;
+  $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
+}
+
 if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
  die" nothing in regex\n" 
   if system("perl -e '$AR[1]=~/$reg/' 2>/dev/null") or
