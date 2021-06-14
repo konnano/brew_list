@@ -45,9 +45,10 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
 
+if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
 $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
- $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|
-  if $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i;
+ $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
+}
 
 if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
  die" nothing in regex\n" 
