@@ -92,7 +92,7 @@ sub Died_1{
 }
 
 sub Darwin_1{
- my( $re,$time,$list ) = @_;
+ my( $re,$list ) = @_;
   if( not -f $re->{'DIR'} ){
    if( $re->{'FOR'} ){
     my $ufo = 'https://formulae.brew.sh/formula/index.html';
@@ -115,7 +115,7 @@ sub Darwin_1{
 }
 
 sub Linux_1{
- my( $re,$time,$list ) = @_;
+ my( $re,$list ) = @_;
   if( not -f $re->{'DIR'} ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
     print " \033[31mNot connected\033[37m\n"
