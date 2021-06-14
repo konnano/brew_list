@@ -45,10 +45,9 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
 
-if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
- die" nothing in regex\n" if $AR[1] !~ /.*\\Q.+\\E.*/;
-  $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
-}
+$AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
+ $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|
+  if $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i;
 
 if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
  die" nothing in regex\n" 
@@ -201,7 +200,7 @@ my( $list,$re,$test,$tap,$file ) = @_;
       push @$file,@{ File_2( $re->{'DRI'},2) };
    }
  }
- Search_1( $list,$file,0,0,$re,0 );
+ Search_1( $list,$file,0,$re );
 }
 
 sub File_2{
@@ -248,7 +247,7 @@ for( my $in=0;$in<@$an;$in++ ){
 
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
- $name = $name.' (I)' if $ls;
+ $name = "$name (I)" if $ls;
   $re->{'LEN'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
  if( $name =~ m|^homebrew/cask-drivers/| ){
@@ -282,10 +281,10 @@ my( $re,$mem,$dir ) = @_;
 }
 
 sub Search_1{
-my( $list,$file,$in,$pop,$re,$mem ) = @_;
- for(my $i=0;$file->[$i];$i++){
+my( $list,$file,$in,$re,$pop,$mem ) = @_;
+ for(my $i=0;$file->[$i];$i++){ $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-   $mem = 1 if $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o;
+   $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
 
    if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
     Tap_1( $list,$re,\$in );
@@ -296,7 +295,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
      if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
     $in++; $re->{'IN'}++; $pop = 1;
    }else{
-    if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.+/)$re->{'S_OPT'}|o ){
+    if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
      if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
       my $cou = () = $opt =~ /-/g;
       for(my $n=0;$n<=$cou;$n++){
@@ -313,7 +312,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
    if( $pop ){
     if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 );
-         $mem = $pop = 0; $i-- and next;
+         $i-- and next;
     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
         Memo_1( $re,$mem,$brew_1 );
      while(1){ $in++;
@@ -324,7 +323,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
          $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
        $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/;
         Memo_1( $re,$mem,0 );
-         $mem = $pop = 0; $in++ and $i-- and next;
+         $in++ and $i-- and next;
      }else{
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
@@ -337,7 +336,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
    }
    $re->{'MEM'} .= "$brew_2\t$brew_3";
     Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
-   $re->{'AN'}++; $mem = $pop = 0;
+    $re->{'AN'}++;
   }
  }
   if( $list->[$in] ){
@@ -348,7 +347,7 @@ my( $list,$file,$in,$pop,$re,$mem ) = @_;
 sub Tap_1{
 my( $list,$re,$in ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
- my $mem = 1 if $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/;
+ my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
       Mine_1( $tap,$re,1 );
