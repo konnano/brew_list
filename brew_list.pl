@@ -282,10 +282,10 @@ my( $re,$mem,$dir ) = @_;
 }
 
 sub Search_1{
-my( $list,$file,$in,$re,$pop,$mem ) = @_;
- for(my $i=0;$file->[$i];$i++){ $pop = 0;
+my( $list,$file,$in,$re ) = @_;
+ for(my $i=0;$file->[$i];$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
-   $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
+   my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
 
    if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
     Tap_1( $list,$re,\$in );
