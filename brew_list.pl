@@ -6,18 +6,18 @@ use FindBin;
 my $re  = {
  'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
-   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-    'CEL'=>'/usr/local/Cellar','STDI'=>'',
-     'BIN'=>'/usr/local/opt'};
+   'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
+    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt"};
 
 my $ref = {
  'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
-   'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-    'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
-     'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1};
+   'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,
+    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
+     'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
+      'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt"};
 
-$^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
+$^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
  $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
@@ -163,58 +163,56 @@ my( $list,$re ) = @_;
 
 sub File_1{
 my( $list,$re,$test,$tap,$file ) = @_;
- open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
-  while(my $brew = <$BREW>){
-   if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
-    $tap = "$brew\t"; next;
-   }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
-    $tap .= "$brew\t";
-    $test = 1; next;
-   }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>|$1| ){
-    $tap .= $brew;
-    $test = 0;
+ if( -f $re->{'TXT'} ){
+  open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
+   @$file = <$BREW>;
+  close $BREW;
+ }else{
+  open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
+   while(my $brew = <$BREW>){
+    if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
+     $tap = "$brew\t"; next;
+    }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+     $tap .= "$brew\t";
+     $test = 1; next;
+    }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>|$1| ){
+     $tap .= $brew;
+     $test = 0;
+    }
+    $tap =~ s/^(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
+     push @$file,$tap if $tap;
+      $tap = '';
    }
-   $tap =~ s/^(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
-    push @$file,$tap if $tap;
-     $tap = '';
-  }
- close $BREW;
-
- @$file = sort{$a cmp $b}@$file if $re->{'FOR'};
-
+   close $BREW;
+  @$file = sort{$a cmp $b}@$file if $re->{'FOR'};
+ }
  if( $re->{'CAS'} and $re->{'S_OPT'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
-    push @$file,@{ File_2( $re->{'FON'},0) };
-     push @$file,@{ File_2( $re->{'DRI'},0) };
+    push @$file,@{ File_2( $re->{'FON'}) };
+     push @$file,@{ File_2( $re->{'DRI'}) };
       @$file = sort{$a cmp $b}@$file;
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} ){
-    push @$file,@{ File_2( $re->{'FON'},0) };
+    push @$file,@{ File_2( $re->{'FON'}) };
      @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'DRI'},2) };
+      push @$file,@{ File_2( $re->{'DRI'}) };
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} ){
-    push @$file,@{ File_2( $re->{'DRI'},0) };
+    push @$file,@{ File_2( $re->{'DRI'}) };
      @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'FON'},1) };
+      push @$file,@{ File_2( $re->{'FON'}) };
    }else{
     @$file = sort{$a cmp $b}@$file;
-     push @$file,@{ File_2( $re->{'FON'},1) };
-      push @$file,@{ File_2( $re->{'DRI'},2) };
+     push @$file,@{ File_2( $re->{'FON'}) };
+      push @$file,@{ File_2( $re->{'DRI'}) };
    }
  }
  Search_1( $list,$file,0,$re );
 }
 
 sub File_2{
-my( $dir,$ls,$file ) = @_;
+my( $dir,$file ) = @_;
  open my $BREW,'<',$dir or die " File_2 $!\n";
   while(my $brew = <$BREW>){ chomp $brew;
-   if( $ls == 1 ){
-    push @$file,"homebrew/cask-fonts/$brew";
-   }elsif( $ls == 2 ){
-    push @$file,"homebrew/cask-drivers/$brew";
-   }else{
     push @$file,$brew;
-   }
   }
  close $BREW;
 $file;
@@ -468,10 +466,10 @@ print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ($re->{'ALL'} or $re-
 
 sub Nohup_1{
  my $re = shift;
-  my $time =[localtime((stat($re->{'FON'}))[9])] if -f $re->{'FON'};
+  my $time =[localtime((stat($re->{'TXT'}))[9])] if -f $re->{'TXT'};
   my( $year,$mon,$day ) = (
    ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
-  if( not -f $re->{'FON'} or  $year > $time->[5]+1900 or
+  if( not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
       $mon > $time->[4]+1 or $day > $time->[3] ){
    system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
   }
