@@ -44,16 +44,16 @@ if [ `uname` = Darwin ];then
    LIST=()
  while read line;do
   if [[ $line =~ ^[:blank:]*\<td\>\<a[^\>]*\>(.+)\</a\>\</td\>$ ]];then
-   LS1=${BASH_REMATCH[1]}"\\t"
+   LS1="${BASH_REMATCH[1]}\\t"
     continue
   fi
   if [[ $line =~ ^[:blank:]*\<td\>(.+)\</td\>$ ]] && [ $test = '0' ];then
-   LS2=${BASH_REMATCH[1]}"\\n"
+   LS2="${BASH_REMATCH[1]}\\n"
     test='1'
      continue
   fi
   if [[ $line =~ ^[:blank:]*\<td\>(.+)\</td\>$ ]] && [ $test = '1' ];then
-   LS3=${BASH_REMATCH[1]}"\\t"
+   LS3="${BASH_REMATCH[1]}\\t"
     test='0'
   fi
    LIST+=("$LS1$LS3$LS2")
