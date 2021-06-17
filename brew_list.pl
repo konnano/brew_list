@@ -17,7 +17,7 @@ my $ref = {
     'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
      'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1};
 
-$^O =~ /^darwin/ ? $re->{'LIN'} = 0 :
+$^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'} = 1 :
  $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
