@@ -30,11 +30,11 @@ curl -sLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-dri
 
 /usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST
  ls ~/.BREW_LIST/homebrew-cask-fonts-master/Casks|\
- sed 's/\(.*\)\.rb$/homebrew\/cask-fonts\/\1/' >~/.BREW_LIST/Q_FONT.txt
+  sed 's/\(.*\)\.rb$/homebrew\/cask-fonts\/\1/' >~/.BREW_LIST/Q_FONT.txt
 
  /usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST
  ls ~/.BREW_LIST/homebrew-cask-drivers-master/Casks|\
- sed 's/\(.*\)\.rb$/homebrew\/cask-drivers\/\1/' >~/.BREW_LIST/Q_DRIV.txt
+  sed 's/\(.*\)\.rb$/homebrew\/cask-drivers\/\1/' >~/.BREW_LIST/Q_DRIV.txt
 
  while read line;do
   if [[ $line =~ \<td\>\<a[^\>]*\>(.+)\</a\>\</td\>$ ]];then
