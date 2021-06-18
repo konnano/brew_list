@@ -4,13 +4,13 @@ use warnings;
 use FindBin;
 
 my $re  = {
- 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
+ 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
    'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
     'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt"};
 
 my $ref = {
- 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'EXC'=>'',
+ 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,
   'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
    'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,
     'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
