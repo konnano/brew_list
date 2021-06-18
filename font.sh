@@ -79,6 +79,6 @@ fi
 
  sort ~/.BREW_LIST/_brew.txt > ~/.BREW_LIST/brew.txt 
  
-rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip
+rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/_brew.txt
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
-rm -rf ~/.BREW_LIST/_brew.txt ~/.BREW_LIST/LOCK
+rm -rf ~/.BREW_LIST/LOCK
