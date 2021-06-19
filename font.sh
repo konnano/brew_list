@@ -38,19 +38,19 @@ curl -sLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-dri
 
  while read line;do
   if [[ $line =~ \<td\>\<a[^\>]*\>(.+)\</a\>\</td\>$ ]];then
-   LS1=${BASH_REMATCH[1]}"\\t"
+   LS1=${BASH_REMATCH[1]}\\t
     continue
   fi
   if [[ $line =~ \<td\>(.+)\</td\>$ ]] && [ $test = 0 ];then
-   LS2=${BASH_REMATCH[1]}"\\n"
+   LS2=${BASH_REMATCH[1]}\\n
     test='1'
      continue
   fi
   if [[ $line =~ \<td\>(.+)\</td\>$ ]] && [ $test = 1 ];then
-   LS3=${BASH_REMATCH[1]}"\\t"
+   LS3=${BASH_REMATCH[1]}\\t
     test='0'
   fi
-   LIST+=("$LS1$LS3$LS2")
+   LIST+=($LS1$LS3$LS2)
   LS1=''; LS2=''; LS3=''
  done < ~/.BREW_LIST/Q_CASK.html
 
