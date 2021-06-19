@@ -296,13 +296,8 @@ my( $list,$file,$in,$re ) = @_;
    }else{
     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
      if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
-      my $cou = () = $opt =~ /-/g;
-      for(my $n=0;$n<=$cou;$n++){
-       my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
-        if( $reg =~ /^\Q$re->{'STDI'}\E$/o ){
-         Mine_1( $brew_1,$re,0 ); last;
-        } 
-      }
+      Mine_1( $brew_1,$re,0 )
+       if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;       
      }else{ Mine_1( $brew_1,$re,0 ); }
     }
    }
