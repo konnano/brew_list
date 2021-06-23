@@ -36,14 +36,15 @@ exit unless -d $re->{'CEL'};
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
-if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
-}elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
+if( $AR[0] =~ /^-la?$/ ){     $name = $re;  $re->{'LIST'}  = 1;
+}elsif( $AR[0] =~ /^-ia?$/ ){ $name = $re;  $re->{'PRINT'} = 1;
+}elsif( $AR[0] =~ /^-ca?$/ ){ $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
+}elsif( $AR[0] =~ /^-cia?$/){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
-}elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
+ $name->{'NEW'} = 1 if $AR[0] =~ /a$/;
 
 if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
 $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -69,7 +70,7 @@ if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
 }elsif( $re->{'S_OPT'} or $re->{'BL'} ){
  my $pid = fork;
- die "Not fork: $!\n" unless defined $pid;
+ die "Not fork : $!\n" unless defined $pid;
   if($pid){
    Darwin_1( $ref );
   }else{
@@ -84,7 +85,7 @@ if( $re->{'LIN'} ){
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
- die "  Option
+ die "  Option : add 'a' for Do not read cache
   -l List : -i Instaled list : - Brew List
   -s Type search name : -co Search to Comannd
   Only mac
@@ -93,7 +94,7 @@ sub Died_1{
 
 sub Darwin_1{
  my( $re,$list ) = @_;
-  if( not -f $re->{'DIR'} ){
+  if( $re->{'NEW'} or not -f $re->{'DIR'} ){
    if( $re->{'FOR'} ){
     my $ufo = 'https://formulae.brew.sh/formula/index.html';
      print " \033[31mNot connected\033[37m\n"
@@ -110,13 +111,13 @@ sub Darwin_1{
     $list = Dirs_1( $re->{'CEL'},0,$re );
   }
   DB_1( $re );
- $re->{'COM'} ? Command_1( $list,$re ) : $re->{'BL'} ?
-  Brew_1( $list,$re ) : File_1( $list,$re );
+ $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
+  Brew_1( $re,$list ) : File_1( $re,$list );
 }
 
 sub Linux_1{
  my( $re,$list ) = @_;
-  if( not -f $re->{'DIR'} ){
+  if( $re->{'NEW'} or not -f $re->{'DIR'} ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
     print " \033[31mNot connected\033[37m\n"
      if system("curl -so $re->{'DIR'} $url");
@@ -127,8 +128,8 @@ sub Linux_1{
     $list = Dirs_1( $re->{'CEL'},0,$re );
   }
   DB_1( $re );
- $re->{'COM'} ? Command_1( $list,$re ) : $re->{'BL'} ? 
-  Brew_1( $list,$re ) : File_1( $list,$re );
+ $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ? 
+  Brew_1( $re,$list ) : File_1( $re,$list );
 }
 
 sub DB_1{
@@ -155,15 +156,15 @@ my $re = shift;
 }
 
 sub Brew_1{
-my( $list,$re ) = @_;
+my( $re,$list ) = @_;
  for(my $i=0;$i<@$list;$i++){  my( $tap ) = $list->[$i] =~ /^\s(.*)\n/;
   Mine_1( $tap,$re,0 ) if $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap};
  }
 }
 
 sub File_1{
-my( $list,$re,$test,$tap,$file ) = @_;
- if( -f $re->{'TXT'} ){
+my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
+ if( -f $re->{'TXT'} and not $re->{'NEW'} ){
   open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
    @$file = <$BREW>;
   close $BREW;
@@ -171,17 +172,20 @@ my( $list,$re,$test,$tap,$file ) = @_;
   open my $BREW,'<',$re->{'DIR'} or die " File_1 $!\n";
    while(my $brew = <$BREW>){
     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
-     $tap = "$brew\t"; next;
+     $tap1 = $brew; next;
     }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
-     $tap .= "$brew\t";
+     $tap2 = $brew;
      $test = 1; next;
-    }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>|$1| ){
-     $tap .= $brew;
+    }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+     $tap3 = $brew;
      $test = 0;
     }
-    $tap =~ s/^(.+)\t(.+)\t(.+)\n/$1\t$3\t$2\n/ if $tap and $re->{'CAS'};
-     push @$file,$tap if $tap;
-      $tap = '';
+     if( $tap1 and $re->{'FOR'} ){
+      push @$file,"$tap1\t$tap2\t$tap3\n";
+     }elsif( $tap1 and $re->{'CAS'} ){
+      push @$file,"$tap1\t$tap3\t$tap2\n";
+     }
+    $tap1 = $tap2 = $tap3 = '';
    }
    close $BREW;
   @$file = sort{$a cmp $b}@$file if $re->{'FOR'};
@@ -297,7 +301,7 @@ my( $list,$file,$in,$re ) = @_;
     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
      if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
       Mine_1( $brew_1,$re,0 )
-       if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;       
+       if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;
      }else{ Mine_1( $brew_1,$re,0 ); }
     }
    }
@@ -369,7 +373,7 @@ my( $list,$re,$in ) = @_;
 }
 
 sub Command_1{
-my( $list,$re,$ls1,$ls2,%HA,%OP ) = @_;
+my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
  for(my $in=0;$list->[$in];$in++){
   if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
