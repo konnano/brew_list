@@ -468,7 +468,7 @@ sub Nohup_1{
   my $time =[localtime((stat($re->{'TXT'}))[9])] if -f $re->{'TXT'};
   my( $year,$mon,$day ) = (
    ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
-  if( not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
+  if( $re->{'NEW'} or not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
       $mon > $time->[4]+1 or $day > $time->[3] ){
    system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
   }
