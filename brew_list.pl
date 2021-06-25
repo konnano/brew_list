@@ -192,31 +192,37 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
  }
  if( $re->{'CAS'} and $re->{'S_OPT'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
-    push @$file,@{ File_2( $re->{'FON'}) };
-     push @$file,@{ File_2( $re->{'DRI'}) };
+    push @$file,@{ File_2( $re->{'FON'},0) };
+     push @$file,@{ File_2( $re->{'DRI'},0) };
       @$file = sort{$a cmp $b}@$file;
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} ){
-    push @$file,@{ File_2( $re->{'FON'}) };
+    push @$file,@{ File_2( $re->{'FON'},0) };
      @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'DRI'}) };
+      push @$file,@{ File_2( $re->{'DRI'},2) };
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} ){
-    push @$file,@{ File_2( $re->{'DRI'}) };
+    push @$file,@{ File_2( $re->{'DRI'},0) };
      @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'FON'}) };
+      push @$file,@{ File_2( $re->{'FON'},1) };
    }else{
     @$file = sort{$a cmp $b}@$file;
-     push @$file,@{ File_2( $re->{'FON'}) };
-      push @$file,@{ File_2( $re->{'DRI'}) };
+     push @$file,@{ File_2( $re->{'FON'},1) };
+      push @$file,@{ File_2( $re->{'DRI'},2) };
    }
  }
  Search_1( $list,$file,0,$re );
 }
 
 sub File_2{
-my( $dir,$file ) = @_;
+my( $dir,$ls,$file ) = @_;
  open my $BREW,'<',$dir or die " File_2 $!\n";
   while(my $brew = <$BREW>){ chomp $brew;
+   if( $ls == 1 ){
+    push @$file,"homebrew/cask-fonts/$brew";
+   }elsif( $ls == 2 ){
+    push @$file,"homebrew/cask-drivers/$brew";
+   }else{
     push @$file,$brew;
+   }
   }
  close $BREW;
 $file;
