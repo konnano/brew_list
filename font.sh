@@ -79,7 +79,7 @@ fi
 
  sort ~/.BREW_LIST/_brew.txt > ~/.BREW_LIST/brew.txt 
 
-perl ~/.BREW_LIST/tie.pl
+/usr/bin/env perl ~/.BREW_LIST/tie.pl
 
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/_brew.txt
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
