@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl
 use strict;
 use warnings;
 use FindBin;
@@ -20,8 +20,8 @@ my $ref = {
      'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
       'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt"};
  
-$^O =~ /^darwin/ ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
- $^O =~ /^linux/ ? $re->{'LIN'} = 1 : exit;
+$^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
+ $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
@@ -123,6 +123,7 @@ sub Darwin_1{
   }
  DB_1( $re );
   DB_2( $re ) if $re->{'FOR'} and not $re->{'S_OPT'} and not $re->{'BL'};
+
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
   Brew_1( $re,$list ) : File_1( $re,$list );
 }
@@ -141,6 +142,7 @@ sub Linux_1{
   }
  DB_1( $re );
   DB_2( $re ) if $re->{'FOR'} and not $re->{'S_OPT'} and not $re->{'BL'};
+
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ? 
   Brew_1( $re,$list ) : File_1( $re,$list );
 }
