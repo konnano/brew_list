@@ -4,7 +4,7 @@
 
 ダウンロード後フォルダー内で ./brew_list -l  を実行して下さい
 
-~/.BREW_LISTフォルダが作ら font.sh と tie.pl がコピーされます
+~/.BREW_LISTフォルダが作られ font.sh と tie.pl がコピーされます
 
 キャッシュファイル作成に少し時間がかかります
 
