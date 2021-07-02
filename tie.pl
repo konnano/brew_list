@@ -2,32 +2,29 @@ use strict;
 use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
-my( @brew,$file );
+my @brew;
 my $i = 0;
 
-if( $^O eq 'darwin' ){
- $file = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula';
-}else{
- $file = '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula';
-}
-@brew = `ls $file`;
+$^O eq 'darwin' ?
+Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 ) :
+Dors_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
 
-sub dirs_1{
- my $dir = shift;
+sub Dirs_1{
+ my( $dir,$ls ) = @_;
  my @files = glob("$dir/*");
   for my $card (@files) {
-   next if $card =~ m|/homebrew/|;
-    if( -d $card){ dirs_1($card);
+   next if $ls and $card =~ m|/homebrew/|;
+    if( -d $card){ Dirs_1( $card,$ls );
     }else{ push @brew,"$card\n" if $card =~ /\.rb$/;
     }
   }
 }
-dirs_1('/usr/local/Homebrew/Library/Taps') if $^O eq 'darwin';
+Dirs_1( '/usr/local/Homebrew/Library/Taps',1 ) if $^O eq 'darwin';
 
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
- for my $name(@brew){ $name =~ s/(.+)\.rb\n/$1/;
-  my $dir = $name =~ m|^/usr/| ? $name : "$file/$name";
-  open my $BREW1,'<',"$dir.rb" or die " Info_1 $!\n";
+ for my $dir(@brew){ chomp $dir;
+  my( $name ) = $dir =~ m|.+/(.+)\.rb|;
+  open my $BREW1,'<',$dir or die " Info_1 $!\n";
    while(my $data=<$BREW1>){
 
      if( $data =~ /^\s*bottle\s*do/ ){
@@ -70,6 +67,11 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      }elsif( $data =~ /^\s*depends_on\s*:macos/ ){
       $tap{"${name}un_Linux"} = 1; next;
      }
+    if( $data =~ s/^\s*depends_on\s*xcode:\s*\["([^"]+)",.*\n/$1/ ){
+     my $xcode = `xcodebuild -version|xargs|awk '{print \$2}'`;
+      $data =~ s/(\d*\.\d*)\.?\d*/$1/;
+       $tap{"${name}un_xcode"} = 1 if $xcode < $data;
+    }
    }
   close $BREW1;
  }
