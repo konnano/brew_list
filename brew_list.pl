@@ -116,9 +116,11 @@ sub Darwin_1{
       if system("curl -so $re->{'DIR'} $uca");
    }
   }
- $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
-  Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
-
+  if( $re->{'S_OPT'} or $re->{'BL'} ){
+    $list = Dirs_1( $re->{'CEL'},1 );
+  }else{
+    $list = Dirs_1( $re->{'CEL'},0,$re );
+  }
  DB_1( $re );
   DB_2( $re ) if $re->{'FOR'} and not $re->{'S_OPT'} and not $re->{'BL'};
 
@@ -133,9 +135,11 @@ sub Linux_1{
     print " \033[31mNot connected\033[37m\n"
      if system("curl -so $re->{'DIR'} $url");
   }
- $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
-  Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
-
+  if( $re->{'S_OPT'} or $re->{'BL'} ){
+    $list = Dirs_1( $re->{'CEL'},1 );
+  }else{
+    $list = Dirs_1( $re->{'CEL'},0,$re );
+  }
  DB_1( $re );
   DB_2( $re ) if $re->{'FOR'} and not $re->{'S_OPT'} and not $re->{'BL'};
 
@@ -347,14 +351,12 @@ my( $list,$file,$in,$re ) = @_;
       if( $re->{'MAC'} ){
        $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
         " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
-         ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
-        " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_xcode"} ? " x       $brew_1\t" :
         $re->{'OS'}{"${brew_1}keg"} ? "   k     $brew_1\t" : "         $brew_1\t";
       }else{
        $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
         " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
-        " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_Linux"}  ? " x       $brew_1\t" :
+        " m k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_Linux"}  ? " m       $brew_1\t" :
         $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "         $brew_1\t";
       }
      }
@@ -370,11 +372,13 @@ my( $list,$file,$in,$re ) = @_;
     }
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
          $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
-        ( $re->{'CAS'} or not $re->{'OS'} ) ?
-         $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/ :
-          $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
-        Memo_1( $re,$mem,0 );
-         $in++ and $i-- and next;
+      if( $re->{'CAS'} or not $re->{'OS'} ){
+       $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/;
+      }else{
+       $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
+      }
+       Memo_1( $re,$mem,0 );
+        $in++ and $i-- and next;
      }else{
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
@@ -439,9 +443,6 @@ my( $list,$re,$in ) = @_;
 sub Type_1{
 my( $re,$brew_1,$i ) = @_;
  if( $re->{'MAC'} ){
-  ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
-   $re->{'MEM'} =~ s/^.{9}/ t k $i / : $re->{'OS'}{"${brew_1}un_xcode"} ?
-   $re->{'MEM'} =~ s/^.{9}/ t   $i / : 
   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
    $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
    $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg"} ?
@@ -451,8 +452,8 @@ my( $re,$brew_1,$i ) = @_;
    $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
    $re->{'MEM'} =~ s/^.{9}/ b   $i / :
   ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
-   $re->{'MEM'} =~ s/^.{9}/ x k $i / : $re->{'OS'}{"${brew_1}un_linux"} ?
-   $re->{'MEM'} =~ s/^.{9}/ x   $i / : $re->{'OS'}{"${brew_1}keg_Linux"} ?
+   $re->{'MEM'} =~ s/^.{9}/ m k $i / : $re->{'OS'}{"${brew_1}un_linux"} ?
+   $re->{'MEM'} =~ s/^.{9}/ m   $i / : $re->{'OS'}{"${brew_1}keg_Linux"} ?
    $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
  }
 }
