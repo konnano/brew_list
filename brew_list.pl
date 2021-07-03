@@ -98,7 +98,7 @@ if( $re->{'LIN'} ){
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
- die "  Option : add 'a' for Do not read cache
+ die "  Option : '-l' and '-c' add 'a' Create New Cache
   -l List : -i Instaled list : - Brew List
   -s Type search name : -co Search to Comannd
   Only mac
