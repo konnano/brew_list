@@ -47,7 +47,7 @@ exit unless -d $re->{'CEL'};
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
-if( $AR[0] =~ /^-la?$/ ){     $name = $re;  $re->{'LIST'}  = 1;
+if( $AR[0] =~ /^-la?$/ ){ $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-i' ){ $name = $re;  $re->{'PRINT'} = 1;
 }elsif( $AR[0] =~ /^-ca?$/ ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
