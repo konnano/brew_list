@@ -28,7 +28,7 @@ $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
     $OS_Version = 'Linux';
  }else{
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/(\d\d.\d*)\.?\d*\n/$1/;
+  $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
    $OS_Version =~ s/^11/11.0/;
    my $cpu = `sysctl machdep.cpu.brand_string`;
     $OS_Version = "${OS_Version}M1" if $cpu =~ /Apple\s*M1/;
@@ -49,9 +49,11 @@ exit unless -d $re->{'CEL'};
   Died_1() unless $AR[0];
 if( $AR[0] =~ /^-la?$/ ){     $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] =~ /^-ia?$/ ){ $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $AR[0] =~ /^-ca?$/ ){ $name = $ref; $ref->{'LIST'} = 1;  Died_1() if $re->{'LIN'};
+}elsif( $AR[0] =~ /^-ca?$/ ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] =~ /^-cia?$/){ $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
+}elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1;$re->{'LINK'}=3 if $re->{'LIN'};
+}elsif( $AR[0] eq '-lb' ){ $name = $re; $re->{'LINK'} = 2; $re->{'LIST'} = 1;
+}elsif( $AR[0] eq '-co' ){ $name = $re; $re->{'COM'} = 1;
 }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
@@ -324,23 +326,28 @@ my( $list,$file,$in,$re ) = @_;
   my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
 
-   if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
-    Tap_1( $list,$re,\$in );
-     $i-- and next;
-   }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
-    ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
-     Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
-     if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
-    $in++; $re->{'IN'}++; $pop = 1;
-   }else{
-    if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
-     if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
-      Mine_1( $brew_1,$re,0 )
-       if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;
-     }else{ Mine_1( $brew_1,$re,0 ); }
+  if( not $re->{'LINK'} or
+      $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
+      $re->{'LINK'} == 2 and $re->{'OS'}{"$brew_1$OS_Version"} or
+      $re->{'LINK'} == 3 and $re->{'OS'}{"${brew_1}un_Linux"} ){
+
+    if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
+     Tap_1( $list,$re,\$in );
+      $i-- and next;
+    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
+     ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
+      Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
+      if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
+       $in++; $re->{'IN'}++; $pop = 1;
+    }else{
+     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
+      if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
+       Mine_1( $brew_1,$re,0 )
+        if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;
+      }else{ Mine_1( $brew_1,$re,0 ); }
+     }
     }
-   }
-  unless( $re->{'S_OPT'} ){
+   unless( $re->{'S_OPT'} ){
      if( $re->{'CAS'} or not $re->{'OS'} ){
        $re->{'MEM'} = "    $brew_1\t";
      }else{
@@ -358,44 +365,39 @@ my( $list,$file,$in,$re ) = @_;
         $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "         $brew_1\t";
       }
      }
-   if( $pop ){
-    if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
-      Memo_1( $re,$mem,$brew_1 );
+    if( $pop ){
+     if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
+       Memo_1( $re,$mem,$brew_1 );
          $i-- and next;
-    }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
-      Memo_1( $re,$mem,$brew_1 );
-     while(1){ $in++;
-      last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+       Memo_1( $re,$mem,$brew_1 );
+      while(1){ $in++;
+       last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+      }
      }
-    }
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
          $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
-        ( $re->{'CAS'} or not $re->{'OS'} ) ?
-         $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/ :
-          $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
-        Memo_1( $re,$mem,0 );
-         $in++ and $i-- and next;
+          ( $re->{'CAS'} or not $re->{'OS'} ) ?
+           $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/ :
+            $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
+          Memo_1( $re,$mem,0 );
+           $in++ and $i-- and next;
      }else{
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
-       if( $re->{'CAS'} or not $re->{'OS'} ){
-          $re->{'MEM'} =~ s/^\s{3}/(i)/;
-       }else{
-          Type_1( $re,$brew_1,'(i)' );
-       }
+           ( $re->{'CAS'} or not $re->{'OS'} ) ?
+            $re->{'MEM'} =~ s/^\s{3}/(i)/ : Type_1( $re,$brew_1,'(i)' );
       }else{
-       if( $re->{'CAS'} or not $re->{'OS'} ){
-         $re->{'MEM'} =~ s/^\s{3}/ i /;
-       }else{
-         Type_1( $re,$brew_1,' i ' );
-       }
+           ( $re->{'CAS'} or not $re->{'OS'} ) ?
+            $re->{'MEM'} =~ s/^\s{3}/ i / : Type_1( $re,$brew_1,' i ' );
       }
      }
-    $in++;
+     $in++;
+    }
+    $re->{'MEM'} .= "$brew_2\t$brew_3";
+     Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
+      $re->{'AN'}++;
    }
-   $re->{'MEM'} .= "$brew_2\t$brew_3";
-   Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
-  $re->{'AN'}++;
   }
  }
   if( $list->[$in] ){
@@ -407,6 +409,14 @@ sub Tap_1{
 my( $list,$re,$in ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
  my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
+
+  my $brew = 1;
+ if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
+     $re->{'LINK'} and $re->{'LINK'} == 2 and not $re->{'OS'}{"$tap$OS_Version"} or
+     $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"${tap}un_Linux"} ){
+      $brew = 0;
+ }
+
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
       Mine_1( $tap,$re,1 );
@@ -428,8 +438,9 @@ my( $list,$re,$in ) = @_;
         $re->{'MEM'} = ( $re->{'CAS'} or not $re->{'OS'} ) ?
           " i  $tap\t$re->{'DMG'}{$tap}\n" :  "      i  $tap\t$re->{'DMG'}{$tap}\n";
     }
-     Memo_1( $re,$mem,0 );
-    $re->{'AN'}++; $re->{'IN'}++;
+     Type_1( $re,$tap,' i ' ) if $re->{'FOR'} and $re->{'OS'};
+      Memo_1( $re,$mem,0 ) if $brew;
+       $re->{'AN'}++; $re->{'IN'}++;
   }else{
    Memo_1( $re,$mem,$tap );
   }
