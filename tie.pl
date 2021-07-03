@@ -65,11 +65,11 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      }elsif( $data =~ /^\s*keg_only/ ){
       $tap{"${name}keg_Linux"} = $tap{"${name}keg"} = 1; next;
      }elsif( $data =~ /^\s*depends_on\s*:macos/ ){
-      $tap{"${name}un_Linux"} = 1; next;
+      $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0; next;
      }
     if( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s*xcode:\s*\["([^"]+)",.*\n/$1/ ){
      my $xcode = `xcodebuild -version|xargs|awk '{print \$2}'`;
-      $data =~ s/(\d*\.\d*)\.?\d*/$1/;
+      $data =~ s/(\d+\.\d+)\.?\d*/$1/;
        $tap{"${name}un_xcode"} = 1 if $xcode < $data;
     }
    }
