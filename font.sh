@@ -58,32 +58,36 @@ curl -sLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-dri
    LS3=${BASH_REMATCH[1]}\\t
     test='0'
   fi
-   LIST+=($LS1$LS3$LS2)
+   LIST1+=($LS1$LS3$LS2)
   LS1=''; LS2=''; LS3=''
  done < ~/.BREW_LIST/Q_CASK.html
 
- echo -ne ${LIST[@]}|sed 's/^ //' > ~/.BREW_LIST/cask.txt
+ echo -ne ${LIST1[@]}|sed 's/^ //' > ~/.BREW_LIST/cask.txt
 
 else
  curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula-linux/index.html ||\
   { rm -rf ~/.BREW_LIST/LOCK; exit; }
 fi
-
+ test='0'
  while read line;do
   if [[ $line =~ \<td\>\<a[^\>]*\>(.+)\</a\>\</td\>$ ]];then
-   echo -ne ${BASH_REMATCH[1]}\\t >> ~/.BREW_LIST/_brew.txt
+   LS1=${BASH_REMATCH[1]}\\t
     continue
   fi
   if [[ $line =~ \<td\>(.+)\</td\>$ ]] && [ $test = 0 ];then
-   echo -ne ${BASH_REMATCH[1]}\\t >> ~/.BREW_LIST/_brew.txt
+   LS2=${BASH_REMATCH[1]}\\t
     test='1'
      continue
   fi
   if [[ $line =~ \<td\>(.+)\</td\>$ ]] && [ $test = 1 ];then
-   echo ${BASH_REMATCH[1]} >> ~/.BREW_LIST/_brew.txt
+   LS3=${BASH_REMATCH[1]}\\n
     test='0'
   fi
+   LIST2+=($LS1$LS2$LS3)
+  LS1=''; LS2=''; LS3=''
  done < ~/.BREW_LIST/Q_BREW.html
+
+ echo -ne ${LIST2[@]}|sed 's/^ //' > ~/.BREW_LIST/_brew.txt
 
  sort ~/.BREW_LIST/_brew.txt > ~/.BREW_LIST/brew.txt 
 
