@@ -51,7 +51,7 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-i' ){ $name = $re;  $re->{'PRINT'} = 1;
 }elsif( $AR[0] eq '-c' ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1;$re->{'LINK'}=3 if $re->{'LIN'};
+}elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1; $re->{'LINK'}=3 if $re->{'LIN'};
 }elsif( $AR[0] eq '-lb' ){ $name = $re; $re->{'LINK'} = 2; $re->{'LIST'} = 1;
 }elsif( $AR[0] eq '-co' ){ $name = $re; $re->{'COM'} = 1;
 }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
@@ -99,7 +99,7 @@ if( $re->{'LIN'} ){
 sub Died_1{
  die "  Option :
   -l List : -i Instaled list : - Brew List
-  -lb bottle install List : -lx Cannot install List
+  -lb Bottled install List : -lx Cannot install List
   -s Type search name : -co Search to Comannd
   Only mac
   -c Casks list : -ci Casks instaled list\n";
