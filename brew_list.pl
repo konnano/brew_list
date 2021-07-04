@@ -99,6 +99,7 @@ if( $re->{'LIN'} ){
 sub Died_1{
  die "  Option :
   -l List : -i Instaled list : - Brew List
+  -lb bottle install List : -lx Cannot install List
   -s Type search name : -co Search to Comannd
   Only mac
   -c Casks list : -ci Casks instaled list\n";
