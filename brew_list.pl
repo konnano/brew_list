@@ -47,9 +47,9 @@ exit unless -d $re->{'CEL'};
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
-if( $AR[0] =~ /^-la?$/ ){ $name = $re;  $re->{'LIST'}  = 1;
+if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-i' ){ $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $AR[0] =~ /^-ca?$/ ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-c' ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1;$re->{'LINK'}=3 if $re->{'LIN'};
 }elsif( $AR[0] eq '-lb' ){ $name = $re; $re->{'LINK'} = 2; $re->{'LIST'} = 1;
@@ -57,7 +57,6 @@ if( $AR[0] =~ /^-la?$/ ){ $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
 }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
- $name->{'NEW'} = 1 if $AR[0] =~ /a$/;
 
 if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
  $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -98,7 +97,7 @@ if( $re->{'LIN'} ){
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
- die "  Option : '-l' and '-c' add 'a' Create New Cache
+ die "  Option :
   -l List : -i Instaled list : - Brew List
   -s Type search name : -co Search to Comannd
   Only mac
@@ -107,7 +106,7 @@ sub Died_1{
 
 sub Darwin_1{
  my( $re,$list ) = @_;
-  if( $re->{'NEW'} or not -f $re->{'DIR'} ){
+  if( not -f $re->{'DIR'} ){
    if( $re->{'FOR'} ){
     my $ufo = 'https://formulae.brew.sh/formula/index.html';
      print " \033[31mNot connected\033[37m\n"
@@ -130,7 +129,7 @@ sub Darwin_1{
 
 sub Linux_1{
  my( $re,$list ) = @_;
-  if( $re->{'NEW'} or not -f $re->{'DIR'} ){
+  if( not -f $re->{'DIR'} ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
     print " \033[31mNot connected\033[37m\n"
      if system("curl -so $re->{'DIR'} $url");
@@ -185,7 +184,7 @@ my( $re,$list ) = @_;
 
 sub File_1{
 my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
- if( -f $re->{'TXT'} and not $re->{'NEW'} ){
+ if( -f $re->{'TXT'} ){
   open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
    @$file = <$BREW>;
   close $BREW;
@@ -564,7 +563,7 @@ sub Nohup_1{
   my $time =[localtime((stat($re->{'TXT'}))[9])] if -f $re->{'TXT'};
   my( $year,$mon,$day ) = (
    ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
-  if( $re->{'NEW'} or not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
+  if( not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
       $mon > $time->[4]+1 or $day > $time->[3] ){
    system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
   }
