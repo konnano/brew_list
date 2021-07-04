@@ -1,9 +1,17 @@
 #!/bin/bash
 
-TI=(`date +"%Y %-m %-d"`) &&\
-LS=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) &&\
-[ ${TI[0]} -gt ${LS[8]} -o ${TI[1]} -gt ${LS[5]} -o ${TI[2]} -gt ${LS[6]} ] &&\
-rm -rf ~/.BREW_LIST/LOCK
+if [ `uname` = Darwin ];then 
+  TI1=(`date +"%Y %-m %-d"`)
+ LS1=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) &&\
+ [ ${TI1[0]} -gt ${LS1[8]} -o ${TI1[1]} -gt ${LS1[5]} -o ${TI1[2]} -gt ${LS1[6]} ] &&\
+ rm -rf ~/.BREW_LIST/LOCK
+else
+  TI2=(`date +"%Y %m %d"`)
+ LS2=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`)
+ LS2=(`echo ${LS2[5]}|sed 's/-/ /g'`)
+ [[ ${TI2[0]} > ${LS2[0]} || ${TI2[1]} > ${LS2[1]} || ${TI2[2]} > ${LS2[2]} ]] &&\
+ rm -rf ~/.BREW_LIST/LOCK
+fi
 
 if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
  exit
@@ -79,7 +87,8 @@ fi
 
  sort ~/.BREW_LIST/_brew.txt > ~/.BREW_LIST/brew.txt 
 
-perl ~/.BREW_LIST/tie.pl
+ rm -f ~/.BREW_LIST/DBM.* 2>/dev/null
+ perl ~/.BREW_LIST/tie.pl
 
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/_brew.txt
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
