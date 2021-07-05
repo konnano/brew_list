@@ -97,7 +97,7 @@ fi
 if [ `uname` = Darwin ];then
  cp ~/.BREW_LIST/DBM.db ~/.BREW_LIST/DB
 else
- cp ~/.BREW_LIST/DBM.pag ~/.BREW_LIST/DB
+ cp ~/.BREW_LIST/DBM.dir ~/.BREW_LIST/DB
 fi
 
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/_brew.txt
