@@ -133,7 +133,7 @@ sub Darwin_1{
 
 sub Linux_1{
  my( $re,$list,$ls ) = @_;
-  if( not -f $re->{'DIR'} ){
+  if( $re->{'NEW'} ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
     if( system("curl -so $re->{'DIR'} $url") ){ $ls = 1;
      print " \033[31mNot connected\033[37m\n";
