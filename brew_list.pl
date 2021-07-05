@@ -37,26 +37,31 @@ $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
 
 exit unless -d $re->{'CEL'};
- mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" or
-      -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` or
-      -f "$FindBin::Bin/tie.pl"  and `diff $FindBin::Bin/tie.pl ~/.BREW_LIST/tie.pl` ){
-    die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
-   if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/. 2>/dev/null");
-  }
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
 if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
-}elsif( $AR[0] eq '-i' ){ $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $AR[0] eq '-c' ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
+}elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1; $re->{'LINK'}=3 if $re->{'LIN'};
 }elsif( $AR[0] eq '-lb' ){ $name = $re; $re->{'LINK'} = 2; $re->{'LIST'} = 1;
 }elsif( $AR[0] eq '-co' ){ $name = $re; $re->{'COM'} = 1;
-}elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
-}elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
+}elsif( $AR[0] eq '-new' ){$name = $re; $re->{'NEW'} = 1;
+}elsif( $AR[0] eq '-s' ){  $name = $re; $re->{'S_OPT'} = 1;
+}elsif( $AR[0] eq '-' ){   $name = $re; $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
+
+if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){  print" wait\n";
+ $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
+ mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
+  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" or
+     -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` or
+     -f "$FindBin::Bin/tie.pl"  and `diff $FindBin::Bin/tie.pl ~/.BREW_LIST/tie.pl` ){
+      die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
+       if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
+  }
+}
 
 if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
  $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -97,7 +102,7 @@ if( $re->{'LIN'} ){
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
- die "  Option :
+ die "  Option : '-new' Creat new cachae
   -l List : -i Instaled list : - Brew List
   -lb Bottled install List : -lx Cannot install List
   -s Type search name : -co Search to Comannd
@@ -106,17 +111,15 @@ sub Died_1{
 }
 
 sub Darwin_1{
- my( $re,$list ) = @_;
-  if( not -f $re->{'DIR'} ){
-   if( $re->{'FOR'} ){
-    my $ufo = 'https://formulae.brew.sh/formula/index.html';
-     print " \033[31mNot connected\033[37m\n"
-      if system("curl -so $re->{'DIR'} $ufo");
-   }else{
-    my $uca = 'https://formulae.brew.sh/cask/index.html';
-     print " \033[31mNot connected\033[37m\n"
-      if system("curl -so $re->{'DIR'} $uca");
-   }
+ my( $re,$list,$ls ) = @_;
+  if( $re->{'NEW'} ){
+   my $url = 'https://formulae.brew.sh/formula/index.html';
+    if( system("curl -so $re->{'DIR'} $url") ){ $ls = 1;
+     print " \033[31mNot connected\033[37m\n";
+    }
+   system('~/.BREW_LIST/font.sh');
+    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cacahe\n" :
+     ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and $ls ) ? exit : die" Can not Created\n";
   }
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
@@ -129,11 +132,15 @@ sub Darwin_1{
 }
 
 sub Linux_1{
- my( $re,$list ) = @_;
+ my( $re,$list,$ls ) = @_;
   if( not -f $re->{'DIR'} ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-    print " \033[31mNot connected\033[37m\n"
-     if system("curl -so $re->{'DIR'} $url");
+    if( system("curl -so $re->{'DIR'} $url") ){ $ls = 1;
+     print " \033[31mNot connected\033[37m\n";
+    }
+   system('~/.BREW_LIST/font.sh');
+    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cacahe\n" :
+     ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and $ls ) ? exit : die" Can not Created\n";
   }
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
