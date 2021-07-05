@@ -5,11 +5,14 @@ use Fcntl ':DEFAULT';
 
 my @brew;
 my $i = 0;
+my( $OS_Version,%MAC_OS );
 
+if( $^O eq 'darwin' ){
 my $OS_Version = `sw_vers -productVersion`;
 $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
-my %MAC_OS = ('catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
+%MAC_OS = ('catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
               'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
+}
 
 $^O eq 'darwin' ?
 Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 ) :
@@ -73,7 +76,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      }elsif( $data =~ /^\s*depends_on\s*:macos/ ){
       $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0; next;
      }elsif( $data =~ s/^\s*depends_on\s*macos:\s*:([^\s]*).*\n/$1/ ){
-      if( $MAC_OS{$data} gt $OS_Version ){
+      if( $OS_Version and $MAC_OS{$data} gt $OS_Version ){
        $tap{"${name}un_xcode"} = 1; next;
       }
      }
