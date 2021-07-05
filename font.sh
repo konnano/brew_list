@@ -20,7 +20,7 @@ fi
 trap '
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/_brew.txt
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
-rm -f ~/.BREW_LIST/Q_FONT.txt ~/.BREW_LIST/Q_DRIV.txt
+rm -f ~/.BREW_LIST/Q_FONT.txt ~/.BREW_LIST/Q_DRIV.txt ~/.BREW_LIST/DB
 rm -rf ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
@@ -91,8 +91,14 @@ fi
 
  sort ~/.BREW_LIST/_brew.txt > ~/.BREW_LIST/brew.txt 
 
- rm -f ~/.BREW_LIST/DBM.* 2>/dev/null
+ rm -f ~/.BREW_LIST/DBM.*
  perl ~/.BREW_LIST/tie.pl
+
+if [ `uname` = Darwin ];then
+ cp ~/.BREW_LIST/DBM.db ~/.BREW_LIST/DB
+else
+ cp ~/.BREW_LIST/DBM.pag ~/.BREW_LIST/DB
+fi
 
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/_brew.txt
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
