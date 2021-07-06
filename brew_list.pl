@@ -346,7 +346,7 @@ my( $list,$file,$in,$re ) = @_;
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
       if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
-       $in++; $re->{'IN'}++; $pop = 1;
+       $in++ and $re->{'IN'}++; $pop = 1;
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
@@ -448,7 +448,7 @@ my( $list,$re,$in ) = @_;
     }
      Type_1( $re,$tap,' i ' ) if $re->{'FOR'} and $re->{'OS'};
       Memo_1( $re,$mem,0 ) if $brew;
-       $re->{'AN'}++; $re->{'IN'}++;
+       $re->{'AN'}++ and $re->{'IN'}++ if $brew;
   }else{
    Memo_1( $re,$mem,$tap );
   }
