@@ -8,7 +8,7 @@ my $i = 0;
 my( $OS_Version,%MAC_OS );
 
 if( $^O eq 'darwin' ){
-my $OS_Version = `sw_vers -productVersion`;
+$OS_Version = `sw_vers -productVersion`;
 $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
 %MAC_OS = ('catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
               'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
