@@ -19,7 +19,7 @@ my $ref = {
     'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
      'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
       'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt"};
- 
+
 $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
  $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
  if( $re->{'LIN'} ){
@@ -37,6 +37,13 @@ $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
 
 exit unless -d $re->{'CEL'};
+ mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
+  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" or
+     -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` or
+     -f "$FindBin::Bin/tie.pl"  and `diff $FindBin::Bin/tie.pl ~/.BREW_LIST/tie.pl` ){
+      die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
+       if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
+  }
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
@@ -52,15 +59,9 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-' ){   $name = $re; $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
 
-if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){  print" wait\n";
+if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
- mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" or
-     -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` or
-     -f "$FindBin::Bin/tie.pl"  and `diff $FindBin::Bin/tie.pl ~/.BREW_LIST/tie.pl` ){
-      die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
-       if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
-  }
+  print" wait\n";
 }
 
 if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
