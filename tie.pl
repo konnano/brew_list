@@ -85,29 +85,30 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
        $tap{"${name}un_xcode"} = 1; next;
       }
      }
-
-    if( $IN  or $data =~ /^\s*if\s+Hardware::CPU/ ){
-     $IN = $data =~ /$CPU/ ? 3 : 4 unless $IN;
-      if( $IN == 3 and $data !~ /^\s+else|^\s+end/ ){
+    if( $^O eq 'darwin' ){
+     if( $IN  or $data =~ /^\s*if\s+Hardware::CPU/ ){
+      $IN = $data =~ /$CPU/ ? 3 : 4 unless $IN;
+       if( $IN == 3 and $data !~ /^\s+else|^\s+end/ ){
         if( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
         }
-      }elsif( $IN == 3 and $data =~ /^\s+else|^\s+end/ ){
+       }elsif( $IN == 3 and $data =~ /^\s+else|^\s+end/ ){
         $IN = 0;
-      }elsif( $IN == 4 and $data =~ /^\s+else|^\s+end/ ){
+       }elsif( $IN == 4 and $data =~ /^\s+else|^\s+end/ ){
         $IN = 5;
-      }elsif( $IN == 5 and $data !~ /^\s+end/ ){
+       }elsif( $IN == 5 and $data !~ /^\s+end/ ){
         if( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
         }
-      }elsif( $IN == 5 and $data =~ /^\s+end/ ){
-       $IN = 0;
-      }
-    }elsif( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
+       }elsif( $IN == 5 and $data =~ /^\s+end/ ){
+        $IN = 0;
+       }
+     }elsif( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+     }
     }
    }
   close $BREW1;
