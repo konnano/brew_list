@@ -3,13 +3,18 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my @brew;
-my $i = 0;
-my( $OS_Version,%MAC_OS );
+my @BREW;
+my $IN = 0;
+my( $OS_Version,%MAC_OS,$CPU,$Xcode );
 
 if( $^O eq 'darwin' ){
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
+ $CPU = `sysctl machdep.cpu.brand_string`;
+  $CPU = $CPU =~ /Apple\sM1/ ? 'arm' : 'intel';
+ $Xcode = `xcodebuild -version|xargs|awk '{print \$2}'`;
+  $Xcode =~ s/(\d+\.\d+)\.?\n\d*/$1/;
+
  %MAC_OS = ('catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
@@ -24,22 +29,22 @@ sub Dirs_1{
   for my $card (@files) {
    next if $ls and $card =~ m|/homebrew/|;
     if( -d $card){ Dirs_1( $card,$ls );
-    }else{ push @brew,"$card\n" if $card =~ /\.rb$/;
+    }else{ push @BREW,"$card\n" if $card =~ /\.rb$/;
     }
   }
 }
 
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
- for my $dir(@brew){ chomp $dir;
+ for my $dir(@BREW){ chomp $dir;
   my( $name ) = $dir =~ m|.+/(.+)\.rb|;
   open my $BREW1,'<',$dir or die " Info_1 $!\n";
    while(my $data=<$BREW1>){
 
      if( $data =~ /^\s*bottle\s+do/ ){
-      $i=1; next;
-     }elsif( $data =~ /\s*rebuild/ and $i == 1 ){
+      $IN = 1; next;
+     }elsif( $data =~ /\s*rebuild/ and $IN == 1 ){
       next;
-     }elsif( $data !~ /^\s*end/ and $i == 1 ){
+     }elsif( $data !~ /^\s*end/ and $IN == 1 ){
        $tap{"$name$data"} = 1 if $data =~ s/.*arm64_big_sur:.*\n/11.0M1/;
         $tap{"$name$data"} = 1 if $data =~ s/.*big_sur:.*\n/11.0/;
        $tap{"$name$data"} = 1 if $data =~ s/.*catalina:.*\n/10.15/;
@@ -54,18 +59,19 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
           $tap{"${name}10.15"} = 1;   $tap{"${name}10.14"} = 1;
          $tap{"${name}10.13"} = 1;   $tap{"${name}10.12"} = 1;
           $tap{"${name}10.11"} = 1;   $tap{"${name}10.10"} = 1;
+         $tap{"${name}Linux"} = 1;
         }
       next;
-     }elsif( $data =~ /^\s*end/ and $i == 1 ){
-      $i = 0; next;
+     }elsif( $data =~ /^\s*end/ and $IN == 1 ){
+      $IN = 0; next;
      }
 
     if( $data =~ /^\s*on_linux\s+do/ ){
-     $i = 2; next;
-    }elsif( $data !~ /^\s*end/ and $data =~ /^\s*keg_only/ and $i == 2 ){
+     $IN = 2; next;
+    }elsif( $data !~ /^\s*end/ and $data =~ /^\s*keg_only/ and $IN == 2 ){
      $tap{"${name}keg_Linux"} = 1; next;
-    }elsif( $data =~ /^\s*end/ and $i == 2 ){
-     $i = 0; next;
+    }elsif( $data =~ /^\s*end/ and $IN == 2 ){
+     $IN = 0; next;
     }
 
      if( $data =~ /^\s*keg_only.*macos/ ){
@@ -80,12 +86,29 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
       }
      }
 
-    if( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
-     my $xcode = `xcodebuild -version|xargs|awk '{print \$2}'`;
-      $data =~ s/(\d+\.\d+)\.?\d*/$1/;
-       $tap{"${name}un_xcode"} = 1 if $data > $xcode;
+    if( $IN  or $data =~ /^\s*if\s+Hardware::CPU/ ){
+     $IN = $data =~ /$CPU/ ? 3 : 4 unless $IN;
+      if( $IN == 3 and $data !~ /^\s+else|^\s+end/ ){
+        if( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
+         $data =~ s/(\d+\.\d+)\.?\d*/$1/;
+          $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+        }
+      }elsif( $IN == 3 and $data =~ /^\s+else|^\s+end/ ){
+        $IN = 0;
+      }elsif( $IN == 4 and $data =~ /^\s+else|^\s+end/ ){
+        $IN = 5;
+      }elsif( $IN == 5 and $data !~ /^\s+end/ ){
+        if( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
+         $data =~ s/(\d+\.\d+)\.?\d*/$1/;
+          $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+        }
+      }elsif( $IN == 5 and $data =~ /^\s+end/ ){
+       $IN = 0;
+      }
+    }elsif( $^O eq 'darwin' and $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
+         $data =~ s/(\d+\.\d+)\.?\d*/$1/;
+          $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
     }
-
    }
   close $BREW1;
  }
