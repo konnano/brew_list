@@ -73,13 +73,14 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
     }elsif( $data =~ /^\s*end/ and $IN == 2 ){
      $IN = 0; next;
     }
-
      if( $data =~ /^\s*keg_only.*macos/ ){
       $tap{"${name}keg"} = 1; next;
      }elsif( $data =~ /^\s*keg_only/ ){
       $tap{"${name}keg_Linux"} = $tap{"${name}keg"} = 1; next;
      }elsif( $data =~ /^\s*depends_on\s+:macos/ ){
       $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0; next;
+     }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
+       $tap{"${name}un_xcode"} = 1; next;
      }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
       if( $OS_Version and $MAC_OS{$data} gt $OS_Version ){
        $tap{"${name}un_xcode"} = 1; next;
