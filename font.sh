@@ -7,8 +7,8 @@ if [ `uname` = Darwin ];then
  rm -rf ~/.BREW_LIST/LOCK
 else
   TI2=(`date +"%Y %m %d"`)
- LS2=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`)
- LS2=(`echo ${LS2[5]}|sed 's/-/ /g'`)
+ LS2=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`) &&\
+ LS2=(`echo ${LS2[5]}|sed 's/-/ /g'`) &&\
  [[ ${TI2[0]} > ${LS2[0]} || ${TI2[1]} > ${LS2[1]} || ${TI2[2]} > ${LS2[2]} ]] &&\
  rm -rf ~/.BREW_LIST/LOCK
 fi
