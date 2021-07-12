@@ -80,7 +80,6 @@ perl<<"EOF"
     $tap1 = $tap2 = $tap3 = '';
    }
   close $FILE3;
-  @file1 = sort{$a cmp $b}@file1;######
    open $FILE4,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE4 $!\n";
     print $FILE4 @file3;
    close $FILE4;
