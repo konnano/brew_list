@@ -185,7 +185,7 @@ my( $re,%NA ) = @_;
  tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDONLY,0;
    %NA = %tap;
   untie %tap;
- $re->{'OS'} = %NA ? \%NA : die " Not read DBM\n21";
+ $re->{'OS'} = %NA ? \%NA : die " Not read DBM\n";
 }
 
 sub Brew_1{
