@@ -3,9 +3,8 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my @BREW;
 my $IN = 0;
-my( $OS_Version,%MAC_OS,$CPU,$Xcode );
+my( $OS_Version,%MAC_OS,$CPU,$Xcode,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
  $OS_Version = `sw_vers -productVersion`;
@@ -15,30 +14,32 @@ if( $^O eq 'darwin' ){
  $Xcode = `xcodebuild -version|xargs|awk '{print \$2}'`;
   $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
 
- %MAC_OS = ('catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
+ %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
- Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
-  Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
+
+ Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+  Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
+   Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
 }else{
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
 }
 
 sub Dirs_1{
- my( $dir,$ls ) = @_;
+ my( $dir,$ls,$cask ) = @_;
  my @files = glob("$dir/*");
   for my $card (@files) {
    next if $ls and $card =~ m|/homebrew/|;
     if( -d $card){ Dirs_1( $card,$ls );
-    }else{ push @BREW,"$card\n" if $card =~ /\.rb$/;
+    }else{ $cask ? push @CASK,"$card\n" : push @BREW,"$card\n" if $card =~ /\.rb$/;
     }
   }
 }
 
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
- for my $dir(@BREW){ chomp $dir;
-  my( $name ) = $dir =~ m|.+/(.+)\.rb|;
-  open my $BREW1,'<',$dir or die " Info_1 $!\n";
-   while(my $data=<$BREW1>){
+ for my $dir1(@BREW){ chomp $dir1;
+  my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
+  open my $BREW,'<',$dir1 or die " Info_1 $!\n";
+   while(my $data=<$BREW>){
 
      if( $data =~ /^\s*bottle\s+do/ ){
       $IN = 1; next;
@@ -112,7 +113,31 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      }
     }
    }
-  close $BREW1;
+  close $BREW;
+ }
+  $IN = 0;
+ for(my $i=0;$i<@BREW;$i++){
+  for(;$IN<@CASK;$IN++){
+   $BREW[$i] =~ s|.+/(.+)|$1|;
+   my( $name ) = $CASK[$IN] =~ m|.+/(.+)\n|;
+   last if $BREW[$i] lt $name;
+    if($BREW[$i] eq $name){
+     $name =~ s/\.rb$//;
+     $tap{"${name}so_name"} = 1;
+      last;
+    }
+  }
+ }
+
+ for my $dir2(@CASK){ chomp $dir2;
+  my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
+  open my $BREW,'<',$dir2 or die " Info_2 $!\n";
+   while(my $data1=<$BREW>){
+    if( my( $ls1,$ls2 ) = $data1 =~ /^\s+depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
+     $tap{"${name}un_cask"} = 1 unless eval("$OS_Version $ls1 $MAC_OS{$ls2}");
+    }
+   }
+  close $BREW;
  }
 untie %tap;
 __END__
