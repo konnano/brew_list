@@ -1,8 +1,8 @@
 next tool for this script brewlist command
 
- : usage
+: usage
 
-After downloading, run ./brew_list.pl -l in the folder
+After downloading, run ./brew_list.pl -l in the brew_list folder
 
 mkdir ~/.BREW_LIST; cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.
 
@@ -12,33 +12,33 @@ I don't have Apple M1 so I don't support it
 
 uninstall rm -rf ~/.BREW_LIST
 
- : option
+: option
 
-'-i' option Formula list // regix
+-i  option Formula list display   : // regix
 
-'-lb' option bottle install Formula // regix
+-lb option bottle install Formula : // regix
 
-'-lx' option not install Formula // regix
+-lx option can't install Formula  : // regix
 
-'-i' option instaled Formula
+-i  option instaled Formula
 
-'-s' option search Formula // regix
+-s  option search Formula         : // regix
 
-'-co'option Library
+-co option library display
 
-'-' brew list command
+-   brew list command
 
 Only Mac : Cask
 
-'-c' option Cask list // regix
+-c  option Cask list display      : // regix
 
-'-ci' option installed CASK
+-ci option installed CASK
 
-'-cx' option not install CASK // regix
+-cx option can't install CASK     : // regix
 
-'-cs' same name Formula and Cask // regix
+-cs same name Cask and Formula    : // regix
 
- : mark
+: mark
 
 b mark bottle install Formula
 
@@ -48,7 +48,7 @@ i mark installed Formula
 
 (i) mark version up Formula
 
-x mark not install Formula or Cask
+x mark can't install Formula or Cask
 
 t mark tap wrapping Formula
 
