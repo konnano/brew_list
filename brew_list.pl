@@ -130,7 +130,7 @@ sub Darwin_1{
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
 
  DB_1( $re );
-  DB_2( $re ) unless $re->{'S_OPT'} and $re->{'BL'};
+  DB_2( $re ) unless $re->{'S_OPT'} or $re->{'BL'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
   Brew_1( $re,$list ) : File_1( $re,$list );
@@ -151,7 +151,7 @@ sub Linux_1{
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
 
  DB_1( $re );
-  DB_2( $re ) unless $re->{'S_OPT'} and $re->{'BL'};
+  DB_2( $re ) unless $re->{'S_OPT'} or $re->{'BL'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ? 
   Brew_1( $re,$list ) : File_1( $re,$list );
