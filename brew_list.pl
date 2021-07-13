@@ -31,19 +31,12 @@ $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
    $OS_Version =~ s/^11/11.0/;
    my $cpu = `sysctl machdep.cpu.brand_string`;
-    $OS_Version = "${OS_Version}M1" if $cpu =~ /Apple\s*M1/;
+    $OS_Version = "${OS_Version}M1" if $cpu =~ /Apple\s+M1/;
  }
+
+ exit unless -d $re->{'CEL'};
 $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-
-exit unless -d $re->{'CEL'};
- mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" or
-     -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` or
-     -f "$FindBin::Bin/tie.pl"  and `diff $FindBin::Bin/tie.pl ~/.BREW_LIST/tie.pl` ){
-      die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
-       if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
-  }
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
@@ -53,11 +46,21 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1; $re->{'LINK'}=3 if $re->{'LIN'};
 }elsif( $AR[0] eq '-lb' ){ $name = $re; $re->{'LINK'} = 2; $re->{'LIST'} = 1;
+}elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LINK'} = 4; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LINK'} = 5; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-co' ){ $name = $re; $re->{'COM'} = 1;
 }elsif( $AR[0] eq '-new' ){$name = $re; $re->{'NEW'} = 1;
 }elsif( $AR[0] eq '-s' ){  $name = $re; $re->{'S_OPT'} = 1;
 }elsif( $AR[0] eq '-' ){   $name = $re; $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
+
+ mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
+  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" or
+     -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` or
+     -f "$FindBin::Bin/tie.pl"  and `diff $FindBin::Bin/tie.pl ~/.BREW_LIST/tie.pl` ){
+      die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
+       if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
+  }
 
 if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
@@ -107,8 +110,9 @@ sub Died_1{
   -l List : -i Instaled list : - Brew List
   -lb Bottled install List : -lx Cannot install List
   -s Type search name : -co Search to Comannd
-  Only mac
-  -c Casks list : -ci Casks instaled list\n";
+  Only mac : Cask
+  -c Casks list : -ci Casks instaled list
+  -cx Cannot install List : -cs Formula some name\n";
 }
 
 sub Darwin_1{
@@ -126,7 +130,7 @@ sub Darwin_1{
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
 
  DB_1( $re );
-  DB_2( $re ) if $re->{'FOR'} and not $re->{'S_OPT'} and not $re->{'BL'};
+  DB_2( $re ) unless $re->{'S_OPT'} and $re->{'BL'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
   Brew_1( $re,$list ) : File_1( $re,$list );
@@ -147,7 +151,7 @@ sub Linux_1{
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
 
  DB_1( $re );
-  DB_2( $re ) if $re->{'FOR'} and not $re->{'S_OPT'} and not $re->{'BL'};
+  DB_2( $re ) unless $re->{'S_OPT'} and $re->{'BL'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ? 
   Brew_1( $re,$list ) : File_1( $re,$list );
@@ -181,7 +185,7 @@ my( $re,%NA ) = @_;
  tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDONLY,0;
    %NA = %tap;
   untie %tap;
- $re->{'OS'} = %NA ? \%NA : '';
+ $re->{'OS'} = %NA ? \%NA : die " Not read DBM\n21";
 }
 
 sub Brew_1{
@@ -297,30 +301,15 @@ my( $re,$mem,$dir ) = @_;
  if( $dir ){
   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
   if( @$file ){
-    if( $re->{'CAS'} or not $re->{'OS'} ){
-     $re->{'ALL'} .= " Check folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
-     $re->{'EXC'} .= " Check folder $re->{'CEL'} => $dir\n" if $mem;
-    }else{
-     $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
-     $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n" if $mem;
-    }
+    $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
+    $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n" if $mem;
    for(my $i=0;$i<@$file;$i++){
-    if( $re->{'CAS'} or not $re->{'OS'} ){
-     $re->{'ALL'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" unless $re->{'L_OPT'};
-     $re->{'EXC'} .= @$file-1 == $i ? " $$file[$i]\n" : " $$file[$i]\t" if $mem;
-    }else{
-     $re->{'ALL'} .= @$file-1 == $i ? "    $$file[$i]\n" : "     $$file[$i]" unless $re->{'L_OPT'};
-     $re->{'EXC'} .= @$file-1 == $i ? "    $$file[$i]\n" : "     $$file[$i]" if $mem;
-    }
+    $re->{'ALL'} .= @$file-1 == $i ? "    $$file[$i]\n" : "     $$file[$i]" unless $re->{'L_OPT'};
+    $re->{'EXC'} .= @$file-1 == $i ? "    $$file[$i]\n" : "     $$file[$i]" if $mem;
    }
   }else{
-    if( $re->{'CAS'} or not $re->{'OS'} ){
-     $re->{'ALL'} .= " Empty folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
-     $re->{'EXC'} .= " Empty folder $re->{'CEL'} => $dir\n" if $mem;
-    }else{
-     $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
-     $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n" if $mem;
-    }
+    $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
+    $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n" if $mem;
   }
  }else{
    $re->{'ALL'} .= $re->{'MEM'} unless $re->{'L_OPT'};
@@ -337,7 +326,9 @@ my( $list,$file,$in,$re ) = @_;
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
       $re->{'LINK'} == 2 and $re->{'OS'}{"$brew_1$OS_Version"} or
-      $re->{'LINK'} == 3 and $re->{'OS'}{"${brew_1}un_Linux"} ){
+      $re->{'LINK'} == 3 and $re->{'OS'}{"${brew_1}un_Linux"} or
+      $re->{'LINK'} == 4 and $re->{'OS'}{"${brew_1}un_cask"} or
+      $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} ){
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
@@ -356,22 +347,24 @@ my( $list,$file,$in,$re ) = @_;
      }
     }
    unless( $re->{'S_OPT'} ){
-     if( $re->{'CAS'} or not $re->{'OS'} ){
-       $re->{'MEM'} = "    $brew_1\t";
-     }else{
-      if( $re->{'MAC'} ){
+     if( $re->{'MAC'} ){
+      if( $re->{'FOR'} ){
        $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
         " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
-        " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_xcode"} ? " x       $brew_1\t" :
-        $re->{'OS'}{"${brew_1}keg"} ? "   k     $brew_1\t" : "         $brew_1\t";
+       " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_xcode"} ? " x       $brew_1\t" :
+       $re->{'OS'}{"${brew_1}keg"} ? "   k     $brew_1\t" : "         $brew_1\t";
       }else{
-       $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
-        " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
-         ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
-        " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_Linux"}  ? " x       $brew_1\t" :
-        $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "         $brew_1\t";
+       $re->{'MEM'} = ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ?
+        " x s     $brew_1\t" : $re->{'OS'}{"${brew_1}un_cask"} ? " x       $brew_1\t" :
+       $re->{'OS'}{"${brew_1}so_name"} ? "   s     $brew_1\t" : "         $brew_1\t";
       }
+     }else{
+       $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
+       " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
+        ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
+       " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_Linux"}  ? " x       $brew_1\t" :
+       $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "         $brew_1\t";
      }
     if( $pop ){
      if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
@@ -385,19 +378,15 @@ my( $list,$file,$in,$re ) = @_;
      }
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
          $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
-          ( $re->{'CAS'} or not $re->{'OS'} ) ?
-           $re->{'MEM'} =~ s/^\s{4}$brew_1\t/ X  $brew_1\tNot Formula\n/ :
-            $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
-          Memo_1( $re,$mem,0 );
-           $in++ and $i-- and next;
+           $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
+            Memo_1( $re,$mem,0 );
+            $in++ and $i-- and next;
      }else{
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
-           ( $re->{'CAS'} or not $re->{'OS'} ) ?
-            $re->{'MEM'} =~ s/^\s{3}/(i)/ : Type_1( $re,$brew_1,'(i)' );
+           Type_1( $re,$brew_1,'(i)' );
       }else{
-           ( $re->{'CAS'} or not $re->{'OS'} ) ?
-            $re->{'MEM'} =~ s/^\s{3}/ i / : Type_1( $re,$brew_1,' i ' );
+           Type_1( $re,$brew_1,' i ' );
       }
      }
      $in++;
@@ -418,10 +407,12 @@ my( $list,$re,$in ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
  my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
 
-  my $brew = 1;
+   my $brew = 1;
  if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
      $re->{'LINK'} and $re->{'LINK'} == 2 and not $re->{'OS'}{"$tap$OS_Version"} or
-     $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"${tap}un_Linux"} ){
+     $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"${tap}un_Linux"} or
+     $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
+     $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} ){
       $brew = 0;
  }
 
@@ -437,16 +428,13 @@ my( $list,$re,$in ) = @_;
     }
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap} or
         $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
-         $re->{'MEM'} = ( $re->{'CAS'} or not $re->{'OS'} ) ?
-          " X  $tap\tNot Formula\n" : "      X  $tap\tNot Formula\n";
+         $re->{'MEM'} = "      X  $tap\tNot Formula\n";
     }elsif( $re->{'FOR'} ){
-        $re->{'MEM'} = ( $re->{'CAS'} or not $re->{'OS'} ) ?
-          " i  $tap\t$re->{'HASH'}{$tap}\n" : "      i  $tap\t$re->{'HASH'}{$tap}\n";
+         $re->{'MEM'} = "      i  $tap\t$re->{'HASH'}{$tap}\n";
     }else{
-        $re->{'MEM'} = ( $re->{'CAS'} or not $re->{'OS'} ) ?
-          " i  $tap\t$re->{'DMG'}{$tap}\n" :  "      i  $tap\t$re->{'DMG'}{$tap}\n";
+         $re->{'MEM'} = "      i  $tap\t$re->{'DMG'}{$tap}\n";
     }
-     Type_1( $re,$tap,' i ' ) if $re->{'FOR'} and $re->{'OS'};
+     Type_1( $re,$tap,' i ' ) if $re->{'MEM'} !~ /^\s+X\s+/;
       Memo_1( $re,$mem,0 ) if $brew;
        $re->{'AN'}++ and $re->{'IN'}++ if $brew;
   }else{
@@ -458,13 +446,20 @@ my( $list,$re,$in ) = @_;
 sub Type_1{
 my( $re,$brew_1,$i ) = @_;
  if( $re->{'MAC'} ){
-  ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
-   $re->{'MEM'} =~ s/^.{9}/ t k $i / : $re->{'OS'}{"${brew_1}un_xcode"} ?
-   $re->{'MEM'} =~ s/^.{9}/ t   $i / : 
-  ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
-   $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
-   $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg"} ?
-   $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
+  if( $re->{'FOR'} ){
+   ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
+    $re->{'MEM'} =~ s/^.{9}/ t k $i / : $re->{'OS'}{"${brew_1}un_xcode"} ?
+    $re->{'MEM'} =~ s/^.{9}/ t   $i / : 
+   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
+    $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
+    $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg"} ?
+    $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
+  }else{
+    ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ?
+    $re->{'MEM'} =~ s/^.{9}/ x s $i / : $re->{'OS'}{"${brew_1}un_cask"} ?
+    $re->{'MEM'} =~ s/^.{9}/ x   $i / :  $re->{'OS'}{"${brew_1}so_name"} ?
+    $re->{'MEM'} =~ s/^.{9}/   s $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
+  }
  }else{
   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
    $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
