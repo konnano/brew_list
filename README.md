@@ -1,51 +1,59 @@
-　:　使用方法
+next tool for this script brewlist command
 
-ダウンロード後フォルダー内で ./brew_list.pl -l を実行して下さい
+ : usage
 
-~/.BREW_LIST フォルダが作られ font.sh と tie.pl がコピーされます
+After downloading, run ./brew_list.pl -l in the folder
 
-キャッシュファイル作成に少し時間がかかります
+mkdir ~/.BREW_LIST; cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.
 
-/opt 配下にインストールされたHomebrewには対応していません
+takes a little time to create the cache file
 
-(Apple M1 持ってないので仕様わからない、詳しい部分教えて下さい)
+I don't have Apple M1 so I don't support it
 
-アンインストールは ~/.BREW_LIST フォルダを削除して下さい
+uninstall rm -rf ~/.BREW_LIST
 
-　: オプション
+ : option
 
-'-l' オプションでフォーミュラリストが表示されます、//で正規表現が使えます
+'-i' option Formula list // regix
 
-'-lb' オプションでボトルインストールフォーミュラが表示されます
+'-lb' option bottle install Formula // regix
 
-'-lx' オプションでインストールできないフォーミュラが表示されます
+'-lx' option not install Formula // regix
 
-'-i' オプションでインストール済みフォーミュラリストが表示されます
+'-i' option instaled Formula
 
-'-s' オプションで検索リストが表示されます、//で正規表現が使えます
+'-s' option search Formula // regix
 
-'-co' オプションでライブラリーが表示されます
+'-co'option Library
 
-'-' オプションで brew list コマンド
+'-' brew list command
 
- Only 　Mac
+Only Mac : Cask
 
-'-c' オプションでCasksリストが表示されます、//で正規表現が使えます
+'-c' option Cask list // regix
 
-'-ci' オプションでCasksインストール済みリストが表示されます
+'-ci' option installed CASK
 
-　： 表示マーク
+'-cx' option not install CASK // regix
 
-bマークはボトルインストールフォーミュラ
+'-cs' same name Formula and Cask // regix
 
-kマークはkeg_onlyフォーミュラ
+ : mark
 
-iマークはインストール済みフォーミュラ
+b mark bottle install Formula
 
-(i)マークはバージョンアップのあるフォーミュラ
+k mark keg_only install Formula
 
-xマークはインストールできないフォーミュラ
+i mark installed Formula
 
-tマークはtapでラップされたフォーミュラ
+(i) mark version up Formula
 
- ： バグ '-lb' '-lx' オプションはtapフォーミュラを読み込みません
+x mark not install Formula or Cask
+
+t mark tap wrapping Formula
+
+Only Mac : Cask
+
+s mark same neme Formula and Cask : install by option --cask
+
+Bug'-lb''-lx' option not read tap formula
