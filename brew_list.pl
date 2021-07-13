@@ -106,7 +106,7 @@ if( $re->{'LIN'} ){
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
- die "  Option : '-new' Creat new caches
+ die "  Option : '-new' Creat new cache
   -l formula list : -i instaled formula : - brew list command
   -lb bottled install formula : -lx can't install formula
   -s type search name : -co library display
