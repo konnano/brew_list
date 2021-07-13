@@ -14,29 +14,29 @@ uninstall rm -rf ~/.BREW_LIST
 
 : option
 
--i  option Formula list display   : // regix
+'-i'  option Formula list display   : // regix
 
--lb option bottle install Formula : // regix
+'-lb' option bottle install Formula : // regix
 
--lx option can't install Formula  : // regix
+'-lx' option can't install Formula  : // regix
 
--i  option instaled Formula
+'-i'  option instaled Formula
 
--s  option search Formula         : // regix
+'-s'  option search Formula         : // regix
 
--co option library display
+'-co' option library display
 
--   brew list command
+'-'   brew list command
 
 Only Mac : Cask
 
--c  option Cask list display      : // regix
+'-c'  option Cask list display      : // regix
 
--ci option installed CASK
+'-ci' option installed CASK
 
--cx option can't install CASK     : // regix
+'-cx' option can't install CASK     : // regix
 
--cs same name Cask and Formula    : // regix
+'-cs' same name Cask and Formula    : // regix
 
 : mark
 
