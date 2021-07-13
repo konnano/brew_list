@@ -107,12 +107,12 @@ if( $re->{'LIN'} ){
 
 sub Died_1{
  die "  Option : '-new' Creat new cachae
-  -l List : -i Instaled list : - Brew List
-  -lb Bottled install List : -lx Cannot install List
-  -s Type search name : -co Search to Comannd
+  -l formula list : -i instaled formula : - brew list command
+  -lb bottled install formula : -lx can't install formula
+  -s type search name : -co library display
   Only mac : Cask
-  -c Casks list : -ci Casks instaled list
-  -cx Cannot install List : -cs Formula some name\n";
+  -c cask list : -ci instaled cask
+  -cx can't install cask : -cs some name cask and formula\n";
 }
 
 sub Darwin_1{
