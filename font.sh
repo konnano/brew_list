@@ -115,10 +115,11 @@ EOF
  rm -f ~/.BREW_LIST/DBM.*
  perl ~/.BREW_LIST/tie.pl
 
+ rm -f ~/.BREW_LIST/DB
 if [ `uname` = Darwin ];then
- cp ~/.BREW_LIST/DBM.db ~/.BREW_LIST/DB 2>/dev/null
+ ln -s ~/.BREW_LIST/DBM.db ~/.BREW_LIST/DB
 else
- cp ~/.BREW_LIST/DBM.dir ~/.BREW_LIST/DB 2>/dev/null
+ ln -s ~/.BREW_LIST/DBM.dir ~/.BREW_LIST/DB
 fi
 
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip
