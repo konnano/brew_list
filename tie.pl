@@ -132,9 +132,12 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
  for my $dir2(@CASK){ chomp $dir2;
   my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
   open my $BREW,'<',$dir2 or die " Info_2 $!\n";
-   while(my $data1=<$BREW>){
-    if( my( $ls1,$ls2 ) = $data1 =~ /^\s+depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
+   while(my $data=<$BREW>){
+    if( my( $ls1,$ls2 ) = $data =~ /^\s+depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
      $tap{"${name}un_cask"} = 1 unless eval("$OS_Version $ls1 $MAC_OS{$ls2}");
+    }
+    if( $data =~ /^\s*depends_on\s+formula:/ ){
+     $tap{"${name}formula"} = 1;
     }
    }
   close $BREW;
