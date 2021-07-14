@@ -57,5 +57,3 @@ Only Mac : Cask
 s mark same neme cask and formula : install by option --cask
 
 f make cask require formula
-
-Bug'-lb''-lx' option not read tap formula
