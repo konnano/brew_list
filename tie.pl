@@ -138,6 +138,9 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
     }
     if( $data =~ /^\s*depends_on\s+formula:/ ){
      $tap{"${name}formula"} = 1;
+      if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
+       $tap{"${name}formula"} = 0 if $CPU ne $ls3;
+      }
     }
    }
   close $BREW;
