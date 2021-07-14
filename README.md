@@ -1,4 +1,4 @@
-next tool for this script brewlist command
+next tool for brew list command
 
 : usage
 
@@ -6,9 +6,9 @@ After downloading, run ./brew_list.pl -l in the brew_list folder
 
 mkdir ~/.BREW_LIST; cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.
 
-takes a little time to create the cache file
+takes a little time to create new cache
 
-I don't have Apple M1 so I don't support it
+I don't have Apple M1 so I can't support it
 
 uninstall rm -rf ~/.BREW_LIST
 
@@ -36,7 +36,7 @@ Only Mac : Cask
 
 '-cx' option can't install cask     : // regix
 
-'-cs' same name cask and formula    : // regix
+'-cs' same name , cask and formula    : // regix
 
 : mark
 
@@ -44,16 +44,16 @@ b mark bottle install formula
 
 k mark keg_only install formula
 
-i mark installed formula and cask
+i mark installed , formula and cask
 
-(i) mark version up formula and cask
+(i) mark version up , formula and cask
 
-x mark can't install formula and cask
+x mark can't install , formula and cask
 
 t mark tap wrapping formula
 
 Only Mac : Cask
 
-s mark same neme cask and formula : install by option --cask
+s mark same neme , cask and formula : install by option --cask
 
 f make cask require formula
