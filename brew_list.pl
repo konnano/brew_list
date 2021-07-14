@@ -123,7 +123,7 @@ sub Darwin_1{
      print " \033[31mNot connected\033[37m\n";
     }
    system('~/.BREW_LIST/font.sh');
-    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cacahe\n" :
+    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cache\n" :
      ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and $ls ) ? exit : die" Can not Created\n";
   }
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
@@ -144,7 +144,7 @@ sub Linux_1{
      print " \033[31mNot connected\033[37m\n";
     }
    system('~/.BREW_LIST/font.sh');
-    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cacahe\n" :
+    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cache\n" :
      ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and $ls ) ? exit : die" Can not Created\n";
   }
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
