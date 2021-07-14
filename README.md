@@ -44,9 +44,9 @@ b mark bottle install formula
 
 k mark keg_only install formula
 
-i mark installed formula
+i mark installed formula and cask
 
-(i) mark version up formula
+(i) mark version up formula and cask
 
 x mark can't install formula or cask
 
