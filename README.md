@@ -48,7 +48,7 @@ i mark installed formula and cask
 
 (i) mark version up formula and cask
 
-x mark can't install formula or cask
+x mark can't install formula and cask
 
 t mark tap wrapping formula
 
