@@ -106,7 +106,7 @@ if( $re->{'LIN'} ){
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
- die "  Option : '-new' Creat new cache
+ die "  Option : '-new' creat new cache
   -l formula list : -i instaled formula : - brew list command
   -lb bottled install formula : -lx can't install formula
   -s type search name : -co library display
@@ -357,7 +357,10 @@ my( $list,$file,$in,$re ) = @_;
       }else{
        $re->{'MEM'} = ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ?
         " x s     $brew_1\t" : $re->{'OS'}{"${brew_1}un_cask"} ? " x       $brew_1\t" :
-       $re->{'OS'}{"${brew_1}so_name"} ? "   s     $brew_1\t" : "         $brew_1\t";
+       $re->{'OS'}{"${brew_1}so_name"} ? "   s     $brew_1\t" :
+       ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}formula"} ) ?
+        " x f     $brew_1\t" : $re->{'OS'}{"${brew_1}formula"} ? "   f     $brew_1\t" :
+        "         $brew_1\t";
       }
      }else{
        $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
@@ -458,7 +461,10 @@ my( $re,$brew_1,$i ) = @_;
     ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ x s $i / : $re->{'OS'}{"${brew_1}un_cask"} ?
     $re->{'MEM'} =~ s/^.{9}/ x   $i / :  $re->{'OS'}{"${brew_1}so_name"} ?
-    $re->{'MEM'} =~ s/^.{9}/   s $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
+    $re->{'MEM'} =~ s/^.{9}/   s $i / :
+    ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}formula"} ) ?
+    $re->{'MEM'} =~ s/^.{9}/ x f $i / : $re->{'OS'}{"${brew_1}formula"} ?
+    $re->{'MEM'} =~ s/^.{9}/   f $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
   }
  }else{
   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
