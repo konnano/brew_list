@@ -14,15 +14,15 @@ uninstall rm -rf ~/.BREW_LIST
 
 : option
 
-'-i'  option Formula list display   : // regix
+'-i'  option formula list display   : // regix
 
-'-lb' option bottle install Formula : // regix
+'-lb' option bottle install formula : // regix
 
-'-lx' option can't install Formula  : // regix
+'-lx' option can't install formula  : // regix
 
-'-i'  option instaled Formula
+'-i'  option instaled formula
 
-'-s'  option search Formula         : // regix
+'-s'  option search formula         : // regix
 
 '-co' option library display
 
@@ -30,30 +30,32 @@ uninstall rm -rf ~/.BREW_LIST
 
 Only Mac : Cask
 
-'-c'  option Cask list display      : // regix
+'-c'  option cask list display      : // regix
 
-'-ci' option installed CASK
+'-ci' option installed cask
 
-'-cx' option can't install CASK     : // regix
+'-cx' option can't install cask     : // regix
 
-'-cs' same name Cask and Formula    : // regix
+'-cs' same name cask and formula    : // regix
 
 : mark
 
-b mark bottle install Formula
+b mark bottle install formula
 
-k mark keg_only install Formula
+k mark keg_only install formula
 
-i mark installed Formula
+i mark installed formula
 
-(i) mark version up Formula
+(i) mark version up formula
 
-x mark can't install Formula or Cask
+x mark can't install formula or cask
 
-t mark tap wrapping Formula
+t mark tap wrapping formula
 
 Only Mac : Cask
 
-s mark same neme Formula and Cask : install by option --cask
+s mark same neme cask and formula : install by option --cask
+
+f make cask require formula
 
 Bug'-lb''-lx' option not read tap formula
