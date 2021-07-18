@@ -4,7 +4,7 @@ use warnings;
 use FindBin;
 use NDBM_File;
 use Fcntl ':DEFAULT';
-my $OS_Version;
+my( $OS_Version,$CPU );
 
 my $re  = {
  'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,
@@ -30,9 +30,12 @@ $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
    $OS_Version =~ s/^11/11.0/;
-   my $cpu = `sysctl machdep.cpu.brand_string`;
-    $OS_Version = "${OS_Version}M1" if $cpu =~ /Apple\s+M1/;
+     $CPU = `sysctl machdep.cpu.brand_string`;
+      $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
+       $OS_Version = "${OS_Version}M1" if $CPU =~ /arm\?/;
  }
+my %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
+              'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
 
  exit unless -d $re->{'CEL'};
 $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
@@ -41,13 +44,14 @@ $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
 if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
-}elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
-}elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'} = 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-i' ){  $name = $re; $re->{'PRINT'} = 1;
 }elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1; $re->{'LINK'}=3 if $re->{'LIN'};
 }elsif( $AR[0] eq '-lb' ){ $name = $re; $re->{'LINK'} = 2; $re->{'LIST'} = 1;
-}elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LINK'} = 4; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LINK'} = 5; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-in' ){ $name = $re; $re->{'INF'} = 1;  $re->{'LINK'} = 6; $re->{'LIST'} = 1;
+}elsif( $AR[0] eq '-c' ){  $name = $ref;$ref->{'LIST'} = 1;Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-ci'){  $name = $ref;$ref->{'PRINT'}= 1;Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-cx' ){ $name = $ref;$ref->{'LINK'} = 4;$ref->{'LIST'} = 1;Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-cs' ){ $name = $ref;$ref->{'LINK'} = 5;$ref->{'LIST'} = 1;Died_1() if $re->{'LIN'};
 }elsif( $AR[0] eq '-co' ){ $name = $re; $re->{'COM'} = 1;
 }elsif( $AR[0] eq '-new' ){$name = $re; $re->{'NEW'} = 1;
 }elsif( $AR[0] eq '-s' ){  $name = $re; $re->{'S_OPT'} = 1;
@@ -78,9 +82,13 @@ if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
 }
 
-if( $re->{'COM'} or $AR[1] and $name->{'LIST'} ){
+if( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
+ if( $re->{'INF'} ){
+  $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
+ }else{	
  $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
   $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
+ }
 }elsif( $re->{'S_OPT'} ){
  $AR[1] ? $ref->{'STDI'} = lc $AR[1] : Died_1();
   $re->{'S_OPT'} = $ref->{'S_OPT'} =
@@ -109,7 +117,7 @@ sub Died_1{
  die "  Option : '-new' creat new cache
   -l formula list : -i instaled formula : - brew list command
   -lb bottled install formula : -lx can't install formula
-  -s type search name : -co library display
+  -s type search name : -co library display : -in formula require formula
   Only mac : Cask
   -c cask list : -ci instaled cask
   -cx can't install cask : -cs some name cask and formula\n";
@@ -223,6 +231,8 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
    close $BREW;
   @$file = sort{$a cmp $b}@$file if $re->{'FOR'};
  }
+ Info_1( $re,$file ) if $re->{'INF'};
+
  if( $re->{'CAS'} and $re->{'S_OPT'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
@@ -254,6 +264,144 @@ my( $dir,$ls,$file ) = @_;
   }
  close $BREW;
 $file;
+}
+
+sub Info_1{
+my( $re,$file ) = @_;
+ for my $brew(@$file){
+  my( $name,$count,$com ) = split(' ',$brew);
+  $re->{'NAME'}{$name} = 1;
+ }
+$re->{'CLANG'} =`clang --version|xargs|awk '{print \$5}'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'` if $re->{'MAC'};
+ Info_2( $re );
+}
+
+sub Info_2{
+my( $re,$file ) = @_; my $IN = 0;
+ my $name = $file ? $file : $re->{'NAME'}{$re->{'INF'}} ? $re->{'INF'} : exit;
+ die " can't install $name\n" if $re->{'MAC'} and $re->{'OS'}{"${name}un_xcode"} or
+                                 $re->{'LIN'} and $re->{'OS'}{"${name}un_Linux"};
+  my $bottle = 1 if $re->{'OS'}{"$name$OS_Version"};
+   $file = ( $^O eq 'darwin' ) ?
+   '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula' :
+   '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula';
+
+open my $BREW1,'<',"$file/$name.rb" or die " Info_1 $!\n";
+ while(my $data=<$BREW1>){
+  if( $re->{'MAC'} ){
+   if( $data =~ /^\s+on_linux\s*do/ ){ $IN = 1; next; }
+    next if( $data !~ /^\s+end/ and $IN == 1 );
+     if( $data =~ /^\s+end/ and $IN == 1){ $IN = 0; next; }
+  }else{
+   if( $data =~ /^\s+on_macos\s+do/ ){ $IN = 2; next; }
+    next if( $data !~ /^\s+end/ and $IN == 2  );
+     if( $data =~ /^\s+end/ and $IN == 2){ $IN = 0; next; }
+  }
+
+  if( $data =~ /^\s*head do/ ){ $IN = 3; next;}
+   elsif( $data !~ /^\s+end$/ and $IN == 3 ){ next }
+    elsif( $data =~ /^\s+end$/ and $IN == 3){ $IN = 0; next; }
+
+  if( $re->{'MAC'} ){
+   if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
+    $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
+     if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
+      $re->{'OS'}{"deps$data"} = 1;
+       Info_2( $re,$data );
+        next;
+     }elsif( $IN == 4 and $data =~ /^\s*else|^\s+end/ ){
+      $IN = 0; next;
+     }elsif( $IN == 5 and $data =~ /^\s*depends_on/ ){
+      next;
+     }elsif( $IN == 5 and $data =~ /^\s*end/ ){
+      $IN = 0; next;
+     }elsif( $IN == 5 and $data =~ /^\s*else/ ){
+      $IN = 6; next;
+     }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
+      $re->{'OS'}{"deps$data"} = 1;
+       Info_2( $re,$data );
+        next;
+     }elsif( $IN == 6 and $data =~ /^\s+end/ ){
+       $IN = 0; next;
+     }
+   }
+  }
+
+  if( $data =~ /^\s*depends_on\s+"[^"]+"\s+=>\s+:test/ ){
+    next;
+  }elsif (my( $cpu1,$cpu2 ) =
+   $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
+    if( $re->{'MAC'} and $cpu2 and $cpu2 =~ /$CPU/ ){
+     $re->{'OS'}{"deps$cpu1"} = 1 unless $bottle;
+      Info_2( $re,$cpu1 ) unless $bottle;
+    } next;
+  }elsif( my( $cpu3,$cpu4 ) =
+   $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build.+unless\s+Hardware::CPU\.([^\s]+).*\n/ ){
+    if( $re->{'MAC'} and $cpu4 and $cpu4 !~ /$CPU/ ){
+     $re->{'OS'}{"deps$cpu3"} = 1 unless $bottle;
+      Info_2( $re,$cpu3 );
+    } next;
+  }elsif( my( $ls1,$ls2,$ls3 ) =
+   $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
+    if( $re->{'MAC'} and $ls3 ){
+     if( eval("$OS_Version $ls2 $MAC_OS{$ls3}") ){
+      $re->{'OS'}{"deps$ls1"} = 1 unless $bottle;
+       Info_2( $re,$ls1 ) unless $bottle;
+     }
+    } next;
+  }elsif( my( $ls4,$ls5,$ls6 ) =
+   $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
+    if( $re->{'MAC'} and $ls6 ){
+     if( eval("$re->{'CLANG'} $ls5 $ls6") ){
+      $re->{'OS'}{"deps$ls4"} = 1 unless $bottle;
+       Info_2( $re,$ls4 ) unless $bottle;
+     }
+    } next;
+  }elsif( my( $lb1,$lb2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
+    if( $re->{'MAC'} and $lb2 and $OS_Version <= $MAC_OS{$lb2} ){ print"7 : $name:$data\n";
+     $re->{'OS'}{"deps$lb1"} = 1 unless $bottle;
+      Info_2( $re,$lb1 ) unless $bottle;
+    } next;
+  }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
+    $re->{'OS'}{"deps$data"} = 1 unless $bottle;
+     Info_2( $re,$data ) unless $bottle;
+      next;
+  }
+
+  if( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
+     $re->{'OS'}{"deps$data"} = 1;
+     Info_2( $re,$data );
+  }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
+   if( $re->{'MAC'} and $ls2 and $OS_Version <= $MAC_OS{$ls2} ){
+    $re->{'OS'}{"deps$ls1"} = 1;
+    Info_2( $re,$ls1 );
+   }
+  }elsif( $data =~ /^\s*depends_on.+\s*if\s*/ ){
+   my( $ls1,$ls2,$ls3 ) =
+    $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/;
+     if( $re->{'MAC'} and $ls3 ){
+      if( eval("$OS_Version $ls2 $MAC_OS{$ls3}") ){
+	$re->{'OS'}{"deps$ls1"} = 1;
+        Info_2( $re,$ls1 );
+      }
+     }
+   my($ls4,$ls5,$ls6) =
+    $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/;
+     if( $re->{'MAC'} and $ls6 ){
+      if( eval("$re->{'CLANG'} $ls5 $ls6") ){
+       $re->{'OS'}{"deps$ls4"} = 1;
+       Info_2( $re,$ls4 );
+      }
+     }
+   my( $ls7,$ls8 ) =
+    $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+).*\n/;
+     if( $re->{'MAC'} and $ls8 and $ls8 =~ /$CPU/ ){
+      $re->{'OS'}{"deps$ls7"} = 1;
+      Info_2( $re,$ls7 );
+     }
+  }
+ }
+close $BREW1;
 }
 
 sub Dirs_1{
@@ -328,7 +476,8 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'LINK'} == 2 and $re->{'OS'}{"$brew_1$OS_Version"} or
       $re->{'LINK'} == 3 and $re->{'OS'}{"${brew_1}un_Linux"} or
       $re->{'LINK'} == 4 and $re->{'OS'}{"${brew_1}un_cask"} or
-      $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} ){
+      $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
+      $re->{'LINK'} == 6 and $re->{'OS'}{"deps$brew_1"} ){
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
@@ -415,7 +564,8 @@ my( $list,$re,$in ) = @_;
      $re->{'LINK'} and $re->{'LINK'} == 2 and not $re->{'OS'}{"$tap$OS_Version"} or
      $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"${tap}un_Linux"} or
      $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
-     $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} ){
+     $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} or
+     $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{'OS'}{"deps$tap"} ){
       $brew = 0;
  }
 
