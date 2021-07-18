@@ -96,6 +96,10 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
       if( $OS_Version and $MAC_OS{$data} gt $OS_Version ){
        $tap{"${name}un_xcode"} = 1; next;
       }
+     }elsif( my( $ls1,$ls2 ) =
+       $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT.version\s+([^\s]+)\s+"([^"]+)".*\n/ ){
+        ## $tap{"${name}un_xcode"} = 1 if( $Xcode and eval "$Xcode $ls1 $ls2" );
+           next;
      }
     if( $^O eq 'darwin' ){
      if( $IN  or $data =~ /^\s*if\s+Hardware::CPU/ ){
