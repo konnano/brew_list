@@ -1,59 +1,63 @@
-next tool for brew list command
+brew list コマンド補強版
 
-: usage
+ : 使用方法
 
-After downloading, run ./brew_list.pl -l in the brew_list folder
+ダウンロード後、brew_listフォルダー内で ./brew_list.pl -l を実行して下さい
 
-mkdir ~/.BREW_LIST; cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.
+~/.BREW_LIST フォルダが作られ font.sh と tie.pl がコピーされます
 
-takes a little time to create new cache
+キャッシュファイル作成に少し時間がかかります
 
-I don't have Apple M1 so I can't support it
+/opt 配下にインストールされたHomebrewには対応していません
 
-uninstall rm -rf ~/.BREW_LIST
+(Apple M1 持ってないので仕様わからない、詳しい部分教えて下さい)
 
-: option
+アンインストールは ~/.BREW_LIST フォルダを削除して下さい
 
-'-i'  option formula list display   : // regix
+ : オプション
 
-'-lb' option bottle install formula : // regix
+'-l'  オプションでFormulaリストが表示されます、//で正規表現が使えます
 
-'-lx' option can't install formula  : // regix
+'-lb' オプションでボトルインストールFormulaが表示されます、//で正規表現が使えます
 
-'-i'  option instaled formula
+'-lx' オプションでインストールできないFormulaが表示されます、//で正規表現が使えます
 
-'-s'  option search formula         : // regix
+'-in' オプションでインストールに必要なFormulaが表示されます
 
-'-co' option library display
+'-i'  オプションでインストール済みFormulaリストが表示されます
 
-'-'   brew list command
+'-s'  オプションでFormulaの検索ができます、//で正規表現が使えます
 
-Only Mac : Cask
+'-co' オプションでFormulaのライブラリーが表示されます
 
-'-c'  option cask list display      : // regix
+'-'   オプションで brew list コマンド
 
-'-ci' option installed cask
+Only 　Mac : Cask
 
-'-cx' option can't install cask     : // regix
+'-c'  オプションでCasksリストが表示されます、//で正規表現が使えます
 
-'-cs' same name , cask and formula    : // regix
+'-ci' オプションでCasksインストール済みリストが表示されます
 
-: mark
+'-cx' オプションでインストールできないCaskが表示されます、//で正規表現が使えます
 
-b mark bottle install formula
+'-cs' オプションで同名のFormulaとCaskが表示されます、//で正規表現が使えます
 
-k mark keg_only install formula
+ : 表示マーク
 
-i mark installed , formula and cask
+bマークはボトルインストールFormula
 
-(i) mark version up , formula and cask
+kマークはkeg_onlyのFormula
 
-x mark can't install , formula and cask
+iマークはインストール済みFormula
 
-t mark tap wrapping formula
+(i)マークはバージョンアップのあるFormula
 
-Only Mac : Cask
+xマークはインストールできないFormula
 
-s mark same neme , cask and formula : install by option --cask
+tマークはtapでラップされたFormula
 
-f make cask require formula
+Onle Mac : Cask
+
+s マークは同名のFormulaとCask : インストールには --caskオプション
+
+f マークはFormulaを必要とするCask
