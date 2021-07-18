@@ -4,7 +4,7 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my $IN = 0;
-my( $OS_Version,%MAC_OS,$CPU,$Xcode,@BREW,@CASK );
+my( $OS_Version,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
  $OS_Version = `sw_vers -productVersion`;
@@ -13,7 +13,6 @@ if( $^O eq 'darwin' ){
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
  $Xcode = `xcodebuild -version|xargs|awk '{print \$2}'`;
   $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
-
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
 
@@ -22,6 +21,13 @@ if( $^O eq 'darwin' ){
    Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
 }else{
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
+  $RPM = `rpm -q glibc|sed 's/.*-\\(.*\\)-.*/\\1/'`;
+  open my $CD,"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " CAT $!\n";
+   while(my $an=<$CD>){
+    my($ls1,$ls2,$ls3) = split("\t",$an);
+     $CAT = $ls2 if $ls1 eq 'glibc';
+   }
+  close $CD
 }
 
 sub Dirs_1{
@@ -86,28 +92,28 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
       if( $OS_Version and $MAC_OS{$data} gt $OS_Version ){
        $tap{"${name}un_xcode"} = 1; next;
       }
+     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[:([^\s]+),\s+:build].*\n/$1/ ){
+      if( $OS_Version and $MAC_OS{$data} gt $OS_Version ){
+       $tap{"${name}un_xcode"} = 1; next;
+      }
      }
     if( $^O eq 'darwin' ){
      if( $IN  or $data =~ /^\s*if\s+Hardware::CPU/ ){
       $IN = $data =~ /$CPU/ ? 3 : 4 unless $IN;
-       if( $IN == 3 and $data !~ /^\s+else|^\s+end/ ){
-        if( $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
+       if( $IN == 3 and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
-        }
        }elsif( $IN == 3 and $data =~ /^\s+else|^\s+end/ ){
-        $IN = 0;
-       }elsif( $IN == 4 and $data =~ /^\s+else|^\s+end/ ){
+        $IN = 6;
+       }elsif( $IN == 4 and $data =~ /^\s+else/ ){
         $IN = 5;
-       }elsif( $IN == 5 and $data !~ /^\s+end/ ){
-        if( $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
+       }elsif( $IN == 5 and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
-        }
        }elsif( $IN == 5 and $data =~ /^\s+end/ ){
-        $IN = 0;
+        $IN = 6;
        }
-     }elsif( $data =~ s/^\s*depends_on\s+xcode:.*"([^"]+)".*\n/$1/ ){
+     }elsif( $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
      }
@@ -115,10 +121,14 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
    }
   close $BREW;
  }
+ if( $RPM and $RPM > $CAT ){
+   $tap{'glibcun_Linux'} = 1;
+    $tap{'glibcLinux'} = 0;
+ }
   $IN = 0;
  for(my $i=0;$i<@BREW;$i++){
+  $BREW[$i] =~ s|.+/(.+)|$1|;
   for(;$IN<@CASK;$IN++){
-   $BREW[$i] =~ s|.+/(.+)|$1|;
    my( $name ) = $CASK[$IN] =~ m|.+/(.+)\n|;
    last if $BREW[$i] lt $name;
     if($BREW[$i] eq $name){
@@ -134,7 +144,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   open my $BREW,'<',$dir2 or die " Info_2 $!\n";
    while(my $data=<$BREW>){
     if( my( $ls1,$ls2 ) = $data =~ /^\s+depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
-     $tap{"${name}un_cask"} = 1 unless eval("$OS_Version $ls1 $MAC_OS{$ls2}");
+     $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
     }
     if( $data =~ /^\s*depends_on\s+formula:/ ){
      $tap{"${name}formula"} = 1;
