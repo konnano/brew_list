@@ -11,7 +11,7 @@ if( $^O eq 'darwin' ){
   $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
  $CPU = `sysctl machdep.cpu.brand_string`;
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
- $Xcode = `xcodebuild -version|xargs|awk '{print \$2}'`;
+ $Xcode = `xcodebuild -version|awk '/Xcode/{print \$NF}'`;
   $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
@@ -22,12 +22,7 @@ if( $^O eq 'darwin' ){
 }else{
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
   $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
-  open my $CD,"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " CAT $!\n";
-   while(my $an=<$CD>){
-    my($ls1,$ls2,$ls3) = split("\t",$an);
-     $CAT = $ls2 if $ls1 eq 'glibc';
-   }
-  close $CD
+   $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/^glibc/{print \$2}'`;
 }
 
 sub Dirs_1{
@@ -41,10 +36,14 @@ sub Dirs_1{
   }
 }
 
+ open my $DIR,'>',"$ENV{'HOME'}/.BREW_LIST/dir.txt" or die " tie dir $!\n";
+  print $DIR @BREW;
+ close $DIR;
+
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
  for my $dir1(@BREW){ chomp $dir1;
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
-  open my $BREW,'<',$dir1 or die " Info_1 $!\n";
+  open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
 
      if( $data =~ /^\s*bottle\s+do/ ){
@@ -147,7 +146,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
 
  for my $dir2(@CASK){ chomp $dir2;
   my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
-  open my $BREW,'<',$dir2 or die " Info_2 $!\n";
+  open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
    while(my $data=<$BREW>){
     if( my( $ls1,$ls2 ) = $data =~ /^\s+depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
      $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
