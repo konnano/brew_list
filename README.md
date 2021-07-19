@@ -1,4 +1,4 @@
-brew list コマンド補強版
+brew list コマンド強化版
 
  : 使用方法
 
