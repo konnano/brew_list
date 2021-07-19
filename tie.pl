@@ -21,7 +21,7 @@ if( $^O eq 'darwin' ){
    Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
 }else{
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
-  $RPM = `rpm -q glibc|sed 's/.*-\\(.*\\)-.*/\\1/'`;
+  $RPM = `ldd --version | awk '/ldd/{print \$NF}'`;
   open my $CD,"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " CAT $!\n";
    while(my $an=<$CD>){
     my($ls1,$ls2,$ls3) = split("\t",$an);
