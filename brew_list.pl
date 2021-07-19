@@ -287,7 +287,8 @@ my( $re,$file ) = @_; my $IN = 0;
   "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
             ( $re->{'LIN'} and $file ) ?
   "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
-  $re->{'NAME'}{$re->{'INF'}} =~ m|\Q/$re->{'INF'}.rb\E| ? $re->{'NAME'}{$re->{'INF'}} : exit;
+  ( $re->{'NAME'}{$re->{'INF'}} and $re->{'NAME'}{$re->{'INF'}} =~ m|\Q/$re->{'INF'}.rb\E$| ) ?
+    $re->{'NAME'}{$re->{'INF'}} : exit;
    my( $brew ) = $name =~ m|.+/(.+)\.rb$|;
   my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
 
