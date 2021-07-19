@@ -139,6 +139,7 @@ sub Darwin_1{
 
  DB_1( $re );
   DB_2( $re ) unless $re->{'S_OPT'} or $re->{'BL'};
+   Info_1( $re ) if $re->{'INF'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
   Brew_1( $re,$list ) : File_1( $re,$list );
@@ -160,6 +161,7 @@ sub Linux_1{
 
  DB_1( $re );
   DB_2( $re ) unless $re->{'S_OPT'} or $re->{'BL'};
+   Info_1( $re ) if $re->{'INF'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ? 
   Brew_1( $re,$list ) : File_1( $re,$list );
@@ -231,7 +233,6 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
    close $BREW;
   @$file = sort{$a cmp $b}@$file if $re->{'FOR'};
  }
- Info_1( $re,$file ) if $re->{'INF'};
 
  if( $re->{'CAS'} and $re->{'S_OPT'} and  -f $re->{'FON'} and  -f $re->{'DRI'} ){
    if( $re->{'FDIR'} and $re->{'DDIR'} ){
@@ -267,26 +268,30 @@ $file;
 }
 
 sub Info_1{
-my( $re,$file ) = @_;
- for my $brew(@$file){
-  my( $name,$count,$com ) = split(' ',$brew);
-  $re->{'NAME'}{$name} = 1;
- }
+my $re = shift;
+ die " can't install $re->{'INF'}\n" if $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
+                                        $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"};
+ open my $DIR,'<',"$ENV{'HOME'}/.BREW_LIST/dir.txt" or die " Info_1 $!\n";
+  while(my $brew=<$DIR>){ chomp $brew;
+   my( $name ) = $brew =~ m|.+/(.+)\.rb$|;
+    $re->{'NAME'}{$name} = $brew;
+  }
+ close $DIR;
 $re->{'CLANG'}=`clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\..*/\\1/'` if $re->{'MAC'};
  Info_2( $re );
 }
 
 sub Info_2{
 my( $re,$file ) = @_; my $IN = 0;
- my $name = $file ? $file : $re->{'NAME'}{$re->{'INF'}} ? $re->{'INF'} : exit;
- die " can't install $name\n" if $re->{'MAC'} and $re->{'OS'}{"${name}un_xcode"} or
-                                 $re->{'LIN'} and $re->{'OS'}{"${name}un_Linux"};
-  my $bottle = 1 if $re->{'OS'}{"$name$OS_Version"};
-   $file = ( $^O eq 'darwin' ) ?
-   '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula' :
-   '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula';
+ my $name = ( $re->{'MAC'} and $file ) ?
+  "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
+            ( $re->{'LIN'} and $file ) ?
+  "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
+  $re->{'NAME'}{$re->{'INF'}} =~ m|\Q/$re->{'INF'}.rb\E| ? $re->{'NAME'}{$re->{'INF'}} : exit;
+   my( $brew ) = $name =~ m|.+/(.+)\.rb$|;
+  my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
 
-open my $BREW1,'<',"$file/$name.rb" or die " Info_1 $!\n";
+open my $BREW1,'<',$name or die " Info_2 $!\n";
  while(my $data=<$BREW1>){
   if( $re->{'MAC'} ){
    if( $data =~ /^\s+on_linux\s*do/ ){ $IN = 1; next; }
