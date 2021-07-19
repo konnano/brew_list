@@ -21,7 +21,7 @@ if( $^O eq 'darwin' ){
    Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
 }else{
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
-  $RPM = `ldd --version | awk '/ldd/{print \$NF}'`;
+  $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
   open my $CD,"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " CAT $!\n";
    while(my $an=<$CD>){
     my($ls1,$ls2,$ls3) = split("\t",$an);
@@ -77,6 +77,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      $IN = 2; next;
     }elsif( $data =~ /^\s*keg_only/ and $IN == 2 ){
      $tap{"${name}keg_Linux"} = 1; next;
+    }elsif( $data !~ /^\s*end/ and $IN == 2 ){
+     next;
     }elsif( $data =~ /^\s*end/ and $IN == 2 ){
      $IN = 0; next;
     }
@@ -97,25 +99,25 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
        $tap{"${name}un_xcode"} = 1; next;
       }
      }elsif( my( $ls1,$ls2 ) =
-       $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT.version\s+([^\s]+)\s+"([^"]+)".*\n/ ){
-        ## $tap{"${name}un_xcode"} = 1 if( $Xcode and eval "$Xcode $ls1 $ls2" );
+       $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([^"]+)".*\n/ ){
+       ### $tap{"${name}un_xcode"} = 1 if( $Xcode and eval "$Xcode $ls1 $ls2" );
            next;
      }
     if( $^O eq 'darwin' ){
-     if( $IN  or $data =~ /^\s*if\s+Hardware::CPU/ ){
+     if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
       $IN = $data =~ /$CPU/ ? 3 : 4 unless $IN;
        if( $IN == 3 and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
        }elsif( $IN == 3 and $data =~ /^\s+else|^\s+end/ ){
-        $IN = 6;
+        $IN = 0;
        }elsif( $IN == 4 and $data =~ /^\s+else/ ){
         $IN = 5;
        }elsif( $IN == 5 and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
        }elsif( $IN == 5 and $data =~ /^\s+end/ ){
-        $IN = 6;
+        $IN = 0;
        }
      }elsif( $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
