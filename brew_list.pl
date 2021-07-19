@@ -272,7 +272,7 @@ my( $re,$file ) = @_;
   my( $name,$count,$com ) = split(' ',$brew);
   $re->{'NAME'}{$name} = 1;
  }
-$re->{'CLANG'} =`clang --version|xargs|awk '{print \$5}'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'` if $re->{'MAC'};
+$re->{'CLANG'}=`clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\..*/\\1/'` if $re->{'MAC'};
  Info_2( $re );
 }
 
@@ -305,7 +305,11 @@ open my $BREW1,'<',"$file/$name.rb" or die " Info_1 $!\n";
   if( $re->{'MAC'} ){
    if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
     $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
-     if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
+     if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
+      $re->{'OS'}{"deps$data"} = 1;
+       Info_2( $re,$data ) unless $bottle;
+        next;
+     }elsif( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1;
        Info_2( $re,$data );
         next;
@@ -317,6 +321,10 @@ open my $BREW1,'<',"$file/$name.rb" or die " Info_1 $!\n";
       $IN = 0; next;
      }elsif( $IN == 5 and $data =~ /^\s*else/ ){
       $IN = 6; next;
+     }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
+      $re->{'OS'}{"deps$data"} = 1;
+       Info_2( $re,$data ) unless $bottle;
+        next;
      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1;
        Info_2( $re,$data );
@@ -358,7 +366,7 @@ open my $BREW1,'<',"$file/$name.rb" or die " Info_1 $!\n";
      }
     } next;
   }elsif( my( $lb1,$lb2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
-    if( $re->{'MAC'} and $lb2 and $OS_Version <= $MAC_OS{$lb2} ){ print"7 : $name:$data\n";
+    if( $re->{'MAC'} and $lb2 and $OS_Version <= $MAC_OS{$lb2} ){
      $re->{'OS'}{"deps$lb1"} = 1 unless $bottle;
       Info_2( $re,$lb1 ) unless $bottle;
     } next;
