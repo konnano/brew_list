@@ -22,22 +22,9 @@ my $ref = {
 
 $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
  $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
- if( $re->{'LIN'} ){
-  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
-   $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
-    $OS_Version = 'Linux';
- }else{
- $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
-   $OS_Version =~ s/^11/11.0/;
-     $CPU = `sysctl machdep.cpu.brand_string`;
-      $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
-       $OS_Version = "${OS_Version}M1" if $CPU =~ /arm\?/;
- }
 my %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
               'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
 
- exit unless -d $re->{'CEL'};
 $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
 $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
 
@@ -60,9 +47,23 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
   if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" ){
-      die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
+       die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
        if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
   }
+
+ if( $re->{'LIN'} ){
+  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
+   $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
+    $OS_Version = 'Linux';
+ }elsif( $re->{'MAC'} and ( $name->{'LIST'} or $name->{'PRINT'} )){
+  $OS_Version = `sw_vers -productVersion`;
+   $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
+    $OS_Version =~ s/^11/11.0/;
+      $CPU = `sysctl machdep.cpu.brand_string`;
+       $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
+        $OS_Version = "${OS_Version}M1" if $CPU =~ /arm\?/;
+ }
+ exit unless -d $re->{'CEL'};
 
 if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
