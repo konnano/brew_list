@@ -59,9 +59,7 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 }else{  Died_1(); }
 
  mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" or
-     -f "$FindBin::Bin/font.sh" and `diff $FindBin::Bin/font.sh ~/.BREW_LIST/font.sh` or
-     -f "$FindBin::Bin/tie.pl"  and `diff $FindBin::Bin/tie.pl ~/.BREW_LIST/tie.pl` ){
+  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" ){
       die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
        if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
   }
