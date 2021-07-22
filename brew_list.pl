@@ -303,7 +303,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
    if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
     $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
      if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-      $re->{'OS'}{"deps$data"} = 1;
+      $re->{'OS'}{"deps$data"} = 1 unless $bottle;
        Info_2( $re,$data ) unless $bottle;
         next;
      }elsif( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
@@ -319,7 +319,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
      }elsif( $IN == 5 and $data =~ /^\s*else/ ){
       $IN = 6; next;
      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-      $re->{'OS'}{"deps$data"} = 1;
+      $re->{'OS'}{"deps$data"} = 1 unless $bottle;
        Info_2( $re,$data ) unless $bottle;
         next;
      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
