@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use FindBin;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$CPU );
@@ -43,12 +42,6 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 }elsif( $AR[0] eq '-s' ){  $name = $re; $re->{'S_OPT'} = 1;
 }elsif( $AR[0] eq '-' ){   $name = $re; $re->{'BL'} = $ref->{'BL'} = 1;
 }else{  Died_1(); }
-
- mkdir "$ENV{'HOME'}/.BREW_LIST" unless -d "$ENV{'HOME'}/.BREW_LIST";
-  if( not -f "$ENV{'HOME'}/.BREW_LIST/font.sh" or not -f "$ENV{'HOME'}/.BREW_LIST/tie.pl" ){
-       die " cp: $FindBin::Bin/ font.sh or tie.pl : No snuch file\n"
-       if system("cp $FindBin::Bin/font.sh $FindBin::Bin/tie.pl ~/.BREW_LIST/.");
-  }
 
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
@@ -112,7 +105,7 @@ if( $re->{'LIN'} ){
 }else{ Darwin_1( $name ); Format_1( $name ); }
 
 sub Died_1{
- die "  Option : '-new' creat new cache
+ die "   Option : -new creat new cache
   -l formula list : -i instaled formula : - brew list command
   -lb bottled install formula : -lx can't install formula
   -s type search name : -co library display : -in formula require formula
