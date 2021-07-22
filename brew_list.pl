@@ -109,7 +109,7 @@ sub Died_1{
   -l formula list : -i instaled formula : - brew list command
   -lb bottled install formula : -lx can't install formula
   -s type search name : -co library display : -in formula require formula
-  Only mac : Cask
+   Only mac : Cask
   -c cask list : -ci instaled cask
   -cx can't install cask : -cs some name cask and formula\n";
 }
