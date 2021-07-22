@@ -379,14 +379,14 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
   }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
    if( $re->{'MAC'} and $ls2 and $OS_Version <= $MAC_OS{$ls2} ){
     $re->{'OS'}{"deps$ls1"} = 1;
-    Info_2( $re,$ls1 );
+     Info_2( $re,$ls1 );
    }
   }elsif( $data =~ /^\s*depends_on.+\s*if\s*/ ){
    my( $ls1,$ls2,$ls3 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/;
      if( $re->{'MAC'} and $ls3 ){
       if( eval("$OS_Version $ls2 $MAC_OS{$ls3}") ){
-	$re->{'OS'}{"deps$ls1"} = 1;
+       $re->{'OS'}{"deps$ls1"} = 1;
         Info_2( $re,$ls1 );
       }
      }
