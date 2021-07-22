@@ -344,7 +344,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build.+unless\s+Hardware::CPU\.([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $cpu4 and $cpu4 !~ /$CPU/ ){
      $re->{'OS'}{"deps$cpu3"} = 1 unless $bottle;
-      Info_2( $re,$cpu3 );
+      Info_2( $re,$cpu3 ) unless $bottle;
     } next;
   }elsif( my( $ls1,$ls2,$ls3 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
