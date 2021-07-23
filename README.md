@@ -6,7 +6,9 @@ brew list コマンド強化版
 
 ~/.BREW_LIST フォルダが作られ font.sh と tie.pl がコピーされます
 
-brew_list.pl が　/usr/local/bin/brew_list にコピーされます
+brew_list.pl が Macは /usr/local/bin/brew_list にコピーされます
+
+Linuxは /home/linuxbrew/.linuxbrew/bin/brew_list にコピーされます
 
 キャッシュファイル作成に少し時間がかかります
 
