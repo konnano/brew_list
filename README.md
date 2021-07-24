@@ -12,10 +12,6 @@ Linuxは /home/linuxbrew/.linuxbrew/bin/brew_list にコピーされます
 
 キャッシュファイル作成に少し時間がかかります
 
-/opt 配下にインストールされたHomebrewには対応していません
-
-(Apple M1 持ってないので仕様わからない、詳しい部分教えて下さい)
-
 アンインストールはbrew_listフォルダー内で ./init.sh unlink
 
 : オプション
