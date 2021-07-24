@@ -1,15 +1,16 @@
 #!/bin/bash
 
-if [ `uname` = Darwin ];then 
+NAME=`uname`
+if [[ $NAME = Darwin ]];then 
   TI1=(`date +"%Y %-m %-d"`)
- LS1=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) &&\
- [ ${TI1[0]} -gt ${LS1[8]} -o ${TI1[1]} -gt ${LS1[5]} -o ${TI1[2]} -gt ${LS1[6]} ] &&\
+ LS1=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) && \
+ [[ ${TI1[0]} > ${LS1[8]} || ${TI1[1]} > ${LS1[5]} || ${TI1[2]} > ${LS1[6]} ]] && \
  rm -rf ~/.BREW_LIST/LOCK
 else
   TI2=(`date +"%Y %m %d"`)
- LS2=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`) &&\
- LS2=(`echo ${LS2[5]}|sed 's/-/ /g'`) &&\
- [[ ${TI2[0]} > ${LS2[0]} || ${TI2[1]} > ${LS2[1]} || ${TI2[2]} > ${LS2[2]} ]] &&\
+ LS2=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`) && \
+ LS2=(`echo ${LS2[5]}|sed 's/-/ /g'`) && \
+ [[ ${TI2[0]} > ${LS2[0]} || ${TI2[1]} > ${LS2[1]} || ${TI2[2]} > ${LS2[2]} ]] && \
  rm -rf ~/.BREW_LIST/LOCK
 fi
 
@@ -24,20 +25,20 @@ rm -f ~/.BREW_LIST/Q_FONT.txt ~/.BREW_LIST/Q_DRIV.txt ~/.BREW_LIST/DB
 rm -rf ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
-if [ `uname` = Darwin ];then
+if [[ $NAME = Darwin ]];then
 
-curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
+curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
-curl -so ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
+curl -so ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
 curl -sLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
 curl -sLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip ||\
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
 
-/usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST ||\
+/usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
-/usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST ||\
+/usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || \
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
 
 perl<<"EOF"
@@ -116,7 +117,7 @@ EOF
  perl ~/.BREW_LIST/tie.pl
 
  rm -f ~/.BREW_LIST/DB
-if [ `uname` = Darwin ];then
+if [[ $NAME = Darwin ]];then
  ln -s ~/.BREW_LIST/DBM.db ~/.BREW_LIST/DB
 else
  ln -s ~/.BREW_LIST/DBM.dir ~/.BREW_LIST/DB
