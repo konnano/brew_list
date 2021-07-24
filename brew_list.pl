@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
-my( $OS_Version,$CPU );
+my( $OS_Version,$OS_Version2,$CPU );
 
 my $re  = {
  'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,
@@ -49,11 +49,20 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
     $OS_Version = 'Linux';
  }elsif( $re->{'MAC'} and ( $name->{'LIST'} or $name->{'PRINT'} )){
   $OS_Version = `sw_vers -productVersion`;
-   $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
-    $OS_Version =~ s/^11/11.0/;
-      $CPU = `sysctl machdep.cpu.brand_string`;
-       $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
+   $OS_Version =~ s/(10.\d+)\.?\d*\n/$1/;
+    $OS_Version =~ s/^11.+/11.0/;
+     $CPU = `sysctl machdep.cpu.brand_string`;
+      $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
+       $OS_Version2 = $OS_Version;
         $OS_Version = "${OS_Version}M1" if $CPU =~ /arm\?/;
+ }
+
+ if( $CPU eq 'arm\?' ){
+  $re->{'CEL'} = '/opt/homebrew/Cellar';
+   $re->{'BIN'} = '/opt/homebrew/opt';
+    $ref->{'CEL'} = '/opt/homebrew/Caskroom';
+     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+      $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
  }
  exit unless -d $re->{'CEL'};
 
@@ -274,12 +283,15 @@ $re->{'CLANG'}=`clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\
 
 sub Info_2{
 my( $re,$file ) = @_; my $IN = 0;
- my $name = ( $re->{'MAC'} and $file ) ?
+ my $name = ( $re->{'MAC'} and $CPU eq 'intel\?' and $file ) ?
   "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
+            ( $re->{'MAC'} and $CPU eq 'arm\?' and $file ) ?
+  "/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
             ( $re->{'LIN'} and $file ) ?
   "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
   ( $re->{'NAME'}{$re->{'INF'}} and $re->{'NAME'}{$re->{'INF'}} =~ m|\Q/$re->{'INF'}.rb\E$| ) ?
     $re->{'NAME'}{$re->{'INF'}} : exit;
+
    my( $brew ) = $name =~ m|.+/(.+)\.rb$|;
   my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
 
@@ -349,7 +361,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
   }elsif( my( $ls1,$ls2,$ls3 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $ls3 ){
-     if( eval("$OS_Version $ls2 $MAC_OS{$ls3}") ){
+     if( eval("$OS_Version2 $ls2 $MAC_OS{$ls3}") ){
       $re->{'OS'}{"deps$ls1"} = 1 unless $bottle;
        Info_2( $re,$ls1 ) unless $bottle;
      }
@@ -385,7 +397,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
    my( $ls1,$ls2,$ls3 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/;
      if( $re->{'MAC'} and $ls3 ){
-      if( eval("$OS_Version $ls2 $MAC_OS{$ls3}") ){
+      if( eval("$OS_Version2 $ls2 $MAC_OS{$ls3}") ){
        $re->{'OS'}{"deps$ls1"} = 1;
         Info_2( $re,$ls1 );
       }
