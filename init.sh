@@ -1,10 +1,9 @@
 #!/bin/bash
 
 NAME=`uname`
-
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  exit
-elif [ $NAME = Darwin ];then
+elif [[ $NAME = Darwin ]];then
  CPU=`sysctl machdep.cpu.brand_string`
 fi
 
@@ -23,14 +22,14 @@ elif [[ $NAME = Linux && $1 && $1 = unlink ]];then
 fi
 
 if [[ $NAME = Darwin ]];then
-  if [[ $CPU =~ Intel &&  -e '/usr/local/bin/brew_list' ]];then
+  if [[ $CPU =~ Intel &&  -e /usr/local/bin/brew_list ]];then
    echo exist /usr/local/bin/brew_list  
     exit
-  elif [[ $CPU =~ M1 && -e '/opt/homebrew/bin/brew_list' ]];then 
+  elif [[ $CPU =~ M1 && -e /opt/homebrew/bin/brew_list ]];then 
    echo exist /opt/homebrew/bin/brew_list
     exit
   fi
-elif [[ $NAME = Linux && -e '/home/linuxbrew/.linuxbrew/bin/brew_list' ]];then
+elif [[ $NAME = Linux && -e /home/linuxbrew/.linuxbrew/bin/brew_list ]];then
  echo exist /home/linuxbrew/.linuxbrew/bin/brew_list
   exit
 fi
