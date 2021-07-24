@@ -10,7 +10,7 @@ fi
 if [[ $NAME = Darwin && $1 && $1 = unlink ]];then
   if [[ $CPU =~ Intel ]];then
    rm -f /usr/local/bin/brew_list
-  elif [[ $CPU =~ M1 ]];then
+  else
    rm -f /opt/homebrew/bin/brew_list
   fi
    rm -rf ~/.BREW_LIST
@@ -41,12 +41,12 @@ mkdir -p ~/.BREW_LIST
 if [[ $NAME = Darwin ]];then
   if [[ $CPU =~ Intel ]];then
    cp $DIR/brew_list.pl /usr/local/bin/brew_list
-  elif [[ $CPU =~ M1 ]];then
+  else
    cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list
   fi
    cp $DIR/font.sh ~/.BREW_LIST/font.sh
     cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
-elif [ `uname` = Linux ];then
+else
  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list
   cp $DIR/font.sh ~/.BREW_LIST/font.sh
    cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
