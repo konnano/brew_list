@@ -57,7 +57,7 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
         $OS_Version = "${OS_Version}M1" if $CPU =~ /arm\?/;
  }
 
- if( $CPU eq 'arm\?' ){
+ if( $CPU and $CPU eq 'arm\?' ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
