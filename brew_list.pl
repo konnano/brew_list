@@ -47,7 +47,7 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
     $OS_Version = 'Linux';
- }elsif( $re->{'MAC'} and ( $name->{'LIST'} or $name->{'PRINT'} )){
+ }else{
   $OS_Version = `sw_vers -productVersion`;
    $OS_Version =~ s/(10.\d+)\.?\d*\n/$1/;
     $OS_Version =~ s/^11.+/11.0/;
