@@ -8,17 +8,23 @@ my( $OS_Version,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/(\d\d.\d+)\.?\d*\n/$1/;
+  $OS_Version =~ s/(10.\d+)\.?\d*\n/$1/;
+   $OS_Version =~ s/^11.+/11.0/;
  $CPU = `sysctl machdep.cpu.brand_string`;
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
  $Xcode = `xcodebuild -version|awk '/Xcode/{print \$NF}'`;
   $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
-
- Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
-  Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
-   Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
+  if( $CPU eq 'intel\?' ){
+   Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
+     Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
+  }else{
+   Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+    Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
+     Dirs_1( '/opt/homebrew/Library/Taps',1 );
+  }
 }else{
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
   $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
