@@ -1,10 +1,11 @@
 #!/bin/bash
 
-CPU=`sysctl machdep.cpu.brand_string`
 NAME=`uname`
 
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  exit
+elif [ $NAME = Darwin ];then
+ CPU=`sysctl machdep.cpu.brand_string`
 fi
 
 if [[ $NAME = Darwin && $1 && $1 = unlink ]];then
