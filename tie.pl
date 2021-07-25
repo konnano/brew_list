@@ -4,7 +4,7 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my $IN = 0;
-my( $OS_Version,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
+my( $OS_Version,$OS_Version2,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
  $OS_Version = `sw_vers -productVersion`;
@@ -12,6 +12,8 @@ if( $^O eq 'darwin' ){
    $OS_Version =~ s/^11.+/11.0/;
  $CPU = `sysctl machdep.cpu.brand_string`;
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
+   $OS_Version2 = $OS_Version;
+    $OS_Version2 = "${OS_Version}M1" if $CPU =~ /arm\?/;
  $Xcode = `xcodebuild -version|awk '/Xcode/{print \$NF}'`;
   $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
@@ -114,6 +116,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
        if( $IN == 3 and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+          $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
        }elsif( $IN == 3 and $data =~ /^\s+else|^\s+end/ ){
         $IN = 0;
        }elsif( $IN == 4 and $data =~ /^\s+else/ ){
@@ -121,12 +124,14 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
        }elsif( $IN == 5 and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+          $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
        }elsif( $IN == 5 and $data =~ /^\s+end/ ){
         $IN = 0;
        }
      }elsif( $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+          $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
      }
     }
    }
