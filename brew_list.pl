@@ -69,6 +69,7 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
   print" wait\n";
+   mkdir "$ENV{HOME}/.BREW_LIST/WAIT" unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
 }
 
 if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
@@ -99,7 +100,7 @@ if( $re->{'LIN'} ){
  Linux_1( $re ); Format_1( $re );
 }elsif( $re->{'S_OPT'} or $re->{'BL'} ){
  my $pid = fork;
- die "Not fork : $!\n" unless defined $pid;
+ die " Not fork : $!\n" unless defined $pid;
   if($pid){
    Darwin_1( $ref );
   }else{
@@ -127,12 +128,10 @@ sub Darwin_1{
  my( $re,$list,$ls ) = @_;
   if( $re->{'NEW'} ){
    my $url = 'https://formulae.brew.sh/formula/index.html';
-    if( system("curl -so $re->{'DIR'} $url") ){ $ls = 1;
-     print " \033[31mNot connected\033[37m\n";
+    if( system("curl -so $re->{'DIR'} $url") ){
+     print " \033[31mNot connected\033[37m\n"; exit;
     }
-   system('~/.BREW_LIST/font.sh');
-    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cache\n" :
-     ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and $ls ) ? exit : die" Can not Created\n";
+   Wait_1();
   }
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
@@ -149,12 +148,10 @@ sub Linux_1{
  my( $re,$list,$ls ) = @_;
   if( $re->{'NEW'} ){
    my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-    if( system("curl -so $re->{'DIR'} $url") ){ $ls = 1;
-     print " \033[31mNot connected\033[37m\n";
+    if( system("curl -so $re->{'DIR'} $url") ){
+     print " \033[31mNot connected\033[37m\n"; exit;
     }
-   system('~/.BREW_LIST/font.sh');
-    ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and not $ls ) ? die " Creat new cache\n" :
-     ( -f "$ENV{'HOME'}/.BREW_LIST/DB" and $ls ) ? exit : die" Can not Created\n";
+   Wait_1();
   }
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
@@ -165,6 +162,25 @@ sub Linux_1{
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ? 
   Brew_1( $re,$list ) : File_1( $re,$list );
+}
+
+sub Wait_1{
+my $pid = fork;
+ die " Wait Not fork : $!\n" unless defined $pid;
+  if($pid){
+   $|=1;
+    while(1){
+     if( -d "$ENV{HOME}/.BREW_LIST/WAIT" ){
+      print"."; sleep 1;
+     }else{
+      print"\n"; last;
+     }
+    }
+   waitpid($pid,0);
+   -f "$ENV{'HOME'}/.BREW_LIST/DB" ? die " Creat new cache\n" : die" Can not Created\n";
+  }else{
+   system('~/.BREW_LIST/font.sh'); exit;
+  }
 }
 
 sub DB_1{
