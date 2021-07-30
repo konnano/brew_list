@@ -22,7 +22,7 @@ trap '
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
 rm -f ~/.BREW_LIST/Q_FONT.txt ~/.BREW_LIST/Q_DRIV.txt ~/.BREW_LIST/DB
-rm -rf ~/.BREW_LIST/LOCK
+rm -rf ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
 if [[ $NAME = Darwin ]];then
@@ -125,4 +125,4 @@ fi
 
 rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip
 rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
-rm -rf ~/.BREW_LIST/LOCK
+rm -rf ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
