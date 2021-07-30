@@ -167,17 +167,12 @@ sub Linux_1{
 sub Wait_1{
 my $pid = fork;
  die " Wait Not fork : $!\n" unless defined $pid;
-  if($pid){
-   $|=1;
-    while(1){
-     if( -d "$ENV{HOME}/.BREW_LIST/WAIT" ){
-      print"."; sleep 1;
-     }else{
-      print"\n"; last;
-     }
-    }
+  if($pid){ $|=1;
+   while(1){
+    -d "$ENV{HOME}/.BREW_LIST/WAIT" ? ( print '.' and sleep 1 ) : last;
+   }
    waitpid($pid,0);
-   -f "$ENV{'HOME'}/.BREW_LIST/DB" ? die " Creat new cache\n" : die" Can not Created\n";
+   -f "$ENV{'HOME'}/.BREW_LIST/DB" ? die "\n Creat new cache\n" : die"\n Can not Created\n";
   }else{
    system('~/.BREW_LIST/font.sh'); exit;
   }
