@@ -66,14 +66,6 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
  }
  exit unless -d $re->{'CEL'};
 
-if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
- $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
-  print" wait\n";
-   die " exist LOCK \033[31mremove\033[37m rm -rf ~/.BREW_LIST/LOCK\n"
-    if -d "$ENV{HOME}/.BREW_LIST/LOCK";
-     mkdir "$ENV{HOME}/.BREW_LIST/WAIT" unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
-}
-
 if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
  $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
   $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
@@ -85,7 +77,12 @@ if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
 }
 
-if( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
+if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
+ $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
+  die " exist LOCK \033[31mremove\033[37m rm -rf ~/.BREW_LIST/LOCK\n"
+   if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+    print" wait\n";
+}elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
  if( $re->{'INF'} ){
   $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
  }else{	
@@ -167,6 +164,7 @@ sub Linux_1{
 }
 
 sub Wait_1{
+mkdir "$ENV{HOME}/.BREW_LIST/WAIT" unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
 my $pid = fork;
  die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){ $|=1;
