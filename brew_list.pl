@@ -69,7 +69,9 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
 if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
   print" wait\n";
-   mkdir "$ENV{HOME}/.BREW_LIST/WAIT" unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
+   die " exist LOCK \033[31mremove\033[37m rm -rf ~/.BREW_LIST/LOCK\n"
+    if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+     mkdir "$ENV{HOME}/.BREW_LIST/WAIT" unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
 }
 
 if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
