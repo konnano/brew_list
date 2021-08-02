@@ -19,9 +19,9 @@ if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
 fi
 
 trap '
-rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip
-rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
-rm -f ~/.BREW_LIST/Q_FONT.txt ~/.BREW_LIST/Q_DRIV.txt ~/.BREW_LIST/DB
+rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
+rm -rf ~/.BREW_LIST/homebrew-cask-*
+rm -f ~/.BREW_LIST/Q_*.txt ~/.BREW_LIST/DB
 rm -rf ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
@@ -35,14 +35,18 @@ curl -sLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fon
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
 curl -sLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+curl -sLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip || \
+ { rm -rf ~/.BREW_LIST/LOCK; exit; }
 
 /usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
 /usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || \
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
+/usr/bin/unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
+ { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
 
 perl<<"EOF"
-   opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR $!\n";
+   opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ 
      next if $hand1 =~ /^\./;
       $hand1 =~ s/(.+)\.rb$/$1/;
@@ -54,7 +58,7 @@ perl<<"EOF"
      print $FILE1 @file1;
     close $FILE1;
 
-   opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-drivers-master/Casks" or die " DIR $!\n";
+   opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-drivers-master/Casks" or die " DIR2 $!\n";
     for my $hand2( readdir($dir2) ){ 
      next if $hand2 =~ /^\./;
       $hand2 =~ s/(.+)\.rb$/$1/;
@@ -66,8 +70,20 @@ perl<<"EOF"
      print $FILE2 @file2;
     close $FILE2;
 
-  open $FILE3,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE3 $!\n";
-   while($brew=<$FILE3>){
+   opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR3 $!\n";
+    for my $hand3( readdir($dir3) ){ 
+     next if $hand3 =~ /^\./;
+      $hand3 =~ s/(.+)\.rb$/$1/;
+       push @file3,"$hand3\n";
+    }
+   closedir $dir3;
+   @file3 = sort{$a cmp $b}@file3;
+    open $FILE3,'>',"$ENV{'HOME'}/.BREW_LIST/Q_VERS.txt" or die " FILE3 $!\n";
+     print $FILE3 @file3;
+    close $FILE3;
+
+  open $FILE4,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE4 $!\n";
+   while($brew=<$FILE4>){
     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
      $tap1 = $brew; next;
     }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
@@ -77,13 +93,13 @@ perl<<"EOF"
      $tap3 = $brew;
      $test = 0;
     }
-     push @file3,"$tap1\t$tap3\t$tap2\n" if $tap1;
+     push @file4,"$tap1\t$tap3\t$tap2\n" if $tap1;
     $tap1 = $tap2 = $tap3 = '';
    }
-  close $FILE3;
-   open $FILE4,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE4 $!\n";
-    print $FILE4 @file3;
-   close $FILE4;
+  close $FILE4;
+   open $FILE5,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE5 $!\n";
+    print $FILE5 @file4;
+   close $FILE5;
 EOF
 
 else
@@ -92,7 +108,7 @@ else
 fi
 
 perl<<"EOF"
-  open $FILE1,'<', "$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE5 $!\n";
+  open $FILE1,'<', "$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
    while($brew=<$FILE1>){
     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
      $tap1 = $brew; next;
@@ -108,7 +124,7 @@ perl<<"EOF"
    }
   close $FILE1;
   @file1 = sort{$a cmp $b}@file1;
-   open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE6 $!\n";
+   open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE7 $!\n";
     print $FILE2 @file1;
    close $FILE2;
 EOF
@@ -123,6 +139,6 @@ else
  ln -s ~/.BREW_LIST/DBM.dir ~/.BREW_LIST/DB
 fi
 
-rm -f ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip
-rm -rf ~/.BREW_LIST/homebrew-cask-fonts-master ~/.BREW_LIST/homebrew-cask-drivers-master
+rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
+rm -rf ~/.BREW_LIST/homebrew-cask-*
 rm -rf ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
