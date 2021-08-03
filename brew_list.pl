@@ -8,18 +8,16 @@ my( $OS_Version,$OS_Version2,$CPU );
 
 my $re  = {
  'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,
-  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html",
-   'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
-    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt"};
+  'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
+   'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt"};
 
 my $ref = {
  'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,
-  'DIR'=>"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html",
-   'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
-    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
-     'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-      'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
-       'VER'=>"$ENV{'HOME'}/.BREW_LIST/Q_VERS.txt"};
+  'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
+   'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
+    'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
+     'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
+      'VER'=>"$ENV{'HOME'}/.BREW_LIST/Q_VERS.txt"};
 
 $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
  $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
@@ -52,7 +50,7 @@ if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
     $OS_Version = 'Linux';
  }else{
   $OS_Version = `sw_vers -productVersion`;
-   $OS_Version =~ s/(10.\d+)\.?\d*\n/$1/;
+   $OS_Version =~ s/^(10\.\d+)\.?\d*\n/$1/;
     $OS_Version =~ s/^11.+/11.0/;
      $CPU = `sysctl machdep.cpu.brand_string`;
       $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
@@ -100,14 +98,14 @@ if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
 }
 
 if( $re->{'LIN'} ){
- Linux_1( $re ); Format_1( $re );
+ Init_1( $re ); Format_1( $re );
 }elsif( $re->{'S_OPT'} or $re->{'BL'} ){
  my $pid = fork;
  die " Not fork : $!\n" unless defined $pid;
   if($pid){
-   Darwin_1( $ref );
+   Init_1( $ref );
   }else{
-   Darwin_1( $re );
+   Init_1( $re );
   }
   if($pid){
    waitpid($pid,0);
@@ -115,7 +113,7 @@ if( $re->{'LIN'} ){
   }else{
    Format_1( $re ); exit;
   }
-}else{ Darwin_1( $name ); Format_1( $name ); }
+}else{ Init_1( $name ); Format_1( $name ); }
 
 sub Died_1{
  die "   Option : -new creat new cache
@@ -127,13 +125,12 @@ sub Died_1{
   -cx can't install cask : -cs some name cask and formula\n";
 }
 
-sub Darwin_1{
+sub Init_1{
  my( $re,$list,$ls ) = @_;
   if( $re->{'NEW'} ){
-   my $url = 'https://formulae.brew.sh/formula/index.html';
-    if( system("curl -so $re->{'DIR'} $url") ){
-     print " \033[31mNot connected\033[37m\n"; exit;
-    }
+   if( system('curl https://formulae.brew.sh/formula >/dev/null 2>&1') ){
+    print " \033[31mNot connected\033[37m\n"; exit;
+   }
    Wait_1();
   }
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
@@ -144,26 +141,6 @@ sub Darwin_1{
    Info_1( $re ) if $re->{'INF'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
-  Brew_1( $re,$list ) : File_1( $re,$list );
-}
-
-sub Linux_1{
- my( $re,$list,$ls ) = @_;
-  if( $re->{'NEW'} ){
-   my $url = 'https://formulae.brew.sh/formula-linux/index.html';
-    if( system("curl -so $re->{'DIR'} $url") ){
-     print " \033[31mNot connected\033[37m\n"; exit;
-    }
-   Wait_1();
-  }
- $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
-  Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
-
- DB_1( $re );
-  DB_2( $re ) unless $re->{'S_OPT'} or $re->{'BL'};
-   Info_1( $re ) if $re->{'INF'};
-
- $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ? 
   Brew_1( $re,$list ) : File_1( $re,$list );
 }
 
@@ -226,40 +203,48 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
   @$file = <$BREW>;
  close $BREW;
  if( $re->{'CAS'} and $re->{'S_OPT'} and  -f $re->{'FON'} and  -f $re->{'DRI'} and -f $re->{'VER'} ){
+
    if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
      push @$file,@{ File_2( $re->{'DRI'},0) };
       push @$file,@{ File_2( $re->{'VER'},0) };
        @$file = sort{$a cmp $b}@$file;
+
    }elsif( not $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'DRI'},0) };
      push @$file,@{ File_2( $re->{'VER'},0) };
       @$file = sort{$a cmp $b}@$file;
       push @$file,@{ File_2( $re->{'FON'},1) };
+
    }elsif( not $re->{'FDIR'} and not $re->{'DDIR'} and $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'VER'},0) };
      @$file = sort{$a cmp $b}@$file;
       push @$file,@{ File_2( $re->{'FON'},1) };
        push @$file,@{ File_2( $re->{'DRI'},2) };
+
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} and not $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'DRI'},0) };
      @$file = sort{$a cmp $b}@$file;
       push @$file,@{ File_2( $re->{'FON'},1) };
        push @$file,@{ File_2( $re->{'VER'},3) };
+
    }elsif( not $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'FON'},1) };
      push @$file,@{ File_2( $re->{'DRI'},2) };
       push @$file,@{ File_2( $re->{'VER'},3) };
+
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} and $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
      push @$file,@{ File_2( $re->{'VER'},0) };
       @$file = sort{$a cmp $b}@$file;
        push @$file,@{ File_2( $re->{'DRI'},2) };
+
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
      @$file = sort{$a cmp $b}@$file;
       push @$file,@{ File_2( $re->{'DRI'},2) };
        push @$file,@{ File_2( $re->{'VER'},3) };
+
    }elsif( $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
      push @$file,@{ File_2( $re->{'DRI'},0) };
@@ -713,7 +698,7 @@ my( $an,$re ) = @_;
 sub Isatty_1{
 my $term = POSIX::Termios->new;
  my $get  = $term->getattr(1);
-  return 0 unless defined $get;
+$get;
 }
 
 sub Format_1{
