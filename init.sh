@@ -34,6 +34,9 @@ elif [[ $NAME = Linux && -e /home/linuxbrew/.linuxbrew/bin/brew_list ]];then
   exit
 fi
 
+curl https://formulae.brew.sh/formula >/dev/null 2>&1 || \
+ { echo -e "\033[31m Not connected\033[37m"; exit; }
+
 DIR=$(cd $(dirname $0); pwd)
 
 mkdir -p ~/.BREW_LIST
