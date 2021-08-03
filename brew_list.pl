@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use POSIX;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$OS_Version2,$CPU );
@@ -449,7 +448,7 @@ for( my $in=0;$in<@$an;$in++ ){
 
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
- $name = "$name (I)" if( $ls and Isatty_1() );
+ $name = "$name (I)" if( $ls and -t STDOUT );
   $re->{'LEN'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
  if( $name =~ m|^homebrew/cask-versions/| ){
@@ -695,23 +694,17 @@ my( $an,$re ) = @_;
  closedir $dir;
 }
 
-sub Isatty_1{
-my $term = POSIX::Termios->new;
- my $get  = $term->getattr(1);
-$get;
-}
-
 sub Format_1{
 my( $re,$ls,$sl,$ss,$ze ) = @_;
   if( $re->{'LIST'} or $re->{'PRINT'} ){
-   system(" printf '\033[?7l' ") if( $re->{'MAC'} and Isatty_1 );
-    system('setterm -linewrap off') if( $re->{'LIN'} and Isatty_1 );
+   system(" printf '\033[?7l' ") if( $re->{'MAC'} and -t STDOUT );
+    system('setterm -linewrap off') if( $re->{'LIN'} and -t STDOUT );
      $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
-   system(" printf '\033[?7h' ") if( $re->{'MAC'} and Isatty_1 );
-    system('setterm -linewrap on') if( $re->{'LIN'} and Isatty_1 );
+   system(" printf '\033[?7h' ") if( $re->{'MAC'} and -t STDOUT );
+    system('setterm -linewrap on') if( $re->{'LIN'} and -t STDOUT );
   }else{
-   if( Isatty_1 ){
+   if( -t STDOUT ){
     my $leng = $re->{'LEN1'};
      my $tput = `tput cols`;
       my $size = int $tput/($leng+2);
