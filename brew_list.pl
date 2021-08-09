@@ -6,12 +6,12 @@ use Fcntl ':DEFAULT';
 my( $OS_Version,$OS_Version2,$CPU );
 
 my $re  = {
- 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,
+ 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
   'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt"};
 
 my $ref = {
- 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,
+ 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
   'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
     'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
@@ -28,19 +28,20 @@ $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cas
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
-if( $AR[0] eq '-l' ){ $name = $re;  $re->{'LIST'}  = 1;
-}elsif( $AR[0] eq '-i' ){  $name = $re; $re->{'PRINT'} = 1;
-}elsif( $AR[0] eq '-lx' ){ $name = $re; $re->{'LINK'} = 1; $re->{'LIST'} = 1; $re->{'LINK'}=3 if $re->{'LIN'};
-}elsif( $AR[0] eq '-lb' ){ $name = $re; $re->{'LINK'} = 2; $re->{'LIST'} = 1;
-}elsif( $AR[0] eq '-in' ){ $name = $re; $re->{'INF'} = 1;  $re->{'LINK'} = 6; $re->{'LIST'} = 1;
-}elsif( $AR[0] eq '-c' ){  $name = $ref;$ref->{'LIST'} = 1;Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-ci'){  $name = $ref;$ref->{'PRINT'}= 1;Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-cx' ){ $name = $ref;$ref->{'LINK'} = 4;$ref->{'LIST'} = 1;Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-cs' ){ $name = $ref;$ref->{'LINK'} = 5;$ref->{'LIST'} = 1;Died_1() if $re->{'LIN'};
-}elsif( $AR[0] eq '-co' ){ $name = $re; $re->{'COM'} = 1;
-}elsif( $AR[0] eq '-new' ){$name = $re; $re->{'NEW'} = 1;
-}elsif( $AR[0] eq '-s' ){  $name = $re; $re->{'S_OPT'} = 1;
-}elsif( $AR[0] eq '-' ){   $name = $re; $re->{'BL'} = $ref->{'BL'} = 1;
+if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
+}elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
+}elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'}  = 1; $re->{'LINK'}=3 if $re->{'LIN'};
+}elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'}  = 2;
+}elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'} = 4; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'} = 5; Died_1() if $re->{'LIN'};
+}elsif( $AR[0] eq '-in' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'}  = 6; $re->{'INF'} = 1;
+}elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
+}elsif( $AR[0] eq '-new' ){$name = $re;  $re->{'NEW'} = 1;
+}elsif( $AR[0] eq '-o' ){  $re->{'DAT'}= $ref->{'DAT'}= 1;
+}elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
+}elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
 }else{  Died_1(); }
 
  if( $re->{'LIN'} ){
@@ -79,9 +80,8 @@ if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
 }
 
 if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
- $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = 0;
-  die " exist LOCK \033[31mremove\033[37m rm -rf ~/.BREW_LIST/LOCK\n"
-   if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+ $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = 0;
+  die " exist \033[31mLOCK\033[37m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
     print" wait\n";
 }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
  if( $re->{'INF'} ){
@@ -98,7 +98,7 @@ if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
 
 if( $re->{'LIN'} ){
  Init_1( $re ); Format_1( $re );
-}elsif( $re->{'S_OPT'} or $re->{'BL'} ){
+}elsif( $re->{'S_OPT'} or $re->{'BL'} or $re->{'DAT'} ){
  my $pid = fork;
  die " Not fork : $!\n" unless defined $pid;
   if($pid){
@@ -118,7 +118,8 @@ sub Died_1{
  die "   Option : -new creat new cache
   -l formula list : -i instaled formula : - brew list command
   -lb bottled install formula : -lx can't install formula
-  -s type search name : -co library display : -in formula require formula
+  -s type search name : -o outdated : -co library display
+  -in formula require formula
    Only mac : Cask
   -c cask list : -ci instaled cask
   -cx can't install cask : -cs some name cask and formula\n";
@@ -554,6 +555,8 @@ my( $list,$file,$in,$re ) = @_;
      }else{
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
+         $re->{'OUT'}[$re->{'UP'}++] = " $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" if $re->{'FOR'};
+          $re->{'OUT'}[$re->{'UP'}++] = " $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n" if $re->{'CAS'};
            Type_1( $re,$brew_1,'(i)' );
       }else{
            Type_1( $re,$brew_1,' i ' );
@@ -703,6 +706,9 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
    system(" printf '\033[?7h' ") if( $re->{'MAC'} and -t STDOUT );
     system('setterm -linewrap on') if( $re->{'LIN'} and -t STDOUT );
+  }elsif( $re->{'DAT'} ){
+   print for( @{$re->{'OUT'}} );
+    $re->{'CAS'} = 0;
   }else{
    if( -t STDOUT ){
     my $leng = $re->{'LEN1'};
@@ -742,7 +748,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
     $re->{'CAS'} = 0;
    }
   }
-print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ($re->{'ALL'} or $re->{'EXC'});
+print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
