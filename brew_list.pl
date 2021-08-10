@@ -137,7 +137,7 @@ sub Init_1{
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
 
  DB_1( $re );
-  DB_2( $re ) unless $re->{'S_OPT'} or $re->{'BL'};
+  DB_2( $re ) if $re->{'LIST'} or $re->{'PRINT'};
    Info_1( $re ) if $re->{'INF'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
