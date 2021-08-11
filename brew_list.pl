@@ -555,8 +555,8 @@ my( $list,$file,$in,$re ) = @_;
      }else{
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
-         $re->{'OUT'}[$re->{'UP'}++] = " $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" if $re->{'FOR'};
-          $re->{'OUT'}[$re->{'UP'}++] = " $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n" if $re->{'CAS'};
+          $re->{'OUT'}[$re->{'UP'}++] = $re->{'FOR'} ? " $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" :
+          " $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n";
            Type_1( $re,$brew_1,'(i)' );
       }else{
            Type_1( $re,$brew_1,' i ' );
