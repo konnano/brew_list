@@ -24,6 +24,8 @@ brew list コマンド強化版
 
 '-co' オプションでFormulaのライブラリーが表示されます
 
+'-o' オプションで brew outdated コマンド
+
 '-' オプションで brew list コマンド
 
 Only 　Mac : Cask
