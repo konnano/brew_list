@@ -69,11 +69,9 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
         $tap{"$name$data"} = 1 if $data =~ s/.*yosemite:.*\n/10.10/;
        $tap{"$name$data"} = 1 if $data =~ s/.*x86_64_linux:.*\n/Linux/;
         if( $data =~ /.*,\s+all:/ ){
-         $tap{"${name}11.0M1"} = 1;  $tap{"${name}11.0"} = 1;
-          $tap{"${name}10.15"} = 1;   $tap{"${name}10.14"} = 1;
-         $tap{"${name}10.13"} = 1;   $tap{"${name}10.12"} = 1;
-          $tap{"${name}10.11"} = 1;   $tap{"${name}10.10"} = 1;
-         $tap{"${name}Linux"} = 1;
+         $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
+         $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
+         $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}Linux"} = 1;
         }
       next;
      }elsif( $data =~ /^\s*end/ and $IN == 1 ){
