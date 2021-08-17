@@ -43,10 +43,8 @@ else
 exit
 fi`;
 
-my $an = `cat Array.txt|$fzf`;
-chomp $an;
+chomp( my $an = `cat Array.txt|$fzf` );
 
-print" $an\n";
 system("curl -sLo master.ttf $HA{$an} 2>/dev/null");
 system('qlmanage -p master.ttf >& /dev/null;rm master.ttf');
 unlink 'Array.txt';
