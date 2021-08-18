@@ -5,7 +5,8 @@ use warnings;
 # パッケージフォントに対応しません、単体フォントのみ、表示しないのもあるので試作品です
 
 my $CPU = `sysctl machdep.cpu.brand_string`;
-my $dir = $CPU eq 'arm\?' ?
+$CPU = $CPU =~ /Apple\s+M1/ ? 'arm' : 'intel';
+my $dir = $CPU eq 'arm' ?
  '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks' :
  '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
 
@@ -18,9 +19,9 @@ opendir my $FONT,$dir or die " FONT $!\n";
    while(my $read = <$font>){
     $read =~ s/^\s*url\s*"([^"]+(?:ttf|otf))".*\n/$1/;
      if( $read =~ /^https:/ ){
-     $HA{$name} = $read;
-     push @AN,"$name\n";
-    }
+      $HA{$name} = $read;
+       push @AN,"$name\n";
+     }
    }
  }
 closedir $FONT;
@@ -46,5 +47,6 @@ fi`;
 chomp( my $an = `cat Array.txt|$fzf` );
 
 system("curl -sLo master.ttf $HA{$an} 2>/dev/null");
-system('qlmanage -p master.ttf >& /dev/null;rm master.ttf');
-unlink 'Array.txt';
+ system('qlmanage -p master.ttf >& /dev/null');
+unlink 'master.ttf';
+ unlink 'Array.txt';
