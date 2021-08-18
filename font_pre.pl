@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 
-# Cask フォントを QuickLook で表示します、fzfかpecoかpercolが必要です
-# パッケージフォントに対応しません、単体フォントのみ、表示しないのもあるので試作品です
+# Cask フォントを QuickLook 表示します、fzfかpecoかpercolが必要です
+# パッケージフォントに対応しません、単体フォントのみ、試作品です
 
 my $CPU = `sysctl machdep.cpu.brand_string`;
 $CPU = $CPU =~ /Apple\s+M1/ ? 'arm' : 'intel';
@@ -45,7 +45,7 @@ exit
 fi`;
 
 chomp( my $an = `cat Array.txt|$fzf` );
-
+ print" $an\n";
 system("curl -sLo master.ttf $HA{$an} 2>/dev/null");
  system('qlmanage -p master.ttf >& /dev/null');
 unlink 'master.ttf';
