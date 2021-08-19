@@ -47,8 +47,8 @@ for my $an( @AN ){
      system('qlmanage -p master.ttf >& /dev/null');
      exit;
   }
- unlink 'master.ttf';
  sleep 1;
+ unlink 'master.ttf';
 }
 
 sub shuf_1{
@@ -59,4 +59,3 @@ sub shuf_1{
   @$arr[$i,$j] = @$arr[$j,$i];
   }
 }
-
