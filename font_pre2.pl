@@ -6,14 +6,16 @@ use warnings;
 # 終了は QuickLook で Spaceキー 親プロセス sleep 待ちで少し時間かかります
 
 my $TIME = 6; ### 表示タイム　通信環境で設定して下さい
-$SIG{'HUP'} = $SIG{'TERM'} = $SIG{'PIPE'} = $SIG{'INT'} = 'exit_1';
+$SIG{'HUP'} = $SIG{'TERM'} = $SIG{'INT'} = 'exit_1';
+ $SIG{'PIPE'} = 'exit_2';
 sub exit_1{ sleep 1; rmdir './FONT_EXIT'; unlink './master.ttf'; exit; }
+ sub exit_2{ sleep $TIME ; unlink './master.ttf'; exit; }
 
 my $CPU = `sysctl machdep.cpu.brand_string`;
 $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
 my $dir = $CPU eq 'arm\?' ?
  '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks' :
- '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
+  '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
 
 my( %HA,@AN,$VER ); 
 opendir my $FONT,$dir or die " FONT $!\n";
@@ -26,7 +28,7 @@ opendir my $FONT,$dir or die " FONT $!\n";
      if( $read =~ s/^\s*url\s+"([^"]+(?:ttf|otf))".*\n/$1/ ){
       $read =~ s/\Q#{version}\E/$VER/;
        $HA{$name} = $read;
-        push @AN,"$name\n";
+       push @AN,"$name\n";
      }
    }
   close $font;
@@ -55,10 +57,10 @@ for my $an( @AN ){
     }
   }else{
    my $time = time;
-    ( mkdir './FONT_EXIT' and die "  \033[31mNot connected\033[37m\n" )
+    mkdir './FONT_EXIT' and die " Not connected\n"
      if system("curl -sLo master.ttf $HA{$an}");
       system('qlmanage -p master.ttf >& /dev/null');
-       ( print" wait\n" and mkdir './FONT_EXIT' ) if $TIME > time - $time;
+       print" wait\n" and mkdir './FONT_EXIT' if $TIME > time - $time;
         exit;
   }
  sleep 1;
