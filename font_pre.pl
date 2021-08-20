@@ -3,7 +3,10 @@ use warnings;
 
 # Cask フォントを QuickLook 表示します、fzfかpecoかpercolが必要です
 # パッケージフォントに対応しません、単体フォントのみ、試作品です
-# perl font_pre.pl|read i で気に入ったら brew install $i でインストールできます
+# perl font_pre.pl|read i 気に入ったら brew install $i でインストールできます
+
+$SIG{'HUP'} = $SIG{'TERM'} = $SIG{'PIPE'} = 'exit_1';
+sub exit_1{ unlink './Array.txt'; unlink './master.ttf'; exit; }
 
 my $CPU = `sysctl machdep.cpu.brand_string`;
 $CPU = $CPU =~ /Apple\s+M1/ ? 'arm' : 'intel';
@@ -49,10 +52,11 @@ open my $FI,'>','Array.txt' or die " Array $!\n";
 close $FI;
 
 chomp( my $an = `cat Array.txt|$fzf` );
- print" $an\n";
-system("curl -sLo './master.ttf' $HA{$an} 2>/dev/null
- sleep 0.1; qlmanage -p './master.ttf' >& /dev/null
-  ps x|grep [q]uicklookd|awk 'END {print \$1}'|xargs kill -KILL");
+ print" $an\n" if $an;
+$HA{$an} ?
+ system("curl -sLo './master.ttf' $HA{$an} 2>/dev/null
+  sleep 0.1; qlmanage -p './master.ttf' >& /dev/null
+   ps x|grep [q]uicklookd|awk 'END {print \$1}'|xargs kill -KILL") :
+    unlink './Array.txt' and exit;
 unlink 'master.ttf';
  unlink 'Array.txt';
- 
