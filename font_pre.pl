@@ -3,6 +3,7 @@ use warnings;
 
 # Cask フォントを QuickLook 表示します、fzfかpecoかpercolが必要です
 # パッケージフォントに対応しません、単体フォントのみ、試作品です
+# perl font_pre.pl|read i で気に入ったら brew install $i でインストールできます
 
 my $CPU = `sysctl machdep.cpu.brand_string`;
 $CPU = $CPU =~ /Apple\s+M1/ ? 'arm' : 'intel';
@@ -49,7 +50,9 @@ close $FI;
 
 chomp( my $an = `cat Array.txt|$fzf` );
  print" $an\n";
-system("curl -sLo master.ttf $HA{$an} 2>/dev/null");
- system('qlmanage -p master.ttf >& /dev/null');
+system("curl -sLo './master.ttf' $HA{$an} 2>/dev/null
+ sleep 0.1; qlmanage -p './master.ttf' >& /dev/null
+  ps x|grep [q]uicklookd|awk 'END {print \$1}'|xargs kill -KILL");
 unlink 'master.ttf';
  unlink 'Array.txt';
+ 
