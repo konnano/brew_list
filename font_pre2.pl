@@ -9,7 +9,7 @@ my $TIME = 6; ### 表示タイム　通信環境で設定して下さい
 $SIG{'HUP'} = $SIG{'TERM'} = $SIG{'INT'} = 'exit_1';
  $SIG{'PIPE'} = 'exit_2';
 sub exit_1{ sleep 1; rmdir './FONT_EXIT'; unlink './master.ttf'; exit; }
- sub exit_2{ sleep $TIME ; unlink './master.ttf'; exit; }
+ sub exit_2{ sleep $TIME ; rmdir './FONT_EXIT'; unlink './master.ttf'; exit; }
 
 my $CPU = `sysctl machdep.cpu.brand_string`;
 $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
