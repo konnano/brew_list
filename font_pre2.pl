@@ -42,7 +42,8 @@ die " exisit master.ttf\n" if -f 'master.ttf';
 for my $an( @AN ){
  if( -d './FONT_EXIT' ){
   rmdir './FONT_EXIT';
-   exit;
+   system("ps x|grep [q]uicklookd|awk 'END {print \$1}'|xargs kill -KILL");
+    exit;
  }
   print"$an";
    chomp $an;
@@ -59,11 +60,11 @@ for my $an( @AN ){
    my $time = time;
     mkdir './FONT_EXIT' and die " Not connected\n"
      if system("curl -sLo master.ttf $HA{$an}");
-      system('qlmanage -p master.ttf >& /dev/null');
+      system("sleep 0.1; qlmanage -p './master.ttf' >& /dev/null");
        print" wait\n" and mkdir './FONT_EXIT' if $TIME > time - $time;
         exit;
   }
- sleep 1;
+ system('sleep 0.1');
  unlink './master.ttf';
 }
 
