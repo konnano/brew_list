@@ -629,21 +629,14 @@ my( $re,$brew_1,$i ) = @_;
     $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg"} ?
     $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
   }else{
-    ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ?
-    $re->{'MEM'} =~ s/^.{9}/ x s $i / : $re->{'OS'}{"${brew_1}un_cask"} ?
-    $re->{'MEM'} =~ s/^.{9}/ x   $i / :  $re->{'OS'}{"${brew_1}so_name"} ?
-    $re->{'MEM'} =~ s/^.{9}/   s $i / :
-    ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}formula"} ) ?
-    $re->{'MEM'} =~ s/^.{9}/ x f $i / : $re->{'OS'}{"${brew_1}formula"} ?
-    $re->{'MEM'} =~ s/^.{9}/   f $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
+    $re->{'OS'}{"${brew_1}so_name"} ? $re->{'MEM'} =~ s/^.{9}/   s $i / :
+    $re->{'OS'}{"${brew_1}formula"} ? $re->{'MEM'} =~ s/^.{9}/   f $i / :
+                                      $re->{'MEM'} =~ s/^.{9}/     $i /; 
   }
  }else{
   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
    $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
-   $re->{'MEM'} =~ s/^.{9}/ b   $i / :
-  ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
-   $re->{'MEM'} =~ s/^.{9}/ x k $i / : $re->{'OS'}{"${brew_1}un_linux"} ?
-   $re->{'MEM'} =~ s/^.{9}/ x   $i / : $re->{'OS'}{"${brew_1}keg_Linux"} ?
+   $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg_Linux"} ?
    $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
  }
 }
