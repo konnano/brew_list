@@ -137,7 +137,7 @@ sub Init_1{
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
 
  DB_1( $re );
-  DB_2( $re ) if $re->{'LIST'} or $re->{'PRINT'};
+  DB_2( $re ) if $re->{'LIST'} or $re->{'PRINT'} or ( $re->{'CAS'} and $re->{'DAT'} );
    Info_1( $re ) if $re->{'INF'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
@@ -361,7 +361,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
   }elsif( my( $ls1,$ls2,$ls3 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $ls3 ){
-     if( eval("$OS_Version2 $ls2 $MAC_OS{$ls3}") ){
+     if( eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
       $re->{'OS'}{"deps$ls1"} = 1 unless $bottle;
        Info_2( $re,$ls1 ) unless $bottle;
      }
@@ -369,7 +369,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
   }elsif( my( $ls4,$ls5,$ls6 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $ls6 ){
-     if( eval("$re->{'CLANG'} $ls5 $ls6") ){
+     if( eval"$re->{'CLANG'} $ls5 $ls6" ){
       $re->{'OS'}{"deps$ls4"} = 1 unless $bottle;
        Info_2( $re,$ls4 ) unless $bottle;
      }
@@ -397,7 +397,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
    my( $ls1,$ls2,$ls3 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/;
      if( $re->{'MAC'} and $ls3 ){
-      if( eval("$OS_Version2 $ls2 $MAC_OS{$ls3}") ){
+      if( eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
        $re->{'OS'}{"deps$ls1"} = 1;
         Info_2( $re,$ls1 );
       }
@@ -405,7 +405,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
    my($ls4,$ls5,$ls6) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/;
      if( $re->{'MAC'} and $ls6 ){
-      if( eval("$re->{'CLANG'} $ls5 $ls6") ){
+      if( eval"$re->{'CLANG'} $ls5 $ls6" ){
        $re->{'OS'}{"deps$ls4"} = 1;
        Info_2( $re,$ls4 );
       }
@@ -553,6 +553,7 @@ my( $list,$file,$in,$re ) = @_;
             Memo_1( $re,$mem,0 );
             $in++ and $i-- and next;
      }else{
+      $brew_2 = $re->{'OS'}{"${brew_1}version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}version"};
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
           $re->{'OUT'}[$re->{'UP'}++] = $re->{'FOR'} ? " $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" :
