@@ -40,17 +40,19 @@ Only 　Mac : Cask
 
 : 表示マーク
 
-bマークはボトルインストールFormula
+b マークはボトルインストールFormula
 
-kマークはkeg_onlyのFormula
+k マークはkeg_onlyのFormula
 
-iマークはインストール済みFormula
+i マークはインストール済みFormula
 
-(i)マークはバージョンアップのあるFormula
+(i) マークはバージョンアップのあるFormula
 
-xマークはインストールできないFormula
+e マークはビルドできないFormula
 
-tマークはtapでラップされたFormula
+x マークはインストールできないFormula
+
+t マークはtapでラップされたFormula
 
 Onle Mac : Cask
 
