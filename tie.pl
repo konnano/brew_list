@@ -157,7 +157,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
   open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
    while(my $data=<$BREW>){
-    if( my( $ls1,$ls2 ) = $data =~ /^\s+depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
+    if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
      $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
     }elsif( $data =~ /^\s*depends_on\s+formula:/ ){
      $tap{"${name}formula"} = 1;
@@ -169,9 +169,9 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
       if( eval"$OS_Version $ls4 $MAC_OS{$ls5}" ){
        $IF1 = 0; $VER = 1;
       }
-    }elsif( $data =~ /else/ and $IF1 and $IF2 ){
+    }elsif( $data =~ /^\s*else/ and $IF1 and $IF2 ){
        $VER = 1;
-    }elsif( my( $ls6 ) = $data =~ /version\s+"([^"]+)"/ and $VER ){
+    }elsif( my( $ls6 ) = $data =~ /^\s*version\s+"([^"]+)"/ and $VER ){
      $tap{"${name}version"} = $ls6;
       $IF1 = $IF2 = $VER = 0;
     }
