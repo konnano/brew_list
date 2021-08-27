@@ -489,6 +489,7 @@ my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$file->[$i];$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split("\t",$file->[$i]);
    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
+    $brew_2 = $re->{'OS'}{"${brew_1}version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}version"};
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -553,10 +554,9 @@ my( $list,$file,$in,$re ) = @_;
             Memo_1( $re,$mem,0 );
             $in++ and $i-- and next;
      }else{
-      $brew_2 = $re->{'OS'}{"${brew_1}version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}version"};
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
-       $re->{'TAR'} = Dirs_1("$ENV{'HOME'}/Library/Caches/Homebrew",2) unless $re->{'TAR'};
+       $re->{'TAR'} = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew",2 ) unless $re->{'TAR'};
         for my $gz( @{$re->{'TAR'}} ){
          if( $gz=~s/$brew_1--(\d.+)\.tar.*/$1/ ){
           $re->{'GZ'} = 1 if $re->{'HASH'}{$brew_1} lt $gz;
