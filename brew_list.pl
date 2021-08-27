@@ -556,9 +556,19 @@ my( $list,$file,$in,$re ) = @_;
       $brew_2 = $re->{'OS'}{"${brew_1}version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}version"};
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
-          $re->{'OUT'}[$re->{'UP'}++] = $re->{'FOR'} ? " $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" :
-          " $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n";
-           Type_1( $re,$brew_1,'(i)' );
+       $re->{'TAR'} = Dirs_1("$ENV{'HOME'}/Library/Caches/Homebrew",2) unless $re->{'TAR'};
+        for my $gz( @{$re->{'TAR'}} ){
+         if( $gz=~s/$brew_1--(\d.+)\.tar.*/$1/ ){
+          $re->{'GZ'} = 1 if $re->{'HASH'}{$brew_1} lt $gz;
+           last;
+         }
+        }
+         $re->{'GZ'} ? Type_1( $re,$brew_1,'(i)','e' ) : Type_1( $re,$brew_1,'(i)' );
+          $re->{'OUT'}[$re->{'UP'}++] = ( $re->{'FOR'} and $re->{'GZ'} ) ?
+           " e $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" : ( $re->{'CAS'} and $re->{'GZ'} ) ?
+           " e $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n"  : $re->{'FOR'} ?
+           "   $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" : "   $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n";
+         $re->{'GZ'} = 0;
       }else{
            Type_1( $re,$brew_1,' i ' );
       }
@@ -619,16 +629,18 @@ my( $list,$re,$in ) = @_;
 }
 
 sub Type_1{
-my( $re,$brew_1,$i ) = @_;
+my( $re,$brew_1,$i,$e ) = @_;
  if( $re->{'MAC'} ){
   if( $re->{'FOR'} ){
    ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ t k $i / : $re->{'OS'}{"${brew_1}un_xcode"} ?
     $re->{'MEM'} =~ s/^.{9}/ t   $i / : 
    ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
-    $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
+    $re->{'MEM'} =~ s/^.{9}/ b k $i / : ( $e and $re->{'OS'}{"${brew_1}keg"} ) ?
+    $re->{'MEM'} =~ s/^.{9}/ e k $i / :  $re->{'OS'}{"$brew_1$OS_Version"} ?
     $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg"} ?
-    $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
+    $re->{'MEM'} =~ s/^.{9}/   k $i / : $e ? $re->{'MEM'} =~ s/^.{9}/ e   $i / :
+    $re->{'MEM'} =~ s/^.{9}/     $i /; 
   }else{
     $re->{'OS'}{"${brew_1}so_name"} ? $re->{'MEM'} =~ s/^.{9}/   s $i / :
     $re->{'OS'}{"${brew_1}formula"} ? $re->{'MEM'} =~ s/^.{9}/   f $i / :
