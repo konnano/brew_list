@@ -172,7 +172,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
     }elsif( $data =~ /else/ and $IF1 and $IF2 ){
        $IF1 = $IF2 = 0; $VER = 1;
     }elsif( my( $ls6 ) = $data =~ /version\s+"([^"]+)"/ and $VER ){
-     $tap{"${name}version"} = $ls6; $VER = 0; print" $name : $ls6\n";
+     $tap{"${name}version"} = $ls6; $VER = 0;
     }
    $IF1 = 1 if eof;
    }
