@@ -175,9 +175,9 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      $tap{"${name}version"} = $ls6;
       $IF1 = $IF2 = $VER = 0;
     }
-    if( eof ){ $IF1 = 1; $IF2 = $VER = 0; }
    }
   close $BREW;
+ $IF1 = 1; $IF2 = $VER = 0;
  }
 untie %tap;
 __END__
