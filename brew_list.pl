@@ -556,7 +556,10 @@ my( $list,$file,$in,$re ) = @_;
      }else{
       if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
           $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
-       $re->{'TAR'} = Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew",2 ) unless $re->{'TAR'};
+        $re->{'TAR'} = $re->{'MAC'} ?
+         Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew",2 ) :
+          Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
+
         for my $gz( @{$re->{'TAR'}} ){
          if( $gz=~s/$brew_1--(\d.+)\.tar.*/$1/ ){
           $re->{'GZ'} = 1 if $re->{'HASH'}{$brew_1} lt $gz;
