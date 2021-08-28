@@ -569,8 +569,11 @@ my( $list,$file,$in,$re ) = @_;
            " e $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n"  : $re->{'FOR'} ?
            "   $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" : "   $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n";
          $re->{'GZ'} = 0;
+      }elsif( $re->{'CAS'} and $brew_2 ne $re->{'DMG'}{$brew_1} ){
+          Type_1( $re,$brew_1,'(i)' );
+           $re->{'OUT'}[$re->{'UP'}++] =  "   $brew_1 $re->{'DMG'}{$brew_1} != $brew_2\n";
       }else{
-           Type_1( $re,$brew_1,' i ' );
+          Type_1( $re,$brew_1,' i ' );
       }
      }
      $in++;
