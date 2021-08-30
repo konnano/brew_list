@@ -86,6 +86,7 @@ if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
 }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
  if( $re->{'INF'} ){
   $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
+  $re->{'CLANG'}=`clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\..*/\\1/'` if $re->{'MAC'};
  }else{	
  $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
   $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
@@ -137,7 +138,7 @@ sub Init_1{
   Dirs_1( $re->{'CEL'},1 ) : Dirs_1( $re->{'CEL'},0,$re );
 
  DB_1( $re );
-  DB_2( $re ) if $re->{'LIST'} or $re->{'PRINT'} or $re->{'CAS'} and $re->{'DAT'};
+  DB_2( $re ) if $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'};
    Info_1( $re ) if $re->{'INF'};
 
  $re->{'COM'} ? Command_1( $re,$list ) : $re->{'BL'} ?
@@ -268,34 +269,17 @@ $file;
 }
 
 sub Info_1{
-my $re = shift;
- die " can't install $re->{'INF'}\n" if $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
-                                        $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"};
- open my $DIR,'<',"$ENV{'HOME'}/.BREW_LIST/dir.txt" or die " Info_1 $!\n";
-  while(my $brew=<$DIR>){ chomp $brew;
-   my( $name ) = $brew =~ m|.+/(.+)\.rb$|;
-    $re->{'NAME'}{$name} = $brew;
-  }
- close $DIR;
-$re->{'CLANG'}=`clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\..*/\\1/'` if $re->{'MAC'};
- Info_2( $re );
-}
-
-sub Info_2{
 my( $re,$file ) = @_; my $IN = 0;
- my $name = ( $re->{'MAC'} and $CPU eq 'intel\?' and $file ) ?
-  "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
-            ( $re->{'MAC'} and $CPU eq 'arm\?' and $file ) ?
-  "/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
-            ( $re->{'LIN'} and $file ) ?
-  "/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/$file.rb" :
-  ( $re->{'NAME'}{$re->{'INF'}} and $re->{'NAME'}{$re->{'INF'}} =~ m|\Q/$re->{'INF'}.rb\E$| ) ?
-    $re->{'NAME'}{$re->{'INF'}} : exit;
+ die " can't install $re->{'INF'}\n" 
+  if not $file and ( $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
+                     $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} );
 
+ my $name = $file ? $re->{'OS'}{"${file}core"} :
+  $re->{'OS'}{"$re->{'INF'}core"} ? $re->{'OS'}{"$re->{'INF'}core"} : exit;
    my( $brew ) = $name =~ m|.+/(.+)\.rb$|;
-  my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
+    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
 
-open my $BREW1,'<',$name or die " Info_2 $!\n";
+open my $BREW1,'<',$name or die " Info_1 $!\n";
  while(my $data=<$BREW1>){
   if( $re->{'MAC'} ){
    if( $data =~ /^\s+on_linux\s*do/ ){ $IN = 1; next; }
@@ -316,11 +300,11 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
     $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
      if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1 unless $bottle;
-       Info_2( $re,$data ) unless $bottle;
+       Info_1( $re,$data ) unless $bottle;
         next;
      }elsif( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1;
-       Info_2( $re,$data );
+       Info_1( $re,$data );
         next;
      }elsif( $IN == 4 and $data =~ /^\s*else|^\s+end/ ){
       $IN = 0; next;
@@ -332,11 +316,11 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
       $IN = 6; next;
      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1 unless $bottle;
-       Info_2( $re,$data ) unless $bottle;
+       Info_1( $re,$data ) unless $bottle;
         next;
      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1;
-       Info_2( $re,$data );
+       Info_1( $re,$data );
         next;
      }elsif( $IN == 6 and $data =~ /^\s+end/ ){
        $IN = 0; next;
@@ -350,20 +334,20 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $cpu2 and $cpu2 =~ /$CPU/ ){
      $re->{'OS'}{"deps$cpu1"} = 1 unless $bottle;
-      Info_2( $re,$cpu1 ) unless $bottle;
+      Info_1( $re,$cpu1 ) unless $bottle;
     } next;
   }elsif( my( $cpu3,$cpu4 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build.+unless\s+Hardware::CPU\.([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $cpu4 and $cpu4 !~ /$CPU/ ){
      $re->{'OS'}{"deps$cpu3"} = 1 unless $bottle;
-      Info_2( $re,$cpu3 ) unless $bottle;
+      Info_1( $re,$cpu3 ) unless $bottle;
     } next;
   }elsif( my( $ls1,$ls2,$ls3 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $ls3 ){
      if( eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
       $re->{'OS'}{"deps$ls1"} = 1 unless $bottle;
-       Info_2( $re,$ls1 ) unless $bottle;
+       Info_1( $re,$ls1 ) unless $bottle;
      }
     } next;
   }elsif( my( $ls4,$ls5,$ls6 ) =
@@ -371,27 +355,27 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
     if( $re->{'MAC'} and $ls6 ){
      if( eval"$re->{'CLANG'} $ls5 $ls6" ){
       $re->{'OS'}{"deps$ls4"} = 1 unless $bottle;
-       Info_2( $re,$ls4 ) unless $bottle;
+       Info_1( $re,$ls4 ) unless $bottle;
      }
     } next;
   }elsif( my( $lb1,$lb2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
     if( $re->{'MAC'} and $lb2 and $OS_Version <= $MAC_OS{$lb2} ){
      $re->{'OS'}{"deps$lb1"} = 1 unless $bottle;
-      Info_2( $re,$lb1 ) unless $bottle;
+      Info_1( $re,$lb1 ) unless $bottle;
     } next;
   }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
     $re->{'OS'}{"deps$data"} = 1 unless $bottle;
-     Info_2( $re,$data ) unless $bottle;
+     Info_1( $re,$data ) unless $bottle;
       next;
   }
 
   if( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
      $re->{'OS'}{"deps$data"} = 1;
-     Info_2( $re,$data );
+     Info_1( $re,$data );
   }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
    if( $re->{'MAC'} and $ls2 and $OS_Version <= $MAC_OS{$ls2} ){
     $re->{'OS'}{"deps$ls1"} = 1;
-     Info_2( $re,$ls1 );
+     Info_1( $re,$ls1 );
    }
   }elsif( $data =~ /^\s*depends_on.+\s*if\s*/ ){
    my( $ls1,$ls2,$ls3 ) =
@@ -399,7 +383,7 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
      if( $re->{'MAC'} and $ls3 ){
       if( eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
        $re->{'OS'}{"deps$ls1"} = 1;
-        Info_2( $re,$ls1 );
+        Info_1( $re,$ls1 );
       }
      }
    my($ls4,$ls5,$ls6) =
@@ -407,14 +391,14 @@ open my $BREW1,'<',$name or die " Info_2 $!\n";
      if( $re->{'MAC'} and $ls6 ){
       if( eval"$re->{'CLANG'} $ls5 $ls6" ){
        $re->{'OS'}{"deps$ls4"} = 1;
-       Info_2( $re,$ls4 );
+       Info_1( $re,$ls4 );
       }
      }
    my( $ls7,$ls8 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+).*\n/;
      if( $re->{'MAC'} and $ls8 and $ls8 =~ /$CPU/ ){
       $re->{'OS'}{"deps$ls7"} = 1;
-      Info_2( $re,$ls7 );
+      Info_1( $re,$ls7 );
      }
   }
  }
@@ -505,8 +489,8 @@ my( $list,$file,$in,$re ) = @_;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
-      if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
-       $in++ and $re->{'IN'}++; $pop = 1;
+       if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
+        $in++ and $re->{'IN'}++; $pop = 1;
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
@@ -593,9 +577,17 @@ my( $list,$file,$in,$re ) = @_;
 }
 
 sub Tap_1{
-my( $list,$re,$in ) = @_;
+my( $list,$re,$in,$com ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
- my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
+  my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
+   my $dir = $re->{'FOR'} ? $re->{'OS'}{"${tap}core"} : $re->{'OS'}{"${tap}cask"};
+
+ open my $file,'<',$dir or die" Tap file $!\n";
+  while(my $name=<$file>){
+   $com = $1 and last if $name =~ /^\s*desc\s+"([^"]+)"/;
+    $com = $1 if $name =~ /^\s*name\s+"([^"]+)"/;
+  }
+ close $file;
 
    my $brew = 1;
  if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
@@ -621,9 +613,9 @@ my( $list,$re,$in ) = @_;
         $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
          $re->{'MEM'} = "      X  $tap\tNot Formula\n";
     }elsif( $re->{'FOR'} ){
-         $re->{'MEM'} = "      i  $tap\t$re->{'HASH'}{$tap}\n";
+         $re->{'MEM'} = "      i  $tap\t$re->{'HASH'}{$tap}\t$com\n";
     }else{
-         $re->{'MEM'} = "      i  $tap\t$re->{'DMG'}{$tap}\n";
+         $re->{'MEM'} = "      i  $tap\t$re->{'DMG'}{$tap}\t$com\n";
     }
      Type_1( $re,$tap,' i ' ) if $re->{'MEM'} !~ /^\s+X\s+/;
       Memo_1( $re,$mem,0 ) if $brew;
