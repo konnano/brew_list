@@ -20,40 +20,42 @@ if( $^O eq 'darwin' ){
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
   if( $CPU eq 'intel\?' ){
    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
-    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
-     Dirs_1( '/usr/local/Homebrew/Library/Taps',1 );
+    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
+     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
+      Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
   }else{
    Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
-    Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
-     Dirs_1( '/opt/homebrew/Library/Taps',1 );
+    Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
+     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
+      Dirs_1( '/opt/homebrew/Library/Taps',1,0 );
   }
 }else{
- Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0 );
-  $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
-   $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/^glibc/{print \$2}'`;
+ Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
+  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
+   $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
+    $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
 }
 
 sub Dirs_1{
  my( $dir,$ls,$cask ) = @_;
  my @files = glob("$dir/*");
   for my $card (@files) {
-   next if $ls and $card =~ m|/homebrew/|;
-    if( -d $card){ Dirs_1( $card,$ls );
-    }else{ $cask ? push @CASK,"$card\n" : push @BREW,"$card\n" if $card =~ /\.rb$/;
+   next if $ls and $card =~ m!/homebrew$|/homebrew-core$|/homebrew-cask$|
+                              /homebrew-bundle$|/homebrew-services$!x;
+    if( -d $card ){
+     Dirs_1( $card,$ls,$cask );
+    }else{
+     $cask ? push @CASK,"$card\n" : push @BREW,"$card\n" if $card =~ /\.rb$/;
     }
   }
 }
 
- open my $DIR,'>',"$ENV{'HOME'}/.BREW_LIST/dir.txt" or die " tie dir $!\n";
-  print $DIR @BREW;
- close $DIR;
-
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
  for my $dir1(@BREW){ chomp $dir1;
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
+   $tap{"${name}core"} = $dir1;
   open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
-
      if( $data =~ /^\s*bottle\s+do/ ){
       $IN = 1; next;
      }elsif( $data =~ /\s*rebuild/ and $IN == 1 ){
@@ -139,22 +141,11 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
    $tap{'glibcun_Linux'} = 1;
     $tap{'glibcLinux'} = 0;
  }
-  $IN = 0;
- for(my $i=0;$i<@BREW;$i++){
-  $BREW[$i] =~ s|.+/(.+)|$1|;
-  for(;$IN<@CASK;$IN++){
-   my( $name ) = $CASK[$IN] =~ m|.+/(.+)\n|;
-   last if $BREW[$i] lt $name;
-    if($BREW[$i] eq $name){
-     $name =~ s/\.rb$//;
-     $tap{"${name}so_name"} = 1;
-      last;
-    }
-  }
- }
+
  my $IF1 = 1; my $IF2 = 0 ; my $VER = 0;
  for my $dir2(@CASK){ chomp $dir2;
   my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
+   $tap{"${name}cask"} = $dir2;
   open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
    while(my $data=<$BREW>){
     if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
@@ -178,6 +169,19 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
    }
   close $BREW;
  $IF1 = 1; $IF2 = $VER = 0;
+ }
+
+ @BREW = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
+ @CASK = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
+  $IN = 0;
+ for(my $i=0;$i<@BREW;$i++){
+  for(;$IN<@CASK;$IN++){
+   last if $BREW[$i] lt $CASK[$IN];
+    if($BREW[$i] eq $CASK[$IN]){
+     $tap{"${CASK[$IN]}so_name"} = 1;
+      last;
+    }
+  }
  }
 untie %tap;
 __END__
