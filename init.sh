@@ -23,9 +23,7 @@ elif [[ $NAME = Linux && $1 && $1 = unlink ]];then
    exit
 fi
 
- i=`echo $0|rev|cut -c 1-7|rev`
-if [[ $i = init.sh && ! $1 ]];then
-
+if [[ ! $1 ]];then
  if [[ $NAME = Darwin ]];then
   if [[ $CPU =~ Intel &&  -e /usr/local/bin/brew_list ]];then
    echo exist /usr/local/bin/brew_list  
