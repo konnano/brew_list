@@ -55,7 +55,7 @@ if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
      $CPU = `sysctl machdep.cpu.brand_string`;
       $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
        $OS_Version2 = $OS_Version;
-        $OS_Version = "${OS_Version}M1" if $CPU =~ /arm\?/;
+        $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
  }
 
  if( $CPU and $CPU eq 'arm\?' ){
