@@ -14,12 +14,12 @@ if [[ $NAME = Darwin && $1 && $1 = unlink ]];then
    rm -f /opt/homebrew/bin/brew_list
   fi
    rm -rf ~/.BREW_LIST
-    echo rm all catche
+    echo rm all cache
      exit
 elif [[ $NAME = Linux && $1 && $1 = unlink ]];then
  rm -f /home/linuxbrew/.linuxbrew/bin/brew_list
   rm -rf ~/.BREW_LIST
-   echo rm all catche
+   echo rm all cache
    exit
 fi
 
