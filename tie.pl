@@ -13,7 +13,7 @@ if( $^O eq 'darwin' ){
  $CPU = `sysctl machdep.cpu.brand_string`;
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
    $OS_Version2 = $OS_Version;
-    $OS_Version2 = "${OS_Version}M1" if $CPU =~ /arm\?/;
+    $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
  $Xcode = `xcodebuild -version|awk '/Xcode/{print \$NF}'`;
   $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
