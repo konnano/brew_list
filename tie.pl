@@ -9,7 +9,7 @@ my( $OS_Version,$OS_Version2,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 if( $^O eq 'darwin' ){
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/(10.\d+)\.?\d*\n/$1/;
-   $OS_Version =~ s/^11.+/11.0/;
+   $OS_Version =~ s/^11.+\n/11.0/;
  $CPU = `sysctl machdep.cpu.brand_string`;
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
    $OS_Version2 = $OS_Version;
@@ -138,49 +138,51 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   close $BREW;
  }
  if( $RPM and $RPM > $CAT ){
-   $tap{'glibcun_Linux'} = 1;
-    $tap{'glibcLinux'} = 0;
+  $tap{'glibcun_Linux'} = 1;
+   $tap{'glibcLinux'} = 0;
  }
 
- my $IF1 = 1; my $IF2 = 0 ; my $VER = 0;
- for my $dir2(@CASK){ chomp $dir2;
-  my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
-   $tap{"${name}cask"} = $dir2;
-  open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
-   while(my $data=<$BREW>){
-    if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
-     $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
-    }elsif( $data =~ /^\s*depends_on\s+formula:/ ){
-     $tap{"${name}formula"} = 1;
-      if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
-       $tap{"${name}formula"} = 0 if $CPU ne $ls3;
-      }
-    }elsif( my( $ls4,$ls5 ) = $data =~ /if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ and $IF1 ){
+ if( $^O eq 'darwin' ){
+  my $IF1 = 1; my $IF2 = 0 ; my $VER = 0;
+  for my $dir2(@CASK){ chomp $dir2;
+   my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
+    $tap{"${name}cask"} = $dir2;
+   open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
+    while(my $data=<$BREW>){
+     if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)".*\n/ ){
+      $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
+     }elsif( $data =~ /^\s*depends_on\s+formula:/ ){
+      $tap{"${name}formula"} = 1;
+       if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
+        $tap{"${name}formula"} = 0 if $CPU ne $ls3;
+       }
+     }elsif( my( $ls4,$ls5 ) = $data =~ /if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ and $IF1 ){
        $IF2 = 1;
       if( eval"$OS_Version $ls4 $MAC_OS{$ls5}" ){
        $IF1 = 0; $VER = 1;
       }
-    }elsif( $data =~ /^\s*else/ and $IF1 and $IF2 ){
+     }elsif( $data =~ /^\s*else/ and $IF1 and $IF2 ){
        $VER = 1;
-    }elsif( my( $ls6 ) = $data =~ /^\s*version\s+"([^"]+)"/ and $VER ){
-     $tap{"${name}version"} = $ls6;
-      $IF1 = $IF2 = $VER = 0;
+     }elsif( my( $ls6 ) = $data =~ /^\s*version\s+"([^"]+)"/ and $VER ){
+      $tap{"${name}version"} = $ls6;
+       $IF1 = $IF2 = $VER = 0;
+     }
     }
-   }
-  close $BREW;
- $IF1 = 1; $IF2 = $VER = 0;
- }
+   close $BREW;
+  $IF1 = 1; $IF2 = $VER = 0;
+  }
 
- @BREW = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
- @CASK = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
-  $IN = 0;
- for(my $i=0;$i<@BREW;$i++){
-  for(;$IN<@CASK;$IN++){
-   last if $BREW[$i] lt $CASK[$IN];
-    if($BREW[$i] eq $CASK[$IN]){
-     $tap{"${CASK[$IN]}so_name"} = 1;
-      last;
-    }
+  @BREW = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
+  @CASK = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
+   $IN = 0;
+  for(my $i=0;$i<@BREW;$i++){
+   for(;$IN<@CASK;$IN++){
+    last if $BREW[$i] lt $CASK[$IN];
+     if($BREW[$i] eq $CASK[$IN]){
+      $tap{"${CASK[$IN]}so_name"} = 1;
+       last;
+     }
+   }
   }
  }
 untie %tap;
