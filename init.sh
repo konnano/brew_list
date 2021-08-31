@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME=`uname`
+ NAME=`uname`
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  exit
 elif [[ $NAME = Darwin ]];then
@@ -14,14 +14,19 @@ if [[ $NAME = Darwin && $1 && $1 = unlink ]];then
    rm -f /opt/homebrew/bin/brew_list
   fi
    rm -rf ~/.BREW_LIST
-    exit
+    echo rm all catche
+     exit
 elif [[ $NAME = Linux && $1 && $1 = unlink ]];then
  rm -f /home/linuxbrew/.linuxbrew/bin/brew_list
   rm -rf ~/.BREW_LIST
+   echo rm all catche
    exit
 fi
 
-if [[ $NAME = Darwin ]];then
+ i=`echo $0|rev|cut -c 1-7|rev`
+if [[ $i = init.sh && ! $1 ]];then
+
+ if [[ $NAME = Darwin ]];then
   if [[ $CPU =~ Intel &&  -e /usr/local/bin/brew_list ]];then
    echo exist /usr/local/bin/brew_list  
     exit
@@ -29,19 +34,19 @@ if [[ $NAME = Darwin ]];then
    echo exist /opt/homebrew/bin/brew_list
     exit
   fi
-elif [[ $NAME = Linux && -e /home/linuxbrew/.linuxbrew/bin/brew_list ]];then
- echo exist /home/linuxbrew/.linuxbrew/bin/brew_list
-  exit
-fi
+ elif [[ $NAME = Linux && -e /home/linuxbrew/.linuxbrew/bin/brew_list ]];then
+  echo exist /home/linuxbrew/.linuxbrew/bin/brew_list
+   exit
+ fi
 
-curl https://formulae.brew.sh/formula >/dev/null 2>&1 || \
- { echo -e "\033[31m Not connected\033[37m"; exit; }
+ curl https://formulae.brew.sh/formula >/dev/null 2>&1 || \
+  { echo -e "\033[31m Not connected\033[37m"; exit; }
 
-DIR=$(cd $(dirname $0); pwd)
+ DIR=$(cd $(dirname $0); pwd)
 
-mkdir -p ~/.BREW_LIST
+ mkdir -p ~/.BREW_LIST
 
-if [[ $NAME = Darwin ]];then
+ if [[ $NAME = Darwin ]];then
   if [[ $CPU =~ Intel ]];then
    cp $DIR/brew_list.pl /usr/local/bin/brew_list
   else
@@ -49,10 +54,10 @@ if [[ $NAME = Darwin ]];then
   fi
    cp $DIR/font.sh ~/.BREW_LIST/font.sh
     cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
-else
- cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list
-  cp $DIR/font.sh ~/.BREW_LIST/font.sh
-   cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
-fi
-
+ else
+  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list
+   cp $DIR/font.sh ~/.BREW_LIST/font.sh
+    cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
+ fi
 brew_list -new
+fi
