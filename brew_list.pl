@@ -269,7 +269,7 @@ $file;
 }
 
 sub Info_1{
-my( $re,$file ) = @_; my $IN = 0;
+my( $re,$file,$ver ) = @_; my $IN = 0;
  die " can't install $re->{'INF'}\n" 
   if not $file and ( $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
                      $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} );
@@ -299,9 +299,12 @@ open my $BREW1,'<',$name or die " Info_1 $!\n";
    if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
     $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
      if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-      $re->{'OS'}{"deps$data"} = 1 unless $bottle;
-       Info_1( $re,$data ) unless $bottle;
-        next;
+       $ver = Read_1( $data );
+      if( not $bottle and not $re->{'HASH'}{$data} or
+          not $bottle and ( $ver gt $re->{'HASH'}{$data} )){
+           $re->{'OS'}{"deps$data"} = 1;
+            Info_1( $re,$data ); next;
+      }
      }elsif( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1;
        Info_1( $re,$data );
@@ -315,13 +318,15 @@ open my $BREW1,'<',$name or die " Info_1 $!\n";
      }elsif( $IN == 5 and $data =~ /^\s*else/ ){
       $IN = 6; next;
      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-      $re->{'OS'}{"deps$data"} = 1 unless $bottle;
-       Info_1( $re,$data ) unless $bottle;
-        next;
+       $ver = Read_1( $data );
+      if( not $bottle and not $re->{'HASH'}{$data} or
+          not $bottle and ( $ver gt $re->{'HASH'}{$data} )){
+           $re->{'OS'}{"deps$data"} = 1;
+            Info_1( $re,$data ); next;
+      }
      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
       $re->{'OS'}{"deps$data"} = 1;
-       Info_1( $re,$data );
-        next;
+       Info_1( $re,$data ); next;
      }elsif( $IN == 6 and $data =~ /^\s+end/ ){
        $IN = 0; next;
      }
@@ -332,77 +337,104 @@ open my $BREW1,'<',$name or die " Info_1 $!\n";
     next;
   }elsif (my( $cpu1,$cpu2 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
-    if( $re->{'MAC'} and $cpu2 and $cpu2 =~ /$CPU/ ){
-     $re->{'OS'}{"deps$cpu1"} = 1 unless $bottle;
-      Info_1( $re,$cpu1 ) unless $bottle;
-    } next;
+    if( $re->{'MAC'} and $cpu2 =~ /$CPU/ ){
+      $ver = Read_1( $cpu1 );
+     if( not $bottle and not $re->{'HASH'}{$cpu1} or
+         not $bottle and ( $ver gt $re->{'HASH'}{$cpu1} )){
+          $re->{'OS'}{"deps$cpu1"} = 1;
+           Info_1( $re,$cpu1 );
+     }
+    }
   }elsif( my( $cpu3,$cpu4 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build.+unless\s+Hardware::CPU\.([^\s]+).*\n/ ){
-    if( $re->{'MAC'} and $cpu4 and $cpu4 !~ /$CPU/ ){
-     $re->{'OS'}{"deps$cpu3"} = 1 unless $bottle;
-      Info_1( $re,$cpu3 ) unless $bottle;
-    } next;
+    if( $re->{'MAC'} and $cpu4 !~ /$CPU/ ){
+      $ver = Read_1( $cpu3 );
+     if( not $bottle and not $re->{'HASH'}{$cpu3} or
+         not $bottle and ( $ver gt $re->{'HASH'}{$cpu3} )){
+          $re->{'OS'}{"deps$cpu3"} = 1;
+           Info_1( $re,$cpu3 );
+     }
+    }
   }elsif( my( $ls1,$ls2,$ls3 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
-    if( $re->{'MAC'} and $ls3 ){
-     if( eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
-      $re->{'OS'}{"deps$ls1"} = 1 unless $bottle;
-       Info_1( $re,$ls1 ) unless $bottle;
+    if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
+      $ver = Read_1( $ls1 );
+     if( not $bottle and not $re->{'HASH'}{$ls1} or
+         not $bottle and ( $ver gt $re->{'HASH'}{$ls1} )){
+          $re->{'OS'}{"deps$ls1"} = 1;
+           Info_1( $re,$ls1 );
      }
-    } next;
+    }
   }elsif( my( $ls4,$ls5,$ls6 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
-    if( $re->{'MAC'} and $ls6 ){
-     if( eval"$re->{'CLANG'} $ls5 $ls6" ){
-      $re->{'OS'}{"deps$ls4"} = 1 unless $bottle;
-       Info_1( $re,$ls4 ) unless $bottle;
+    if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
+      $ver = Read_1( $ls4 );
+     if( not $bottle and not $re->{'HASH'}{$ls4} or
+         not $bottle and ( $ver gt $re->{'HASH'}{$ls4} )){
+          $re->{'OS'}{"deps$ls4"} = 1;
+           Info_1( $re,$ls4 );
      }
-    } next;
+    }
   }elsif( my( $lb1,$lb2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
-    if( $re->{'MAC'} and $lb2 and $OS_Version <= $MAC_OS{$lb2} ){
-     $re->{'OS'}{"deps$lb1"} = 1 unless $bottle;
-      Info_1( $re,$lb1 ) unless $bottle;
-    } next;
+   if( $re->{'MAC'} and $OS_Version <= $MAC_OS{$lb2} ){
+     $ver = Read_1( $lb1 );
+    if( not $bottle and not $re->{'HASH'}{$lb1} or
+        not $bottle and ( $ver gt $re->{'HASH'}{$lb1} )){
+         $re->{'OS'}{"deps$lb1"} = 1;
+          Info_1( $re,$lb1 );
+    }
+   }
   }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-    $re->{'OS'}{"deps$data"} = 1 unless $bottle;
-     Info_1( $re,$data ) unless $bottle;
-      next;
+    $ver = Read_1( $data );
+   if( not $bottle and not $re->{'HASH'}{$data} or
+       not $bottle and ( $ver gt $re->{'HASH'}{$data} )){
+        $re->{'OS'}{"deps$data"} = 1;
+         Info_1( $re,$data );
+   }
   }
 
   if( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
      $re->{'OS'}{"deps$data"} = 1;
-     Info_1( $re,$data );
+      Info_1( $re,$data );
   }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
-   if( $re->{'MAC'} and $ls2 and $OS_Version <= $MAC_OS{$ls2} ){
+   if( $re->{'MAC'} and $OS_Version <= $MAC_OS{$ls2} ){
     $re->{'OS'}{"deps$ls1"} = 1;
      Info_1( $re,$ls1 );
    }
   }elsif( $data =~ /^\s*depends_on.+\s*if\s*/ ){
-   my( $ls1,$ls2,$ls3 ) =
-    $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/;
-     if( $re->{'MAC'} and $ls3 ){
-      if( eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
+    if( my( $ls1,$ls2,$ls3 ) =
+     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
+      if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
        $re->{'OS'}{"deps$ls1"} = 1;
         Info_1( $re,$ls1 );
       }
-     }
-   my($ls4,$ls5,$ls6) =
-    $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/;
-     if( $re->{'MAC'} and $ls6 ){
-      if( eval"$re->{'CLANG'} $ls5 $ls6" ){
+    }elsif( my($ls4,$ls5,$ls6) =
+     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
+      if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
        $re->{'OS'}{"deps$ls4"} = 1;
-       Info_1( $re,$ls4 );
+        Info_1( $re,$ls4 );
       }
-     }
-   my( $ls7,$ls8 ) =
-    $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+).*\n/;
-     if( $re->{'MAC'} and $ls8 and $ls8 =~ /$CPU/ ){
-      $re->{'OS'}{"deps$ls7"} = 1;
-      Info_1( $re,$ls7 );
-     }
+    }elsif( my( $ls7,$ls8 ) =
+     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
+      if( $re->{'MAC'} and $ls8 =~ /$CPU/ ){
+       $re->{'OS'}{"deps$ls7"} = 1;
+        Info_1( $re,$ls7 );
+      }
+    }
   }
  }
 close $BREW1;
+}
+
+sub Read_1{
+my( $brew,$ver ) = @_;
+ open my $BREW,'<',$re->{'TXT'} or die " Info File $!\n";
+  while(<$BREW>){
+   my( $ls1,$ls2,$ls3 ) = split("\t",$_);
+    $ver = $ls2 and last if $ls1 eq $brew;
+  }
+ close $BREW;
+$ver;
 }
 
 sub Dirs_1{
