@@ -213,7 +213,7 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
  open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
   @$file = <$BREW>;
  close $BREW;
- if( $re->{'CAS'} and $re->{'S_OPT'} and  -f $re->{'FON'} and  -f $re->{'DRI'} and -f $re->{'VER'} ){
+ if( $re->{'CAS'} and $re->{'S_OPT'} and -f $re->{'FON'} and -f $re->{'DRI'} and -f $re->{'VER'} ){
 
    if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'FON'},0) };
@@ -362,7 +362,7 @@ open my $BREW1,'<',$name or die " Info_1 $!\n";
    }
   }
 
-  if( $data =~ /^\s*depends_on\s+"[^"]+"\s+=>\s+:test/ ){
+  if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
     next;
   }elsif (my( $cpu1,$cpu2 ) =
    $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
@@ -396,7 +396,8 @@ open my $BREW1,'<',$name or die " Info_1 $!\n";
            Info_1( $re,$ls4,$spa );
      }
     } next;
-  }elsif( my( $ls7,$ls8 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
+  }elsif( my( $ls7,$ls8 ) =
+    $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
    if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$ls8} ){
     if( Code_1( $re,$bottle,$brew,$ls7,$ver ) ){
          $re->{'OS'}{"deps$ls7"} = $re->{'TREE'} ? print $Files "${spa}-- $ls7 (build)\n" : 1;
@@ -415,9 +416,7 @@ open my $BREW1,'<',$name or die " Info_1 $!\n";
    } next;
   }
 
-  if( $data =~ /^\s*depends_on\s+"([^"]+)"\s*=>\s+:test.*\n/ ){
-    next;
-  }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
+  if( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
      $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
       Info_1( $re,$data,$spa );
   }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
