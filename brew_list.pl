@@ -299,7 +299,7 @@ $ver;
 
 sub Info_1{
 my( $re,$file,$spa ) = @_; my $IN = 0;
- die " can't install $re->{'INF'}\n" 
+ print "\033[33mCan't install $re->{'INF'}...\033[37m\n" 
   if not $file and ( $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
                      $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} );
 
