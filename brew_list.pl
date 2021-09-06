@@ -282,6 +282,7 @@ $file;
 
 sub Read_1{
  my( $re,$bottle,$brew,$ls ) = @_;
+  $re->{'OS'}{"${brew}ver"} = $re->{'HASH'}{$ls} unless $re->{'OS'}{"${brew}ver"};
  ( not $bottle and not $re->{'HASH'}{$brew} or
    not $bottle and ( $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) ) and
  ( not $re->{'HASH'}{$ls} or $re->{'OS'}{"${ls}ver"} gt $re->{'HASH'}{$ls} ) ?
