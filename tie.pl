@@ -10,14 +10,17 @@ if( $^O eq 'darwin' ){
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/(10.\d+)\.?\d*\n/$1/;
    $OS_Version =~ s/^11.+\n/11.0/;
+
  $CPU = `sysctl machdep.cpu.brand_string`;
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
    $OS_Version2 = $OS_Version;
     $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
+
  $Xcode = `xcodebuild -version|awk '/Xcode/{print \$NF}'`;
   $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
+
   if( $CPU eq 'intel\?' ){
    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
@@ -50,7 +53,7 @@ sub Dirs_1{
   }
 }
 
-tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
+tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644 or die " untie $!\n";
  for my $dir1(@BREW){ chomp $dir1;
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -172,17 +175,27 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   $IF1 = 1; $IF2 = $VER = 0;
   }
 
+  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
+   my @LIST = <$FILE>;
+  close $FILE;
+
   @BREW = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
   @CASK = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
-   $IN = 0;
+
+   my $COU = $IN = 0;
   for(my $i=0;$i<@BREW;$i++){
-   for(;$IN<@CASK;$IN++){
-    last if $BREW[$i] lt $CASK[$IN];
-     if($BREW[$i] eq $CASK[$IN]){
-      $tap{"${CASK[$IN]}so_name"} = 1;
-       last;
-     }
-   }
+    for(;$COU<@LIST;$COU++){
+     my( $ls1,$ls2,$ls3 ) = split("\t",$LIST[$COU]); 
+      last if $BREW[$i] lt $ls1;
+       $tap{"${BREW[$i]}ver"} = $ls2 and last if $ls1 eq $BREW[$i]; 
+    }
+    for(;$IN<@CASK;$IN++){
+     last if $BREW[$i] lt $CASK[$IN];
+      if($BREW[$i] eq $CASK[$IN]){
+       $tap{"${CASK[$IN]}so_name"} = 1;
+        last;
+      }
+    }  
   }
  }
 untie %tap;
