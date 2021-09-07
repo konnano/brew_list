@@ -622,12 +622,14 @@ my( $list,$re,$in,$com ) = @_;
   my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
    my $dir = $re->{'FOR'} ? $re->{'OS'}{"${tap}core"} : $re->{'OS'}{"${tap}cask"};
 
- open my $file,'<',$dir or die" Tap file $!\n";
-  while(my $name=<$file>){
-   $com = $1 and last if $name =~ /^\s*desc\s+"([^"]+)"/;
-    $com = $1 if $name =~ /^\s*name\s+"([^"]+)"/;
-  }
- close $file;
+ unless( $re->{'S_OPT'} ){
+  open my $file,'<',$dir or die" Tap file $!\n";
+   while(my $name=<$file>){
+    $com = $1 and last if $name =~ /^\s*desc\s+"([^"]+)"/;
+     $com = $1 if $name =~ /^\s*name\s+"([^"]+)"/;
+   }
+  close $file;
+ }
 
    my $brew = 1;
  if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
