@@ -8,7 +8,7 @@ brew list コマンド強化版
 
 アンインストールはbrew_listフォルダー内で ./init.sh unlink
 
-warning 出るときは再インストールするか　brew updateして下さい、多分治ります
+warning 出るときは再インストールするか、brew updateして下さい
 
 : オプション
 
