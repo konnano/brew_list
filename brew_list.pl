@@ -136,6 +136,7 @@ sub Died_1{
   -lb bottled install formula : -lx can't install formula
   -s type search name : -o outdated : -co library display
   -in formula require formula : -t formula require formula, display tree
+  -u formula depend on formula : -ua formula depend on formula, all
    Only mac : Cask
   -c cask list : -ci instaled cask
   -cx can't install cask : -cs some name cask and formula\n";
