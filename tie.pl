@@ -18,14 +18,14 @@ if( $^O eq 'darwin' ){
     $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
 
  $Xcode = `which xcodebuild` ?
-  `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
-    $Xcode =~ s/(\d+\.\d+)\.?\d*\n/$1/;
+  `xcodebuild -version|awk '/Xcode/{print \$NF}'|sed 's/\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
 
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
- $re->{'CLANG'} = `clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\..*/\\1/'`;
+ $re->{'CLANG'} = `clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'`;
+
  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
-                 awk '/version/ {print \$2}'|perl -pe 's/(\\d*\\.\\d).*/$1/'`;
+                 awk '/version/ {print \$2}'|sed 's/\\([0-9]*\\.[0-9]*\\).*/\\1/'`;
 
   if( $CPU eq 'intel\?' ){
    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
@@ -260,7 +260,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
    my $COU = $IN;
   for(my $i=0;$i<@BREW;$i++){
     for(;$COU<@LIST;$COU++){
-     my( $ls1,$ls2,$ls3 ) = split("\t",$LIST[$COU]); 
+     my( $ls1,$ls2,$ls3 ) = split "\t",$LIST[$COU]; 
       last if $BREW[$i] lt $ls1;
        $tap{"${BREW[$i]}ver"} = $ls2 and last if $BREW[$i] eq $ls1; 
     }
