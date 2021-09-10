@@ -23,7 +23,6 @@ if( $^O eq 'darwin' ){
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  $re->{'CLANG'} = `clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'`;
-
  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
                  awk '/version/ {print \$2}'|sed 's/\\([0-9]*\\.[0-9]*\\).*/\\1/'`;
 
