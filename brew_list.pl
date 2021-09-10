@@ -21,8 +21,8 @@ sub Main_1{
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
-  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
-             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
+ %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
+            'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
 
  $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
@@ -359,48 +359,46 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
    if( $re->{'MAC'} ){
      if( $data =~ /^\s*on_linux\s*do/ ){ $IN = 1; next;
      }elsif( $data !~ /^\s*end/ and $IN == 1 ){ next;
-     }elsif( $data =~ /^\s*end/ and $IN == 1){ $IN = 0; next;
+     }elsif( $data =~ /^\s*end/ and $IN == 1 ){ $IN = 0; next;
      }
    }else{
      if( $data =~ /^\s*on_macos\s+do/ ){ $IN = 2; next;
      }elsif( $data !~ /^\s*end/ and $IN == 2  ){ next;
-     }elsif( $data =~ /^\s*end/ and $IN == 2){ $IN = 0; next;
+     }elsif( $data =~ /^\s*end/ and $IN == 2 ){ $IN = 0; next;
      } 
    }
 
    if( $data =~ /^\s*head do/ ){ $IN = 3; next;
    }elsif( $data !~ /^\s*end/ and $IN == 3 ){ next;
-   }elsif( $data =~ /^\s*end/ and $IN == 3){ $IN = 0; next;
+   }elsif( $data =~ /^\s*end/ and $IN == 3 ){ $IN = 0; next;
    }
 
    if( $re->{'MAC'} ){
     if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
      $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
       if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-       if( Read_1( $re,$bottle,$brew,$data ) ){
+        if( Read_1( $re,$bottle,$brew,$data ) ){
           $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
            Info_1( $re,$data,$spa ); next;
-       }
+        }
       }elsif( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
           $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
            Info_1( $re,$data,$spa ); next;
-      }elsif( $IN == 4 and $data =~ /^\s*else|^\s+end/ ){
-          $IN = 0; next;
-      }elsif( $IN == 5 and $data =~ /^\s*depends_on/ ){
-          next;
-      }elsif( $IN == 5 and $data =~ /^\s*end/ ){
-          $IN = 0; next;
-      }elsif( $IN == 5 and $data =~ /^\s*else/ ){
-          $IN = 6; next;
       }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-       if( Read_1( $re,$bottle,$brew,$data ) ){
+        if( Read_1( $re,$bottle,$brew,$data ) ){
           $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
            Info_1( $re,$data,$spa ); next;
-       }
+        }
       }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
           $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
            Info_1( $re,$data,$spa ); next;
-      }elsif( $IN == 6 and $data =~ /^\s+end/ ){
+      }elsif( $IN == 4 and $data =~ /^\s*else/ ){
+          $IN = 1; next;
+      }elsif( $IN == 5 and $data =~ /^\s*else/ ){
+          $IN = 6; next;
+      }elsif( $data !~ /^\s*else/ ){
+          next;
+      }elsif( $data =~ /^\s*end/ ){
           $IN = 0; next;
       }
     }
