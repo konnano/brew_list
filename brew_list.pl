@@ -442,7 +442,7 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
      } next;
    }elsif( my( $ls7,$ls8 ) =
     $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
-     if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$ls8} ){
+     if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls8} ){
       if( Read_1( $re,$bottle,$brew,$ls7 ) ){
         $re->{'OS'}{"deps$ls7"} = $re->{'TREE'} ? print $Files "${spa}-- $ls7 (build)\n" : 1;
          Info_1( $re,$ls7,$spa );
@@ -464,7 +464,7 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
      $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
          Info_1( $re,$data,$spa );
    }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
-    if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$ls2} ){
+    if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls2} ){
         $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1\n" : 1;
          Info_1( $re,$ls1,$spa );
     }
