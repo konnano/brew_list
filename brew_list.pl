@@ -54,6 +54,8 @@ sub Main_1{
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
     $OS_Version = 'Linux';
+   $CPU = `cat /proc/cpuinfo|awk '/model name/{print}'`;
+    $CPU = $CPU =~ /Intel/ ? 'intel\?' : 'arm\?';
  }else{
   $OS_Version = `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.\d+)\.?\d*\n/$1/;
@@ -96,7 +98,7 @@ sub Main_1{
      unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
       open $Files,'>',"$ENV{'HOME'}/.BREW_LIST/tree.txt" or die " tree $!\n";
     }
-  }else{	
+  }else{
    $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
   }
@@ -373,70 +375,52 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
    }elsif( $data =~ /^\s*end/ and $IN == 3 ){ $IN = 0; next;
    }
 
-   if( $re->{'MAC'} ){
-    if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
-     $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
-      if( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-        if( Read_1( $re,$bottle,$brew,$data ) ){
-          $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
-           Info_1( $re,$data,$spa ); next;
-        }
-      }elsif( $IN == 4 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
-          $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
-           Info_1( $re,$data,$spa ); next;
-      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-        if( Read_1( $re,$bottle,$brew,$data ) ){
-          $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
-           Info_1( $re,$data,$spa ); next;
-        }
-      }elsif( $IN == 6 and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
-          $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
-           Info_1( $re,$data,$spa ); next;
-      }elsif( $IN == 4 and $data =~ /^\s*else/ ){
-          $IN = 1; next;
-      }elsif( $IN == 5 and $data =~ /^\s*else/ ){
-          $IN = 6; next;
-      }elsif( $data !~ /^\s*else/ ){
-          next;
-      }elsif( $data =~ /^\s*end/ ){
-          $IN = 0; next;
-      }
-    }
+   if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
+    $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
+     if( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
+       if( Read_1( $re,$bottle,$brew,$data ) ){
+         $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
+          Info_1( $re,$data,$spa );
+       } next;
+     }elsif( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
+         $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
+          Info_1( $re,$data,$spa ); next;
+     }elsif( $IN == 4 and $data =~ /^\s*else/ ){
+         $IN = 7; next;
+     }elsif( $IN == 5 and $data =~ /^\s*else/ ){
+         $IN = 6; next;
+     }elsif( $data =~ /^\s*end/ ){
+         $IN = 0; next;
+     }elsif( $data !~ /^\s*else/ ){
+         next;
+     }
    }
 
    if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
-    next;
+     next;
    }elsif (my( $cpu1,$cpu2 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
-     if( $re->{'MAC'} and $cpu2 =~ /$CPU/ ){
-      if( Read_1( $re,$bottle,$brew,$cpu1 ) ){
+     if( $cpu2 =~ /$CPU/ and Read_1( $re,$bottle,$brew,$cpu1 ) ){
         $re->{'OS'}{"deps$cpu1"} = $re->{'TREE'} ? print $Files "${spa}-- $cpu1 (build)\n" : 1;
          Info_1( $re,$cpu1,$spa );
-      }
      } next;
    }elsif( my( $cpu3,$cpu4 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build.+unless\s+Hardware::CPU\.([^\s]+).*\n/ ){
-     if( $re->{'MAC'} and $cpu4 !~ /$CPU/ ){
-      if( Read_1( $re,$bottle,$brew,$cpu3 ) ){
+     if( $cpu4 !~ /$CPU/ and Read_1( $re,$bottle,$brew,$cpu3 ) ){
         $re->{'OS'}{"deps$cpu3"} = $re->{'TREE'} ? print $Files "${spa}-- $cpu3 (build)\n" : 1;
          Info_1( $re,$cpu3,$spa );
-      }
      } next;
    }elsif( my( $ls1,$ls2,$ls3 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
-     if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
-      if( Read_1( $re,$bottle,$brew,$ls1 ) ){
+     if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" and Read_1( $re,$bottle,$brew,$ls1 ) ){
         $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1 (build)\n" : 1;
          Info_1( $re,$ls1,$spa );
-      }
      } next;
    }elsif( my( $ls4,$ls5,$ls6 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
-     if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
-      if( Read_1( $re,$bottle,$brew,$ls4 ) ){
+     if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" and Read_1( $re,$bottle,$brew,$ls4 ) ){
         $re->{'OS'}{"deps$ls4"} = $re->{'TREE'} ? print $Files "${spa}-- $ls4 (build)\n" : 1;
          Info_1( $re,$ls4,$spa );
-      }
      } next;
    }elsif( my( $ls7,$ls8 ) =
     $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
@@ -446,8 +430,8 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
          Info_1( $re,$ls7,$spa );
       }
      } next;
-   }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-     if( Read_1( $re,$bottle,$brew,$data ) ){
+   }elsif( $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
+     if( $re->{'LIN'} and Read_1( $re,$bottle,$brew,$data ) ){
         $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
          Info_1( $re,$data,$spa );
      } next;
@@ -462,33 +446,33 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
      $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
          Info_1( $re,$data,$spa );
    }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
-    if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls2} ){
+     if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls2} ){
         $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1\n" : 1;
          Info_1( $re,$ls1,$spa );
-    }
+     }
    }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"(?!.+:test).*\n/$1/ ){
-    $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
+     $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
          Info_1( $re,$data,$spa );
    }elsif( $data =~ /^\s*depends_on.+\s*if\s*/ ){
-    if( my( $ls1,$ls2,$ls3 ) =
-     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
-      if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
-        $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1\n" : 1;
-         Info_1( $re,$ls1,$spa );
-      }
-    }elsif( my($ls4,$ls5,$ls6) =
-     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
-      if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
+     if( my( $ls1,$ls2,$ls3 ) =
+      $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
+       if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
+         $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1\n" : 1;
+          Info_1( $re,$ls1,$spa );
+       }
+     }elsif( my($ls4,$ls5,$ls6) =
+      $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
+       if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
         $re->{'OS'}{"deps$ls4"} = $re->{'TREE'} ? print $Files "${spa}-- $ls4\n" : 1;
          Info_1( $re,$ls4,$spa );
-      }
-    }elsif( my( $ls7,$ls8 ) =
-     $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
-      if( $re->{'MAC'} and $ls8 =~ /$CPU/ ){
+       }
+     }elsif( my( $ls7,$ls8 ) =
+      $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
+       if( $ls8 =~ /$CPU/ ){
         $re->{'OS'}{"deps$ls7"} = $re->{'TREE'} ? print $Files "${spa}-- $ls7\n" : 1;
          Info_1( $re,$ls7,$spa );
-      }
-    }
+       }
+     }
    }
   }
  close $BREW1;
