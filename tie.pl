@@ -18,7 +18,7 @@ if( $^O eq 'darwin' ){
     $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
 
  $Xcode = `which xcodebuild` ?
-  `xcodebuild -version|awk '/Xcode/{print \$NF}'|sed 's/\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
+  `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
 
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
@@ -116,7 +116,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
        $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
        if( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
          if( $re->{'MAC'} and $data =~ s/(\d+\.\d+)\.?\d*/$1/ ){
-          $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+          $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          } next;
        }elsif( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*:build).*\n/$1/ ){
@@ -146,7 +146,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
          } next;
       }elsif( my( $ls5,$ls6,$ls7 ) =
         $data =~ /^\s*depends_on\s+xcode:\s*"([^"]+)"\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-         if( eval"$OS_Version $ls6 $MAC_OS{$ls7}" and $ls5 > $Xcode ){
+         if( eval"$OS_Version $ls6 $MAC_OS{$ls7}" and $ls5 gt $Xcode ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          } next;
@@ -156,8 +156,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          } next;
       }elsif( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
-         $data =~ s/(\d+\.\d+)\.?\d*/$1/;
-          $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+          $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
             next;
       }elsif( $data =~ /^\s*depends_on\s+xcode:\s+:build/ ){
@@ -165,8 +164,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
             next;
       }elsif( $data =~ s/^\s*depends_on\s+xcode:\s*"([^"]+)".*\n/$1/ ){
-         $data =~ s/(\d+\.\d+)\.?\d*/$1/;
-          $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
+          $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
            next;
       }
     }
