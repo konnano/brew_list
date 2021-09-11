@@ -156,7 +156,6 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          } next;
       }elsif( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
-         $data =~ s/(\d+\.\d+)\.?\d*/$1/;
           $tap{"${name}un_xcode"} = 1 if $data > $Xcode;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
             next;
