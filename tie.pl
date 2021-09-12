@@ -9,7 +9,7 @@ my( $re,$OS_Version,$OS_Version2,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 if( $^O eq 'darwin' ){
  $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/(10.\d+)\.?\d*\n/$1/;
+  $OS_Version =~ s/^(10.\d+)\.?\d*\n/$1/;
    $OS_Version =~ s/^11.+\n/11.0/;
 
  $CPU = `sysctl machdep.cpu.brand_string`;
@@ -23,7 +23,7 @@ if( $^O eq 'darwin' ){
 
  %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
             'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
- $re->{'CLANG'} = `clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'`;
+ $re->{'CLANG'} = `clang --version|awk '/Apple/'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'`;
  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
                  awk '/version/{print \$2}'|sed 's/\\([0-9]*\\.[0-9]*\\).*/\\1/'`;
 
@@ -121,8 +121,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          } next;
        }elsif( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*:build).*\n/$1/ ){
-          $tap{"${data}uses"} .= "$name\t";
-           next;
+          $tap{"${data}uses"} .= "$name\t"; next;
        }elsif( $IN == 4 and $data =~ /^\s*else/ ){
           $IN = 7; next;
        }elsif( $IN == 5 and $data =~ /^\s*else/ ){
@@ -141,7 +140,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
             next;
       }elsif( my( $ls3,$ls4 ) = 
-         $data =~ /^\s*depends_on\s+xcode:.+:build.+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
+        $data =~ /^\s*depends_on\s+xcode:.+:build.+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
          if( eval"$OS_Version $ls3 $MAC_OS{$ls4}" ){
           $tap{"${name}un_xcode"} = 1 unless $Xcode;
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
