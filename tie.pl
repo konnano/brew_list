@@ -40,8 +40,8 @@ if( $^O eq 'darwin' ){
   }
 }else{
  $re->{'LIN'} = 1;
- $CPU = `cat /proc/cpuinfo|awk '/model name/{print}'`;
-  $CPU = $CPU =~ /Intel/ ? 'intel\?' : 'arm\?';
+ $CPU = `cat /proc/cpuinfo|awk '/model name/'`;
+  $CPU = $CPU =~ /Apple\s+M1/ ?'arm\?' : 'intel\?';
    $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
     $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
 
