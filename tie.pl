@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my $IN = 0;
+my $IN = 0; my $CIN = 0;
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
@@ -113,21 +113,21 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      }elsif( $data =~ /^\s*end/ and $IN == 3){ $IN = 0; next;
      }
 
-     if( $IN or $data =~ /^\s*if\s+Hardware::CPU/ ){
-       $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
-       if( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
-         if( $re->{'MAC'} and $data =~ s/^(\d\.)/0$1/ ){
-          $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
-           $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-         } next;
-       }elsif( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*:build).*\n/$1/ ){
+     if( $CIN or $data =~ /^\s*if\s+Hardware::CPU/ ){
+       $CIN = $data =~ /$CPU/ ? 1 : 2 unless $CIN;
+       if( ($CIN == 1 or $CIN == 3) and $re->{'MAC'} and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
+          $data =~ s/^(\d\.)/0$1/
+           $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
+            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
+          next;
+       }elsif( ($CIN == 1 or $CIN == 3) and $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*:build).*\n/$1/ ){
           $tap{"${data}uses"} .= "$name\t"; next;
-       }elsif( $IN == 4 and $data =~ /^\s*else/ ){
-          $IN = 7; next;
-       }elsif( $IN == 5 and $data =~ /^\s*else/ ){
-          $IN = 6; next;
+       }elsif( $CIN == 1 and $data =~ /^\s*else/ ){
+          $CIN = 4; next;
+       }elsif( $CIN == 2 and $data =~ /^\s*else/ ){
+          $CIN = 3; next;
        }elsif( $data =~ /^\s*end/ ){
-          $IN = 0; next;
+          $CIN = 0; next;
        }elsif( $data !~ /^\s*else/ ){
           next;
        }
