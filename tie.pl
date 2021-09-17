@@ -116,7 +116,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      if( $CIN or $data =~ /^\s*if\s+Hardware::CPU/ ){
        $CIN = $data =~ /$CPU/ ? 1 : 2 unless $CIN;
        if( ($CIN == 1 or $CIN == 3) and $re->{'MAC'} and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
-          $data =~ s/^(\d\.)/0$1/
+          $data =~ s/^(\d\.)/0$1/;
            $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
           next;
