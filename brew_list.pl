@@ -263,12 +263,12 @@ my( $re,$list,%HA,@AN ) = @_;
 }
 
 sub Uses_1{
-my( $re,$tap,$HA,$AN,$sai ) = @_;
+my( $re,$tap,$HA,$AN ) = @_;
  my @tap = $tap =~ /\t/ ? split "\t",$tap : $tap;
   for my $ls(@tap){
    $HA->{$ls}++;
     push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
-     Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN,$sai ) if $re->{'OS'}{"${ls}uses"};
+     Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"};
   }
 }
 
