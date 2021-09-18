@@ -670,7 +670,7 @@ my( $list,$file,$in,$re ) = @_;
           Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
 
         for my $gz( @{$re->{'TAR'}} ){
-          if( $gz=~s/$brew_1--(\d.+)\.tar.*/$1/ ){
+         if( $gz =~ s/$brew_1--([\d._]+)\.[^\d_]+.*/$1/ or $gz =~ s/$brew_1--([\d._]+)$/$1/ ){
            $re->{'GZ'} = 1 if $re->{'HASH'}{$brew_1} lt $gz;
             last;
           }
