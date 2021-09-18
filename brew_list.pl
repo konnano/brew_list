@@ -6,18 +6,16 @@ use Fcntl ':DEFAULT';
 my( $OS_Version,$OS_Version2,$CPU,$Files,%MAC_OS );
 
 sub Main_1{
- my $re  = {
-  'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'UNI'=>[],
-   'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
-    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt"};
+ my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'UNI'=>[],
+             'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
+             'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt" };
 
- my $ref = {
-  'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
-   'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
-    'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
-  'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-    'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
-      'VER'=>"$ENV{'HOME'}/.BREW_LIST/Q_VERS.txt"};
+ my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
+             'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
+             'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
+             'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
+             'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
+             'VER'=>"$ENV{'HOME'}/.BREW_LIST/Q_VERS.txt" };
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
@@ -252,23 +250,25 @@ my( $url,$ls,$re,$bn ) = @_;
 }
 
 sub Brew_1{
-my( $re,$list,%HA,@AN ) = @_; exit unless $list;
- for(my $i=0;$i<@$list;$i++){  my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
-   Mine_1( $tap,$re,0 ) if ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'};
-    Uses_1( $re,$tap,\%HA,\@AN ) if $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'};
-     push @AN,$tap if $re->{'USES'};
- }
- @AN = sort{$a cmp $b}@AN;
-  Mine_1( $_,$re,0 ) for(@AN);
+my( $re,$list,%HA,@AN ) = @_;
+ exit unless $list;
+  for(my $i=0;$i<@$list;$i++){
+   my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
+    Mine_1( $tap,$re,0 ) if ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'};
+     Uses_1( $re,$tap,\%HA,\@AN ) if $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'};
+      push @AN,$tap if $re->{'USES'};
+  }
+  @AN = sort{$a cmp $b}@AN;
+   Mine_1( $_,$re,0 ) for(@AN);
 }
 
 sub Uses_1{
-my( $re,$tap,$HA,$AN ) = @_;
+my( $re,$tap,$HA,$AN,$sai ) = @_;
  my @tap = $tap =~ /\t/ ? split "\t",$tap : $tap;
   for my $ls(@tap){
    $HA->{$ls}++;
     push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
-     Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"};
+     Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN,$sai ) if $re->{'OS'}{"${ls}uses"};
   }
 }
 
@@ -390,13 +390,13 @@ sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
 my $name = $brew;
  $name = ( -t STDOUT ) ? "$name \033[33m(require)\033[37m" : "$name (require)"
-   unless $re->{'HASH'}{$brew} or $re->{'COLOR'};
+   unless ( $re->{'HASH'}{$brew} or $re->{'COLOR'} ) and $re->{'OS'}{"${brew}ver"} le $re->{'HASH'}{$brew};
  $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[37m" : "$name (can delete)"
    if $re->{"${brew}delet"} and $re->{'COLOR'};
 
  $re->{'OS'}{"deps$brew"} += ( $re->{'TREE'} and $build ) ?
   print $Files "${spa}-- $name [build]\n" : $re->{'TREE'} ?
-  print $Files "${spa}-- $name \n" : 1;
+  print $Files "${spa}-- $name\n" : 1;
  push @$AN,$brew if $re->{'DEL'} and $re->{'OS'}{"deps$brew"} < 2;
 }
 
