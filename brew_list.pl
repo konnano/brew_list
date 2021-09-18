@@ -690,7 +690,7 @@ my( $list,$file,$in,$re ) = @_;
      }
      $in++;
     }
-    $re->{'MEM'} .= "$brew_2\t$brew_3";				#print"$re->{MEM}\n";
+    $re->{'MEM'} .= "$brew_2\t$brew_3";
      Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
       $re->{'AN'}++;
    }
