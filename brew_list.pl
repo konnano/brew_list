@@ -390,9 +390,10 @@ sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
 my $name = $brew;
  $name = ( -t STDOUT ) ? "$name \033[33m(require)\033[37m" : "$name (require)"
-   unless ( $re->{'HASH'}{$brew} or $re->{'COLOR'} ) and $re->{'OS'}{"${brew}ver"} le $re->{'HASH'}{$brew};
+   if not $re->{'COLOR'} and ( not $re->{'HASH'}{$brew} or
+          $re->{'OS'}{"${brew}ver"} and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} );
  $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[37m" : "$name (can delete)"
-   if $re->{"${brew}delet"} and $re->{'COLOR'};
+   if $re->{'COLOR'} and $re->{"${brew}delet"};
 
  $re->{'OS'}{"deps$brew"} += ( $re->{'TREE'} and $build ) ?
   print $Files "${spa}-- $name [build]\n" : $re->{'TREE'} ?
