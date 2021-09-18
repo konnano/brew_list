@@ -7,7 +7,7 @@ my( $OS_Version,$OS_Version2,$CPU,$Files,%MAC_OS );
 
 sub Main_1{
  my $re  = {
-  'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
+  'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'UNI'=>[],
    'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
     'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt"};
 
@@ -39,7 +39,9 @@ sub Main_1{
  }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'} = 4; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'} = 5; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-in' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'}  = 6; $re->{'INF'} = 1;
- }elsif( $AR[0] eq '-t' ){  $name = $re;  $re->{'LIST'} = $re->{'INF'} = $re->{'TREE'} = 1;
+ }elsif( $AR[0] eq '-de' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1; $re->{'LINK'} = 7;
+ }elsif( $AR[0] eq '-t' ){  $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
+ }elsif( $AR[0] eq '-d' ){  $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
  }elsif( $AR[0] eq '-u' ){  $name = $re;  $re->{'USE'} = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'}= 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
@@ -94,10 +96,6 @@ sub Main_1{
   if( $re->{'INF'} ){
    $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
    $re->{'CLANG'}=`clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\..*/\\1/'` if $re->{'MAC'};
-    if( $re->{'TREE'} ){
-     unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
-      open $Files,'>',"$ENV{'HOME'}/.BREW_LIST/tree.txt" or die " tree $!\n";
-    }
   }else{
    $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
@@ -111,7 +109,11 @@ sub Main_1{
  }elsif( $re->{'USES'} ){
   $AR[1] ? $re->{'USE'} = $re->{'USES'} = lc $AR[1] : Died_1();
  }
+ Fork_1( $name,$re,$ref );
+} Main_1;
 
+sub Fork_1{
+my( $name,$re,$ref ) = @_;
  if( $re->{'LIN'} ){
   Init_1( $re ); Format_1( $re );
  }elsif( $re->{'S_OPT'} or $re->{'BL'} or $re->{'DAT'} ){
@@ -130,33 +132,39 @@ sub Main_1{
    }
  }else{ Init_1( $name ); Format_1( $name );
  }
-} Main_1;
+}
 
 sub Died_1{
- die "   Option : -new creat new cache
+ die "    Option : -new creat new cache
   -l formula list : -i instaled formula : - brew list command
   -lb bottled install formula : -lx can't install formula
   -s type search name : -o outdated : -co library display
   -in formula require formula : -t formula require formula, display tree
   -u formula depend on formula : -ua formula depend on formula, all
-   Only mac : Cask
+  -de uninstalled not require formula : -d uninstalled not require formula, display tree
+    Only mac : Cask
   -c cask list : -ci instaled cask
   -cx can't install cask : -cs some name cask and formula\n";
 }
 
 sub Init_1{
  my( $re,$list,$ls ) = @_;
+
  if( $re->{'NEW'} ){
    print " \033[31mNot connected\033[37m\n" and exit
     if system('curl https://formulae.brew.sh/formula >/dev/null 2>&1');
    print" wait\n";
   Wait_1(); 
+ }elsif( $re->{'TREE'} ){
+  unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
+   open $Files,'>',"$ENV{'HOME'}/.BREW_LIST/tree.txt" or die " tree $!\n";
  }
 
  DB_1( $re );
-  DB_2( $re ) if $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} or $re->{'USE'};
-   Info_1( $re ) if $re->{'INF'};
-    return if $re->{'TREE'};
+  DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
+   Dele_1( $re ) if $re->{'DEL'};
+    Info_1( $re ) if $re->{'INF'};
+     return if $re->{'TREE'};
 
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? '' :
@@ -259,9 +267,52 @@ my( $re,$tap,$HA,$AN ) = @_;
  my @tap = $tap =~ /\t/ ? split "\t",$tap : $tap;
   for my $ls(@tap){
    $HA->{$ls}++;
-    push @{$AN},$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
+    push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
      Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"};
   }
+}
+
+sub Dele_1{
+my( $re,@AN,%HA,@an,$in,$do ) = @_;
+ exit unless $re->{'HASH'}{$re->{'INF'}};
+  Uses_1( $re,$re->{'INF'},\%HA,\@AN );
+   @AN = sort{$a cmp $b}@AN;
+    for my $uses( @AN ){
+     next if $uses eq $re->{'INF'};
+      push @an,$uses and $in++;
+    }
+   if( $in ){
+     print"required formula  ==>  $_\n" for( @an );
+      exit;
+   }
+  %HA= (); @AN =();
+  Info_1( $re,0,0,\@AN,\%HA );
+   my @list1 = sort{$a cmp $b}@AN;
+   for my $brew( @list1 ){
+    my @list2 = sort{$a cmp $b}@{$re->{$brew}};
+    my $i = 0; my $e = 0;
+     for( ;$i<@list2;$i++ ){
+      my $flag = 0;
+      next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
+       for( ;$e<@list1;$e++ ){
+        last if $list1[$e] eq $list2[$i];
+        $flag = 1 if $list1[$e] gt $list2[$i];
+       }
+      last if $flag;
+     }
+    $re->{"${brew}delet"}++ unless $list2[$i];
+    $do++ if $re->{"${brew}delet"};
+   }
+  if( $re->{'LINK'} and $do ){
+   $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
+    $re->{'LIST'} = 1;
+     Fork_1( $re );
+  }elsif( $do ){
+   $re->{'COLOR'} = $re->{'TREE'} = 1;
+    $re->{'DEL'} = 0;
+     Fork_1( $re );
+  } 
+ exit;
 }
 
 sub File_1{
@@ -335,8 +386,22 @@ my( $dir,$ls,$file ) = @_;
 $file;
 }
 
+sub Unic_1{
+my( $re,$brew,$spa,$AN,$build ) = @_;
+my $name = $brew;
+ $name = ( -t STDOUT ) ? "$name \033[33m(require)\033[37m" : "$name (require)"
+   unless $re->{'HASH'}{$brew} or $re->{'COLOR'};
+ $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[37m" : "$name (can delete)"
+   if $re->{"${brew}delet"} and $re->{'COLOR'};
+
+ $re->{'OS'}{"deps$brew"} += ( $re->{'TREE'} and $build ) ?
+  print $Files "${spa}-- $name [build]\n" : $re->{'TREE'} ?
+  print $Files "${spa}-- $name \n" : 1;
+ push @$AN,$brew if $re->{'DEL'} and $re->{'OS'}{"deps$brew"} < 2;
+}
+
 sub Read_1{
- my( $re,$bottle,$brew,$ls ) = @_;
+my( $re,$bottle,$brew,$ls ) = @_;
   $re->{'OS'}{"${brew}ver"} = $re->{'HASH'}{$brew} unless $re->{'OS'}{"${brew}ver"};
  ( not $bottle and not $re->{'HASH'}{$brew} or
    not $bottle and ( $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) ) and
@@ -345,7 +410,7 @@ sub Read_1{
 }
 
 sub Info_1{
-my( $re,$file,$spa ) = @_; my $IN = 0;
+my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
  print "\033[33mCan't install $re->{'INF'}...\033[37m\n" 
   if not $file and ( $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
                      $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} );
@@ -355,6 +420,13 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
    my( $brew ) = $name =~ m|.+/(.+)\.rb$|;
     my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
      $spa .= $spa ? '   |' : '|';
+
+  if( $re->{'DEL'} ){
+   $HA->{$brew}++;
+    my( %ha,@an );
+     Uses_1( $re,$brew,\%ha,\@an ) if $HA->{$brew} < 2;
+      push @{$re->{$brew}},@an if $HA->{$brew} < 2;
+  }
 
  open my $BREW1,'<',$name or die " Info_1 $!\n";
   while(my $data=<$BREW1>){
@@ -379,12 +451,12 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
     $IN = $data =~ /$CPU/ ? 4 : 5 unless $IN;
      if( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
        if( Read_1( $re,$bottle,$brew,$data ) ){
-         $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
-          Info_1( $re,$data,$spa );
+        Unic_1( $re,$data,$spa,$AN,1 );
+         Info_1( $re,$data,$spa,$AN,$HA );1
        } next;
      }elsif( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
-         $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
-          Info_1( $re,$data,$spa ); next;
+        Unic_1( $re,$data,$spa,$AN,1 );
+         Info_1( $re,$data,$spa,$AN,$HA ); next;
      }elsif( $IN == 4 and $data =~ /^\s*else/ ){
          $IN = 7; next;
      }elsif( $IN == 5 and $data =~ /^\s*else/ ){
@@ -401,76 +473,81 @@ my( $re,$file,$spa ) = @_; my $IN = 0;
    }elsif (my( $cpu1,$cpu2 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
      if( $cpu2 =~ /$CPU/ and Read_1( $re,$bottle,$brew,$cpu1 ) ){
-        $re->{'OS'}{"deps$cpu1"} = $re->{'TREE'} ? print $Files "${spa}-- $cpu1 (build)\n" : 1;
-         Info_1( $re,$cpu1,$spa );
+        Unic_1( $re,$cpu1,$spa,$AN,1 );
+         Info_1( $re,$cpu1,$spa,$AN,$HA );
      } next;
+
    }elsif( my( $cpu3,$cpu4 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build.+unless\s+Hardware::CPU\.([^\s]+).*\n/ ){
      if( $cpu4 !~ /$CPU/ and Read_1( $re,$bottle,$brew,$cpu3 ) ){
-        $re->{'OS'}{"deps$cpu3"} = $re->{'TREE'} ? print $Files "${spa}-- $cpu3 (build)\n" : 1;
-         Info_1( $re,$cpu3,$spa );
+        Unic_1( $re,$cpu3,$spa,$AN,1 );
+         Info_1( $re,$cpu3,$spa,$AN,$HA );
      } next;
+
    }elsif( my( $ls1,$ls2,$ls3 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
      if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" and Read_1( $re,$bottle,$brew,$ls1 ) ){
-        $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1 (build)\n" : 1;
-         Info_1( $re,$ls1,$spa );
+        Unic_1( $re,$ls1,$spa,$AN,1 );
+         Info_1( $re,$ls1,$spa,$AN,$HA );
      } next;
+
    }elsif( my( $ls4,$ls5,$ls6 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
      if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" and Read_1( $re,$bottle,$brew,$ls4 ) ){
-        $re->{'OS'}{"deps$ls4"} = $re->{'TREE'} ? print $Files "${spa}-- $ls4 (build)\n" : 1;
-         Info_1( $re,$ls4,$spa );
+        Unic_1( $re,$ls4,$spa,$AN,1 );
+         Info_1( $re,$ls4,$spa,$AN,$HA );
      } next;
+
    }elsif( my( $ls7,$ls8 ) =
     $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
      if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls8} ){
       if( Read_1( $re,$bottle,$brew,$ls7 ) ){
-        $re->{'OS'}{"deps$ls7"} = $re->{'TREE'} ? print $Files "${spa}-- $ls7 (build)\n" : 1;
-         Info_1( $re,$ls7,$spa );
+        Unic_1( $re,$ls7,$spa,$AN,1 );
+         Info_1( $re,$ls7,$spa,$AN,$HA );
       }
      } next;
+
    }elsif( $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
      if( $re->{'LIN'} and Read_1( $re,$bottle,$brew,$data ) ){
-        $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
-         Info_1( $re,$data,$spa );
+        Unic_1( $re,$data,$spa,$AN,1 );
+         Info_1( $re,$data,$spa,$AN,$HA );
      } next;
    }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
      if( Read_1( $re,$bottle,$brew,$data ) ){
-        $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data (build)\n" : 1;
-         Info_1( $re,$data,$spa );
+        Unic_1( $re,$data,$spa,$AN,1 );
+         Info_1( $re,$data,$spa,$AN,$HA );
      } next;
    }
 
    if( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
-     $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
-         Info_1( $re,$data,$spa );
+        Unic_1( $re,$data,$spa,$AN );
+         Info_1( $re,$data,$spa,$AN,$HA );
    }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
-     if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls2} ){
-        $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1\n" : 1;
-         Info_1( $re,$ls1,$spa );
-     }
+    if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls2} ){
+        Unic_1( $re,$ls1,$spa,$AN );
+         Info_1( $re,$ls1,$spa,$AN,$HA );
+    }
    }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"(?!.+:test).*\n/$1/ ){
-     $re->{'OS'}{"deps$data"} = $re->{'TREE'} ? print $Files "${spa}-- $data\n" : 1;
-         Info_1( $re,$data,$spa );
+        Unic_1( $re,$data,$spa,$AN );
+         Info_1( $re,$data,$spa,$AN,$HA );
    }elsif( $data =~ /^\s*depends_on.+\s*if\s*/ ){
      if( my( $ls1,$ls2,$ls3 ) =
       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
        if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
-         $re->{'OS'}{"deps$ls1"} = $re->{'TREE'} ? print $Files "${spa}-- $ls1\n" : 1;
-          Info_1( $re,$ls1,$spa );
+        Unic_1( $re,$ls1,$spa,$AN );
+         Info_1( $re,$ls1,$spa,$AN,$HA );
        }
      }elsif( my($ls4,$ls5,$ls6) =
       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
        if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
-        $re->{'OS'}{"deps$ls4"} = $re->{'TREE'} ? print $Files "${spa}-- $ls4\n" : 1;
-         Info_1( $re,$ls4,$spa );
+        Unic_1( $re,$ls4,$spa,$AN );
+         Info_1( $re,$ls4,$spa,$AN,$HA );
        }
      }elsif( my( $ls7,$ls8 ) =
       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+).*\n/ ){
        if( $ls8 =~ /$CPU/ ){
-        $re->{'OS'}{"deps$ls7"} = $re->{'TREE'} ? print $Files "${spa}-- $ls7\n" : 1;
-         Info_1( $re,$ls7,$spa );
+        Unic_1( $re,$ls7,$spa,$AN );
+         Info_1( $re,$ls7,$spa,$AN,$HA );
        }
      }
    }
@@ -528,7 +605,8 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'LINK'} == 3 and $re->{'OS'}{"$brew_1$OS_Version"} or
       $re->{'LINK'} == 4 and $re->{'OS'}{"${brew_1}un_cask"} or
       $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
-      $re->{'LINK'} == 6 and $re->{'OS'}{"deps$brew_1"} ){
+      $re->{'LINK'} == 6 and $re->{'OS'}{"deps$brew_1"} or
+      $re->{'LINK'} == 7 and $re->{"${brew_1}delet"} ){
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
@@ -612,7 +690,7 @@ my( $list,$file,$in,$re ) = @_;
      }
      $in++;
     }
-    $re->{'MEM'} .= "$brew_2\t$brew_3";
+    $re->{'MEM'} .= "$brew_2\t$brew_3";				#print"$re->{MEM}\n";
      Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
       $re->{'AN'}++;
    }
@@ -644,7 +722,8 @@ my( $list,$re,$in,$com ) = @_;
      $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"$tap$OS_Version"} or
      $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
      $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} or
-     $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{'OS'}{"deps$tap"} ){
+     $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{'OS'}{"deps$tap"} or
+     $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} ){
       $brew = 0;
  }
 
@@ -861,10 +940,10 @@ my $re = shift;
 }
 
 sub Nohup_1{
- my $re = shift;
-  my $time =[localtime((stat($re->{'TXT'}))[9])] if -f $re->{'TXT'};
-  my( $year,$mon,$day ) = (
-   ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
+my $re = shift;
+ my $time =[localtime((stat($re->{'TXT'}))[9])] if -f $re->{'TXT'};
+ my( $year,$mon,$day ) = (
+  ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
   if( not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
       $mon > $time->[4]+1 or $day > $time->[3] ){
    system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
