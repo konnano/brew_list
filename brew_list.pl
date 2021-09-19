@@ -273,15 +273,15 @@ my( $re,$tap,$HA,$AN ) = @_;
 }
 
 sub Dele_1{
-my( $re,@AN,%HA,@an,$in,$do ) = @_;
+my( $re,@AN,%HA,@an,$do ) = @_;
  exit unless $re->{'HASH'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN );
    @AN = sort{$a cmp $b}@AN;
     for my $uses( @AN ){
      next if $uses eq $re->{'INF'};
-      push @an,$uses and $in++;
+      push @an,$uses;
     }
-   if( $in ){
+   if( @an ){
      print"required formula  ==>  $_\n" for( @an );
       exit;
    }
@@ -296,7 +296,7 @@ my( $re,@AN,%HA,@an,$in,$do ) = @_;
       next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
        for( ;$e<@list1;$e++ ){
         last if $list1[$e] eq $list2[$i];
-        $flag = 1 if $list1[$e] gt $list2[$i];
+        $flag++ and last if $list1[$e] gt $list2[$i];
        }
       last if $flag;
      }
@@ -405,7 +405,7 @@ sub Read_1{
 my( $re,$bottle,$brew,$ls ) = @_;
   $re->{'OS'}{"${brew}ver"} = $re->{'HASH'}{$brew} unless $re->{'OS'}{"${brew}ver"};
  ( not $bottle and not $re->{'HASH'}{$brew} or
-   not $bottle and ( $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) ) and
+   not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
  ( not $re->{'HASH'}{$ls} or $re->{'OS'}{"${ls}ver"} and $re->{'OS'}{"${ls}ver"} gt $re->{'HASH'}{$ls} ) ?
   return 1 : return 0;
 }
