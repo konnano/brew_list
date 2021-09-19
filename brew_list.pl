@@ -55,7 +55,7 @@ sub Main_1{
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
     $OS_Version = 'Linux';
    $CPU = `cat /proc/cpuinfo|awk '/model name/{print}'`;
-    $CPU = $CPU =~ /Intel/ ? 'intel\?' : 'arm\?';
+    $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
  }else{
   $OS_Version = `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.\d+)\.?\d*\n/$1/;
