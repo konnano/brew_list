@@ -931,7 +931,7 @@ my $re = shift;
         $plus .= $an[$e];
     }
    $plus =~ s/^   //;
-    @DATA[$p] = $plus;
+    $DATA[$p] = $plus;
      $plus = '';
   }
  }
