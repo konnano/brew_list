@@ -66,7 +66,7 @@ sub Main_1{
    $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
  }
 
- if( $re->{'MAC'} and $CPU eq 'arm\?' ){
+ if( $CPU and $CPU eq 'arm\?' ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
@@ -89,7 +89,7 @@ sub Main_1{
 
  if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
   $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = 0;
-   die " exist \033[31mLOCK\033[37m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+   die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
@@ -149,9 +149,9 @@ sub Init_1{
  my( $re,$list,$ls ) = @_;
 
  if( $re->{'NEW'} ){
-   print " \033[31mNot connected\033[37m\n" and exit
+   print " \033[31mNot connected\033[00m\n" and exit
     if system('curl https://formulae.brew.sh/formula >/dev/null 2>&1');
-   print" wait\n";
+   print STDERR " wait\n";
   Wait_1(); 
  }elsif( $re->{'TREE'} ){
   unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
@@ -181,7 +181,7 @@ sub Wait_1{
    die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){ $|=1;
     while(1){
-     -d "$ENV{HOME}/.BREW_LIST/WAIT" ? ( print '.' and sleep 1 ) : last;
+     -d "$ENV{HOME}/.BREW_LIST/WAIT" ? ( print STDERR '.' and sleep 1 ) : last;
     }
    waitpid($pid,0);
    -f "$ENV{'HOME'}/.BREW_LIST/DB" ? die "\n Creat new cache\n" : die"\n Can not Created\n";
@@ -389,10 +389,10 @@ $file;
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
 my $name = $brew;
- $name = ( -t STDOUT ) ? "$name \033[33m(require)\033[37m" : "$name (require)"
+ $name = ( -t STDOUT ) ? "$name \033[33m(require)\033[00m" : "$name (require)"
    if not $re->{'COLOR'} and ( not $re->{'HASH'}{$brew} or
           $re->{'OS'}{"${brew}ver"} and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} );
- $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[37m" : "$name (can delete)"
+ $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
    if $re->{'COLOR'} and $re->{"${brew}delet"};
 
  $re->{'OS'}{"deps$brew"} += ( $re->{'TREE'} and $build ) ?
@@ -412,7 +412,7 @@ my( $re,$bottle,$brew,$ls ) = @_;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
- print "\033[33mCan't install $re->{'INF'}...\033[37m\n" 
+ print "\033[33mCan't install $re->{'INF'}...\033[00m\n" 
   if not $file and ( $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
                      $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} );
 
@@ -883,7 +883,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
     $re->{'CAS'} = 0;
    }
   }
-print "\033[33m$re->{'FILE'}\033[37m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
+print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
