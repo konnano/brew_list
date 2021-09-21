@@ -66,7 +66,7 @@ sub Main_1{
    $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
  }
 
- if( $CPU and $CPU eq 'arm\?' ){
+ if( $re->{'MAC'} and $CPU eq 'arm\?' ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
