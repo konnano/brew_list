@@ -27,15 +27,15 @@ exit' 1 2 3 15 20
 
 if [[ $NAME = Darwin ]];then
 
-curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
+curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
-curl -so ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html || \
+curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
-curl -sLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip || \
+curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
-curl -sLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip || \
+curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
-curl -sLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip || \
+curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
 
 /usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
