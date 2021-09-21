@@ -9,8 +9,9 @@ my( $re,$OS_Version,$OS_Version2,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 if( $^O eq 'darwin' ){
  $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/^(10.\d+)\.?\d*\n/$1/;
-   $OS_Version =~ s/^11.+\n/11.0/;
+  $OS_Version =~ s/^(10.1\d)\.?\d*\n/$1/;
+   $OS_Version =~ s/^(10\.)([7-9])\.?\d*\n/${1}0$2/;
+    $OS_Version =~ s/^11.+\n/11.0/;
 
  $CPU = `sysctl machdep.cpu.brand_string`;
   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
@@ -86,7 +87,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
         if( $data =~ /.*,\s+all:/ ){
          $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
          $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-         $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}Linux"} = 1;
+         $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}Linux"} =
+         $tap{"${name}10.09"} = $tap{"${name}10.08"} = $tap{"${name}10.07"} = 1;
         }
        next;
      }elsif( $data =~ /^\s*end/ and $IN == 1 ){
