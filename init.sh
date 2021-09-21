@@ -38,7 +38,7 @@ if [[ ! $1 ]];then
  fi
 
  curl https://formulae.brew.sh/formula >/dev/null 2>&1 || \
-  { echo -e "\033[31m Not connected\033[37m"; exit; }
+  { echo -e "\033[31m Not connected\033[00m"; exit; }
 
  DIR=$(cd $(dirname $0); pwd)
 
