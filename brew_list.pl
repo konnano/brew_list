@@ -58,8 +58,10 @@ sub Main_1{
     $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
  }else{
   $OS_Version = `sw_vers -productVersion`;
-   $OS_Version =~ s/^(10\.\d+)\.?\d*\n/$1/;
-    $OS_Version =~ s/^11.+/11.0/;
+   $OS_Version =~ s/^(10\.1\d)\.?\d*\n/$1/;
+    $OS_Version =~ s/^(10\.)([7-9])\.?\d*\n/${1}0$2/;
+     $OS_Version =~ s/^11.+\n/11.0/;
+
   $CPU = `sysctl machdep.cpu.brand_string`;
    $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
   $OS_Version2 = $OS_Version;
@@ -93,7 +95,7 @@ sub Main_1{
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
-   $re->{'CLANG'}=`clang --version|awk '/Apple/{print \$NF}'|sed 's/.*-\\([^.]*\\)\..*/\\1/'` if $re->{'MAC'};
+   $re->{'CLANG'} = `clang --version|awk '/Apple/'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'` if $re->{'MAC'};
   }else{
    $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
@@ -149,9 +151,8 @@ sub Init_1{
  my( $re,$list,$ls ) = @_;
 
  if( $re->{'NEW'} ){
-   print " \033[31mNot connected\033[00m\n" and exit
-    if system('curl https://formulae.brew.sh/formula >/dev/null 2>&1');
-   print STDERR " wait\n";
+  die " \033[31mNot connected\033[00m\n"
+   if system('curl -k https://formulae.brew.sh/formula >/dev/null 2>&1');
   Wait_1(); 
  }elsif( $re->{'TREE'} ){
   unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
@@ -177,6 +178,7 @@ sub Init_1{
 
 sub Wait_1{
  mkdir "$ENV{HOME}/.BREW_LIST/WAIT" unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
+ print STDERR " wait\n";
   my $pid = fork;
    die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){ $|=1;
