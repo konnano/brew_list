@@ -46,6 +46,7 @@ if( $^O eq 'darwin' ){
   $CPU = $CPU =~ /Apple\s+M1/ ?'arm\?' : 'intel\?';
    $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
     $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
+
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
 }
@@ -63,7 +64,7 @@ sub Dirs_1{
     }
   }
 }
-								
+
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
  for my $dir1(@BREW){ chomp $dir1;
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
