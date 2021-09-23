@@ -39,13 +39,13 @@ if( $^O eq 'darwin' ){
      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/opt/homebrew/Library/Taps',1,0 );
   }
+ rmdir "$ENV{'HOME'}/.BREW_LIST/7";
 }else{
  $re->{'LIN'} = 1;
  $CPU = `cat /proc/cpuinfo|awk '/model name/'`;
   $CPU = $CPU =~ /Apple\s+M1/ ?'arm\?' : 'intel\?';
    $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
     $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
-
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
 }
@@ -63,7 +63,7 @@ sub Dirs_1{
     }
   }
 }
-
+								
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
  for my $dir1(@BREW){ chomp $dir1;
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
@@ -251,6 +251,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   }
 
  if( $re->{'MAC'} ){
+ rmdir "$ENV{'HOME'}/.BREW_LIST/8";
   my $IF1 = 1; my $IF2 = 0 ; my $VER = 0;
   for my $dir2(@CASK){ chomp $dir2;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
