@@ -61,7 +61,6 @@ sub Main_1{
    $OS_Version =~ s/^(10\.1\d)\.?\d*\n/$1/;
     $OS_Version =~ s/^(10\.)([7-9])\.?\d*\n/${1}0$2/;
      $OS_Version =~ s/^11.+\n/11.0/;
-
   $CPU = `sysctl machdep.cpu.brand_string`;
    $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
   $OS_Version2 = $OS_Version;
@@ -492,37 +491,30 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
         Unic_1( $re,$cpu1,$spa,$AN,1 );
          Info_1( $re,$cpu1,$spa,$AN,$HA );
      } next;
-
    }elsif( my( $cpu3,$cpu4 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build.+unless\s+Hardware::CPU\.([^\s]+).*\n/ ){
      if( $cpu4 !~ /$CPU/ and Read_1( $re,$bottle,$brew,$cpu3 ) ){
         Unic_1( $re,$cpu3,$spa,$AN,1 );
          Info_1( $re,$cpu3,$spa,$AN,$HA );
      } next;
-
    }elsif( my( $ls1,$ls2,$ls3 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
      if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" and Read_1( $re,$bottle,$brew,$ls1 ) ){
         Unic_1( $re,$ls1,$spa,$AN,1 );
          Info_1( $re,$ls1,$spa,$AN,$HA );
      } next;
-
    }elsif( my( $ls4,$ls5,$ls6 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
      if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" and Read_1( $re,$bottle,$brew,$ls4 ) ){
         Unic_1( $re,$ls4,$spa,$AN,1 );
          Info_1( $re,$ls4,$spa,$AN,$HA );
      } next;
-
    }elsif( my( $ls7,$ls8 ) =
     $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+).*\n/ ){
-     if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls8} ){
-      if( Read_1( $re,$bottle,$brew,$ls7 ) ){
+     if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version2 < $MAC_OS{$ls8} and Read_1( $re,$bottle,$brew,$ls7 ) ){
         Unic_1( $re,$ls7,$spa,$AN,1 );
          Info_1( $re,$ls7,$spa,$AN,$HA );
-      }
      } next;
-
    }elsif( $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
      if( $re->{'LIN'} and Read_1( $re,$bottle,$brew,$data ) ){
         Unic_1( $re,$data,$spa,$AN,1 );
