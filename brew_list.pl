@@ -85,7 +85,7 @@ sub Main_1{
 
  if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
   die" nothing in regex\n" 
-   if system("perl -e '$AR[1]=~/$reg/' 2>/dev/null") or
+   if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null" or
     $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
  }
 
@@ -152,7 +152,7 @@ sub Init_1{
 
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
-   if system('curl -k https://formulae.brew.sh/formula >/dev/null 2>&1');
+   if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
   Wait_1(); 
  }elsif( $re->{'TREE'} ){
   unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
@@ -177,19 +177,32 @@ sub Init_1{
 }
 
 sub Wait_1{
- mkdir "$ENV{HOME}/.BREW_LIST/WAIT" unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
- print STDERR " wait\n";
-  my $pid = fork;
-   die " Wait Not fork : $!\n" unless defined $pid;
-  if($pid){ $|=1;
-    while(1){
-     -d "$ENV{HOME}/.BREW_LIST/WAIT" ? ( print STDERR '.' and sleep 1 ) : last;
-    }
-   waitpid($pid,0);
-   -f "$ENV{'HOME'}/.BREW_LIST/DB" ? die "\n Creat new cache\n" : die"\n Can not Created\n";
-  }else{
-   system('~/.BREW_LIST/font.sh'); exit;
-  }
+ my $pid = fork;
+  die " Wait Not fork : $!\n" unless defined $pid;
+   if($pid){ $|=1;
+    print STDERR "\x1B[?25l";
+    if( $^O eq 'linux' ){
+     print STDERR " wait\n";
+     mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
+      while(1){
+       -d "$ENV{HOME}/.BREW_LIST/WAIT" ? ( print STDERR '#' and sleep 1 ) : last;
+      }
+    }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
+     while(1){
+     printf STDERR "\r[%2d/10] '%s%s'",$i,$ma,$spa;
+      last if $i == 10;
+       if( -d "$ENV{'HOME'}/.BREW_LIST/$i" ){
+        while(1){
+         last unless -d "$ENV{'HOME'}/.BREW_LIST/$i"; # while(1);
+        } $i++; $ma .= '#'; $spa =~ s/\s//;
+       }
+     }
+    } waitpid($pid,0);
+       print STDERR "\x1B[?25h";
+     -f "$ENV{'HOME'}/.BREW_LIST/DB" ? die "\n Creat new cache\n" : die"\n Can not Created\n";
+   }else{
+     system '~/.BREW_LIST/font.sh'; exit;
+   }
 }
 
 sub DB_1{
@@ -837,12 +850,12 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
   if( $re->{'TREE'} and close $Files ){
     Format_2( $re );
   }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
-   system(" printf '\033[?7l' ") if( $re->{'MAC'} and -t STDOUT );
-    system('setterm -linewrap off') if( $re->{'LIN'} and -t STDOUT );
+   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
+    system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
      $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
-   system(" printf '\033[?7h' ") if( $re->{'MAC'} and -t STDOUT );
-    system('setterm -linewrap on') if( $re->{'LIN'} and -t STDOUT );
+   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
+    system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
   }elsif( $re->{'DAT'} ){
    print for( @{$re->{'OUT'}} );
     $re->{'CAS'} = 0;
@@ -949,7 +962,7 @@ my $re = shift;
   ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
   if( not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
       $mon > $time->[4]+1 or $day > $time->[3] ){
-   system('nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &');
+   system 'nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &';
   }
 }
 __END__
