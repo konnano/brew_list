@@ -50,6 +50,7 @@ curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-ve
 /usr/bin/unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
   rmdir ~/.BREW_LIST/5
+
 perl<<"EOF"
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ 
@@ -106,6 +107,7 @@ perl<<"EOF"
     print $FILE5 @file4;
    close $FILE5;
 EOF
+
 else
  curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula-linux/index.html ||\
   { rm -rf ~/.BREW_LIST/LOCK; exit; }
