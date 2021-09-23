@@ -22,21 +22,26 @@ trap '
 rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
 rm -rf ~/.BREW_LIST/homebrew-cask-*
 rm -f ~/.BREW_LIST/Q_*.txt ~/.BREW_LIST/DB
-rm -rf ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
+rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
 if [[ $NAME = Darwin ]];then
-
+  mkdir -p ~/.BREW_LIST/{0..9}
 curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  rmdir ~/.BREW_LIST/0
 curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  rmdir ~/.BREW_LIST/1
 curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  rmdir ~/.BREW_LIST/2
 curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  rmdir ~/.BREW_LIST/3
 curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip || \
  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  rmdir ~/.BREW_LIST/4
 
 /usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
@@ -44,7 +49,7 @@ curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-ve
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
 /usr/bin/unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
-
+  rmdir ~/.BREW_LIST/5
 perl<<"EOF"
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ 
@@ -101,7 +106,6 @@ perl<<"EOF"
     print $FILE5 @file4;
    close $FILE5;
 EOF
-
 else
  curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula-linux/index.html ||\
   { rm -rf ~/.BREW_LIST/LOCK; exit; }
@@ -129,6 +133,7 @@ perl<<"EOF"
    close $FILE2;
 EOF
 
+ rm -rf ~/.BREW_LIST/6
  rm -f ~/.BREW_LIST/DBM.*
  perl ~/.BREW_LIST/tie.pl
 
@@ -141,4 +146,4 @@ fi
 
 rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
 rm -rf ~/.BREW_LIST/homebrew-cask-*
-rm -rf ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
+rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
