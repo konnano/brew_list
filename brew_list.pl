@@ -432,7 +432,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
 
  my $name = $file ? $re->{'OS'}{"${file}core"} :
   $re->{'OS'}{"$re->{'INF'}core"} ? $re->{'OS'}{"$re->{'INF'}core"} : exit;
-   my( $brew ) = $name =~ m|.+/(.+)\.rb$|;
+   my( $brew ) = $name =~ m|.+/(.+)\.rb$| or ++$re->{'NEW'} and Init_1( $re );
     my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
      $spa .= $spa ? '   |' : '|';
 
