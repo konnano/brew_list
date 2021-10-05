@@ -148,7 +148,6 @@ sub Died_1{
 
 sub Init_1{
  my( $re,$list,$ls ) = @_;
-
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -157,7 +156,6 @@ sub Init_1{
   unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
    open $Files,'>',"$ENV{'HOME'}/.BREW_LIST/tree.txt" or die " tree $!\n";
  }
-
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
    Dele_1( $re ) if $re->{'DEL'};
@@ -167,7 +165,6 @@ sub Init_1{
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? '' :
    Dirs_1( $re->{'CEL'},0,$re );
-
  my @LIST = split "\t",$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
   $list = \@LIST if @LIST;
 
