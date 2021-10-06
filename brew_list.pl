@@ -189,7 +189,7 @@ sub Wait_1{
       last if $i == 10;
        if( -d "$ENV{'HOME'}/.BREW_LIST/$i" ){
         while(1){
-         last unless -d "$ENV{'HOME'}/.BREW_LIST/$i"; # while(1);
+         last unless -d "$ENV{'HOME'}/.BREW_LIST/$i";
         } $i++; $ma .= '#'; $spa =~ s/\s//;
        }
      }
