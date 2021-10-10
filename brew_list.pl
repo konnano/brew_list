@@ -913,7 +913,7 @@ my $re = shift;
   }
    $wap = $leng = 0;
   for(my $p=0;$p<@{$re->{'UNI'}};$p++){
-   $wap++; my $plus;
+   $wap++; my $plus = '';
    my @an = split "\\s{3}",${$re->{'UNI'}}[$p];
     for(my $e=0;$e<@an;$e++){
       if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
@@ -925,7 +925,6 @@ my $re = shift;
     }
    $plus =~ s/^\s{3}//;
     ${$re->{'UNI'}}[$p] = $plus;
-     $plus = '';
   }
  }
  print"$re->{'INF'}\n" if @{$re->{'UNI'}};
