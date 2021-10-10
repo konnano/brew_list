@@ -33,10 +33,10 @@ MAIN:{
  }elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
- }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'}  = 3;
- }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'} = 4; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'} = 5; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-in' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'}  = 6; $re->{'INF'} = 1;
+ }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = 3;
+ }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-in' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = 6; $re->{'INF'} = 1;
  }elsif( $AR[0] eq '-de' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1; $re->{'LINK'} = 7;
  }elsif( $AR[0] eq '-t' ){  $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
  }elsif( $AR[0] eq '-d' ){  $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
@@ -425,7 +425,8 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
 
  my $name = $file ? $re->{'OS'}{"${file}core"} :
   $re->{'OS'}{"$re->{'INF'}core"} ? $re->{'OS'}{"$re->{'INF'}core"} : exit;
-   my( $brew ) = $name =~ m|.+/(.+)\.rb$| or ++$re->{'NEW'} and Init_1( $re );
+   ++$re->{'NEW'} and Init_1( $re ) unless $name;
+   my( $brew ) = $name =~ m|.+/(.+)\.rb$|;
     my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
      $spa .= $spa ? '   |' : '|';
 
@@ -905,7 +906,7 @@ my $re = shift;
    for(@an){
     $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──/;
     if( not $an[$i] and $TODO[$in] or
-       $wap == $leng and $an[$i] and $an[$i] !~ /├──/ ){
+        $wap == $leng and $an[$i] and $an[$i] !~ /├──/ ){
      $TODO[++$in] = $leng;
       $wap != $leng ? $in++ : last;	
     }
