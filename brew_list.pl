@@ -3,9 +3,9 @@ use strict;
 use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
-my( $OS_Version,$OS_Version2,$CPU,$Files,%MAC_OS );
+my( $OS_Version,$OS_Version2,$CPU,%MAC_OS );
 
-sub Main_1{
+MAIN:{
  my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'UNI'=>[],
              'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
              'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt" };
@@ -109,7 +109,7 @@ sub Main_1{
   $AR[1] ? $re->{'USE'} = $re->{'USES'} = lc $AR[1] : Died_1();
  }
  Fork_1( $name,$re,$ref );
-} Main_1;
+}
 
 sub Fork_1{
 my( $name,$re,$ref ) = @_;
@@ -147,14 +147,11 @@ sub Died_1{
 }
 
 sub Init_1{
- my( $re,$list,$ls ) = @_;
+ my( $re,$list ) = @_;
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
   Wait_1(); 
- }elsif( $re->{'TREE'} ){
-  unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
-   open $Files,'>',"$ENV{'HOME'}/.BREW_LIST/tree.txt" or die " tree $!\n";
  }
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
@@ -163,10 +160,9 @@ sub Init_1{
      return if $re->{'TREE'};
 
  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
-  Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? '' :
+  Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] :
    Dirs_1( $re->{'CEL'},0,$re );
- my @LIST = split "\t",$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
-  $list = \@LIST if @LIST;
+ @$list = split "\t",$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
 
  $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ?
    Brew_1( $re,$list ) : File_1( $re,$list );
@@ -265,9 +261,9 @@ my( $re,$list,%HA,@AN ) = @_;
  exit unless $list;
   for(my $i=0;$i<@$list;$i++){
    my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
-    Mine_1( $tap,$re,0 ) if ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'};
-     Uses_1( $re,$tap,\%HA,\@AN ) if $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'};
-      push @AN,$tap if $re->{'USES'};
+    (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $tap,$re,0 ) :
+     ( $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'} ) ? Uses_1( $re,$tap,\%HA,\@AN ) :
+       $re->{'USES'} ? push @AN,$tap : 0;
   }
   @AN = sort{$a cmp $b}@AN;
    Mine_1( $_,$re,0 ) for(@AN);
@@ -407,8 +403,8 @@ my $name = $brew;
    if $re->{'COLOR'} and $re->{"${brew}delet"};
 
  $re->{'OS'}{"deps$brew"} += ( $re->{'TREE'} and $build ) ?
-  print $Files "${spa}-- $name [build]\n" : $re->{'TREE'} ?
-  print $Files "${spa}-- $name\n" : 1;
+  push @{$re->{'UNI'}},"${spa}-- $name [build]\n" : $re->{'TREE'} ?
+  push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$brew if $re->{'DEL'} and $re->{'OS'}{"deps$brew"} < 2;
 }
 
@@ -836,8 +832,7 @@ my( $an,$re ) = @_;
 
 sub Format_1{
 my( $re,$ls,$sl,$ss,$ze ) = @_;
-  if( $re->{'TREE'} and close $Files ){
-    Format_2( $re );
+  if( $re->{'TREE'} ){ Format_2( $re );
   }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
    system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
@@ -894,24 +889,19 @@ print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re
 sub Format_2{
 my $re = shift;
  my( $wap,$leng,@TODO ); my $cou = 0;
-  open my $file,"$ENV{'HOME'}/.BREW_LIST/tree.txt";
-   my @DATA =<$file>;
-  close $file;
-
- for(@DATA){ my $an;
+ for( @{$re->{'UNI'}} ){ my $an;
   $wap++;
   $_ =~ s/\|/│/g;
   $_ =~ s/\│--/├──/g;
-   my @an = split '   ',$_;
+   my @an = split "\\s{3}",$_;
    for(@an){ $an++;
      $cou = $an if $cou < $an;
    } $an = 0;
  }
-
  for(my $i=0;$i<$cou;$i++){ my $in;
   $leng = $in = 0;
-  for my $data(@DATA){  $leng++;
-   my @an = split('   ',$data);
+  for my $data( @{$re->{'UNI'}} ){ $leng++;
+   my @an = split "\\s{3}",$data;
    for(@an){
     $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──/;
     if( not $an[$i] and $TODO[$in] or
@@ -922,26 +912,24 @@ my $re = shift;
    }
   }
    $wap = $leng = 0;
-  for(my $p=0;$p<@DATA;$p++){
+  for(my $p=0;$p<@{$re->{'UNI'}};$p++){
    $wap++; my $plus;
-   my @an = split '   ',$DATA[$p];
+   my @an = split "\\s{3}",${$re->{'UNI'}}[$p];
     for(my $e=0;$e<@an;$e++){
       if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
        $an[$i] =~ s/\│$/#/ if $an[$i];
       }
      $an[$e] =~ s/├──/└──/ if $TODO[$leng] and $TODO[$leng] == $wap;
       $leng += 2 if $TODO[$leng+1] and $TODO[$leng+1] == $wap;
-       $an[$e] =  "   $an[$e]";
-        $plus .= $an[$e];
+       $plus .= "   $an[$e]";
     }
-   $plus =~ s/^   //;
-    $DATA[$p] = $plus;
+   $plus =~ s/^\s{3}//;
+    ${$re->{'UNI'}}[$p] = $plus;
      $plus = '';
   }
  }
- print"$re->{'INF'}\n" if @DATA;
-  for(@DATA){ s/#/ /g; print; }
-   unlink "$ENV{'HOME'}/.BREW_LIST/tree.txt";
+ print"$re->{'INF'}\n" if @{$re->{'UNI'}};
+  for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
 }
 
 sub Nohup_1{
