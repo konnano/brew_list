@@ -400,7 +400,7 @@ my $name = $brew;
    if not $re->{'COLOR'} and ( not $re->{'HASH'}{$brew} or
           $re->{'OS'}{"${brew}ver"} and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} );
  $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
-   if $re->{'COLOR'} and $re->{"${brew}delet"};
+   if $re->{'COLOR'} and $re->{'HASH'}{$brew} and $re->{"${brew}delet"};
 
  $re->{'OS'}{"deps$brew"} += ( $re->{'TREE'} and $build ) ?
   push @{$re->{'UNI'}},"${spa}-- $name [build]\n" : $re->{'TREE'} ?
@@ -877,11 +877,10 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
        $in++;
       }
      print"\n" if $ze;
-    $re->{'CAS'} = 0;
    }else{
     print"$_\n" for @{$re->{'ARR'}};
-    $re->{'CAS'} = 0;
    }
+  $re->{'CAS'} = 0;
   }
 print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
