@@ -239,7 +239,11 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
         $tap{"${name}un_xcode"} = 1;
       }
     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[:([^\s]+),\s+:build].*\n/$1/ ){
-      if( $OS_Version and $MAC_OS{$data} > $OS_Version ){
+      if( $OS_Version and $MAC_OS{$data} < $OS_Version ){
+        $tap{"${name}un_xcode"} = 1;
+      }
+    }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+:([^\s]+).*\n/$1/ ){
+      if( $OS_Version and $MAC_OS{$data} < $OS_Version ){
         $tap{"${name}un_xcode"} = 1;
       }
     }
