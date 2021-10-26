@@ -19,8 +19,8 @@ MAIN:{
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
- %MAC_OS = ('big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
-            'sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
+ %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
+            'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
 
  $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
@@ -61,6 +61,7 @@ MAIN:{
    $OS_Version =~ s/^(10\.1\d)\.?\d*\n/$1/;
     $OS_Version =~ s/^(10\.)([7-9])\.?\d*\n/${1}0$2/;
      $OS_Version =~ s/^11.+\n/11.0/;
+      $OS_Version =~ s/^12.+\n/12.0/;
   $CPU = `sysctl machdep.cpu.brand_string`;
    $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
   $OS_Version2 = $OS_Version;
