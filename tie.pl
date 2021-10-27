@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my $IN = 0; my $CIN = 0;
+my $IN = 0; my $CIN = 0; my $KIN = 0;
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
@@ -73,21 +73,22 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
      if( $data =~ /^\s*bottle\s+do/ ){
-      $IN = 1; next;
-     }elsif( $data =~ /^\s*rebuild/ and $IN == 1 ){
+      $KIN = 1; next;
+     }elsif( $data =~ /^\s*rebuild/ and $KIN == 1 ){
        next;
-     }elsif( $data !~ /^\s*end/ and $IN == 1 ){
-       $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*monterey:.*\n/12.0/         ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*big_sur:.*\n/11.0/          ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*catalina:.*\n/10.15/        ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*mojave:.*\n/10.14/          ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*high_sierra:.*\n/10.13/     ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*sierra:.*\n/10.12/          ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*el_capitan:.*\n/10.11/      ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*yosemite:.*\n/10.10/        ? $tap{"$name$data"} = 1 :
-       $data =~ s/.*x86_64_linux:.*\n/Linux/    ? $tap{"$name$data"} = 1 : 0;
+     }elsif( $data !~ /^\s*end/ and $KIN == 1 ){
+       $tap{"$name$data"} =
+       $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
+       $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
+       $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
+       $data =~ s/.*big_sur:.*\n/11.0/          ? 1 :
+       $data =~ s/.*catalina:.*\n/10.15/        ? 1 :
+       $data =~ s/.*mojave:.*\n/10.14/          ? 1 :
+       $data =~ s/.*high_sierra:.*\n/10.13/     ? 1 :
+       $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
+       $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
+       $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
+       $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : 0;
         if( $data =~ /.*,\s+all:/ ){
          $tap{"${name}12.0M1"} = $tap{"${name}12.0"} = 
          $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
@@ -96,8 +97,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
          $tap{"${name}10.09"} = $tap{"${name}10.08"} = $tap{"${name}10.07"} = 1;
         }
        next;
-     }elsif( $data =~ /^\s*end/ and $IN == 1 ){
-       $IN = 0; next;
+     }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
+      $KIN = 0; next;
      }
 
     if( $re->{'MAC'} ){
