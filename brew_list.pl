@@ -415,7 +415,7 @@ my( $re,$bottle,$brew,$ls ) = @_;
  ( not $bottle and not $re->{'HASH'}{$brew} or
    not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
  ( not $re->{'HASH'}{$ls} or $re->{'OS'}{"${ls}ver"} and $re->{'OS'}{"${ls}ver"} gt $re->{'HASH'}{$ls} ) ?
-  return 1 : return 0;
+  return 1 : 0;
 }
 
 sub Info_1{
@@ -595,12 +595,26 @@ my( $re,$mem,$dir ) = @_;
  }
 }
 
+sub Version_1{
+my( $ls1,$ls2 ) = @_;
+ my @ls1 = split '\.|-',$ls1;
+ my @ls2 = split '\.|-',$ls2;
+  for(my $i=0;$i<@ls1;$i++){
+   if( $ls2[$i] =~ /[^\d]/ ){
+    return 1 if $ls1[$i] gt $ls2[$i];
+   }else{
+    return 1 if $ls1[$i] > $ls2[$i];
+   }
+  }
+}
+
 sub Search_1{
 my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$file->[$i];$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split "\t",$file->[$i];
    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
     $brew_2 = $re->{'OS'}{"${brew_1}version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}version"};
+     $brew_3 = $re->{'OS'}{"${brew_1}desc"}."\n" if $re->{'CAS'} and $re->{'OS'}{"${brew_1}desc"};
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -666,8 +680,8 @@ my( $list,$file,$in,$re ) = @_;
             Memo_1( $re,$mem,0 );
              $in++ and $i-- and next;
      }else{
-      if( $re->{'FOR'} and $brew_2 gt $re->{'HASH'}{$brew_1} or
-          $re->{'CAS'} and $brew_2 gt $re->{'DMG'}{$brew_1} ){
+      if( $re->{'FOR'} and Version_1($brew_2,$re->{'HASH'}{$brew_1}) or
+          $re->{'CAS'} and Version_1($brew_2,$re->{'DMG'}{$brew_1} ) ){
         $re->{'TAR'} = $re->{'MAC'} ?
          Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew",2 ) :
           Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
