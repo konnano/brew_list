@@ -600,10 +600,10 @@ my( $ls1,$ls2 ) = @_;
  my @ls1 = split '\.|-',$ls1;
  my @ls2 = split '\.|-',$ls2;
   for(my $i=0;$i<@ls1;$i++){
-   if( $ls2[$i] =~ /[^\d]/ ){
+   if( $ls2[$i] and $ls2[$i] =~ /[^\d]/ ){
     return 1 if $ls1[$i] gt $ls2[$i];
    }else{
-    return 1 if $ls1[$i] > $ls2[$i];
+    return 1 if $ls2[$i] and $ls1[$i] > $ls2[$i];
    }
   }
 }
@@ -613,8 +613,8 @@ my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$file->[$i];$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split "\t",$file->[$i];
    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
-    $brew_2 = $re->{'OS'}{"${brew_1}version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}version"};
-     $brew_3 = $re->{'OS'}{"${brew_1}desc"}."\n" if $re->{'CAS'} and $re->{'OS'}{"${brew_1}desc"};
+    $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
+     $brew_3 = $re->{'OS'}{"${brew_1}c_desc"}."\n" if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"};
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -680,29 +680,27 @@ my( $list,$file,$in,$re ) = @_;
             Memo_1( $re,$mem,0 );
              $in++ and $i-- and next;
      }else{
-      if( $re->{'FOR'} and Version_1($brew_2,$re->{'HASH'}{$brew_1}) or
-          $re->{'CAS'} and Version_1($brew_2,$re->{'DMG'}{$brew_1} ) ){
+      if( $re->{'FOR'} and Version_1($brew_2,$re->{'HASH'}{$brew_1}) ){
         $re->{'TAR'} = $re->{'MAC'} ?
          Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew",2 ) :
-          Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
+           Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
 
         for my $gz( @{$re->{'TAR'}} ){
-         if( $gz =~ s/$brew_1--([\d._]+)\.[^\d_]+.*/$1/ or $gz =~ s/$brew_1--([\d._]+)$/$1/ ){
-           $re->{'GZ'} = 1 if $re->{'HASH'}{$brew_1} lt $gz;
+         if( $gz =~ s/$brew_1--([\d._]+)\.[^\d_]+$/$1/ or $gz =~ s/$brew_1--([\d._]+)$/$1/ ){
+           $re->{'GZ'} = 1 if Version_1($gz,$re->{'HASH'}{$brew_1});
             last;
           }
         }
          $re->{'GZ'} ? Type_1( $re,$brew_1,'(i)','e' ) : Type_1( $re,$brew_1,'(i)' );
-           $re->{'OUT'}[$re->{'UP'}++] = ( $re->{'FOR'} and $re->{'GZ'} ) ?
-            " e $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" : ( $re->{'CAS'} and $re->{'GZ'} ) ?
-            " e $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n"  : $re->{'FOR'} ?
-            "   $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" : "   $brew_1 $re->{'DMG'}{$brew_1} < $brew_2\n";
+          $re->{'OUT'}[$re->{'UP'}++] = $re->{'GZ'} ?
+           " e $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n" :
+            "   $brew_1 $re->{'HASH'}{$brew_1} < $brew_2\n";
          $re->{'GZ'} = 0;
       }elsif( $re->{'CAS'} and $brew_2 ne $re->{'DMG'}{$brew_1} ){
-          Type_1( $re,$brew_1,'(i)' );
-           $re->{'OUT'}[$re->{'UP'}++] =  "   $brew_1 $re->{'DMG'}{$brew_1} != $brew_2\n";
+         Type_1( $re,$brew_1,'(i)' );
+          $re->{'OUT'}[$re->{'UP'}++] =  "   $brew_1 $re->{'DMG'}{$brew_1} != $brew_2\n";
       }else{
-          Type_1( $re,$brew_1,' i ' );
+         Type_1( $re,$brew_1,' i ' );
       }
      }
      $in++;
@@ -719,19 +717,19 @@ my( $list,$file,$in,$re ) = @_;
 }
 
 sub Tap_1{
-my( $list,$re,$in,$com ) = @_;
+my( $list,$re,$in ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
   my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
    my $dir = $re->{'FOR'} ? $re->{'OS'}{"${tap}core"} : $re->{'OS'}{"${tap}cask"};
 
- unless( $re->{'S_OPT'} ){
-  open my $file,'<',$dir or die" Tap file $!\n";
-   while(my $name=<$file>){
-    $com = $1 and last if $name =~ /^\s*desc\s+"([^"]+)"/;
-     $com = $1 if $name =~ /^\s*name\s+"([^"]+)"/;
-   }
-  close $file;
- }
+    my $com = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_desc"} ) ?
+     $re->{'OS'}{"${tap}f_desc"} : ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_name"} ) ?
+      $re->{'OS'}{"${tap}f_name"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_desc"} ) ?
+       $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"};
+
+    my $ver = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_version"}) ?
+     $re->{'OS'}{"${tap}f_version"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_version"}) ?
+      $re->{'OS'}{"${tap}c_version"} : $re->{'FOR'} ? $re->{'HASH'}{$tap} : $re->{'DMG'}{$tap};
 
    my $brew = 1;
  if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
@@ -758,9 +756,19 @@ my( $list,$re,$in,$com ) = @_;
         $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
          $re->{'MEM'} = "      X  $tap\tNot Formula\n";
     }elsif( $re->{'FOR'} ){
-         $re->{'MEM'} = "      i  $tap\t$re->{'HASH'}{$tap}\t$com\n";
+     if( Version_1($ver,$re->{'HASH'}{$tap}) ){
+      $re->{'MEM'} = "     (i) $tap\t$re->{'HASH'}{$tap}\t$com\n";
+       $re->{'OUT'}[$re->{'UP'}++] =  "   $tap $re->{'HASH'}{$tap} < $ver\n";
+     }else{
+      $re->{'MEM'} = "      i  $tap\t$re->{'HASH'}{$tap}\t$com\n";
+     }
     }else{
-         $re->{'MEM'} = "      i  $tap\t$re->{'DMG'}{$tap}\t$com\n";
+     if( $ver ne $re->{'DMG'}{$tap} ){
+      $re->{'MEM'} = "     (i) $tap\t$re->{'DMG'}{$tap}\t$com\n";
+       $re->{'OUT'}[$re->{'UP'}++] =  "   $tap $re->{'DMG'}{$tap} != $ver\n";
+     }else{
+      $re->{'MEM'} = "      i  $tap\t$re->{'DMG'}{$tap}\t$com\n";
+     }
     }
      Type_1( $re,$tap,' i ' ) if $re->{'MEM'} !~ /^\s+X\s+/;
       Memo_1( $re,$mem,0 ) if $brew;
