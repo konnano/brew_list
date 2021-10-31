@@ -601,10 +601,10 @@ my( $ls1,$ls2 ) = @_;
  my @ls2 = split '\.|-|_',$ls2;
  my $i = 0;
   for(;$i<@ls2;$i++){
-   if( $ls1[$i] =~ /[^\d]/ ){
+   if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
     return 1 if $ls1[$i] gt $ls2[$i];
    }else{
-    return 1 if $ls1[$i] > $ls2[$i];
+    return 1 if $ls1[$i] and $ls1[$i] > $ls2[$i];
    }
   }
  return 1 if $ls1[$i];
