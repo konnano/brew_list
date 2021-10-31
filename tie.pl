@@ -236,6 +236,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
         $tap{"${name}f_desc"} = $data;
       }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}f_name"} = $data;
+      }elsif( $data =~ s/^\s*revision\s+([^\s]+).*\n/$1/ ){
+        $tap{"${name}revision"} = "_$data";
       }
 
     if( $data =~ /^\s*keg_only.*macos/ ){
