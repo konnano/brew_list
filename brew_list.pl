@@ -597,15 +597,17 @@ my( $re,$mem,$dir ) = @_;
 
 sub Version_1{
 my( $ls1,$ls2 ) = @_;
- my @ls1 = split '\.|-',$ls1;
- my @ls2 = split '\.|-',$ls2;
-  for(my $i=0;$i<@ls1;$i++){
-   if( $ls2[$i] and $ls2[$i] =~ /[^\d]/ ){
+ my @ls1 = split '\.|-|_',$ls1;
+ my @ls2 = split '\.|-|_',$ls2;
+ my $i = 0;
+  for(;$i<@ls2;$i++){
+   if( $ls1[$i] =~ /[^\d]/ ){
     return 1 if $ls1[$i] gt $ls2[$i];
    }else{
-    return 1 if $ls2[$i] and $ls1[$i] > $ls2[$i];
+    return 1 if $ls1[$i] > $ls2[$i];
    }
   }
+ return 1 if $ls1[$i];
 }
 
 sub Search_1{
@@ -614,7 +616,8 @@ my( $list,$file,$in,$re ) = @_;
   my( $brew_1,$brew_2,$brew_3 ) = split "\t",$file->[$i];
    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
     $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
-     $brew_3 = $re->{'OS'}{"${brew_1}c_desc"}."\n" if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"};
+     $brew_2 = $brew_2.$re->{'OS'}{"${brew_1}revision"} if $re->{'FOR'} and $re->{'OS'}{"${brew_1}revision"};
+      $brew_3 = $re->{'OS'}{"${brew_1}c_desc"}."\n" if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"};
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -730,6 +733,7 @@ my( $list,$re,$in ) = @_;
     my $ver = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_version"}) ?
      $re->{'OS'}{"${tap}f_version"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_version"}) ?
       $re->{'OS'}{"${tap}c_version"} : $re->{'FOR'} ? $re->{'HASH'}{$tap} : $re->{'DMG'}{$tap};
+    $ver = $ver.$re->{'OS'}{"${tap}revision"} if $re->{'FOR'} and $re->{'OS'}{"${tap}revision"};
 
    my $brew = 1;
  if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
