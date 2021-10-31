@@ -230,6 +230,13 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
           $tap{"${ls7}uses"} .= "$name\t" if $ls8 =~ /$CPU/;
        }
      }
+      if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
+        $tap{"${name}f_version"} = $data;
+      }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
+        $tap{"${name}f_desc"} = $data;
+      }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
+        $tap{"${name}f_name"} = $data;
+      }
 
     if( $data =~ /^\s*keg_only.*macos/ ){
       $tap{"${name}keg"} = 1;
@@ -265,7 +272,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   for my $dir2(@CASK){ chomp $dir2;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
-     my $IF1 = 1; my $VER = 0;
+     my $ELS = 1; my $IF1 = 1; my $IF2 = 0;
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
@@ -276,20 +283,24 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
         $tap{"${name}formula"} = 0 if $CPU ne $ls3;
        }
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
+        $IF1 = 0;
        if( eval"$OS_Version $ls4 $MAC_OS{$ls5}" ){
-        $IF1 = 0; $VER = 1;
+        $ELS = 0; $IF2 = 1;
        }
      }elsif( my( $ls6,$ls7 ) = $data =~ /^\s*elsif\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        if( eval"$OS_Version $ls6 $MAC_OS{$ls7}" ){
-        $IF1 = 0; $VER = 1;
+        $ELS = 0; $IF2 = 1;
        }
-     }elsif( $data =~ /^\s*else/ and $IF1 ){
-        $VER = 1;
-     }elsif( my( $ls8 ) = $data =~ /^\s*version\s+"([^"]+)"/ and $VER ){
-       $tap{"${name}version"} = $ls8;
-        $VER = 0;
+     }elsif( $data =~ /^\s*else/ and $ELS ){
+        $IF2 = 1;
+     }elsif(( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ or
+              $data =~ s/^\s*version\s+:([^\s]+).*\n/$1/ ) and ( $IF1 or $IF2 )){
+        $tap{"${name}c_version"} = $data;
+         $IF1 = $IF2 = 0;
      }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}desc"} = $data;
+        $tap{"${name}c_desc"} = $data;
+     }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
+        $tap{"${name}c_name"} = $data;
      }
     }
    close $BREW;
