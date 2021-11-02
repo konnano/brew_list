@@ -631,7 +631,7 @@ my( $re,$ls1,$ls2 ) = @_;
      " e $ls1 $re->{'DMG'}{$ls1} != $ls2 : Cask\n"  : $re->{'FOR'} ?
      "   $ls1 $re->{'HASH'}{$ls1} < $ls2\n" : "   $ls1 $re->{'DMG'}{$ls1} != $ls2 : Cask\n";
    }else{
-    $re->{'OUT'}[$re->{'UP'}++] = "$ls1\n";
+    $re->{'OUT'}[$re->{'UP'}++] = "$ls1\n" unless $re->{'GZ'};
    }
   $re->{'GZ'} = 0;
 }
