@@ -109,7 +109,7 @@ perl<<"EOF"
 EOF
 
 else
- curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula-linux/index.html ||\
+ curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
   { rm -rf ~/.BREW_LIST/LOCK; exit; }
 fi
 
