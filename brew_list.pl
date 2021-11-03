@@ -45,6 +45,7 @@ MAIN:{
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
  }elsif( $AR[0] eq '-new' ){$name = $re;  $re->{'NEW'} = 1;
  }elsif( $AR[0] eq '-o' ){  $re->{'DAT'}= $ref->{'DAT'}= 1;
+ }elsif( $AR[0] eq '-g' ){  $re->{'TOP'}= $ref->{'TOP'}= 1;
  }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
  }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
  }else{  Died_1();
@@ -90,7 +91,7 @@ MAIN:{
  }
 
  if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
-  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = 0;
+  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = $re->{'TOP'} = 0;
    die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
@@ -116,7 +117,7 @@ sub Fork_1{
 my( $name,$re,$ref ) = @_;
  if( $re->{'LIN'} ){
   Init_1( $re ); Format_1( $re );
- }elsif( $re->{'S_OPT'} or $re->{'BL'} or $re->{'DAT'} ){
+ }elsif( $re->{'S_OPT'} or $re->{'BL'} or $re->{'DAT'} or $re->{'TOP'} ){
   my $pid = fork;
   die " Not fork : $!\n" unless defined $pid;
    if($pid){
@@ -142,6 +143,7 @@ sub Died_1{
   -in formula require formula : -t formula require formula, display tree
   -u formula depend on formula : -ua formula depend on formula, all
   -de uninstalled not require formula : -d uninstalled not require formula, display tree
+  -g Independent formula
     Only mac : Cask
   -c cask list : -ci instaled cask
   -cx can't install cask : -cs some name cask and formula\n";
@@ -160,13 +162,13 @@ sub Init_1{
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
 
- $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ?
+ $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] :
    Dirs_1( $re->{'CEL'},0,$re );
  @$list = split "\t",$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
 
  $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ?
-   Brew_1( $re,$list ) : File_1( $re,$list );
+   Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : File_1( $re,$list );
 }
 
 sub Wait_1{
@@ -255,6 +257,16 @@ my( $url,$ls,$re,$bn ) = @_;
   closedir $dir_2;
  }
  $bn;
+}
+
+sub Top_1{
+my( $re,$list,%HA,@AN ) = @_;
+ for my $ls(@$list){
+  $ls =~ s/^\s(.*)\n/$1/;
+   Uses_1( $re,$ls,\%HA,\@AN );
+   Mine_1( $ls,$re,0 ) if @AN < 2;
+  @AN = (); %HA = ();
+ }
 }
 
 sub Brew_1{
