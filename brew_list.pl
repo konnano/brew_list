@@ -630,7 +630,7 @@ my( $re,$ls1,$ls2 ) = @_;
     Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
 
  for my $gz( @{$re->{'TAR'}} ){
-  if( $gz =~ s/$ls1--([\d._-]+)\.[^\d_-]+$/$1/ or $gz =~ s/$ls1--([\d._-]+)$/$1/ ){
+  if( $gz =~ s/$gz--([\d._-]+)\.[^\d_-]+$/$1/ or $gz =~ s/$gz--([\d._-]+)$/$1/ ){
     $re->{'GZ'} = ( $re->{'FOR'} and Version_1($gz,$re->{'HASH'}{$ls1}) ) ? 1 :
                   ( $re->{'CAS'} and Version_1($gz,$re->{'DMG'}{$ls1}) )  ? 1 : 0;
     last if $re->{'GZ'};
