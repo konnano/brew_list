@@ -207,6 +207,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
 
      if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
         next;
+     }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+:build(?!.*if\s).*\n/$1/ ){
+        $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
      }elsif( $data =~ /^\s*depends_on\s+"[^"]+"\s+=>.+:build/ ){
         next;
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
