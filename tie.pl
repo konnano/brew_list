@@ -202,7 +202,6 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
             $tap{"$name$OS_Version2"} = 0;
          }elsif( $re->{'LIN'} ){
            $tap{"${name}un_Linux"} = 1;
-            $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
          } next;
       }
 
