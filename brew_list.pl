@@ -914,7 +914,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
          $arr .= ' ';
         }
        print"$arr";
-       print"\n" unless $ze = $in % $size;
+       print"\n" unless $ze = eval "$in % $size";
        $in++;
       }
      print"\n" if $ze;
