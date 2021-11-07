@@ -264,7 +264,13 @@ my( $re,$list,%HA,@AN ) = @_;
  for my $ls(@$list){
   $ls =~ s/^\s(.*)\n/$1/;
    Uses_1( $re,$ls,\%HA,\@AN );
-   Mine_1( $ls,$re,0 ) if @AN < 2;
+    if( @AN < 2 ){
+     my @BUI = split "\t",$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
+      for my $bui(@BUI){
+       $ls .= " : $bui" if $re->{'HASH'}{$bui};
+      }
+     $ls =~ s/^([^:]+) : (.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
+    }
   @AN = (); %HA = ();
  }
 }
