@@ -205,19 +205,34 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
          } next;
       }
 
-      if( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+:build(?!.*if\s).*\n/$1/ ){
-        $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-      }
-
      if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
-        next;
-     }elsif( $data =~ /^\s*depends_on\s+"[^"]+"\s+=>.+:build/ ){
-        next;
+         next;
+     }elsif( $data =~ /^\s*depends_on\s+"[^"]+"\s+=>\s+\[?:build/ ){
+       if( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+:build(?!.*if\s).*\n/$1/ ){
+          $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+       }elsif( my( $ds1,$ds2,$ds3 ) =
+        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
+         if( $re->{'MAC'} and eval "$re->{'CLANG'} $ds2 $ds3" ){
+          $tap{"${ds1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+         }
+       }elsif( my( $ds4,$ds5 ) =
+        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+Hardware::CPU\.([^\s]+)/ ){
+         if( $ds5 =~ /$CPU/ ){
+          $tap{"${ds4}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+         }
+       }elsif( my( $ds6,$ds7,$ds8 ) =
+        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
+         if( $re->{'MAC'} and eval "$OS_Version $ds7 $MAC_OS{$ds8}" ){
+          $tap{"${ds6}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+         }
+       }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+\[:build.+\n/$1/ ){
+          $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+       }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"(?!.*\sif\s).*\n/$1/ ){
         $tap{"${data}uses"} .= "$name\t";
      }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+)/ ){
        if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$ls2} ){
-         $tap{"${ls1}uses"} .= "$name\t";
+        $tap{"${ls1}uses"} .= "$name\t";
        }
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"(?!.+:test).*\n/$1/ ){
         $tap{"${data}uses"} .= "$name\t";
