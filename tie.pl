@@ -47,6 +47,7 @@ if( $^O eq 'darwin' ){
   $CPU = $CPU =~ /Apple\s+M1/ ?'arm\?' : 'intel\?';
    $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
     $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
+     $OS_Version2 = 'Linux';
 
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
