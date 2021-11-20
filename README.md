@@ -68,7 +68,7 @@ e マークはビルドできないFormula
 
 x マークはインストールできないFormula
 
-t マークはtapでラップされたFormula
+t マークはバージョンアップでインストール出来なくなったFormula
 
 Onle Mac : Cask
 
