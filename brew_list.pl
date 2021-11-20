@@ -55,7 +55,7 @@ MAIN:{
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
     $OS_Version = 'Linux';
-   $CPU = `cat /proc/cpuinfo|awk '/model name/{print}'`;
+   $CPU = `cat /proc/cpuinfo|awk '/model name/'`;
     $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
  }else{
   $OS_Version = `sw_vers -productVersion`;
@@ -269,7 +269,7 @@ my( $re,$list,%HA,@AN ) = @_;
       for my $bui(@BUI){
        $ls .= " : $bui" if $re->{'HASH'}{$bui};
       }
-     $ls =~ s/^([^:]+) : (.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
+     $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
     }
   @AN = (); %HA = ();
  }
@@ -512,13 +512,13 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
      } next;
    }elsif( my( $ls1,$ls2,$ls3 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+MacOS.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
-     if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" and Read_1( $re,$bottle,$brew,$ls1 ) ){
+     if( $re->{'MAC'} and eval "$OS_Version2 $ls2 $MAC_OS{$ls3}" and Read_1( $re,$bottle,$brew,$ls1 ) ){
         Unic_1( $re,$ls1,$spa,$AN,1 );
          Info_1( $re,$ls1,$spa,$AN,$HA );
      } next;
    }elsif( my( $ls4,$ls5,$ls6 ) =
     $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>.+:build\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
-     if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" and Read_1( $re,$bottle,$brew,$ls4 ) ){
+     if( $re->{'MAC'} and eval "$re->{'CLANG'} $ls5 $ls6" and Read_1( $re,$bottle,$brew,$ls4 ) ){
         Unic_1( $re,$ls4,$spa,$AN,1 );
          Info_1( $re,$ls4,$spa,$AN,$HA );
      } next;
@@ -554,13 +554,13 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
    }elsif( $data =~ /^\s*depends_on.+\s*if\s*/ ){
      if( my( $ls1,$ls2,$ls3 ) =
       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+).*\n/ ){
-       if( $re->{'MAC'} and eval"$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
+       if( $re->{'MAC'} and eval "$OS_Version2 $ls2 $MAC_OS{$ls3}" ){
         Unic_1( $re,$ls1,$spa,$AN );
          Info_1( $re,$ls1,$spa,$AN,$HA );
        }
      }elsif( my($ls4,$ls5,$ls6) =
       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+).*\n/ ){
-       if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
+       if( $re->{'MAC'} and eval "$re->{'CLANG'} $ls5 $ls6" ){
         Unic_1( $re,$ls4,$spa,$AN );
          Info_1( $re,$ls4,$spa,$AN,$HA );
        }
@@ -727,8 +727,9 @@ my( $list,$file,$in,$re ) = @_;
             Memo_1( $re,$mem,0 );
              $in++ and $i-- and next;
      }else{
-      if( $re->{'FOR'} and $brew_2 ne $re->{'HASH'}{$brew_1} or
-          $re->{'CAS'} and $brew_2 ne $re->{'DMG'}{$brew_1} ){
+      if( $re->{'FOR'} and $brew_2 ne $re->{'HASH'}{$brew_1} and
+        ( not $re->{'OS'}{"${brew_1}un_xcode"} or not $re->{'OS'}{"${brew_1}un_Linux"} ) or
+          $re->{'CAS'} and not $re->{'OS'}{"${brew_1}un_cask"} and $brew_2 ne $re->{'DMG'}{$brew_1} ){
          Version_2( $re,$brew_1,$brew_2 );
       }else{
          Type_1( $re,$brew_1,' i ' );
@@ -787,8 +788,9 @@ my( $list,$re,$in ) = @_;
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap} or
         $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
         $re->{'MEM'} = "      X  $tap\tNot Formula\n";
-    }elsif( $re->{'FOR'} and $ver ne $re->{'HASH'}{$tap} or
-            $re->{'CAS'} and $ver ne $re->{'DMG'}{$tap} ){
+    }elsif( $re->{'FOR'} and $ver ne $re->{'HASH'}{$tap} and
+          ( not $re->{'OS'}{"${tap}un_xcode"} or not $re->{'OS'}{"${tap}un_Linux"} ) or
+            $re->{'CAS'} and not $re->{'OS'}{"${tap}un_cask"} and $ver ne $re->{'DMG'}{$tap} ){
         $re->{'MEM'} = "         $tap\t$ver\t$com\n";
          Version_2( $re,$tap,$ver );
     }else{
@@ -817,9 +819,13 @@ my( $re,$brew_1,$i,$e ) = @_;
     $re->{'MEM'} =~ s/^.{9}/   k $i / : $e ? $re->{'MEM'} =~ s/^.{9}/ e   $i / :
     $re->{'MEM'} =~ s/^.{9}/     $i /; 
   }else{
-    $re->{'OS'}{"${brew_1}so_name"} ? $re->{'MEM'} =~ s/^.{9}/   s $i / :
-    $re->{'OS'}{"${brew_1}formula"} ? $re->{'MEM'} =~ s/^.{9}/   f $i / :
-                                      $re->{'MEM'} =~ s/^.{9}/     $i /; 
+   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}so_name"} ) ?
+    $re->{'MEM'} =~ s/^.{9}/ t s $i / :
+   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}formula"} ) ? 
+    $re->{'MEM'} =~ s/^.{9}/ t f $i / : $re->{'OS'}{"${brew_1}un_cask"} ?
+    $re->{'MEM'} =~ s/^.{9}/ t   $i / : $re->{'OS'}{"${brew_1}so_name"} ?
+    $re->{'MEM'} =~ s/^.{9}/   s $i / : $re->{'OS'}{"${brew_1}formula"} ?
+    $re->{'MEM'} =~ s/^.{9}/   f $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
   }
  }else{
   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
