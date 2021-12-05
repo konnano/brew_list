@@ -480,7 +480,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
      if( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
        if( Read_1( $re,$bottle,$brew,$data ) ){
         Unic_1( $re,$data,$spa,$AN,1 );
-         Info_1( $re,$data,$spa,$AN,$HA );1
+         Info_1( $re,$data,$spa,$AN,$HA );
        } next;
      }elsif( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
         Unic_1( $re,$data,$spa,$AN,1 );
