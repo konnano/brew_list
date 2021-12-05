@@ -40,13 +40,13 @@ MAIN:{
  }elsif( $AR[0] eq '-de' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1; $re->{'LINK'} = 7;
  }elsif( $AR[0] eq '-t' ){  $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
  }elsif( $AR[0] eq '-d' ){  $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
- }elsif( $AR[0] eq '-u' ){  $name = $re;  $re->{'USE'} = 1;
- }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'}= 1;
- }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
- }elsif( $AR[0] eq '-new' ){$name = $re;  $re->{'NEW'} = 1;
- }elsif( $AR[0] eq '-o' ){  $re->{'DAT'}= $ref->{'DAT'}= 1;
- }elsif( $AR[0] eq '-g' ){  $re->{'TOP'}= $ref->{'TOP'}= 1;
- }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'} = 1;
+ }elsif( $AR[0] eq '-u' ){  $name = $re;  $re->{'USE'}  = 1;
+ }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = 1;
+ }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
+ }elsif( $AR[0] eq '-new' ){$name = $re;  $re->{'NEW'}  = 1;
+ }elsif( $AR[0] eq '-o' ){  $re->{'DAT'}= $ref->{'DAT'} = 1;
+ }elsif( $AR[0] eq '-g' ){  $re->{'TOP'}= $ref->{'TOP'} = 1;
+ }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
  }else{  Died_1();
  }
@@ -349,51 +349,51 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
  if( $re->{'CAS'} and $re->{'S_OPT'} and -f $re->{'FON'} and -f $re->{'DRI'} and -f $re->{'VER'} ){
 
    if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'FON'},0) };
-     push @$file,@{ File_2( $re->{'DRI'},0) };
-      push @$file,@{ File_2( $re->{'VER'},0) };
+    push @$file,@{ File_2( $re->{'FON'},0 ) };
+     push @$file,@{ File_2( $re->{'DRI'},0 ) };
+      push @$file,@{ File_2( $re->{'VER'},0 ) };
        @$file = sort{$a cmp $b}@$file;
 
    }elsif( not $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'DRI'},0) };
-     push @$file,@{ File_2( $re->{'VER'},0) };
+    push @$file,@{ File_2( $re->{'DRI'},0 ) };
+     push @$file,@{ File_2( $re->{'VER'},0 ) };
       @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'FON'},1) };
+      push @$file,@{ File_2( $re->{'FON'},1 ) };
 
    }elsif( not $re->{'FDIR'} and not $re->{'DDIR'} and $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'VER'},0) };
+    push @$file,@{ File_2( $re->{'VER'},0 ) };
      @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'FON'},1) };
-       push @$file,@{ File_2( $re->{'DRI'},2) };
+      push @$file,@{ File_2( $re->{'FON'},1 ) };
+       push @$file,@{ File_2( $re->{'DRI'},2 ) };
 
    }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'DRI'},0) };
+    push @$file,@{ File_2( $re->{'DRI'},0 ) };
      @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'FON'},1) };
-       push @$file,@{ File_2( $re->{'VER'},3) };
+      push @$file,@{ File_2( $re->{'FON'},1 ) };
+       push @$file,@{ File_2( $re->{'VER'},3 ) };
 
    }elsif( not $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'FON'},1) };
-     push @$file,@{ File_2( $re->{'DRI'},2) };
-      push @$file,@{ File_2( $re->{'VER'},3) };
+    push @$file,@{ File_2( $re->{'FON'},1 ) };
+     push @$file,@{ File_2( $re->{'DRI'},2 ) };
+      push @$file,@{ File_2( $re->{'VER'},3 ) };
 
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} and $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'FON'},0) };
-     push @$file,@{ File_2( $re->{'VER'},0) };
+    push @$file,@{ File_2( $re->{'FON'},0 ) };
+     push @$file,@{ File_2( $re->{'VER'},0 ) };
       @$file = sort{$a cmp $b}@$file;
-       push @$file,@{ File_2( $re->{'DRI'},2) };
+       push @$file,@{ File_2( $re->{'DRI'},2 ) };
 
    }elsif( $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'FON'},0) };
+    push @$file,@{ File_2( $re->{'FON'},0 ) };
      @$file = sort{$a cmp $b}@$file;
-      push @$file,@{ File_2( $re->{'DRI'},2) };
-       push @$file,@{ File_2( $re->{'VER'},3) };
+      push @$file,@{ File_2( $re->{'DRI'},2 ) };
+       push @$file,@{ File_2( $re->{'VER'},3 ) };
 
    }elsif( $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'FON'},0) };
-     push @$file,@{ File_2( $re->{'DRI'},0) };
+    push @$file,@{ File_2( $re->{'FON'},0 ) };
+     push @$file,@{ File_2( $re->{'DRI'},0 ) };
       @$file = sort{$a cmp $b}@$file;
-       push @$file,@{ File_2( $re->{'VER'},3) };
+       push @$file,@{ File_2( $re->{'VER'},3 ) };
    }
  }
  Search_1( $list,$file,0,$re );
@@ -986,12 +986,11 @@ my $re = shift;
 
 sub Nohup_1{
 my $re = shift;
- my $time =[localtime((stat($re->{'TXT'}))[9])] if -f $re->{'TXT'};
- my( $year,$mon,$day ) = (
-  ((localtime(time))[5] + 1900),((localtime(time))[4]+1),((localtime(time))[3]));
-  if( not -f $re->{'TXT'} or  $year > $time->[5]+1900 or
-      $mon > $time->[4]+1 or $day > $time->[3] ){
-   system 'nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &';
-  }
+ my( $time1,$time2 ) =
+  ( [localtime],[localtime((stat $re->{'TXT'})[9])] );
+   if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
+       $time1->[3] > $time2->[3] or $time1->[2] > $time2->[2] ){
+    system 'nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &';
+   }
 }
 __END__
