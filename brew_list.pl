@@ -136,17 +136,17 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die "    Option : -new creat new cache
-  -l formula list : -i instaled formula : - brew list command
-  -lb bottled install formula : -lx can't install formula
-  -s type search name : -o outdated : -co library display
-  -in formula require formula : -t formula require formula, display tree
-  -u formula depend on formula : -ua formula depend on formula, all
-  -de uninstalled not require formula : -d uninstalled not require formula, display tree
-  -g Independent formula
+ die "   Option\n  -new\t:  creat new cache
+  -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
+  -lb\t:  bottled install formula\n  -lx\t:  can't install formula
+  -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
+  -in\t:  formula require formula\n  -t\t:  formula require formula, display tree
+  -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
+  -de\t:  uninstalled not require formula\n  -d\t:  uninstalled not require formula, display tree
+  -g\t:  Independent formula
     Only mac : Cask
-  -c cask list : -ci instaled cask
-  -cx can't install cask : -cs some name cask and formula\n";
+  -c\t:  cask list\n  -ci\t:  instaled cask
+  -cx\t:  can't install cask\n  -cs\t:  some name cask and formula\n";
 }
 
 sub Init_1{
@@ -433,7 +433,7 @@ my( $re,$bottle,$brew,$ls ) = @_;
  ( not $bottle and not $re->{'HASH'}{$brew} or
    not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
  ( not $re->{'HASH'}{$ls} or $re->{'OS'}{"${ls}ver"} and $re->{'OS'}{"${ls}ver"} gt $re->{'HASH'}{$ls} ) ?
-  return 1 : 0;
+ 1 : 0;
 }
 
 sub Info_1{
@@ -625,7 +625,7 @@ my( $ls1,$ls2 ) = @_;
     return 1 if $ls1[$i] and $ls1[$i] > $ls2[$i];
    }
   }
- return 1 if $ls1[$i];
+ $ls1[$i] ? 1 : 0;
 }
 
 sub Version_2{
