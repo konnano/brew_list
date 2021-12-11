@@ -156,6 +156,7 @@ sub Init_1{
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
   Wait_1(); 
  }
+
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
    Dele_1( $re ) if $re->{'DEL'};
@@ -163,8 +164,7 @@ sub Init_1{
      return if $re->{'TREE'};
 
  $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} ) ?
-  Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] :
-   Dirs_1( $re->{'CEL'},0,$re );
+  Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
  @$list = split "\t",$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
 
  $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ?
@@ -277,7 +277,7 @@ my( $re,$list,%HA,@AN ) = @_;
 
 sub Brew_1{
 my( $re,$list,%HA,@AN ) = @_;
- exit unless $list;
+ exit unless @$list;
   for(my $i=0;$i<@$list;$i++){
    my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
     (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $tap,$re,0 ) :
