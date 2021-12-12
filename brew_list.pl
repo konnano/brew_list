@@ -32,6 +32,7 @@ MAIN:{
  }elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
  }elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cc'){  $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = 3;
  }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
@@ -145,7 +146,7 @@ sub Died_1{
   -de\t:  uninstalled not require formula\n  -d\t:  uninstalled not require formula, display tree
   -g\t:  Independent formula
     Only mac : Cask
-  -c\t:  cask list\n  -ci\t:  instaled cask
+  -c\t:  cask list\n  -cc\t:  cask and tap list\n  -ci\t:  instaled cask
   -cx\t:  can't install cask\n  -cs\t:  some name cask and formula\n";
 }
 
@@ -156,7 +157,6 @@ sub Init_1{
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
   Wait_1(); 
  }
-
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
    Dele_1( $re ) if $re->{'DEL'};
@@ -346,7 +346,8 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
  open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
   @$file = <$BREW>;
  close $BREW;
- if( $re->{'CAS'} and $re->{'S_OPT'} and -f $re->{'FON'} and -f $re->{'DRI'} and -f $re->{'VER'} ){
+ if( $re->{'CAS'} and -f $re->{'FON'} and -f $re->{'DRI'} and -f $re->{'VER'} and
+   ( $re->{'S_OPT'} or $re->{'TAP'} ) ){
 
    if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
     push @$file,@{ File_2( $re->{'FON'},0 ) };
@@ -657,11 +658,15 @@ my( $re,$ls1,$ls2 ) = @_;
 sub Search_1{
 my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$file->[$i];$i++){ my $pop = 0;
-  my( $brew_1,$brew_2,$brew_3 ) = split "\t",$file->[$i];
+  my( $brew_1,$brew_2,$brew_3 ) = $file->[$i] =~ /\t/ ? split '\t',$file->[$i] : $file->[$i];
    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
-    $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
-     $brew_2 = $brew_2.$re->{'OS'}{"${brew_1}revision"} if $re->{'FOR'} and $re->{'OS'}{"${brew_1}revision"};
-      $brew_3 = $re->{'OS'}{"${brew_1}c_desc"}."\n" if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"};
+
+  $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
+   $brew_2 = $brew_2.$re->{'OS'}{"${brew_1}revision"} if $re->{'FOR'} and $re->{'OS'}{"${brew_1}revision"};
+
+  $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"}."\n" :
+   ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"}."\n" : $brew_3;
+    next if $brew_1 =~ m|^homebrew/| and $re->{'TAP'};
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -764,7 +769,7 @@ my( $list,$re,$in ) = @_;
       $re->{'OS'}{"${tap}c_version"} : $re->{'FOR'} ? $re->{'HASH'}{$tap} : $re->{'DMG'}{$tap};
     $ver = $ver.$re->{'OS'}{"${tap}revision"} if $re->{'FOR'} and $re->{'OS'}{"${tap}revision"};
 
-   my $brew = 1;
+      my $brew = 1;
  if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
      $re->{'LINK'} and $re->{'LINK'} == 2 and not $re->{'OS'}{"${tap}un_Linux"} or
      $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"$tap$OS_Version"} or
