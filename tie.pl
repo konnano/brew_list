@@ -153,7 +153,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
          } next;
       }elsif( my( $ls3,$ls4 ) = 
         $data =~ /^\s*depends_on\s+xcode:.+:build.+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-         if( $re->{'MAC'} and eval"$OS_Version $ls3 $MAC_OS{$ls4}" and not $Xcode ){
+         if( $re->{'MAC'} and eval "$OS_Version $ls3 $MAC_OS{$ls4}" and not $Xcode ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          }elsif( $re->{'LIN'} ){
@@ -163,7 +163,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
       }elsif( my( $ls5,$ls6,$ls7 ) =
         $data =~ /^\s*depends_on\s+xcode:\s*"([^"]+)"\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
          $data =~ s/^(\d\.)/0$1/;
-         if( $re->{'MAC'} and eval"$OS_Version $ls6 $MAC_OS{$ls7}" and $ls5 gt $Xcode ){
+         if( $re->{'MAC'} and eval "$OS_Version $ls6 $MAC_OS{$ls7}" and $ls5 gt $Xcode ){
          $ls5 =~ s/^(\d\.)/0$1/;
           $tap{"${name}un_xcode"} = 1;
            $tap{"$name$OS_Version2"} = 0;
@@ -242,12 +242,12 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
      }elsif( $data =~ /^\s*depends_on.+\s+if\s+/ ){
        if( my( $ls1,$ls2,$ls3 ) =
         $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-         if( $re->{'MAC'} and eval"$OS_Version $ls2 $MAC_OS{$ls3}" ){
+         if( $re->{'MAC'} and eval "$OS_Version $ls2 $MAC_OS{$ls3}" ){
           $tap{"${ls1}uses"} .= "$name\t";
          }
        }elsif( my($ls4,$ls5,$ls6) =
         $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
-         if( $re->{'MAC'} and eval"$re->{'CLANG'} $ls5 $ls6" ){
+         if( $re->{'MAC'} and eval "$re->{'CLANG'} $ls5 $ls6" ){
           $tap{"${ls4}uses"} .= "$name\t";
          }
        }elsif( my( $ls7,$ls8 ) =
@@ -299,7 +299,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
   for my $dir2(@CASK){ chomp $dir2;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
-     my $ELS = 1; my $IF1 = 1; my $IF2 = 0;
+     my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
@@ -310,13 +310,13 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
         $tap{"${name}formula"} = 0 if $CPU ne $ls3;
        }
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-        $IF1 = 0;
-       if( eval"$OS_Version $ls4 $MAC_OS{$ls5}" ){
-        $ELS = 0; $IF2 = 1;
+        $IF1 = 0; $ELIF = $ELS = 1;
+       if( eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
+        $ELS = $ELIF = 0; $IF2 = 1;
        }
-     }elsif( my( $ls6,$ls7 ) = $data =~ /^\s*elsif\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-       if( eval"$OS_Version $ls6 $MAC_OS{$ls7}" ){
-        $ELS = 0; $IF2 = 1;
+     }elsif( my( $ls6,$ls7 ) = $data =~ /^\s*elsif\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ and $ELIF ){
+       if( eval "$OS_Version $ls6 $MAC_OS{$ls7}" ){
+        $ELS = $ELIF  = 0; $IF2 = 1;
        }
      }elsif( $data =~ /^\s*else/ and $ELS ){
         $IF2 = 1;
