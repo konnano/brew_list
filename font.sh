@@ -101,7 +101,7 @@ perl<<"EOF"
    closedir $dir3;
     @file3 = sort{$a cmp $b}@file3;
 
-   ( $i1 and $i2 and $i3 ) ? push @file,"a\n",@file1,"1\n",@file2,"2\n",@file3 :
+   ( $i1 and $i2 and $i3 ) ? push @file,"#\n",@file1,@file2,@file3 :
    ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,@file1,@file2 :
    ( $i1 and $i3 ) ? push @file,"4\n1\n",@file2,@file1,@file3 :
    ( $i2 and $i3 ) ? push @file,"5\n0\n",@file1,@file2,@file3 :
