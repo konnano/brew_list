@@ -351,7 +351,7 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
   if( $re->{'CAS'} and -f $re->{'Q_TAP'} and ( $re->{'S_OPT'} or $re->{'TAP'} ) ){
    open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$BREW>){ chomp $tap;
-     if( $tap =~ /^[3-9a]$/ ){
+     if( $tap =~ /^[3-9#]$/ ){
       ++$re->{'NEW'} and Init_1( $re )
        if $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} and $tap ne '9' or
           $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '8' or
@@ -360,7 +360,7 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
           $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '5' or
           $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
           $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
-          not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne 'a';
+          not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '#';
       next;
      }
      push @file,$tap;
