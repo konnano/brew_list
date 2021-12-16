@@ -62,11 +62,21 @@ curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-ve
   rmdir ~/.BREW_LIST/5
 
 perl<<"EOF"
+   $CPU = `sysctl machdep.cpu.brand_string`;
+  if( $CPU =~ /Apple\s+M1/ ){
+   $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+    $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+     $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  }else{
+   $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+    $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+     $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ 
      next if $hand1 =~ /^\./;
       $hand1 =~ s/(.+)\.rb$/$1/;
-       if( -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts' ){
+       if( $FDIR ){
         push @file1,"$hand1\n";
        }else{ $i1 = 1;
         push @file1,"homebrew/cask-fonts/$hand1\n";
@@ -79,7 +89,7 @@ perl<<"EOF"
     for my $hand2( readdir($dir2) ){ 
      next if $hand2 =~ /^\./;
       $hand2 =~ s/(.+)\.rb$/$1/;
-       if( -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers' ){
+       if( $DDIR ){
         push @file2,"$hand2\n";
        }else{ $i2 = 1;
         push @file2,"homebrew/cask-drivers/$hand2\n";
@@ -92,7 +102,7 @@ perl<<"EOF"
     for my $hand3( readdir($dir3) ){ 
      next if $hand3 =~ /^\./;
       $hand3 =~ s/(.+)\.rb$/$1/;
-       if( -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions' ){
+       if( $VERS ){
         push @file3,"$hand3\n";
        }else{ $i3 = 1;
         push @file3,"homebrew/cask-versions/$hand3\n";
