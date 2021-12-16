@@ -77,7 +77,7 @@ MAIN:{
     $ref->{'VERS'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
  }
  exit unless -d $re->{'CEL'};
-  die " not exists cask tap\n"
+  print " not exists cask tap\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
 
  if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
@@ -359,7 +359,8 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
           $re->{'DDIR'} and $re->{'VERS'} and not $re->{'FDIR'} and $tap ne '6' or
           $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '5' or
           $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
-          $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3';
+          $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
+          not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'};
       next;
      }
      push @file,$tap;
