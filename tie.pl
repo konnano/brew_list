@@ -343,9 +343,9 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
    my $COU = $IN;
   for(my $i=0;$i<@BREW;$i++){
     for(;$COU<@LIST;$COU++){
-     my( $ls1,$ls2,$ls3 ) = split "\t",$LIST[$COU]; 
+     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
       last if $BREW[$i] lt $ls1;
-       $tap{"${BREW[$i]}ver"} = $ls2 and last if $BREW[$i] eq $ls1; 
+       $tap{"${BREW[$i]}ver"} = $ls2 and last if $BREW[$i] eq $ls1;
     }
     for(;$IN<@CASK;$IN++){
      last if $BREW[$i] lt $CASK[$IN];
@@ -353,7 +353,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDWR|O_CREAT,0644;
        $tap{"${CASK[$IN]}so_name"} = 1;
         last;
       }
-    }  
+    }
   }
  }
 untie %tap;
