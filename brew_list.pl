@@ -13,9 +13,7 @@ MAIN:{
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
              'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
              'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
-             'FON'=>"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt",
-             'DRI'=>"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt",
-             'VER'=>"$ENV{'HOME'}/.BREW_LIST/Q_VERS.txt" };
+             'Q_TAP'=>"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt"};
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
@@ -344,101 +342,32 @@ my( $re,@AN,%HA,@an,$do ) = @_;
 }
 
 sub File_1{
-my( $re,$list,$file,$test,$tap1,$tap2,$tap3 ) = @_;
+my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
   unless( $re->{'TAP'} ){
    open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
     chomp( @$file=<$BREW> );
    close $BREW;
   }
- if( $re->{'CAS'} and -f $re->{'FON'} and -f $re->{'DRI'} and -f $re->{'VER'} and
-   ( $re->{'S_OPT'} or $re->{'TAP'} ) ){
-
-   if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
-     push @$file,'  ==> homebrew/cask-fonts' if $re->{'TAP'};
-    push @$file,@{ File_2( $re->{'FON'},0 ) };
-      push @$file,'  ==> homebrew/cask-drivers' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'DRI'},0 ) };
-       push @$file,'  ==> homebrew/cask-versions' if $re->{'TAP'};
-      push @$file,@{ File_2( $re->{'VER'},0 ) };
-       @$file = sort{$a cmp $b}@$file unless $re->{'TAP'};
-
-   }elsif( not $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} ){
-    push @$file,'  ==> homebrew/cask-drivers' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'DRI'},0 ) };
-      push @$file,'  ==> homebrew/cask-versions' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'VER'},0 ) };
-      unless( $re->{'TAP'} ){
-       @$file = sort{$a cmp $b}@$file;
-        push @$file,@{ File_2( $re->{'FON'},1 ) };
-      }
-
-   }elsif( not $re->{'FDIR'} and not $re->{'DDIR'} and $re->{'VERS'} ){
-    push @$file,'  ==> homebrew/cask-versions' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'VER'},0 ) };
-      unless( $re->{'TAP'} ){
-       @$file = sort{$a cmp $b}@$file;
-        push @$file,@{ File_2( $re->{'FON'},1 ) };
-         push @$file,@{ File_2( $re->{'DRI'},2 ) };
-      }
-
-   }elsif( not $re->{'FDIR'} and  $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,'  ==> homebrew/cask-drivers' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'DRI'},0 ) };
-      unless( $re->{'TAP'} ){
-       @$file = sort{$a cmp $b}@$file  unless $re->{'TAP'};
-        push @$file,@{ File_2( $re->{'FON'},1 ) };
-         push @$file,@{ File_2( $re->{'VER'},3 ) };
-      }
-
-   }elsif( not $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,@{ File_2( $re->{'FON'},1 ) };
-     push @$file,@{ File_2( $re->{'DRI'},2 ) };
-      push @$file,@{ File_2( $re->{'VER'},3 ) };
-
-   }elsif( $re->{'FDIR'} and not $re->{'DDIR'} and $re->{'VERS'} ){
-    push @$file,'  ==> homebrew/cask-fonts' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'FON'},0 ) };
-    push @$file,'  ==> homebrew/cask-versions' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'VER'},0 ) };
-      unless( $re->{'TAP'} ){
-       @$file = sort{$a cmp $b}@$file;
-        push @$file,@{ File_2( $re->{'DRI'},2 ) };
-      }
-
-   }elsif( $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,'  ==> homebrew/cask-fonts' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'FON'},0 ) };
-      unless( $re->{'TAP'} ){
-       @$file = sort{$a cmp $b}@$file;
-        push @$file,@{ File_2( $re->{'DRI'},2 ) };
-         push @$file,@{ File_2( $re->{'VER'},3 ) };
-      }
-
-   }elsif( $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} ){
-    push @$file,'  ==> homebrew/cask-fonts' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'FON'},0 ) };
-    push @$file,'  ==> homebrew/cask-drivers' if $re->{'TAP'};
-     push @$file,@{ File_2( $re->{'DRI'},0 ) };
-      unless( $re->{'TAP'} ){
-       @$file = sort{$a cmp $b}@$file;
-        push @$file,@{ File_2( $re->{'VER'},3 ) };
-      }
-   }
+  if( $re->{'CAS'} and -f $re->{'Q_TAP'} and ( $re->{'S_OPT'} or $re->{'TAP'} ) ){
+   open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
+    while(my $tap=<$BREW>){ chomp $tap;
+     if( $tap =~ /^[3-9]$/ ){
+      ++$re->{'NEW'} and Init_1( $re )
+       if $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} and $tap ne '9' or
+          $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '8' or
+          $re->{'FDIR'} and $re->{'VERS'} and not $re->{'DDIR'} and $tap ne '7' or
+          $re->{'DDIR'} and $re->{'VERS'} and not $re->{'FDIR'} and $tap ne '6' or
+          $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '5' or
+          $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
+          $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3';
+      next;
+     }
+     push @file,$tap;
+    }
+   close $BREW;
+  push @$file,@file;
  }
  Search_1( $list,$file,0,$re );
-}
-
-sub File_2{
-my( $dir,$ls,$file ) = @_;
- open my $BREW,'<',$dir or die " File_2 $!\n";
-  while(my $brew = <$BREW>){ chomp $brew;
-   $ls == 1 ? push @$file,"homebrew/cask-fonts/$brew" :
-   $ls == 2 ? push @$file,"homebrew/cask-drivers/$brew" :
-   $ls == 3 ? push @$file,"homebrew/cask-versions/$brew" :
-   push @$file,$brew;
-  }
- close $BREW;
-$file;
 }
 
 sub Unic_1{
@@ -685,9 +614,14 @@ my( $re,$ls1,$ls2 ) = @_;
 
 sub Search_1{
 my( $list,$file,$in,$re ) = @_;
- for(my $i=0;$file->[$i];$i++){ my $pop = 0;
+ for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = $file->[$i] =~ /\t/ ? split '\t',$file->[$i] : $file->[$i];
-   my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
+   last if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
+    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
+
+  $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
+            $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
+            $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
    $brew_2 = $brew_2.$re->{'OS'}{"${brew_1}revision"} if $re->{'FOR'} and $re->{'OS'}{"${brew_1}revision"};
@@ -711,7 +645,7 @@ my( $list,$file,$in,$re ) = @_;
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
        if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
-        $in++ and $re->{'IN'}++; $pop = 1;
+        $in++; $re->{'IN'}++; $pop = 1;
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
@@ -769,8 +703,8 @@ my( $list,$file,$in,$re ) = @_;
      }
      $in++;
     }
-    $re->{'MEM'} .= "$brew_2\t$brew_3\n" if $brew_2;
-     $re->{'MEM'} =~ s/\t/\n/ unless $brew_2;
+    $re->{'MEM'} .= "$brew_2\t$brew_3\n" if defined $brew_2;
+     $re->{'MEM'} =~ s/\t/\n/ unless defined $brew_2;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
        $re->{'AN'}++;
    }
@@ -830,8 +764,10 @@ my( $list,$re,$in ) = @_;
         $re->{'MEM'} = "         $tap\t$ver\t$com\n";
          Type_1( $re,$tap,' i ' );
     }
-      Memo_1( $re,$mem,0 ) if $brew and not $re->{'TAP'};
-       $re->{'AN'}++ and $re->{'IN'}++ if $brew;
+     if( $brew and not $re->{'TAP'} ){
+      Memo_1( $re,$mem,0 );
+       $re->{'AN'}++ and $re->{'IN'}++;
+     }
   }else{
     Memo_1( $re,$mem,$tap );
   }
