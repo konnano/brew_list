@@ -66,40 +66,56 @@ perl<<"EOF"
     for $hand1( readdir($dir1) ){ 
      next if $hand1 =~ /^\./;
       $hand1 =~ s/(.+)\.rb$/$1/;
-       push @file1,"$hand1\n";
+       if( -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts' ){
+        push @file1,"$hand1\n";
+       }else{ $i1 = 1;
+        push @file1,"homebrew/cask-fonts/$hand1\n";
+       }
     }
    closedir $dir1;
-   @file1 = sort{$a cmp $b}@file1;
-    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_FONT.txt" or die " FILE1 $!\n";
-     print $FILE1 @file1;
-    close $FILE1;
+    @file1 = sort{$a cmp $b}@file1;
 
    opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-drivers-master/Casks" or die " DIR2 $!\n";
     for my $hand2( readdir($dir2) ){ 
      next if $hand2 =~ /^\./;
       $hand2 =~ s/(.+)\.rb$/$1/;
-       push @file2,"$hand2\n";
+       if( -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers' ){
+        push @file2,"$hand2\n";
+       }else{ $i2 = 1;
+         push @file2,"homebrew/cask-drivers/$hand2\n";
+       }
     }
    closedir $dir2;
-   @file2 = sort{$a cmp $b}@file2;
-    open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/Q_DRIV.txt" or die " FILE2 $!\n";
-     print $FILE2 @file2;
-    close $FILE2;
+    @file2 = sort{$a cmp $b}@file2;
 
    opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR3 $!\n";
     for my $hand3( readdir($dir3) ){ 
      next if $hand3 =~ /^\./;
       $hand3 =~ s/(.+)\.rb$/$1/;
-       push @file3,"$hand3\n";
+       if( -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions' ){
+        push @file3,"$hand3\n";
+       }else{ $i3 = 1;
+        push @file3,"homebrew/cask-versions/$hand3\n";
+       }
     }
    closedir $dir3;
-   @file3 = sort{$a cmp $b}@file3;
-    open $FILE3,'>',"$ENV{'HOME'}/.BREW_LIST/Q_VERS.txt" or die " FILE3 $!\n";
-     print $FILE3 @file3;
-    close $FILE3;
+    @file3 = sort{$a cmp $b}@file3;
 
-  open $FILE4,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE4 $!\n";
-   while($brew=<$FILE4>){
+   ( $i1 and $i2 and $i3 ) ? push @file,@file1,"1\n",@file2,"2\n",@file3 :
+   ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,@file1,@file2 :
+   ( $i1 and $i3 ) ? push @file,"4\n1\n",@file2,@file1,@file3 :
+   ( $i2 and $i3 ) ? push @file,"5\n0\n",@file1,@file2,@file3 :
+   ( $i1 ) ? push @file,"6\n1\n",@file2,"2\n",@file3,@file1 :
+   ( $i2 ) ? push @file,"7\n0\n",@file1,"2\n",@file3,@file2 :
+   ( $i3 ) ? push @file,"8\n0\n",@file1,"1\n",@file2,@file3 :
+             push @file,"9\n0\n",@file1,"1\n",@file2,"2\n",@file3;
+
+    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
+     print $FILE1 @file;
+    close $FILE1;
+
+  open $FILE2,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
+   while($brew=<$FILE2>){
     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
      $tap1 = $brew; next;
     }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
@@ -112,10 +128,10 @@ perl<<"EOF"
      push @file4,"$tap1\t$tap3\t$tap2\n" if $tap1;
     $tap1 = $tap2 = $tap3 = '';
    }
-  close $FILE4;
-   open $FILE5,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE5 $!\n";
-    print $FILE5 @file4;
-   close $FILE5;
+  close $FILE2;
+   open $FILE3,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE5 $!\n";
+    print $FILE3 @file4;
+   close $FILE3;
 EOF
 
 else
