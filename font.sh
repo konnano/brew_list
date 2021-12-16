@@ -82,7 +82,7 @@ perl<<"EOF"
        if( -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers' ){
         push @file2,"$hand2\n";
        }else{ $i2 = 1;
-         push @file2,"homebrew/cask-drivers/$hand2\n";
+        push @file2,"homebrew/cask-drivers/$hand2\n";
        }
     }
    closedir $dir2;
