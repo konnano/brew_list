@@ -91,9 +91,12 @@ MAIN:{
     $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
  }
 
- if( $re->{'NEW'} or not -f "$ENV{'HOME'}/.BREW_LIST/DB" ){
+ if( $re->{'NEW'} or $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
+                     $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir"){
   $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = $re->{'TOP'} = 0;
    die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+    die " \033[31mNot exist\033[00m ~/.BREW_LIST => ./init.sh unlink => ./init.sh\n"
+     unless -d "$ENV{HOME}/.BREW_LIST";
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
@@ -144,8 +147,7 @@ sub Died_1{
   -in\t:  formula require formula\n  -t\t:  formula require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
   -de\t:  uninstalled not require formula\n  -d\t:  uninstalled not require formula, display tree
-  -g\t:  Independent formula
-    Only mac : Cask
+  -g\t:  Independent formula\n    Only mac : Cask
   -c\t:  cask list\n  -ct\t:  cask tap list\n  -ci\t:  instaled cask
   -cx\t:  can't install cask\n  -cs\t:  some name cask and formula\n";
 }
@@ -165,27 +167,29 @@ sub Init_1{
 
  $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} ) ?
   Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
- @$list = split "\t",$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
+ @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
 
  $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ?
    Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : File_1( $re,$list );
 }
 
 sub Wait_1{
- my $pid = fork;
-  die " Wait Not fork : $!\n" unless defined $pid;
+ my @ten = ('⠹','⠼','⠶','⠧','⠏','⠛');
+  my $pid = fork;
+   die " Wait Not fork : $!\n" unless defined $pid;
    if($pid){ $|=1;
     print STDERR "\x1B[?25l";
-    if( $^O eq 'linux' ){
-     print STDERR " wait\n";
+    if( $^O eq 'linux' ){ my $i=0;
      mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
-      while(1){
-       -d "$ENV{HOME}/.BREW_LIST/WAIT" ? ( print STDERR '#' and sleep 1 ) : last;
+      while(1){ $i = $i % 6;
+       -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
+        print STDERR "\r \033[33m$ten[$i]\033[00m : Makes new cache" : last;
+         $i++ and system 'sleep 0.1';
       }
     }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
      while(1){
-     printf STDERR "\r[%2d/10] '%s%s'",$i,$ma,$spa;
-      last if $i == 10;
+     printf STDERR "\r[%2d/10] '\033[33m%s\033[00m%s'",$i,$ma,$spa;
+      sleep 1 and last if $i == 10;
        if( -d "$ENV{'HOME'}/.BREW_LIST/$i" ){
         while(1){
          last unless -d "$ENV{'HOME'}/.BREW_LIST/$i";
@@ -194,7 +198,9 @@ sub Wait_1{
      }
     } waitpid($pid,0);
        print STDERR "\x1B[?25h";
-     -f "$ENV{'HOME'}/.BREW_LIST/DB" ? die "\n Creat new cache\n" : die"\n Can not Created\n";
+     ( $^O eq 'darwin' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
+       $^O eq 'linux' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ) ?
+      die "\r \033[36m✔︎\033[00m : Creat new cache\n" : die "\r \033[31m✖︎\033[00m : Can not Create\n";
    }else{
      system '~/.BREW_LIST/font.sh'; exit;
    }
@@ -265,7 +271,7 @@ my( $re,$list,%HA,@AN ) = @_;
   $ls =~ s/^\s(.*)\n/$1/;
    Uses_1( $re,$ls,\%HA,\@AN );
     if( @AN < 2 ){
-     my @BUI = split "\t",$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
+     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
       for my $bui(@BUI){
        $ls .= " : $bui" if $re->{'HASH'}{$bui};
       }
@@ -290,7 +296,7 @@ my( $re,$list,%HA,@AN ) = @_;
 
 sub Uses_1{
 my( $re,$tap,$HA,$AN ) = @_;
- my @tap = $tap =~ /\t/ ? split "\t",$tap : $tap;
+ my @tap = $tap =~ /\t/ ? split '\t',$tap : $tap;
   for my $ls(@tap){
    $HA->{$ls}++;
     push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
@@ -352,15 +358,17 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
    open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$BREW>){ chomp $tap;
      if( $tap =~ /^[3-9#]$/ ){
-      ++$re->{'NEW'} and Init_1( $re )
-       if $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} and $tap ne '9' or
-          $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '8' or
-          $re->{'FDIR'} and $re->{'VERS'} and not $re->{'DDIR'} and $tap ne '7' or
-          $re->{'DDIR'} and $re->{'VERS'} and not $re->{'FDIR'} and $tap ne '6' or
-          $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '5' or
-          $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
-          $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
-          not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '#';
+       if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} and $tap ne '9' or
+           $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '8' or
+           $re->{'FDIR'} and $re->{'VERS'} and not $re->{'DDIR'} and $tap ne '7' or
+           $re->{'DDIR'} and $re->{'VERS'} and not $re->{'FDIR'} and $tap ne '6' or
+           $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '5' or
+           $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
+           $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
+           not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '#' ){
+            die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+             $re->{'NEW'}++; Init_1( $re );
+       }
       next;
      }
      push @file,$tap;
@@ -807,7 +815,7 @@ my( $re,$brew_1,$i,$e ) = @_;
 
 sub Command_1{
 my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
- for(my $in=0;$list->[$in];$in++){
+ for(my $in=0;$in<@$list;$in++){
   if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
    exit unless my $num = $re->{'HASH'}{$name};
@@ -905,7 +913,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
    }
   $re->{'CAS'} = 0;
   }
-print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
+  print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
@@ -937,7 +945,7 @@ my $re = shift;
    $wap = $leng = 0;
   for(my $p=0;$p<@{$re->{'UNI'}};$p++){
    $wap++; my $plus = '';
-   my @an = split "\\s{3}",${$re->{'UNI'}}[$p];
+   my @an = split '\\s{3}',${$re->{'UNI'}}[$p];
     for(my $e=0;$e<@an;$e++){
       if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
        $an[$i] =~ s/\│$/#/ if $an[$i];
