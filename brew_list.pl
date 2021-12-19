@@ -17,12 +17,6 @@ MAIN:{
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
- %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
-            'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
-
- $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
- $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
- $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
@@ -66,15 +60,20 @@ MAIN:{
    $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
   $OS_Version2 = $OS_Version;
    $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
+  $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+   $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+    $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
+             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  }
 
  if( $re->{'MAC'} and $CPU eq 'arm\?' ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
-  $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  $ref->{'VERS'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
    $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-    $ref->{'VERS'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+    $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
  exit unless -d $re->{'CEL'};
   print " not exists cask tap\n"
@@ -174,19 +173,19 @@ sub Init_1{
 }
 
 sub Wait_1{
- my @ten = ('⠹','⠼','⠶','⠧','⠏','⠛');
-  my $pid = fork;
-   die " Wait Not fork : $!\n" unless defined $pid;
-   if($pid){ $|=1;
-    print STDERR "\x1B[?25l";
-    if( $^O eq 'linux' ){ my $i=0;
-     mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
-      while(1){ $i = $i % 6;
-       -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
-        print STDERR "\r \033[33m$ten[$i]\033[00m : Makes new cache" : last;
-         $i++ and system 'sleep 0.1';
-      }
-    }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
+ my $pid = fork;
+ die " Wait Not fork : $!\n" unless defined $pid;
+  if($pid){ $| = 1;
+   print STDERR "\x1B[?25l";
+   if( $^O eq 'linux' ){ my $i = 0;
+    my @ten = ('⠹','⠼','⠶','⠧','⠏','⠛');
+    mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
+     while(1){ $i = $i % 6;
+      -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
+       print STDERR "\r \033[33m$ten[$i]\033[00m : Makes new cache" : last;
+        $i++ and system 'sleep 0.1';
+     }
+   }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
      while(1){
      printf STDERR "\r[%2d/10] '\033[33m%s\033[00m%s'",$i,$ma,$spa;
       sleep 1 and last if $i == 10;
@@ -196,14 +195,14 @@ sub Wait_1{
         } $i++; $ma .= '#'; $spa =~ s/\s//;
        }
      }
-    } waitpid($pid,0);
+   } waitpid($pid,0);
        print STDERR "\x1B[?25h";
      ( $^O eq 'darwin' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
        $^O eq 'linux' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ) ?
       die "\r \033[36m✔︎\033[00m : Creat new cache\n" : die "\r \033[31m✖︎\033[00m : Can not Create\n";
-   }else{
-     system '~/.BREW_LIST/font.sh'; exit;
-   }
+  }else{
+   system '~/.BREW_LIST/font.sh'; exit;
+  }
 }
 
 sub DB_1{
