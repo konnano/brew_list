@@ -93,7 +93,9 @@ MAIN:{
     $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
  }
 
- if( $re->{'NEW'} ){
+ if( $re->{'NEW'} or $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
+                     $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ){
+  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = $re->{'TOP'} = 0;
    die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
