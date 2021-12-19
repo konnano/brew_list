@@ -171,15 +171,14 @@ perl<<"EOF"
    close $FILE2;
 EOF
 
- rm -rf ~/.BREW_LIST/6
- rm -f ~/.BREW_LIST/DBM.*
- perl ~/.BREW_LIST/tie.pl
+rm -rf  ~/.BREW_LIST/6
+perl ~/.BREW_LIST/tie.pl
 
- rm -f ~/.BREW_LIST/DB
 if [[ $NAME = Darwin ]];then
- ln -s ~/.BREW_LIST/DBM.db ~/.BREW_LIST/DB
+ mv ~/.BREW_LIST/GDBM.db ~/.BREW_LIST/DBM.db
 else
- ln -s ~/.BREW_LIST/DBM.dir ~/.BREW_LIST/DB
+ mv ~/.BREW_LIST/GDBM.dir ~/.BREW_LIST/DBM.dir
+ mv ~/.BREW_LIST/GDBM.pag ~/.BREW_LIST/DBM.pag
 fi
 
 rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
