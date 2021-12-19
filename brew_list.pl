@@ -79,6 +79,8 @@ MAIN:{
  exit unless -d $re->{'CEL'};
   print " not exists cask tap\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
+  die " \033[31mNot exist\033[00m ~/.BREW_LIST => ./init.sh unlink => ./init.sh\n"
+   unless -d "$ENV{HOME}/.BREW_LIST";
 
  if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -91,12 +93,8 @@ MAIN:{
     $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
  }
 
- if( $re->{'NEW'} or $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-                     $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir"){
-  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = $re->{'TOP'} = 0;
+ if( $re->{'NEW'} ){
    die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
-    die " \033[31mNot exist\033[00m ~/.BREW_LIST => ./init.sh unlink => ./init.sh\n"
-     unless -d "$ENV{HOME}/.BREW_LIST";
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
