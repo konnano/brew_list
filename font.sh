@@ -29,7 +29,7 @@ if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
 fi
 
 trap '
-rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html ~/.BREW_LIST/DBM.*
+rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html ~/.BREW_LIST/DBM*
 rm -rf ~/.BREW_LIST/homebrew-cask-*
 rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
@@ -174,10 +174,10 @@ rm -rf  ~/.BREW_LIST/6
 perl ~/.BREW_LIST/tie.pl
 
 if [[ $NAME = Darwin ]];then
- mv ~/.BREW_LIST/GDBM.db ~/.BREW_LIST/DBM.db
+ mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
 else
- mv ~/.BREW_LIST/GDBM.dir ~/.BREW_LIST/DBM.dir
- mv ~/.BREW_LIST/GDBM.pag ~/.BREW_LIST/DBM.pag
+ mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
+ mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
 fi
 
 rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
