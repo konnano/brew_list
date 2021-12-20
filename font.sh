@@ -31,7 +31,6 @@ fi
 trap '
 rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
 rm -rf ~/.BREW_LIST/homebrew-cask-*
-rm -f ~/.BREW_LIST/Q_*.txt ~/.BREW_LIST/DB
 rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
 exit' 1 2 3 15 20
 
