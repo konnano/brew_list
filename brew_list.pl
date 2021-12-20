@@ -182,7 +182,7 @@ sub Wait_1{
     mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
      while(1){ $i = $i % 6;
       -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
-       print STDERR "\r \033[33m$ten[$i]\033[00m : Makes new cache" : last;
+       print STDERR "\r \033[3${i}m$ten[$i]\033[00m : Makes new cache" : last;
         $i++ and system 'sleep 0.1';
      }
    }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
