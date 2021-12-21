@@ -180,10 +180,10 @@ sub Wait_1{
    if( $^O eq 'linux' ){ my $i = 0;
     my @ten = ('⠹','⠼','⠶','⠧','⠏','⠛');
     mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
-     while(1){ $i = $i % 6;
+     while(1){ $i = $i % 6; my $c = int(rand 6) + 1;
       -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
-       print STDERR "\r \033[3${i}m$ten[$i]\033[00m : Makes new cache" : last;
-        $i++ and system 'sleep 0.1';
+       print STDERR "\r \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
+        $i++; system 'sleep 0.1';
      }
    }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
      while(1){
@@ -327,7 +327,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
       next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
        for( ;$e<@list1;$e++ ){
         last if $list1[$e] eq $list2[$i];
-        $flag++ and last if $list1[$e] gt $list2[$i];
+        ++$flag and last if $list1[$e] gt $list2[$i];
        }
       last if $flag;
      }
@@ -648,7 +648,7 @@ my( $list,$file,$in,$re ) = @_;
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
-      $i-- and next;
+      $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
@@ -688,7 +688,7 @@ my( $list,$file,$in,$re ) = @_;
     if( $pop ){
      if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
        Memo_1( $re,$mem,$brew_1 );
-         $i-- and next;
+         $i--; next;
      }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
        Memo_1( $re,$mem,$brew_1 );
        while(1){ $in++;
@@ -699,7 +699,7 @@ my( $list,$file,$in,$re ) = @_;
          $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
            $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
             Memo_1( $re,$mem,0 );
-             $in++ and $i-- and next;
+             $in++; $i--; next;
      }else{
       if( $re->{'FOR'} and $brew_2 ne $re->{'HASH'}{$brew_1} and
         ( not $re->{'OS'}{"${brew_1}un_xcode"} or not $re->{'OS'}{"${brew_1}un_Linux"} ) or
@@ -774,7 +774,7 @@ my( $list,$re,$in ) = @_;
     }
      if( $brew and not $re->{'TAP'} ){
       Memo_1( $re,$mem,0 );
-       $re->{'AN'}++ and $re->{'IN'}++;
+       $re->{'AN'}++; $re->{'IN'}++;
      }
   }else{
     Memo_1( $re,$mem,$tap );
