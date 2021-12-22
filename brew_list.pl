@@ -195,7 +195,7 @@ sub Wait_1{
           system 'sleep 0.001';
         } $i++; $ma .= '#'; $spa =~ s/\s//;
        }
-    }
+     }
    } waitpid($pid,0);
        print STDERR "\x1B[?25h";
      ( $^O eq 'darwin' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
