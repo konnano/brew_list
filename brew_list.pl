@@ -173,13 +173,13 @@ sub Init_1{
 }
 
 sub Wait_1{
- my $pid = fork;
+ mkdir "$ENV{HOME}/.BREW_LIST/WAIT" or die " Not mkdir WAIT\n";
+  my $pid = fork;
  die " Wait Not fork : $!\n" unless defined $pid;
-  if($pid){ $| = 1;
+  if($pid){
    print STDERR "\x1B[?25l";
    if( $^O eq 'linux' ){ my $i = 0;
     my @ten = ('⠹','⠼','⠶','⠧','⠏','⠛');
-    mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
      while(1){ $i = $i % 6; my $c = int(rand 6) + 1;
       -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
        print STDERR "\r \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
@@ -188,18 +188,19 @@ sub Wait_1{
    }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
      while(1){
      printf STDERR "\r[%2d/10] '\033[33m%s\033[00m%s'",$i,$ma,$spa;
-      sleep 1 and last if $i == 10;
+      sleep 1 and last unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
        if( -d "$ENV{'HOME'}/.BREW_LIST/$i" ){
         while(1){
          last unless -d "$ENV{'HOME'}/.BREW_LIST/$i";
+          system 'sleep 0.001';
         } $i++; $ma .= '#'; $spa =~ s/\s//;
        }
-     }
+    }
    } waitpid($pid,0);
        print STDERR "\x1B[?25h";
      ( $^O eq 'darwin' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
        $^O eq 'linux' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ) ?
-      die "\r \033[36m✔︎\033[00m : Creat new cache\n" : die "\r \033[31m✖︎\033[00m : Can not Create\n";
+      die "\r \033[36m✔︎\033[00m : Creat new cache\n" : die "\r \033[31m✖︎\033[00m : Can not Create \n";
   }else{
    system '~/.BREW_LIST/font.sh'; exit;
   }
