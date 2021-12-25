@@ -85,7 +85,7 @@ perl<<"EOF"
     @file1 = sort{$a cmp $b}@file1;
 
    opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-drivers-master/Casks" or die " DIR2 $!\n";
-    for my $hand2( readdir($dir2) ){ 
+    for $hand2( readdir($dir2) ){ 
      next if $hand2 =~ /^\./;
       $hand2 =~ s/(.+)\.rb$/$1/;
        if( $DDIR ){
@@ -98,7 +98,7 @@ perl<<"EOF"
     @file2 = sort{$a cmp $b}@file2;
 
    opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR3 $!\n";
-    for my $hand3( readdir($dir3) ){ 
+    for $hand3( readdir($dir3) ){ 
      next if $hand3 =~ /^\./;
       $hand3 =~ s/(.+)\.rb$/$1/;
        if( $VERS ){
