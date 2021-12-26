@@ -180,6 +180,5 @@ else
  mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
 fi
 
-rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
-rm -rf ~/.BREW_LIST/homebrew-cask-*
-rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
+rm -f  ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
+rm -rf ~/.BREW_LIST/homebrew-cask-* ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
