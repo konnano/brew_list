@@ -1,5 +1,4 @@
 #!/bin/bash
-
  NAME=`uname`
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  exit
@@ -8,19 +7,18 @@ elif [[ $NAME = Darwin ]];then
 fi
 
 if [[ $NAME = Darwin && $1 && $1 = unlink ]];then
-  if [[ $CPU =~ Intel ]];then
-   rm -f /usr/local/bin/brew_list
-  else
-   rm -f /opt/homebrew/bin/brew_list
-  fi
-   rm -rf ~/.BREW_LIST
-    echo rm all cache
-     exit
-elif [[ $NAME = Linux && $1 && $1 = unlink ]];then
- rm -f /home/linuxbrew/.linuxbrew/bin/brew_list
+ if [[ $CPU =~ Intel ]];then
+  rm -f /usr/local/bin/brew_list
+ else
+  rm -f /opt/homebrew/bin/brew_list
+ fi
   rm -rf ~/.BREW_LIST
    echo rm all cache
-   exit
+    exit
+elif [[ $NAME = Linux && $1 && $1 = unlink ]];then
+ rm -rf /home/linuxbrew/.linuxbrew/bin/brew_list ~/.BREW_LIST
+   echo rm all cache
+    exit
 fi
 
 if [[ ! $1 ]];then
@@ -39,10 +37,8 @@ if [[ ! $1 ]];then
 
  curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 || \
   { echo -e "\033[31m Not connected\033[00m"; exit; }
-
  DIR=$(cd $(dirname $0); pwd)
-
- mkdir -p ~/.BREW_LIST
+  mkdir -p ~/.BREW_LIST
 
  if [[ $NAME = Darwin ]];then
   if [[ $CPU =~ Intel ]];then
@@ -50,12 +46,10 @@ if [[ ! $1 ]];then
   else
    cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list
   fi
-   cp $DIR/font.sh ~/.BREW_LIST/font.sh
-    cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
  else
   cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list
-   cp $DIR/font.sh ~/.BREW_LIST/font.sh
-    cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
  fi
-brew_list -new
+  cp $DIR/font.sh ~/.BREW_LIST/font.sh
+   cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
+ brew_list -new
 fi
