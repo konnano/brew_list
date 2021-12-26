@@ -78,7 +78,7 @@ MAIN:{
  exit unless -d $re->{'CEL'};
   print " not exists cask tap\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
-    ++$re->{'NEW'} and Wait_1(1) unless -d "$ENV{'HOME'}/.BREW_LIST" and
+    ++$re->{'NEW'} and Init_1( $re,1 ) unless -d "$ENV{'HOME'}/.BREW_LIST" and
      -f "$ENV{'HOME'}/.BREW_LIST/font.sh" and -f "$ENV{'HOME'}/.BREW_LIST/tie.pl";
 
  if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
@@ -156,7 +156,7 @@ sub Init_1{
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
-  Wait_1(); 
+  Wait_1( $list ); 
  }
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
