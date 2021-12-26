@@ -78,8 +78,6 @@ MAIN:{
  exit unless -d $re->{'CEL'};
   print " not exists cask tap\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
-    ++$re->{'NEW'} and Init_1( $re,1 ) unless -d "$ENV{'HOME'}/.BREW_LIST" and
-     -f "$ENV{'HOME'}/.BREW_LIST/font.sh" and -f "$ENV{'HOME'}/.BREW_LIST/tie.pl";
 
  if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -93,9 +91,9 @@ MAIN:{
  }
 
  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-                     $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag" ){
-  $name->{'NEW'} = 1; $re->{'S_OPT'} = $re->{'BL'} = $re->{'DAT'} = $re->{'TOP'} = 0;
+     $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag" or not -d "$ENV{'HOME'}/.BREW_LIST" ){
    die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+    $re->{'NEW'}++; Init_1( $re );
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
@@ -156,7 +154,7 @@ sub Init_1{
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
-  Wait_1( $list ); 
+  Wait_1(); 
  }
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
@@ -203,8 +201,7 @@ sub Wait_1{
        $^O eq 'linux' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ) ?
       die "\r \033[36m✔︎\033[00m : Creat new cache\n" : die "\r \033[31m✖︎\033[00m : Can not Create \n";
   }else{
-   Tied_1() if $_[0];
-    system '~/.BREW_LIST/font.sh'; exit;
+   Tied_1(); system '~/.BREW_LIST/font.sh'; exit;
   }
 }
 
@@ -916,7 +913,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
    }else{
     print"$_\n" for @{$re->{'ARR'}};
    }
-  $re->{'CAS'} = 0;
+  $re->{'FOR'} = 0;
   }
   print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
@@ -969,6 +966,8 @@ my $re = shift;
 
 sub Nohup_1{
 my $re = shift;
+ ++$re->{'NEW'} and Init_1( $re )
+  unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh" and -f "$ENV{'HOME'}/.BREW_LIST/tie.pl";
  my( $time1,$time2 ) =
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] );
    if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
@@ -1303,7 +1302,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
 
      if( $CIN or $data =~ /^\s*if\s+Hardware::CPU/ ){
        $CIN = $data =~ /$CPU/ ? 1 : 2 unless $CIN;
-       if(($CIN == 1 or $CIN == 3) and $re->{'MAC'} and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
+       if(($CIN == 1 or $CIN == 3) and $re->{'MAC'} and
+           $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
           $data =~ s/^(\d\.)/0$1/;
            $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
