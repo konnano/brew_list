@@ -261,7 +261,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
         $tap{"${name}f_desc"} = $data;
       }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}f_name"} = $data;
-      }elsif( $data =~ s/^\s*revision\s+([^\s]+).*\n/$1/ ){
+      }elsif( $data =~ s/^\s*revision\s+(\d+).*\n/$1/ ){
         $tap{"${name}revision"} = "_$data";
       }
 
@@ -345,7 +345,15 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
     for(;$COU<@LIST;$COU++){
      my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
       last if $BREW[$i] lt $ls1;
-       $tap{"${BREW[$i]}ver"} = $ls2 and last if $BREW[$i] eq $ls1;
+       if( $BREW[$i] eq $ls1 ){
+        $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}revision"} ? $ls2.$tap{"${BREW[$i]}revision"} : $ls2;
+         last;
+       }
+    }
+    unless( $tap{"${BREW[$i]}ver"} ){
+     $tap{"${BREW[$i]}ver"} = ( $tap{"${BREW[$i]}f_version"} and $tap{"${BREW[$i]}revision"} ) ?
+      $tap{"${BREW[$i]}f_version"}.$tap{"${BREW[$i]}revision"} : $tap{"${BREW[$i]}f_version"} ?
+       $tap{"${BREW[$i]}f_version"} : 0;
     }
     for(;$IN<@CASK;$IN++){
      last if $BREW[$i] lt $CASK[$IN];
@@ -357,4 +365,3 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
   }
  }
 untie %tap;
-__END__
