@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+
 use strict;
 use warnings;
 use NDBM_File;
@@ -137,7 +138,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die "   Option\n  -new\t:  creat new cache
+ die "  version 1.00\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
