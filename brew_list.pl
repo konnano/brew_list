@@ -137,7 +137,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.00\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.00_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -178,8 +178,8 @@ sub Wait_1{
   if($pid){
    print STDERR "\x1B[?25l";
    if( $^O eq 'linux' ){ my $i = 0;
-    my @ten = ('⠹','⠼','⠶','⠧','⠏','⠛');
-     while(1){ $i = $i % 6; my $c = int(rand 6) + 1;
+    my @ten=('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹');
+     while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
       -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
        print STDERR "\r \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
         $i++; system 'sleep 0.1';
