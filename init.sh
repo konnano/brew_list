@@ -38,7 +38,6 @@ if [[ ! $1 ]];then
  curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 || \
   { echo -e "\033[31m Not connected\033[00m"; exit; }
  DIR=$(cd $(dirname $0); pwd)
-  mkdir -p ~/.BREW_LIST
 
  if [[ $NAME = Darwin ]];then
   if [[ $CPU =~ Intel ]];then
@@ -49,7 +48,5 @@ if [[ ! $1 ]];then
  else
   cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list
  fi
-  cp $DIR/font.sh ~/.BREW_LIST/font.sh
-   cp $DIR/tie.pl ~/.BREW_LIST/tie.pl
  brew_list -new
 fi
