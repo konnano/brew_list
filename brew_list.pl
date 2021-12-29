@@ -66,6 +66,7 @@ MAIN:{
   %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
              'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  }
+ $re->{'LC'} = $ref->{'LC'} = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
 
  if( $re->{'MAC'} and $CPU eq 'arm\?' ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
@@ -83,7 +84,6 @@ MAIN:{
   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
    $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
  }
-
  if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
   die" nothing in regex\n" 
    if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null" or
@@ -92,7 +92,7 @@ MAIN:{
 
  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
      $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag" or not -d "$ENV{'HOME'}/.BREW_LIST" ){
-   die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+   die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{'HOME'}/.BREW_LIST/LOCK";
     $re->{'NEW'}++; Init_1( $re );
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
@@ -137,7 +137,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.00_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.01\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -154,7 +154,7 @@ sub Init_1{
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
-  Wait_1(); 
+  Wait_1( $re ); 
  }
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
@@ -171,23 +171,28 @@ sub Init_1{
 }
 
 sub Wait_1{
- mkdir "$ENV{HOME}/.BREW_LIST";
- mkdir "$ENV{HOME}/.BREW_LIST/WAIT";
+ my $re = shift;
+ mkdir "$ENV{'HOME'}/.BREW_LIST";
+ mkdir "$ENV{'HOME'}/.BREW_LIST/WAIT";
+  my( $dok,$not,@ten ) = $re->{'LC'} ?
+   ( "\r \033[36m✔︎\033[00m : Creat new cache\n","\r \033[31m✖︎\033[00m : Can not Create \n",
+    ('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
+   ( "\r \033[36mo\033[00m : Creat new cache\n","\r \033[31mx\033[00m : Can not Create \n",
+    ('|','/','-','\\','|','/','-','\\') );
   my $pid = fork;
  die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){
    print STDERR "\x1B[?25l";
    if( $^O eq 'linux' ){ my $i = 0;
-    my @ten=('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹');
      while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
-      -d "$ENV{HOME}/.BREW_LIST/WAIT" ?
+      -d "$ENV{'HOME'}/.BREW_LIST/WAIT" ?
        print STDERR "\r \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
         $i++; system 'sleep 0.1';
      }
    }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
      while(1){
      printf STDERR "\r[%2d/10] '\033[33m%s\033[00m%s'",$i,$ma,$spa;
-      sleep 1 and last unless -d "$ENV{HOME}/.BREW_LIST/WAIT";
+      sleep 1 and last unless -d "$ENV{'HOME'}/.BREW_LIST/WAIT";
        if( -d "$ENV{'HOME'}/.BREW_LIST/$i" ){
         while(1){
          last unless -d "$ENV{'HOME'}/.BREW_LIST/$i";
@@ -198,8 +203,7 @@ sub Wait_1{
    } waitpid($pid,0);
        print STDERR "\x1B[?25h";
      ( $^O eq 'darwin' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-       $^O eq 'linux' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ) ?
-      die "\r \033[36m✔︎\033[00m : Creat new cache\n" : die "\r \033[31m✖︎\033[00m : Can not Create \n";
+       $^O eq 'linux' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ) ? die $dok : die $not;
   }else{
    Tied_1(); system '~/.BREW_LIST/font.sh'; exit;
   }
@@ -365,7 +369,7 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
            $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
            $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
            not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '#' ){
-            die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{HOME}/.BREW_LIST/LOCK";
+            die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{'HOME'}/.BREW_LIST/LOCK";
              $re->{'NEW'}++; Init_1( $re );
        }
       next;
@@ -636,6 +640,7 @@ my( $list,$file,$in,$re ) = @_;
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3;
+    $brew_3 =~ s/[“”]//g unless $re->{'LC'};
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -913,7 +918,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
    }else{
     print"$_\n" for @{$re->{'ARR'}};
    }
-  $re->{'FOR'} = 0;
+   $re->{'FOR'} = 0 if $re->{'MAC'};
   }
   print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
@@ -924,8 +929,10 @@ my $re = shift;
  my( $wap,$leng,@TODO ); my $cou = 0;
  for( @{$re->{'UNI'}} ){ my $an;
   $wap++;
-  $_ =~ s/\|/│/g;
-  $_ =~ s/\│--/├──/g;
+   if( $re->{'LC'} ){
+    $_ =~ s/\|/│/g;
+    $_ =~ s/│--/├──/g;
+   }
    my @an = split '\\s{3}',$_;
    for(@an){ $an++;
      $cou = $an if $cou < $an;
@@ -936,9 +943,9 @@ my $re = shift;
   for my $data( @{$re->{'UNI'}} ){ $leng++;
    my @an = split '\\s{3}',$data;
    for(@an){
-    $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──/;
+    $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──|\|--/;
     if( not $an[$i] and $TODO[$in] or
-        $wap == $leng and $an[$i] and $an[$i] !~ /├──/ ){
+        $wap == $leng and $an[$i] and $an[$i] !~ /├──|\|--/ ){
      $TODO[++$in] = $leng;
       $wap != $leng ? $in++ : last;	
     }
@@ -950,9 +957,9 @@ my $re = shift;
    my @an = split '\\s{3}',${$re->{'UNI'}}[$p];
     for(my $e=0;$e<@an;$e++){
       if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
-       $an[$i] =~ s/\│$/#/ if $an[$i];
+       $an[$i] =~ s/│$|\|$/#/ if $an[$i];
       }
-     $an[$e] =~ s/├──/└──/ if $TODO[$leng] and $TODO[$leng] == $wap;
+     $an[$e] =~ s/\|--/`--/ or $an[$e] =~ s/├──/└──/ if $TODO[$leng] and $TODO[$leng] == $wap;
       $leng += 2 if $TODO[$leng+1] and $TODO[$leng+1] == $wap;
        $plus .= "   $an[$e]";
     }
