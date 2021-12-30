@@ -6,14 +6,14 @@ use Fcntl ':DEFAULT';
 my( $OS_Version,$OS_Version2,$CPU,%MAC_OS );
 
 MAIN:{
+ my $HOME = "$ENV{'HOME'}/.BREW_LIST";
  my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'UNI'=>[],
              'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
-             'TXT'=>"$ENV{'HOME'}/.BREW_LIST/brew.txt" };
+             'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt" };
 
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
              'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
-             'TXT'=>"$ENV{'HOME'}/.BREW_LIST/cask.txt",
-             'Q_TAP'=>"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt"};
+             'HOME'=>$HOME,'TXT'=>"$HOME/cask.txt",'Q_TAP'=>"$HOME/Q_TAP.txt"};
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
@@ -90,9 +90,9 @@ MAIN:{
     $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
  }
 
- if( $re->{'NEW'} or $re->{'MAC'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-     $re->{'LIN'} and not -f "$ENV{'HOME'}/.BREW_LIST/DBM.pag" or not -d "$ENV{'HOME'}/.BREW_LIST" ){
-   die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{'HOME'}/.BREW_LIST/LOCK";
+ if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
+     $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
+   die " exist \033[31mLOCK\033[00m\n" if -d "$re->{'HOME'}/LOCK";
     $re->{'NEW'}++; Init_1( $re );
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
@@ -150,7 +150,7 @@ sub Died_1{
 }
 
 sub Init_1{
- my( $re,$list ) = @_;
+my( $re,$list ) = @_;
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -171,9 +171,9 @@ sub Init_1{
 }
 
 sub Wait_1{
- my $re = shift;
- mkdir "$ENV{'HOME'}/.BREW_LIST";
- mkdir "$ENV{'HOME'}/.BREW_LIST/WAIT";
+my $re = shift;
+ mkdir $re->{'HOME'};
+ mkdir "$re->{'HOME'}/WAIT";
   my( $dok,$not,@ten ) = $re->{'LC'} ?
    ( "\r \033[36m✔︎\033[00m : Creat new cache\n","\r \033[31m✖︎\033[00m : Can not Create \n",
     ('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
@@ -185,27 +185,27 @@ sub Wait_1{
    print STDERR "\x1B[?25l";
    if( $^O eq 'linux' ){ my $i = 0;
      while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
-      -d "$ENV{'HOME'}/.BREW_LIST/WAIT" ?
+      -d "$re->{'HOME'}/WAIT" ?
        print STDERR "\r \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
         $i++; system 'sleep 0.1';
      }
    }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
      while(1){
      printf STDERR "\r[%2d/10] '\033[33m%s\033[00m%s'",$i,$ma,$spa;
-      sleep 1 and last unless -d "$ENV{'HOME'}/.BREW_LIST/WAIT";
-       if( -d "$ENV{'HOME'}/.BREW_LIST/$i" ){
+      sleep 1 and last unless -d "$re->{'HOME'}/WAIT";
+       if( -d "$re->{'HOME'}/$i" ){
         while(1){
-         last unless -d "$ENV{'HOME'}/.BREW_LIST/$i";
+         last unless -d "$re->{'HOME'}/$i";
           system 'sleep 0.001';
         } $i++; $ma .= '#'; $spa =~ s/\s//;
        }
      }
    } waitpid($pid,0);
        print STDERR "\x1B[?25h";
-     ( $^O eq 'darwin' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.db" or
-       $^O eq 'linux' and -f "$ENV{'HOME'}/.BREW_LIST/DBM.dir" ) ? die $dok : die $not;
+     ( $^O eq 'darwin' and -f "$re->{'HOME'}/DBM.db" or
+       $^O eq 'linux' and -f "$re->{'HOME'}/DBM.dir" ) ? die $dok : die $not;
   }else{
-   Tied_1(); system '~/.BREW_LIST/font.sh'; exit;
+   Tied_1( $re ); system '~/.BREW_LIST/font.sh'; exit;
   }
 }
 
@@ -234,7 +234,7 @@ my $re = shift;
 
 sub DB_2{
 my( $re,%NA ) = @_;
- tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBM",O_RDONLY,0;
+ tie my %tap,"NDBM_File","$re->{'HOME'}/DBM",O_RDONLY,0;
    %NA = %tap;
   untie %tap;
  $re->{'OS'} = %NA ? \%NA : die " Not read DBM\n";
@@ -369,7 +369,7 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
            $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
            $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
            not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '#' ){
-            die " exist \033[31mLOCK\033[00m\n" if -d "$ENV{'HOME'}/.BREW_LIST/LOCK";
+            die " exist \033[31mLOCK\033[00m\n" if -d "$re->{'HOME'}/LOCK";
              $re->{'NEW'}++; Init_1( $re );
        }
       next;
@@ -871,57 +871,57 @@ my( $an,$re ) = @_;
 
 sub Format_1{
 my( $re,$ls,$sl,$ss,$ze ) = @_;
-  if( $re->{'TREE'} ){ Format_2( $re );
-  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
-   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
-    system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-     $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
+ if( $re->{'TREE'} ){ Format_2( $re );
+ }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
+  system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
+   system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
+    $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
-   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
-    system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
-  }elsif( $re->{'DAT'} ){
-   print for( @{$re->{'OUT'}} );
-    $re->{'CAS'} = 0;
-  }else{
-   if( -t STDOUT ){
-    my $leng = $re->{'LEN1'};
-     my $tput = `tput cols`;
-      my $size = int $tput/($leng+2);
-       my $in = 1;
-    print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0]!~m|^homebrew/|;
-     print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
-      for my $arr( @{$re->{'ARR'}} ){
-       if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
-        print"\n" if $ze;
-         print" ==> brew tap : homebrew/cask-fonts\n";
-          $leng = $re->{'LEN2'};
-           $size = int $tput/($leng+2);  $in = $ls = 1;
-       }elsif( $arr =~ m|^homebrew/cask-drivers/| and not $sl ){
-        print"\n" if $ze;
-         print" ==> brew tap : homebrew/cask-drivers\n";
-          $leng = $re->{'LEN3'};
-           $size = int $tput/($leng+2);  $in = $sl = 1;
-       }elsif( $arr =~ m|^homebrew/cask-versions/| and not $ss ){
-        print"\n" if $ze;
-         print" ==> brew tap : homebrew/cask-versions\n";
-          $leng = $re->{'LEN4'};
-           $size = int $tput/($leng+2);  $in = $ss = 1;
-       }
-        for(my $i=$re->{'LEN'}{$arr};$i<$leng+2;$i++){
-         $arr .= ' ';
-        }
-       print"$arr";
-       print"\n" unless $ze = eval "$in % $size";
-       $in++;
+  system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
+   system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
+ }elsif( $re->{'DAT'} ){
+  print for( @{$re->{'OUT'}} );
+   $re->{'CAS'} = 0;
+ }else{
+  if( -t STDOUT ){
+   my $leng = $re->{'LEN1'};
+    my $tput = `tput cols`;
+     my $size = int $tput/($leng+2);
+      my $in = 1;
+   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0]!~m|^homebrew/|;
+    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
+     for my $arr( @{$re->{'ARR'}} ){
+      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
+       print"\n" if $ze;
+        print" ==> brew tap : homebrew/cask-fonts\n";
+         $leng = $re->{'LEN2'};
+          $size = int $tput/($leng+2);  $in = $ls = 1;
+      }elsif( $arr =~ m|^homebrew/cask-drivers/| and not $sl ){
+       print"\n" if $ze;
+        print" ==> brew tap : homebrew/cask-drivers\n";
+         $leng = $re->{'LEN3'};
+          $size = int $tput/($leng+2);  $in = $sl = 1;
+      }elsif( $arr =~ m|^homebrew/cask-versions/| and not $ss ){
+       print"\n" if $ze;
+        print" ==> brew tap : homebrew/cask-versions\n";
+         $leng = $re->{'LEN4'};
+          $size = int $tput/($leng+2);  $in = $ss = 1;
       }
-     print"\n" if $ze;
+       for(my $i=$re->{'LEN'}{$arr};$i<$leng+2;$i++){
+        $arr .= ' ';
+       }
+      print"$arr";
+      print"\n" unless $ze = eval "$in % $size";
+      $in++;
+     }
+    print"\n" if $ze;
    }else{
     print"$_\n" for @{$re->{'ARR'}};
    }
    $re->{'FOR'} = 0 if $re->{'MAC'};
-  }
-  print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
- Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
+ }
+ print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
+  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
 sub Format_2{
@@ -974,7 +974,7 @@ my $re = shift;
 sub Nohup_1{
 my $re = shift;
  ++$re->{'NEW'} and Init_1( $re )
-  unless -f "$ENV{'HOME'}/.BREW_LIST/font.sh" and -f "$ENV{'HOME'}/.BREW_LIST/tie.pl";
+  unless -f "$re->{'HOME'}/font.sh" and -f "$re->{'HOME'}/tie.pl";
  my( $time1,$time2 ) =
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] );
    if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
@@ -983,19 +983,20 @@ my $re = shift;
    }
 }
 
-sub Tied_1{ my( $i,@file1,@file2 );
+sub Tied_1{
+my( $re,$i,@file1,@file2 ) = @_;
  while(my $tap = <DATA>){
   ++$i and next if $tap =~ /^__TIE__$/;
    push @file1,$tap unless $i;
     push @file2,$tap if $i;
  }
- open my $file1,'>',"$ENV{'HOME'}/.BREW_LIST/font.sh" or die " Tied1 $!\n";
+ open my $file1,'>',"$re->{'HOME'}/font.sh" or die " Tied1 $!\n";
   print $file1 @file1;
  close $file1;
- open my $file2,'>',"$ENV{'HOME'}/.BREW_LIST/tie.pl"  or die " Tied2 $!\n";
+ open my $file2,'>',"$re->{'HOME'}/tie.pl"  or die " Tied2 $!\n";
   print $file2 @file2;
  close $file2;
-  chmod 0755,"$ENV{'HOME'}/.BREW_LIST/font.sh";
+  chmod 0755,"$re->{'HOME'}/font.sh";
 }
 __END__
 #!/bin/bash
@@ -1061,8 +1062,7 @@ curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-ve
   rmdir ~/.BREW_LIST/5
 
 perl<<"EOF"
-   $CPU = `sysctl machdep.cpu.brand_string`;
-  if( $CPU =~ /Apple\s+M1/ ){
+  if( `sysctl machdep.cpu.brand_string` =~ /Apple\s+M1/ ){
    $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
     $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
      $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
