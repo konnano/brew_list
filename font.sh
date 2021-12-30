@@ -61,8 +61,7 @@ curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-ve
   rmdir ~/.BREW_LIST/5
 
 perl<<"EOF"
-   $CPU = `sysctl machdep.cpu.brand_string`;
-  if( $CPU =~ /Apple\s+M1/ ){
+  if( `sysctl machdep.cpu.brand_string` =~ /Apple\s+M1/ ){
    $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
     $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
      $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
