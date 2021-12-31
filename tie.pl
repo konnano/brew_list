@@ -14,10 +14,9 @@ if( $^O eq 'darwin' ){
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
 
- $CPU = `sysctl machdep.cpu.brand_string`;
-  $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
-   $OS_Version2 = $OS_Version;
-    $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
+ $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
+  $OS_Version2 = $OS_Version;
+   $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
 
  $Xcode = `xcodebuild -version 2>/dev/null` ?
   `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
@@ -124,7 +123,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
 
      if( $CIN or $data =~ /^\s*if\s+Hardware::CPU/ ){
        $CIN = $data =~ /$CPU/ ? 1 : 2 unless $CIN;
-       if(($CIN == 1 or $CIN == 3) and $re->{'MAC'} and $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
+       if(($CIN == 1 or $CIN == 3) and $re->{'MAC'} and
+           $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
           $data =~ s/^(\d\.)/0$1/;
            $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
