@@ -56,10 +56,9 @@ MAIN:{
     $OS_Version =~ s/^(10\.)([7-9])\.?\d*\n/${1}0$2/;
      $OS_Version =~ s/^11.+\n/11.0/;
       $OS_Version =~ s/^12.+\n/12.0/;
-  $CPU = `sysctl machdep.cpu.brand_string`;
-   $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
-  $OS_Version2 = $OS_Version;
-   $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
+  $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
+   $OS_Version2 = $OS_Version;
+    $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
    $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
     $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
@@ -137,7 +136,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.01\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.02\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -1062,7 +1061,7 @@ curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-ve
   rmdir ~/.BREW_LIST/5
 
 perl<<"EOF"
-  if( `sysctl machdep.cpu.brand_string` =~ /Apple\s+M1/ ){
+  if( `uname -m` =~ /arm64/ ){
    $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
     $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
      $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
@@ -1199,10 +1198,9 @@ if( $^O eq 'darwin' ){
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
 
- $CPU = `sysctl machdep.cpu.brand_string`;
-  $CPU = $CPU =~ /Apple\s+M1/ ? 'arm\?' : 'intel\?';
-   $OS_Version2 = $OS_Version;
-    $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
+ $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
+  $OS_Version2 = $OS_Version;
+   $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
 
  $Xcode = `xcodebuild -version 2>/dev/null` ?
   `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
