@@ -4,7 +4,8 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my $IN = 0; my $CIN = 0; my $KIN = 0;
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,$CPU,$Xcode,$RPM,$CAT,@BREW,@CASK );
+my $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
  $re->{'MAC'} = 1;
@@ -13,10 +14,8 @@ if( $^O eq 'darwin' ){
    $OS_Version =~ s/^(10\.)([7-9])\.?\d*\n/${1}0$2/;
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
-
- $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
-  $OS_Version2 = $OS_Version;
-   $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
+ $OS_Version2 = $OS_Version;
+  $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
 
  $Xcode = `xcodebuild -version 2>/dev/null` ?
   `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
@@ -42,11 +41,9 @@ if( $^O eq 'darwin' ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/7";
 }else{
  $re->{'LIN'} = 1;
- $CPU = `cat /proc/cpuinfo|awk '/model name/'`;
-  $CPU = $CPU =~ /Apple\s+M1/ ?'arm\?' : 'intel\?';
-   $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
-    $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
-     $OS_Version2 = 'Linux';
+  $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
+   $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
+    $OS_Version2 = 'Linux';
 
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
