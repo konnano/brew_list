@@ -283,7 +283,7 @@ my( $re,$list,%HA,@AN ) = @_;
 
 sub Brew_1{
 my( $re,$list,%HA,@AN ) = @_;
- exit unless @$list;
+ return unless @$list;
   for(my $i=0;$i<@$list;$i++){
    my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
     (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $tap,$re,0 ) :
