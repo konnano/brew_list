@@ -134,7 +134,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.02\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.02_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -512,6 +512,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
          Info_1( $re,$data,$spa,$AN,$HA );
    }elsif( my( $ls1,$ls2 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+).*\n/ ){
     if( $re->{'LIN'} or $OS_Version2 < $MAC_OS{$ls2} ){
+       $ls1 =~ s/^python$/python\@3.9/;
         Unic_1( $re,$ls1,$spa,$AN );
          Info_1( $re,$ls1,$spa,$AN,$HA );
     }
