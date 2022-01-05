@@ -84,7 +84,7 @@ MAIN:{
  if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
   die" nothing in regex\n" 
    if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null" or
-    $AR[1] =~ m!/\^*[+*]+/|\[\.\.]!;
+    $AR[1] =~ m!/\^\*\[\+\*](\+|\*)+/|\[\.\.\.]!;
  }
 
  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
