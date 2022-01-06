@@ -1126,6 +1126,10 @@ perl<<"EOF"
      $tap1 = $brew; next;
     }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
      $tap2 = $brew;
+     $tap2 =~ s/&quot;/"/g;
+     $tap2 =~ s/&amp;/&/g;
+     $tap2 =~ s/&lt;/</g;
+     $tap2 =~ s/&gt;/>/g;
      $test = 1; next;
     }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
      $tap3 = $brew;
@@ -1155,6 +1159,10 @@ perl<<"EOF"
      $test = 1; next;
     }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
      $tap3 = $brew;
+     $tap3 =~ s/&quot;/"/g;
+     $tap3 =~ s/&amp;/&/g;
+     $tap3 =~ s/&lt;/</g;
+     $tap3 =~ s/&gt;/>/g;
      $test = 0;
     }
      push @file1,"$tap1\t$tap2\t$tap3\n" if $tap1;
