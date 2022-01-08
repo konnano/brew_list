@@ -344,7 +344,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
       last if $BREW[$i] lt $ls1;
        if( $BREW[$i] eq $ls1 ){
         $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}revision"} ? $ls2.$tap{"${BREW[$i]}revision"} : $ls2;
-         last;
+         $COU++; last;
        }
     }
     unless( $tap{"${BREW[$i]}ver"} ){
@@ -356,7 +356,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
      last if $BREW[$i] lt $CASK[$IN];
       if($BREW[$i] eq $CASK[$IN]){
        $tap{"${CASK[$IN]}so_name"} = 1;
-        last;
+        $IN++; last;
       }
     }
   }
