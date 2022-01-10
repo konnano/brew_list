@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my $IN = 0; my $CIN = 0; my $KIN = 0;
+my( $IN,$CIN,$KIN,$VER ) = ( 0,0,0,0 );
 my $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
@@ -134,6 +134,23 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
           $CIN = 3; next;
        }elsif( $data =~ /^\s*end/ ){
           $CIN = 0; next;
+       }elsif( $data !~ /^\s*else/ ){
+          next;
+       }
+     }
+
+     if( $VER or my( $co1,$co2 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
+      $VER = $re->{'LIN'} ? 2 : eval "$OS_Version $co1 $MAC_OS{$co2}" ? 1 : 2 unless $VER;
+       if(($VER == 1 or $VER == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
+          $tap{"${data}uses"} .= "$name\t";
+       }elsif(($VER==1 or $VER==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
+          $tap{"${data}uses"} .= "$name\t";
+       }elsif( $VER == 1 and $data =~ /^\s*else/ ){
+          $VER = 4; next;
+       }elsif( $VER == 2 and $data =~ /^\s*else/ ){
+          $VER = 3; next;
+       }elsif( $data =~ /^\s*end/ ){
+          $VER = 0; next;
        }elsif( $data !~ /^\s*else/ ){
           next;
        }
