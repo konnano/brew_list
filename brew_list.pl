@@ -134,7 +134,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.02_3\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.03\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -404,7 +404,7 @@ my( $re,$bottle,$brew,$ls ) = @_;
 }
 
 sub Info_1{
-my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
+my( $re,$file,$spa,$AN,$HA ) = @_; my( $IN,$CIN ) = ( 0,0 );
  print "\033[33mCan't install $re->{'INF'}...\033[00m\n" 
   if not $file and ( $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
                      $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} );
@@ -450,7 +450,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
          Info_1( $re,$data,$spa,$AN,$HA );
        } next;
      }elsif( ( $IN == 4 or $IN == 6 ) and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
-        Unic_1( $re,$data,$spa,$AN,1 );
+        Unic_1( $re,$data,$spa,$AN );
          Info_1( $re,$data,$spa,$AN,$HA ); next;
      }elsif( $IN == 4 and $data =~ /^\s*else/ ){
          $IN = 7; next;
@@ -458,6 +458,25 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my $IN = 0;
          $IN = 6; next;
      }elsif( $data =~ /^\s*end/ ){
          $IN = 0; next;
+     }elsif( $data !~ /^\s*else/ ){
+         next;
+     }
+   }
+
+   if( $CIN or my( $co1,$co2 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
+    $CIN = $re->{'LIN'} ? 2 : eval "$OS_Version $co1 $MAC_OS{$co2}" ? 1 : 2 unless $CIN;
+     if(($CIN == 1 or $CIN == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
+        Unic_1( $re,$data,$spa,$AN );
+         Info_1( $re,$data,$spa,$AN,$HA );
+     }elsif(($CIN==1 or $CIN==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
+        Unic_1( $re,$data,$spa,$AN );
+         Info_1( $re,$data,$spa,$AN,$HA );
+     }elsif( $CIN == 1 and $data =~ /^\s*else/ ){
+         $CIN = 4; next;
+     }elsif( $CIN == 2 and $data =~ /^\s*else/ ){
+         $CIN = 3; next;
+     }elsif( $data =~ /^\s*end/ ){
+         $CIN = 0; next;
      }elsif( $data !~ /^\s*else/ ){
          next;
      }
@@ -634,7 +653,7 @@ my( $list,$file,$in,$re ) = @_;
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
-  $brew_2 = $re->{'OS'}{"${brew_1}ver"} if $re->{'FOR'};
+  $brew_2 = $brew_2.$re->{'OS'}{"${brew_1}revision"} if $re->{'FOR'} and $re->{'OS'}{"${brew_1}revision"};
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3;
@@ -1193,7 +1212,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my $IN = 0; my $CIN = 0; my $KIN = 0;
+my( $IN,$CIN,$KIN,$VER ) = ( 0,0,0,0 );
 my $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
@@ -1324,6 +1343,23 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
           $CIN = 3; next;
        }elsif( $data =~ /^\s*end/ ){
           $CIN = 0; next;
+       }elsif( $data !~ /^\s*else/ ){
+          next;
+       }
+     }
+
+     if( $VER or my( $co1,$co2 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
+      $VER = $re->{'LIN'} ? 2 : eval "$OS_Version $co1 $MAC_OS{$co2}" ? 1 : 2 unless $VER;
+       if(($VER == 1 or $VER == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
+          $tap{"${data}uses"} .= "$name\t";
+       }elsif(($VER==1 or $VER==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
+          $tap{"${data}uses"} .= "$name\t";
+       }elsif( $VER == 1 and $data =~ /^\s*else/ ){
+          $VER = 4; next;
+       }elsif( $VER == 2 and $data =~ /^\s*else/ ){
+          $VER = 3; next;
+       }elsif( $data =~ /^\s*end/ ){
+          $VER = 0; next;
        }elsif( $data !~ /^\s*else/ ){
           next;
        }
