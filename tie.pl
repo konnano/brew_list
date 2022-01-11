@@ -10,8 +10,8 @@ my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
 if( $^O eq 'darwin' ){
  $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/^(10.1\d)\.?\d*\n/$1/;
-   $OS_Version =~ s/^(10\.)([7-9])\.?\d*\n/${1}0$2/;
+  $OS_Version =~ s/^(10.1[0-5])\.?\d*\n/$1/;
+   $OS_Version =~ s/^(10\.)(9)\.?\d*\n/${1}0$2/;
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
  $OS_Version2 = $OS_Version;
@@ -63,7 +63,7 @@ sub Dirs_1{
   }
 }
 
-tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
+tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or die " tie DBM $!\n";
  for my $dir1(@BREW){ chomp $dir1;
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -90,8 +90,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
          $tap{"${name}12.0M1"} = $tap{"${name}12.0"} = 
          $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
          $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-         $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}Linux"} =
-         $tap{"${name}10.09"} = $tap{"${name}10.08"} = $tap{"${name}10.07"} = 1;
+         $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} =
+         $tap{"${name}Linux"} = 1;
         }
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
