@@ -3,6 +3,10 @@
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  exit
 elif [[ $NAME = Darwin ]];then
+ VER=`sw_vers -productVersion|sed -E 's/^(1[1-2]).*/\1.0/'|\
+                              sed -E 's/^(10\.)(1[0-5]).*/\1\2/'|\
+                              sed -E 's/^(10\.)([0-9])($|\.).*/\10\2/'`
+ [[ 10.09 > $VER ]] && echo ' Use Tiger Brew' && exit
  CPU=`sysctl machdep.cpu.brand_string`
 fi
 
