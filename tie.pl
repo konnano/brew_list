@@ -303,10 +303,10 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
    }
   close $BREW;
  }
-  if( $RPM and $RPM > $CAT ){
-   $tap{'glibcun_Linux'} = 1;
-    $tap{'glibcLinux'} = 0;
-  }
+ if( $RPM and $RPM > $CAT ){
+  $tap{'glibcun_Linux'} = 1;
+   $tap{'glibcLinux'} = 0;
+ }
 
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/8";
@@ -324,7 +324,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
         $tap{"${name}formula"} = 0 if $CPU ne $ls3;
        }
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-        $IF1 = 0; $ELIF = $ELS = 1;
+       $IF1 = 0; $ELIF = $ELS = 1;
        if( eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
         $ELS = $ELIF = 0; $IF2 = 1;
        }
@@ -333,49 +333,50 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644;
         $ELS = $ELIF  = 0; $IF2 = 1;
        }
      }elsif( $data =~ /^\s*else/ and $ELS ){
-        $IF2 = 1;
+       $IF2 = 1;
      }elsif(( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ or
               $data =~ s/^\s*version\s+:([^\s]+).*\n/$1/ ) and ( $IF1 or $IF2 )){
-        $tap{"${name}c_version"} = $data;
-         $IF1 = $IF2 = 0;
+       $tap{"${name}c_version"} = $data;
+        $IF1 = $IF2 = 0;
      }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_desc"} = $data;
+       $tap{"${name}c_desc"} = $data;
      }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_name"} = $data;
+       $tap{"${name}c_name"} = $data;
      }
     }
    close $BREW;
   }
+ }
+ open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
+  my @LIST = <$FILE>;
+ close $FILE;
 
-  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
-   my @LIST = <$FILE>;
-  close $FILE;
+ @BREW = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
+ @CASK = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK if $re->{'MAC'};
 
-  @BREW = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
-  @CASK = sort{$a cmp $b} map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
-
-   my $COU = $IN;
-  for(my $i=0;$i<@BREW;$i++){
-    for(;$COU<@LIST;$COU++){
-     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
-      last if $BREW[$i] lt $ls1;
-       if( $BREW[$i] eq $ls1 ){
-        $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}revision"} ? $ls2.$tap{"${BREW[$i]}revision"} : $ls2;
-         $COU++; last;
-       }
-    }
-    unless( $tap{"${BREW[$i]}ver"} ){
-     $tap{"${BREW[$i]}ver"} = ( $tap{"${BREW[$i]}f_version"} and $tap{"${BREW[$i]}revision"} ) ?
-      $tap{"${BREW[$i]}f_version"}.$tap{"${BREW[$i]}revision"} : $tap{"${BREW[$i]}f_version"} ?
-       $tap{"${BREW[$i]}f_version"} : 0;
-    }
-    for(;$IN<@CASK;$IN++){
-     last if $BREW[$i] lt $CASK[$IN];
-      if($BREW[$i] eq $CASK[$IN]){
-       $tap{"${CASK[$IN]}so_name"} = 1;
-        $IN++; last;
+  my $COU = $IN;
+ for(my $i=0;$i<@BREW;$i++){
+   for(;$COU<@LIST;$COU++){
+    my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
+     last if $BREW[$i] lt $ls1;
+      if( $BREW[$i] eq $ls1 ){
+       $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}revision"} ? $ls2.$tap{"${BREW[$i]}revision"} : $ls2;
+        $COU++; last;
       }
-    }
-  }
+   }
+   unless( $tap{"${BREW[$i]}ver"} ){
+    $tap{"${BREW[$i]}ver"} = ( $tap{"${BREW[$i]}f_version"} and $tap{"${BREW[$i]}revision"} ) ?
+     $tap{"${BREW[$i]}f_version"}.$tap{"${BREW[$i]}revision"} : $tap{"${BREW[$i]}f_version"} ?
+      $tap{"${BREW[$i]}f_version"} : 0;
+   }
+   if( $re->{'MAC'} ){
+     for(;$IN<@CASK;$IN++){
+      last if $BREW[$i] lt $CASK[$IN];
+       if($BREW[$i] eq $CASK[$IN]){
+        $tap{"${CASK[$IN]}so_name"} = 1;
+         $IN++; last;
+       }
+     }
+   }
  }
 untie %tap;
