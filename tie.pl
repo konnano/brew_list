@@ -4,7 +4,8 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my( $IN,$CIN,$KIN,$VER ) = ( 0,0,0,0 );
-my $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
+chomp( my $UNAME = `uname -m` );
+my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
@@ -85,7 +86,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
        $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
        $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
        $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
-       $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : 0;
+       $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : 0; # x86_64
         if( $data =~ /.*,\s+all:/ ){
          $tap{"${name}12.0M1"} = $tap{"${name}12.0"} = 
          $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
@@ -218,6 +219,10 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
          }elsif( $re->{'LIN'} ){
            $tap{"${name}un_Linux"} = 1;
          } next;
+      }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
+          $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
+          $tap{"$name$OS_Version2"} = $tap{"${name}Linux"} = 0;
+           next;
       }
 
      if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
