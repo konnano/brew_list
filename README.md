@@ -6,11 +6,11 @@ MacOS10.9から対応します10.8以前は現在のhomebrewインストール�
 
 : 使用方法
 
-ダウンロード後、brew_listフォルダー内で ./init.sh を実行して下さい
+ダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
 キャッシュファイル作成に少し時間がかかります、コマンドはbrew_listです
 
-アンインストールはbrew_listフォルダー内で ./init.sh unlink
+アンインストールはbrew_list-mainフォルダー内で ./init.sh unlink
 
 : オプション
 
