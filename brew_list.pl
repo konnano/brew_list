@@ -135,7 +135,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.03_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.03_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -653,7 +653,7 @@ my( $list,$file,$in,$re ) = @_;
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
-  $brew_2 = $re->{'OS'}{"${brew_1}ver"} if $re->{'FOR'};
+  $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3;
@@ -1213,7 +1213,8 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my( $IN,$CIN,$KIN,$VER ) = ( 0,0,0,0 );
-my $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
+chomp( my $UNAME = `uname -m` );
+my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){
@@ -1294,7 +1295,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
        $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
        $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
        $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
-       $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : 0;
+       $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : 0; # x86_64
         if( $data =~ /.*,\s+all:/ ){
          $tap{"${name}12.0M1"} = $tap{"${name}12.0"} = 
          $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
@@ -1427,6 +1428,10 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
          }elsif( $re->{'LIN'} ){
            $tap{"${name}un_Linux"} = 1;
          } next;
+      }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
+          $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
+          $tap{"$name$OS_Version2"} = $tap{"${name}Linux"} = 0;
+           next;
       }
 
      if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
