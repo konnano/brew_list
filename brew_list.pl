@@ -51,10 +51,10 @@ MAIN:{
     $OS_Version = 'Linux';
  }else{
   $OS_Version = `sw_vers -productVersion`;
-   $OS_Version =~ s/^(10\.1[0-5])\.?\d*\n/$1/;
-    $OS_Version =~ s/^(10\.)(9)\.?\d*\n/${1}0$2/;
-     $OS_Version =~ s/^11.+\n/11.0/;
-      $OS_Version =~ s/^12.+\n/12.0/;
+   $OS_Version =~ s/^(10\.)(9).*\n/${1}0$2/;
+    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
+     $OS_Version =~ s/^11.*\n/11.0/;
+      $OS_Version =~ s/^12.*\n/12.0/;
   exit if $OS_Version =~ /^10\.[0-8]($|\.)/;
    $OS_Version2 = $OS_Version;
     $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
