@@ -95,7 +95,8 @@ MAIN:{
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
-   $re->{'CLANG'} = `clang --version|awk '/Apple/'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'` if $re->{'MAC'};
+    $re->{'CLANG'} = `clang --version|awk '/Apple/'` ?
+     `clang --version|awk '/Apple/'|sed -E 's/.*clang-([^.]*).*/\\1/'` : 0 if $re->{'MAC'};
   }else{
    $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
