@@ -644,7 +644,7 @@ my( $list,$file,$in,$re,$mem ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = $file->[$i] =~ /\t/ ? split '\t',$file->[$i] : $file->[$i];
    last if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
-    { no warnings qw(regexp);
+    { no warnings 'regexp';
      $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0; }
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
@@ -666,7 +666,7 @@ my( $list,$file,$in,$re,$mem ) = @_;
       $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
       $re->{'LINK'} == 6 and $re->{'OS'}{"deps$brew_1"} or
       $re->{'LINK'} == 7 and $re->{"${brew_1}delet"} ){
-   { no warnings qw(regexp);
+   { no warnings 'regexp';
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
@@ -748,7 +748,7 @@ my( $list,$file,$in,$re,$mem ) = @_;
 sub Tap_1{
 my( $list,$re,$in,$mem ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
-  { no warnings qw(regexp);
+  { no warnings 'regexp';
    $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0; }
 
     my $ver = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_version"}) ?
@@ -774,7 +774,7 @@ my( $list,$re,$in,$mem ) = @_;
      $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} ){
       $brew = 0;
  }
- { no warnings qw(regexp);
+ { no warnings 'regexp';
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
       Mine_1( $tap,$re,1 );
