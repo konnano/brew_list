@@ -48,7 +48,7 @@ MAIN:{
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
-    $OS_Version = 'Linux';
+    $OS_Version = $CPU =~ /arm\?/ ? 'LinuxM1' : 'Linux';
  }else{
   $OS_Version = `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.)(9).*\n/${1}0$2/;
@@ -66,7 +66,7 @@ MAIN:{
  }
  $re->{'LC'} = $ref->{'LC'} = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
 
- if( $re->{'MAC'} and $CPU eq 'arm\?' ){
+ if( $re->{'MAC'} and ( $CPU eq 'arm\?' or not -d $re->{'CEL'} ) ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
@@ -84,8 +84,7 @@ MAIN:{
  }
  if( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
   die" nothing in regex\n" 
-   if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null" or
-    $AR[1] =~ /\^[+*]+|\[\.\.\.]/;
+   if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null" or $AR[1] =~ /\^[+*]+|\[\..\.]|\[=.=]/;
  }
 
  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
@@ -136,7 +135,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.03_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.03_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -469,7 +468,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my( $IN,$CIN ) = ( 0,0 );
      if(($CIN == 1 or $CIN == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
         Unic_1( $re,$data,$spa,$AN );
          Info_1( $re,$data,$spa,$AN,$HA );
-     }elsif(($CIN==1 or $CIN==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
+     }elsif( $CIN==3 and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/ ){
         Unic_1( $re,$data,$spa,$AN );
          Info_1( $re,$data,$spa,$AN,$HA );
      }elsif( $CIN == 1 and $data =~ /^\s*else/ ){
