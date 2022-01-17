@@ -639,13 +639,12 @@ my( $re,$ls1,$ls2 ) = @_;
   $re->{'GZ'} = 0;
 }
 
-sub Search_1{
-my( $list,$file,$in,$re,$mem ) = @_;
+sub Search_1{ no warnings 'regexp';
+my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = $file->[$i] =~ /\t/ ? split '\t',$file->[$i] : $file->[$i];
    last if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
-    { no warnings 'regexp';
-     $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0; }
+    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
@@ -666,7 +665,7 @@ my( $list,$file,$in,$re,$mem ) = @_;
       $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
       $re->{'LINK'} == 6 and $re->{'OS'}{"deps$brew_1"} or
       $re->{'LINK'} == 7 and $re->{"${brew_1}delet"} ){
-   { no warnings 'regexp';
+
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
@@ -683,7 +682,6 @@ my( $list,$file,$in,$re,$mem ) = @_;
       }else{ Mine_1( $brew_1,$re,0 ); }
      }
     }
-  # }
    unless( $re->{'S_OPT'} ){
      if( $re->{'MAC'} ){
       if( $re->{'FOR'} ){
@@ -738,7 +736,6 @@ my( $list,$file,$in,$re,$mem ) = @_;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
        $re->{'AN'}++;
    }
-   } #
   }
  }
   if( $list->[$in] ){
@@ -746,11 +743,10 @@ my( $list,$file,$in,$re,$mem ) = @_;
   }
 }
 
-sub Tap_1{
-my( $list,$re,$in,$mem ) = @_;
+sub Tap_1{ no warnings 'regexp';
+my( $list,$re,$in ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
-  { no warnings 'regexp';
-   $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0; }
+  my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
 
     my $ver = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_version"}) ?
      $re->{'OS'}{"${tap}f_version"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_version"}) ?
@@ -775,7 +771,6 @@ my( $list,$re,$in,$mem ) = @_;
      $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} ){
       $brew = 0;
  }
- { no warnings 'regexp';
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
       Mine_1( $tap,$re,1 );
@@ -805,7 +800,6 @@ my( $list,$re,$in,$mem ) = @_;
   }else{
     Memo_1( $re,$mem,$tap );
   }
- }
  $$in++;
 }
 
@@ -845,17 +839,11 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
   if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
    exit unless my $num = $re->{'HASH'}{$name};
-    for my $dir('bin','sbin'){
-     if( -d "$re->{'CEL'}/$name/$num/$dir" ){
-      my $com = Dirs_1( "$re->{'CEL'}/$name/$num/$dir",2 );
-       print"$re->{'CEL'}/$name/$num/$dir/$_\n" for(@{$com});
-     }
-    }
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
      $re->{'CEL'} = "$re->{'CEL'}/\Q$name\E/$num";
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|^$re->{'CEL'}/[^/]+$|o or $ls1 =~ m|^$re->{'CEL'}/s?bin/|o;
-     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
+     next if $ls1 =~ m|^$re->{'CEL'}/[^/]+$|o;
+     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o or $ls1 =~ m|^$re->{'CEL'}/s?bin/|o){
              print"$ls1\n"; $re->{'IN'} = 1;
      }else{ $ls2 = $ls1;
       $ls1 =~ s|^($re->{'CEL'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
