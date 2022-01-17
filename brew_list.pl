@@ -91,21 +91,21 @@ MAIN:{
     $re->{'NEW'}++; Init_1( $re );
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
-   $AR[1] ? $re->{'INF'} = lc $AR[1] : Died_1();
+   $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
     $re->{'CLANG'} = `clang --version|awk '/Apple/'` ?
      `clang --version|awk '/Apple/'|sed -E 's/.*clang-([^.]*).*/\\1/'` : 0 if $re->{'MAC'};
   }else{
-   $AR[1] ? $re->{'STDI'} = lc $AR[1] : Died_1();
+   $re->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
   }
  }elsif( $re->{'S_OPT'} ){
-  $AR[1] ? $ref->{'STDI'} = lc $AR[1] : Died_1();
-   $re->{'S_OPT'} = $ref->{'S_OPT'} =
-    $ref->{'STDI'} =~ s|^/(.+)/$|$1| ? $ref->{'STDI'} : "\Q$ref->{'STDI'}\E";
+   $ref->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
+    $re->{'S_OPT'} = $ref->{'S_OPT'} =
+     $ref->{'STDI'} =~ s|^/(.+)/$|$1| ? $ref->{'STDI'} : "\Q$ref->{'STDI'}\E";
  }elsif( $re->{'USE'} ){
-  $AR[1] ? $re->{'USE'} = lc $AR[1] : Died_1();
+   $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
  }elsif( $re->{'USES'} ){
-  $AR[1] ? $re->{'USE'} = $re->{'USES'} = lc $AR[1] : Died_1();
+   $re->{'USE'} = $re->{'USES'} = $AR[1] ? lc $AR[1] : Died_1();
  }
  Fork_1( $name,$re,$ref );
 }
@@ -683,7 +683,7 @@ my( $list,$file,$in,$re,$mem ) = @_;
       }else{ Mine_1( $brew_1,$re,0 ); }
      }
     }
-   }
+  # }
    unless( $re->{'S_OPT'} ){
      if( $re->{'MAC'} ){
       if( $re->{'FOR'} ){
@@ -738,6 +738,7 @@ my( $list,$file,$in,$re,$mem ) = @_;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
        $re->{'AN'}++;
    }
+   } #
   }
  }
   if( $list->[$in] ){
