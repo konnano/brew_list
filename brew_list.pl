@@ -78,7 +78,7 @@ MAIN:{
   print " not exists cask tap\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
 
- if( $AR[1] and $AR[1] =~ m!/.*(\\Q|\\E).*/!i ){
+ if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
    $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
  }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
@@ -842,7 +842,7 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
      $re->{'CEL'} = "$re->{'CEL'}/\Q$name\E/$num";
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|^$re->{'CEL'}/[^.][^/]+$|o;
+     next if $ls1 =~ m[^$re->{'CEL'}/[^.][^/]+$|^$re->{'CEL'}/\.brew]o;
      if( $ls1 =~ m[^$re->{'CEL'}/\.|^$re->{'CEL'}/s?bin/]o ){
              print"$ls1\n";
      }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
