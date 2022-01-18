@@ -842,8 +842,10 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
      $re->{'CEL'} = "$re->{'CEL'}/\Q$name\E/$num";
     for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m|^$re->{'CEL'}/[^/]+$|o;
-     if(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o or $ls1 =~ m|^$re->{'CEL'}/s?bin/|o){
+     next if $ls1 =~ m|^$re->{'CEL'}/[^.][^/]+$|o;
+     if( $ls1 =~ m[^$re->{'CEL'}/\.|^$re->{'CEL'}/s?bin/]o ){
+             print"$ls1\n";
+     }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
              print"$ls1\n"; $re->{'IN'} = 1;
      }else{ $ls2 = $ls1;
       $ls1 =~ s|^($re->{'CEL'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
@@ -868,7 +870,7 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
 sub Dirs_2{
 my( $an,$re ) = @_;
  opendir my $dir,$an or die " N_Dirs $!\n";
-  for my $bn(readdir($dir)){
+  for my $bn(sort readdir($dir)){
    next if $bn =~ /^\.{1,2}$/;
     ( -d "$an/$bn" and not -l "$an/$bn" ) ?
    Dirs_2( "$an/$bn",$re ) : push @{$re->{'ARR'}},"$an/$bn";
