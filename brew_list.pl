@@ -75,7 +75,7 @@ MAIN:{
     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
  exit unless -d $re->{'CEL'};
-  print " not exists cask tap\n"
+  print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
 
  if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
@@ -643,7 +643,7 @@ sub Search_1{ no warnings 'regexp';
 my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = $file->[$i] =~ /\t/ ? split '\t',$file->[$i] : $file->[$i];
-   last if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
+   next if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
     my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
@@ -1120,12 +1120,12 @@ perl<<"EOF"
     @file3 = sort{$a cmp $b}@file3;
 
    ( $i1 and $i2 and $i3 ) ? push @file,"#\n",@file1,@file2,@file3 :
-   ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,@file1,@file2 :
-   ( $i1 and $i3 ) ? push @file,"4\n1\n",@file2,@file1,@file3 :
-   ( $i2 and $i3 ) ? push @file,"5\n0\n",@file1,@file2,@file3 :
-    $i1 ? push @file,"6\n1\n",@file2,"2\n",@file3,@file1 :
-    $i2 ? push @file,"7\n0\n",@file1,"2\n",@file3,@file2 :
-    $i3 ? push @file,"8\n0\n",@file1,"1\n",@file2,@file3 :
+   ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,"0\n",@file1,"1\n",@file2 :
+   ( $i1 and $i3 ) ? push @file,"4\n1\n",@file2,"0\n",@file1,"2\n",@file3 :
+   ( $i2 and $i3 ) ? push @file,"5\n0\n",@file1,"1\n",@file2,"2\n",@file3 :
+    $i1 ? push @file,"6\n1\n",@file2,"2\n",@file3,"0\n",@file1 :
+    $i2 ? push @file,"7\n0\n",@file1,"2\n",@file3,"1\n",@file2 :
+    $i3 ? push @file,"8\n0\n",@file1,"1\n",@file2,"2\n",@file3 :
           push @file,"9\n0\n",@file1,"1\n",@file2,"2\n",@file3;
 
     open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
