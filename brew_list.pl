@@ -43,12 +43,12 @@ MAIN:{
  }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
  }else{  Died_1();
  }
-
-  $CPU = `uname -m` =~ /arm64/ ? 'arm\?' : 'intel\?';
+   my $UNAME = `uname -m`;
+  $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
-    $OS_Version = $CPU =~ /arm\?/ ? 'LinuxM1' : 'Linux';
+    $OS_Version = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
  }else{
   $OS_Version = `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.)(9).*\n/${1}0$2/;
@@ -1246,7 +1246,7 @@ if( $^O eq 'darwin' ){
  $re->{'LIN'} = 1;
   $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
    $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
-    $OS_Version2 = 'Linux';
+    $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
 
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
