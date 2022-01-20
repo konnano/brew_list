@@ -44,7 +44,7 @@ if( $^O eq 'darwin' ){
  $re->{'LIN'} = 1;
   $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
    $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
-    $OS_Version2 = 'Linux';
+    $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
 
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
