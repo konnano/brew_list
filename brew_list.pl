@@ -462,7 +462,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my( $IN,$CIN ) = ( 0,0 );
    }
 
    if( $CIN or my( $co1,$co2 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-    $CIN = $re->{'LIN'} ? 2 : eval "$OS_Version $co1 $MAC_OS{$co2}" ? 1 : 2 unless $CIN;
+    $CIN = $re->{'LIN'} ? 2 : eval "$OS_Version2 $co1 $MAC_OS{$co2}" ? 1 : 2 unless $CIN;
      if(($CIN == 1 or $CIN == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
         Unic_1( $re,$data,$spa,$AN );
          Info_1( $re,$data,$spa,$AN,$HA );
