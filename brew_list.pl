@@ -133,7 +133,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.03_3\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.03_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -171,10 +171,12 @@ my $re = shift;
  mkdir $re->{'HOME'};
  mkdir "$re->{'HOME'}/WAIT";
   my( $dok,$not,@ten ) = $re->{'LC'} ?
-   ( "\r \033[36m✔︎\033[00m : Creat new cache\n","\r \033[31m✖︎\033[00m : Can not Create \n",
+   ( "\r  \033[36m✔︎\033[00m : Creat new cache\n","\r  \033[31m✖︎\033[00m : Can not Create \n",
     ('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
-   ( "\r \033[36mo\033[00m : Creat new cache\n","\r \033[31mx\033[00m : Can not Create \n",
+   ( "\r  \033[36mo\033[00m : Creat new cache\n","\r  \033[31mx\033[00m : Can not Create \n",
     ('|','/','-','\\','|','/','-','\\') );
+   $SIG{'INT'}=$SIG{'QUIT'}=$SIG{'TERM'}=\&Exit_1;
+    sub Exit_1{ die "\x1B[?25h\r  \033[31mx\033[00m : Can not Create \n" }
   my $pid = fork;
  die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){
@@ -182,18 +184,18 @@ my $re = shift;
    if( $^O eq 'linux' ){ my $i = 0;
      while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
       -d "$re->{'HOME'}/WAIT" ?
-       print STDERR "\r \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
+       print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
         $i++; system 'sleep 0.1';
      }
-   }else{ my $i = 0; my $ma = ''; my $spa = ' ' x 10;
+   }else{ my $i = 0; my $ma = '';
      while(1){
-     printf STDERR "\r[%2d/10] '\033[33m%s\033[00m%s'",$i,$ma,$spa;
+     printf STDERR "\r '\033[33m%-10s\033[00m' [%2d/10]",$ma,$i;
       sleep 1 and last unless -d "$re->{'HOME'}/WAIT";
        if( -d "$re->{'HOME'}/$i" ){
         while(1){
          last unless -d "$re->{'HOME'}/$i";
           system 'sleep 0.001';
-        } $i++; $ma .= '#'; $spa =~ s/\s//;
+        } $i++; $ma .= '#';
        }
      }
    } waitpid($pid,0);
