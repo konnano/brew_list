@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
-my( $OS_Version,$OS_Version2,$CPU,%MAC_OS );
+my( $OS_Version,$OS_Version2,$CPU,%MAC_OS,$Locale );
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -64,7 +64,7 @@ MAIN:{
   %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
              'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  }
- $re->{'LC'} = $ref->{'LC'} = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
+ $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
 
  if( $re->{'MAC'} and ( $CPU eq 'arm\?' or not -d $re->{'CEL'} ) ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
@@ -150,7 +150,8 @@ my( $re,$list ) = @_;
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
-  Wait_1( $re ); 
+  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
+   Wait_1( $re ); 
  }
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
@@ -166,18 +167,21 @@ my( $re,$list ) = @_;
    Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : File_1( $re,$list );
 }
 
+sub Doc_1{
+ my( $dok,$not,@ten ) = $Locale ?
+  ( "\r  \033[36m✔︎\033[00m : Creat new cache\n","\r  \033[31m✖︎\033[00m : Can not Create \n",
+   ('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
+  ( "\r  \033[36mo\033[00m : Creat new cache\n","\r  \033[31mx\033[00m : Can not Create \n",
+   ('|','/','-','\\','|','/','-','\\') );
+ $not,$dok,@ten;
+}
+
 sub Wait_1{
 my $re = shift;
  mkdir $re->{'HOME'};
  mkdir "$re->{'HOME'}/WAIT";
-  my( $dok,$not,@ten ) = $re->{'LC'} ?
-   ( "\r  \033[36m✔︎\033[00m : Creat new cache\n","\r  \033[31m✖︎\033[00m : Can not Create \n",
-    ('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
-   ( "\r  \033[36mo\033[00m : Creat new cache\n","\r  \033[31mx\033[00m : Can not Create \n",
-    ('|','/','-','\\','|','/','-','\\') );
-   $SIG{'INT'}=$SIG{'QUIT'}=$SIG{'TERM'}=\&Exit_1;
-    sub Exit_1{ die "\x1B[?25h\r  \033[31mx\033[00m : Can not Create \n" }
-  my $pid = fork;
+  my( $not,$dok,@ten ) = Doc_1;
+   my $pid = fork;
  die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){
    print STDERR "\x1B[?25l";
@@ -194,14 +198,12 @@ my $re = shift;
        if( -d "$re->{'HOME'}/$i" ){
         while(1){
          last unless -d "$re->{'HOME'}/$i";
-          system 'sleep 0.001';
         } $i++; $ma .= '#';
        }
      }
    } waitpid($pid,0);
-       print STDERR "\x1B[?25h";
      ( $^O eq 'darwin' and -f "$re->{'HOME'}/DBM.db" or
-       $^O eq 'linux' and -f "$re->{'HOME'}/DBM.dir" ) ? die $dok : die $not;
+       $^O eq 'linux' and -f "$re->{'HOME'}/DBM.dir" ) ? die "\x1B[?25h$dok" : die "\x1B[?25h$not";
   }else{
    Tied_1( $re ); system '~/.BREW_LIST/font.sh'; exit;
   }
@@ -657,7 +659,7 @@ my( $list,$file,$in,$re ) = @_;
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3;
-    $brew_3 =~ s/[“”]//g unless $re->{'LC'};
+    $brew_3 =~ s/[“”]//g unless $Locale;
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -940,7 +942,7 @@ my $re = shift;
  my( $wap,$leng,@TODO ); my $cou = 0;
  for( @{$re->{'UNI'}} ){ my $an;
   $wap++;
-   if( $re->{'LC'} ){
+   if( $Locale ){
     $_ =~ s/\|/│/g;
     $_ =~ s/│--/├──/g;
    }
