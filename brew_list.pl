@@ -87,8 +87,7 @@ MAIN:{
 
  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
      $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
-   die " exist \033[31mLOCK\033[00m\n" if -d "$re->{'HOME'}/LOCK";
-    $re->{'NEW'}++; Init_1( $re );
+      $re->{'NEW'}++; Init_1( $re );
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
@@ -133,7 +132,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.03_4\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.03_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -150,8 +149,10 @@ my( $re,$list ) = @_;
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
+    system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
+     print STDERR " exist \033[31mLOCK\033[00m\n" if -d "$re->{'HOME'}/LOCK";
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
-   Wait_1( $re ); 
+   Wait_1( $re ); exit;
  }
  DB_1( $re );
   DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
@@ -184,28 +185,30 @@ my $re = shift;
    my $pid = fork;
  die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){
-   print STDERR "\x1B[?25l";
-   if( $^O eq 'linux' ){ my $i = 0;
-     while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
-      -d "$re->{'HOME'}/WAIT" ?
-       print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
-        $i++; system 'sleep 0.1';
-     }
-   }else{ my $i = 0; my $ma = '';
-     while(1){
-     printf STDERR "\r '\033[33m%-10s\033[00m' [%2d/10]",$ma,$i;
-      sleep 1 and last unless -d "$re->{'HOME'}/WAIT";
-       if( -d "$re->{'HOME'}/$i" ){
-        while(1){
-         last unless -d "$re->{'HOME'}/$i";
-        } $i++; $ma .= '#';
-       }
-     }
-   } waitpid($pid,0);
+   unless( -d "$re->{'HOME'}/LOCK" ){
+    print STDERR "\x1B[?25l";
+    if( $^O eq 'linux' ){ my $i = 0;
+      while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
+       -d "$re->{'HOME'}/WAIT" ?
+        print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
+         $i++; system 'sleep 0.1';
+      }
+    }else{ my $i = 0; my $ma = '';
+      while(1){
+      printf STDERR "\r '\033[33m%-10s\033[00m' [%2d/10]",$ma,$i;
+       sleep 1 and last unless -d "$re->{'HOME'}/WAIT";
+        if( -d "$re->{'HOME'}/$i" ){
+         while(1){
+          last unless -d "$re->{'HOME'}/$i";
+         } $i++; $ma .= '#';
+        }
+      }
+    } waitpid($pid,0);
      ( $^O eq 'darwin' and -f "$re->{'HOME'}/DBM.db" or
        $^O eq 'linux' and -f "$re->{'HOME'}/DBM.dir" ) ? die "\x1B[?25h$dok" : die "\x1B[?25h$not";
-  }else{
-   Tied_1( $re ); system '~/.BREW_LIST/font.sh'; exit;
+   }
+  }else{ system 'sleep 0.01';
+   Tied_1( $re ) unless -d "$re->{'HOME'}/LOCK"; system '~/.BREW_LIST/font.sh 0 1'; exit;
   }
 }
 
@@ -992,7 +995,7 @@ my $re = shift;
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] );
    if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
        $time1->[3] > $time2->[3] or $time1->[2] > $time2->[2] ){
-    system 'nohup ~/.BREW_LIST/font.sh >/dev/null 2>&1 &';
+    system 'nohup ~/.BREW_LIST/font.sh 1 1 >/dev/null 2>&1 &';
    }
 }
 
@@ -1014,65 +1017,64 @@ my( $re,$i,@file1,@file2 ) = @_;
 __END__
 #!/bin/bash
 NAME=`uname`
+if [[ $1 -eq 1 ]];then
+echo " ### 1"
+ timer_1(){
+  TI2=(`echo $1|sed 's/:/ /g'`) && \
+  LS3=(`echo $2|sed 's/:/ /g'`) && \
+  TI2=`echo ${TI2[0]}*3600+${TI2[1]}*60+${TI2[2]}|bc` && \
+  LS3=`echo ${LS3[0]}*3600+${LS3[1]}*60+${LS3[2]}+60|bc` && \
+  LS3=`printf "%.0f\n" $LS3` && \
+   [[ $TI2 -gt $LS3 ]] && rm -rf ~/.BREW_LIST/LOCK
+ }
 
-timer_1(){
- TI2=(`echo $1|sed 's/:/ /g'`)
- LS3=(`echo $2|sed 's/:/ /g'`)
- TI2=`echo ${TI2[0]}*3600+${TI2[1]}*60+${TI2[2]}|bc`
- LS3=`echo ${LS3[0]}*3600+${LS3[1]}*60+${LS3[2]}+60|bc`
-  [[ $TI2 -gt $LS3 ]] && rm -rf ~/.BREW_LIST/LOCK
-}
-
-if [[ $NAME = Darwin ]];then
- TI1=(`date +"%Y %-m %-d %T"`)
- LS1=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) && \
- [[ ${TI1[0]} > ${LS1[8]} || ${TI1[1]} > ${LS1[5]} || ${TI1[2]} > ${LS1[6]} ]] && \
- rm -rf ~/.BREW_LIST/LOCK
-  [[ $LS1 ]] && timer_1 ${TI1[3]} ${LS1[7]}
-else
- TI1=(`date +"%Y %m %d %T"`)
- LS1=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`) && \
- LS2=(`echo ${LS1[5]}|sed 's/-/ /g'`) && \
- [[ ${TI1[0]} > ${LS2[0]} || ${TI1[1]} > ${LS2[1]} || ${TI1[2]} > ${LS2[2]} ]] && \
- rm -rf ~/.BREW_LIST/LOCK
-  [[ $LS1 ]] && timer_1 ${TI1[3]} ${LS1[6]}
+ if [[ $NAME = Darwin ]];then
+  TI1=(`date +"%Y %-m %-d %T"`)
+  LS1=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) && \
+   [[ -n $LS1 ]] && timer_1 ${TI1[3]} ${LS1[7]}
+ else
+  TI1=(`date +"%Y %m %d %T"`)
+  LS1=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`) && \
+   [[ -n $LS1 ]] && timer_1 ${TI1[3]} ${LS1[6]}
+ fi
 fi
 
-if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
- exit
-fi
+if [[ $2 -eq 1 ]];then
+ if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
+  exit
+ fi
+echo "      ### 2"
+ trap '
+ rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html ~/.BREW_LIST/DBM*
+ rm -rf ~/.BREW_LIST/homebrew-cask-*
+ rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
+ exit' 1 2 3 15
 
-trap '
-rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html ~/.BREW_LIST/DBM*
-rm -rf ~/.BREW_LIST/homebrew-cask-*
-rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
-exit' 1 2 3 15
+ if [[ $NAME = Darwin ]];then
+   mkdir -p ~/.BREW_LIST/{0..9}
+ curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
+  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+   rmdir ~/.BREW_LIST/0
+ curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html || \
+  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+   rmdir ~/.BREW_LIST/1
+ curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip || \
+  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+   rmdir ~/.BREW_LIST/2
+ curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip || \
+  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+   rmdir ~/.BREW_LIST/3
+ curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip || \
+  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+   rmdir ~/.BREW_LIST/4
 
-if [[ $NAME = Darwin ]];then
-  mkdir -p ~/.BREW_LIST/{0..9}
-curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
- { rm -rf ~/.BREW_LIST/LOCK; exit; }
-  rmdir ~/.BREW_LIST/0
-curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html || \
- { rm -rf ~/.BREW_LIST/LOCK; exit; }
-  rmdir ~/.BREW_LIST/1
-curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip || \
- { rm -rf ~/.BREW_LIST/LOCK; exit; }
-  rmdir ~/.BREW_LIST/2
-curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip || \
- { rm -rf ~/.BREW_LIST/LOCK; exit; }
-  rmdir ~/.BREW_LIST/3
-curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip || \
- { rm -rf ~/.BREW_LIST/LOCK; exit; }
-  rmdir ~/.BREW_LIST/4
-
-/usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
- { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
-/usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || \
- { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
-/usr/bin/unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
- { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
-  rmdir ~/.BREW_LIST/5
+ /usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
+  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
+ /usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || \
+  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
+ /usr/bin/unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
+  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
+   rmdir ~/.BREW_LIST/5
 
 perl<<"EOF"
   if( `uname -m` =~ /arm64/ ){
@@ -1160,10 +1162,10 @@ perl<<"EOF"
    close $FILE3;
 EOF
 
-else
- curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
-  { rm -rf ~/.BREW_LIST/LOCK; exit; }
-fi
+ else
+  curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
+   { rm -rf ~/.BREW_LIST/LOCK; exit; }
+ fi
 
 perl<<"EOF"
   open $FILE1,'<', "$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
@@ -1191,18 +1193,19 @@ perl<<"EOF"
    close $FILE2;
 EOF
 
-rm -rf  ~/.BREW_LIST/6
-perl ~/.BREW_LIST/tie.pl
+ rm -rf  ~/.BREW_LIST/6
+ perl ~/.BREW_LIST/tie.pl
 
-if [[ $NAME = Darwin ]];then
- mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
-else
- mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
- mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
+ if [[ $NAME = Darwin ]];then
+  mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
+ else
+  mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
+  mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
+ fi
+
+ rm -f  ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
+ rm -rf ~/.BREW_LIST/homebrew-cask-* ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
 fi
-
-rm -f  ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
-rm -rf ~/.BREW_LIST/homebrew-cask-* ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
 __TIE__
 use strict;
 use warnings;
