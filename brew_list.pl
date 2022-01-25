@@ -1018,7 +1018,6 @@ __END__
 #!/bin/bash
 NAME=`uname`
 if [[ $1 -eq 1 ]];then
-echo " ### 1"
  timer_1(){
   TI2=(`echo $1|sed 's/:/ /g'`) && \
   LS3=(`echo $2|sed 's/:/ /g'`) && \
@@ -1043,7 +1042,7 @@ if [[ $2 -eq 1 ]];then
  if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
   exit
  fi
-echo "      ### 2"
+
  trap '
  rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html ~/.BREW_LIST/DBM*
  rm -rf ~/.BREW_LIST/homebrew-cask-*
