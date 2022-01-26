@@ -1,28 +1,17 @@
 #!/bin/bash
-NAME=`uname`
-if [[ $1 -eq 1 ]];then
- timer_1(){
-  TI2=(`echo $1|sed 's/:/ /g'`) && \
-  LS3=(`echo $2|sed 's/:/ /g'`) && \
-  TI2=`echo ${TI2[0]}*3600+${TI2[1]}*60+${TI2[2]}|bc` && \
-  LS3=`echo ${LS3[0]}*3600+${LS3[1]}*60+${LS3[2]}+60|bc` && \
-  LS3=`printf "%.0f\n" $LS3` && \
-   [[ $TI2 -gt $LS3 ]] && rm -rf ~/.BREW_LIST/LOCK
- }
+ NAME=`uname`
 
- if [[ $NAME = Darwin ]];then
-  TI1=(`date +"%Y %-m %-d %T"`)
-  LS1=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) && \
-  [[ ${TI1[0]} > ${LS1[8]} || ${TI1[1]} > ${LS1[5]} || ${TI1[2]} > ${LS1[6]} ]] && \
-  rm -rf ~/.BREW_LIST/LOCK
-   [[ -d ~/.BREW_LIST/LOCK && $LS1 ]] && timer_1 ${TI1[3]} ${LS1[7]}
- else
-  TI1=(`date +"%Y %m %d %T"`)
-  LS1=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`) && \
-  LS2=(`echo ${LS1[5]}|sed 's/-/ /g'`) && \
-  [[ ${TI1[0]} > ${LS2[0]} || ${TI1[1]} > ${LS2[1]} || ${TI1[2]} > ${LS2[2]} ]] && \
-  rm -rf ~/.BREW_LIST/LOCK
-   [[ -d ~/.BREW_LIST/LOCK && $LS1 ]] && timer_1 ${TI1[3]} ${LS1[6]}
+if [[ $1 -eq 1 ]];then
+ TI=`date +%s`
+ LS=`date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null`
+ if [[ $LS ]];then
+  if [[ $NAME = Darwin ]];then
+   LS=`echo $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s)+60|bc 2>/dev/null` && \
+    [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK
+  else
+   LS=`echo $(date +%s --date "$LS")+60|bc 2>/dev/null` && \
+    [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK
+  fi
  fi
 fi
 
