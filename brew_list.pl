@@ -1023,11 +1023,11 @@ if [[ $1 -eq 1 ]];then
  LS=`date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null`
  if [[ $LS ]];then
   if [[ $NAME = Darwin ]];then
-   LS=`echo $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s)+60|bc 2>/dev/null` && \
-    [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK
+   LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 )) && \
+    { [[ $LS -eq 60 ]] && exit || [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK; }
   else
-   LS=`echo $(date +%s --date "$LS")+60|bc 2>/dev/null` && \
-    [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK
+   LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 )) && \
+    { [[ $LS -eq 60 ]] && exit || [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK; }
   fi
  fi
 fi
