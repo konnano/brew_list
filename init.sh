@@ -7,11 +7,11 @@ elif [[ $NAME = Darwin ]];then
                               sed -E 's/^(10\.)(1[0-5]).*/\1\2/'|\
                               sed -E 's/^(10\.)([0-9])($|\.).*/\10\2/'`
  [[ 10.09 > $VER ]] && echo ' Use Tiger Brew' && exit
- CPU=`sysctl machdep.cpu.brand_string`
+ CPU=`uname -m`
 fi
 
-if [[ $NAME = Darwin && $1 && $1 = unlink ]];then
- if [[ $CPU =~ Intel ]];then
+if [[ $NAME = Darwin && $1 = unlink ]];then
+ if [[ $CPU =~ x86_64 ]];then
   rm -f /usr/local/bin/brew_list
  else
   rm -f /opt/homebrew/bin/brew_list
@@ -19,7 +19,7 @@ if [[ $NAME = Darwin && $1 && $1 = unlink ]];then
   rm -rf ~/.BREW_LIST
    echo rm all cache
     exit
-elif [[ $NAME = Linux && $1 && $1 = unlink ]];then
+elif [[ $NAME = Linux && $1 = unlink ]];then
  rm -rf /home/linuxbrew/.linuxbrew/bin/brew_list ~/.BREW_LIST
    echo rm all cache
     exit
@@ -27,10 +27,10 @@ fi
 
 if [[ ! $1 ]];then
  if [[ $NAME = Darwin ]];then
-  if [[ $CPU =~ Intel &&  -e /usr/local/bin/brew_list ]];then
+  if [[ $CPU =~ x86_64 &&  -e /usr/local/bin/brew_list ]];then
    echo exist /usr/local/bin/brew_list  
     exit
-  elif [[ $CPU =~ M1 && -e /opt/homebrew/bin/brew_list ]];then 
+  elif [[ $CPU =~ arm64 && -e /opt/homebrew/bin/brew_list ]];then 
    echo exist /opt/homebrew/bin/brew_list
     exit
   fi
@@ -44,7 +44,7 @@ if [[ ! $1 ]];then
  DIR=$(cd $(dirname $0); pwd)
 
  if [[ $NAME = Darwin ]];then
-  if [[ $CPU =~ Intel ]];then
+  if [[ $CPU =~ x86_64 ]];then
    cp $DIR/brew_list.pl /usr/local/bin/brew_list
   else
    cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list
