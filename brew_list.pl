@@ -1030,11 +1030,16 @@ if [[ $1 -eq 1 ]];then
  if [[ $NAME = Darwin ]];then
   TI1=(`date +"%Y %-m %-d %T"`)
   LS1=(`ls -dlT ~/.BREW_LIST/LOCK 2>/dev/null`) && \
-   [[ -n $LS1 ]] && timer_1 ${TI1[3]} ${LS1[7]}
+  [[ ${TI1[0]} > ${LS1[8]} || ${TI1[1]} > ${LS1[5]} || ${TI1[2]} > ${LS1[6]} ]] && \
+  rm -rf ~/.BREW_LIST/LOCK
+   [[ -d ~/.BREW_LIST/LOCK && $LS1 ]] && timer_1 ${TI1[3]} ${LS1[7]}
  else
   TI1=(`date +"%Y %m %d %T"`)
   LS1=(`ls -d --full-time ~/.BREW_LIST/LOCK 2>/dev/null`) && \
-   [[ -n $LS1 ]] && timer_1 ${TI1[3]} ${LS1[6]}
+  LS2=(`echo ${LS1[5]}|sed 's/-/ /g'`) && \
+  [[ ${TI1[0]} > ${LS2[0]} || ${TI1[1]} > ${LS2[1]} || ${TI1[2]} > ${LS2[2]} ]] && \
+  rm -rf ~/.BREW_LIST/LOCK
+   [[ -d ~/.BREW_LIST/LOCK && $LS1 ]] && timer_1 ${TI1[3]} ${LS1[6]}
  fi
 fi
 
