@@ -1016,11 +1016,11 @@ my( $re,$i,@file1,@file2 ) = @_;
 }
 __END__
 #!/bin/bash
- NAME=`uname`
+NAME=$(uname)
 
 if [[ $1 -eq 1 ]];then
- TI=`date +%s`
- LS=`date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null`
+ TI=$(date +%s)
+ LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS ]];then
   if [[ $NAME = Darwin ]];then
    LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 )) && \
@@ -1061,11 +1061,11 @@ if [[ $2 -eq 1 ]];then
   { rm -rf ~/.BREW_LIST/LOCK; exit; }
    rmdir ~/.BREW_LIST/4
 
- /usr/bin/unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
+ unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
   { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
- /usr/bin/unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || \
+ unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || \
   { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
- /usr/bin/unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
+ unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
   { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
    rmdir ~/.BREW_LIST/5
 
