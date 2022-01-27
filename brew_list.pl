@@ -207,7 +207,7 @@ my $re = shift;
      ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
        $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? die "\x1B[?25h$dok" : die "\x1B[?25h$not";
    } exit;
-  }else{ system 'sleep 0.01';
+  }else{
    Tied_1( $re ) unless -d "$re->{'HOME'}/LOCK"; system '~/.BREW_LIST/font.sh 0 1'; exit;
   }
 }
