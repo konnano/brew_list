@@ -7,10 +7,10 @@ if [[ $1 -eq 1 ]];then
  if [[ $LS ]];then
   if [[ $NAME = Darwin ]];then
    LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 )) && \
-    { [[ $LS -eq 60 ]] && exit || [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK; }
+    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && rm -rf ~/.BREW_LIST/LOCK; }
   else
    LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 )) && \
-    { [[ $LS -eq 60 ]] && exit || [[ $TI > $LS ]] && LS= && rm -rf ~/.BREW_LIST/LOCK; }
+    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && rm -rf ~/.BREW_LIST/LOCK; }
   fi
  fi
 fi
