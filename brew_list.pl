@@ -1037,36 +1037,31 @@ if [[ $2 -eq 1 ]];then
   exit
  fi
 
- trap '
- rm -f ~/.BREW_LIST/master* ~/.BREW_LIST/*.html ~/.BREW_LIST/DBM*
- rm -rf ~/.BREW_LIST/homebrew-cask-*
- rm -rf ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
- exit' 1 2 3 15
+ trap 'math_rm 1; exit 1' 1 2 3 15
+ math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
+             rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
 
  if [[ $NAME = Darwin ]];then
    mkdir -p ~/.BREW_LIST/{0..9}
  curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
-  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  { math_rm; ${die?curl 1 error}; }
    rmdir ~/.BREW_LIST/0
  curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html || \
-  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  { math_rm; ${die?curl 2 error}; }
    rmdir ~/.BREW_LIST/1
  curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip || \
-  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  { math_rm; ${die?curl 3 error}; }
    rmdir ~/.BREW_LIST/2
  curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip || \
-  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  { math_rm; ${die?curl 4 error}; }
    rmdir ~/.BREW_LIST/3
  curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip || \
-  { rm -rf ~/.BREW_LIST/LOCK; exit; }
+  { math_rm; ${die?curl 5 error}; }
    rmdir ~/.BREW_LIST/4
 
- unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || \
-  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
- unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || \
-  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
- unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || \
-  { rm -rf ~/.BREW_LIST/master* ~/.BREW_LIST/homebrew-cask* ~/.BREW_LIST/LOCK; exit; }
+ unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die?unzip 1 error}; }
+ unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die?unzip 2 error}; }
+ unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || { math_rm; ${die?unzip 3 error}; }
    rmdir ~/.BREW_LIST/5
 
 perl<<"EOF"
@@ -1154,10 +1149,11 @@ perl<<"EOF"
     print $FILE3 @file4;
    close $FILE3;
 EOF
+[[ $? -ne 0 ]] && math_rm 1 && ${die?perl 1 error};
 
  else
   curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
-   { rm -rf ~/.BREW_LIST/LOCK; exit; }
+   { math_rm; ${die?curl 6 error}; }
  fi
 
 perl<<"EOF"
@@ -1185,9 +1181,10 @@ perl<<"EOF"
     print $FILE2 @file1;
    close $FILE2;
 EOF
+[[ $? -ne 0 ]] && math_rm 1 && ${die?perl 2 error};
 
  rm -rf  ~/.BREW_LIST/6
- perl ~/.BREW_LIST/tie.pl
+ perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die?perl tie error}; }
 
  if [[ $NAME = Darwin ]];then
   mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
@@ -1195,9 +1192,7 @@ EOF
   mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
   mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
  fi
-
- rm -f  ~/.BREW_LIST/master* ~/.BREW_LIST/*.html
- rm -rf ~/.BREW_LIST/homebrew-cask-* ~/.BREW_LIST/{0..9} ~/.BREW_LIST/WAIT ~/.BREW_LIST/LOCK
+ math_rm
 fi
 __TIE__
 use strict;
