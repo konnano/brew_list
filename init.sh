@@ -28,7 +28,7 @@ if [[ ! "$LINK" ]];then
    [[ -e /usr/local/bin/brew_list ]] && echo " exist /usr/local/bin/brew_list" && exit
   else
    [[ ! -d /opt/homebrew/Cellar ]] && echo " Not installed HOME BREW" && exit
-   [[  -e /opt/homebrew/bin/brew_list ]] && echo " exist /opt/homebrew/bin/brew_list" && exit
+   [[ -e /opt/homebrew/bin/brew_list ]] && echo " exist /opt/homebrew/bin/brew_list" && exit
   fi
  else
   [[ ! -d /home/linuxbrew/.linuxbrew/Cellar ]] && echo " Not installed HOME BREW" && exit
@@ -41,10 +41,10 @@ if [[ ! "$LINK" ]];then
  DIR=$(cd $(dirname $0); pwd)
 
  if [[ "$NAME" = Darwin ]];then
-  [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/brew_list || ${die?copy error}; } ||\
-   { cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list || ${die?copy error}; }
+  [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/brew_list || ${die?copy 1 error}; } ||\
+   { cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list || ${die?copy 2 error}; }
  else
-  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die?copy error}
+  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die?copy 3 error}
  fi
  brew_list -new
 fi
