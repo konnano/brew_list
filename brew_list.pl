@@ -1017,8 +1017,8 @@ my( $re,$i,@file1,@file2 ) = @_;
 __END__
 #!/bin/bash
  NAME=$(uname)
-[[ ! $1 || $1 =~ ^[01]$ ]] || ${die:?input 1 erroe}
-[[ ! $2 || $2 =~ ^[01]$ ]] || ${die:?input 2 erroe}
+[[ ! $1 || $1 =~ ^[01]$ ]] || ${die:?input 1 error}
+[[ ! $2 || $2 =~ ^[01]$ ]] || ${die:?input 2 error}
 
 if [[ $1 -eq 1 ]];then
  TI=$(date +%s)
@@ -1036,7 +1036,7 @@ fi
 
 if [[ $2 -eq 1 ]];then
  if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
-  exit
+  exit 2
  fi
 
  trap 'math_rm 1; exit 1' 1 2 3 15
