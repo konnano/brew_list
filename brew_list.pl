@@ -55,7 +55,7 @@ MAIN:{
     $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
      $OS_Version =~ s/^11.*\n/11.0/;
       $OS_Version =~ s/^12.*\n/12.0/;
-  exit if $OS_Version =~ /^10\.[0-8]($|\.)/;
+  die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
    $OS_Version2 = $OS_Version;
     $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
@@ -91,8 +91,8 @@ MAIN:{
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
-    $re->{'CLANG'} = `clang --version|awk '/Apple/'` ?
-     `clang --version|awk '/Apple/'|sed -E 's/.*clang-([^.]*).*/\\1/'` : 0 if $re->{'MAC'};
+    $re->{'CLANG'} = `clang --version|sed '/Apple/!d' 2>/dev/null` ?
+     `clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0 if $re->{'MAC'};
   }else{
    $re->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
@@ -1223,9 +1223,11 @@ if( $^O eq 'darwin' ){
 
  %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
- $re->{'CLANG'} = `clang --version|awk '/Apple/'|sed 's/.*-\\([^.]*\\)\\..*/\\1/'`;
- $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
-                 awk '/version/{print \$2}'|sed 's/\\([0-9]*\\.[0-9]*\\).*/\\1/'`;
+ $re->{'CLANG'} = `clang --version|sed '/Apple/!d' 2>/dev/null` ?
+                  `clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0;
+ $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null` ?
+                `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
+                 sed -n '/version/s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/p'` : 0;
 
   if( $CPU eq 'intel\?' ){
    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
@@ -1241,8 +1243,8 @@ if( $^O eq 'darwin' ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/7";
 }else{
  $re->{'LIN'} = 1;
-  $RPM = `ldd --version|awk '/ldd/{print \$NF}'`;
-   $CAT = `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'`;
+  $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
+   $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'` : 0;
     $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
 
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
@@ -1287,7 +1289,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
        $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : 0; # x86_64
         if( $data =~ /.*,\s+all:/ ){
-         $tap{"${name}12.0M1"} = $tap{"${name}12.0"} = 
+         $tap{"${name}12.0M1"} = $tap{"${name}12.0"} =
          $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
          $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
          $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} =
@@ -1365,7 +1367,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
           $tap{"${name}un_Linux"} = 1;
            $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
          } next;
-      }elsif( my( $ls3,$ls4 ) = 
+      }elsif( my( $ls3,$ls4 ) =
         $data =~ /^\s*depends_on\s+xcode:.+:build.+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
          if( $re->{'MAC'} and eval "$OS_Version $ls3 $MAC_OS{$ls4}" and not $Xcode ){
           $tap{"${name}un_xcode"} = 1;
@@ -1469,7 +1471,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
           $tap{"${ls4}uses"} .= "$name\t";
          }
        }elsif( my( $ls7,$ls8 ) =
-        $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+)/ ){	
+        $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+)/ ){
           $tap{"${ls7}uses"} .= "$name\t" if $ls8 =~ /$CPU/;
        }
      }
