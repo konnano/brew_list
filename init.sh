@@ -1,10 +1,10 @@
 #!/bin/bash
  NAME=$(uname)
 if [[ ! "$NAME" = Darwin && ! "$NAME" = Linux ]];then
- exit
+ ${die:?Not support OS}
 elif [[ "$NAME" = Darwin ]];then
- VER=$(sw_vers -productVersion|sed -E 's/^(1[1-2]).*/\1.0/'\;\
-'s/^(10\.)(1[0-5]).*/\1\2/'\;'s/^(10\.)([0-9])($|\.).*/\10\2/')
+ VER=$(sw_vers -productVersion|\
+ sed -E 's/^(1[1-2]).*/\1.0/;s/^(10\.)(1[0-5]).*/\1\2/;s/^(10\.)([0-9])($|\.).*/\10\2/')
  [[ 10.09 > "$VER" ]] && echo ' Use Tiger Brew' && exit 1
  CPU=$(uname -m)
 fi
@@ -40,10 +40,10 @@ if [[ ! "$LINK" ]];then
  DIR=$(cd $(dirname $0); pwd)
 
  if [[ "$NAME" = Darwin ]];then
-  [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/brew_list || ${die?copy 1 error}; } ||\
-   { cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list || ${die?copy 2 error}; }
+  [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/brew_list || ${die:?copy 1 error}; } ||\
+   { cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list || ${die:?copy 2 error}; }
  else
-  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die?copy 3 error}
+  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die:?copy 3 error}
  fi
  brew_list -new
 fi
