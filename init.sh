@@ -36,7 +36,7 @@ if [[ ! "$LINK" ]];then
  fi
 
  curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 || \
-  { echo -e "\033[31m Not connected\033[00m"; exit; }
+  { echo -e "\033[31m Not connected\033[00m"; exit 1; }
  DIR=$(cd $(dirname $0); pwd)
 
  if [[ "$NAME" = Darwin ]];then
