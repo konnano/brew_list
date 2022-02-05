@@ -3,16 +3,18 @@
 [[ ! $1 || $1 =~ ^[01]$ ]] || ${die:?input 1 error}
 [[ ! $2 || $2 =~ ^[01]$ ]] || ${die:?input 2 error}
 
+ math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
+                        rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
 if [[ $1 -eq 1 ]];then
  TI=$(date +%s)
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS ]];then
   if [[ "$NAME" = Darwin ]];then
    LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 )) &&\
-    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && rm -rf ~/.BREW_LIST/LOCK; }
+    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && math_rm; }
   else
    LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 )) &&\
-    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && rm -rf ~/.BREW_LIST/LOCK; }
+    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && math_rm; }
   fi
  fi
 fi
@@ -21,10 +23,7 @@ if [[ $2 -eq 1 ]];then
  if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
   exit 2
  fi
-
  trap 'math_rm 1; exit 1' 1 2 3 15
- math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                        rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
 
  if [[ "$NAME" = Darwin ]];then
    mkdir -p ~/.BREW_LIST/{0..9}
