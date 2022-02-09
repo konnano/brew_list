@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.04
+brew list コマンド拡張版 : version 1.04_1
 
 MacOS10.9から対応します10.8以前は現在のhomebrewインストール出来ないのでわかりません
 
