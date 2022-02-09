@@ -1,4 +1,4 @@
-brew list コマンド拡張版  :  version 1.04
+brew list コマンド拡張版 : version 1.04
 
 MacOS10.9から対応します10.8以前は現在のhomebrewインストール出来ないのでわかりません
 
@@ -30,9 +30,16 @@ MacOS10.9から対応します10.8以前は現在のhomebrewインストール�
 
 '-t' オプションでインストールに必要なFormulaがtree表示されます
 
+'-tt' オプションでインストールに必要なFormulaのみtree表示されます
+
 '-de' オプションでアンインストール後に必要ないFormulaが表示されます
 
 '-d' オプションでアンインストール後に必要ないFormulaがtree表示されます
+
+'-dd' オプションでアンインストール後に必要ないFormulaのみがtree表示されます
+
+'-ddd' オプションでアンインストール後に必要ないFormulaをパイプで順番にアンインストール出来ます
+　削除は　-ddや　-deでよく確認して下さい( brew_list -ddd Formula|xargs brew uninstall )
 
 '-u' オプションでFormulaに依存しているインストール済みFormulaが表示されます
 
