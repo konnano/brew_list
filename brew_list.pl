@@ -192,26 +192,28 @@ my $re = shift;
  die " Wait Not fork : $!\n" unless defined $pid;
   if($pid){
    unless( -d "$re->{'HOME'}/LOCK" ){
-    print STDERR "\x1B[?25l";
-    if( $^O eq 'linux' ){ my $i = 0;
-      while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
-       -d "$re->{'HOME'}/WAIT" ?
-        print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
-         $i++; system 'sleep 0.1';
-      }
-    }else{ my $i = 0; my $ma = '';
-      while(1){
-      printf STDERR "\r '\033[33m%-10s\033[00m' [%2d/10]",$ma,$i;
-       sleep 1 and last unless -d "$re->{'HOME'}/WAIT";
-        if( -d "$re->{'HOME'}/$i" ){
-         while(1){
-          last unless -d "$re->{'HOME'}/$i";
-         } $i++; $ma .= '#';
-        }
-      }
-    } waitpid($pid,0);
-     ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
-       $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? (print "\x1B[?25h$dok" and exit) : die "\x1B[?25h$not";
+    if( -t STDOUT ){
+     print STDERR "\x1B[?25l";
+     if( $^O eq 'linux' ){ my $i = 0;
+       while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
+        -d "$re->{'HOME'}/WAIT" ?
+         print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
+          $i++; system 'sleep 0.1';
+       }
+     }else{ my $i = 0; my $ma = '';
+       while(1){
+       printf STDERR "\r '\033[33m%-10s\033[00m' [%2d/10]",$ma,$i;
+        sleep 1 and last unless -d "$re->{'HOME'}/WAIT";
+         if( -d "$re->{'HOME'}/$i" ){
+          while(1){
+           last unless -d "$re->{'HOME'}/$i";
+          } $i++; $ma .= '#';
+         }
+       }
+     } waitpid($pid,0);
+      ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
+        $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? (print "\x1B[?25h$dok" and exit) : die "\x1B[?25h$not";
+    }
    } exit;
   }else{
    Tied_1( $re ) unless -d "$re->{'HOME'}/LOCK"; system '~/.BREW_LIST/font.sh 0 1'; exit;
@@ -403,15 +405,14 @@ my $name = $brew;
 
  $re->{'OS'}{"deps$brew"} += (
    ( $re->{'TREE'} and $re->{'TT'} and $name =~ /\(require\)/ ) ) ?
-  push @{$re->{'UNI'}},"${spa}-- $name\n" :
+    push @{$re->{'UNI'}},"${spa}-- $name\n" :
    ( $re->{'TREE'} and $re->{'DD'} and $name =~ /\(can delete\)/ ) ?
-  push @{$re->{'UNI'}},"${spa}-- $name\n" :
+    push @{$re->{'UNI'}},"${spa}-- $name\n" :
    ( $re->{'TREE'} and $build and not $re->{'DD'} and not $re->{'TT'} ) ?
-  push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
+    push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
    ( $re->{'TREE'} and not $re->{'DD'} and not $re->{'TT'} ) ?
-  push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
+    push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$brew if $re->{'DEL'} and $re->{'OS'}{"deps$brew"} < 2;
-
 }
 
 sub Read_1{
