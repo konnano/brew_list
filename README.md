@@ -38,7 +38,7 @@ MacOS10.9から対応します10.8以前は現在のhomebrewインストール�
 
 '-dd' オプションでアンインストール後に必要ないFormulaのみがtree表示されます
 
-'-ddd' オプションでアンインストール後に必要ないFormulaをパイプで順番にアンインストール出来ます
+'-ddd' オプションでアンインストールで必要ないFormulaをパイプで順番にアンインストール出来ます
 
 　削除は　-ddや　-deでよく確認して下さい( brew_list -ddd Formula|xargs brew uninstall )
 
