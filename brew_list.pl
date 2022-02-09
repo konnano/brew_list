@@ -1007,7 +1007,7 @@ my $re = shift;
    for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
  }
 
- if( %HA or $re->{'DD'} ){
+ if( $re->{'DD'} ){
  my $i = 1; my $flag = 1;
  print" $re->{'INF'}" if $re->{'DDD'};
   for my $key(sort keys %HA){
