@@ -32,7 +32,10 @@ MAIN:{
  }elsif( $AR[0] eq '-in' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = 6; $re->{'INF'} = 1;
  }elsif( $AR[0] eq '-de' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1; $re->{'LINK'} = 7;
  }elsif( $AR[0] eq '-t' ){  $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
+ }elsif( $AR[0] eq '-tt'){  $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'} = 1;
  }elsif( $AR[0] eq '-d' ){  $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
+ }elsif( $AR[0] eq '-dd'){  $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'DD'} = 1;
+ }elsif( $AR[0] eq '-ddd'){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'DD'} = $re->{'DDD'} = 1;
  }elsif( $AR[0] eq '-u' ){  $name = $re;  $re->{'USE'}  = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
@@ -132,13 +135,16 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.03_5\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.04\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
   -in\t:  formula require formula\n  -t\t:  formula require formula, display tree
-  -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
-  -de\t:  uninstalled not require formula\n  -d\t:  uninstalled not require formula, display tree
+  -tt\t:  only require formula, display tree\n  -u\t:  formula depend on formula
+  -ua\t:  formula depend on formula, all\n  -de\t:  uninstalled, not require formula
+  -d\t:  uninstalled, not require formula, display tree
+  -dd\t:  uninstalled, only not require formula, display tree and order
+  -ddd\t:  All uninstall : pype xargs brew uninstall
   -g\t:  Independent formula\n    Only mac : Cask
   -c\t:  cask list\n  -ct\t:  cask tap list\n  -ci\t:  instaled cask
   -cx\t:  can't install cask\n  -cs\t:  some name cask and formula\n";
@@ -345,7 +351,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
    $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
     $re->{'LIST'} = 1;
      Fork_1( $re );
-  }elsif( $do ){
+  }elsif( $do or $re->{'DD'} ){
    $re->{'COLOR'} = $re->{'TREE'} = 1;
     $re->{'DEL'} = 0;
      Fork_1( $re );
@@ -394,10 +400,17 @@ my $name = $brew;
  $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
    if $re->{'COLOR'} and $re->{'HASH'}{$brew} and $re->{"${brew}delet"};
 
- $re->{'OS'}{"deps$brew"} += ( $re->{'TREE'} and $build ) ?
-  push @{$re->{'UNI'}},"${spa}-- $name [build]\n" : $re->{'TREE'} ?
+ $re->{'OS'}{"deps$brew"} += (
+   ( $re->{'TREE'} and $re->{'TT'} and $name =~ /\(require\)/ ) ) ?
+  push @{$re->{'UNI'}},"${spa}-- $name\n" :
+   ( $re->{'TREE'} and $re->{'DD'} and $name =~ /\(can delete\)/ ) ?
+  push @{$re->{'UNI'}},"${spa}-- $name\n" :
+   ( $re->{'TREE'} and $build and not $re->{'DD'} and not $re->{'TT'} ) ?
+  push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
+   ( $re->{'TREE'} and not $re->{'DD'} and not $re->{'TT'} ) ?
   push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$brew if $re->{'DEL'} and $re->{'OS'}{"deps$brew"} < 2;
+
 }
 
 sub Read_1{
@@ -942,9 +955,14 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
 
 sub Format_2{
 my $re = shift;
- my( $wap,$leng,@TODO ); my $cou = 0;
+ my( $wap,$leng,@TODO,%HA ); my $cou = 0;
  for( @{$re->{'UNI'}} ){ my $an;
   $wap++;
+   if( $re->{'DD'} ){
+    my @bn = split '\|',$_;
+     $bn[$#bn] =~ s/^-+\s+([^\s]+).*\n/$1/;
+      $HA{"$#bn$bn[$#bn]"} = $bn[$#bn];
+   }
    if( $Locale ){
     $_ =~ s/\|/│/g;
     $_ =~ s/│--/├──/g;
@@ -954,37 +972,62 @@ my $re = shift;
      $cou = $an if $cou < $an;
    } $an = 0;
  }
- for(my $i=0;$i<$cou;$i++){ my $in;
-  $leng = $in = 0;
-  for my $data( @{$re->{'UNI'}} ){ $leng++;
-   my @an = split '\\s{3}',$data;
-   for(@an){
-    $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──|\|--/;
-    if( not $an[$i] and $TODO[$in] or
+ unless( $re->{'DDD'} ){
+  for(my $i=0;$i<$cou;$i++){ my $in;
+   $leng = $in = 0;
+   for my $data( @{$re->{'UNI'}} ){ $leng++;
+    my @an = split '\\s{3}',$data;
+    for(@an){
+     $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──|\|--/;
+     if( not $an[$i] and $TODO[$in] or
         $wap == $leng and $an[$i] and $an[$i] !~ /├──|\|--/ ){
-     $TODO[++$in] = $leng;
-      $wap != $leng ? $in++ : last;	
+      $TODO[++$in] = $leng;
+       $wap != $leng ? $in++ : last;	
+     }
     }
    }
+    $wap = $leng = 0;
+   for(my $p=0;$p<@{$re->{'UNI'}};$p++){
+    $wap++; my $plus = '';
+    my @an = split '\\s{3}',${$re->{'UNI'}}[$p];
+     for(my $e=0;$e<@an;$e++){
+       if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
+        $an[$i] =~ s/│$|\|$/#/ if $an[$i];
+       }
+      $an[$e] =~ s/\|--/`--/ or $an[$e] =~ s/├──/└──/ if $TODO[$leng] and $TODO[$leng] == $wap;
+       $leng += 2 if $TODO[$leng+1] and $TODO[$leng+1] == $wap;
+        $plus .= "   $an[$e]";
+     }
+    $plus =~ s/^\s{3}//;
+     ${$re->{'UNI'}}[$p] = $plus;
+   }
   }
-   $wap = $leng = 0;
-  for(my $p=0;$p<@{$re->{'UNI'}};$p++){
-   $wap++; my $plus = '';
-   my @an = split '\\s{3}',${$re->{'UNI'}}[$p];
-    for(my $e=0;$e<@an;$e++){
-      if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
-       $an[$i] =~ s/│$|\|$/#/ if $an[$i];
-      }
-     $an[$e] =~ s/\|--/`--/ or $an[$e] =~ s/├──/└──/ if $TODO[$leng] and $TODO[$leng] == $wap;
-      $leng += 2 if $TODO[$leng+1] and $TODO[$leng+1] == $wap;
-       $plus .= "   $an[$e]";
-    }
-   $plus =~ s/^\s{3}//;
-    ${$re->{'UNI'}}[$p] = $plus;
-  }
+  print"$re->{'INF'}\n" if @{$re->{'UNI'}};
+   for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
  }
- print"$re->{'INF'}\n" if @{$re->{'UNI'}};
-  for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
+
+ if( %HA or $re->{'DD'} ){
+ my $i = 1; my $flag = 1;
+ print" $re->{'INF'}" if $re->{'DDD'};
+  for my $key(sort keys %HA){
+   my( $cou,$name ) = $key =~ /^(\d)(.*)/;
+    $HA{$name}++;
+   if( $re->{'DDD'} ){
+    print" $HA{$key}" if $HA{$name} < 2;
+   }else{
+    if( $cou != $i and $HA{$name}<2 ){
+     $flag++; $i++; print"\n";
+    }
+    if( $flag and $HA{$name} < 2 ){
+     $flag--; print" $i :";
+    }
+    if( not $flag and $HA{$name} < 2 ){
+     print" $HA{$key}";
+    }
+   }
+  } 
+  print"\n" if %HA and not $re->{'DDD'};
+ }
 }
 
 sub Nohup_1{
