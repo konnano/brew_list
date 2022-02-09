@@ -135,7 +135,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.04\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.04_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -255,7 +255,7 @@ my( $url,$ls,$re,$bn ) = @_;
  opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
   for my $hand_1(readdir $dir_1){
    next if $hand_1 =~ /^\./;
-   $re->{'FILE'} .= " File exists $url/$hand_1\n" if -f "$url/$hand_1" and not $ls;
+   $re->{'FILE'} .= " File exists $url/$hand_1\n" if( -f "$url/$hand_1" or -l "$url/$hand_1" ) and not $ls;
     if( $ls != 2 ){
      next unless -d "$url/$hand_1";
     }
@@ -281,6 +281,7 @@ sub Top_1{
 my( $re,$list,%HA,@AN ) = @_;
  for my $ls(@$list){
   $ls =~ s/^\s(.*)\n/$1/;
+  next if $ls eq 'python@3.8';  ### brew uses --installed python@3.8; brew info liblqr
    Uses_1( $re,$ls,\%HA,\@AN );
     if( @AN < 2 ){
      my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
@@ -1012,8 +1013,8 @@ my $re = shift;
   for my $key(sort keys %HA){
    my( $cou,$name ) = $key =~ /^(\d)(.*)/;
     $HA{$name}++;
-   if( $re->{'DDD'} ){
-    print" $HA{$key}" if $HA{$name} < 2;
+   if( $re->{'DDD'} and $HA{$name}<2 ){
+    print" $HA{$key}";
    }else{
     if( $cou != $i and $HA{$name}<2 ){
      $flag++; $i++; print"\n";
