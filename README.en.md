@@ -1,4 +1,4 @@
-google translate　　Please read in the atmosphere 
+google translate　Please read in the atmosphere
 
 brew list command extended version: version 1.04_1
 
@@ -18,33 +18,33 @@ Uninstall ./init.sh unlink in the brew_list-main folder
 
 '-lx'option Can't install Formula list is displayed, regular expressions //
 
-'-i'option Installed Formulas list is displayed
+'-i'option Installed Formula list is displayed
 
 '-s'option Search Formula, regular expressions //
 
 '-co'option Formula library list is displayed
 
-'-in'option Formula required formula list is displayed
+'-in'option Formula required Formula list is displayed
 
-'-t'option Formula required formula is displayed by tree
+'-t'option Formula required Formula is displayed by tree
 
-'-tt'option Only formula required formula  is displayed by tree
+'-tt'option Only Formula required Formula is displayed by tree
 
-'-de'option Unistall formula, don't need formula list is displayed
+'-de'option Unistall Formula, don't need Formula list is displayed
 
-'-d'option Unistall formula, don't need formula is displayed by tree
+'-d'option Unistall Formula, don't need Formula is displayed by tree
 
-'-dd'option Unistall formula, don't need only formula is displayed in order by tree
+'-dd'option Unistall Formula, don't need only Formula is displayed in order by tree
 
-'-ddd'option Unistall formula, don't need only formula can uninstall in order by pipe.
+'-ddd'option Unistall Formula, don't need only Formula uninstall list in order by pipe.
 
-Please check -dd or -de option (brew_list -ddd Formula | xargs brew uninstall).
+Please check -dd or -de option ( brew_list -ddd Formula | xargs brew uninstall )
 
-'-u'option Installed formulas depend on Formulas is displayed
+'-u'option Installed Formula depend on Formula is displayed
 
-'-ua'option Formulas depend on All Formulas is displayed
+'-ua'option Formula depend on All Formula is displayed
 
-'-g'option Independent Formulas is displayed
+'-g'option Independent Formula is displayed
 
 '-o'option Brew outdated command
 
@@ -58,7 +58,7 @@ Only Mac: Cask
 
 '-ci'option Cask installed list is displayed
 
-'-cx'option Casks can't installe list is displayed, regular expressions //
+'-cx'option Cask can't installe list is displayed, regular expressions //
 
 '-cs' option Formula and Cask same name list is displayed, regular expressions //
 
@@ -76,7 +76,7 @@ e mark is can't built Formula
 
 x mark is can't installed Formula
 
-t mark Installed formula version upgrade can't installed 
+t mark Installed formula version upgrade can't installed
 
 Onle Mac: Cask
 
