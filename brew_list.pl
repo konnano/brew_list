@@ -403,8 +403,8 @@ my $name = $brew;
  $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
    if $re->{'COLOR'} and $re->{'HASH'}{$brew} and $re->{"${brew}delet"};
 
- $re->{'OS'}{"deps$brew"} += (
-   ( $re->{'TREE'} and $re->{'TT'} and $name =~ /\(require\)/ ) ) ?
+ $re->{'OS'}{"deps$brew"} +=
+   ( $re->{'TREE'} and $re->{'TT'} and $name =~ /\(require\)/ ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" :
    ( $re->{'TREE'} and $re->{'DD'} and $name =~ /\(can delete\)/ ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" :
