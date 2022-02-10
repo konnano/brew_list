@@ -1,10 +1,10 @@
 #!/bin/bash
  NAME=$(uname)
-[[ ! $1 || $1 =~ ^[01]$ ]] || ${die:?input 1 error}
+[[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
 [[ ! $2 || $2 =~ ^[01]$ ]] || ${die:?input 2 error}
 
- math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                        rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
+math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
+                       rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
 if [[ $1 -eq 1 ]];then
  TI=$(date +%s)
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
