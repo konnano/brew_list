@@ -72,7 +72,7 @@ i mark is installed Formula
 
 (i) Mark is Formula with version upgrade
 
-e mark is can't built Formula
+e mark is Formula downloaded and not installed or Foumula can't built
 
 x mark is can't installed Formula
 
