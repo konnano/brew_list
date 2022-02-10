@@ -74,7 +74,7 @@ i マークはインストール済みFormula
 
 (i) マークはバージョンアップのあるFormula
 
-e マークはビルドできないFormula
+e マークはダウンロードされてインストールされてないFormulaか、ビルドできないFormula
 
 x マークはインストールできないFormula
 
