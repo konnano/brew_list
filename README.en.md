@@ -6,7 +6,7 @@ brew list command extended version: version 1.04_1
 
 After downloading, run ./init.sh in the brew_list-main folder
 
-It takes a little time to create the cache file, the command is brew_list
+It takes a little time to create the cache file, the command name is brew_list
 
 Uninstall ./init.sh unlink in the brew_list-main folder
 
