@@ -70,7 +70,7 @@ k mark is a keg_only Formula
 
 i mark is installed Formula
 
-(i) Mark is Formula with version upgrade
+(i) ark is Formula with version upgrade
 
 e mark is Formula downloaded and not installed or Foumula can't built
 
