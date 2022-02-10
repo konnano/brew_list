@@ -144,7 +144,7 @@ sub Died_1{
   -ua\t:  formula depend on formula, all\n  -de\t:  uninstalled, not require formula
   -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order
-  -ddd\t:  All uninstall : pype xargs brew uninstall
+  -ddd\t:  All uninstall : pipe xargs brew uninstall
   -g\t:  Independent formula\n    Only mac : Cask
   -c\t:  cask list\n  -ct\t:  cask tap list\n  -ci\t:  instaled cask
   -cx\t:  can't install cask\n  -cs\t:  some name cask and formula\n";
