@@ -11,16 +11,16 @@ fi
  LINK="$1"
 if [[ "$NAME" = Darwin && "$LINK" = unlink ]];then
  [[ "$CPU" = x86_64 ]] && rm -f /usr/local/bin/brew_list || rm -f /opt/homebrew/bin/brew_list
-  rm -rf ~/.BREW_LIST
+  rm -rf ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
     exit
 elif [[ "$NAME" = Linux && "$LINK" = unlink ]];then
-  rm -rf /home/linuxbrew/.linuxbrew/bin/brew_list ~/.BREW_LIST
+  rm -rf /home/linuxbrew/.linuxbrew/bin/brew_list ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
     exit
 fi
 
-if [[ ! "$LINK" ]];then
+if [[ ! "$LINK" || "$LINK" = JA ]];then
  if [[ "$NAME" = Darwin ]];then
   if [[ "$CPU" = x86_64 ]];then
    [[ ! -d /usr/local/Cellar ]] && echo " Not installed HOME BREW" && exit
@@ -38,12 +38,15 @@ if [[ ! "$LINK" ]];then
  curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 || \
   { echo -e "\033[31m Not connected\033[00m"; exit 1; }
  DIR=$(cd $(dirname $0); pwd)
+ Lang=$(printf $LC_ALL $LC_CTYPE $LANG 2>/dev/null)
 
  if [[ "$NAME" = Darwin ]];then
   [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/brew_list || ${die:?copy 1 error}; } ||\
    { cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list || ${die:?copy 2 error}; }
+    [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
  else
   cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die:?copy 3 error}
+    [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
  fi
  brew_list -new
 fi
