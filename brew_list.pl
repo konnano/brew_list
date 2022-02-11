@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
-my( $OS_Version,$OS_Version2,$CPU,%MAC_OS,$Locale );
+my( $OS_Version,$OS_Version2,$CPU,%MAC_OS,$Locale,%JA );
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -67,7 +67,6 @@ MAIN:{
   %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
              'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  }
- $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
 
  if( $re->{'MAC'} and ( $CPU eq 'arm\?' or not -d $re->{'CEL'} ) ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
@@ -80,6 +79,11 @@ MAIN:{
  die " Not installed HOME BREW\n" unless -d $re->{'CEL'};
   print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
+
+ $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
+   if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
+    $name->{'EN'} = 1 ; $AR[1] = $AR[2];
+   }elsif( not $Locale ){ $name->{'EN'} = 1; }
 
  if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -135,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.04_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.05\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -388,9 +392,26 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
      }
      push @file,$tap;
     }
-   close $BREW;
-  push @$file,@file;
- }
+    close $BREW;
+   push @$file,@file;
+  }
+  if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} ){ no warnings 'closed';
+   if( $re->{'FOR'} ){
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist JA_file ###\n";
+     while( my $an = <$JA> ){
+     my( $name,$desc ) = split "\t",$an;
+      chomp( $JA{$name} = $desc )
+     }
+    close $JA;
+   }elsif( not $re->{'TAP'} ){
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " ### Not exist JA_file ###\n";
+     while( my $an = <$JA> ){
+     my( $name,$desc ) = split "\t",$an;
+      chomp( $JA{$name} = $desc )
+     }
+    close $JA;
+   }
+  }
  Search_1( $list,$file,0,$re );
 }
 
@@ -677,6 +698,7 @@ my( $list,$file,$in,$re ) = @_;
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3;
+  $brew_3 = $JA{$brew_1} if $JA{$brew_1};
     $brew_3 =~ s/[“”]//g unless $Locale;
 
   if( not $re->{'LINK'} or
@@ -782,6 +804,7 @@ my( $list,$re,$in ) = @_;
       $re->{'OS'}{"${tap}f_name"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_desc"} ) ?
        $re->{'OS'}{"${tap}c_desc"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_name"} ) ?
         $re->{'OS'}{"${tap}c_name"} : 0;
+     $com = $JA{$tap} if $JA{$tap};
 
       my $brew = 1;
  if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
