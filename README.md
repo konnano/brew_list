@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.04_1　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.05　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 MacOS10.9から対応します10.8以前は現在のhomebrewインストール出来ないのでわかりません
 
@@ -11,6 +11,10 @@ MacOS10.9から対応します10.8以前は現在のhomebrewインストール�
 キャッシュファイル作成に少し時間がかかります、コマンドはbrew_listです
 
 アンインストールはbrew_list-mainフォルダー内で ./init.sh unlink
+
+デフォルトは英語表示です　./init.sh JA オプション追加で日本語表示されます
+
+日本語版で英語表示させるにははbrew_list -l などで引数 ENにして下さい 正規表現は２番目の引数になります
 
 : オプション
 
