@@ -82,7 +82,7 @@ MAIN:{
 
  $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
    if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
-    $name->{'EN'} = 1 ; $AR[1] = $AR[2];
+    $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0;
    }elsif( not $Locale ){ $name->{'EN'} = 1; }
 
  if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.05\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.05_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
