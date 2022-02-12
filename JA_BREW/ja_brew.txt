@@ -24,7 +24,7 @@ acl2	コンピュータシステムをモデル化できる論理およびプロ
 acme	複数の環境向けのクロスアセンブラ
 acmetool	ACME（Let's Encrypt）用の自動証明書取得ツール
 acpica	ACPI仕様のOSに依存しない実装
-act	GitHubアクションをローカルで実行する噫
+act	GitHubアクションをローカルで実行する 🚀
 actionlint	GitHubActionsワークフローファイルの静的チェッカー
 activemq	Apache ActiveMQ：強力なオープンソースメッセージングサーバー
 activemq-cpp	ApacheActiveMQなどのメッセージブローカー用のC++ API
@@ -119,7 +119,7 @@ antlr4-cpp-runtime	言語認識用の別のツールC++ランタイムライブ�
 antlr@2	言語認識のための別のツール
 anttweakbar	OpenGLアプリにGUIを追加するためのC/C++ライブラリ
 anycable-go	アクションケーブルプロトコルを備えたWebSocketサーバー
-anyenv	** envのオールインワン
+anyenv	**envのオールインワン
 aoeui	DvorakおよびQWERTYキーボード用に最適化された軽量テキストエディタ
 aom	AV1ビデオストリームをエンコードおよびデコードするためのコーデックライブラリ
 apache-archiva	アーティファクトリポジトリマネージャーのビルド
@@ -195,7 +195,7 @@ artifactory	バイナリを管理します
 artillery	開発者とSRE向けのクラウドネイティブのパフォーマンスと信頼性テスト
 arturo	効率的なスクリプティングのためのシンプルでモダンでポータブルなプログラミング言語
 arx-libertatis	ArxFatalisのクロスプラットフォームのオープンソースポート
-as-tree	パスのリストをパスのツリーとして印刷する🌳
+as-tree	パスのリストをパスのツリーとして印刷する 🌳
 ascii	ASCIIイディオム名と8進数/ 10進数のコードポイント形式を一覧表示します
 ascii2binary	テキストをバイナリに変換して戻す
 asciidoc	多数のフォーマットへのテキストファイル用のフォーマッタ/トランスレータ
@@ -477,7 +477,7 @@ brag	ニュースグループからマルチパートバイナリをダウンロ
 braid	Gitリポジトリ内のベンダーブランチを追跡するのに役立つシンプルなツール
 brainfuck	brainfuck言語の通訳
 breezy	マルチフォーマットをサポートするPythonで実装されたバージョン管理システム
-brew-cask-completion	醸造樽の魚の完成
+brew-cask-completion	brew-caskのFishの完成
 brew-gem	自作式としてRubyGemsをインストールする
 brew-php-switcher	PHPバージョン間でApache/Valet/CLI構成を切り替えます
 brew-pip	自作式としてpipパッケージをインストールする
@@ -674,7 +674,7 @@ chamber	AWSSSMパラメータストアを介してシークレットを管理す
 chapel	大規模な生産的並列コンピューティングのためのプログラミング言語
 charge	意見のある、ゼロ構成の静的サイトジェネレーター
 charm	十寿チャームを管理するためのツール
-charm-tools	ジュジュチャームを作成および維持するためのツール
+charm-tools	Juju Charmsを作成および維持するためのツール
 charmcraft	チャームを作成してCharmhubに公開するためのツール
 chars	Unicode文字に関する情報を表示するコマンドラインツール
 chart-testing	ヘルムチャートのテストとリンティング
@@ -711,7 +711,7 @@ chronograf	TICKスタックのオープンソースの監視および視覚化UI
 chrony	ネットワークタイムプロトコル（NTP）の多様な実装
 chrpath	ELFバイナリのrpathを編集するためのツール
 chruby	Ruby環境ツール
-chruby-fish	魚の殻で動作するようにchrubyの周りの薄いラッパー
+chruby-fish	Fish shellで動作するようにchrubyの周りの薄いラッパー
 chuck	並行したオンザフライのオーディオプログラミング言語
 cidr2range	CIDRをIP範囲に変換します
 cidrmerge	ネットワーク除外とマージするCIDR
@@ -811,7 +811,7 @@ coccinelle	Cコード用のプログラムマッチングおよび変換エン�
 cocoapods	Cocoaプロジェクトの依存関係マネージャー
 coconut	シンプルでエレガントなPythonic関数型プログラミング
 cocot	ttyのコードコンバーター
-coda-cli	パニックのコーダのためのシェル統合
+coda-cli	Panic's Codaのためのシェル統合
 code-minimap	高性能コードミニマップジェネレータ
 code-server	ブラウザからVSCodeにアクセスする
 codec2	オープンソースの音声コーデック
@@ -868,7 +868,7 @@ coreos-ct	Container LinuxConfigをIgnitionに変換します
 corepack	ノードプロジェクトとそのパッケージマネージャー間のブリッジとして機能するパッケージ
 coreutils	GNUファイル、シェル、およびテキストユーティリティ
 corkscrew	HTTPプロキシを介してSSHをトンネリングする
-corral	ポニー言語の依存関係マネージャー
+corral	Pony言語の依存関係マネージャー
 corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
 cosi	スケーラブルな集合署名の実装
@@ -1216,7 +1216,7 @@ dropbear	POSIXベースのシステム用の小さなSSHサーバー/クライ�
 dropbox-uploader	Dropboxと対話するためのBashスクリプト
 druid	高性能で列指向の分散データストア
 dscanner	分析（例：Dコードのスタイルと構文）
-dsh	ダンサーのシェル、または分散シェル
+dsh	Dancer's shell、または分散シェル
 dsocks	* BSD/macOS用のSOCKSクライアントラッパー
 dspdfviewer	ラテックスビーマー用のデュアルスクリーンPDFビューアー
 dssim	RGBA構造的類似性Rustの実装
@@ -1496,7 +1496,7 @@ fish	UNIXライクなオペレーティングシステム用のユーザーフ�
 fisher	Fishシェルのプラグインマネージャー
 fits	ファイル情報ツールセット
 fizmo	Z-Machine通訳
-fizsh	ZSH用の魚のようなフロントエンド
+fizsh	ZSH用のFishのようなフロントエンド
 fizz	TLS-1.3標準のC++ 14実装
 flac	無料のロスレスオーディオコーデック
 flac123	FLACオーディオファイルを再生するためのコマンドラインプログラム
@@ -1763,7 +1763,7 @@ git-crypt	gitリポジトリ内のファイルの透過的な暗号化/復号化
 git-delta	構文-gitおよびdiff出力のページャーを強調表示
 git-extras	小さなgitユーティリティ
 git-filter-repo	gitリポジトリの履歴をすばやく書き換える
-git-fixup	gitcommitのエイリアス--fixup
+git-fixup	gitcommitのエイリアス--fixup <ref>
 git-flow	VincentDriessenの分岐モデルに従うための拡張
 git-flow-avh	git-flowのAVHエディション
 git-fresh	gitリポジトリを最新の状態に保つためのユーティリティ
@@ -1841,7 +1841,7 @@ glade	GTK+およびGNOME環境用のRADツール
 glances	top/htopの代替
 glassfish	JavaEEアプリケーションサーバー
 glbinding	OpenGLAPIのC++バインディング
-gleam	笨ｨ ErlangVM用の静的に型付けされた言語
+gleam	✨Erlang VM用の静的に型付けされた言語
 glew	OpenGL拡張ラングラーライブラリ
 glfw	OpenGLアプリケーション用のマルチプラットフォームライブラリ
 glib	C用のコアアプリケーションライブラリ
@@ -1989,7 +1989,7 @@ gpatch	オリジナルにdiffファイルを適用します
 gpcslots2	カジノテキストコンソールゲーム
 gperf	完璧なハッシュ関数ジェネレータ
 gperftools	マルチスレッドのmalloc（）およびパフォーマンス分析ツール
-gpg-tui	GnuPGキーを簡単に管理できます！🔐
+gpg-tui	GnuPGキーを簡単に管理できます！ 🔐
 gpgme	GnuPGへのライブラリアクセス
 gphoto2	libgphoto2へのコマンドラインインターフェイス
 gping	pingを実行しますが、グラフを使用します
@@ -2216,7 +2216,7 @@ howdoi	コマンドラインを介したインスタントコーディングの�
 hpack	Haskellパッケージの最新フォーマット
 hping	コマンドライン指向のTCP/IPパケットアセンブラ/アナライザ
 hqx	ピクセルアート用に設計された倍率フィルター
-hr	、ターミナルウィンドウ用
+hr	<hr />、ターミナルウィンドウ用
 hsd	ハンドシェイクデーモンとフルノード
 hspell	無料のヘブライ語言語プロジェクト
 hss	インタラクティブな並列SSHクライアント
@@ -2590,6 +2590,7 @@ kompose	`docker-compose`からKubernetesに移動するためのツール
 komposition	スクリーンキャスター向けに構築されたビデオエディタ
 kona	Kプログラミング言語のオープンソース実装
 kondo	ソフトウェアプロジェクトから不要なファイルを削除して、ディスク容量を節約します
+kopia	高速で安全なオープンソースバックアップ
 kops	Production Grade K8sのインストール、アップグレード、および管理
 kore	CでWebAPIを作成するためのWebアプリケーションフレームワーク
 kotlin	JVM用の静的に型付けされたプログラミング言語
@@ -3405,7 +3406,7 @@ mercurial	スケーラブルな分散バージョン管理システム
 mercury	論理/関数型プログラミング言語
 mergelog	ラウンドロビンDNSの背後にあるWebサーバーからのhttpdログをマージします
 mergepbx	XCodeプロジェクトファイルをgitにマージする
-mermaid-cli	人魚のためのコマンドラインインターフェース（CLI）
+mermaid-cli	mermaidのためのコマンドラインインターフェース（CLI）
 mesa	グラフィックライブラリ
 mesa-glu	MesaOpenGLユーティリティライブラリ
 mesalib-glw	OpenGL仕様のオープンソース実装
@@ -3684,7 +3685,7 @@ neatvi	双方向utf-8テキストを編集するためのex/viのクローン
 nebula	どこにでもコンピュータを接続するためのスケーラブルなオーバーレイネットワークツール
 nedit	高速でコンパクトなMotif/X11プレーンテキストエディタ
 needle	実際のコードを使用したコンパイル時の安全なSwift依存性注入フレームワーク
-nef	Xcodeプレイグラウンド用のステロイド
+nef	💊 Xcodeプレイグラウンド用のステロイド
 negfix8	スキャンしたネガ画像をポジに変える
 neko	高レベルの動的型付けプログラミング言語
 neo4j	堅牢な（完全にACID）トランザクションプロパティグラフデータベース
@@ -3784,7 +3785,7 @@ nrg2iso	NeronrgファイルからISO9660データを抽出します
 nrpe	Nagiosリモートプラグインエグゼキューター
 ns-3	離散イベントネットワークシミュレータ
 nsd	ネームサーバーデーモン
-nsh	魚のようなPOSIX互換シェル
+nsh	FishのようなPOSIX互換シェル
 nsnake	テキストインターフェイスを備えた古典的なヘビゲーム
 nspr	システムレベルおよびlibcのような関数用のプラットフォームに依存しないAPI
 nsq	リアルタイム分散メッセージングプラットフォーム
@@ -3996,7 +3997,7 @@ osx-cpu-temp	OSXの現在のCPU温度を出力します
 osxutils	macOSコマンドラインユーティリティのコレクション
 otf2	Trace Format2ファイル処理ライブラリを開きます
 otf2bdf	OpenTypeからBDFフォントへのコンバーター
-ots	柏1回限りのURLを介してエンドツーエンドの暗号化された秘密を他の人と共有する
+ots	🔐 1回限りのURLを介してエンドツーエンドの暗号化された秘密を他の人と共有する
 ott	プログラミング言語と計算の定義を書くためのツール
 overdrive	OverDriveオーディオブックサービスからmp3をダウンロードするためのBashスクリプト
 overmind	Procfileベースのアプリケーションとtmuxのプロセスマネージャー
@@ -4077,7 +4078,7 @@ pcb	インタラクティブプリント回路基板エディタ
 pcb2gcode	PCBの分離、ルーティング、穴あけのためのコマンドラインツール
 pce	PCエミュレーター
 pcl	2D/3D画像および点群処理用のライブラリ
-pcp	📦libp2pに基づくコマンドラインピアツーピアデータ転送ツール
+pcp	📦 libp2pに基づくコマンドラインピアツーピアデータ転送ツール
 pcre	Perl互換の正規表現ライブラリ
 pcre++	Perl互換正規表現のC++ラッパー
 pcre2	新しいAPIを備えたPerl互換の正規表現ライブラリ
@@ -4235,7 +4236,7 @@ pngcrush	PNGファイル用のオプティマイザー
 pngnq	PNG画像を最適化するためのツール
 pngpaste	PNGをファイルに貼り付けます
 pngquant	PNG画像最適化ユーティリティ
-pnpm	📦🚀高速でディスクスペース効率の高いパッケージマネージャー
+pnpm	📦🚀 高速でディスクスペース効率の高いパッケージマネージャー
 po4a	ドキュメント翻訳メンテナンスツール
 poco	ネットワークおよびインターネットベースのアプリケーションを構築するためのC++クラスライブラリ
 pocsuite3	オープンソースのリモート脆弱性テストフレームワーク
@@ -4410,7 +4411,7 @@ python@3.9	インタプリタ、インタラクティブ、オブジェクト指
 pythran	数値カーネル用のAheadofTimeコンパイラ
 pytouhou	東方6エンジンのLibre実装
 pyvim	純粋なPythonVimクローン
-pywhat	🐸特定する物：メール、IPアドレスなど🧙
+pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
 q	CSVまたはTSVファイルでSQLを直接実行する
 qalculate-gtk	多目的デスクトップ計算機
 qbs	複数のプラットフォーム間でプロジェクトを開発するためのビルドツール
@@ -4481,7 +4482,7 @@ rakudo-star	Rakudoコンパイラと一般的に使用されるパッケージ
 rancher-cli	ランチャーサーバーを管理するための統合ツール
 rancher-compose	DockerCompose互換クライアントをRancherにデプロイする
 rancid	本当に素晴らしい新しいCisco設定の違い
-andomize-lines	ファイル（またはSTDIN）から行を読み取ってランダム化します
+randomize-lines	ファイル（またはSTDIN）から行を読み取ってランダム化します
 range-v3	C++ 14/17/20の実験範囲ライブラリ
 range2cidr	IP範囲をCIDRに変換します
 ranger	ファイルブラウザ
@@ -4705,7 +4706,7 @@ samba	UNIX用のSMB/CIFSファイル、印刷、およびログインサーバ�
 saml2aws	ログインして、SAMLIDPを使用してAWSの一時的なクレデンシャルを取得します
 sampler	シェルコマンドの実行、視覚化、アラートのためのツール
 samtools	次世代シーケンシングデータを操作するためのツール
-samurai	Cで書かれた忍者互換のビルドツール
+samurai	Cで書かれたninja互換のビルドツール
 sane-backends	スキャナーアクセス用のバックエンド
 sassc	コマンドラインアプリの作成に役立つlibsassのラッパー
 savana	SVNのトランザクションワークスペース
@@ -5647,7 +5648,7 @@ wapm	WebAssemblyパッケージマネージャー（CLI）
 wartremover	柔軟なScalaコードリンティングツール
 wasm-pack	お気に入りの錆-> wasmワークフローツール！
 wasm3	高性能WebAssemblyインタープリター
-wasmer	🚀ユニバーサルWebAssemblyランタイム
+wasmer	🚀 ユニバーサルWebAssemblyランタイム
 wasmtime	Craneliftを使用したWebAssembly用のスタンドアロンJITスタイルのランタイム
 watch	プログラムを定期的に実行し、出力を全画面表示します
 watch-sim	コマンドラインWatchKitアプリケーションランチャー
@@ -5940,7 +5941,7 @@ zrepl	ワンストップZFSバックアップおよびレプリケーション�
 zsdx	ソララスDXのゼルダミステリー
 zsh	UNIXシェル（コマンドインタープリター）
 zsh-async	外部ツールを使用せずに非同期でタスクを実行する
-zsh-autosuggestions	zshに対する魚のような高速/目立たない自動提案
+zsh-autosuggestions	zshに対するFishのような高速/目立たない自動提案
 zsh-completions	zshの追加の補完定義
 zsh-fast-syntax-highlighting	Zshの機能豊富な構文の強調表示
 zsh-git-prompt	zshの有益なgitプロンプト
