@@ -158,7 +158,7 @@ appcode	Swift、Objective-C、C、およびC++開発用のIDE
 appdelete	AppDelete
 appflowy	オープンソースプロジェクトと知識管理ツール
 appgate-sdp-client	安全なネットワークアクセスのためのソフトウェア定義の境界
-appgrid	Vim窶斗のホットキーを備えたウィンドウマネージャー
+appgrid	Vimのようなホットキーを備えたウィンドウマネージャー
 appium	Appium自動化サーバーへのグラフィカルフロントエンド
 appium-inspector	モバイルアプリのGUIインスペクター
 apple-events	非公式のAppleイベントアプリ
@@ -443,7 +443,7 @@ c0re100-qbittorrent	BitTorrentクライアント
 cabal	チャットプラットフォームCabal用のデスクトップクライアント
 cacher	コードスニペットオーガナイザー
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
-cajviewer	CAJ莠鷹�隸LUN
+cajviewer	CAJクラウドリーディング
 cakebrew	Homebrew用のGUIアプリ
 cakebrewjs	電子で書かれた自作GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
@@ -577,7 +577,7 @@ cloudytabs	iCloudタブを一覧表示するメニューバーアプリケーシ
 clover	1つのツールでメモ、ホワイトボード、ToDo、およびデイリープランナー
 clover-configurator	CloverEFIブートローダー構成ヘルパー
 cmake	ソフトウェアを構築、テスト、パッケージ化するためのツールファミリ
-cmd-eikana	竚倩恭縺九↑
+cmd-eikana	⌘英かな
 cmdtap	TaskSwitcherに他の機能を追加します
 cncjs	CNCフライス盤コントローラーのインターフェース
 cncnet	CnCNet：クラシックコマンド＆コンカー
@@ -1709,13 +1709,13 @@ kryoflux	ホストソフトウェア-DiskToolConsole（dtc）およびUI
 ksdiff	KaleidoscopeのAppStoreバージョン用のコマンドラインツール
 ksnip	スクリーンショットと注釈ツール
 kstars	天文学ソフトウェア
-kube-cluster	久部クラスター
-kube-forwarder	久部フォワーダー
+kube-cluster	kubeクラスター
+kube-forwarder	kubeフォワーダー
 kubecontext	Kubernetesコンテキストを管理するためのメニューバーアプリ
 kubenav	ポケットの中にあるKubernetesクラスターのナビゲーター
 kubernetic	Kubernetesデスクトップクライアント
 kugoumusic	デジタル音楽サービス
-kui	クラウドネイティブ開発のためのハイブリッドコマンドライン/ UI開発経験
+kui	クラウドネイティブ開発のためのハイブリッドコマンドライン/UI開発経験
 kvirc	IRCクライアント
 kyokan-bob	名前オークションとDNSレコード管理のためのハンドシェイクウォレットGUI
 lab	ReactUIコンポーネント設計ツール
@@ -2177,7 +2177,7 @@ music-manager	GooglePlayミュージックマネージャー
 musicbrainz-picard	音楽タガー
 musictube	ストリーミング音楽プレーヤー
 mutespotifyads	MuteSpotifyAds
-mutesync	m ﾃ | tesync物理ボタンのコンパニオンアプリ
+mutesync	mütesync物理ボタンへのコンパニオンアプリ
 mutify	ミューティファイ
 muzzle	画面共有中に困惑する通知を黙らせる
 mweb-pro	マークダウン書き込み、メモ取り、静的ブログジェネレーターアプリ
@@ -2195,9 +2195,9 @@ mysql-shell	インタラクティブなJavaScript、PythonまたはSQLインタ�
 mysql-utilities	MySQLユーティリティ
 mysqlworkbench	MySQLサーバーを設計、開発、管理するためのビジュアルツール
 n1ghtshade	32ビットiOSデバイスのダウングレード/ジェイルブレイクを許可します
-nagbar	Nagios、Icinga / 2、Thrukのステータスバーモニター
+nagbar	Nagios、Icinga/2、Thrukのステータスバーモニター
 nagstamon	Nagiosステータスモニター
-nally	マンダリンBBS用に最適化された美しいtelnet / sshクライアント
+nally	マンダリンBBS用に最適化された美しいtelnet/sshクライアント
 name-mangler	複数ファイルの名前変更ツール
 namebench	DNSサーバーファインダー
 namechanger	ファイルのリストの名前をすばやく変更する
@@ -2241,7 +2241,7 @@ network-radar	ネットワークをスキャンおよび監視するためのツ
 netxms-console	ネットワークとインフラストラクチャの監視および管理システム
 next	次のブラウザ
 nextcloud	Nextcloudソフトウェア製品用のデスクトップ同期クライアント
-nfov	ASCII / ANSIアートビューア
+nfov	ASCII/ANSIアートビューア
 ngrok	リバースプロキシ、ローカルホストへの安全なイントロスペクト可能なトンネル
 nheko	Matrixプロトコル用のデスクトップクライアント
 nifty	ニフティ
@@ -2365,7 +2365,7 @@ opencore-configurator	OpenCoreEFIブートローダー構成ヘルパー
 opencpn	フル機能で簡潔なChartPlotter/Navigator
 opendnsupdater	動的IPアップデータクライアント
 openemu	レトロなビデオゲームエミュレーション
-openframeworks	クリエイティブコーディング用のC ++ツールキット
+openframeworks	クリエイティブコーディング用のC++ツールキット
 openin	特定のブラウザ/アプリでリンク/ファイルを開く
 openineditor-lite	Finderで現在のディレクトリを開くためのFinderツールバーアプリ
 openinterminal	ターミナルまたはエディタで現在のディレクトリを開くためのFinderツールバーアプリ
@@ -2672,7 +2672,7 @@ projector	Swingアプリケーションをリモートで実行するための�
 pronterface	PCから3Dプリンターを制御する
 propresenter	ライブイベントのプレゼンテーションおよび制作アプリケーション
 prosys-opc-ua-browser	OPCUAサーバーからのデータを参照して視覚化する
-protege	Prot ﾃｩ g ﾃｩ
+protege	保護します 
 protoio-overflow	インタラクティブなユーザーフロー図を作成する
 protonmail-bridge	ProtonMailをIMAPおよびSMTPプロトコルをサポートする電子メールクライアントにブリッジします
 protonvpn	セキュリティに重点を置いたVPNクライアント
@@ -3043,7 +3043,7 @@ shifty	ナイトシフトをより細かく制御できるメニューバーア�
 shimeike-formulatepro	PDFドキュメントにテキストとグラフィックをオーバーレイします
 shimo	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
 shimonote	ドキュメントエディタ
-shiori	詩織
+shiori	しおり
 shortcat	スプラウトキューブショートキャット
 shortcutdetective	どのアプリがキーボードショートカット（ホットキー）を受信するかを検出します
 shortcutor	iOSショートカットエディタ
@@ -3617,7 +3617,7 @@ unclutter	メモ、ファイル、厚紙クリップ用のデスクトップス�
 uncolored	テーマ付きのドキュメントを保存するリッチテキスト（HTML＆Markdown）エディター
 uncrustifyx	ユーティリティとドキュメントブラウザのクラスト化を解除します
 understand	コードの視覚化と探索ツール
-unetbootin	Linux / BSDディストリビューションをパーティションまたはUSBドライブにインストールするためのツール
+unetbootin	Linux/BSDディストリビューションをパーティションまたはUSBドライブにインストールするためのツール
 unexpectedly	クラッシュからのレポートを参照して視覚化する
 unicodechecker	Unicodeを調べて変換する
 unified-remote	ユニファイドリモート
@@ -3824,7 +3824,7 @@ wireshark	ネットワークプロトコルアナライザ
 wireshark-chmodbpf	ネットワークプロトコルアナライザ
 witch	アプリ、ウィンドウ、またはタブを切り替える
 wiznote	WizNote
-wjoy	任天堂wiimoteドライバー
+wjoy	任天堂　wiimoteドライバー
 wkhtmltopdf	wkhtmltopdf
 wolai	クラウドノート
 wolfram-engine	Wolfram言語の評価者
