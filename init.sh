@@ -25,18 +25,22 @@ if [[ ! "$LINK" || "$LINK" = JA ]];then
   if [[ "$CPU" = x86_64 ]];then
    [[ ! -d /usr/local/Cellar ]] && echo " Not installed HOME BREW" && exit
    [[ -e /usr/local/bin/brew_list ]] && echo " exist /usr/local/bin/brew_list" && exit
+    BREW="/usr/local/bin/brew_list"
   else
    [[ ! -d /opt/homebrew/Cellar ]] && echo " Not installed HOME BREW" && exit
    [[ -e /opt/homebrew/bin/brew_list ]] && echo " exist /opt/homebrew/bin/brew_list" && exit
+    BREW="/opt/homebrew/bin/brew_list"
   fi
  else
   [[ ! -d /home/linuxbrew/.linuxbrew/Cellar ]] && echo " Not installed HOME BREW" && exit
   [[ -e /home/linuxbrew/.linuxbrew/bin/brew_list ]] && \
    echo " exist /home/linuxbrew/.linuxbrew/bin/brew_list" && exit
+    BREW="/home/linuxbrew/.linuxbrew/bin/brew_list"
  fi
 
  curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 || \
   { echo -e "\033[31m Not connected\033[00m"; exit 1; }
+ trap 'rm -f "$BREW"; exit 1' 1 2 3 15
  DIR=$(cd $(dirname $0); pwd)
  Lang=$(printf $LC_ALL $LC_CTYPE $LANG 2>/dev/null)
 
