@@ -1116,6 +1116,7 @@ folding-at-home	折りたたみ用のグラフィカルインターフェイス�
 foldingtext	FoldingText
 foldit	Foldit
 folx	トレントクライアントでマネージャーをダウンロード
+font-smoothing-adjuster	フォントスムージングコントロールを再度有効にする 
 fontbase	フォントマネージャー
 fontexplorer-x-pro	フォントファインダーおよびオーガナイザー
 fontforge	アウトラインおよびビットマップフォント用のフォントエディタおよびコンバータ
@@ -1591,7 +1592,6 @@ jgrasp	ソフトウェアの理解度を向上させるための視覚化を備�
 jgrennison-openttd	OpenTTDに適用されたパッチのコレクション
 jietu	クイック注釈と共有スクリーンショットツール
 jiggler	コンピューターをスリープ状態にしない
-jiohome	ローカルメディアコンテンツを表示および共有する
 jitouch	マルチタッチジェスチャエディタ
 jitsi	Jitsi
 jitsi-meet	安全なビデオ会議アプリ
@@ -2793,6 +2793,7 @@ quicksync	Gigaset製品用の同期ソフトウェア
 quickwords	クイックワード
 quik	GoProの写真とビデオにアクセスして編集する
 quip	チームが生きたドキュメントを作成するためのツール
+quit-all	1つ、またはすべてのアプリをすばやく終了する
 quiterss	無料のニュースフィードリーダー
 quitter	非アクティブな期間が経過すると、アプリを自動的に非表示または終了します
 quodlibet	音楽プレーヤーおよび音楽ライブラリマネージャー
@@ -3604,6 +3605,7 @@ udeler	Udemyコースをダウンロードするためのデスクトップア�
 udig	uDig
 ueli	キーストロークランチャー
 ui-browser	AppleのアクセシビリティとAppleScriptGUIスクリプティングのアシスタント
+ujam	UJAM製品の管理ツール 
 ukelele	Unicodeキーボードレイアウトエディタ
 ukrainian-unicode-layout	ウクライナのUnicodeレイアウト
 ultdata	iPhoneデータ回復ソフトウェア
