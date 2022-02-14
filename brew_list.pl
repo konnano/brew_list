@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.05_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.05_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -367,7 +367,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
 }
 
 sub File_1{
-my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
+my( $re,$list,$file ) = @_;
   unless( $re->{'TAP'} ){
    open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
     chomp( @$file=<$BREW> );
@@ -390,10 +390,11 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
        }
       next;
      }
-     push @file,$tap;
+     push @$file,$tap;
     }
-    close $BREW;
-   push @$file,@file;
+   close $BREW;
+  }elsif( $re->{'CAS'} and $re->{'TAP'} and not -f $re->{'Q_TAP'} ){
+    die " Tap No such file or directory\n";
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} ) ){
     no warnings 'closed';
@@ -973,7 +974,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
    }else{
     print"$_\n" for @{$re->{'ARR'}};
    }
-   $re->{'FOR'} = 0 if $re->{'MAC'};
+  $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
   Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
@@ -1060,8 +1061,8 @@ sub Nohup_1{
 my $re = shift;
  ++$re->{'NEW'} and Init_1( $re )
   unless -f "$re->{'HOME'}/font.sh" and -f "$re->{'HOME'}/tie.pl";
- my( $time1,$time2 ) =
-  ( [localtime],[localtime((stat $re->{'TXT'})[9])] );
+ my( $time1,$time2 ) = -f $re->{'TXT'} ?
+  ( [localtime],[localtime((stat $re->{'TXT'})[9])] ) : ([0,0,0,0,0,1],[0,0,0,0,0,0]);
    if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
        $time1->[3] > $time2->[3] or $time1->[2] > $time2->[2] ){
     system 'nohup ~/.BREW_LIST/font.sh 1 1 >/dev/null 2>&1 &';
