@@ -27,7 +27,7 @@ acpica	ACPI仕様のOSに依存しない実装
 act	GitHubアクションをローカルで実行する 🚀
 actionlint	GitHubActionsワークフローファイルの静的チェッカー
 activemq	Apache ActiveMQ：強力なオープンソースメッセージングサーバー
-activemq-cpp	ApacheActiveMQなどのメッセージブローカー用のC++ API
+activemq-cpp	Apache ActiveMQなどのメッセージブローカー用のC++ API
 adios2	エクサスケールコンピューティングプログラムで開発された次世代のADIOS
 admesh	三角形分割されたソリッドメッシュを処理します
 adns	C/C++リゾルバーライブラリとDNSリゾルバーユーティリティ
@@ -85,7 +85,7 @@ alpine	ニュースとメールエージェント
 alpscore	物理シミュレーション用のアプリケーションとライブラリ
 alsa-lib	LinuxオペレーティングシステムにオーディオおよびMIDI機能を提供します
 alure	OpenALアプリケーションで一般的なタスクを管理する
-amazon-ecs-cli	開発用のクラスターとタスクを管理するためのAmazonECSのCLI
+amazon-ecs-cli	開発用のクラスターとタスクを管理するためのAmazon ECSのCLI
 amdatu-bootstrap	OSGi開発のブートストラップ
 amfora	Geminiプロトコル用の豪華なターミナルブラウザ
 ammonite-repl	Ammoniteは、ScalaREPLのクリーンルームでの再実装です。
@@ -109,7 +109,7 @@ ansifilter	ANSIコードを削除するか、HTML、（La）Tex、RTF、また�
 ansilove	ANSI/ASCIIアートからPNGへのコンバーター
 ansiweather	ANSIカラーとUnicode記号を使用した端末の天気
 ant	Javaビルドツール
-ant-contrib	ApacheAntのタスクのコレクション
+ant-contrib	Apache Antのタスクのコレクション
 ant@1.9	Javaビルドツール
 antibody	シェルプラグインマネージャー
 antigen	oh-my-zshとvundleに触発されたzshのプラグインマネージャー
@@ -124,8 +124,8 @@ aoeui	DvorakおよびQWERTYキーボード用に最適化された軽量テキ�
 aom	AV1ビデオストリームをエンコードおよびデコードするためのコーデックライブラリ
 apache-archiva	アーティファクトリポジトリマネージャーのビルド
 apache-arrow	ビッグデータを高速化するように設計された列型インメモリ分析レイヤー
-apache-arrow-glib	ApacheArrowのGLibバインディング
-apache-brooklyn-cli	ApacheBrooklynコマンドラインインターフェイス
+apache-arrow-glib	Apache ArrowのGLibバインディング
+apache-brooklyn-cli	Apache Brooklynコマンドラインインターフェイス
 apache-ctakes	EMR臨床テキストから情報を抽出するためのNLPシステム
 apache-drill	Hadoop、NoSQL、クラウドストレージ用のスキーマフリーSQLクエリエンジン
 apache-flink	スケーラブルなバッチおよびストリームデータ処理
@@ -145,8 +145,8 @@ apm-bash-completion	Atomパッケージマネージャーの完成
 apng2gif	APNGアニメーションをアニメーションGIF形式に変換します
 apngasm	次世代のapngasm、APNGアセンブラー
 apollo	ActiveMQに基づくマルチプロトコルメッセージングブローカー
-apollo-cli	ApolloGraphQLのコマンドラインツール
-app-engine-java	Java用GoogleApp Engine
+apollo-cli	Apollo GraphQLのコマンドラインツール
+app-engine-java	Java用Google App Engine
 app-engine-python	Google App Engine
 apparix	ブックマークディレクトリを介したファイルシステムナビゲーション
 appium	アプリの自動化
@@ -282,13 +282,13 @@ avro-cpp	データシリアル化システム
 avro-tools	Avroコマンドラインツールとユーティリティ
 awf	「ウィジェットファクトリ」は、gtk2およびgtk3のテーマプレビューアプリケーションです。
 awk	テキスト処理スクリプト言語
-aws-apigateway-importer	SwaggerまたはRAMLAPIからAmazonAPI GatewayAPIを作成または更新します
+aws-apigateway-importer	SwaggerまたはRAMLAPIからAmazon API GatewayAPIを作成または更新します
 aws-cdk	AWSクラウド開発キット-AWSインフラストラクチャをコードとして定義するためのフレームワーク
 aws-cfn-tools	Amazon CloudFormationWebサービスのクライアント
 aws-console	AWSCLIクレデンシャルを使用してブラウザでAWSコンソールを起動するコマンドライン
 aws-elasticbeanstalk	Amazon Elastic BeanstalkWebサービスのクライアント
 aws-es-proxy	HTTPクライアントとAWSElasticsearch間の小さなプロキシ
-aws-google-auth	GoogleAppsを使用してAWSクレデンシャルを取得する
+aws-google-auth	Google Appsを使用してAWSクレデンシャルを取得する
 aws-iam-authenticator	AWSIAMクレデンシャルを使用してKubernetesへの認証
 aws-keychain	AWSクレデンシャルの保存にmacOSキーチェーンを使用します
 aws-okta	Oktaクレデンシャルを使用してAWSで認証する
@@ -297,8 +297,8 @@ aws-sdk-cpp	AWS SDK for C++
 aws-shell	AWSCLIを操作するための統合シェル
 aws-sso-util	AWS SSOの荒削りな部分を滑らかにします（一時的に、AWSが改善するまで）
 aws-vault	開発環境でAWSクレデンシャルを安全に保存してアクセスする
-awscli	公式のAmazonAWSコマンドラインインターフェース
-awscli@1	公式のAmazonAWSコマンドラインインターフェース
+awscli	公式のAmazon AWSコマンドラインインターフェース
+awscli@1	公式のAmazon AWSコマンドラインインターフェース
 awscurl	AWSリソースにアクセスするためのシンプルさのようなカール
 awslogs	AWSCloudWatchログを読み取るためのシンプルなコマンドラインツール
 awsume	コマンドラインからAWSIAMロールを簡単に引き受けるためのユーティリティ
@@ -381,7 +381,7 @@ befunge93	難解プログラミング言語
 bench	コマンドラインベンチマークツール
 benthos	Goで書かれたありふれたタスクのためのストリームプロセッサ
 bento4	フル機能のMP4形式とMPEGDASHライブラリおよびツール
-berglas	GoogleCloudでシークレットを管理するためのツール
+berglas	Google Cloudでシークレットを管理するためのツール
 berkeley-db	高性能のキー/値データベース
 berkeley-db@4	高性能のキー/値データベース
 bettercap	ネットワーク攻撃と監視のためのスイスアーミーナイフ
@@ -478,7 +478,7 @@ braid	Gitリポジトリ内のベンダーブランチを追跡するのに役�
 brainfuck	brainfuck言語の通訳
 breezy	マルチフォーマットをサポートするPythonで実装されたバージョン管理システム
 brew-cask-completion	brew-caskのFishの完成
-brew-gem	自作式としてRubyGemsをインストールする
+brew-gem	自作式としてRuby Gemsをインストールする
 brew-php-switcher	PHPバージョン間でApache/Valet/CLI構成を切り替えます
 brew-pip	自作式としてpipパッケージをインストールする
 brigade-cli	旅団のコマンドラインインターフェース
@@ -532,7 +532,7 @@ bzr-rewrite	リビジョンの書き換えとリベースをサポートするBa
 bzr-upload	ダムサーバーに変更を段階的にアップロードするBazaarプラグイン
 bzr-xmloutput	XML出力を生成するオプションを提供するBazaarプラグイン
 bzrtools	便利な追加ユーティリティを提供するBazaarプラグイン
-bzt	BlazeMeterおうし座
+bzt	BlazeMeter Taurus
 c-ares	非同期DNSライブラリ
 c-blosc	ブロッキング、シャッフル、ロスレス圧縮ライブラリ
 c-kermit	UNIXおよびVMS用のスクリプト可能なネットワークおよびシリアル通信
@@ -587,7 +587,7 @@ cartridge-cli	TarantoolCartridgeコマンドラインユーティリティ
 cash-cli	ターミナルから直接為替レートを変換する
 cask	Emacsの依存関係管理
 cassandra	結果整合性のある分散型Key-Value store
-cassandra-cpp-driver	ApacheCassandra用のDataStaxC/C++ドライバー
+cassandra-cpp-driver	Apache Cassandra用のDataStaxC/C++ドライバー
 cassandra-reaper	カサンドラの管理インターフェース
 cassandra@2.1	分散型Key-Value store
 cassandra@2.2	結果整合性のある分散型Key-Valueデータベース
@@ -613,7 +613,7 @@ ccextractor	無料のGPLライセンスのクローズドキャプションツ�
 ccfits	cfitsioライブラリへのオブジェクト指向インターフェース
 ccheck	TAP出力を使用して、コマンドラインからX509証明書の有効期限を確認します
 ccls	C/C++/ObjC言語サーバー
-ccm	ローカルホストでApacheCassandraクラスターを作成して破棄します
+ccm	ローカルホストでApache Cassandraクラスターを作成して破棄します
 cconv	Iconvベースの簡体字-繁体字中国語変換ツール
 ccrypt	ファイルとストリームの暗号化と復号化
 cctz	絶対時間と市民時間の間で変換するためのC++ライブラリ
@@ -690,7 +690,7 @@ cheops	チェス対戦相手シミュレーター
 cherrytree	リッチテキストと構文の強調表示を特徴とする階層的なメモ取りアプリケーション
 chezmoi	複数の異なるマシン間でドットファイルを安全に管理します
 chezscheme	ChezScheme言語の実装
-chgems	RubygemsのChroot
+chgems	Ruby gemsのChroot
 chibi-scheme	C拡張言語として使用するための小さなフットプリントスキーム
 chicken	Schemeプログラミング言語用のコンパイラ
 chinadns-c	ChinaDNSからCへのポート：中国のDNSの不規則性を修正
@@ -705,7 +705,7 @@ choose-rust	カットおよび（場合によっては）awkの人間に優し�
 chordii	テキストファイルから楽譜へのコンバーター
 chroma	純粋なGoの汎用構文ハイライト
 chromaprint	AcoustIDプロジェクトのコアコンポーネント（オーディオフィンガープリント）
-chrome-cli	コマンドラインからGoogleChromeを制御する
+chrome-cli	コマンドラインからGoogle Chromeを制御する
 chrome-export	Chromeのブックマークと履歴をHTMLブックマークファイルに変換する
 chronograf	TICKスタックのオープンソースの監視および視覚化UI
 chrony	ネットワークタイムプロトコル（NTP）の多様な実装
@@ -772,7 +772,7 @@ cloog	Z多面体をスキャンするためのコードを生成する
 closure-compiler	JavaScript最適化コンパイラ
 closure-stylesheets	拡張CSSプリプロセッサ、リンター、および国際化
 cloud-nuke	クラウドリソースを削除（削除）するCLIツール
-cloud-watch	AmazonCloudWatchコマンドラインツール
+cloud-watch	Amazon CloudWatchコマンドラインツール
 cloudflare-wrangler	Cloudflareワーカー向けのCLIツール
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
 cloudformation-guard	宣言型構文を使用して、CloudFormationテンプレートのコンプライアンスをチェックします
@@ -860,7 +860,7 @@ convmv	ファイル名エンコーディング変換ツール
 convox	ConvoxPaaSのコマンドラインインターフェイス
 cookiecutter	テンプレートからプロジェクトを作成するユーティリティ
 copier	プロジェクトテンプレートをレンダリングするためのユーティリティ
-copilot	AmazonECSおよびAWSFargate用のCLIツール
+copilot	Amazon ECSおよびAWSFargate用のCLIツール
 coq	高階述語論理の証明アシスタント
 corectl	CoreOS overmacOSが非常にシンプルになりました
 coredns	プラグインをチェーンするDNSサーバー
@@ -874,7 +874,7 @@ cortex	Prometheusの長期保管
 cosi	スケーラブルな集合署名の実装
 cosign	コンテナ署名
 coturn	TURNおよびSTUNサーバーの無料のオープンソース実装
-couchdb	ApacheCouchDBデータベースサーバー
+couchdb	Apache CouchDBデータベースサーバー
 couchdb-lucene	Luceneを使用したCouchDBドキュメントの全文検索
 couchpotatoserver	映画を自動的にダウンロードする
 counterfeiter	自己完結型のタイプセーフテストダブルを生成するためのツール
@@ -901,7 +901,7 @@ cpptoml	TOMLを解析するためのヘッダーのみのライブラリ
 cppunit	C++のユニットテストフレームワーク
 cpputest	C/C++ベースのユニットxUnitテストフレームワーク
 cppzmq	libzmqのヘッダーのみのC++バインディング
-cpr	C++ Requests、PythonRequestsのスピリチュアルポート
+cpr	C++ Requests、Python Requestsのスピリチュアルポート
 cproto	入力ファイル内の関数の関数プロトタイプを生成します
 cpu_features	クロスプラットフォームのC99ライブラリを使用して、実行時にCPU機能を取得します
 cpufetch	CPUアーキテクチャフェッチツール
@@ -998,7 +998,7 @@ dante	SOCKSサーバーおよびクライアント、RFC1928および関連標�
 daq	ネットワーク侵入防止および検出システム
 dar	バックアップディレクトリツリーとファイル
 darcs	Haskellを介して変更を追跡する分散バージョン管理システム
-darglint	Pythondocstring引数リンター
+darglint	Python docstring引数リンター
 dark-mode	コマンドラインからmacOSダークモードを制御する
 darkhttpd	CGIのない小さな静的ウェブサーバー
 darkice	ライブオーディオストリーマー
@@ -1158,7 +1158,7 @@ docker-completion	DockerのBash、Zsh、Fishの完了
 docker-compose	Dockerを使用した分離された開発環境
 docker-compose-completion	docker-composeの完了スクリプト
 docker-credential-helper	Docker用のmacOSクレデンシャルヘルパー
-docker-credential-helper-ecr	AmazonECR用のDockerクレデンシャルヘルパー
+docker-credential-helper-ecr	Amazon ECR用のDockerクレデンシャルヘルパー
 docker-gen	Dockerコンテナのメタデータからファイルを生成する
 docker-ls	Dockerレジストリを参照および操作するためのツール
 docker-machine	ローカルおよびクラウドプロバイダーでDockerホストを作成する
@@ -1297,7 +1297,7 @@ ejabberd	XMPPアプリケーションサーバー
 ejdb	埋め込み可能なJSONデータベースエンジンC11ライブラリ
 ekg2	マルチプラットフォーム、マルチプロトコル、プラグインベースのインスタントメッセンジャー
 ekhtml	寛容なSAXスタイルのHTMLパーサー
-eksctl	AmazonEKSでクラスターを作成するためのシンプルなコマンドラインツール
+eksctl	Amazon EKSでクラスターを作成するためのシンプルなコマンドラインツール
 elan-init	Lean TheoremProverインストーラーおよびバージョンマネージャー
 elasticsearch	分散型検索および分析エンジン
 elasticsearch@6	分散型検索および分析エンジン
@@ -1439,7 +1439,7 @@ fb-client	https://paste.xinu.atのシェルスクリプトクライアント
 fb303	サービスから情報をクエリするためのThrift関数
 fbi-servefiles	FBIリモートインストーラーを介してニンテンドー3DSにローカルファイルを提供する
 fblog	小さなコマンドラインJSONログビューア
-fbthrift	新しいC++サーバーを含むFacebookのApacheThriftのブランチ
+fbthrift	新しいC++サーバーを含むFacebookのApache Thriftのブランチ
 fceux	オールインワンNES/ファミコンエミュレータ
 fcgi	対話型プログラムをWebサーバーとインターフェースするためのプロトコル
 fcgiwrap	NginxのCGIサポート
@@ -1520,7 +1520,7 @@ flickcurl	FlickrAPIのライブラリ
 flif	無料のロスレス画像フォーマット
 flint	数論のためのCライブラリ
 flint-checker	貢献者の摩擦の一般的な原因についてプロジェクトを確認してください
-flintrock	ApacheSparkクラスターを起動するためのツール
+flintrock	Apache Sparkクラスターを起動するためのツール
 flit	Pythonモジュールの簡略化されたパッケージ化
 flow	JavaScriptの静的型チェッカー
 flow-cli	Flowアプリケーションを構築するためのユーティリティを提供するコマンドラインインターフェイス
@@ -1664,7 +1664,7 @@ gcc@7	GNUコンパイラコレクション
 gcc@8	GNUコンパイラコレクション
 gcc@9	GNUコンパイラコレクション
 gcovr	gcovテストカバレッジプログラムからのレポート
-gcsfuse	GoogleCloudとやり取りするためのユーザースペースファイルシステム
+gcsfuse	Google Cloudとやり取りするためのユーザースペースファイルシステム
 gcutil	Google ComputeEngineリソースを管理する
 gcviewer	Javaガベージコレクション視覚化ツール
 gd	画像を動的に操作するグラフィックライブラリ
@@ -1927,7 +1927,7 @@ go@1.14	Goプログラミング環境（1.14）
 go@1.15	Goプログラミング環境（1.15）
 go@1.16	Goプログラミング環境（1.16）
 go@1.9	Goプログラミング環境（1.9）
-goaccess	ApacheWebサーバー用のログアナライザーとインタラクティブビューアー
+goaccess	Apache Webサーバー用のログアナライザーとインタラクティブビューアー
 goad	Goに組み込まれたAWSLambdaを利用した、高度に分散された負荷テストツール
 goawk	Goで記述されたPOSIX準拠のAWKインタープリター
 gobject-introspection	GObjectライブラリのイントロスペクションデータを生成する
@@ -1950,10 +1950,10 @@ gom	SQLiteのGObjectラッパー
 gomodifytags	ツールに移動して構造体フィールドタグを変更します
 gomplate	コマンドラインGolangテンプレートプロセッサ
 goocanvas	描画にCairo2Dライブラリを使用するGTK+用のキャンバスウィジェット
-goofys	Filey-AmazonS3へのシステムインターフェース
+goofys	Filey-Amazon S3へのシステムインターフェース
 google-authenticator-libpam	二要素認証用のPAMモジュール
 google-benchmark	C++マイクロベンチマークサポートライブラリ
-google-java-format	GoogleJavaスタイルに準拠するようにJavaソースコードを再フォーマットします
+google-java-format	Google Javaスタイルに準拠するようにJavaソースコードを再フォーマットします
 google-sparsehash	非常にメモリ効率の高いhash_mapの実装
 google-sql-tool	一般的なSQLステートメントを実行するためのコマンドラインツール
 googler	コマンドラインからのGoogle検索とニュース
@@ -2114,7 +2114,7 @@ gupnp-tools	IntelのUPnPツールの無料交換
 gvp	バージョニングパッケージャーに行く
 gwenhywfar	aqbankingおよび関連ソフトウェアに必要なユーティリティライブラリ
 gws	gitリポジトリで構成されるワークスペースを管理する
-gwt	GoogleWebツールキット
+gwt	Google Webツールキット
 gwyddion	走査型プローブ顕微鏡の視覚化および分析ツール
 gx	言語に依存しない、ユニバーサルパッケージマネージャー
 gx-go	goで記述されたパッケージのgxパッケージマネージャーで使用するツール
@@ -2150,7 +2150,7 @@ haste-client	速攻サーバー用のCLIクライアント
 hasura-cli	HasuraGraphQLエンジンのコマンドラインインターフェイス
 hatari	Atari ST/STE/TT/Falconエミュレーター
 haxe	マルチプラットフォームプログラミング言語
-hayai	googletestフレームワークに触発されたC++ベンチマークフレームワーク
+hayai	google testフレームワークに触発されたC++ベンチマークフレームワーク
 hbase	Hadoopデータベース：分散型でスケーラブルなビッグデータstore
 hblock	複数のソースからhostsファイルを作成するAdblocker
 hcl2json	HCL2をJSONに変換する
@@ -2184,7 +2184,7 @@ hexedit	16進数またはASCIIでファイルを表示および編集する
 hexgui	16進テキストプロトコルで16進を再生するためのGUI
 hexo	高速でシンプルかつ強力なブログフレームワーク
 hexyl	コマンドライン16進ビューア
-hey	HTTPロードジェネレーター、ApacheBench（ab）の置き換え
+hey	HTTPロードジェネレーター、Apache Bench（ab）の置き換え
 hfstospell	ヘルシンキ有限状態テクノロジーのospell
 hfsutils	Macintoshボリュームを読み書きするためのツール
 hg-fast-export	高速MercurialからGitへのコンバーター
@@ -2237,7 +2237,7 @@ http-parser	cのHTTP要求/応答パーサー
 http-prompt	オートコンプリートと構文の強調表示を備えたインタラクティブなコマンドラインHTTPクライアント
 http-server	シンプルなゼロ構成コマンドラインHTTPサーバー
 http_load	並列フェッチを実行してWebサーバーのスループットをテストする
-httpd	ApacheHTTPサーバー
+httpd	Apache HTTPサーバー
 httpdiff	2つのHTTP（S）応答を比較する
 httperf	Webサーバーのパフォーマンスを測定するためのツール
 httpflow	HTTP用のtcpdumpに類似したパケットキャプチャおよび分析ユーティリティ
@@ -2545,7 +2545,7 @@ karchive	ファイルアーカイブの読み取り、作成、および操作
 karn	複数のGitIDを管理する
 katago	人間が提供する知識のないニューラルネットワークGoエンジン
 kawa	Java用プログラミング言語（Schemeの実装）
-kcat	一般的なコマンドライン非JVMApacheKafkaプロデューサーおよびコンシューマー
+kcat	一般的なコマンドライン非JVMApache Kafkaプロデューサーおよびコンシューマー
 kcgi	C/C++用の最小限のCGIおよびFastCGIライブラリ
 kcov	コンパイルされたプログラム、Python、およびシェルスクリプトのコードカバレッジテスター
 kcptun	N：M多重化とFECを備えたKCPに基づく安定した安全なトンネル
@@ -2804,7 +2804,7 @@ libedit	BSDスタイルのライセンスされたreadlineの代替
 libelf	ELFオブジェクトファイルアクセスライブラリ
 libepoxy	OpenGL関数ポインタ管理を処理するためのライブラリ
 libestr	文字列処理用のCライブラリ（およびもう少し）
-libetonyek	AppleKeynoteプレゼンテーションの解釈とインポート
+libetonyek	Apple Keynoteプレゼンテーションの解釈とインポート
 libetpan	いくつかのプロトコルを処理するポータブルメールライブラリ
 libev	非同期イベントライブラリ
 libevent	非同期イベントライブラリ
@@ -3145,7 +3145,7 @@ libxml++	libxmlのC++ラッパー
 libxml++3	libxmlのC++ラッパー
 libxml++@4	libxmlのC++ラッパー
 libxml++@5	libxmlのC++ラッパー
-libxml2	GNOMEXMLライブラリ
+libxml2	GNOME XMLライブラリ
 libxmlsec1	XMLセキュリティライブラリ
 libxmp	モジュール音楽（MOD、S3M、ITなど）を再生するためのCライブラリ
 libxmp-lite	Lite libxmp
@@ -3283,7 +3283,7 @@ lychee	高速で非同期のリソースフレンドリーなリンクチェッ�
 lynis	システムを強化するためのセキュリティおよびシステム監査ツール
 lynx	テキストベースのWebブラウザ
 lz4	非常に高速な圧縮アルゴリズム
-lzfse	AppleLZFSE圧縮ライブラリとコマンドラインツール
+lzfse	Apple LZFSE圧縮ライブラリとコマンドラインツール
 lzip	gzipまたはbzip2に類似したLZMAベースの圧縮プログラム
 lziprecover	lzip圧縮データ形式のファイルのデータ回復ツールと解凍ツール
 lzlib	データ圧縮ライブラリ
@@ -3349,7 +3349,7 @@ massdns	高性能DNSスタブリゾルバー
 massren	テキストエディタを使用して複数のファイルの名前を簡単に変更
 mat2	メタデータ匿名化ツールキット
 math-comp	Coq証明アシスタントの数学コンポーネント
-mathlibtools	リーン証明者mathlibサポートツール
+mathlibtools	Lean証明者mathlibサポートツール
 matlab2tikz	MATLAB（R）の数値をTikZ/Pgfplotsの数値に変換します
 matplotplusplus	データ視覚化のためのC++グラフィックライブラリ
 matterbridge	複数のチャットプラットフォーム用のプロトコルブリッジ
@@ -3477,7 +3477,7 @@ mk-configure	GNUautotoolsの軽量代替品
 mkcert	ローカルで信頼できる開発証明書を作成するためのシンプルなツール
 mkclean	MatroskaおよびWebMファイルを最適化します
 mkcue	CDからCUEシートを生成する
-mkdocs	Markdownを使用したプロジェクトドキュメント
+mkdocs	マークダウンを使用したプロジェクトドキュメント
 mkhexgrid	完全に構成可能な16進グリッドジェネレーター
 mksh	MirBSD Korn Shell
 mktorrent	BitTorrentメタ情報ファイルを作成する
@@ -3803,7 +3803,7 @@ nudoku	Ncursesベースの数独ゲーム
 nuget	.NETを含むMicrosoft開発プラットフォームのパッケージマネージャー
 num-utils	コマンドラインから数値を処理するためのプログラム
 numactl	LinuxのNUMAサポート
-numcpp	PythonNumpyライブラリのC++実装
+numcpp	Python NumpyライブラリのC++実装
 numdiff	推定ファイル比較ツール
 numpy	Pythonを使用した科学計算用パッケージ
 numpy@1.16	Pythonを使用した科学計算用パッケージ
@@ -4048,8 +4048,8 @@ pari-galpol	PARI/GP用のガロア多項式データベース
 pari-seadata	PARI/GPのモジュラー多項式データ
 pari-seadata-big	PARI/GP用の追加のモジュラー多項式データ
 parliament	AWSIAMリンティングライブラリ
-parquet-cli	ApacheParquetコマンドラインツールとユーティリティ
-parquet-tools	ApacheParquetコマンドラインツールとユーティリティ
+parquet-cli	Apache Parquetコマンドラインツールとユーティリティ
+parquet-tools	Apache Parquetコマンドラインツールとユーティリティ
 parrot	オープンソース仮想マシン（Perl6など用）
 partio	3Dグラフィックス用のパーティクルライブラリ
 pass	パスワードマネージャー
@@ -4341,7 +4341,7 @@ pstree	ps出力をツリーとして表示
 psutils	PostScriptドキュメント処理ユーティリティのコレクション
 ptex	テクスチャマッピングシステム
 pth	GNUポータブルスレッド
-ptpython	高度なPythonREPL
+ptpython	高度なPython REPL
 ptunnel	ICMPを介したトンネル
 publish	Swift開発者向けの静的サイトジェネレーター
 pueue	長時間実行されるシェルコマンドを管理するためのコマンドラインツール
@@ -4411,7 +4411,7 @@ python@3.8	インタプリタ、インタラクティブ、オブジェクト指
 python@3.9	インタプリタ、インタラクティブ、オブジェクト指向プログラミング言語
 pythran	数値カーネル用のAheadofTimeコンパイラ
 pytouhou	東方6エンジンのLibre実装
-pyvim	純粋なPythonVimクローン
+pyvim	純粋なPython Vimクローン
 pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
 q	CSVまたはTSVファイルでSQLを直接実行する
 qalculate-gtk	多目的デスクトップ計算機
@@ -4524,7 +4524,7 @@ rdesktop	Windowsリモートデスクトップサービスに接続するため�
 rdfind	コンテンツに基づいて重複ファイルを検索します（ファイル名ではありません）
 rdiff-backup	ネットワーク経由またはローカルでのリバースディファレンシャルバックアップツール
 rdkit	オープンソースのケモインフォマティクスライブラリ
-rds-command-line-tools	AmazonRDSコマンドラインツールキット
+rds-command-line-tools	Amazon RDSコマンドラインツールキット
 rdup	バックアップの作成に適したファイルリストを作成するためのユーティリティ
 re-flex	C++用の正規表現中心の高速で柔軟なスキャナージェネレーター
 re2	PCREスタイルの正規表現エンジンをバックトラックする代わりの方法
@@ -4629,7 +4629,7 @@ root	大規模データ分析のためのオブジェクト指向フレームワ
 rosa-cli	RedHat OpenShift Service on AWS（ROSA）コマンドラインインターフェース
 roswell	主要な環境向けのLispインストーラーとランチャー
 roundup	ユニットテストツール
-rover	ApolloStudioでデータグラフを管理および保守するためのCLI
+rover	Apollo Studioでデータグラフを管理および保守するためのCLI
 rp	PE/Elf/Mach-O x86/x64バイナリでROPシーケンスを検索するためのツール
 rpcgen	プロトコルコンパイラ
 rpg	UNIX用のRubyパッケージ管理
@@ -4690,9 +4690,9 @@ s-nail	家宝のフォークmailx
 s-search	ターミナルからのWeb検索
 s2geometry	球上の計算幾何学と空間索引付け
 s2n	TLS/SSLプロトコルの実装
-s3-backer	AmazonS3を介したFUSEベースの単一ファイルバッキングstore
-s3cmd	AmazonS3サービスのコマンドラインツール
-s3fs	AmazonS3に裏打ちされたFUSEベースのファイルシステム
+s3-backer	Amazon S3を介したFUSEベースの単一ファイルバッキングstore
+s3cmd	Amazon S3サービスのコマンドラインツール
+s3fs	Amazon S3に裏打ちされたFUSEベースのファイルシステム
 s3ql	オブジェクトstoreをブロックストレージとして使用するPOSIX準拠のFUSEファイルシステム
 s4cmd	SuperS3コマンドラインツール
 s6	小さくて安全な監視ソフトウェアスイート
@@ -4952,8 +4952,8 @@ solarus	アクションRPGゲームエンジン
 solid	3D空間の幾何学的オブジェクトの衝突検出ライブラリ
 solidity	契約指向プログラミング言語
 sollya	安全な浮動小数点コード開発のためのライブラリ
-solr	ApacheLuceneプロジェクトのエンタープライズ検索プラットフォーム
-solr@7.7	ApacheLuceneプロジェクトのエンタープライズ検索プラットフォーム
+solr	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
+solr@7.7	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
 somagic	EasyCAPのSomagicバリアント用のLinuxキャプチャプログラム
 somagic-tools	EasyCAPからファームウェアを抽出するためのツール
 sonar-completion	ソナーのBash完了
@@ -5361,7 +5361,7 @@ tomcat-native	Tomcatがパフォーマンスのためにいくつかのネイテ
 tomcat@7	JavaサーブレットとJavaServerPagesの実装
 tomcat@8	JavaサーブレットとJavaServerPagesの実装
 tomcat@9	JavaサーブレットとJavaServerPagesの実装
-tomee-plume	ApacheTomEEプルーム
+tomee-plume	Apache TomEEプルーム
 tomee-plus	TomEE WebプロファイルとJAX-RSのすべてに加えて、
 tomee-webprofile	All-Apache Java EE 7Webプロファイルスタック
 toml11	最新のC++用のTOML
@@ -5371,10 +5371,10 @@ topgrade	すべてのものをアップグレードする
 tor	TCPの匿名化オーバーレイネットワーク
 torchvision	コンピュータービジョンのデータセット、変換、モデル
 torsocks	TorでSOCKSに適したアプリケーションを使用する
-tox	汎用Pythonvirtualenv管理およびテストコマンドラインツール
+tox	汎用Python virtualenv管理およびテストコマンドラインツール
 tpl	バイナリデータをCで保存および取得する
 tpp	Ncursesベースのプレゼンテーションツール
-trace2html	JSONトレースをHTMLに変換するためのGoogleTraceViewerのユーティリティ
+trace2html	JSONトレースをHTMLに変換するためのGoogle TraceViewerのユーティリティ
 tracebox	ミドルボックス検出ツール
 tracker	効率的な検索エンジンとトリプルstoreであるライブラリとデーモン
 tractorgen	ASCIIトラクターアートを生成します
@@ -5580,7 +5580,7 @@ vip	パイプラインでのインタラクティブな編集を提供するプ�
 vips	画像処理ライブラリ
 virgil	Virgilアカウントとアプリケーションを管理するためのCLIツール
 virtualenv	分離された仮想Python環境を作成するためのツール
-virtualenvwrapper	Pythonvirtualenv拡張機能
+virtualenvwrapper	Python virtualenv拡張機能
 virtualhost.sh	macOSがApache仮想ホストを作成するためのスクリプト
 virtualpg	SQLiteとSpatiaLiteのロード可能な動的拡張
 virtuoso	高性能オブジェクトリレーショナルSQLデータベース
@@ -5739,7 +5739,7 @@ writerperfect	WordPerfectドキュメントをインポートするためのラ�
 wrk	HTTPベンチマークツール
 wrk-trello	Trelloへのコマンドラインインターフェイス
 wsk	OpenWhiskコマンドラインインターフェイス（CLI）
-wskdeploy	ApacheOpenWhiskプロジェクトデプロイメントユーティリティ
+wskdeploy	Apache OpenWhiskプロジェクトデプロイメントユーティリティ
 wslay	CWebSocketライブラリ
 wtf	一般的なインターネットの頭字語を翻訳する
 wtfutil	端末の個人情報ダッシュボード
