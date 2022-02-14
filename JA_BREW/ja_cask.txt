@@ -232,7 +232,7 @@ autofirma	デジタル署名エディターおよびバリデーター
 automute	現在のWi-Fiネットワークに基づいてシステムをミュートまたはミュート解除します
 autopkgr	AutoPkgをインストールして構成します
 autovolume	音量を指定した音量に自動設定するツール
-autumn	秋
+autumn	Autumn
 avast-secure-browser	プライバシーに焦点を当てたWebブラウザ
 avast-security	ウイルス対策ソフト
 avg-antivirus	ウイルス対策ソフト
