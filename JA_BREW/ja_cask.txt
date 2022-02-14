@@ -1199,8 +1199,8 @@ gdat	常染色体DNAを利用して家系図の研究を支援するアプリ
 gdisk	ディスクパーティションツール
 gdlauncher	カスタムMinecraftランチャー
 geany	高速で軽量なIDE
-gearboy	ギアボーイ
-gearsystem	ギアシステム
+gearboy	Gearboy
+gearsystem	Gearsystem
 geburtstagschecker	GeburtstagsChecker
 geekbench	コンピュータシステムのパフォーマンスを測定するためのツール
 geektool	デスクトップカスタマイズツール
@@ -1535,7 +1535,7 @@ isubtitle	字幕トラック、チャプターマーカー、メタデータを�
 iswiff	iSwiff
 isyncer	AppleMusicプレイリストエクスポートツール
 isyncr	USBまたはWiFi接続を介してiTunesをAndroidに同期します
-itau	イタウ
+itau	Itau
 itch	itch.ioのゲームクライアント
 iterm2	Appleのターミナルアプリの代替としてのターミナルエミュレータ
 ithoughtsx	マインドマッピングツール
@@ -2127,7 +2127,7 @@ mountain	ボリュームのマウント/アンマウント時に通知を表示�
 mountain-duck	サーバーとクラウドストレージをディスクとしてデスクトップにマウントします
 mounty	書き込み保護されたNTFSボリュームを再マウントします
 mouse-fix	サードパーティのマウスにジェスチャー機能とスムーズなスクロールを追加するためのマウスユーティリティ
-mouse-locator	マウスロケーター
+mouse-locator	Mouse Locator
 mousepose	マウスポインタとカーソル位置を強調表示します
 movist	QuickTimeとFFmpegをベースにしたムービープレーヤー
 movist-pro	メディアプレーヤー
@@ -2178,7 +2178,7 @@ musicbrainz-picard	音楽タガー
 musictube	ストリーミング音楽プレーヤー
 mutespotifyads	MuteSpotifyAds
 mutesync	mütesync物理ボタンへのコンパニオンアプリ
-mutify	ミューティファイ
+mutify	Mutify
 muzzle	画面共有中に困惑する通知を黙らせる
 mweb-pro	マークダウン書き込み、メモ取り、静的ブログジェネレーターアプリ
 mxsrvs	ANMP（Apache、Nginx、MySQL、PHP）統合開発環境
@@ -2576,7 +2576,7 @@ pliim	ワンクリックでステージに上がり、輝きを放ちます！
 plistedit-pro	プロパティリストとJSONエディター
 plistedplus	Plistファイルエディタ
 plotdigitizer	機能データのスキャンされたプロットをデジタル化する
-plover	ステノタイプエンジン
+plover	Stenotypeエンジン
 plug	The HypeMachineの音楽プレーヤー
 pluginval	クロスプラットフォームプラグインバリデーターおよびテスターアプリケーション
 pngyu	pngquant用のフロントエンドGUIアプリケーション
@@ -2586,7 +2586,7 @@ podcastmenu	メニューバーに曇りを表示するツール
 podolski	仮想アナログシンセサイザー
 podpisuj	電子署名と署名の検証のアプリケーション
 poedit	翻訳エディタ
-poi	スケーラブルな艦隊これくしょんブラウザとツール
+poi	スケーラブルな艦隊コレクションブラウザとツール
 pokemon-reborn	ポケモンリボーン
 pokemon-showdown	ポケモン対決
 pokemon-trading-card-game-online	ポケモンTCGをオンラインでプレイ
@@ -2594,7 +2594,7 @@ pokerstars	無料でプレイできるオンラインポーカー
 pokerth	無料のテキサスホールデムポーカー
 polar-bookshelf	統合された読書環境
 polkadot-js	PolkadotおよびSubstrateネットワークへのポータル
-polycom-content	ポリコムコンテンツアプリ
+polycom-content	Polycomコンテンツアプリ
 polycom-realpresence	ビデオコラボレーションアプリ
 polymail	Polymail
 polypane	野心的な開発者のためのブラウザ
