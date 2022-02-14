@@ -108,7 +108,7 @@ alva	コードコンポーネントを使用して生きたプロトタイプを
 amadeus-pro	多目的オーディオレコーダー、エディター、コンバーター
 amadine	ベクトルグラフィックおよびイラストソフトウェア
 amazon-chime	通信サービス
-amazon-music	AmazonMusic用のデスクトップクライアント
+amazon-music	Amazon Music用のデスクトップクライアント
 amazon-photos	写真の保存と共有サービス
 amazon-workdocs	完全に管理された安全なコンテンツの作成、保存、およびコラボレーションサービス
 amazon-workdocs-drive	完全に管理された安全なエンタープライズストレージおよび共有サービス
@@ -505,8 +505,8 @@ chiaki	PlayStationリモートプレイクライアント
 chirp	アマチュア無線をプログラミングするためのツール
 choosy	任意のブラウザでリンクを開く
 chrome-devtools	Chrome DevTools
-chrome-remote-desktop-host	GoogleChromeブラウザを介して別のコンピュータにリモートアクセスする
-chromedriver	GoogleChrome用のWebアプリの自動テスト
+chrome-remote-desktop-host	Google Chromeブラウザを介して別のコンピュータにリモートアクセスする
+chromedriver	Google Chrome用のWebアプリの自動テスト
 chromium	無料のオープンソースWebブラウザ
 chronicle	パーソナルファイナンスマネージャー
 chronoagent	ChronoSyncのリモートファイル共有
@@ -881,7 +881,7 @@ dyalog	APLベースの開発環境
 dyn-updater	Dynアップデータ
 dynalist	ダイナリスト
 dynamic-dark-mode	自動ダークモードトグル
-dynamodb-local	AmazonDynamoDBローカル
+dynamodb-local	Amazon DynamoDBローカル
 dynobase	DynamoDB用のGUIクライアント
 eagle	Autodesk EAGLE
 eaglefiler	ファイルの整理、電子メールのアーカイブ、Webページとメモの保存、すべての検索
@@ -1155,11 +1155,11 @@ freemind	Javaで書かれたマインドマッピングソフトウェア
 freenettray	Freenetを制御するためのメニューバーアプリケーション
 freeorion	ターン制の宇宙帝国と銀河の征服ゲーム
 freeplane	マインドマッピングおよび知識管理ソフトウェア
-freesmug-chromium	Chromeの非互換性の問題を解決するために構築されたGoogleChromium
+freesmug-chromium	Chromeの非互換性の問題を解決するために構築されたGoogle Chromium
 freesurfer	脳のMRI画像を処理および分析するためのオープンソースソフトウェアスイート
 freetube	プライバシーに焦点を当てたYouTubeプレーヤー
 freeyourmusic	プレイリスト、トラック、アルバムを音楽プラットフォーム間で移動する
-freeze	AmazonGlacierファイル転送クライアント
+freeze	Amazon Glacierファイル転送クライアント
 frescobaldi	LilyPondエディター
 frhelper	フランス語-中国語辞書および学習ツール
 fromscratch	スクラッチパッドの自動保存。シンプルだがスマートなメモ取りアプリ
@@ -1275,12 +1275,12 @@ goneovim	Golangqtバックエンドを使用してGolangで記述されたNeovim
 goodsync	ファイル同期およびバックアップソフトウェア
 goofy	FacebookMes​​senger用のデスクトップクライアント
 google-ads-editor	Google広告エディター
-google-analytics-opt-out	ウェブサイトの訪問者のデータがGoogleAnalyticsJavaScriptによって使用されないようにする
+google-analytics-opt-out	ウェブサイトの訪問者のデータがGoogle Analytics JavaScriptによって使用されないようにする
 google-assistant	デスクトップ用のクロスプラットフォームの非公式Googleアシスタントクライアント
 google-chat	チャット
 google-chat-electron	Googleチャット用のスタンドアロンアプリ
 google-chrome	ウェブブラウザ
-google-cloud-sdk	GoogleCloudでホストされているリソースとアプリケーションを管理するためのツールのセット
+google-cloud-sdk	Google Cloudでホストされているリソースとアプリケーションを管理するためのツールのセット
 google-drive	Googleドライブストレージサービスのクライアント
 google-drive-file-stream	Googleドライブストレージサービスのクライアント
 google-earth-pro	仮想地球
@@ -1634,7 +1634,7 @@ kawa	代替入力ソーススイッチャー
 kdiff3	ファイルとディレクトリを比較およびマージするためのユーティリティ
 kdocs	Word、Excel、PPTドキュメント用のオンラインコラボレーションエディタ
 kdrive	kDriveコラボレーティブクラウドストレージサービスのクライアント
-keep	メニューバーでGoogleKeepを実行する
+keep	メニューバーでGoogle Keepを実行する
 keep-it	ノートブック、スクラップブック、オーガナイザーツール
 keepassx	セキュリティに焦点を当てたパーソナルデータマネージャー
 keepassxc	パスワードマネージャーアプリ
@@ -1934,7 +1934,7 @@ marked	Markdown、MultiMarkdown、その他のテキストマークアップ言�
 markright	ライブプレビュー付きの電子駆動マークダウンエディター
 mars	MipsAssemblyおよびRuntimeSimulator
 marsedit	ブログを作成、プレビュー、公開するためのツール
-marshallofsound-google-play-music-player	GooglePlayミュージックデスクトッププレーヤー
+marshallofsound-google-play-music-player	Google Playミュージックデスクトッププレーヤー
 marta	拡張可能な2ペインのファイルマネージャー
 marvel	プロトタイピング、テスト、ハンドオフツール
 marvin	個人の生産性アプリ
@@ -2075,7 +2075,7 @@ mixed-in-key	DJと音楽プロデューサーのためのハーモニックミ�
 mixxx	オープンソースのDJソフトウェア
 mjml	MJML用デスクトップアプリ
 mjolnir	軽量の自動化と生産性のアプリ
-mkchromecast	オーディオ/ビデオをGoogleCastおよびSonosデバイスにキャストするためのツール
+mkchromecast	オーディオ/ビデオをGoogle CastおよびSonosデバイスにキャストするためのツール
 mks	メカニカルキーボードシミュレーター
 mkvtoolnix	Matroskaファイル（MKV）を作成、変更、検査するためのツールのセット
 mkvtools	MKVビデオを作成および編集するためのアプリ
@@ -2172,8 +2172,8 @@ musaicfm	SpotifyまたはLast.fmのプロファイルデータに基づいてア
 muse	TouchBarをサポートするオープンソースのSpotifyコントローラー
 museeks	音楽プレーヤー
 musescore	オープンソースの楽譜作成ソフトウェア
-music-bar	メニューバーから直接AppleMusicを制御する
-music-manager	GooglePlayミュージックマネージャー
+music-bar	メニューバーから直接Apple Musicを制御する
+music-manager	Google Playミュージックマネージャー
 musicbrainz-picard	音楽タガー
 musictube	ストリーミング音楽プレーヤー
 mutespotifyads	MuteSpotifyAds
@@ -2288,7 +2288,7 @@ noti	Androidデバイスからの通知を表示するユーティリティ
 notion	書き、計画し、コラボレーションし、整理するためのアプリ
 notion-enhanced	オールインワンの生産性ワークスペースnotion.soのエンハンサー/カスタマイザー
 noto	シンプルなプレーンテキストエディタ
-notunes	iTunesやAppleMusicの起動を妨げるシンプルなアプリケーション
+notunes	iTunesやApple Musicの起動を妨げるシンプルなアプリケーション
 noun-project	アイコンマネージャー
 nova	ネイティブコードエディタ
 novabench	コンピューターのパフォーマンスをすばやくテストして比較するためのベンチマークツール
@@ -2807,7 +2807,7 @@ race-into-space	宇宙への競争
 racket	Lisp/Schemeファミリーの最新のプログラミング言語
 radar	メニューバーから重要な指標を確認する
 radarr	Couchpotatoの映画で作業するSonarrのフォーク 
-radiant-player	GooglePlayミュージックのアプリラッパー
+radiant-player	Google Playミュージックのアプリラッパー
 radicle-upstream	コードコラボレーション用のp2pスタックであるRadicle用のデスクトップクライアント
 radio-silence	ネットワークモニターとファイアウォール
 raiderio	World ofWarcraftランキングサイトクライアント
@@ -3604,7 +3604,7 @@ ubports-installer	モバイルデバイスにubportsをインストールする�
 udeler	Udemyコースをダウンロードするためのデスクトップアプリケーション
 udig	uDig
 ueli	キーストロークランチャー
-ui-browser	AppleのアクセシビリティとAppleScriptGUIスクリプティングのアシスタント
+ui-browser	AppleのアクセシビリティとAppleScript GUIスクリプティングのアシスタント
 ujam	UJAM製品の管理ツール 
 ukelele	Unicodeキーボードレイアウトエディタ
 ukrainian-unicode-layout	ウクライナのUnicodeレイアウト
