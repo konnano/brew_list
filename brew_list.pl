@@ -395,7 +395,8 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
     close $BREW;
    push @$file,@file;
   }
-  if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} ){ no warnings 'closed';
+  if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} ) ){
+    no warnings 'closed';
    if( $re->{'FOR'} ){
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist JA_file ###\n";
      while( my $an = <$JA> ){
@@ -687,7 +688,7 @@ my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = $file->[$i] =~ /\t/ ? split '\t',$file->[$i] : $file->[$i];
    next if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
-    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
+    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
