@@ -540,7 +540,7 @@ c10t	Minecraftの地図作成ツール
 c14-cli	コマンドラインからオンラインC14アーカイブを管理する
 c2048	2048のコンソールバージョン
 c7n	クラウドセキュリティ、コスト最適化、およびガバナンスのためのルールエンジン
-ca-certificates	MozillaCA証明書ストア
+ca-certificates	MozillaCA証明書store
 cabal-install	CabalおよびHackageのコマンドラインインターフェイス
 cabextract	Microsoftキャビネットファイルからファイルを抽出する
 cabocha	さらに別の日本の依存関係構造アナライザー
@@ -586,12 +586,12 @@ carton	Perlモジュール依存関係マネージャー（別名Bundler for Per
 cartridge-cli	TarantoolCartridgeコマンドラインユーティリティ
 cash-cli	ターミナルから直接為替レートを変換する
 cask	Emacsの依存関係管理
-cassandra	結果整合性のある分散型Key-Valueストア
+cassandra	結果整合性のある分散型Key-Value store
 cassandra-cpp-driver	ApacheCassandra用のDataStaxC/C++ドライバー
 cassandra-reaper	カサンドラの管理インターフェース
-cassandra@2.1	分散型Key-Valueストア
+cassandra@2.1	分散型Key-Value store
 cassandra@2.2	結果整合性のある分散型Key-Valueデータベース
-cassandra@3	結果整合性のある分散型Key-Valueストア
+cassandra@3	結果整合性のある分散型Key-Value store
 cassowary	Goで記述された最新のクロスプラットフォームHTTP負荷テストツール
 castget	コマンドラインポッドキャストおよびRSSエンクロージャダウンローダー
 castxml	Cファミリの抽象構文ツリーXML出力
@@ -663,14 +663,14 @@ cgl	カット生成ライブラリ
 cglm	C用に最適化されたOpenGL/Graphics Math（glm）
 cgns	CFD一般表記システム
 cgoban	囲碁関連サービス
-cgrep	ソースコードのコンテキストアウェアgrep
+cgrep	ソースコードのコンテキスト-aware grep
 cgvg	コマンドラインソースブラウジングツール
 chadwick	RetrosheetMLBの実況ファイルを解析するためのツール
 chafa	用途が広く高速なUnicode/ASCII/ANSIグラフィックレンダラー
 chaiscript	C++用の使いやすい埋め込みスクリプト言語
 chakra	MicrosoftEdgeを強化するJavaScriptエンジンのコア部分
 chalk-cli	ターミナルストリングのスタイリングは正しく行われます
-chamber	AWSSSMパラメータストアを介してシークレットを管理するためのCLI
+chamber	AWSSSMパラメータstoreを介してシークレットを管理するためのCLI
 chapel	大規模な生産的並列コンピューティングのためのプログラミング言語
 charge	意見のある、ゼロ構成の静的サイトジェネレーター
 charm	Juju Charmsを管理するためのツール
@@ -731,7 +731,7 @@ cksfv	ファイル検証ユーティリティ
 clac	後置表記を使用したコマンドラインのスタックベースの計算機
 clair	コンテナの脆弱性静的分析
 clamav	ウイルス対策ソフト
-clamz	AmazonのミュージックストアからMP3ファイルをダウンロードする
+clamz	AmazonのミュージックstoreからMP3ファイルをダウンロードする
 clang-format	C、C++、Obj-C、Java、JavaScript、TypeScript用のフォーマットツール
 clang-format@11	C、C++、Obj-C、Java、JavaScript、TypeScript用のフォーマットツール
 clang-format@8	C、C++、Obj-C、Java、JavaScript、TypeScript用のフォーマットツール
@@ -945,7 +945,7 @@ cspice	ロボット宇宙科学ミッションのための観測幾何学シス�
 css-crush	拡張可能なPHPベースのCSSプリプロセッサ
 cssembed	CSSファイルへの自動データURI埋め込み
 csshx	Terminal.app用のクラスターsshツール
-cstore_fdw	Postgresを使用した分析用の列指向ストア
+cstore_fdw	Postgresを使用した分析用の列指向store
 csvkit	CSVに変換して操作するための一連のコマンドラインツール
 csvprintf	CSVファイルを解析するためのコマンドラインユーティリティ
 csvq	csv用のSQLのようなクエリ言語
@@ -1214,10 +1214,10 @@ dromeaudio	小さなC++オーディオ操作および再生ライブラリ
 drone-cli	ドローン継続的インテグレーションサーバーのコマンドラインクライアント
 dropbear	POSIXベースのシステム用の小さなSSHサーバー/クライアント
 dropbox-uploader	Dropboxと対話するためのBashスクリプト
-druid	高性能で列指向の分散データストア
+druid	高性能で列指向の分散データstore
 dscanner	分析（例：Dコードのスタイルと構文）
 dsh	Dancer's shell、または分散シェル
-dsocks	* BSD/macOS用のSOCKSクライアントラッパー
+dsocks	*BSD/macOS用のSOCKSクライアントラッパー
 dspdfviewer	ラテックスビーマー用のデュアルスクリーンPDFビューアー
 dssim	RGBA構造的類似性Rustの実装
 dstask	Gitを利用したパーソナルタスクトラッカー
@@ -1362,7 +1362,7 @@ esniper	コマンドラインからのeBayオークションのスナイプ
 espeak	テキスト読み上げ、ソフトウェア音声シンセサイザー
 esphome	ESP32/ESP8266のカスタムファームウェアの作成を非常に簡単にします
 esptool	ESP8266およびESP32シリアルブートローダーユーティリティ
-etcd	共有構成とサービス検出のためのKeyValueストア
+etcd	共有構成とサービス検出のためのKeyValue store
 etcd-cpp-apiv3	etcdのv3クライアントAPIのC++実装、つまりETCDCTL_API = 3
 ethereum	イーサリアムプロトコルの公式Go実装
 etl	拡張可能なテンプレートライブラリ
@@ -2041,7 +2041,7 @@ grokj2k	JPEG2000ライブラリ
 grokmirror	gitリポジトリをスマートにミラ​​ーリングするフレームワーク
 gromacs	分子動力学計算のための多用途パッケージ
 gron	JSONをgreppableにする
-groonga	全文検索エンジンと列ストア
+groonga	全文検索エンジンと列store
 groovy	Javaベースのスクリプト言語
 groovysdk	SDK for Groovy：Javaベースのスクリプト言語
 groovyserv	Groovyの起動時間を短縮する
@@ -2123,7 +2123,7 @@ gzip	人気のGNUデータ圧縮プログラム
 gzrt	Gzipリカバリツールキット
 h2	JavaSQLデータベース
 h264bitstream	H264ビデオストリームを読み書きするためのライブラリ
-h2c	ヘッダー2カール
+h2c	ヘッダー2 curl
 h2o	HTTP /1.xおよびHTTP/2をサポートするHTTPサーバー
 h2spec	HTTP/2実装用の適合性テストツール
 h3	六角形の階層的地理空間インデックスシステム
@@ -2151,7 +2151,7 @@ hasura-cli	HasuraGraphQLエンジンのコマンドラインインターフェ�
 hatari	Atari ST/STE/TT/Falconエミュレーター
 haxe	マルチプラットフォームプログラミング言語
 hayai	googletestフレームワークに触発されたC++ベンチマークフレームワーク
-hbase	Hadoopデータベース：分散型でスケーラブルなビッグデータストア
+hbase	Hadoopデータベース：分散型でスケーラブルなビッグデータstore
 hblock	複数のソースからhostsファイルを作成するAdblocker
 hcl2json	HCL2をJSONに変換する
 hcloud	HetznerCloudのコマンドラインインターフェイス
@@ -2197,7 +2197,7 @@ hiredis	Redisの最小限のクライアント
 historian	SQLiteデータベースのシェル履歴を管理するためのコマンドラインユーティリティ
 hive	Hadoopベースのデータの要約、クエリ、および分析
 hivemind	Procfileベースのアプリケーションのプロセスマネージャー
-hledger	コマンドライン、ターミナル、およびWebUIを使用した簡単なプレーンテキストアカウンティング
+hledger	コマンドライン、ターミナル、およびWebUIを使用した簡単なプレーンテキストカウンティング
 hlint	Haskellのソースコードの提案
 hmmer	プロファイルHMMを構築し、シーケンスデータベースに対してスキャンします
 hoedown	安全なMarkdown処理（Sundownの復活したフォーク）
@@ -2322,7 +2322,7 @@ imessage-ruby	iMessageを送信するためのコマンドラインツール
 imgproxy	リモート画像のサイズ変更と変換のための高速で安全なサーバー
 imgur-screenshot	スクリーンショットを選択し、imgurにアップロードします。+もっとクールなもの
 imlib2	画像の読み込みとレンダリングのライブラリ
-immortal	OSにとらわれない（* nix）クロスプラットフォームスーパーバイザー
+immortal	OSにとらわれない（*nix）クロスプラットフォームスーパーバイザー
 immudb	軽量で高速な不変のデータベース
 inadyn	IPv4、IPv6、およびSSL/TLSをサポートするダイナミックDNSクライアント
 include-what-you-use	CおよびC++ソースファイルの#includesを分析するためのツール
@@ -3214,7 +3214,7 @@ llvm@8	次世代コンパイラインフラストラクチャ
 llvm@9	次世代コンパイラインフラストラクチャ
 lm-sensors	温度、電圧、ファンを監視するためのツール
 lm4tools	TI StellarisLaunchpadボード用のツール
-lmdb	Lightningメモリマップデータベース：Key-Valueデータストア
+lmdb	Lightningメモリマップデータベース：Key-Valueデータstore
 lmod	PATH変数を変更するLuaベースの環境モジュールシステム
 lnav	ログファイルを表示および分析するためのCursesベースのツール
 loc	コードの行をすばやくカウントする
@@ -3517,7 +3517,7 @@ molecule	Ansibleロールの自動テスト
 molten-vk	Metal上でのVulkanグラフィックスとコンピューティングAPIの実装
 mon	ホスト/サービス/その他を監視し、問題について警告します
 monero	公式のMoneroウォレットとCPUマイナー
-monetdb	列ストアデータベース
+monetdb	列-storeデータベース
 mongo-c-driver	MongoDBのCドライバー
 mongo-cxx-driver	MongoDB用のC++ドライバー
 mongo-orchestration	単一のホストでMongoDB構成を管理するためのRESTAPI
@@ -4177,14 +4177,14 @@ pig	大規模なデータセットを分析するためのプラットフォー�
 pigz	並列gzip
 pike	動的プログラミング言語
 piknik	ネットワーク経由で何かをコピー/貼り付け
-pillar	Cassandraデータストアの移行を管理する
+pillar	Cassandraデータstoreの移行を管理する
 pillow	フレンドリーなPILフォーク（Python Imaging Library）
 pilosa	データセット間でクエリを実行する分散ビットマップインデックス
 pinboard-notes-backup	ピンボードに保存したメモを効率的にバックアップします
 pinentry	アスワンプロトコルを利用したパスフレーズ入力ダイアログ
 pinentry-mac	MacでのGPGのPinentry
 pinfo	情報ドキュメント用のユーザーフレンドリーなコンソールベースのビューア
-pinot	リアルタイム分散OLAPデータストア
+pinot	リアルタイム分散OLAPデータstore
 pioneer	孤独な宇宙冒険のゲーム
 pioneers	カタンの開拓者クローン
 pip-audit	既知の脆弱性についてPython環境と依存関係ツリーを監査します
@@ -4551,7 +4551,7 @@ redland	RDFライブラリ
 redo	djbのやり直しを実装します。
 redpen	技術文書の作成者を支援する校正ツール
 redshift	周囲の状況に応じて画面の色温度を調整します
-redstore	Redlandを搭載した軽量RDFトリプルストア
+redstore	Redlandを搭載した軽量RDFトリプルstore
 reg	Dockerレジストリv2コマンドラインクライアント
 regex-opt	Perl互換の正規表現オプティマイザ
 regina-rexx	Rexxの通訳
@@ -4617,7 +4617,7 @@ roapi	コードを1行も記述せずに静的データセット用の本格的�
 robodoc	ソースコードドキュメントツール
 robot-framework	受け入れテストのためのオープンソーステストフレームワーク
 robotfindskitten	子猫を見つけるロボットの禅シミュレーション
-rocksdb	高速ストレージのための埋め込み可能で永続的なKey-Valueストア
+rocksdb	高速ストレージのための埋め込み可能で永続的なKey-Value store
 rofs-filtered	FUSE用のフィルタリングされた読み取り専用ファイルシステム
 rogue	ダンジョンクロールビデオゲーム
 roll	サイコロを振るためのCLIプログラム
@@ -4690,10 +4690,10 @@ s-nail	家宝のフォークmailx
 s-search	ターミナルからのWeb検索
 s2geometry	球上の計算幾何学と空間索引付け
 s2n	TLS/SSLプロトコルの実装
-s3-backer	AmazonS3を介したFUSEベースの単一ファイルバッキングストア
+s3-backer	AmazonS3を介したFUSEベースの単一ファイルバッキングstore
 s3cmd	AmazonS3サービスのコマンドラインツール
 s3fs	AmazonS3に裏打ちされたFUSEベースのファイルシステム
-s3ql	オブジェクトストアをブロックストレージとして使用するPOSIX準拠のFUSEファイルシステム
+s3ql	オブジェクトstoreをブロックストレージとして使用するPOSIX準拠のFUSEファイルシステム
 s4cmd	SuperS3コマンドラインツール
 s6	小さくて安全な監視ソフトウェアスイート
 safe-rm	ファイルの危険な削除を防ぐためにrmをラップします
@@ -4945,7 +4945,7 @@ soapysdr	ベンダーおよびプラットフォームに依存しないSDRサ�
 socat	ソケットCAT：ステロイドのnetcat
 soci	C++用のデータベースアクセスライブラリ
 sofia-sip	SIPユーザーエージェントライブラリ
-softhsm	PKCS＃11インターフェースを介してアクセス可能な暗号ストア
+softhsm	PKCS＃11インターフェースを介してアクセス可能な暗号store
 solana	分散型アプリとマーケットプレイス向けのWebスケールブロックチェーン
 solargraph	Ruby言語サーバー
 solarus	アクションRPGゲームエンジン
@@ -4979,7 +4979,7 @@ spades	denovoゲノム配列アセンブリ
 spago	PureScriptパッケージマネージャーとビルドツール
 spandsp	テレフォニー用のDSP関数ライブラリ
 spark	シェルのスパークライン
-sparkey	頻繁な読み取り/まれな書き込みの使用に最適な一定のKey-Valueストア
+sparkey	頻繁な読み取り/まれな書き込みの使用に最適な一定のKey-Value store
 sparse	静的Cコード分析ツール
 spatialindex	空間インデックスを開発するための一般的なフレームワーク
 spatialite-gui	SpatiaLiteをサポートするGUIツール
@@ -5032,7 +5032,7 @@ sqliteodbc	SQLite用のODBCドライバー
 sqlmap	SQLインジェクションおよびデータベースサーバーの侵入テスト
 sqlparse	非検証SQLパーサー
 sqlx-cli	RustSQLツールキットであるSQLxのコマンドラインユーティリティ
-sqoop	Hadoopと構造化データストア間でバルクデータを転送する
+sqoop	Hadoopと構造化データstore間でバルクデータを転送する
 sqsmover	AWSSQSメッセージムーバー
 sqtop	Squidプロキシのアクティブな接続に関する情報を表示する
 squashfs	Linux用の圧縮された読み取り専用ファイルシステム
@@ -5376,7 +5376,7 @@ tpl	バイナリデータをCで保存および取得する
 tpp	Ncursesベースのプレゼンテーションツール
 trace2html	JSONトレースをHTMLに変換するためのGoogleTraceViewerのユーティリティ
 tracebox	ミドルボックス検出ツール
-tracker	効率的な検索エンジンとトリプルストアであるライブラリとデーモン
+tracker	効率的な検索エンジンとトリプルstoreであるライブラリとデーモン
 tractorgen	ASCIIトラクターアートを生成します
 trader	スタートレーダー
 traefik	最新のリバースプロキシ
