@@ -188,7 +188,7 @@ arp-scan	ARPスキャンおよびフィンガープリントツール
 arp-sk	ARPトラフィック生成ツール
 arpack	大規模な固有値問題を解決するためのルーチン
 arping	MACアドレスがLAN上ですでに使用されているかどうかを確認するユーティリティ
-arpoison	UNIXarpキャッシュ更新ユーティリティ
+arpoison	UNIX arpキャッシュ更新ユーティリティ
 arrayfire	汎用GPUライブラリ
 arss	サウンドファイルをスペクトログラムに分析します
 artifactory	バイナリを管理します
@@ -303,7 +303,7 @@ awscurl	AWSリソースにアクセスするためのシンプルさのような
 awslogs	AWSCloudWatchログを読み取るためのシンプルなコマンドラインツール
 awsume	コマンドラインからAWSIAMロールを簡単に引き受けるためのユーティリティ
 awsweeper	AWSアカウントをクリーンアップするためのCLIツール
-axel	LightUNIXダウンロードアクセラレータ
+axel	Light UNIXダウンロードアクセラレータ
 azcopy	AzureStorageデータ転送ユーティリティ
 azure-cli	Microsoft Azure CLI 2.0
 azure-storage-cpp	C++用のMicrosoftAzureストレージクライアントライブラリ
@@ -864,7 +864,7 @@ copilot	Amazon ECSおよびAWSFargate用のCLIツール
 coq	高階述語論理の証明アシスタント
 corectl	CoreOS overmacOSが非常にシンプルになりました
 coredns	プラグインをチェーンするDNSサーバー
-coreos-ct	Container LinuxConfigをIgnitionに変換します
+coreos-ct	Container Linux ConfigをIgnitionに変換します
 corepack	ノードプロジェクトとそのパッケージマネージャー間のブリッジとして機能するパッケージ
 coreutils	GNUファイル、シェル、およびテキストユーティリティ
 corkscrew	HTTPプロキシを介してSSHをトンネリングする
@@ -1445,7 +1445,7 @@ fcgi	対話型プログラムをWebサーバーとインターフェースする
 fcgiwrap	NginxのCGIサポート
 fcitx-remote-for-osx	コマンドラインで入力メソッドを処理する
 fcl	柔軟な衝突ライブラリ
-fcp	従来のUnixcp（1）コマンドの大幅に高速な代替
+fcp	従来のUnix cp（1）コマンドの大幅に高速な代替
 fcrackzip	Zipパスワードクラッカー
 fd	見つけるためのシンプルで高速かつユーザーフレンドリーな代替手段
 fdclone	コンソールベースのファイルマネージャー
@@ -1617,7 +1617,7 @@ fuego	囲碁のゲーム用のC++ライブラリのコレクション
 func-e	エンボイを簡単に実行
 funcoeszz	数十のコマンドラインミニアプリケーション（ポルトガル語）
 functionalplus	C++用の関数型プログラミングライブラリ
-fuse-emulator	無料のUnixSpectrumエミュレーター
+fuse-emulator	無料のUnix Spectrumエミュレーター
 fuse-overlayfs	overlayfsのFUSE実装
 fuse-zip	ZIPアーカイブを作成および操作するためのFUSEファイルシステム
 fuseki	SPARQLサーバー
@@ -2830,8 +2830,8 @@ libfreenect	XboxKinectデバイスのドライバーとライブラリ
 libfs	X.Org：Xフォントサービスクライアントライブラリ
 libftdi	FTDIチップと通信するライブラリ
 libftdi0	FTDIチップと通信するライブラリ
-libfuse	LinuxFUSEインターフェースのリファレンス実装
-libfuse@2	LinuxFUSEインターフェースのリファレンス実装
+libfuse	Linux FUSEインターフェースのリファレンス実装
+libfuse@2	Linux FUSEインターフェースのリファレンス実装
 libgadu	ICQインスタントメッセンジャープロトコルのライブラリ
 libgaiagraphics	共通ユーティリティラスター処理をサポートするライブラリ
 libgccjit	GNUコンパイラコレクションのJITライブラリ
@@ -5256,7 +5256,7 @@ terraform-docs	Terraformモジュールからドキュメントを生成する�
 terraform-inventory	TerraformState → AnsibleDynamicInventory
 terraform-ls	Terraform言語サーバー
 terraform-lsp	Terraformの言語サーバープロトコル 
-terraform-provider-libvirt	libvirtを使用したLinuxKVMによるTerraformプロビジョニング
+terraform-provider-libvirt	libvirtを使用したLinux KVMによるTerraformプロビジョニング
 terraform-rover	Terraformビジュアライザー
 terraform@0.11	インフラストラクチャを構築、変更、およびバージョン管理するためのツール
 terraform@0.12	インフラストラクチャを構築、変更、およびバージョン管理するためのツール
@@ -5351,7 +5351,7 @@ tnftpd	NetBSDのFTPサーバー
 toast	コンテナでタスクを実行するためのツール
 todo-txt	最小限のtodo.txtに焦点を当てたエディター
 todoman	シンプルなCalDAVベースのtodoマネージャー
-tofrodos	DOS <-> UNIXテキストファイル、エイリアスをfromdosに変換します
+tofrodos	DOS <-> UNIXテキストファイルを変換します、alias tofromdos
 toilet	figletのカラーベースの代替品（libcacaを使用）
 tokei	コードをすばやくカウントできるプログラム
 tokyo-cabinet	軽量データベースライブラリ
