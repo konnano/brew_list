@@ -401,14 +401,14 @@ my( $re,$list,$file,$test,$tap1,$tap2,$tap3,@file ) = @_;
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist JA_file ###\n";
      while( my $an = <$JA> ){
      my( $name,$desc ) = split "\t",$an;
-      chomp( $JA{$name} = $desc )
+      chomp( $JA{$name} = $desc );
      }
     close $JA;
    }elsif( not $re->{'TAP'} ){
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " ### Not exist JA_file ###\n";
      while( my $an = <$JA> ){
      my( $name,$desc ) = split "\t",$an;
-      chomp( $JA{$name} = $desc )
+      chomp( $JA{$name} = $desc );
      }
     close $JA;
    }
