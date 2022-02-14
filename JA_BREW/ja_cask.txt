@@ -165,8 +165,8 @@ apple-events	非公式のAppleイベントアプリ
 apple-juice	バッテリー残量などを表示するバッテリーゲージ
 applepi-baker	SDカード、USBドライブ、外付けHDDなどのバックアップと復元
 apppolice	実行中のプロセスのCPU使用率をすばやく制限するためのアプリ
-appstore-quickview	アプリ...ストアクイックビュー
-apptivate	魅了する
+appstore-quickview	アプリ...Store クイックビュー
+apptivate	Apptivate
 apptrap	AppTrap
 appzapper	不要なアプリケーションとそのサポートファイルをアンインストールするツール
 aptanastudio	Aptana Studio
@@ -259,7 +259,7 @@ back-in-time	TimeMachineバックアップのコンテンツにアクセスす�
 backblaze	データのバックアップとストレージサービス
 backblaze-downloader	Backblazeで復元されたファイルをより確実にダウンロードする
 background-music	バックグラウンドミュージック
-backlog	やり残し
+backlog	Backlog
 backuploupe	TimeMachineの代替GUI
 badlion-client	マインクラフトランチャー
 baiduinput	Baidu入力方式をインストールします 
@@ -299,7 +299,7 @@ beamer	AppleTVおよびChromecast用のデスクトップキャスト/ストリ�
 bean	ワードプロセッサ
 beardedspice	BeardedSpice
 beatunes	曲の分析、検査、再生
-bee	蜂
+bee	Bee
 beekeeper-studio	クロスプラットフォームのSQLエディターとデータベース管理アプリ
 beeper	Matrixを搭載したユニバーサルチャットアプリ、15の異なるチャットネットワークを統合
 beersmith	ビール醸造ソフトウェア
@@ -388,7 +388,7 @@ boostnote	開発者向けのマークダウンエディタ
 bootchamp	Boot CampWindowsパーティションを起動するためのメニューバーアプリ
 bootstrap-studio	Bootstrapフレームワークを使用したWebサイトの設計とプロトタイプ
 bootxchanger	古いMacのブートロゴを変更するユーティリティ
-bossa	ボッサ
+bossa	bossa
 bot-framework-emulator	Bot FrameworkSDKで構築されたチャットボットをテストおよびデバッグします
 bowtie	カスタマイズ可能なショートカットで音楽を制御する
 box-drive	Boxクラウドストレージサービスのクライアント
@@ -437,7 +437,7 @@ butler	カスタマイズ可能な構成でタスクを配置します
 butt	ShoutcastおよびIcecastストリーミングクライアント
 butter	溶けたidobata.ioクライアント
 buttercup	Javascript SecretsVault-マルチプラットフォームデスクトップアプリケーション
-bwana	ブワナ
+bwana	Bwana
 bzflag	3Dマルチプレイヤー戦車バトルゲーム
 c0re100-qbittorrent	BitTorrentクライアント
 cabal	チャットプラットフォームCabal用のデスクトップクライアント
@@ -466,7 +466,7 @@ caption	字幕を自動的に検索して設定します
 capto	スクリーンキャプチャ/レコーダーおよびビデオエディター
 carbon-copy-cloner	ハードディスクのバックアップとクローン作成ユーティリティ
 cardhop	連絡先マネージャー
-caret	キャレット
+caret	Caret
 cashnotify	メニューバーからStripeアカウントとPaypalアカウントを監視します
 castr	Castrストリーミングプラットフォームを制御するためのデスクトップアプリケーション
 catch	ブロードキャッチが簡単に
@@ -517,7 +517,7 @@ chrysalis	万華鏡を搭載したキーボード用のグラフィカルなコ�
 cinc-workstation	Chefインフラストラクチャ管理ツール用のFree-as-in-Beerオールインワンインストーラー
 cinch	ウィンドウ管理ツール
 cinco	ドメイン固有のグラフィカルモデリングツール用のジェネレーター駆動型EclipseIDE
-cinder	石炭殻
+cinder	Cinder
 cinderella	インタラクティブジオメトリソフトウェア
 cinebench	Cinebench
 circuitjs1	電子回路シミュレータ
@@ -583,7 +583,7 @@ cncjs	CNCフライス盤コントローラーのインターフェース
 cncnet	CnCNet：クラシックコマンド＆コンカー
 coarchi	Archi用のモデルコラボレーションプラグイン
 coccinellida	シンプルなSSHトンネルマネージャー
-coccoc	C盻祖C盻祖
+coccoc	コック・コックブラウザ
 cockatrice	マルチプレイヤーカードゲーム用の仮想卓上
 cocktail	コンピュータシステムのクリーニング、修理、最適化
 cocoapods	Cocoaプロジェクトの依存関係マネージャー
@@ -593,7 +593,7 @@ coconutbattery	さまざまなデバイスのバッテリーに関するライ�
 coconutid	MacまたはiPhoneの製造日を表示します
 coda	テキストエディタ
 code-composer-studio	統合開発環境
-code-notes	コードノート
+code-notes	Codeノート
 code42-crashplan	エンドポイントのバックアップとリカバリ
 codeexpander	クラウド同期開発ツール
 codekit	ウェブサイトを構築するためのアプリ
@@ -656,7 +656,7 @@ coteditor	Webページ、プログラムのソースコードなどのプレー�
 couchbase-server-community	分散型NoSQLクラウドデータベース
 couchbase-server-enterprise	分散型NoSQLクラウドデータベース
 couchpotato	NZBとTorrentを介した自動映画ダウンロード
-couleurs	クーラー
+couleurs	Couleurs
 countdown	カウントダウンスクリーンセーバー
 coverload	映画、音楽アルバムなどの高品質のアートワークをダウンロードする
 cozy-drive	CosyCloudのファイル同期
@@ -666,7 +666,7 @@ craftmanager	Craftツールを最新の状態に保つのに役立ちます
 creality-slicer	すべてのCrealityFDM3Dプリンター用のスライサー
 create-recovery-partition-installer	リカバリパーティションインストーラーの作成
 createuserpkg	CreateUserPkg
-creepy	気味の悪い
+creepy	Creepy
 crescendo	リアルタイムイベントビューア
 criptext	プライバシーを中心に構築されたメールサービス
 cron	専門家やチームのためのカレンダー
@@ -705,7 +705,7 @@ dangerzone	潜在的に危険なPDFまたはOfficeドキュメントを安全な
 darktable	写真ワークフローアプリケーションと生の開発者
 darwindumper	ダーウィンダンパー
 dash	APIドキュメントブラウザとコードスニペットマネージャー
-dash-dash	ダッシュ-暗号通貨の再発明
+dash-dash	Dash-暗号通貨の再発明
 dashcam-viewer	ダッシュカムとアクションカムによって記録されたビデオ、GPSデータ、およびGフォースデータを表示する
 dashlane	パスワードマネージャーとデジタルウォレットアプリケーション
 dat	人間のために構築されたピアツーピアデータ共有アプリ
@@ -740,10 +740,10 @@ dcp-o-matic-player	デジタルシネマパッケージを再生する
 dcv-viewer	NICEDCVリモートディスプレイプロトコルのクライアント
 dd-utility	オペレーティングシステムのIMGおよびISOファイルの書き込みとバックアップ
 ddnet	DDRaceのTeeworldsバージョン
-deadbolt	デッドボルト
+deadbolt	Deadbolt
 deathtodsstore	DeathToDSStore
 debookee	ネットワークトラフィックアナライザ
-deckset	デッキセット
+deckset	Deckset
 decloner	高速で信頼性の高い重複ファイルファインダー
 deco	ReactNativeアプリケーションを構築するためのIDE
 decrediton	信頼できる自律デジタル通貨のためのウォレットGUI
@@ -784,8 +784,8 @@ dhs	dylibハイジャックのスキャン
 dia	構造図を描く
 diagnostics	診断（クラッシュ）レポートビューア
 dialpad	クラウド通信プラットフォーム
-diashapes	直径
-dictater	ディクタター
+diashapes	Dia
+dictater	Dictater
 dictcc-en-de-dictionary-plugin	dict.cc英語-ドイツ語辞書プラグイン
 dictionaries	辞書を開かずに単語を翻訳する
 dictunifier	辞書変換ツール
@@ -871,7 +871,7 @@ duplicate-file-finder	不要な重複ファイルやフォルダを見つけて�
 duplicati	安全に暗号化されたバックアップをクラウドに保存する
 dupscanub	指定されたフォルダ内の重複ファイルを検索します
 dust3d	Dust3D
-dusty	ほこりっぽい
+dusty	Dusty
 dvdstyler	DVDオーサリングアプリケーション
 dwarf-fortress	シングルプレイヤーファンタジーゲーム
 dwarf-fortress-lmp	ゲームを壊すことなく、DwarfFortressでグラフィックパックを使用および切り替えます
@@ -908,7 +908,7 @@ eclipse-testing	テスト用のEclipseIDE
 eddie	OpenVPN UI
 edenmath	EdenMath
 edex-ui	サイエンスフィクションをテーマにしたターミナルエミュレーターとシステムモニター
-edfbrowser	EDF +およびBDF +ビューアとツールボックス
+edfbrowser	EDF+およびBDF+ビューアとツールボックス
 editaro	テキストエディタ
 eggplant	eggPlant機能
 eiskaltdcpp	ダイレクトコネクトおよびADCプロトコルを使用したファイル共有
@@ -940,7 +940,7 @@ emby-server	ほぼすべてのデバイスにアプリを搭載したパーソ�
 emclient	メールクライアント
 eme	マークダウンエディタ
 emmetapp	ウィンドウマネージャーとウィンドウサイズ変更ツールのタイリングとスタッキング
-emojipedia	絵文字
+emojipedia	絵文字pedia
 empoche	タスクおよびプロジェクト管理による自動タイムトラッキング
 enclave	構成、ファイアウォール、アクセス制御リストを使用せずにプライベートネットワークを安全に構築する
 encryptme	VPNおよび暗号化ソフトウェア
@@ -953,13 +953,13 @@ energybar	EnergyBar
 enfusegui	HDRイメージクリエーター
 engine-prime	デノンのエンジンOSハードウェア用の音楽管理ソフトウェア
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
-enjoyable	楽しい
+enjoyable	Enjoyable
 enpass	パスワードとクレデンシャルの管理
 entropy	ファイルアーカイバ
 envkey	クレデンシャルを保護し、構成を同期します
 enzymex	EnzymeX
 epic	プライベートで安全なWebブラウザ
-epic-games	* Epic Games *ゲームのランチャー
+epic-games	*Epic Games *ゲームのランチャー
 epichrome	スタンドアロンアプリのように機能するWebベースのアプリケーションを作成するためのツール
 epilogue-operator	コンピューターでゲームボーイカートリッジを再生および管理する
 epoccam	お使いの携帯電話をウェブカメラに変える
@@ -1021,7 +1021,7 @@ fastclicker	自動クリッカーとマウス自動化ユーティリティ
 fastmarks	Webブラウザのブックマークを検索して開きます
 fastrawviewer	RAWファイルを開き、オンザフライでレンダリングします
 fastscripts	時間を節約するスクリプトを実行するためのツール
-fauxpas	失言
+fauxpas	Faux Pas
 favro	コラボレーティブプランニングアプリ
 fawkes	顔認識を回避するために画像ファイルをマントします
 faxbot	FRITZ！Box経由でFAXを送信
@@ -1038,7 +1038,7 @@ ff-works	ビデオエンコーディングおよびトランスコーディン�
 fig	ターミナルを再考する
 figma	コラボレーティブチームソフトウェア
 figmadaemon	Figmaフォントインストーラー
-figtree	イチジクの木
+figtree	FigTree
 fiji	オープンソースの画像処理パッケージ
 file-juicer	PDF、PowerPoint、Word、Excelおよびその他のファイルから画像を抽出します
 filebot	映画、テレビ番組、アニメ、音楽を整理して名前を変更するためのツール
@@ -1058,7 +1058,7 @@ finicky	起動するブラウザをカスタマイズするためのユーティ
 finisher-voodoo	VST / AU / AAXギターエフェクトプラグイン
 firealpaca	Fire Alpaca
 firebase-admin	Firebase管理者
-firebird-emu	火の鳥
+firebird-emu	firebird
 firecamp	マルチプロトコルAPI開発プラットフォーム
 firefly	IOTAの公式ウォレット
 firefox	ウェブブラウザ
@@ -1076,7 +1076,7 @@ flame	iPhone / iPodtouch用のランデブーサービスブラウザ
 flameshot	スクリーンショットソフトウェア
 flash-decompiler-trillix	Flash Decompiler Trillix
 fldigi	アマチュア無線デジタルモデムアプリケーション
-flexiglass	フレキシグラス
+flexiglass	Flexiglass
 flic	FlicBluetoothボタンのドライバー
 flickr-uploadr	Flickrアップローダー
 flightgear	フライトシミュレータ
@@ -1088,7 +1088,7 @@ flixtools	映画の字幕をダウンロードする
 flock	ビジネスメッセージングおよびチームコラボレーションアプリ
 flomo	メモ取りと管理アプリ
 flotato	任意のWebページをデスクトップアプリに変えるツール
-flow	フロー
+flow	Flow
 flowdock	Flowdock
 flowsync	PolarFlow製品用の同期ソフトウェア
 flrig	アマチュア無線リグ制御
@@ -1098,7 +1098,7 @@ flume	Instagramデスクトップクライアント
 fluor	アクティブなアプリケーションに応じて、fnキーの動作を変更します
 flutter	モバイル、ウェブ、デスクトップ向けのアプリケーションを構築するためのUIツールキット
 flux	画面の色温度コントローラー
-flvcd-bigrats	遑カウマック
+flvcd-bigrats	大きなネズミMAC
 fly	ConcourseCIの公式CLIツール
 flycut	開発者向けクリップボードマネージャー
 flying-carpet	アドホックwifiを介したファイル転送
@@ -1170,7 +1170,7 @@ fsmonitor	FSMonitor
 fsnotes	ノートマネージャー
 fspy	静止画カメラマッチング
 fstream	FStream
-fugu	ふぐ
+fugu	Fugu
 functionflip	ファンクションキーコントロール
 funter	隠しファイルと隠しフォルダを表示し、Finderでそれらの表示を切り替えます
 fuse	Fuseフレームワークを操作するためのビジュアルデスクトップツールスイート
@@ -1367,9 +1367,9 @@ headset	YouTubeとRedditを搭載した音楽プレーヤー
 heaven	PCハードウェアのパフォーマンスと安定性のテスト
 hedgewars	ターン制ストラテジー、砲兵、アクション、コメディーゲーム
 heimdall-suite	Samsungモバイルデバイスへのフラッシュファームウェア
-helium	ヘリウム
+helium	Helium
 helo	メールテスターとデバッガー
-hermes	エルメス
+hermes	Hermes
 hermit-crab	現在のアプリを離れずにシェルコマンドを実行する
 hex-fiend	速度に焦点を当てた16進エディタ
 hey	HEYメールサービスにアクセスする
@@ -1423,7 +1423,7 @@ ibored	16進エディタ
 icab	代替Webブラウザ
 icanhazshortcut	ショートカットマネージャー
 icc	チェスクラブのクライアント
-iceberg	氷山
+iceberg	Iceberg
 icefloor	ファイアウォールツール
 icestudio	オープンFPGAボード用のビジュアルエディタ
 icloud-control	iCloudドライブのユーザー制御の選択的同期
@@ -1440,7 +1440,7 @@ idafree	バイナリコード分析ツール
 idagio	クラシック音楽ストリーミングアプリ
 idefrag	ディスクオプティマイザとデフラグツール
 idisplay	iDisplay
-idrive	運転する
+idrive	iDrive
 ieasemusic	サードパーティのNetEaseクラウドミュージックプレーヤー
 iexplorer	iOSデバイスのバックアップソフトウェアとファイルマネージャー
 ifunbox	iPhoneおよびその他のApple製品用のファイル管理ソフトウェア
@@ -1464,7 +1464,7 @@ imazing	iPhone管理アプリケーション
 imdone	プレーンテキストのマークダウンファイルまたはコードで動作するかんばんボード
 imgotv	MangoTVビデオアプリ
 immersed	VROffice用デスクトップエージェント
-imo	イモメッセンジャー
+imo	Imoメッセンジャー
 impactor	モバイルデバイスを操作するためのGUIツール
 inav-configurator	INAV飛行制御システムの構成ツール
 indigo	インディゴドモティクス
@@ -1472,7 +1472,7 @@ infinity	カスタマイズ可能な作業管理プラットフォーム
 infoflow	AIオフィスプラットフォーム
 inform	自然言語に基づくインタラクティブフィクションの書記体系
 infra	Kubernetesデスクトップクライアント
-inkdrop	インクドロップ
+inkdrop	Inkdrop
 inkscape	ベクターグラフィックエディタ
 inkstitch	機械刺繍デザイン用のInkscapeエクステンション
 inky	インク用エディター：インクルの物語スクリプト言語
@@ -1563,7 +1563,7 @@ jami	分散型インスタントメッセンジャーとソフトフォン
 jamkazam	低レイテンシーのリハーサル、妨害、パフォーマンス
 jamovi	統計ソフトウェア
 jamulus	友達とオンラインで音楽を再生する
-jandi	ジャンディ
+jandi	JANDI
 jandi-statusbar	ステータスバーのGithubコントリビューション
 jasp	統計分析アプリケーション
 jasper	GitHubの問題リーダー
@@ -1621,7 +1621,7 @@ jupyter-notebook-viewer	Jupyterノートブックをレンダリングするユ�
 jupyterlab	JupyterLab用のデスクトップアプリケーション
 kactus	デザイナーのための真のバージョン管理ツール
 kakapo	オープンソースのアンビエントサウンドミキサー
-kaku	カク
+kaku	Kaku
 kaleidoscope	テキストと画像のファイルまたはフォルダの違いを見つけてマージする
 kap	Webテクノロジーで構築されたオープンソースのスクリーンレコーダー
 kapitainsky-rclone-browser	Rcloneブラウザ
@@ -1688,17 +1688,17 @@ kmbmpdc	カワイイメニューバーミュージックプレーヤーデーモ
 kmeet	kMeetビデオ会議ソリューションのクライアント
 kmplayer	ビデオプレーヤー
 knime	データサイエンスを作成および生産するためのソフトウェア
-knock	ノック
+knock	Knock
 knockknock	コンピューターに永続的にインストールされているものを表示するツール
 knotes	読書メモ管理ツール
-knox	ノックス
+knox	Knox
 knuff	Appleプッシュ通知サービス（APN）のデバッグアプリケーション
 koa11y	ウェブサイトのアクセシビリティの問題を簡単にチェック
-koala	コアラ
-kobo	工房
+koala	Koala
+kobo	Kobo
 kodelife	リアルタイムGPUシェーダーエディター
 kodi	無料のオープンソースメディアプレーヤー
-komet	コメット
+komet	Komet
 komodo-edit	テキストエディタ
 komodo-ide	すべての言語に対応した1つのIDE
 koodo-reader	バックアップと復元をサポートするオープンソースのEpubリーダー
@@ -1719,11 +1719,11 @@ kui	クラウドネイティブ開発のためのハイブリッドコマンド�
 kvirc	IRCクライアント
 kyokan-bob	名前オークションとDNSレコード管理のためのハンドシェイクウォレットGUI
 lab	ReactUIコンポーネント設計ツール
-lacona	ラコナ
+lacona	Lacona
 lagrange	Geminispaceを閲覧するためのデスクトップGUIクライアント
 lando	Docker上に構築されたローカル開発環境とDevOpsツール
 landrop	LAN上の任意のデバイスに任意のファイルをドロップします
-lantern	灯籠
+lantern	Lantern
 laravel-kit	デスクトップLaravel管理パネルアプリ
 lark	プロジェクト管理ソフトウェア
 lastfm	音楽サービスマネージャー
@@ -1736,10 +1736,10 @@ launchcontrol	システムおよびユーザーサービスの作成、管理、
 launchpad-manager	ランチパッドを管理するためのツール
 launchrocket	LaunchRocket
 launchy	ユーティリティデスクトップショートカットユーティリティ
-laverna	ラヴェルナ
+laverna	Laverna
 lazarus	迅速なアプリケーション開発のためのIDE
 lazpaint	LazPaint
-lazy	怠惰
+lazy	Lazy
 lbry	分散型ファイル共有および支払いネットワークであるLBRYの公式クライアント
 league-displays	リーグディスプレイ
 league-of-legends	マルチプレイヤーオンラインバトルアリーナゲーム
@@ -1765,10 +1765,10 @@ librepcb	プリント回路基板を開発するためのEDAソフトウェア
 librewolf	ウェブブラウザ
 licecap	アニメーションスクリーンキャプチャアプリケーション
 license-control-center	eLicenserコントロールセンター
-licensed	ライセンス供与
+licensed	Licensed
 liclipse	Eclipseの軽量エディター、テーマ設定、および使いやすさの向上
 lidarr	ソナーのような見た目と匂いが音楽のために作られました
-lifesize	等身大
+lifesize	lifesize
 lightform	Lightformデバイス用のARプロジェクションおよびオーディオ反応性ソフトウェア
 lightgallery	ライトギャラリー
 lighting	通知センターウィジェットを介してLIFXライトを制御するツール
@@ -1815,7 +1815,7 @@ logmein-client	リモートアクセスツール
 logmein-hamachi	LogMeIn Hamachi
 logos	聖書研究ソフトウェア
 logseq	知識の共有と管理のためのプライバシー第一のオープンソースプラットフォーム
-lookin	覗く
+lookin	Lookin
 loom	画面およびビデオ録画ソフトウェア
 loopback	ケーブルフリーオーディオルーター
 losslesscut	ビデオファイルとオーディオファイルをロスレスでトリミング
@@ -1829,12 +1829,12 @@ luminance-hdr	HDRイメージングのワークフローを提供します
 lunar	外部ディスプレイの適応輝度
 lunar-client	Minecraft1.7.10および1.8.9用のModpack
 lunasea	メディアソフトウェア用のオープンソースのセルフホストリモコン
-lunastudio	ルナスタジオ
+lunastudio	Lunaスタジオ
 luxmark	OpenCLベンチマーク
 luyten	Procyon用のオープンソースJava逆コンパイラGUI
 lx-music	Electron＆Vueをベースにした音楽アプリ
 lycheeslicer	レジン3Dプリンター用スライサー
-lyn	リン
+lyn	Lyn
 lynkeos	天文ウェブカメラ画像処理ソフトウェア
 lynx	クロスプラットフォームのプレゼンテーションと生産性アプリ
 lynxlet	ターミナルウィンドウでLynxを起動する
@@ -1903,7 +1903,7 @@ mailplane	Gmailクライアント
 mailspring	NylasMailのフォーク
 mailtrackerblocker	メールトラッカー、開封確認、AppleMail用スパイピクセルブロッカープラグイン
 maintenance	オペレーティングシステムのメンテナンスとクリーニングユーティリティ
-majsoul-plus	そば魂プラス
+majsoul-plus	Majsoulプラス
 makehuman	3Dキャラクターを作成するためのオープンソースツール
 makemkv	ビデオフォーマットコンバーター（トランスコーダー）
 maltego	オープンソースインテリジェンスおよびグラフィカルリンク分析ツール
@@ -1923,7 +1923,7 @@ mapture	Mapture
 marathon	三部作で最初の一人称シューティングゲーム
 marathon-infinity	三部作で3番目の一人称シューティングゲーム
 marathon2	三部作で2番目の一人称シューティングゲーム
-marble	大理石
+marble	Marble
 marginnote	電子リーダー
 mari0	Mari0
 maria	aria2ダウンロードツール用のアプリ/ウィジェット
@@ -1943,15 +1943,15 @@ massreplaceit	MassReplaceIt
 master-pdf-editor	PDFエディター
 mat	Javaヒープアナライザ
 mate-translate	任意のアプリでテキストを選択して翻訳します
-mater	メイター
+mater	Mater
 material-colors	Mac用の素材の色
 mathcha-notebook	数学エディタ
 mathpix-snipping-tool	数学と科学のためのスキャナーアプリ
 mathtype	MathType
 matterhorn	Mattermost用のUnixターミナルクライアント
 mattermost	オープンソースのセルフホストSlack-alternative
-mattr-slate	スレート
-mauve	モーブ
+mattr-slate	Slate
+mauve	Mauve
 mavensmate	MavensMateサーバー用のパッケージデスクトップアプリ
 max	CDやファイルからさまざまな形式の高品質オーディオファイルを作成します
 maxon	Maxon製品をインストール、使用、およびお試しください
@@ -1981,7 +1981,7 @@ meld	ビジュアル差分およびマージツール
 mellow	ルールベースのグローバル透過プロキシクライアント
 mellowplayer	gitlabに移動しました
 melodics	楽器の演奏を学ぶのに役立ちます
-melonbooksviewer	続き¡
+melonbooksviewer	メロンブックス 電子書籍
 melonds	ニンテンドーDSおよびDSiエミュレーター
 mem	どこからでも情報を取得してアクセスできます
 memo	GitHubGistsを使用してアプリを取得することに注意してください
@@ -2041,7 +2041,7 @@ midistroke	midiStroke
 miditrail	MIDIデータセットの3D視覚化を提供するMIDIプレーヤー
 midiview	MIDI入力と出力を監視する
 mightymike	Pangea Software（別名Power Pete）のトップダウンアクションゲーム
-mikogo	みこご
+mikogo	Mikogo
 miktex-console	TeXディストリビューション
 milanote	アイデアやプロジェクトをビジュアルボードに整理します
 milkman	拡張可能な要求および応答ワークベンチ
@@ -2060,11 +2060,11 @@ mini-program-studio	Alipayアプレットの開発のためのIDE
 mini-vmac	最新のコンピュータが初期のAppleコンピュータ用に作られたソフトウェアを実行できるようにします
 miniconda	condaの最小限のインストーラー
 miniforge	conda-forgeに固有のcondaの最小限のインストーラー
-minishift	ミニシフト
+minishift	Minishift
 minitimer	miniTimer
 minitube	YouTubeアプリケーション
 minizincide	オープンソースの制約モデリング言語とIDE
-mipony	ミポニー
+mipony	Mipony
 miro	オンラインコラボレーティブホワイトボードプラットフォーム
 mirrordisplays	ミラーディスプレイ
 mirrorop	wePresentシステム用のミラーリングソフトウェアアプリケーション
@@ -2082,7 +2082,7 @@ mkvtools	MKVビデオを作成および編集するためのアプリ
 mmex	お金の管理アプリケーション
 mmhmm	仮想ビデオプレゼンテーションソフトウェア
 mnemosyne	フラッシュカードツール
-mob	暴徒
+mob	Mob
 mobirise	ノーコードウェブサイトクリエーター
 mobster	ペアと暴徒のプログラミングタイマー
 mochi	間隔反復を使用した研究ノートとフラッシュカード
@@ -2115,7 +2115,7 @@ monolingual	システムから不要な言語リソースを削除するユー�
 monterey-cache-cleaner	汎用システム保守ツール
 moom	1つのディスプレイでウィンドウを移動およびズームするユーティリティ
 moonlight	GameStreamクライアント
-moose	ムース
+moose	moose
 moradownloader	日本市場向けのオンライン音楽およびビデオストア
 morkro-papyrus	非公式のDropboxPaperデスクトップアプリ
 morpheus	多細胞システム生物学のモデリング環境
@@ -2161,7 +2161,7 @@ multipatch	ファイルパッチユーティリティ
 multiscan-3b	マルチスキャン3B
 multitouch	トラックパッドとマジックマウスのジェスチャーを追加する
 mumble	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
-mumu	ムム
+mumu	Mumu
 munki	ソフトウェアインストールマネージャー
 munkiadmin	Munkiリポジトリを管理するためのツール
 mural	ビジュアルオンラインコラボレーションプラットフォーム
@@ -2189,7 +2189,7 @@ mycrypto	イーサリアムウォレットマネージャー
 mylio	Mylio
 mymonero	Monero暗号通貨のウォレット
 myphone	myPhoneDesktop
-mysides	アミ目
+mysides	mysides
 mysql-connector-python	MySQLサーバーと通信するための自己完結型のPythonドライバー
 mysql-shell	インタラクティブなJavaScript、PythonまたはSQLインターフェース
 mysql-utilities	MySQLユーティリティ
@@ -2209,7 +2209,7 @@ native-access	NativeInstruments製品の管理ツール
 nativedisplaybrightness	NativeDisplayBrightness
 natron	オープンソースのノードグラフベースのビデオ合成ソフトウェア
 nault	ハードウェアウォレットをサポートするNano暗号通貨用のウォレット
-nautilus	ノーチラス
+nautilus	Nautilus
 naver-whale	ウェブブラウザ
 navicat-data-modeler	データベース設計ツール
 navicat-data-modeler-essentials	データベース設計ツール
@@ -2351,7 +2351,7 @@ onionshare	安全かつ匿名でファイルを共有し、Webサイトをホス
 only-switch	システムおよびユーティリティスイッチ
 onlyoffice	ドキュメントエディタ
 onyx	システムファイルの構造を確認し、その他のメンテナンスを実行します。
-oolite	魚卵石
+oolite	oolite
 open-in-code	Visual StudioCodeで現在のフォルダーを開くためのFinderツールバーアプリ
 open-video-downloader	Electronとnode.jsで作成されたyoutube-dl用のクロスプラットフォームGUI
 openarena	OpenArena
@@ -2408,7 +2408,7 @@ optimus-player	メディアプレーヤー
 oracle-jdk	OracleのJDK
 oracle-jdk-javadoc	OracleJDKのドキュメント
 orange	コンポーネントベースのデータマイニングソフトウェア
-orca	オルカ
+orca	Orca
 origami-studio	Facebookのデザイン、アニメーション、プロトタイプデザインツール
 origin	PCゲームをプレイし、友達とつながる
 orka	AppleでのKubernetesとのオーケストレーション
@@ -2424,11 +2424,11 @@ oss-browser	OSS（オブジェクトストレージサービス）用のグラ�
 osxfuse	ファイルシステム統合
 otto-matic	PangeaSoftwareのサイエンスフィクション3Dアクション/アドベンチャーゲーム
 otx	Mach-O逆アセンブラ
-outguess	推測
+outguess	Outguess
 outline	アプリを取ることに注意してください
 outline-manager	Shadowsocksを搭載したOutlineサーバーを作成および管理するためのツール
 output-factory	AdobeInDesignからの印刷とエクスポートを自動化します
-outset	最初
+outset	outset
 overdrive-media-console	地元の図書館から電子書籍、オーディオブック、ビデオを入手する
 overflow	ビジュアルアプリケーションランチャー
 overkill	iPhoneを接続するときにiTunesが開かないようにする
@@ -2449,7 +2449,7 @@ pages-data-merge	Pagesデータマージ
 pagico	すべてのタスク、ファイル、メモを管理する
 paintbrush	画像エディタ
 paintcode	ベクトル描画をプログラムコードに変換する
-paletro	パレット
+paletro	Paletro
 panda	ライトモードからダークモードに切り替えるユーティリティ
 pandora	PandoraWebラジオサービス用のデスクトップクライアント
 panic-unison	Usenetニュースグループにアクセスするためのアプリ
@@ -2470,16 +2470,16 @@ parallels-client	RDPクライアント
 parallels-toolbox	30以上のツールとバンドル
 parallels-virtualization-sdk	デスクトップ仮想化開発キット
 paraview	データ分析および視覚化アプリケーション
-parse	解析
-parsec	パーセク
+parse	Parse
+parsec	Parsec
 parsehub	ParseHub
 parsify	単位と通貨の変換を備えた拡張可能な計算機
 particle-dev	粒子デバイスをプログラミングするためのIDE
-pashua	パシュア
+pashua	Pashua
 password-assistant	パスワードアシスタント
 password-gorilla	パスワードゴリラ
 pastebot	生産性を向上させるワークフローアプリケーション
-patchwork	パッチワーク
+patchwork	Patchwork
 path-finder	ファイルマネージャー
 pathephone	分散オーディオプレーヤー
 paw	APIのテストと説明に役立つHTTPクライアント
@@ -2509,20 +2509,20 @@ peakhour	ネットワーク帯域幅とネットワーク品質ビジュアラ�
 penc	トラックパッド指向のウィンドウマネージャー
 pencil	鉛筆プロジェクト
 pencil2d	2D手描きアニメーションを作成するためのオープンソースツール
-pennywise	ペニーワイズ
+pennywise	Pennywise
 pensela	画面注釈ツール
 perforce	バージョン管理
 perimeter81	サービスクライアントとしてのゼロトラストネットワーク
 permute	ビデオ、オーディオ、または画像ファイルを変換および編集します
 persepolis-download-manager	aria2のGUI
-pester	ペスター
+pester	Pester
 pext	Pythonベースの拡張可能なツール
 pflists	PFリスト
 pg-commander	PostgreSQLクライアント
 pgadmin4	PostgreSQLの管理および開発プラットフォーム
 phantomjs	PhantomJS
 phd2	望遠鏡ガイドソフトウェア
-phew	ふぅ
+phew	Phew
 phoenix	JavaScriptでスクリプト化可能なウィンドウとアプリマネージャー
 phoenix-slides	フルスクリーンスライドショープログラム
 phonegap	PhoneGap
@@ -2543,13 +2543,13 @@ piezo	オーディオレコーディングアプリケーション
 pika	画面上の色のカラーピッカー
 pikopixel	ピクセルアートエディタ
 pine	ネイティブマークダウンエディター
-pineapple	パイナップル
+pineapple	Pineapple
 pinegrow	Webエディター
 pingid	クラウドベースの多要素認証
 pingmenu	メニューバーに現在のネットワーク遅延を表示するユーティリティ
 pingplotter	ネットワーク監視ツール
 pinta	シンプルなGtk＃ペイントプログラム
-piskel	ピスケル
+piskel	Piskel
 pitch	共同プレゼンテーションソフトウェア
 pitchperfect	一分の隙もない
 pivy	pivy
@@ -2560,10 +2560,10 @@ pixelsnap	画面測定ツール
 pixelstick	画面上の距離、角度、色を測定するためのツール
 pktriot	ホストサーバーアプリケーションと静的Webサイト
 plain-clip	コピーしたテキストから書式を削除します
-plan	プラン
+plan	Plan
 plasticscm-cloud-edition	PlasticSCMをローカルにインストールし、CloudEditionサブスクリプションに参加します
 platypus	コマンドラインスクリプトからネイティブアプリケーションを作成するためのツール
-play	演奏する
+play	Play
 playback	ビデオプレーヤー
 playcover	iOSアプリとゲームをサイドロードする
 playmemories-home	写真やビデオを管理および編集するフリーウェア
@@ -2596,10 +2596,10 @@ polar-bookshelf	統合された読書環境
 polkadot-js	PolkadotおよびSubstrateネットワークへのポータル
 polycom-content	ポリコムコンテンツアプリ
 polycom-realpresence	ビデオコラボレーションアプリ
-polymail	ポリメール
+polymail	Polymail
 polypane	野心的な開発者のためのブラウザ
-polyphone	ポリフォニー
-pomatez	ポモドーロタイマー
+polyphone	Polyphone
+pomatez	Pomodoroタイマー
 pomello	Trelloカードをポモドーロタスクに変えます
 pomodone	PomoDone
 pomotodo	クリエイター向けの時間管理アプリ
@@ -2614,7 +2614,7 @@ popsql	PopSQL
 portfolioperformance	投資ポートフォリオの全体的なパフォーマンスを計算します
 porting-kit	MicrosoftWindows用にコンパイルされたゲームとアプリをインストールします
 portx	SSHクライアント
-post-haste	ポストヘイスト
+post-haste	Post Haste
 postbird	オープンソースのPostgreSQLGUIクライアント
 postbox	プライバシー保護に焦点を当てた電子メールクライアント
 posterazor	ラスターイメージスプリッター
@@ -2633,7 +2633,7 @@ pppc-utility	PPPCペイロードを含む構成プロファイルを作成しま
 ppsspp	PSPエミュレーター
 praat	コンピューターで音声学をする
 pragli	リモートチーム用のバーチャルオフィス
-pref-setter	プリフセッター
+pref-setter	Pref Setter
 preference-manager	ビデオエディタの設定をゴミ箱、バックアップ、ロック、復元
 preferencecleaner	設定ファイルを削除するタスクを簡素化するユーティリティ
 preform	3D印刷のセットアップ、管理、および監視
@@ -2652,7 +2652,7 @@ prisma-studio	Prismaプロジェクト用のビジュアルデータベースエ
 prismatik	Prismatik
 pritunl	OpenVPNクライアント
 privadovpn	VPNクライアント
-private-eye	プライベートアイ
+private-eye	Private Eye
 private-internet-access	VPNクライアント
 privatetunnel	VPNクライアント
 privatevpn	PrivateVPN
@@ -2661,7 +2661,7 @@ prizmo	光学式文字認識（OCR）を使用したスキャンアプリケー�
 processing	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶための言語
 procexp	プロセスエクスプローラー
 proclaim	教会のプレゼンテーションソフトウェア
-product-hunt	製品ハント
+product-hunt	Product Hunt
 profilecreator	標準またはカスタマイズされた構成プロファイルを作成する
 profilemanager	Mozillaプロファイルマネージャー
 profind	ファイル検索アプリ
@@ -2672,16 +2672,16 @@ projector	Swingアプリケーションをリモートで実行するための�
 pronterface	PCから3Dプリンターを制御する
 propresenter	ライブイベントのプレゼンテーションおよび制作アプリケーション
 prosys-opc-ua-browser	OPCUAサーバーからのデータを参照して視覚化する
-protege	保護します 
+protege	Protect
 protoio-overflow	インタラクティブなユーザーフロー図を作成する
 protonmail-bridge	ProtonMailをIMAPおよびSMTPプロトコルをサポートする電子メールクライアントにブリッジします
 protonvpn	セキュリティに重点を置いたVPNクライアント
 protopie	インタラクティブなプロトタイプを作成する
-provisioning	プロビジョニング
+provisioning	Provisioning
 provisionql	ProvisioningQL
 prowritingaid	文法チェッカー、スタイルエディター、ライティングメンター
 proxifier	プロキシクライアント
-proximity	近接性
+proximity	Proximity
 proxyman	モダンで直感的なHTTPデバッグプロキシアプリ
 prudent	個人および家族の元帳のための統合環境
 prusaslicer	3Dプリンター用のGコードジェネレーター（RepRap、Makerbot、Ultimakerなど）
@@ -2790,7 +2790,7 @@ quicklookase	QuickLookASE
 quicknfo	QuickNFO
 quicksilver	生産性アプリケーション
 quicksync	Gigaset製品用の同期ソフトウェア
-quickwords	クイックワード
+quickwords	quickワード
 quik	GoProの写真とビデオにアクセスして編集する
 quip	チームが生きたドキュメントを作成するためのツール
 quit-all	1つ、またはすべてのアプリをすばやく終了する
@@ -2837,7 +2837,7 @@ reamp	SwiftUIで記述されたWinAMPクローン
 reaper	デジタルオーディオ制作アプリケーション
 recaf	Javaバイトコードエディタ
 receiptquicklook	ReceiptQuickLook
-receipts	領収書
+receipts	Receipts
 recents	ファイルランチャー
 recordit	スクリーンキャストソフトウェア
 recovery-disk-assistant	リカバリディスクアシスタント
@@ -2845,9 +2845,9 @@ rectangle	キーボードショートカットまたはスナップ領域を使�
 rectangle-pro	ウィンドウスナップツール
 recut	ビデオから無音を削除し、カットリストを自動的に生成します
 red	レッドプログラミング言語
-red-eye	赤眼
+red-eye	Red Eye
 redcine-x-pro	REDCODERAWフッテージをトランスコードして操作する
-redeclipse	レッドエクリプス
+redeclipse	Red Eclipse
 redis-pro	Redisデスクトップ
 redisinsight	合理化されたRedisアプリケーション開発のためのGUI
 redream	ドリームキャストエミュレータ
@@ -2861,12 +2861,12 @@ rember	レンバー
 remember-the-milk	やることアプリ
 remix-ide	イーサリアムのスマートコントラクト開発に使用されるデスクトップバージョンのRemixWeb IDE
 remnote	間隔反復を利用したメモ取りツール
-remote-buddy	リモートバディ
+remote-buddy	Remote Buddy
 remote-desktop-manager	すべてのリモート接続を単一のプラットフォームに一元化します
 remote-desktop-manager-free	すべてのリモート接続を単一のプラットフォームに一元化します
 remote-wake-up	ボタンをクリックするだけでデバイスをウェイクアップ
 remotehamradio	RemoteHamRadioサービス用のデスクトップコンソールアプリ
-remoteviewer	リモートビューアー
+remoteviewer	Remote Viewer
 remotion	リモートチーム向けのコミュニケーションツール
 remotix-agent	リモートデスクトップおよび監視ソリューション
 removebg	自動バルクバックグラウンド除去
@@ -2881,7 +2881,7 @@ resolume-arena	ビデオマッピングソフトウェア
 resolutionator	ディスプレイで利用可能な解像度のいずれかを使用します
 responsively	レスポンシブウェブ開発に役立つ変更されたブラウザ
 restream-chat	ストリーミングチャットを1か所に保管する
-retinizer	レチナイザー
+retinizer	Retinizer
 retro-virtual-machine	ZXSpectrumおよびAmstradCPCエミュレーター
 retroactive	互換性のないOSバージョンでAppleアプリを実行する
 retroarch	エミュレータフロントエンド（OpenGLグラフィックAPIバージョン）
@@ -2895,7 +2895,7 @@ rhino	3Dモデルクリエーター
 ricochet	匿名のピアツーピアインスタントメッセージング
 ricochet-refresh	Torを介したプライベートおよび匿名のインスタントメッセージング
 rider	.NET IDE
-ridibooks	リディブック
+ridibooks	Ridibooks
 rightfont	フォントのプレビュー、インストール、同期、管理を支援するフォントマネージャー
 rightzoom	フルスクリーンボタンの動作を変更します
 ringcentral	チームメッセージング、ビデオ会議、およびビジネス電話
@@ -2936,7 +2936,7 @@ runelite	Old SchoolRuneScapeのクライアント
 runescape	RuneScape
 runjs	コードが入力されると自動評価されるJavaScriptプレイグラウンド
 runway	機械学習を活用したクリエイティブツールキット
-ryver	リバー
+ryver	Ryver
 sabaki	囲碁とSGFエディター
 sabnzbd	バイナリニュースリーダー
 safe-exam-browser	電子評価を安全に実施するためのWebブラウザ環境
@@ -2953,7 +2953,7 @@ sauce-connect	SauceLabs自動テストプラットフォームに安全に接続
 sauerbraten	マルチプレイヤー＆シングルプレイヤー一人称シューティングゲーム
 save-hollywood	カスタムビデオファイルのスクリーンセーバー
 scala-ide	Scala IDE
-scansion	韻律
+scansion	scansion
 scap-workbench	SCAPスキャナーとグラフィカルユーザーインターフェイスの調整
 scapple	メモ帳ソフトウェア
 scatter	EOS用デスクトップウォレット
@@ -3016,7 +3016,7 @@ sequential	画像とPDFファイルのフォルダとアーカイブを表示し
 serial	シリアルポートでほとんど何にでも接続できます
 serial-tools	シリアルツール
 serviio	メディアサーバー
-servo	サーボ
+servo	Servo
 servpane	メニューバーアプリを起動
 session	オニオンルーティングベースのメッセンジャー
 session-manager-plugin	管理対象インスタンスに接続するセッションを開始および終了するAWSCLIのプラグイン
@@ -3032,10 +3032,10 @@ shadowsocksx-ng-r	次世代のShadowsocksX
 shapes	ダイアグラム作成アプリ
 shapr3d	3DCADソフトウェア
 sharemouse	コンピュータ間で周辺機器を共有する
-sharepod	シェアポッド
+sharepod	Sharepod
 shearwater-cloud	ダイビングログデータの確認、編集、共有
 shellhere	ターミナルで現在地を開くFinder用ツールバーアプリ
-sherlock	シャーロック
+sherlock	Sherlock
 shiba	リンター付きのリッチマークダウンライブプレビューアプリ
 shield	プロセス注入から保護するアプリ
 shift	アカウント、アプリ、ワークフローを合理化するワークステーション
@@ -3055,14 +3055,14 @@ shottr	スクリーンショット測定および注釈ツール
 showhiddenfiles	ShowHiddenFiles
 showyedge	現在の入力ソースの可視インジケータ
 shrinkit	ShrinkIt
-shupapan	シュパパン
+shupapan	Shupapan
 shutter-encoder	ビデオ、オーディオ、画像コンバーター
 shuttle	シンプルなショートカットメニュー
 sia-ui	Siaのグラフィカルフロントエンド
-sidekick	相棒
+sidekick	Sidekick
 sidenotes	メモを取るアプリケーション
 sidequest	バーチャルリアリティコンテンツプラットフォーム
-sidestep	サイドステップ
+sidestep	Sidestep
 sigdigger	SigDigger
 sigil	EPUB電子ブックエディタ
 sigmaos	ウェブブラウザ
@@ -3074,7 +3074,7 @@ silicon-info	実行中のアプリケーションのアーキテクチャを表�
 silnite	EFIファームウェアとセキュリティデータファイルの更新を確認します
 silo	3DポリゴンモデラーとUVマッパー
 sim-daltonism	ビデオと画像の色覚異常シミュレータ
-sim-genie	シムジニー
+sim-genie	Sim Genie
 simpholders	SimPholders
 simple-comic	コミックビューア/リーダー
 simplediagrams	SimpleDiagrams
@@ -3116,7 +3116,7 @@ skypewebplugin	SkypeWebプラグイン
 slack	チームコミュニケーションおよびコラボレーションソフトウェア
 slate	ウィンドウ管理アプリケーション
 sleek	todo.txtに基づくTodoアプリ
-sleipnir	スレイプニル
+sleipnir	Sleipnir
 slic3r	Slic3r
 slicer	医用画像処理および視覚化システム
 slidepilot	PDFプレゼンテーションツール
@@ -3141,20 +3141,20 @@ smultron	汎用テキストエディタ
 snagit	スクリーンキャプチャソフトウェア
 snapmotion	ビデオから画像を抽出する
 snapndrag	スクリーンキャプチャアプリケーション
-snappy	スナッピー
+snappy	Snappy
 sneek	スネーク
 snes9x	Snes9x
-snip	をちょきちょきと切る
+snip	Snip
 snipaste	スクリーンショットを切り取るかピン留めする
 snipy	共有サポート付きのスニペットマネージャー
 snowflake-snowsql	Snowflakeに接続するためのコマンドラインクライアント
 snwe	拡張可能でカスタマイズ可能なメニューバーの交換
 soapui	APIテストツール
 socket-io-tester	socket-io-tester.app
-sococo	ソココ
+sococo	Sococo
 soda-player	ビデオプレーヤーとストリーミングプラットフォーム
 soduto	デバイス間で情報を通信および共有する
-sofa-server	ソファー
+sofa-server	Sofa
 softmaker-freeoffice	オフィススイート
 softorino-youtube-converter	YouTubeダウンローダーとコンバーター
 softraid	強力で直感的なソフトウェアRAIDユーティリティ
@@ -3194,7 +3194,7 @@ spacelauncher	SpaceLauncher
 spaceman	メニューバーにスペース/仮想デスクトップを表示
 spaceradar	Electronとd3.jsで構築されたディスクとメモリ空間の視覚化アプリ
 spamsieve	電子メールクライアント用のスパムフィルタリング拡張機能
-spark	スパーク
+spark	Spark
 spark-ar-studio	Facebookファミリーのアプリを使用して、拡張現実体験を作成および共有します
 sparkle	Cocoa開発者向けのソフトウェア更新フレームワーク
 sparkleshare	Gitリポジトリと即座に同期するツール
@@ -3239,7 +3239,7 @@ sqlpro-for-postgres	軽量のPostgresSQLデータベースクライアント
 sqlpro-for-sqlite	高度なsqliteエディター
 sqlpro-studio	データベース管理ツール
 sqlworkbenchj	DBMSに依存しないSQLクエリツール
-squeak	きしむ
+squeak	Squeak
 squidman	SquidMan
 squirrel	ライム入力方式エンジン
 squirrelsql	JDBC準拠のデータベースの構造を表示するためのグラフィカルJavaプログラム
@@ -3253,8 +3253,8 @@ stack-exchange-notifier	Stack ExchangeNotifier
 stack-stack	すべての生産性アプリを1か所から管理するためのワークスペース
 stand	1時間に1回立ち上がるように通知します
 standard-notes	無料のオープンソースの完全に暗号化されたメモアプリ
-starcraft	スタークラフト
-starleaf	スターリーフ
+starcraft	Starcraft
+starleaf	Starleaf
 starsector	オープンワールドのシングルプレイヤー宇宙戦闘およびトレーディングRPG
 start	Tencentクラウドゲームプラットフォーム
 startninja	StartNinja
@@ -3303,7 +3303,7 @@ subtools	ヘルパー-MP4tools、MKVtools、およびAVItoolsのアプリケー�
 suitcase-fusion	フォントマネージャー
 sunloginclient	リモートデスクトップ制御および監視ツール
 sunlogincontrol	リモートデスクトップ制御および監視ツールのターゲットコンポーネント
-sunsama	サンサマ
+sunsama	Sunsama
 sunvox	モジュラーシンセサイザー
 supercollider	サウンド合成とアルゴリズム作曲のためのサーバー、言語、IDE
 superduper	バックアップ、リカバリ、クローン作成ソフトウェア
@@ -3396,7 +3396,7 @@ teamviewer-quickjoin	TeamViewer QJ
 teamviewer-quicksupport	TeamViewer QS
 teamviewermeeting	ビデオ会議および通信ソフトウェア
 techsmith-capture	スクリーンキャプチャソフトウェア
-teensy	十代の若者
+teensy	Teensy
 teeworlds	Teeworlds
 telegram	速度とセキュリティに重点を置いたメッセージングアプリ
 telegram-desktop	Telegramメッセンジャー用のデスクトップクライアント
@@ -3409,7 +3409,7 @@ tencent-meeting	クラウドビデオ会議
 tenor	メニューバーからgifを送信、共有、保存する
 tentacle-sync-studio	タイムコードを介してビデオとオーディオを自動的に同期します
 termhere	現在のディレクトリから端末を開くためのFinder拡張機能
-terminology	用語
+terminology	terminology
 termius	SSHクライアント
 tetrio	無料でプレイできるテトリスクローン
 tev	OpenEXR画像に重点を置いたHDR画像比較ツール
@@ -3456,7 +3456,7 @@ thought-train	メモ取りとやることリストの申請
 threads	集中的な議論と意思決定のためのコミュニケーションツール
 threema	エンドツーエンドの暗号化されたインスタントメッセージングアプリケーション
 threema-work	エンドツーエンドの暗号化されたインスタントメッセージングアプリケーション
-thumbsup	いいぞ
+thumbsup	ThumbsUp
 thunder	VPNおよびWiFiプロキシ
 thunderbird	カスタマイズ可能なメールクライアント
 thyme	タスクタイマー
@@ -3485,15 +3485,15 @@ time-sink	コンピューターでの時間を追跡します
 time-to-leave	勤務時間を記録し、オフィスを離れる時間になると通知を受け取ります
 time-tracker	TimeTracker
 timecamp	TimeCampソフトウェアのクライアントアプリケーション-時間の追跡とタスクの変更
-timelane	タイムレーン
-timely	タイムリーな
+timelane	Timelane
+timely	Timely
 timemachineeditor	TimeMachineのデフォルトのバックアップ間隔を変更するユーティリティ
 timemator	自動タイムトラッキングアプリケーション
 timer	ストップウォッチ、目覚まし時計、時計ユーティリティ
 timestamp	メニューバーの時計を改善
 timeular	物理デバイスによるタイムトラッキング
 timing	自動時間と生産性追跡アプリ
-timings	タイミング
+timings	Timings
 tinderbox	メモを取り、視覚化し、分析するためのツール
 tinkerwell	PHPおよびLaravel開発者向けのTinkerツール
 tint	テールウィンドCSSカラーピッカー
@@ -3511,7 +3511,7 @@ todoist	やることリスト
 todometer	メーターベースのやることリスト
 todotxt	ミニマリスト、キーボード駆動のToDoマネージャー
 todour	Todo.txtアプリケーションTodour
-tofu	豆腐
+tofu	Tofu
 toggl-track	タイムトラッカー
 toinane-colorpicker	カラーコードを取得して保存する
 toland-qlmarkdown	Markdownファイル用のQuickLookジェネレーター
@@ -3591,7 +3591,7 @@ twitch	けいれん
 twitterrific	Twitterクライアント
 twobird	共同メモをクライアントにメールで送信
 twonkyserver	DLNA / UPnPメディアサーバー
-tyke	タイク
+tyke	Tyke
 tyme	タイムトラッキングアプリ
 typeface	フォントマネージャーアプリケーション
 typeit4me	テキストエキスパンダー
@@ -3678,7 +3678,7 @@ veracrypt	TrueCryptに基づくセキュリティに焦点を当てたディス�
 versions	Subversionクライアント
 vesta	電子的および構造的分析のための視覚化
 veusz	科学的プロットアプリケーション
-via	経由
+via	VIA
 vial	互換性のあるキーボードのリアルタイムのConfigurator
 viber	セキュリティに焦点を当てた通話およびメッセージングアプリケーション
 vidcutter	メディアカッターとジョイナー
