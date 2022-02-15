@@ -3853,6 +3853,7 @@ odt2txt	OpenDocumentファイルをプレーンテキストに変換する
 offlineimap	2つのリポジトリ間でメールを同期します
 oggz	Oggファイルを操作するためのコマンドラインツール
 ogmtools	OGGメディアストリーム操作ツール
+oh-my-posh	任意のシェルのプロンプトテーマエンジン
 oha	tuiアニメーションを使用したrakyll/heyに触発されたHTTPロードジェネレーター
 ohcount	ソースコードラインカウンター
 oil	より一貫性のある構文とセマンティクスを備えたBash互換のUnixシェル
