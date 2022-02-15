@@ -1045,7 +1045,7 @@ filebot	映画、テレビ番組、アニメ、音楽を整理して名前を変
 filemaker-pro	リレーショナルデータベースと迅速なアプリケーション開発プラットフォーム
 filemon	ファイルモニター
 filepane	ファイル管理マルチツール
-final-cut-library-manager	FCPXライブラリマネージャー
+final-cut-library-manager	Arctic Whiteness FinalCutライブラリマネージャー
 final-fantasy-xiv-online	ストーリー主導の大規模マルチプレイヤーオンラインロールプレイングゲーム
 finalshell	SSHツール、サーバー管理、およびリモートデスクトップアクセラレーションソフトウェア
 find-any-file	ファイルファインダー
@@ -1684,7 +1684,7 @@ klatexformula	LaTeX方程式から画像を生成する
 klayout	IC設計レイアウトビューアおよびエディタ
 klogg	高速で高度なログエクスプローラー
 klokki	自動タイムトラッキングソリューションまたはフリーランサーとメーカー
-kmbmpdc	カワイイメニューバーミュージックプレーヤーデーモンコントローラー
+kmbmpdc	kawaii menu bar ミュージックプレーヤーデーモンコントローラー
 kmeet	kMeetビデオ会議ソリューションのクライアント
 kmplayer	ビデオプレーヤー
 knime	データサイエンスを作成および生産するためのソフトウェア
@@ -3392,8 +3392,8 @@ teamdrive	安全なクラウドストレージサービス
 teamspeak-client	音声通信クライアント
 teamviewer	セキュリティに重点を置いたリモートアクセスおよび接続ソフトウェア
 teamviewer-host	TeamViewerホスト
-teamviewer-quickjoin	TeamViewer QJ
-teamviewer-quicksupport	TeamViewer QS
+teamviewer-quickjoin	TeamViewer QuickJoin
+teamviewer-quicksupport	TeamViewer QuickSupport
 teamviewermeeting	ビデオ会議および通信ソフトウェア
 techsmith-capture	スクリーンキャプチャソフトウェア
 teensy	Teensy
