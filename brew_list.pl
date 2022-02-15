@@ -696,11 +696,12 @@ my( $list,$file,$in,$re ) = @_;
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
-  $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
+  $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 ? $brew_2 : 0 if $re->{'FOR'};
 
-  $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} : $brew_3;
-   $brew_3 = $JA{$brew_1} if $JA{$brew_1};
-    $brew_3 =~ s/[“”]//g unless $Locale;
+  $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
+   ( $re->{'TAP'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3 ? $brew_3 : 0;
+    $brew_3 = $JA{$brew_1} if $JA{$brew_1};
+     $brew_3 =~ s/[“”]//g unless $Locale;
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -717,10 +718,10 @@ my( $list,$file,$in,$re ) = @_;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
-       if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
+       if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/;
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
+     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}| ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
        Mine_1( $brew_1,$re,0 )
         if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;
