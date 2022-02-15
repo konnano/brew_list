@@ -696,7 +696,7 @@ my( $list,$file,$in,$re ) = @_;
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
-  $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 ? $brew_2 : 0 if $re->{'FOR'};
+   $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'TAP'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3 ? $brew_3 : 0;
