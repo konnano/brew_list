@@ -1292,8 +1292,8 @@ if( $^O eq 'darwin' ){
 
  %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
- $re->{'CLANG'} = `clang --version|sed '/Apple/!d' 2>/dev/null` ?
-                  `clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0;
+ $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
+                  `/usr/bin/clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0;
  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null` ?
                 `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
                  sed -n '/version/s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/p'` : 0;
