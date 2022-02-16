@@ -421,6 +421,7 @@ bitrise	コマンドライン自動化ツール
 bittwist	Libcapベースのイーサネットパケットジェネレータ
 bitwarden-cli	すべてのデバイス用の安全で無料のパスワードマネージャー
 bitwise	ncursesのターミナルベースのビットマニピュレータ
+bk	ターミナルEPUBリーダー
 black	Pythonコードフォーマッター
 blackbox	Git/Mercurial/Subversionにシークレットを安全に保存する
 blahtexml	方程式をMathMLに変換します
@@ -477,6 +478,7 @@ brag	ニュースグループからマルチパートバイナリをダウンロ
 braid	Gitリポジトリ内のベンダーブランチを追跡するのに役立つシンプルなツール
 brainfuck	brainfuck言語の通訳
 breezy	マルチフォーマットをサポートするPythonで実装されたバージョン管理システム
+brev	brev.devによって提供されるワークスペースを管理するためのCLIツール
 brew-cask-completion	brew-caskのFishの完成
 brew-gem	自作式としてRuby Gemsをインストールする
 brew-php-switcher	PHPバージョン間でApache/Valet/CLI構成を切り替えます
@@ -2638,6 +2640,7 @@ kyoto-cabinet	データベースを管理するためのルーチンのライブ
 kyoto-tycoon	京都内閣へのインターフェースを備えたデータベースサーバー
 kytea	テキスト、特に日本語と中国語を分析するためのツールキット
 kyua	インフラストラクチャソフトウェアのテストフレームワーク
+kyverno	Kubernetesネイティブポリシー管理
 lab	GitLabのGitラッパー
 lablgtk	gtk+へのObjectiveCamlインターフェース
 ladspa-sdk	Linuxオーディオ開発者のシンプルなプラグイン
