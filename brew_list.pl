@@ -98,8 +98,8 @@ MAIN:{
  }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
   if( $re->{'INF'} ){
    $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
-    $re->{'CLANG'} = `clang --version|sed '/Apple/!d' 2>/dev/null` ?
-     `clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0 if $re->{'MAC'};
+    $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
+     `/usr/bin/clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0 if $re->{'MAC'};
   }else{
    $re->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.05_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.05_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
