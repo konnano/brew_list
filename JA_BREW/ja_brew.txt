@@ -28,7 +28,7 @@ act	GitHubアクションをローカルで実行する 🚀
 actionlint	GitHubActionsワークフローファイルの静的チェッカー
 activemq	Apache ActiveMQ：強力なオープンソースメッセージングサーバー
 activemq-cpp	Apache ActiveMQなどのメッセージブローカー用のC++ API
-adios2	エクサスケールコンピューティングプログラムで開発された次世代のADIOS
+adios2	Exascaleコンピューティングプログラムで開発された次世代のADIOS
 admesh	三角形分割されたソリッドメッシュを処理します
 adns	C/C++リゾルバーライブラリとDNSリゾルバーユーティリティ
 adplug	無料のハードウェアに依存しないAdLibサウンドプレーヤーライブラリ
@@ -49,7 +49,7 @@ afsctool	HFS+圧縮ファイルを操作するためのユーティリティ
 aften	ATSC A/52圧縮オーディオストリームを生成するオーディオエンコーダ
 afuse	FUSEを使用してユーザースペースに実装された自動マウントファイルシステム
 agda	依存型関数型プログラミング言語
-age	シンプルでモダンな安全なファイル暗号化
+age	シンプルでモダンに安全なファイル暗号化
 agedu	無駄なディスクスペースを追跡するためのUnixユーティリティ
 aggregate	プレフィックスのリストを最適化して、リストの長さを短縮します
 aha	ANSIHTMLアダプター
@@ -61,13 +61,13 @@ aircrack-ng	多くの新機能を備えた次世代のaircrack
 airshare	ローカルネットワークでのクロスプラットフォームコンテンツ共有
 airspy	ソフトウェア無線用のドライバーとツール
 airspyhf	ソフトウェア無線用のドライバーとツール
-akamai	アカマイのAPIを操作するためのCLIツールキット
-akka	並行、分散、およびフォールトトレラントなアプリを構築するためのツールキット
+akamai	AkamaiのAPIを操作するためのCLIツールキット
+akka	並行、分散、およびfault tolerantアプリを構築するためのツールキット
 alac	Apple Lossless Audio Codecファイル（ALAC）の基本的なデコーダー
 alda	ミュージシャンのための音楽プログラミング言語
 aldo	GPLの下でリリースされたモールス信号学習ツール
 alembic	オープンコンピュータグラフィックス交換フレームワーク
-alerter	コマンドラインからmacOSでユーザーアラート通知を送信する
+alerter	コマンドラインからmacOSにユーザーアラート通知を送信する
 alexjs	鈍感で思いやりのない文章をキャッチ
 algernon	Lua、Markdown、HTTP/2およびテンプレートをサポートするPureGoWebサーバー
 algol68g	Algol68コンパイラ-インタプリタ
@@ -96,7 +96,7 @@ amtk	GNOME用のアクション、メニュー、ツールバーキット
 amtterm	Intel AMT用のSerial-over-LAN（sol）クライアント
 analog	ログファイルアナライザー
 angband	ダンジョン探検ゲーム
-angle-grinder	コマンドラインでログファイルをスライスおよびダイスします
+angle-grinder	コマンドラインでログファイルをスライスおよびdiceします
 angular-cli	Angular用のCLIツール
 anime-downloader	お気に入りのアニメをダウンロード
 anjuta	GNOME統合開発環境
@@ -122,19 +122,19 @@ anycable-go	アクションケーブルプロトコルを備えたWebSocketサ�
 anyenv	**envのオールインワン
 aoeui	DvorakおよびQWERTYキーボード用に最適化された軽量テキストエディタ
 aom	AV1ビデオストリームをエンコードおよびデコードするためのコーデックライブラリ
-apache-archiva	アーティファクトリポジトリマネージャーのビルド
+apache-archiva	Artifactリポジトリマネージャーのビルド
 apache-arrow	ビッグデータを高速化するように設計された列型インメモリ分析レイヤー
 apache-arrow-glib	Apache ArrowのGLibバインディング
 apache-brooklyn-cli	Apache Brooklynコマンドラインインターフェイス
 apache-ctakes	EMR臨床テキストから情報を抽出するためのNLPシステム
 apache-drill	Hadoop、NoSQL、クラウドストレージ用のスキーマフリーSQLクエリエンジン
-apache-flink	スケーラブルなバッチおよびストリームデータ処理
+apache-flink	Scalableバッチおよびストリームデータ処理
 apache-forrest	複数の出力形式を提供するパブリッシングフレームワーク
-apache-geode	高速トランザクションデータ処理のためのインメモリデータグリッド
+apache-geode	高速トランザクションデータ処理のためのインメモリ データグリッド
 apache-opennlp	自然言語テキストを処理するための機械学習ツールキット
 apache-pulsar	クラウドネイティブの分散メッセージングおよびストリーミングプラットフォーム
 apache-spark	大規模データ処理用エンジン
-apachetop	Apacheログのトップのような表示
+apachetop	ApacheログのTopのような表示
 apcupsd	APCUPSを制御するためのデーモン
 apgdiff	別のPostgreSQL差分ツール
 apib	HTTPパフォーマンステストツール
@@ -153,11 +153,11 @@ appium	アプリの自動化
 appscale-tools	AppScaleを操作するためのコマンドラインツール
 appstream-glib	AppStreamメタデータを読み書きするためのヘルパーライブラリ
 apr	Apacheポータブルランタイムライブラリ
-apr-util	4月のコンパニオンライブラリ、Apache PortableRuntimeライブラリ
+apr-util	aprコンパニオンライブラリ、Apache PortableRuntimeライブラリ
 apt	高度なパッケージツール
 apt-dater	SSHを使用してリモートホストのパッケージ更新を管理する
-aptly	Debianリポジトリ管理用のスイスアーミーナイフ
-aqbanking	一般的なオンラインバンキングインターフェイス
+aptly	Debianリポジトリ管理用のスイス アーミーナイフ
+aqbanking	一般的なオンラインバンキング インターフェイス
 arabica	C++で記述されたXMLツールキット
 arangodb	マルチモデルNoSQLデータベース
 aravis	genicamベースのカメラ用のビジョンライブラリ
@@ -167,7 +167,7 @@ archey	macOSのグラフィカルシステム情報表示
 archey4	Pythonで書かれたシンプルなシステム情報ツール
 archi-steam-farm	複数のアカウントから同時にSteamカードをアイドリングするためのアプリケーション
 archivemount	libarchiveを使用してアーカイブにアクセスするためのファイルシステム
-archiver	クロスプラットフォームのマルチフォーマットアーカイブユーティリティ
+archiver	クロスプラットフォームのマルチフォーマット アーカイブユーティリティ
 arduino-cli	Arduinoコマンドラインインターフェース
 argo	Kubernetesのコンテナネイティブワークフローで作業を完了
 argocd	KubernetesのGitOps継続的デリバリー
@@ -179,7 +179,7 @@ argtable	GNUスタイルのコマンドラインオプションを解析する�
 argus	監査記録の生成と利用システムサーバー
 argus-clients	監査記録の生成と利用システムのクライアント
 argyll-cms	ICC互換のカラーマネジメントシステム
-aria2	再開してセグメント化されたダウンロードでダウンロードする
+aria2	セグメント化されたダウンロードで再度ダウンロードする
 arkade	オープンソースのKubernetesマーケットプレイス
 arm-linux-gnueabihf-binutils	arm-linuxにクロスコンパイルするためのFSF/GNU binutils
 armadillo	C++線形代数ライブラリ
@@ -202,7 +202,7 @@ asciidoc	多数のフォーマットへのテキストファイル用のフォ�
 asciidoctor	AsciiDoc用のテキストプロセッサとパブリッシングツールチェーン
 asciidoctorj	AsciidoctorのJavaラッパーとバインディング
 asciinema	ターミナルセッションの記録と共有
-asciiquarium	アスキーアートの水族館アニメーション
+asciiquarium	アスキーアートの水族館風アニメーション
 asciitex	数学方程式のASCIIアート表現を生成する
 asdf	Ruby、Node.js、Erlangなどをサポートする拡張可能なバージョンマネージャー
 asimov	TimeMachineバックアップから開発の依存関係を自動的に除外します
@@ -216,7 +216,7 @@ asroute	tracerouteを解釈するCLI-通過したAS名を表示する出力
 assh	高度なSSH構成-正規表現、エイリアス、ゲートウェイ、インクルード、動的ホスト
 assimp	多くの有名な3Dモデル形式をインポートするためのポータブルライブラリ
 astrometry-net	天体画像の自動識別
-astyle	C、C++、C＃、およびJava用のソースコードビューティファイア
+astyle	C、C++、C＃、およびJava用のソースコードを美化する
 asuka	NCursesを使用してRustで記述されたGeminiプロジェクトクライアント
 asymptote	強力な記述ベクトルグラフィックス言語
 asyncapi	すべてのAsyncAPIツール用のオールインワンCLI
@@ -225,10 +225,10 @@ at-spi2-atk	Accessibility Toolkit GTK+モジュール
 at-spi2-core	D-Busat-spiのプロトコル定義とデーモン
 atari800	Atari8ビットマシンエミュレーター
 atasm	Unix用のAtariMAC/65互換アセンブラ
-atdtool	After theDeadline言語チェッカーのコマンドラインインターフェイス
+atdtool	締め切り後、言語チェッカーのコマンドラインインターフェイス
 aterm	ツリーのようなADT交換の注釈付き用語
 atf	自動テストフレームワーク
-athenacli	AWSAthenaサービス用のCLIツール
+athenacli	AWS Athenaサービス用のCLIツール
 atk	GNOMEアクセシビリティツールキット
 atkmm	ATKアクセシビリティツールキットライブラリの公式C++インターフェイス
 atkmm@2.28	ATKアクセシビリティツールキットライブラリの公式C++インターフェイス
@@ -280,34 +280,34 @@ avrdude	Atmel AVRMCUプログラマー
 avro-c	データシリアル化システム
 avro-cpp	データシリアル化システム
 avro-tools	Avroコマンドラインツールとユーティリティ
-awf	「ウィジェットファクトリ」は、gtk2およびgtk3のテーマプレビューアプリケーションです。
+awf	ウィジェットファクトリは、gtk2およびgtk3のテーマプレビューアプリケーションです。
 awk	テキスト処理スクリプト言語
 aws-apigateway-importer	SwaggerまたはRAMLAPIからAmazon API GatewayAPIを作成または更新します
 aws-cdk	AWSクラウド開発キット-AWSインフラストラクチャをコードとして定義するためのフレームワーク
-aws-cfn-tools	Amazon CloudFormationWebサービスのクライアント
+aws-cfn-tools	Amazon CloudFormation Webサービスのクライアント
 aws-console	AWSCLIクレデンシャルを使用してブラウザでAWSコンソールを起動するコマンドライン
-aws-elasticbeanstalk	Amazon Elastic BeanstalkWebサービスのクライアント
-aws-es-proxy	HTTPクライアントとAWSElasticsearch間の小さなプロキシ
+aws-elasticbeanstalk	Amazon Elastic Beanstalk Webサービスのクライアント
+aws-es-proxy	HTTPクライアントとAWS Elasticsearch間の小さなプロキシ
 aws-google-auth	Google Appsを使用してAWSクレデンシャルを取得する
-aws-iam-authenticator	AWSIAMクレデンシャルを使用してKubernetesへの認証
+aws-iam-authenticator	AWS IAMクレデンシャルを使用してKubernetesへの認証
 aws-keychain	AWSクレデンシャルの保存にmacOSキーチェーンを使用します
 aws-okta	Oktaクレデンシャルを使用してAWSで認証する
 aws-rotate-key	AWSアクセスキーを簡単にローテーション
 aws-sdk-cpp	AWS SDK for C++
-aws-shell	AWSCLIを操作するための統合シェル
+aws-shell	AWS CLIを操作するための統合シェル
 aws-sso-util	AWS SSOの荒削りな部分を滑らかにします（一時的に、AWSが改善するまで）
-aws-vault	開発環境でAWSクレデンシャルを安全に保存してアクセスする
+aws-vault	開発環境でAWS資格情報を安全に保存してアクセスする
 awscli	公式のAmazon AWSコマンドラインインターフェース
 awscli@1	公式のAmazon AWSコマンドラインインターフェース
 awscurl	AWSリソースにアクセスするためのシンプルさのようなカール
-awslogs	AWSCloudWatchログを読み取るためのシンプルなコマンドラインツール
-awsume	コマンドラインからAWSIAMロールを簡単に引き受けるためのユーティリティ
+awslogs	AWS Cloud Watchログを読み取るためのシンプルなコマンドラインツール
+awsume	コマンドラインからAWS IAMロールを簡単に引き受けるためのユーティリティ
 awsweeper	AWSアカウントをクリーンアップするためのCLIツール
 axel	Light UNIXダウンロードアクセラレータ
-azcopy	AzureStorageデータ転送ユーティリティ
+azcopy	Azure Storageデータ転送ユーティリティ
 azure-cli	Microsoft Azure CLI 2.0
-azure-storage-cpp	C++用のMicrosoftAzureストレージクライアントライブラリ
-b2-tools	B2クラウドストレージコマンドラインツール
+azure-storage-cpp	C++用のMicrosoft Azureストレージ クライアントライブラリ
+b2-tools	B2クラウドストレージ コマンドラインツール
 b2sum	BLAKE2b2sumリファレンスバイナリ
 b3sum	BLAKE3暗号化ハッシュ関数
 b43-fwcutter	Braodcom43xxドライバーファイルからファームウェアを抽出します
@@ -948,6 +948,7 @@ css-crush	拡張可能なPHPベースのCSSプリプロセッサ
 cssembed	CSSファイルへの自動データURI埋め込み
 csshx	Terminal.app用のクラスターsshツール
 cstore_fdw	Postgresを使用した分析用の列指向store
+csview	cli用の高性能csvビューア
 csvkit	CSVに変換して操作するための一連のコマンドラインツール
 csvprintf	CSVファイルを解析するためのコマンドラインユーティリティ
 csvq	csv用のSQLのようなクエリ言語
@@ -3192,6 +3193,7 @@ links	テーブルやメニューなどをサポートするLynxのようなWWW�
 linode-cli	LinodeAPIのCLI
 linux-headers@4.15	Linuxカーネルのヘッ​​ダーファイル
 linux-headers@4.4	Linuxカーネルのヘッ​​ダーファイル
+linux-headers@5.16	Linuxカーネルのヘッダーファイル
 linux-pam	Linux用のプラグ可能な認証モジュール
 liqoctl	Liqo対応クラスターをインストールおよび管理するためのCLIツールです
 liquibase	データベース変更追跡用のライブラリ
