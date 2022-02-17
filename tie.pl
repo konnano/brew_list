@@ -146,8 +146,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
       $VER = $re->{'LIN'} ? 2 : eval "$OS_Version $co1 $MAC_OS{$co2}" ? 1 : 2 unless $VER;
        if(($VER == 1 or $VER == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
           $tap{"${data}uses"} .= "$name\t";
-       }elsif(($VER==1 or $VER==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
-          $tap{"${data}uses"} .= "$name\t";
+   #    }elsif(($VER==1 or $VER==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
+   #       $tap{"${data}uses"} .= "$name\t";
        }elsif( $VER == 1 and $data =~ /^\s*else/ ){
           $VER = 4; next;
        }elsif( $VER == 2 and $data =~ /^\s*else/ ){
