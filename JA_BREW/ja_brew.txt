@@ -522,7 +522,7 @@ bwa	DNAのペアワイズアラインメントのためのBurrow-WheelerAligner
 bwctl	ネットワーク測定ツール用のコマンドラインツールとデーモン
 bwfmetaedit	BWFファイルのメタデータを埋め込み、検証、およびエクスポートするためのツール
 bwm-ng	コンソールベースのライブネットワークおよびディスクI/O帯域幅モニター
-byacc	（おそらく）最高のyacc可変
+byacc	（おそらく）最高のyacc変換
 byobu	テキストベースのウィンドウマネージャーとターミナルマルチプレクサ
 byteman	テスト、監視、トレースのためのJavaバイトコード操作ツール
 bzip2	無料で入手できる高品質のデータコンプレッサー
@@ -1271,7 +1271,7 @@ dynet	動的ニューラルネットワークツールキット
 dynomite	さまざまなkvストレージエンジン用の汎用ダイナモ実装
 e2fsprogs	ext2、ext3、およびext4ファイルシステムのユーティリティ
 e2tools	ext2/3/4ファイルシステム内のファイルを読み取り、書き込み、操作するためのユーティリティ
-earthly	コンテナ時代のビルド自動化ツール
+earthly	コンテナeraのビルド自動化ツール
 easy-git	学習とgitの使用を簡素化するラッパー
 easy-rsa	PKICAを構築および管理するためのCLIユーティリティ
 easy-tag	オーディオファイルタグを表示および編集するためのアプリケーション
@@ -1306,7 +1306,7 @@ elasticsearch	分散型検索および分析エンジン
 elasticsearch@6	分散型検索および分析エンジン
 elb-tools	Amazon Elastic Load BalancingWebサービスへのクライアントインターフェース
 elektra	グローバルキーデータベースの構成設定にアクセスするためのフレームワーク
-eless	EmacsビューモードとBashを使用した方が「少ない」
+eless	より良い`less` EmacsビューモードとBashを使う
 eleventy	よりシンプルな静的サイト発生器
 elfutils	ELFオブジェクトを処理するためのライブラリとユーティリティ
 elinks	テキストモードのWebブラウザ
@@ -1320,7 +1320,7 @@ elvish	親しく表現力豊かなシェル
 emacs	GNUEmacsテキストエディタ
 emacs-clang-complete-async	libclangを使用してC/C++コードを補完するEmacsプラグイン
 emacs-dracula	多くの編集者が利用できるダークカラーのテーマ
-embree	高性能レイトレーシングカーネル
+embree	高性能レイ トレーシング カーネル
 embulk	さまざまなデータベース、ファイル形式、サービス間のデータ転送
 emojify	コマンドラインの絵文字：scream：
 emp	帝国のためのCLI
@@ -1329,7 +1329,7 @@ ems-flasher	EMSゲームボーイUSBカートをフラッシュするための�
 emscripten	LLVMバイトコードからJavaScriptコンパイラへ
 enca	文字セットアナライザーとコンバーター
 encfs	暗号化されたパススルーFUSEファイルシステム
-enchant	スペルチェッカーラッピングライブラリ
+enchant	スペルチェッカー ラッピングライブラリ
 enet	UDPの上にネットワーク通信層を提供します
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
 enkits	並列プログラムを作成するためのCおよびC++タスクスケジューラ
@@ -1361,7 +1361,7 @@ erlang@23	高度にスケーラブルなリアルタイムシステムのため�
 erofs-utils	拡張読み取り専用ファイルシステムのユーティリティ
 esbuild	非常に高速なJavaScriptバンドラーとミニファイア
 eslint	JavaScript用のASTベースのパターンチェッカー
-esniper	コマンドラインからのeBayオークションのスナイプ
+esniper	コマンドラインからのeBayオークションを狙う
 espeak	テキスト読み上げ、ソフトウェア音声シンセサイザー
 esphome	ESP32/ESP8266のカスタムファームウェアの作成を非常に簡単にします
 esptool	ESP8266およびESP32シリアルブートローダーユーティリティ
@@ -1398,7 +1398,7 @@ ext2fuse	FUSEを使用したext2ファイルシステムのコンパクトな実
 ext4fuse	FUSE用のext4の読み取り専用実装
 extra-cmake-modules	CMake用の追加のモジュールとスクリプト
 extract_url	電子メールまたはプレーンテキストからURLを抽出するPerlスクリプト
-exult	ウルティマ7のレクリエーション
+exult	Ultima 7のレクリエーション
 eye-d3	.mp3ファイルのID3メタデータを操作する
 ezstream	Icecastストリーミングサーバーのクライアント
 f2	コマンドラインバッチ名前変更ツール
@@ -1409,11 +1409,11 @@ faad2	ISOAACオーディオデコーダー
 faas-cli	FaaS機能をテンプレート化および/または展開するためのCLI
 fabio	Zero-confロードバランシングHTTP（S）ルーター
 fabric	SSH用のライブラリとコマンドラインツール
-fabric-completion	ファブリックのBash補完
+fabric-completion	FabricのBash補完
 fabric-installer	バニラランチャー用ファブリックのインストーラー
 fades	Pythonスクリプトのvirtualenvsを自動的に処理します
 fail2ban	ログファイルをスキャンし、悪意のある兆候を示すIPを禁止する
-fairymax	チェスの変則チェスをプレイするためのAI
+fairymax	変則チェスをプレイするためのAI
 faiss	効率的な類似性検索と密なベクトルのクラスタリング
 fakeroot	偽のルート環境を提供する
 falcon	マルチパラダイムプログラミング言語とスクリプトエンジン
@@ -1435,7 +1435,7 @@ fastqc	ハイスループットシーケンスデータの品質管理ツール
 fasttext	高速テキスト表現と分類のためのライブラリ
 fatsort	FAT16およびFAT32パーティションを並べ替えます
 faudio	オープンプラットフォーム向けの精度重視のXAudio再実装
-fauna-shell	FaunaDBのインタラクティブシェル
+fauna-shell	FaunaDBのインタラクティブshell
 faust	リアルタイム信号処理のための関数型プログラミング言語
 fava	複式簿記ソフトウェアBeancountのWebインターフェイス
 fb-client	https://paste.xinu.atのシェルスクリプトクライアント
@@ -1450,9 +1450,9 @@ fcitx-remote-for-osx	コマンドラインで入力メソッドを処理する
 fcl	柔軟な衝突ライブラリ
 fcp	従来のUnix cp（1）コマンドの大幅に高速な代替
 fcrackzip	Zipパスワードクラッカー
-fd	見つけるためのシンプルで高速かつユーザーに親しい代替手段
+fd	findのシンプルで高速かつユーザーに親しい代替手段
 fdclone	コンソールベースのファイルマネージャー
-fdk-aac	AndroidのフラウンホーファーFDKAACコードのスタンドアロンライブラリ
+fdk-aac	AndroidのFraunhofer FDKAACコードのスタンドアロンライブラリ
 fdk-aac-encoder	libfdk-aacのコマンドラインエンコーダフロントエンド
 fdroidcl	F-Droidデスクトップクライアント
 fdroidserver	F-Droid用のAndroidアプリリポジトリを作成および管理します
@@ -1474,9 +1474,9 @@ ffmpeg@2.8	オーディオとビデオの再生、録音、変換、ストリー
 ffmpeg@4	オーディオとビデオの再生、録音、変換、ストリーミング
 ffmpegthumbnailer	ビデオファイルのサムネイルを作成する
 ffms2	Libav/ffmpegベースのソースライブラリとAvisynthプラグイン
-ffsend	フル機能のFirefoxSendクライアント
+ffsend	フル機能のFirefox Sendクライアント
 fftw	離散フーリエ変換を計算するためのCルーチン
-ffuf	Goで書かれた高速Webファザー
+ffuf	Goで書かれた高速Web fuzzer
 fheroes2	Free Heroes of Might and Magic IIは、HoMM2ゲームエンジンを再現したものです。
 fibjs	ファイバー上のJavaScript
 ficy	Icecast/Shoutcastストリームグラバースイート
@@ -1487,14 +1487,14 @@ figlet	バナーのようなプログラムは、文字列をASCIIアートと�
 file-formula	ファイルの種類を判別するためのユーティリティ
 file-roller	GNOMEアーカイブマネージャー
 filebeat	ログファイルをElasticsearchまたはLogstashに送信するためのファイルハーベスタ
-fileicon	ファイルとフォルダのカスタムアイコンを管理するためのmacOSCLI
-finatra	Sinatraに触発されたScalaWebフレームワーク
+fileicon	ファイルとフォルダのカスタムアイコンを管理するためのmacOS CLI
+finatra	Sinatraに触発されたScala Webフレームワーク
 findent	Fortranソースをインデントして美化し、依存関係情報を生成します
 findomain	クロスプラットフォームのサブドメイン列挙子
 findutils	GNU find、xargs、およびlocateのコレクション
 fio	I/Oベンチマークとストレステスト
 firebase-cli	Firebaseコマンドラインツール
-firefoxpwa	MozillaFirefoxでプログレッシブウェブアプリをインストール、管理、使用するためのツール
+firefoxpwa	Mozilla Firefoxでプログレッシブウェブアプリをインストール、管理、使用するためのツール
 fish	UNIXライクなオペレーティングシステム用のユーザーに親しいコマンドラインシェル
 fisher	Fishシェルのプラグインマネージャー
 fits	ファイル情報ツールセット
@@ -1531,11 +1531,11 @@ flow-tools	NetFlowデータレポートの収集、送信、処理、および�
 flowgrind	iperfまたはnetperfに似たTCP測定ツール
 fltk	クロスプラットフォームのC++ GUIツールキット
 fluent-bit	高速で軽量のログおよびメトリクスプロセッサ
-fluid-synth	SoundFont2仕様に基づくリアルタイムソフトウェアシンセサイザー
-fluid-synth@2.1	SoundFont2仕様に基づくリアルタイムソフトウェアシンセサイザー
+fluid-synth	SoundFont 2仕様に基づくリアルタイムソフトウェアシンセサイザー
+fluid-synth@2.1	SoundFont 2仕様に基づくリアルタイムソフトウェアシンセサイザー
 flume	Hadoopベースの分散ログの収集と集約
 flux	データベースをクエリするための軽量スクリプト言語
-fluxctl	KubernetesGitOpsオペレーターであるWeaveFluxにアクセスするためのコマンドラインツール
+fluxctl	Kubernetes GitOpsオペレーターであるWeaveFluxにアクセスするためのコマンドラインツール
 flvmeta	Adobe Flashビデオファイル（FLV）を操作する
 flvstreamer	フラッシュおよびRTMPサーバーからオーディオとビデオをストリーミング
 flyway	移行を制御するためのデータベースバージョン管理
@@ -1558,7 +1558,7 @@ fonttools	フォントを操作するためのライブラリ
 fop	PDFまたはPSドキュメントを作成するためのXSL-FO印刷フォーマッター
 forcecli	Force.comへのコマンドラインインターフェイス
 ford	最新のFortranプログラム用の自動ドキュメント発生器
-forego	Procfileベースのアプリケーション管理のためのGoのフォアマン
+forego	Procfileベースのアプリケーション管理のためのGoのForeman
 foreman	Procfileベースのアプリケーションを管理する
 foremost	ヘッダーとフッターに基づいてファイルを回復するためのコンソールプログラム
 forge	高性能の視覚化
@@ -1575,8 +1575,8 @@ fpdns	指紋DNSサーバーのバージョン
 fping	複数のホストが稼働しているかどうかを確認するためのスクリプト可能なpingプログラム
 fplll	浮動小数点演算を使用した格子アルゴリズム
 fpp	パイプ入力を受け入れ、選択のためにファイルを提示するCLIプログラム
-fprettify	最新のFortranソースコード用の自動フォーマッター
-fprobe	LibpcapベースのNetFlowプローブ
+fprettify	最新のFortranソースコード用のAuto-formatter
+fprobe	LibpcapベースのNetFlow調査
 fq	パフォーマンスのために最適化された仲介メッセージキュー
 fragroute	指定されたホストの出力トラフィックを傍受、変更、および書き換えます
 freealut	OpenALのALUT標準の実装
@@ -1598,7 +1598,7 @@ frege-repl	FregeのREPL（read-eval-print loop）
 frei0r	ビデオエフェクト用の最小限のプラグインAPI
 fribidi	UnicodeBiDiアルゴリズムの実装
 frobtads	TADSインタプリタとコンパイラ
-frotz	インフォコムスタイルのインタラクティブフィクションプレーヤー
+frotz	インフォコムスタイルの相互の作用のフィクションプレーヤー
 frpc	ローカルサーバーをインターネットに公開する高速リバースプロキシのクライアントアプリ
 frps	ローカルサーバーをインターネットに公開する高速リバースプロキシのサーバーアプリ
 frugal	スケーラブルなマイクロサービスを作成するためのクロスランゲージコード発生器
@@ -1606,8 +1606,8 @@ fruit	C++の依存性注入フレームワーク
 frum	Rustで書かれた高速で最新のRubyバージョンマネージャー
 fs-uae	Amigaエミュレーター
 fselect	SQLのようなクエリでファイルを検索する
-fsevent_watch	macOSFSEventsクライアント
-fsevents-tools	FSEventsAPIのコマンドラインユーティリティ
+fsevent_watch	macOS FSEventsクライアント
+fsevents-tools	FSEvents APIのコマンドラインユーティリティ
 fsh	リモートコマンド実行を提供します
 fsql	SQL風のクエリでファイルシステムを検索する
 fst	有限状態トランスデューサを使用して、大きなセットとマップをコンパクトに表現します
@@ -1617,7 +1617,7 @@ fswatch	ディレクトリの変更を監視し、シェルコマンドを実行
 ftgl	Freetype/OpenGLブリッジ
 ftjam	Makeの代わりに使用できるビルドツール
 fuego	囲碁のゲーム用のC++ライブラリのコレクション
-func-e	エンボイを簡単に実行
+func-e	Envoyを簡単に実行
 funcoeszz	数十のコマンドラインミニアプリケーション（ポルトガル語）
 functionalplus	C++用の関数型プログラミングライブラリ
 fuse-emulator	無料のUnix Spectrumエミュレーター
@@ -1634,7 +1634,7 @@ fzf	Goで記述されたコマンドラインあいまい検索ツール
 fzy	高度なスコアリングアルゴリズムを備えた高速でシンプルなファジーテキストセレクター
 g2	親しいgitクライアント
 g2o	グラフ最適化の一般的なフレームワーク
-g3log	非同期、「クラッシュセーフ」、使いやすいロガー
+g3log	非同期、クラッシュセーフ、使いやすいロガー
 gabedit	Gamess-US、Gaussianなどの計算化学パッケージへのGUI。
 gaffitter	ファイル/フォルダを固定サイズのボリューム（DVDなど）に効率的に適合させる
 galen	レスポンシブウェブサイトのルックアンドフィールの自動テスト
@@ -1653,7 +1653,7 @@ gau	オープン脅威交換、ウェイバックマシン、およびコモン�
 gauche	便利なスクリプトインタープリターとして開発されたR7RSスキームの実装
 gauge	実行可能ドキュメントをサポートするテスト自動化ツール
 gaul	遺伝的アルゴリズムユーティリティライブラリ
-gawk	GNUawkユーティリティ
+gawk	GNU awkユーティリティ
 gbdfed	ビットマップフォントエディタ
 gcab	Windowsインストーラー（.MSI）ツール
 gcal	カレンダーを計算して印刷するためのプログラム
@@ -1684,13 +1684,13 @@ gdrive	GoogleドライブCLIクライアント
 gdu	Goで記述されたコンソールインターフェイスを備えたディスク使用量アナライザ
 gdub	Gradlew/gradleラッパー
 gearman	他のマシンまたはプロセスに作業をファームアウトするためのアプリケーションフレームワーク
-geckodriver	WebDriver <->マリオネットプロキシ
+geckodriver	WebDriver <-> マリオネットプロキシ
 gecode	制約ベースのシステムとアプリケーションを開発するためのツールキット
 gedit	GNOMEテキストエディタ
 geeqie	軽量Gtk+ベースの画像ビューア
 gegl	グラフベースの画像処理フレームワーク
-gel	現代の宝石マネージャー
-gem-completion	宝石のBash補完
+gel	モダンgemマネージャー
+gem-completion	gemのBash補完
 genact	ナンセンスアクティビティ発生器
 genders	クラスター管理用の静的クラスター構成データベース
 generate-json-schema	サンプルJSONからJSONスキーマを生成する
@@ -1698,33 +1698,33 @@ genext2fs	通常の（root以外の）ユーザーとしてext2ファイルシ�
 gengetopt	getopt_longを介してコマンドライン引数を解析するCコードを生成します
 genometools	用途の広いオープンソースゲノム解析ソフトウェア
 genstats	stdinまたはtextfilesに関する統計を生成します
-geocode-glib	ジオコーディングおよび逆ジオコーディング用のGNOMEライブラリ
+geocode-glib	gecodingおよび逆gecoding用のGNOMEライブラリ
 geogram	幾何学的アルゴリズムのプログラミングライブラリ
 geographiclib	C++地理ライブラリ
 geoip	このライブラリは、GeoIP Legacy形式（dat）用です。
 geoipupdate	GeoIP2およびGeoIPレガシーデータベースの自動更新
 geomview	インタラクティブな3D表示プログラム
-geos	ジオメトリエンジン
+geos	Geometryエンジン
 geoserver	地理空間データを共有および編集するためのJavaサーバー
-geph2	モジュラーインターネット検閲回避システム
-geph4	全国的なフィルタリングに対処するためのモジュラーインターネット検閲回避システム
+geph2	基本インターネット検閲回避システム
+geph4	全国的なフィルタリングに対処するための基本インターネット検閲回避システム
 gerbil-scheme	システムプログラミングのために設計されたスキームの意見の方言
-gerbv	ガーバー（RS-274X）ビューア
+gerbv	Gerber（RS-274X）ビューア
 gerrit-tools	Gerritコードレビューを容易にするツール
 get-flash-videos	さまざまなFlashベースのWebサイトからビデオをダウンロードまたは再生します
-get_iplayer	BBCiPlayerからテレビやラジオ番組をダウンロードするためのユーティリティ
-getdns	最新の非同期DNSAPI
+get_iplayer	BBC iPlayerからテレビやラジオ番組をダウンロードするためのユーティリティ
+getdns	最新の非同期DNS API
 getmail	POP3、IMAP4、SSLをサポートする拡張可能なメール検索システム
 gettext	GNU国際化（i18n）およびローカリゼーション（l10n）ライブラリ
 getxbook	さまざまなソースから電子書籍をダウンロードするためのツール
 gexiv2	Exiv2写真メタデータライブラリのGOb​​jectラッパー
 gflags	コマンドラインフラグを処理するためのライブラリ
-gforth	ANSForth言語の実装
+gforth	ANS Forth言語の実装
 gh	GitHubコマンドラインツール
-ghc	Glorious GlasgowHaskellコンパイルシステム
-ghc@8.6	Glorious GlasgowHaskellコンパイルシステム
-ghc@8.8	Glorious GlasgowHaskellコンパイルシステム
-ghc@9	Glorious GlasgowHaskellコンパイルシステム
+ghc	Glorious Glasgow Haskellコンパイルシステム
+ghc@8.6	Glorious Glasgow Haskellコンパイルシステム
+ghc@8.8	Glorious Glasgow Haskellコンパイルシステム
+ghc@9	Glorious Glasgow Haskellコンパイルシステム
 ghcup	汎用言語Haskellのインストーラー
 ghex	GNOME16進エディター
 ghi	コマンドラインでGitHubの問題に取り組む
@@ -1754,14 +1754,14 @@ git-annex	ファイルの内容をチェックインせずにgitでファイル�
 git-annex-remote-rclone	git-annexでrcloneがサポートするクラウドストレージを使用する
 git-appraise	Gitリポジトリの分散コードレビューシステム
 git-archive-all	プロジェクトとそのサブモジュールをアーカイブする
-git-branchless	Gitの高速でモノレポスケールのワークフロー
+git-branchless	Gitの高速でmonorepo-scaleワークフロー
 git-bug	分散型のオフラインファーストのバグトラッカーがgitに組み込まれ、ブリッジがあります
 git-cal	GitHubのような投稿カレンダーですが、コマンドラインにあります
-git-cinnabar	リモートヘルパーをGitして水銀リポジトリと対話する
+git-cinnabar	リモートヘルパーをGitしてmercurialリポジトリと対話する
 git-cliff	高度にカスタマイズ可能な変更ログ発生器
 git-cola	高度にカフェイン化されたgitGUI
-git-credential-libsecret	libsecretを介してクレデンシャルにアクセスするためのGitヘルパー
-git-credential-manager	Visual Studio TeamServicesのGitクレデンシャルを格納します
+git-credential-libsecret	libsecretを介して資格情報にアクセスするためのGitヘルパー
+git-credential-manager	Visual Studio Team ServicesのGit資格情報を格納します
 git-crypt	gitリポジトリ内のファイルの透過的な暗号化/復号化を有効にする
 git-delta	構文-gitおよびdiff出力のページャーを強調表示
 git-extras	小さなgitユーティリティ
@@ -3887,7 +3887,7 @@ opa	オープンソースの汎用ポリシーエンジン
 opam	OCamlパッケージマネージャー
 open-adventure	コロッサルケーブアドベンチャー、1995年の430ポイントバージョン
 open-babel	化学ツールボックス
-open-completion	オープンのBash補完
+open-completion	openのBash補完
 open-image-denoise	レイトレーシング用の高性能ノイズ除去ライブラリ
 open-jtalk	日本語の音声合成システム
 open-mesh	ポリゴンメッシュを表現および操作するための汎用データ構造
@@ -4019,7 +4019,7 @@ p7zip	7-Zip（高圧縮ファイルアーカイバ）の実装
 pacapt	Archのpacmanスタイルのパッケージマネージャー
 pachi	囲碁/囲碁/囲碁のボードゲーム用ソフトウェア
 packer	複数のプラットフォーム用に同一のマシンイメージを作成するためのツール
-packer-completion	パッカーのBash補完
+packer-completion	PackerのBash補完
 packetbeat	ネットワークデータ用の軽量配送業者
 packetq	PCAPファイルへのSQLのようなフロントエンド
 packmol	分子動力学シミュレーションのためのパッキングの最適化
@@ -4194,7 +4194,7 @@ pinot	リアルタイム分散OLAPデータstore
 pioneer	孤独な宇宙冒険のゲーム
 pioneers	カタンの開拓者クローン
 pip-audit	既知の脆弱性についてPython環境と依存関係ツリーを監査します
-pip-completion	ピップのバッシュ補完
+pip-completion	Pipのバッシュ補完
 pip-tools	Pip要件ファイルのロックと同期
 pipebench	STDIN/STDOUT通信の速度を測定します
 pipemeter	入力から出力に移動するデータの速度を示します
