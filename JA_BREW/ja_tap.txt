@@ -173,7 +173,7 @@ font-belleza	Belleza
 font-bellota	Bellota
 font-bellota-text	Bellota Text
 font-benchnine	BenchNine
-font-benne	ジョン・ハリントンによって開発されたカンナダ語のテキストフォント
+font-benne	ジョン・ハリントンによって開発されたKannadaテキストフォント
 font-bentham	Bentham
 font-berkshire-swash	Berkshire Swash
 font-besley	Designed by owen earl (indestructible type*)
@@ -199,8 +199,8 @@ font-birthstone-bounce	より光沢と遊び心を加える誕生石の兄弟フ
 font-biryani	Biryani
 font-bitstream-vera	Bitstream Vera
 font-bitstream-vera-sans-mono-nerd-font	BitstreamVeraSansMonoオタクフォント（Bitstream Vera Sans Mono）
-font-bitter	電子インク画面用に最適化されたスラブセリフ書体
-font-bitter-ht	電子インク画面用に最適化されたスラブセリフ書体
+font-bitter	電子インク画面用に最適化されたSlab-serif書体
+font-bitter-ht	電子インク画面用に最適化されたSlab-serif書体
 font-black-and-white-picture	黒と白の画像
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
@@ -209,7 +209,7 @@ font-blex-mono-nerd-font	BlexMonoオタクフォント（IBM Plex Mono）
 font-blinker	Blinker
 font-blokk-neue	BLOKK Neue
 font-bm	BM
-font-bodoni-moda	コントラストの高いセリフ書体
+font-bodoni-moda	コントラストの高いSerif書体
 font-bokor	Bokor
 font-bona-nova	Cursive typeface
 font-bonbon	Bonbon
@@ -264,9 +264,9 @@ font-carrois-gothic	Carrois Gothic
 font-carrois-gothic-sc	Carrois Gothic SC
 font-carter-one	Carter One
 font-cascadia-code	プログラミング合字を含む等幅フォント
-font-cascadia-code-pl	電力線記号が埋め込まれたCascadiaコードのバージョン
+font-cascadia-code-pl	Powerline記号が埋め込まれたCascadiaコードのバージョン
 font-cascadia-mono	合字のないCascadiaコードのバージョン
-font-cascadia-mono-pl	結紮がなく、電力線記号が埋め込まれたバージョンのCascadiaコード
+font-cascadia-mono-pl	糸結びがなく、Powerlineが埋め込まれたCascadiaコードのバージョン
 font-caskaydia-cove-nerd-font	CaskaydiaCove Nerdフォント（Caskaydiaコード）
 font-castoro	北アメリカのビーバー、キャスターカナデンシスにちなんで名付けられました
 font-catamaran	Catamaran
@@ -300,7 +300,7 @@ font-chivo	Chivo
 font-chokokutai	文字がファンキーな外観の日本語表示フォント
 font-chomsky	New York Timesのマストヘッド、フルフォントとして再考
 font-chonburi	Chonburi
-font-church-slavonic	教会スラヴ語フォント
+font-church-slavonic	教会スラヴフォント
 font-cica	Cica
 font-cinzel	Cinzel
 font-cinzel-decorative	Cinzel Decorative
@@ -322,7 +322,7 @@ font-comic-mono	読みやすい等幅フォント
 font-comic-neue	Comic Neue
 font-comic-sans-ms	Comic Sans
 font-coming-soon	Coming Soon
-font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストサンセリフフォント
+font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストsans-serifフォント
 font-computer-modern	Computer Modern
 font-conakry	Conakry
 font-concert-one	Concert One
@@ -444,7 +444,7 @@ font-englebert	Englebert
 font-enriqueta	Enriqueta
 font-envy-code-r	Envy Code R
 font-ephesis	カジュアルな招待状、カード、チューブ、スクラップブッキングに最適な現代的なスクリプト
-font-epilogue	重み軸を持つサンセリフ可変フォント
+font-epilogue	ウェイト軸を持つSans serif可変フォント
 font-erica-one	Erica One
 font-escumasia	escumasiaに触発された古代の生物学スタイルのフォント
 font-esteban	Esteban
@@ -546,7 +546,7 @@ font-genwanmin	GenWanMin
 font-genyogothic	GenYoGothic
 font-genyomin	GenYoMin
 font-geo	Geo
-font-georama	いくつかの幅と重さで利用可能なオリジナルの書体
+font-georama	いくつかの幅とウェイトで利用可能なオリジナルの書体
 font-georgia	Georgia
 font-geostar	Geostar
 font-geostar-fill	Geostar Fill
@@ -586,7 +586,7 @@ font-go-mono-nerd-font	GoMono Nerd Font (Go)
 font-goblin-one	Goblin One
 font-gochi-hand	Gochi Hand
 font-gohufont-nerd-font	GohuFontオタクフォント（Gohu）
-font-goldman	ポスター用に設計されたラテン語のディスプレイ書体
+font-goldman	ポスター用に設計されたラテンのディスプレイ書体
 font-gorditas	Gorditas
 font-gothic-a1	Gothic A1
 font-gotu	Gotu
@@ -595,7 +595,7 @@ font-gowun-batang	Gowun Batang
 font-gowun-dodum	Gowun Dodum
 font-graduate	Graduate
 font-grand-hotel	Grand Hotel
-font-grandstander	重み軸を使用して可変フォントを表示する
+font-grandstander	ウェイト軸を使用して可変フォントを表示する
 font-gravitas-one	Gravitas One
 font-great-vibes	Great Vibes
 font-grechen-fuemen	太いウェイトと細いウェイトを非正統的に使用した遊び心のあるフォント
@@ -664,10 +664,10 @@ font-ibarra-real-nova	Ibarra Real Nova
 font-ibm-plex	IBM Plex
 font-ibm-plex-mono	IBM Plex Mono
 font-ibm-plex-sans	IBM Plex Sans
-font-ibm-plex-sans-arabic	IBM PlexSans アラビア語
+font-ibm-plex-sans-arabic	IBM PlexSans アラビア
 font-ibm-plex-sans-condensed	IBM Plex Sans Condensed
 font-ibm-plex-sans-devanagari	IBM Plex Sans Devanagari
-font-ibm-plex-sans-hebrew	IBM PlexSans ヘブライ語
+font-ibm-plex-sans-hebrew	IBM PlexSans ヘブライ
 font-ibm-plex-sans-kr	IBM Plex Sans KR
 font-ibm-plex-sans-thai	IBM Plex Sans Thai
 font-ibm-plex-sans-thai-looped	IBM Plex Sans Thai Looped
@@ -825,7 +825,7 @@ font-klee-one	Klee One
 font-knewave	Knewave
 font-ko-pub-batang	Ko Pub Batang
 font-kodchasan	Kodchasan
-font-koh-santepheap	クメール語フォント
+font-koh-santepheap	クメールフォント
 font-koho	KoHo
 font-kokoro	心
 font-kolker-brush	コピーを編集するときにすべて大文字を使用することはお勧めしません
@@ -838,10 +838,10 @@ font-kreon	Kreon
 font-kristi	Kristi
 font-krona-one	Krona One
 font-krub	Krub
-font-kufam	現代の情報デザインを目的としたアラビア語-ラテン語のバイリンガル書体
+font-kufam	現代の情報デザインを目的としたアラビア-ラテンのバイリンガル書体
 font-kulim-park	Kulim Park
 font-kumar-one	Kumar One
-font-kumbh-sans	幾何学的なサンセリフ多目的フォント
+font-kumbh-sans	幾何学的なsans-serif多目的フォント
 font-kurale	Kurale
 font-la-belle-aurore	美しい日の出
 font-lacquer	Lacquer
@@ -863,7 +863,7 @@ font-lato	Lato
 font-league-gothic	古い古典、代替ゴシック＃1の復活
 font-league-mono	Fira Mono、Libertinus Mono、およびCourierに触発されたモノスペース書体
 font-league-script	League スクリプト
-font-league-spartan	ATF窶冱古典的なスパルタンの幾何学的なサンセリフ復活
+font-league-spartan	ATF窶冱古典的なスパルタンの幾何学的なsans-serif復活
 font-leckerli-one	Leckerli One
 font-ledger	Ledger
 font-lekton	Lekton
@@ -871,7 +871,7 @@ font-lekton-nerd-font	Lekton Nerd Font (Lekton)
 font-lemon	Lemon
 font-lemonada	Lemonada
 font-lemonada-vf-beta	Lemonada VF Beta
-font-lexend	8つの重みの範囲を持つフォントビューローによって拡張されました
+font-lexend	8つのウェイトの範囲を持つフォントビューローによって拡張されました
 font-lexend-deca	Lexend Deca
 font-lexend-exa	Lexend Exa
 font-lexend-giga	Lexend Giga
@@ -1036,7 +1036,7 @@ font-mononoki-nerd-font	Mononokiオタクフォント（Mononoki）
 font-monoton	Monoton
 font-monsieur-la-doulaise	ラ・ドゥレーズ氏
 font-montaga	Montaga
-font-montagu-slab	重量軸と光学サイズ軸を備えた可変フォントとして利用可能
+font-montagu-slab	ウェイト軸と光学サイズ軸を備えた可変フォントとして利用可能
 font-montecarlo	華やかな外観と読みやすいメッセージに最適
 font-montez	Montez
 font-montserrat	Montserrat
@@ -1060,7 +1060,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	ディスプレイとテキストの両方のタイポグラフィ用に設計されたミニマリストのサンセリフ書体
+font-mulish	ディスプレイとテキストの両方のタイポグラフィ用に設計されたミニマリストのsans-serif書体
 font-murecho	9つの実用的なウェイトと可変フォントで利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1077,7 +1077,7 @@ font-nanum-pen-script	Nanum Pen Script
 font-national-park	National Park
 font-nats	NATS
 font-neonderthaw	ネオンをシミュレートするシングルウェイトスクリプト
-font-nerko-one	チャンキー窶藁arker窶�エフェクトフォント
+font-nerko-one	チャンキーmarkerエフェクトフォント
 font-neucha	Neucha
 font-neuton	Neuton
 font-new-rocker	New Rocker
@@ -1462,7 +1462,7 @@ font-racing-sans-one	Racing Sans One
 font-radley	Radley
 font-rajdhani	Rajdhani
 font-rakkas	Rakkas
-font-raleway	エレガントなサンセリフフォントファミリー、現在は9つのウェイトとイタリックスタイル
+font-raleway	エレガントなsans-serifフォントファミリー、現在は9つのウェイトとイタリックスタイル
 font-raleway-dots	Raleway Dots
 font-ramabhadra	Ramabhadra
 font-ramaraja	Ramaraja
@@ -1477,11 +1477,11 @@ font-rationale	Rationale
 font-ravi-prakash	Ravi Prakash
 font-readex-pro	可変フォントのファミリー
 font-recursive	Recursive
-font-recursive-code	電力線グリフを含む、Recursiveのビルド済みのテキストエディタに適したファイル
+font-recursive-code	powerlineグリフを含む、Recursiveのビルド済みのテキストエディタに適したファイル
 font-red-hat-display	Red Hat Display
 font-red-hat-mono	Red Hat Mono
 font-red-hat-text	Red Hat Text
-font-red-rose	ポスター用に設計されたラテン語のディスプレイ書体
+font-red-rose	ポスター用に設計されたラテンのディスプレイ書体
 font-redacted	Redacted
 font-redacted-script	Redacted スクリプト
 font-redhat	Red Hat
@@ -1637,7 +1637,7 @@ font-sora	Sora
 font-sorts-mill-goudy	MillGoudyを並べ替えます
 font-souliyo	Souliyo
 font-source-code-pro	ソースコードプロ
-font-source-code-pro-for-powerline	Powerlineのソースコードプロ
+font-source-code-pro-for-powerline	PowerlineのソースコードPro
 font-source-sans-3	ソース Sans 3
 font-source-sans-pro	ソース Sans Pro
 font-source-serif-4	Source Serif 4
@@ -1746,7 +1746,7 @@ font-trocchi	Trocchi
 font-trochut	Trochut
 font-truculenta	パッケージング、ブランディング、ブックカバー、イラスト版、映画のタイトル
 font-trykker	Trykker
-font-tsukimi-rounded	丸みを帯びた端子を備えたサンセリフ書体
+font-tsukimi-rounded	丸みを帯びた端子を備えたsans-serif書体
 font-tt2020	高度なオープンソースのハイパーリアリスティックな多言語タイプライターフォント
 font-tuffy	Tuffy
 font-tulpen-one	Tulpen One
@@ -1754,7 +1754,7 @@ font-turret-road	Turret Road
 font-twinkle-star	キュートで楽しいjuvenileスクリプト
 font-twitter-color-emoji	Twitterカラー絵文字
 font-typographer-woodcut-initials-one	タイポグラファーの木版画のイニシャル one
-font-ubuntu	明確にするために手動でヒントを与えられたサンセリフ書体
+font-ubuntu	明確にするために手動でヒントを与えられたsans-serif書体
 font-ubuntu-condensed	Ubuntu Condensed
 font-ubuntu-mono	Ubuntu Mono
 font-ubuntu-mono-derivative-powerline	Ubuntu Mono derivative Powerline
@@ -2066,7 +2066,7 @@ aerial-beta	Apple TV空中スクリーンセーバー
 affinity-designer-beta	写真編集およびグラフィックデザインソフトウェア
 affinity-photo-beta	Serif Affinity Photo
 affinity-publisher-beta	プロのデスクトップパブリッシングソフトウェア
-alfred2	アルフレッド
+alfred2	Alfred
 alfred3	アプリケーションランチャーと生産性ソフトウェア
 anaconda2	Continuum Analytics Anaconda2
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
@@ -2087,7 +2087,7 @@ brave-browser-nightly	プライバシーに焦点を当てたWebブラウザ
 buckets-beta	予算編成ツール
 calibre4	電子書籍管理ソフトウェア
 carbon-copy-cloner5	ハードディスクのバックアップとクローン作成ユーティリティ
-charles-applejava	チャールズ
+charles-applejava	Charles
 charles-beta	Webデバッグプロキシアプリケーション
 chromedriver-beta	Google Chrome用のWebアプリの自動テスト
 citra-nightly	ニンテンドー3DSエミュレーター
@@ -2220,9 +2220,9 @@ slack-beta	チームコミュニケーションおよびコラボレーション
 slicer-preview	医用画像処理および視覚化システム
 smcfancontrol-beta	内蔵ファンの最低速度を設定します
 snagit4	Snagit
-sonarr-beta	ソナーベータ
+sonarr-beta	sonarr-beta
 sonos-s1-controller	Gen 1Sonos製品のコントローラー
-soulver2	ソウルバー
+soulver2	Soulver
 sourcetree-beta	Gitバージョン管理用のグラフィカルクライアント
 sublime-merge-dev	Gitクライアント
 sublime-text-dev	コード、マークアップ、散文用のテキストエディタ
