@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.05_3　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.06　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 MacOS10.9から対応します10.8以前は現在のhomebrewインストール出来ないのでわかりません
 
