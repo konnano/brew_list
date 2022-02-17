@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.05_3\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.06\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -399,19 +399,29 @@ my( $re,$list,$file ) = @_;
   if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} ) ){
     no warnings 'closed';
    if( $re->{'FOR'} ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist JA_file ###\n";
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist brew JA_file ###\n";
      while( my $an = <$JA> ){
      my( $name,$desc ) = split "\t",$an;
       chomp( $JA{$name} = $desc );
      }
     close $JA;
    }elsif( not $re->{'TAP'} ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " ### Not exist JA_file ###\n";
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " ### Not exist cask JA_file ###\n";
      while( my $an = <$JA> ){
      my( $name,$desc ) = split "\t",$an;
       chomp( $JA{$name} = $desc );
      }
     close $JA;
+   }
+   if( $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ){
+    if( $re->{'CAS'} and $re->{'PRINT'} or $re->{'TAP'} ){
+     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " ### Not exist tap JA_file ###\n";
+      while( my $an = <$JA> ){
+      my( $name,$desc ) = split "\t",$an;
+       chomp( $JA{$name} = $desc );
+      }
+     close $JA;
+    }
    }
   }
  Search_1( $list,$file,0,$re );
@@ -511,9 +521,9 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my( $IN,$CIN ) = ( 0,0 );
      if(($CIN == 1 or $CIN == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
         Unic_1( $re,$data,$spa,$AN );
          Info_1( $re,$data,$spa,$AN,$HA );
-     }elsif( $CIN==3 and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/ ){
-        Unic_1( $re,$data,$spa,$AN );
-         Info_1( $re,$data,$spa,$AN,$HA );
+  #   }elsif( $CIN==3 and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/ ){
+  #     Unic_1( $re,$data,$spa,$AN );
+  #       Info_1( $re,$data,$spa,$AN,$HA );
      }elsif( $CIN == 1 and $data =~ /^\s*else/ ){
          $CIN = 4; next;
      }elsif( $CIN == 2 and $data =~ /^\s*else/ ){
@@ -1414,8 +1424,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
       $VER = $re->{'LIN'} ? 2 : eval "$OS_Version $co1 $MAC_OS{$co2}" ? 1 : 2 unless $VER;
        if(($VER == 1 or $VER == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
           $tap{"${data}uses"} .= "$name\t";
-       }elsif(($VER==1 or $VER==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
-          $tap{"${data}uses"} .= "$name\t";
+   #    }elsif(($VER==1 or $VER==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
+   #       $tap{"${data}uses"} .= "$name\t";
        }elsif( $VER == 1 and $data =~ /^\s*else/ ){
           $VER = 4; next;
        }elsif( $VER == 2 and $data =~ /^\s*else/ ){
