@@ -1,6 +1,6 @@
 google translate　Please read in the atmosphere
 
-brew list command extended version: version 1.05_3
+brew list command extended version: version 1.06
 
 : how to use
 
