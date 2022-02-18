@@ -444,7 +444,7 @@ cabal	チャットプラットフォームCabal用のデスクトップクライ
 cacher	コードスニペットオーガナイザー
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
 cajviewer	CAJクラウドリーディング
-cakebrew	Homebrew用のGUIアプリ
+cakebrew	HomebrewのGUIアプリ
 cakebrewjs	電子で書かれた自作GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
 calendar-366	イベントとリマインダーのメニューバーカレンダー
@@ -778,6 +778,7 @@ devkinsta	KinstaによるローカルWordPress開発スイート
 devolo-cockpit	構成およびネットワーク監視ソフトウェア
 devonagent	Webをより効率的に検索するのに役立つツール
 devonthink	ドキュメントの収集、整理、編集、注釈付け
+devtoys	DevToys
 devutils	開発者向けのオフラインツールボックス
 dexed	DX7FMシンセサイザー
 dhs	dylibハイジャックのスキャン
@@ -1055,7 +1056,6 @@ finereader	ドキュメントから情報を解析するためのツール
 fing	ネットワークスキャナー
 fing-cli	ネットワークスキャナー
 finicky	起動するブラウザをカスタマイズするためのユーティリティ
-finisher-voodoo	VST / AU / AAXギターエフェクトプラグイン
 firealpaca	Fire Alpaca
 firebase-admin	Firebase管理者
 firebird-emu	firebird
@@ -1537,7 +1537,7 @@ isyncer	AppleMusicプレイリストエクスポートツール
 isyncr	USBまたはWiFi接続を介してiTunesをAndroidに同期します
 itau	Itau
 itch	itch.ioのゲームクライアント
-iterm2	Appleのターミナルアプリの代替としてのターミナルエミュレータ
+iterm2	Appleターミナルアプリの代替ターミナルエミュレータ
 ithoughtsx	マインドマッピングツール
 itk-snap	3D医用画像のセグメント構造
 itools	iTools
@@ -1691,7 +1691,6 @@ knime	データサイエンスを作成および生産するためのソフト�
 knock	Knock
 knockknock	コンピューターに永続的にインストールされているものを表示するツール
 knotes	読書メモ管理ツール
-knox	Knox
 knuff	Appleプッシュ通知サービス（APN）のデバッグアプリケーション
 koa11y	ウェブサイトのアクセシビリティの問題を簡単にチェック
 koala	Koala
@@ -2327,7 +2326,7 @@ oclint	静的ソースコード分析ツール
 octomouse	OctoMouse
 odbc-manager	ODBC管理者
 odrive	クラウドストレージを統合、同期、共有、暗号化するためのツール
-offset-explorer	ApacheKafkaクラスターを管理および使用するためのGUI
+offset-explorer	Apache Kafkaクラスターを管理および使用するためのGUI
 ogdesign-eagle	すべての参照画像を1か所に整理
 okta-advanced-server-access	IDおよびアクセス管理
 old-school-runescape	Old SchoolRuneScapeのゲームクライアント
@@ -2385,6 +2384,7 @@ openrefine	乱雑なデータを操作するためのツール（以前のGoogle
 opensc	スマートカードライブラリとユーティリティ
 openscad	プログラム可能なソリッド3DCADモデラー
 opensesame	社会科学のためのグラフィカルな実験ビルダー
+openshift-client	Openshiftクライアント
 openshot-video-editor	クロスプラットフォームのビデオエディタ
 opensim	Swiftで書かれたSimPholdersのオープンソース代替
 opensong	プレゼンテーションソフトウェア
@@ -2577,7 +2577,7 @@ plistedit-pro	プロパティリストとJSONエディター
 plistedplus	Plistファイルエディタ
 plotdigitizer	機能データのスキャンされたプロットをデジタル化する
 plover	Stenotypeエンジン
-plug	The HypeMachineの音楽プレーヤー
+plug	The Hype Machineの音楽プレーヤー
 pluginval	クロスプラットフォームプラグインバリデーターおよびテスターアプリケーション
 pngyu	pngquant用のフロントエンドGUIアプリケーション
 pock	タッチバーにドックを表示するユーティリティ
@@ -3448,6 +3448,7 @@ therm	優れたデフォルトと最小限の機能を持つことを目的と�
 thetimemachinemechanic	TimeMachineログビューアとステータスインスペクタ
 thingsmacsandboxhelper	モノのヘルパーアプリケーション
 thinkorswim	thinkDesktop
+thinlinc-client	ThinLinc
 thonny	初心者のためのPythonIDE
 thonny-xxl	初心者のためのPythonIDE
 thor	アプリケーションを切り替えるユーティリティ
