@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.06\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.06_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -728,10 +728,10 @@ my( $list,$file,$in,$re ) = @_;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
-       if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/;
+       if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
         $in++; $re->{'IN'}++; $pop = 1;
     }else{
-     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}| ){
+     if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
        Mine_1( $brew_1,$re,0 )
         if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;
@@ -790,7 +790,7 @@ my( $list,$file,$in,$re ) = @_;
     $re->{'MEM'} .= "$brew_2\t$brew_3\n" if defined $brew_2;
      $re->{'MEM'} =~ s/\t/\n/ unless defined $brew_2;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
-       $re->{'AN'}++;
+       $re->{'AN'}++ if $brew_1 !~ m|==> homebrew/|;
    }
   }
  }
