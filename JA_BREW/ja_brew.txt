@@ -1457,7 +1457,7 @@ fdk-aac-encoder	libfdk-aacのコマンドラインエンコーダフロントエ
 fdroidcl	F-Droidデスクトップクライアント
 fdroidserver	F-Droid用のAndroidアプリリポジトリを作成および管理します
 fdupes	重複ファイルを特定または削除する
-feedgnuplot	コマンドラインからリアルタイムおよび保存されたデータをプロットするツール
+feedgnuplot	コマンドラインからリアルタイムおよび保存されたデータを立案するツール
 feh	X11画像ビューア
 fennel	LuaLisp言語
 feroxbuster	Rustで書かれた高速でシンプルな再帰的なコンテンツ発見ツール
@@ -1637,7 +1637,7 @@ g2o	グラフ最適化の一般的なフレームワーク
 g3log	非同期、クラッシュセーフ、使いやすいロガー
 gabedit	Gamess-US、Gaussianなどの計算化学パッケージへのGUI。
 gaffitter	ファイル/フォルダを固定サイズのボリューム（DVDなど）に効率的に適合させる
-galen	レスポンシブウェブサイトのルックアンドフィールの自動テスト
+galen	レスポンシブWebサイトのルックandフィールの自動テスト
 gallery-dl	画像ホスティングサイトのギャラリーとコレクション用のコマンドラインダウンローダー
 gambit	ゲーム理論のためのソフトウェアツール
 gambit-scheme	スキーム言語の実装
@@ -1649,7 +1649,7 @@ ganglia	拡張性のある分散監視システム
 garmintools	Garmin ForerunnerGPSユニットへのインターフェース
 gateway-go	OpenIoTHub用のGateWayクライアント
 gatsby-cli	Gatsbyコマンドラインインターフェイス
-gau	オープン脅威交換、ウェイバックマシン、およびコモンクロールURLフェッチャー
+gau	Open Threat Exchange、ウェイバックマシン、およびコモンクロールURLフェッチャー
 gauche	便利なスクリプトインタープリターとして開発されたR7RSスキームの実装
 gauge	実行可能ドキュメントをサポートするテスト自動化ツール
 gaul	遺伝的アルゴリズムユーティリティライブラリ
@@ -1666,7 +1666,7 @@ gcc@6	GNUコンパイラコレクション
 gcc@7	GNUコンパイラコレクション
 gcc@8	GNUコンパイラコレクション
 gcc@9	GNUコンパイラコレクション
-gcovr	gcovテストカバレッジプログラムからのレポート
+gcovr	gcovテストcoverageプログラムからのレポート
 gcsfuse	Google Cloudとやり取りするためのユーザースペースファイルシステム
 gcutil	Google ComputeEngineリソースを管理する
 gcviewer	Javaガベージコレクション視覚化ツール
@@ -1684,7 +1684,7 @@ gdrive	GoogleドライブCLIクライアント
 gdu	Goで記述されたコンソールインターフェイスを備えたディスク使用量アナライザ
 gdub	Gradlew/gradleラッパー
 gearman	他のマシンまたはプロセスに作業をファームアウトするためのアプリケーションフレームワーク
-geckodriver	WebDriver <-> マリオネットプロキシ
+geckodriver	WebDriver <-> Marionetteプロキシ
 gecode	制約ベースのシステムとアプリケーションを開発するためのツールキット
 gedit	GNOMEテキストエディタ
 geeqie	軽量Gtk+ベースの画像ビューア
@@ -1701,14 +1701,14 @@ genstats	stdinまたはtextfilesに関する統計を生成します
 geocode-glib	gecodingおよび逆gecoding用のGNOMEライブラリ
 geogram	幾何学的アルゴリズムのプログラミングライブラリ
 geographiclib	C++地理ライブラリ
-geoip	このライブラリは、GeoIP Legacy形式（dat）用です。
+geoip	このライブラリは、GeoIP Legacy形式（dat）です。
 geoipupdate	GeoIP2およびGeoIPレガシーデータベースの自動更新
 geomview	対話的3D表示プログラム
 geos	Geometryエンジン
 geoserver	地理空間データを共有および編集するためのJavaサーバー
 geph2	基本インターネット検閲回避システム
 geph4	全国的なフィルタリングに対処するための基本インターネット検閲回避システム
-gerbil-scheme	システムプログラミングのために設計されたスキームの意見の方言
+gerbil-scheme	システムプログラミングのために設計されたスキームの方言
 gerbv	Gerber（RS-274X）ビューア
 gerrit-tools	Gerritコードレビューを容易にするツール
 get-flash-videos	さまざまなFlashベースのWebサイトからビデオをダウンロードまたは再生します
@@ -1718,7 +1718,7 @@ getmail	POP3、IMAP4、SSLをサポートする拡張可能なメール検索シ
 gettext	GNU国際化（i18n）およびローカリゼーション（l10n）ライブラリ
 getxbook	さまざまなソースから電子書籍をダウンロードするためのツール
 gexiv2	Exiv2写真メタデータライブラリのGOb​​jectラッパー
-gflags	コマンドラインフラグを処理するためのライブラリ
+gflags	command-lineフラグを処理するためのライブラリ
 gforth	ANS Forth言語の実装
 gh	GitHubコマンドラインツール
 ghc	Glorious Glasgow Haskellコンパイルシステム
@@ -1731,11 +1731,11 @@ ghi	コマンドラインでGitHubの問題に取り組む
 ghostscript	PostScriptとPDFのインタプリタ
 ghostunnel	相互認証を備えたシンプルなSSL/TLSプロキシ
 ghq	リモートリポジトリ管理が簡単に
-ghr	複数のアーティファクトをGitHubリリースに並行してアップロードする
+ghr	複数のartifactsをGitHubリリースに並行してアップロードする
 ghz	シンプルなgRPCベンチマークおよび負荷テストツール
 ghz-web	ghzのWebインターフェイス
 gibbslda	ライブラリラッピングimlib2のコンテキストAPI
-gibo	GitHubの.gitignoreボイラープレートにアクセスする
+gibo	GitHubの.gitignore boilerplatesにアクセスする
 gif2png	GIFをPNGに変換する
 gifcap	Androidデバイスからビデオをキャプチャし、GIFを作成します
 gifify	映画をGIFに変える
@@ -1759,7 +1759,7 @@ git-bug	分散型のオフラインファーストのバグトラッカーがgit
 git-cal	GitHubのような投稿カレンダーですが、コマンドラインにあります
 git-cinnabar	リモートヘルパーをGitしてmercurialリポジトリと対話する
 git-cliff	高度にカスタマイズ可能な変更ログ発生器
-git-cola	高度にカフェイン化されたgitGUI
+git-cola	高度に高揚化されたgit GUI
 git-credential-libsecret	libsecretを介して資格情報にアクセスするためのGitヘルパー
 git-credential-manager	Visual Studio Team ServicesのGit資格情報を格納します
 git-crypt	gitリポジトリ内のファイルの透過的な暗号化/復号化を有効にする
@@ -1767,7 +1767,7 @@ git-delta	構文-gitおよびdiff出力のページャーを強調表示
 git-extras	小さなgitユーティリティ
 git-filter-repo	gitリポジトリの履歴をすばやく書き換える
 git-fixup	gitcommitのエイリアス--fixup <ref>
-git-flow	VincentDriessenの分岐モデルに従うための拡張
+git-flow	Vincent Driessenの分岐モデルに従うための拡張
 git-flow-avh	git-flowのAVHエディション
 git-fresh	gitリポジトリを最新の状態に保つためのユーティリティ
 git-ftp	Gitを利用したFTPクライアント
@@ -1779,17 +1779,17 @@ git-hound	機密データのコミットを防ぐGitプラグイン
 git-if	速度が最適化されたGlulxインタープリター
 git-imerge	gitのインクリメンタルマージ
 git-integration	git統合ブランチを管理する
-git-interactive-rebase-tool	Git対話的な基準のネイティブシーケンスエディター
+git-interactive-rebase-tool	Git対話的な基準のネイティブに続くエディター
 git-lfs	大きなファイルをバージョン管理するためのGit拡張機能
 git-multipush	1つのコマンドで複数のリモートにブランチをプッシュする
 git-now	gitの軽量で一時的なコミット
 git-number	gitでファイルを処理するために数字を使用する
 git-octopus	継続的なマージワークフロー
-git-open	ターミナルからGitHubWebページを開きます
-git-plus	Gitユーティリティ：git multi、git Relation、git old-branches、git最近
+git-open	ターミナルからGit Hub Webページを開きます
+git-plus	Gitユーティリティ：git multi、git Relation、git old-branches、git recent
 git-quick-stats	gitで統計にアクセスするためのシンプルで効率的な方法
 git-recent	最新のローカルgitブランチを参照してください。
-git-remote-codecommit	AWSCodeCommitと対話するためのGitRemote Helper
+git-remote-codecommit	AWS Code Commitと対話するためのGit Remote Helper
 git-remote-gcrypt	GPGで暗号化されたgitリモート
 git-remote-hg	GitとMercurialの間の透過的な双方向ブリッジ
 git-review	レビューのためにgitブランチをgerritに送信します
@@ -1797,16 +1797,16 @@ git-revise	簡単で効率的なメモリ内の基準と修正のための基準
 git-secret	gitリポジトリ内にプライベートデータを保存するためのBashツール
 git-secrets	機密情報をgitリポジトリにコミットすることを防ぎます
 git-series	パッチシリーズへの変更を経時的に追跡する
-git-sizer	Gitリポジトリのさまざまなサイズメトリックを計算する
+git-sizer	Gitリポジトリのさまざまなサイズmetricsを計算する
 git-ssh	SSH経由でgitリポジトリを提供するためのプロキシ
-git-standup	スタンドアップミーティングのレポートを生成するGit拡張機能
+git-standup	スタンドアップミーティングのレポートを生成するGit機能拡張
 git-subrepo	Gitサブモジュールの代替品
 git-svn	SubversionリポジトリとGit間の双方向操作
 git-svn-abandon	履歴を保持するsvnからgitへの移行
-git-test	リビジョンリスト内の個別のツリーごとにテストを実行します
+git-test	revisionリスト内の個別のツリーごとにテストを実行します
 git-tf	TFSとgitの間で変更を共有する
 git-town	Gitの高レベルのコマンドラインインターフェイス
-git-tracker	PivotalTrackerをGitワークフローに統合する
+git-tracker	Pivotal TrackerをGitワークフローに統合する
 git-trim	マージまたは削除されたgitリモートトラッキングブランチをトリミングします
 git-url-sub	複数のリポジトリの代わりにリモートURLを再帰的に使用する
 git-utils	さまざまなGitヘルパーユーティリティ
@@ -1815,27 +1815,27 @@ git-when-merged	コミットがgitでマージされた場所を見つける
 git-xargs	1つのコマンドで複数のGithubリポジトリ間で更新を行うためのCLI
 gitbackup	Bitbucket、GitHub、GitLabリポジトリをバックアップするためのツール
 gitbatch	gitリポジトリを1か所で管理する
-gitbucket	Scalaオファリングを搭載したGitプラットフォーム
+gitbucket	Scalaの提供を搭載したGitプラットフォーム
 gitfs	バージョン管理されたファイルシステム
 gitg	gitリポジトリを表示するためのGNOMEGUIクライアント
-github-keygen	ブートストラップGitHubSSH構成
+github-keygen	ブートストラップGitHub SSH構成
 github-markdown-toc	GitHub README.mdの簡単な目次作成（移動中）
 github-release	Githubでリリースを作成および編集します（およびアーティファクトをアップロードします）
-gitlab-ci-local	gitlabパイプラインをシェルエグゼキューターまたはドッカーエグゼキューターとしてローカルで実行する
+gitlab-ci-local	gitlabパイプラインをシェルexecutorまたはドッカーexecutorとしてローカルで実行する
 gitlab-gem	RubyクライアントとGitLabAPIのCLI
 gitlab-runner	公式GitLabCIランナー
 gitleaks	秘密のgitリポジトリを監査する
 gitless	gitに加えて簡素化されたバージョン管理システム
-gitlint	gitcommitメッセージのリンティング
+gitlint	git commitメッセージのLinting 
 gitmoji	コミットメッセージで絵文字を使用するための対話的コマンドラインツール
 gitql	Gitクエリ言語
 gitslave	スーパープロジェクトとして1つを使用して、関連するリポジトリのグループを作成します
 gitter-cli	端末用の非常にシンプルなGitterクライアント
-gitui	燃えるような高速ターミナル-rustで書かれたgit用のUI
+gitui	燃えるように高速なターミナルrustで書かれたgit用のUI
 gitup	複数のgitリポジトリを一度に更新する
-gitversion	Gitを使用したプロジェクトの簡単なセマンティックバージョニング
+gitversion	Gitを使用したプロジェクトの簡単な意味にversioning
 gitwatch	ファイルまたはフォルダーを監視し、変更をgitリポジトリに簡単に自動的にコミットします
-giza	カイロ上に構築されたC/Fortran用の科学プロットライブラリ
+giza	cairoに構築されたC/Fortran用の科学立案ライブラリ
 gjs	GNOMEのJavaScriptバインディング
 gkrellm	拡張可能なGTKシステム監視アプリケーション
 gl2ps	OpenGLからPostScriptへの印刷ライブラリ
@@ -1845,8 +1845,8 @@ glances	top/htopの代替品
 glassfish	JavaEEアプリケーションサーバー
 glbinding	OpenGLAPIのC++バインディング
 gleam	✨ Erlang VM用の静的に型付けされた言語
-glew	OpenGL拡張ラングラーライブラリ
-glfw	OpenGLアプリケーション用のマルチプラットフォームライブラリ
+glew	OpenGL拡張Wranglerライブラリ
+glfw	OpenGLアプリケーション用のMulti-platformライブラリ
 glib	C用のコアアプリケーションライブラリ
 glib-networking	glibのネットワーク関連モジュール
 glib-openssl	glib用のOpenSSLGIOモジュール
@@ -1857,7 +1857,7 @@ glide	簡素化されたGoプロジェクト管理、依存関係管理、およ
 glkterm	ターミナルウィンドウGlkライブラリ
 glktermw	UnicodeをサポートするターミナルウィンドウGlkライブラリ
 glm	グラフィックソフトウェア用のC++数学ライブラリ
-global	ソースコードタグシステム
+global	ソースコードtagシステム
 globe	現在点灯している地球の側面のASCIIグラフィックを印刷します
 globjects	OpenGLオブジェクトを厳密にラップするC++ライブラリ
 glog	アプリケーションレベルのログライブラリ
@@ -1866,7 +1866,7 @@ gloox	低レベルプロトコルを処理するC++ Jabber/XMPPライブラリ
 glow	CLIでマークダウンをレンダリングする
 glpk	線形および混合整数計画法のためのライブラリ
 glslang	シェーディング言語用のOpenGLおよびOpenGLESリファレンスコンパイラ
-glslviewer	GLSLシェーダーをレンダリングするライブコーディングコンソールツール
+glslviewer	GLSLシェーダーをレンダリングするLive-codingコンソールツール
 glui	C++ユーザーインターフェイスライブラリ
 glulxe	ZマシンのようなポータブルVM
 gluon	Rustで記述された静的な型推論および埋め込み可能な言語
@@ -1877,8 +1877,8 @@ gmic	画像処理のためのフル機能のオープンソースフレームワ
 gmime	MIMEメールユーティリティ
 gmp	GNU多精度算術ライブラリ
 gmsh	CADエンジンを備えた3D有限要素グリッド発生器
-gmt	地理データとデカルトデータを操作およびプロットするためのツール
-gmt@5	地理データとデカルトデータを操作およびプロットするためのツール
+gmt	地理データとCartesianデータを操作および立案するためのツール
+gmt@5	地理データとCartesianデータを操作および立案するためのツール
 gnirehtet	Android用リバーステザリングツール
 gnome-autoar	アーカイブ処理用のGNOMEライブラリ
 gnome-common	GNOMEのコアファイル
@@ -1916,8 +1916,8 @@ gnustep-make	基本的なGNUstepMakefile
 gnutls	GNUトランスポート層セキュリティ（TLS）ライブラリ
 go	シンプルで信頼性が高く効率的なソフトウェアを構築するためのオープンソースプログラミング言語
 go-bindata	任意のファイルからGoコードを生成する小さなユーティリティ
-go-boring	BoringCryptoでプログラミング言語に移行する
-go-critic	意見のあるGoソースコードリンター
+go-boring	BoringCryptoでGoプログラミング言語に移行する
+go-critic	意見のあるGoソースコードlinter
 go-jira	Goのシンプルなjiraコマンドラインクライアント
 go-jsonnet	JSONデータを定義するための構成言語の実装に移動します
 go-md2man	マークダウンをroffに変換します（manページ）
@@ -1929,12 +1929,12 @@ go@1.16	Goプログラミング環境（1.16）
 goaccess	Apache Webサーバー用のログアナライザーと対話的ビューアー
 goad	Goに組み込まれたAWSLambdaを利用した、高度に分散された負荷テストツール
 goawk	Goで記述されたPOSIX準拠のAWKインタープリター
-gobject-introspection	GObjectライブラリのイントロスペクションデータを生成する
+gobject-introspection	GObjectライブラリの内観的データを生成する
 gobo	無料でポータブルなEiffelツールとライブラリ
-gobuster	Goで書かれたディレクトリ/ファイルとDNSバスティングツール
+gobuster	Goで書かれたディレクトリ/ファイルとDNS bustingツール
 gocloc	少し速いLoCカウンター
 gocr	光学式文字認識（OCR）、画像をテキストに変換します
-gocryptfs	Goで記述された暗号化されたオーバーレイファイルシステム
+gocryptfs	Goで記述された暗号化され隠されたファイルシステム
 goenv	バージョン管理に行く
 gofabric8	KubernetesまたはOpenShiftで実行されているfabric8のCLI
 goffice	数値スプレッドシートプログラム
@@ -1943,22 +1943,22 @@ gofumpt	より厳格なgofmt
 gojq	jqのPureGo実装
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goの高速リンターランナー
-gollum	n：mメッセージマルチプレクサに移動
+gollum	Go n：mメッセージ multiplexer
 golo	JVM用の軽量動的言語
 gom	SQLiteのGObjectラッパー
-gomodifytags	ツールに移動して構造体フィールドタグを変更します
+gomodifytags	Goツール。構造体フィールドタグを変更します
 gomplate	コマンドラインGolangテンプレートプロセッサ
 goocanvas	描画にCairo2Dライブラリを使用するGTK+用のキャンバスウィジェット
 goofys	Filey-Amazon S3へのシステムインターフェース
 google-authenticator-libpam	二要素認証用のPAMモジュール
-google-benchmark	C++マイクロベンチマークサポートライブラリ
+google-benchmark	C++マイクロベンチマークsupportライブラリ
 google-java-format	Google Javaスタイルに準拠するようにJavaソースコードを再フォーマットします
 google-sparsehash	非常にメモリ効率の高いhash_mapの実装
 google-sql-tool	一般的なSQLステートメントを実行するためのコマンドラインツール
 googler	コマンドラインからのGoogle検索とニュース
 googletest	Googleテストおよびモックフレームワーク
 goolabs	日本語を形態学的に分析するためのコマンドラインツール
-goose	データベース移行のためのGoLanguageのコマンドラインインターフェース
+goose	データベース移行のためのGo Languageのコマンドラインインターフェース
 gopass	チーム向けのもう少し素晴らしい標準Unixパスワードマネージャー
 gopass-jsonapi	Gopassブラウザバインディング
 gopls	Go言語用の言語サーバー
@@ -1967,15 +1967,15 @@ goproxy	Goモジュールのグローバルプロキシ
 gor	Goで記述されたリアルタイムHTTPトラフィック再生ツール
 goredo	djbのREDOの実装に移行します。これは、吸う量が少ないMakefileの代替品です。
 goreleaser	Goバイナリをできるだけ速く簡単に配信する
-goreman	Goで書かれたフォアマンクローン
+goreman	Goで書かれたForemanクローン
 gosec	Golangセキュリティチェッカー
-gost	GO SimpleTunnel-golangで書かれた単純なトンネル
+gost	GO Simple Tunnel-golangで書かれた単純なtunnel
 gostatic	高速静的サイト発生器
 gosu	JVMの語用論言語
 gotags	Go用のタグ発生器、ctagsと互換性があります
-gotests	ソースコードからGoテストボイラープレートを自動的に生成する
+gotests	ソースコードからGoテストboilerplateを自動的に生成する
 gotify	メッセージをgotify/serverにプッシュするためのコマンドラインインターフェイス
-goto	オートコンプリートを使用してエイリアスディレクトリに移動するためのBashツール
+goto	オートコンプリートを使用してaliasディレクトリに移動するためのBashツール
 gotop	gtopとvtopに触発されたターミナルベースのグラフィカルアクティビティモニター
 gource	バージョン管理視覚化ツール
 govc	VMwarevSphere用のコマンドラインツール
@@ -1987,7 +1987,7 @@ gpac	研究および学術目的のマルチメディアフレームワーク
 gpatch	オリジナルにdiffファイルを適用します
 gpcslots2	カジノテキストコンソールゲーム
 gperf	完璧なハッシュ関数発生器
-gperftools	マルチスレッドのmalloc（）およびパフォーマンス分析ツール
+gperftools	マルチスレッドのmalloc() およびパフォーマンス分析ツール
 gpg-tui	GnuPGキーを簡単に管理できます！ 🔐
 gpgme	GnuPGへのライブラリアクセス
 gphoto2	libgphoto2へのコマンドラインインターフェイス
@@ -2003,23 +2003,23 @@ gpsim	マイクロチップのPICマイクロコントローラー用のシミ�
 gptfdisk	テキストモードのパーティション分割ツール
 gptsync	GPTおよびMBRパーティションテーブル同期ツール
 gputils	GNUPICユーティリティ
-gpx	Sailfishを実行している3Dプリンター用のGcodeからx3gへのコンバーター
+gpx	Sailfishを実行している3DプリンターのGcodeからx3gへのコンバーター
 gqlplus	OracleSQLクライアントであるsqlplusのドロップイン置換
 gqview	画像ブラウザ
-grace	X11用のWYSIWYG2Dプロットツール
+grace	X11用のWYSIWYG2D立案ツール
 gradio	インターネットラジオ局を見つけて聞くためのGTK3アプリ
 gradle	GroovyおよびKotlinDSLに基づくオープンソースのビルド自動化ツール
 gradle-completion	GradleのBashとZshの補完
 gradle-profiler	Gradleビルド用のプロファイリングおよびベンチマークツール
 gradle@6	GroovyおよびKotlinDSLに基づくオープンソースのビルド自動化ツール
-grafana	時系列データベース用のゴージャスなメトリックの視覚化とダッシュボード
-grafana-agent	Prometheusメトリック、Lokiログ、およびテンポトレースのエクスポーター
+grafana	時系列データベース用のゴージャスなmetricの視覚化とダッシュボード
+grafana-agent	Prometheus metric、Lokiログ、およびテンポトレースのエクスポーター
 grails	Groovy言語用のWebアプリケーションフレームワーク
 grap	グラフを植字するための言語
 graph-tool	Python3の効率的なネットワーク分析
 graphene	グラフィックデータ型の薄層
 graphicsmagick	画像処理ツールコレクション
-graphite2	ローマ字以外のスクリプト用のスマートフォントレンダラー
+graphite2	 non-Romanスクリプトのスマートフォントrenderer
 graphql-cli	一般的なGraphQL開発ワークフロー用のコマンドラインツール
 graphqurl	オートコンプリート、サブスクリプション、GraphiQLを使用したGraphQLのカール
 graphviz	AT＆Tおよびベル研究所のグラフ視覚化ソフトウェア
@@ -2047,7 +2047,7 @@ groovyserv	Groovyの起動時間を短縮する
 growly	コマンド出力をgrowl通知にリダイレクトします
 grpc	次世代のオープンソースRPCライブラリとフレームワーク
 grpc-swift	gRPCのSwift言語実装
-grpcui	郵便配達員の方針に沿ったgRPCの対話的Web UI
+grpcui	postmanの方針に沿ったgRPCの対話的Web UI
 grpcurl	cURLと同様ですが、gRPC用です
 grsync	rsyncのGUI
 grt	リアルタイムの機械学習のためのジェスチャ認識ツールキット
@@ -2059,10 +2059,10 @@ gsasl	SASLライブラリのコマンドラインインターフェイス
 gsettings-desktop-schemas	デスクトップコンポーネントのGSettingsスキーマ
 gsl	CおよびC++用の数値ライブラリ
 gsmartcontrol	smartctlのグラフィカルユーザーインターフェイス
-gsoap	CおよびC++用のSOAPスタブおよびスケルトンコンパイラ
+gsoap	CおよびC++用のSOAP stubおよび骨格コンパイラ
 gspell	GTK+アプリケーションにスペルチェックを実装するための柔軟なAPI
 gssdp	SSDPを介したリソースの検出とアナウンスのためのGUPnPライブラリ
-gssh	GroovyDSLに基づくSSH自動化ツール
+gssh	Groovy DSLに基づくSSH自動化ツール
 gst-devtools	GStreamer開発および検証ツール
 gst-editing-services	GStreamer編集サービス
 gst-libav	Libav用のGStreamerプラグイン（FFmpegのフォーク）
@@ -2093,24 +2093,24 @@ gtksourceview	構文、元に戻る/やり直し、およびテキストマー�
 gtksourceview3	構文、元に戻る/やり直し、およびテキストマークを含むテキストビュー
 gtksourceview4	構文、元に戻る/やり直し、およびテキストマークを含むテキストビュー
 gtksourceview5	構文、元に戻る/やり直し、およびテキストマークを含むテキストビュー
-gtksourceviewmm	gtksourceviewのC++バインディング
-gtksourceviewmm3	gtksourceview3のC++バインディング
+gtksourceviewmm	gtksourceviewのC++ bindings
+gtksourceviewmm3	gtksourceview3のC++ bindings
 gtkspell3	スペルミスのある単語を強調表示して置き換えるためのGtkウィジェット
 gtmess	コンソールMSNメッセンジャークライアント
 gtop	ターミナルのシステム監視ダッシュボード
 gtranslator	GNOME gettextPOファイルエディタ
-gts	GNU三角測量サーフェスライブラリ
+gts	GNU三角測量surfaceライブラリ
 gucharmap	Unicode文字データベースに基づくGNOME文字マップ
 guetzli	知覚JPEGエンコーダ
 guichan	ゲーム用に設計された小さくて効率的なC++ GUIライブラリ
-guile	拡張機能のためのGNUユビキタスインテリジェント言語
-guile@2	拡張機能のためのGNUユビキタスインテリジェント言語
+guile	拡張機能のためのGNU Ubiquitousインテリジェント言語
+guile@2	拡張機能のためのGNU Ubiquitousインテリジェント言語
 gulp-cli	Gulpのコマンドラインユーティリティ
 gumbo-parser	HTML5を解析するためのC99ライブラリ
 gupnp	UPnPデバイスとコントロールポイントを作成するためのフレームワーク
 gupnp-av	UPnP A/Vプロファイルの実装に役立つライブラリ
 gupnp-tools	IntelのUPnPツールの無料交換
-gvp	バージョニングパッケージャーに行く
+gvp	Go バージョニングパッケージャー
 gwenhywfar	aqbankingおよび関連ソフトウェアに必要なユーティリティライブラリ
 gws	gitリポジトリで構成されるワークスペースを管理する
 gwt	Google Webツールキット
@@ -4033,7 +4033,7 @@ pam_yubico	Yubicoプラガブル認証モジュール
 pandoc	マークアップ形式変換のスイス アーミーナイフ
 pandoc-crossref	番号付けと相互参照のためのPandocフィルター
 pandoc-include-code	ソースファイルからのコードを含めるためのPandocフィルター
-pandoc-plot	多くのプロットツールキットを使用して、Pandocドキュメントに図をレンダリングして含めます
+pandoc-plot	多くの立案ツールキットを使用して、Pandocドキュメントに図をレンダリングして含めます
 pandocomatic	pandocの使用を自動化する
 pango	i18nテキストのレイアウトとレンダリングのためのフレームワーク
 pangomm	PangoへのC++インターフェース
@@ -4221,11 +4221,11 @@ platformio	組み込み開発のためのプロフェッショナルなコラボ
 platypus	{Perl、Ruby、sh、Python}スクリプトからmacOSアプリケーションを作成する
 plenv	Perlバイナリマネージャー
 plod	あなたが取り組んでいることのオンラインジャーナルを保管してください
-ploticus	スクリプト可能なプロットおよびグラフ作成ユーティリティ
+ploticus	スクリプト可能な立案およびグラフ作成ユーティリティ
 plotutils	2次元ベクトルグラフィックをエクスポートするためのC/C++関数ライブラリ
 plow	HTTPベンチマークツールを表示する高性能でリアルタイムのメトリック
 plowshare	人気のあるファイル共有ウェブサイト用のダウンロード/アップロードツール
-plplot	科学的なプロットを作成するためのクロスプラットフォームソフトウェアパッケージ
+plplot	科学的な立案を作成するためのクロスプラットフォームソフトウェアパッケージ
 plustache	MustacheテンプレートシステムのC++ポート
 plzip	データコンプレッサー
 pmccabe	C/C++コードのマッケイブスタイルの循環的複雑度を計算します
@@ -5425,7 +5425,7 @@ tty-share	インターネットを介した端末共有
 tty-solitaire	Ncursesベースのklondikeソリティアゲーム
 ttyd	Web上で端末を共有するためのコマンドラインツール
 ttygif	ttyrecファイルをgifファイルに変換します
-ttyplot	stdinからのデータ入力を使用した端末のリアルタイムプロットユーティリティ
+ttyplot	stdinからのデータ入力を使用した端末のリアルタイム立案ユーティリティ
 ttyrec	ターミナルインタラクションレコーダーとプレーヤー
 tundra	インクリメンタルビルドを高速化しようとするコードビルドシステム
 tunnel	ローカルサーバーをインターネットに安全に公開する
