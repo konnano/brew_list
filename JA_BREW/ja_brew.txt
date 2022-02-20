@@ -198,7 +198,7 @@ arx-libertatis	ArxFatalisのクロスプラットフォームのオープンソ�
 as-tree	パスのリストをパスのツリーとして印刷する 🌳
 ascii	ASCIIイディオム名と 8進数/10進数 のコードポイント形式を一覧表示します
 ascii2binary	テキストをバイナリに変換して戻す
-asciidoc	多数のテキストファイルのフォーマット　フォーマット/翻訳
+asciidoc	多数のテキストファイルのフォーマット フォーマット/翻訳
 asciidoctor	AsciiDocのテキスト計算機と出版用toolchain
 asciidoctorj	AsciidoctorのJavaラッパーとbindings
 asciinema	ターミナルセッションの記録と共有
@@ -334,7 +334,7 @@ bartycrouch	Stringsファイルを段階的に 更新/翻訳 します
 bas55	ECMA-55で定義されている最低限のBASICプログラミング言語解釈プログラム
 base64	base64ファイルのエンコードとデコード
 base91	base91ファイルをエンコードおよびデコードするユーティリティ
-basex	軽量XMLデータベース計算機　XPath/XQuery
+basex	軽量XMLデータベース計算機 XPath/XQuery
 bash	Bourne-UNIXコマンド解釈プログラムであるSHell
 bash-completion	Bash3.2のプログラム可能な補完
 bash-completion@2	Bash4.2以降のプログラム可能な補完
@@ -637,7 +637,7 @@ cdpr	Cisco Discovery Protocol Reporter
 cdrdao	Disk-At-OnceモードでCDを録音する
 cdrtools	CD/DVD/Blu-ray プリマスタリングおよびレコーディングソフトウェア
 cedille	従属ラムダ除去の計算に基づく言語
-celero	C++オーサリング基準比較　Library/Framework
+celero	C++オーサリング基準比較 Library/Framework
 center-im	テキストモードのmulti-protocol即時メッセージング クライアント
 cereal	C++11順番化用ライブラリ
 ceres-solver	大規模な最適化のためのC++ライブラリ
@@ -1105,7 +1105,7 @@ diff-pdf	2つのPDFファイルを視覚的に比較します
 diff-so-fancy	diff-highlightなどを使用した見栄えの良いdiff
 diffoscope	ファイル、アーカイブ、およびディレクトリの詳細な比較
 diffr	端末からのコードレビューを容易にするLCSベースのdiffハイライトツール
-diffstat	差分ファイルによって導入された変更のグラフ​​を作成します
+diffstat	差分ファイルによって導入された変更のグラフを作成します
 diffutils	ファイル比較ユーティリティ
 digdag	ワークロード自動化システム
 digitemp	1線式ネットで温度センサーを読み取る
@@ -1233,7 +1233,7 @@ dtm	クロスランゲージ分散処理マネージャー
 dua-cli	ディスクスペースの使用状況を表示し、不要なデータをすばやく削除します
 dub	Dプロジェクト用のビルドツール
 duc	ディスク使用量を検査するためのツールスイート
-duck	Cyber​​duck(multi-protocolファイル転送ツール)のコマンドラインインターフェイス
+duck	Cyberduck(multi-protocolファイル転送ツール)のコマンドラインインターフェイス
 duckdb	埋め込み可能なSQLOLAPデータベース管理システム
 duckscript	シンプルで拡張可能で埋め込み可能なスクリプト言語
 duf	ディスク 使用量/空き ユーティリティ- より優れた「df」代替品
@@ -1507,7 +1507,7 @@ flac123	FLACオーディオファイルを再生するためのコマンドラ�
 flactag	シングルアルバムのFLACファイルにMusicBrainzCUEシートのタグを付ける
 flake	FLACオーディオエンコーダ
 flake8	Pythonコードにスタイルと論理エラーがないかリントする
-flamebearer	V8およびノー​​ド用の非常に高速なフレームグラフツール
+flamebearer	V8およびノード用の非常に高速なフレームグラフツール
 flamegraph	スタックトレースvisualizer
 flank	Firebase TestLab用のAndroidとiOSの超並列テストランナー
 flann	ほぼ正確に近い同種の速いライブラリ
@@ -1718,7 +1718,7 @@ getdns	最新の非同期DNS API
 getmail	POP3、IMAP4、SSLをサポートする拡張可能なメール検索システム
 gettext	GNU国際化(i18n)およびローカリゼーション(l10n)ライブラリ
 getxbook	さまざまなソースから電子書籍をダウンロードするためのツール
-gexiv2	Exiv2写真メタデータライブラリのGOb​​jectラッパー
+gexiv2	Exiv2写真メタデータライブラリのGObjectラッパー
 gflags	command-lineフラグを処理するためのライブラリ
 gforth	ANS Forth言語の実装
 gh	GitHubコマンドラインツール
@@ -1961,7 +1961,7 @@ googletest	Googleテストおよび模擬フレームワーク
 goolabs	日本語を形態学的に分析するためのコマンドラインツール
 goose	データベース移行のためのGo Languageのコマンドラインインターフェース
 gopass	チーム向けのもう少し素晴らしい標準Unixパスワードマネージャー
-gopass-jsonapi	Gopassブラウザ　bindings
+gopass-jsonapi	Gopassブラウザbindings
 gopls	Go言語の言語サーバー
 goplus	エンジニアリング、STEM教育、およびデータサイエンスのためのプログラミング言語
 goproxy	Goモジュールのグローバルプロキシ
@@ -2038,7 +2038,7 @@ grip	GitHubMarkdownプレビューア
 groff	GNUtroffテキストフォーマットシステム
 grok	正規表現の場合はDRYとRAD、次にいくつか
 grokj2k	JPEG2000ライブラリ
-grokmirror	gitリポジトリをスマートにミラ​​ーリングするフレームワーク
+grokmirror	gitリポジトリをスマートにミラーリングするフレームワーク
 gromacs	分子動力学計算のための多用途パッケージ
 gron	JSONをgreppableにする
 groonga	全文検索エンジンと列store
@@ -2826,7 +2826,7 @@ libflowmanager	パケットベースの入力によるFlow-basedの測定タス�
 libfontenc	X.Org：フォントエンコーディングライブラリ
 libforensic1394	IEEE 1394( "FireWire")インターフェースを介したライブメモリフォレンジック
 libfreefare	MIFAREカード操作用のAPI
-libfreehand	Aldus/Macromedia/Adob​​eFreeHand ドキュメントの解釈とインポート
+libfreehand	Aldus/Macromedia/AdobeFreeHand ドキュメントの解釈とインポート
 libfreenect	XboxKinectデバイスのドライバーとライブラリ
 libfs	X.Org：Xフォントサービスクライアントライブラリ
 libftdi	FTDIチップと通信するライブラリ
@@ -2969,7 +2969,7 @@ libosmium	OpenStreetMapデータを操作するための高速で柔軟なC++ラ
 libotr	オフレコ(OTR)メッセージングライブラリ
 libowfat	libdjbを再実装します
 libp11	CのPKCS＃11ラッパーライブラリ
-libpagemaker	Aldus/Adob​​e PageMakerドキュメントのファイル形式をインポートします
+libpagemaker	Aldus/Adobe PageMakerドキュメントのファイル形式をインポートします
 libpano	重なり合う画像のセットからパノラマ画像を作成する
 libpcap	ネットワーク転送量キャプチャ用のポータブルライブラリ
 libpciaccess	汎用PCIアクセスライブラリ
@@ -3025,7 +3025,7 @@ libsbol	Synthetic Biology Open Language(SBOL)でのファイルの読み取り�
 libscrypt	scryptのライブラリ
 libseccomp	Linuxカーネルのsyscall filteringメカニズムへのインターフェース
 libsecret	パスワードや秘密鍵を 保存/取得 するためのライブラリ
-libserdes	Avro + Confluent SchemaRegistryのスキーマ　ser/deserializer lib
+libserdes	Avro + Confluent SchemaRegistryのスキーマ ser/deserializer lib
 libserialport	クロスプラットフォームの連番ポートCライブラリ
 libshout	Icecastサーバーのデータおよび接続ライブラリ
 libsigc++	C++のCallbackフレームワーク
@@ -3189,8 +3189,8 @@ linkerd	linkerdと対話するためのコマンドラインユーティリテ�
 linklint	リンクチェッカーとWebサイトのメンテナンスツール
 links	テーブルやメニューなどをサポートするLynxのようなWWWブラウザ。
 linode-cli	LinodeAPIのCLI
-linux-headers@4.15	Linuxカーネルのヘッ​​ダーファイル
-linux-headers@4.4	Linuxカーネルのヘッ​​ダーファイル
+linux-headers@4.15	Linuxカーネルのヘッダーファイル
+linux-headers@4.4	Linuxカーネルのヘッダーファイル
 linux-headers@5.16	Linuxカーネルのヘッダーファイル
 linux-pam	Linuxのプラグ可能な認証モジュール
 liqoctl	Liqo対応クラスターをインストールおよび管理するためのCLIツールです
@@ -3309,7 +3309,7 @@ magic-wormhole	コンピュータ間で安全にデータを転送します
 magic_enum	最新のC++の列挙型(文字列へ、文字列から、反復へ)の静的リフレクション
 mahout	拡張性のある機械学習ライブラリの構築に役立つライブラリ
 mailcatcher	メールをキャッチし、夢を通して提供します
-mailcheck	多用なメールを確認してください　メールボックス/maildir
+mailcheck	多用なメールを確認してください メールボックス/maildir
 mailhog	WebおよびAPIベースのSMTPテストツール
 mailutils	メール処理の万能ナイフ
 mairix	メールインデックスと検索ツール
@@ -3353,7 +3353,7 @@ massren	テキストエディタを使用して複数のファイルの名前を
 mat2	メタデータ匿名化ツールキット
 math-comp	Coq証明アシスタントの数学コンポーネント
 mathlibtools	Lean証明者mathlibサポートツール
-matlab2tikz	MATLAB(R)の数値を　TikZ/Pgfplots の数値に変換します
+matlab2tikz	MATLAB(R)の数値を TikZ/Pgfplots の数値に変換します
 matplotplusplus	データ視覚化のためのC++グラフィックライブラリ
 matterbridge	複数のチャットプラットフォームの手続きブリッジ
 maturin	Rustの木枠をPythonパッケージとしてビルドして公開する
@@ -3450,7 +3450,7 @@ minetest	無料のオープンソースvoxelゲームエンジンとゲーム
 mingw-w64	必要最低限のGNU for WindowsおよびGCCクロスコンパイラー
 minica	小さくてシンプルな認証局
 minicom	メニュー方式のコミュニケーションプログラム
-minidjvu	DjVuマルチページエンコーダー、シングルページ　エンコーダー/デコーダー
+minidjvu	DjVuマルチページエンコーダー、シングルページエンコーダー/デコーダー
 minidlna	DLNA/UPnP-AV クライアントに準拠したメディアサーバーソフトウェア
 minikube	Kubernetesクラスターをローカルで実行する
 minimal-racket	Lisp/Scheme familyの最新のプログラミング言語
@@ -3603,7 +3603,7 @@ msmtp	MuttのSMTPプラグインとして使用できるSMTPクライアント
 mspdebug	MSP430 MCUで使用するデバッガー
 mstch	最新のC++を使用した{{mustache}}テンプレートの完全な実装
 mt32emu	Multi-platformソフトウェアシンセサイザー
-mtoc	Mach-Oから　PE/COFF へのバイナリ変換器
+mtoc	Mach-Oから PE/COFF へのバイナリ変換器
 mtools	MSDOSファイルを操作するためのツール
 mtr	単一のツールでの'traceroute'と'ping'
 mu	maildir形式で保存された電子メールメッセージを検索するためのツール
@@ -3867,7 +3867,7 @@ olsrd	最適化されたリンク状態設定手続きの実装
 omake	拡張性、移植性、および簡潔さのために設計されたシステムを構築する
 omega	Xapian上に構築されたウェブサイトのパッケージ検索エンジン
 omega-rpg	古典的なRoguelikeゲーム
-omniorb	omn​​iORBのIORおよびネーミングサービスユーティリティ
+omniorb	omniORBのIORおよびネーミングサービスユーティリティ
 ompl	Open Motion Planningライブラリは、多くの動作計画アルゴリズムで構成されています
 ondir	ディレクトリを横切るときにスクリプトを自動的に実行する
 one-ml	MLを再起動し、コア層と(現在はファーストクラスの)モジュール層を統合します
@@ -5327,7 +5327,7 @@ tintin	MUDクライアント
 tiny-fugue	プログラム可能なMUDクライアント
 tinycdb	定数データベースの作成と読み取り
 tinyproxy	POSIXシステム用のHTTP/HTTPSプロキシ
-tinysvm	パターン認識のためのサポート　ベクターマシンライブラリ
+tinysvm	パターン認識のためのサポート ベクターマシンライブラリ
 tinyxml	XMLパーサー
 tinyxml2	改善されたtinyxml(メモリ効率とサイズ)
 tio	シンプルなTTY端末I/Oアプリケーション
@@ -5731,7 +5731,7 @@ woof	アドホック単一ファイルWebサーバー
 wordgrinder	端末で実行されるUnicode対応のワード計算機
 wordnet	英語の語彙データベース
 wordplay	アナグラム発生器
-wownero	Wownero暗号通貨の公式ウォレットおよびノー​​ドソフトウェア
+wownero	Wownero暗号通貨の公式ウォレットおよびノードソフトウェア
 wp-cli	WordPressのコマンドラインインターフェイス
 wp-cli-completion	WpcliのBash補完
 wput	ファイルをアップロードするための小さなwgetのようなFTPクライアント
