@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.06_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.06_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -315,7 +315,7 @@ my( $re,$list,%HA,@AN ) = @_;
 
 sub Uses_1{
 my( $re,$tap,$HA,$AN ) = @_;
- my @tap = $tap =~ /\t/ ? split '\t',$tap : $tap;
+ my @tap = $tap =~ /\t/ ? split '\t',$tap : $tap;  ### Useless use of private variable in void context
   for my $ls(@tap){
    $HA->{$ls}++;
     push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
@@ -697,9 +697,9 @@ my( $re,$ls1,$ls2 ) = @_;
 sub Search_1{ no warnings 'regexp';
 my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
-  my( $brew_1,$brew_2,$brew_3 ) = $file->[$i] =~ /\t/ ? split '\t',$file->[$i] : $file->[$i];
+  my( $brew_1,$brew_2,$brew_3 ) = split '\t',$file->[$i];
    next if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
-    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
+    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
@@ -1195,12 +1195,12 @@ perl<<"EOF"
     @file3 = sort{$a cmp $b}@file3;
 
    ( $i1 and $i2 and $i3 ) ? push @file,"#\n",@file1,@file2,@file3 :
-   ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,"0\n",@file1,"1\n",@file2 :
-   ( $i1 and $i3 ) ? push @file,"4\n1\n",@file2,"0\n",@file1,"2\n",@file3 :
-   ( $i2 and $i3 ) ? push @file,"5\n0\n",@file1,"1\n",@file2,"2\n",@file3 :
-    $i1 ? push @file,"6\n1\n",@file2,"2\n",@file3,"0\n",@file1 :
-    $i2 ? push @file,"7\n0\n",@file1,"2\n",@file3,"1\n",@file2 :
-    $i3 ? push @file,"8\n0\n",@file1,"1\n",@file2,"2\n",@file3 :
+   ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,@file1,@file2 :
+   ( $i1 and $i3 ) ? push @file,"4\n1\n",@file2,@file1,@file3 :
+   ( $i2 and $i3 ) ? push @file,"5\n0\n",@file1,@file2,@file3 :
+    $i1 ? push @file,"6\n1\n",@file2,"2\n",@file3,@file1 :
+    $i2 ? push @file,"7\n0\n",@file1,"2\n",@file3,@file2 :
+    $i3 ? push @file,"8\n0\n",@file1,"1\n",@file2,@file3 :
           push @file,"9\n0\n",@file1,"1\n",@file2,"2\n",@file3;
 
     open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
