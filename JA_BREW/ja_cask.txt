@@ -1371,6 +1371,7 @@ helium	Helium
 helo	メールテスターとデバッガー
 hermes	Hermes
 hermit-crab	現在のアプリを離れずにシェルコマンドを実行する
+heroic	オープンソースゲームランチャー
 hex-fiend	速度に焦点を当てた16進エディタ
 hey	HEYメールサービスにアクセスする
 hfsleuth	HFSleuth
@@ -1775,7 +1776,6 @@ lightkey	DMX照明制御
 lightproxy	Chrome DevtoolsUIを使用したホイッスルに基づくプロキシおよびデバッグツール
 lighttable	IDE
 lightworks	完全なビデオ作成パッケージ
-lilypond	音楽彫刻プログラム
 lincastor	リンクを開くときにWebブラウザを選択する
 line-bot-designer	プロトタイプLINEボット
 linear	Web開発を念頭に置いた定規アプリ
@@ -2193,6 +2193,7 @@ mysql-connector-python	MySQLサーバーと通信するための自己完結型�
 mysql-shell	インタラクティブなJavaScript、PythonまたはSQLインターフェース
 mysql-utilities	MySQLユーティリティ
 mysqlworkbench	MySQLサーバーを設計、開発、管理するためのビジュアルツール
+mysteriumvpn	VPNクライアント
 n1ghtshade	32ビットiOSデバイスのダウングレード/ジェイルブレイクを許可します
 nagbar	Nagios、Icinga/2、Thrukのステータスバーモニター
 nagstamon	Nagiosステータスモニター
