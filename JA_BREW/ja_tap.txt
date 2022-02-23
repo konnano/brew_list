@@ -71,8 +71,13 @@ font-andron-scriptor-web	Andron Scriptor Web
 font-anek-bangla	Anek Bangla
 font-anek-devanagari	Anek Devanagari
 font-anek-gujarati	Anek Gujarati
+font-anek-gurmukhi	Anek Gurmukhi
+font-anek-kannada	Anek Kannada
+font-anek-latin	Anek Latin
+font-anek-malayalam	Anek Malayalam
 font-anek-odia	Anek Odia
 font-anek-tamil	Anek Tamil
+font-anek-telugu	Anek Telugu
 font-angkor	Angkor
 font-anka-coder	Anka/Coder
 font-annie-use-your-telescope	Annie Use Your Telescope
@@ -610,7 +615,7 @@ font-gupter	Gupter
 font-gurajada	Gurajada
 font-gwendolyn	Gwendolyn
 font-habibi	Habibi
-font-hachi-maru-pop	手書き風フォント
+font-hachi-maru-pop	手書きフォント
 font-hack	Hack
 font-hack-nerd-font	Hackオタクフォント（Hack）
 font-hackgen	HackとGenJyuu-Gothicで構成される日本語プログラミングフォント
@@ -928,6 +933,8 @@ font-lusitana	Lusitana
 font-lustria	Lustria
 font-luxurious-roman	一貫性のないセリフを含む半手書きフォント
 font-luxurious-script	豪華なスクリプト
+font-lxgw-new-clear-gothic	IPAexゴシックから派生した簡体字中国語のsans-serifフォント
+font-lxgw-wenkai	FontworksのKleeOneから派生したオープンソースの中国語フォント
 font-m-plus-1	M PLUS 1
 font-m-plus-1-code	M PLUS 1 Code
 font-m-plus-2	M PLUS 2
@@ -1504,6 +1511,7 @@ font-roboto-flex	Roboto Flex
 font-roboto-mono	Roboto Mono
 font-roboto-mono-for-powerline	Roboto Mono for Powerline
 font-roboto-mono-nerd-font	RobotoMonoオタクフォント（RobotoMono）
+font-roboto-serif	印刷媒体での読み取りと作業も同様に快適です
 font-roboto-slab	Roboto Slab
 font-rochester	Rochester
 font-rock-3d	Rock 3D
@@ -1793,7 +1801,7 @@ font-vollkorn-sc	Vollkorn SC
 font-voltaire	Voltaire
 font-vt323	VT323
 font-vujahday-script	Vujahday Script
-font-waiting-for-the-sunrise	Waiting for the Sunrise
+font-waiting-for-the-sunrise	日の出を待っています
 font-wallpoet	Wallpoet
 font-walter-turncoat	Walter Turncoat
 font-waptia	Ancient-biology スタイルのフォント
@@ -1842,8 +1850,8 @@ font-zen-old-mincho	テキストの使用を目的としており、大きなサ
 font-zen-tokyo-zoo	Zen 東京 Zoo
 font-zeyada	Zeyada
 font-zhi-mang-xing	Zhi Mang Xing
+font-zhudou-sans	NotoSansから派生したCJK記号と句読点
 font-zilla-slab	Zilla Slab
-font-zilla-slab-highlight	Zilla Slab Highlight
 font-zilla-slab-highlight	Zilla Slab Highlight
 1kc-razer	Razerデバイス用のオープンソースカラーエフェクトマネージャー
 3dconnexion	3DxWareドライバー
@@ -2051,8 +2059,8 @@ yubico-yubikey-manager	YubiKeyを設定するためのアプリケーション
 yubico-yubikey-personalization-gui	YubiKeyツール
 yubico-yubikey-piv-manager	PIV対応のYubiKeyを設定するためのアプリケーション
 zsa-wally	ZSAキーボード用のフラッシュツール
-zsa-wally	ZSAキーボード用のフラッシュツール
 1password-beta	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
+1password-cli-beta	1Passwordパスワードマネージャーのコマンドラインヘルパー
 1password6	1Password
 ableton-live-intro10	サウンドと音楽のエディター
 ableton-live-lite10	サウンドと音楽のエディター
