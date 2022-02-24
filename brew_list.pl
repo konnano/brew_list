@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.06_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.06_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -699,7 +699,7 @@ my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split '\t',$file->[$i];
    next if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
-    my $mem = ( $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ? 1 : 0;
+    my $mem = ( $re->{'L_OPT'} and ( $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
@@ -730,6 +730,7 @@ my( $list,$file,$in,$re ) = @_;
       Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
        if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
         $in++; $re->{'IN'}++; $pop = 1;
+         $re->{'CN'} ++ if $mem;
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
@@ -790,7 +791,8 @@ my( $list,$file,$in,$re ) = @_;
     $re->{'MEM'} .= "$brew_2\t$brew_3\n" if defined $brew_2;
      $re->{'MEM'} =~ s/\t/\n/ unless defined $brew_2;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
-       $re->{'AN'}++ if $brew_1 !~ m|==> homebrew/|;
+       $re->{'BN'} ++ if $mem and $brew_1 !~ m|==> homebrew/|;
+        $re->{'AN'}++ if $brew_1 !~ m|==> homebrew/|;
    }
   }
  }
@@ -853,6 +855,7 @@ my( $list,$re,$in ) = @_;
      if( $brew and not $re->{'TAP'} ){
       Memo_1( $re,$mem,0 );
        $re->{'AN'}++; $re->{'IN'}++;
+      ++$re->{'BN'} and ++$re->{'CN'} if $mem;
      }
   }else{
     Memo_1( $re,$mem,$tap );
@@ -939,10 +942,27 @@ sub Format_1{
 my( $re,$ls,$sl,$ss,$ze ) = @_;
  if( $re->{'TREE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
+
+   $re->{'EXC'} = $re->{'EXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
+   $re->{'EXC'} =~ m|^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2$3$4" :
+   $re->{'EXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
+   $re->{'EXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
+   $re->{'EXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n\s{10}==> .*\n$| ? "$1$2" :
+   $re->{'EXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2" :
+   $re->{'EXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
+   $re->{'EXC'} =~ m|^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
+   $re->{'EXC'} =~ m|^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$| ? "$1$2" :
+   $re->{'EXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
+   $re->{'EXC'} =~ m|^\s{10}==>.*\n$| ? '' :
+   $re->{'EXC'} if $re->{'TAP'} and $re->{'EXC'};
+    $re->{'CN'} = $re->{'CN'} ? $re->{'CN'} : 0;
+     $re->{'IN'} = $re->{'IN'} ? $re->{'IN'} : 0;
+
   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
    system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
     $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
-     print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'} or $re->{'EXC'};
+     print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'};
+     print " item $re->{'BN'} : install $re->{'CN'}\n" if $re->{'EXC'};
   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
    system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
  }elsif( $re->{'DAT'} ){
