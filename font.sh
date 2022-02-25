@@ -1,7 +1,7 @@
 #!/bin/bash
  NAME=$(uname)
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
-[[ ! $2 || $2 =~ ^[01]$ ]] || ${die:?input 2 error}
+[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
                        rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
@@ -19,45 +19,53 @@ if [[ $1 -eq 1 ]];then
  fi
 fi
 
-if [[ $2 -eq 1 ]];then
+if [[ $2 ]];then
  if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
-  exit 2
+   exit 2
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
  if [[ "$NAME" = Darwin ]];then
-   mkdir -p ~/.BREW_LIST/{0..9}
- curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
-  { math_rm; ${die:?curl 1 error}; }
-   rmdir ~/.BREW_LIST/0
- curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
-  { math_rm; ${die:?curl 2 error}; }
-   rmdir ~/.BREW_LIST/1
- curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
-  { math_rm; ${die:?curl 3 error}; }
-   rmdir ~/.BREW_LIST/2
- curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip ||\
-  { math_rm; ${die:?curl 4 error}; }
-   rmdir ~/.BREW_LIST/3
- curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip ||\
-  { math_rm; ${die:?curl 5 error}; }
-   rmdir ~/.BREW_LIST/4
+  if [[ $2 -eq 1 ]];then
+    mkdir -p ~/.BREW_LIST/{0..9}
+   curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
+    { math_rm; ${die:?curl 1 error}; }
+     rmdir ~/.BREW_LIST/0
+   curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
+    { math_rm; ${die:?curl 2 error}; }
+     rmdir ~/.BREW_LIST/1
+   curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
+    { math_rm; ${die:?curl 3 error}; }
+     rmdir ~/.BREW_LIST/2
+   curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip ||\
+    { math_rm; ${die:?curl 4 error}; }
+     rmdir ~/.BREW_LIST/3
+   curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip ||\
+    { math_rm; ${die:?curl 5 error}; }
+   zip -q ~/.BREW_LIST/top.zip ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/master3.zip ||\
+    { rm -f top.zip; math_rm; ${die:?zip error}; }
+     rmdir ~/.BREW_LIST/4
+  fi
 
- unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
- unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
- unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
-   rmdir ~/.BREW_LIST/5
+  if [[ $2 -eq 2 ]];then
+   unzip -qj ~/.BREW_LIST/top.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip error}; }
+  fi
+
+   unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
+   unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
+   unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
+    rm -rf ~/.BREW_LIST/5
 
 perl<<"EOF"
-  if( `uname -m` =~ /arm64/ ){
-   $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
-    $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-     $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-  }else{
-   $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
-    $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-     $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-  }
+   if( `uname -m` =~ /arm64/ ){
+    $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+     $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+      $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+   }else{
+    $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+     $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+      $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+   }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ 
      next if $hand1 =~ /^\./;
@@ -67,7 +75,7 @@ perl<<"EOF"
        }else{ $i1 = 1;
         push @file1,"homebrew/cask-fonts/$hand1\n";
        }
-    }
+   }
    closedir $dir1;
     @file1 = sort{$a cmp $b}@file1;
 
@@ -106,40 +114,45 @@ perl<<"EOF"
     $i3 ? push @file,"8\n0\n",@file1,"1\n",@file2,@file3 :
           push @file,"9\n0\n",@file1,"1\n",@file2,"2\n",@file3;
 
-    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
-     print $FILE1 @file;
-    close $FILE1;
+   open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
+    print $FILE1 @file;
+   close $FILE1;
+EOF
+  [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 1 error};
 
-  open $FILE2,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
-   while($brew=<$FILE2>){
-    if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
-     $tap1 = $brew; next;
-    }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
-     $tap2 = $brew;
-     $tap2 =~ s/&quot;/"/g;
-     $tap2 =~ s/&amp;/&/g;
-     $tap2 =~ s/&lt;/</g;
-     $tap2 =~ s/&gt;/>/g;
-     $test = 1; next;
-    }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
-     $tap3 = $brew;
-     $test = 0;
+  if [[ $2 -eq 1 ]];then
+perl<<"EOF"
+   open $FILE2,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
+    while($brew=<$FILE2>){
+     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
+      $tap1 = $brew; next;
+     }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+      $tap2 = $brew;
+      $tap2 =~ s/&quot;/"/g;
+      $tap2 =~ s/&amp;/&/g;
+      $tap2 =~ s/&lt;/</g;
+      $tap2 =~ s/&gt;/>/g;
+      $test = 1; next;
+     }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+      $tap3 = $brew;
+      $test = 0;
+     }
+      push @file4,"$tap1\t$tap3\t$tap2\n" if $tap1;
+     $tap1 = $tap2 = $tap3 = '';
     }
-     push @file4,"$tap1\t$tap3\t$tap2\n" if $tap1;
-    $tap1 = $tap2 = $tap3 = '';
-   }
-  close $FILE2;
+   close $FILE2;
    open $FILE3,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE5 $!\n";
     print $FILE3 @file4;
    close $FILE3;
 EOF
-[[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 1 error};
-
+  [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 2 error};
+  fi
  else
   curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
    { math_rm; ${die:?curl 6 error}; }
  fi
 
+ if [[ $2 -eq 1 ]];then
 perl<<"EOF"
   open $FILE1,'<', "$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
    while($brew=<$FILE1>){
@@ -165,16 +178,20 @@ perl<<"EOF"
     print $FILE2 @file1;
    close $FILE2;
 EOF
-[[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 2 error};
+ [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 3 error};
 
- rm -rf  ~/.BREW_LIST/6
- perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie error}; }
+  rm -rf  ~/.BREW_LIST/6
+  perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
- if [[ "$NAME" = Darwin ]];then
-  mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
- else
-  mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
-  mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
+  if [[ "$NAME" = Darwin ]];then
+   mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
+  else
+   mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
+   mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
+  fi
  fi
+  if [[ $2 -eq 2 ]];then
+   perl ~/.BREW_LIST/tie.pl 1 || { math_rm 1 && ${die:?perl tie2 error}; }
+  fi
  math_rm
 fi
