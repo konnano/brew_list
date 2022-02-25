@@ -89,3 +89,6 @@ Onle Mac : Cask
 s マークは同名のFormulaとCask : インストールには --caskオプション
 
 f マークはFormulaを必要とするCask
+
+c マークはCaskaを必要とするCask
+
