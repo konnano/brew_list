@@ -83,3 +83,5 @@ Onle Mac: Cask
 s mark is Formula and Cask same name: --cask option for installation
 
 f mark is Cask requires Formula
+
+f mark is Cask requires Cask
