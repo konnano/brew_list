@@ -18,28 +18,30 @@ if( $^O eq 'darwin' ){
  $OS_Version2 = $OS_Version;
   $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
 
+unless( $ARGV[0] ){
  $Xcode = `xcodebuild -version 2>/dev/null` ?
   `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
     $Xcode =~ s/^(\d\.)/0$1/;
 
- %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
-            'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
                   `/usr/bin/clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0;
  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null` ?
                 `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
                  sed -n '/version/s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/p'` : 0;
+}
+  %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
+            'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
 
   if( $CPU eq 'intel\?' ){
-   Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+   Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 ) unless $ARGV[0];
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-      Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
+     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 ) unless $ARGV[0];
+      Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 ) unless $ARGV[0];
   }else{
-   Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+   Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 ) unless $ARGV[0];
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
-     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-      Dirs_1( '/opt/homebrew/Library/Taps',1,0 );
+     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 ) unless $ARGV[0];
+      Dirs_1( '/opt/homebrew/Library/Taps',1,0 ) unless $ARGV[0];
   }
  rmdir "$ENV{'HOME'}/.BREW_LIST/7";
 }else{
@@ -65,8 +67,9 @@ sub Dirs_1{
     }
   }
 }
-
-tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or die " tie DBM $!\n";
+ my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
+tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0644 or die " tie DBM $!\n";
+unless( $ARGV[0] ){
  for my $dir1(@BREW){ chomp $dir1;
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -314,12 +317,12 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
  }
-
+}
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/8";
   for my $dir2(@CASK){ chomp $dir2;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
-    $tap{"${name}cask"} = $dir2;
+ #  $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
@@ -330,6 +333,8 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
        if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+)/ ){
         $tap{"${name}formula"} = 0 if $CPU ne $ls3;
        }
+     }elsif( $data =~ /^\s*depends_on\s+cask:/ ){
+       $tap{"${name}d_cask"} = 1;
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        $IF1 = 0; $ELIF = $ELS = 1;
        if( eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
@@ -354,6 +359,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
    close $BREW;
   }
  }
+unless( $ARGV[0] ){
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
   my @LIST = <$FILE>;
  close $FILE;
@@ -368,7 +374,7 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
      last if $BREW[$i] lt $ls1;
       if( $BREW[$i] eq $ls1 ){
        $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}revision"} ? $ls2.$tap{"${BREW[$i]}revision"} : $ls2;
-        $COU++; last;
+       $COU++; last;
       }
    }
    unless( $tap{"${BREW[$i]}ver"} ){
@@ -381,9 +387,10 @@ tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/DBMG",O_RDWR|O_CREAT,0644 or di
       last if $BREW[$i] lt $CASK[$IN];
        if($BREW[$i] eq $CASK[$IN]){
         $tap{"${CASK[$IN]}so_name"} = 1;
-         $IN++; last;
+        $IN++; last;
        }
      }
    }
  }
+}
 untie %tap;
