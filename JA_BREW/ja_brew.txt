@@ -42,7 +42,7 @@ aerc	ターミナルで実行される電子メールクライアント
 aescrypt	暗号化/復号化 プログラム
 aescrypt-packetizer	256ビットのAES暗号化を使用して暗号化と復号化
 aespipe	パイプのAES暗号化または復号化
-afflib	高度なフォレンジックフォーマット
+afflib	高度な科学調査フォーマット
 afio	cpio形式のアーカイブを作成します
 afl-fuzz	American fuzzy lop：セキュリティ指向のファザー
 afsctool	HFS+圧縮ファイルを操作するためのユーティリティ
@@ -229,9 +229,9 @@ atdtool	コマンドラインインターフェイス、締め切り後言語チ
 aterm	ツリーのようなADT交換の注釈付き用語
 atf	自動テストフレームワーク
 athenacli	AWS AthenaサービスのCLIツール
-atk	GNOMEアクセシビリティツールキット
-atkmm	ATKアクセシビリティツールキットライブラリの公式C++インターフェイス
-atkmm@2.28	ATKアクセシビリティツールキットライブラリの公式C++インターフェイス
+atk	GNOME近接性ツールキット
+atkmm	ATK近接性ツールキットライブラリの公式C++インターフェイス
+atkmm@2.28	ATK近接性ツールキットライブラリの公式C++インターフェイス
 atlantis	Terraformプルリクエスト自動化ツール
 atlas	データベースツールキット
 atmos	DevOpsとクラウド自動化のための汎用ツール
@@ -276,7 +276,7 @@ avfs	アーカイブ内の検索を容易にする仮想ファイルシステム
 aview	ASCIIアート画像ブラウザとアニメーションViewer
 avimetaedit	AVIファイルのメタデータを埋め込み、検証、転送するためのツール
 avra	AtmelAVRマイクロコントローラーファミリーのアセンブラー
-avrdude	Atmel AVRMCUプログラマー
+avrdude	Atmel AVR MCUプログラマー
 avro-c	データ順番化システム
 avro-cpp	データ順番化システム
 avro-tools	Avroコマンドラインツールとユーティリティ
@@ -335,7 +335,7 @@ bas55	ECMA-55で定義されている最低限のBASICプログラミング言�
 base64	base64ファイルのエンコードとデコード
 base91	base91ファイルをエンコードおよびデコードするユーティリティ
 basex	軽量XMLデータベース計算機 XPath/XQuery
-bash	Bourne-UNIXコマンド解釈プログラムであるSHell
+bash	Bourne-UNIXコマンド解釈プログラムのシェル
 bash-completion	Bash3.2のプログラム可能な補完
 bash-completion@2	Bash4.2以降のプログラム可能な補完
 bash-git-prompt	Gitユーザー向けの有益で派手なbashプロンプト
@@ -508,7 +508,7 @@ buildkit	Сoncurrent,キャッシュ効率の良い、Dockerfileに依存しな�
 buildozer	標準コマンドを使用してbazel BUILDファイルを書き換えます
 buildpulse-test-reporter	CIをBuildPulseに接続して、不安定なテストを 検出/追跡/ランク付け します
 buku	強力なコマンドラインブックマークマネージャー
-bulk_extractor	ストリームベースのフォレンジックツール
+bulk_extractor	ストリームベースの科学調査ツール
 bullet	物理SDK
 bumpversion	SemVer用語でバージョン番号を増やす
 bundler-completion	BundlerのBash補完
@@ -522,9 +522,9 @@ bvi	Viのようなバイナリファイル(16進)エディタ
 bwa	DNAの対調整のためのBurrow-Wheeler Aligner
 bwctl	ネットワーク測定ツールのコマンドラインツールとデーモン
 bwfmetaedit	BWFファイルのメタデータを 埋め込み/検証/転送 するためのツール
-bwm-ng	Console-basedのライブネットワークとディスク I/O 処理能力モニター
+bwm-ng	Console-basedのライブネットワークとディスクI/O処理能力モニター
 byacc	(おそらく)最高のyacc変換
-byobu	テキストベースのウィンドウマネージャーとターミナルmultiplexer
+byobu	テキストベースのウィンドウマネージャーとターミナル多重装置
 byteman	テスト/監視/トレース のためのJavaバイトコード操作ツール
 bzip2	Freeで入手できる高品質のデータ圧縮機
 bzr-builder	レシピに基づいてブランチを構築するためのBazaarプラグイン
@@ -628,7 +628,7 @@ cdecl	英語のフレーズをCまたはC++宣言に変える
 cdk	Curses開発キットは、アプリの事前定義されたcursesウィジェットを提供します
 cdk8s	オブジェクト指向プログラミングを使用して、k8sネイティブアプリと抽象化を定義します
 cdktf	Terraformのクラウド開発キット
-cdlabelgen	insertsとenvelopes CD/DVD
+cdlabelgen	挿入と包み CD/DVD
 cdo	気候データオペレーター
 cdogs-sdl	古典的なオーバーヘッドrun-and-gunゲーム
 cdparanoia	CDをサンプリングするためのオーディオ抽出ツール
@@ -686,6 +686,7 @@ cheat	*nixコマンドの対話的チートシートを作成して表示する
 check	Cのユニットテストフレームワーク
 check_postgres	Postgresデータベースを監視する
 checkbashisms	シェルスクリプトのbashismsをチェックします
+checkmake	Makefilesのリンター/アナライザー
 checkov	IaCツールのビルド時にクラウドの設定ミスを防ぐ
 checkstyle	Javaソースをコーディング標準と照合します
 cheops	チェス対戦相手模擬装置
@@ -713,7 +714,7 @@ chronograf	TICKスタックのオープンソースの監視および視覚化UI
 chrony	ネットワークタイム手続き(NTP)の多様な実装
 chrpath	ELFバイナリのrpathを編集するためのツール
 chruby	Ruby環境ツール
-chruby-fish	Fish shellで動作するようにchrubyの周りの薄いラッパー
+chruby-fish	Fishシェルで動作するchrubyの周りの薄いラッパー
 chuck	並行したオンザフライのオーディオプログラミング言語
 cidr2range	CIDRをIP範囲に変換します
 cidrmerge	ネットワーク除外とマージするCIDR
@@ -740,7 +741,7 @@ clang-format@8	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScrip
 clarinet	Clarityスマートコントラクト言語のコマンドラインツールとランタイム
 clash	Goのルールベースのトンネル
 classads	求人広告(HTCondor Central Managerが使用)
-claws-mail	ユーザーに親しく、軽量、高速の電子メールクライアント
+claws-mail	ユーザーに親しく軽量の高速の電子メールクライアント
 clazy	Qt指向の静的コードアナライザー
 clblas	OpenCLで記述されたBLAS関数を含むライブラリ
 clblast	調整されたOpenCLBLASライブラリ
@@ -1009,7 +1010,7 @@ darksky-weather	darksky.netAPIからのコマンドライン天気
 darkstat	ネットワーク転送量アナライザ
 dartsim	ダイナミックアニメーションおよびロボティクスツールキット
 dasel	JSON/YAML/TOML/XML とCSVクエリと変更ツール
-dash	NetBSDのashのPOSIX準拠の子孫(Almquist SHell)
+dash	NetBSDのashのPOSIX準拠の子孫(Almquistシェル)
 dashing	HTMLファイルからDashドキュメントを生成する
 dasht	ターミナルまたはブラウザでAPIドキュメントをオフラインで検索します
 dasm	複数の8ビットmicroprocessorsをサポートするMacro assembler
@@ -1021,7 +1022,7 @@ datetime-fortran	Fortranの時刻と日付の操作ライブラリ
 dateutils	財務データに焦点を当てて日付を操作するためのツール
 datree	KubernetesマニフェストYAMLファイルまたはHelmチャートに対してポリシーを実行するCLIツール
 dav1d	小型で高速を目指すAV1デコーダー
-davix	HTTPベースの手続きを使用した高度なファイル I/O のライブラリとツール
+davix	HTTPベースの手続きを使用した高度なファイルI/Oのライブラリとツール
 davmail	交換ゲートウェイ POP/IMAP/SMTP/Caldav/Carddav/LDAP
 db-vcs	MySQLデータベースのバージョン管理
 dbacl	単純ベイズ分類器
@@ -1031,10 +1032,10 @@ dbmate	軽量でフレームワークに依存しないデータベース移行�
 dbus	アプリケーション間通信を提供するメッセージバスシステム
 dbus-glib	D-BusメッセージバスシステムのGLib bindings
 dbxml	XQueryサポートおよびその他の高度な機能を備えた埋め込み可能なXMLデータベース
-dc3dd	データのフォレンジック取得を目的としたパッチが適用されたGNUDd
+dc3dd	データの科学調査の取得を目的としたパッチが適用されたGNU dd
 dcadec	HD機能拡張をサポートするDTSCoherentAcousticsデコーダー
 dcd	Dプログラミング言語の自動補完プログラム
-dcfldd	フォレンジックとセキュリティのためのddの拡張バージョン
+dcfldd	科学調査とセキュリティのためのddの拡張バージョン
 dcled	気の利いた夢のUSBメッセージボードのLinuxドライバー
 dcm2niix	DICOMからNIfTIへの変換器
 dcmtk	OFFISDICOMツールキット コマンドラインユーティリティ
@@ -1054,7 +1055,7 @@ dehydrated	シェルスクリプトとして実装された LetsEncrypt/acme ク
 deja-gnu	他のプログラムをテストするためのフレームワーク
 delta	プログラムでファイルを最小化して、対象の機能を分離します
 delve	Goプログラミング言語のデバッガー
-demumble	より強力なシンボルデマングラー(a la c++ filt)
+demumble	より強力なシンボルデマングラー(c++filt風)
 deno	JavaScriptとTypeScriptの安全なランタイム
 denominator	DNSクラウドを操作するためのポータブルJavaライブラリ
 density	超高速圧縮ライブラリ
@@ -1140,7 +1141,7 @@ dns2tcp	DNSトンネルを介したTCP
 dnscontrol	DNSゾーンを維持するためのシステムです
 dnscrypt-proxy	クライアントとDNSリゾルバー間の安全な通信
 dnscrypt-wrapper	名前リゾルバーにdnscryptサポートを追加するサーバー側プロキシ
-dnsdist	DNS、DoS、および悪用を意識したロードバランサー
+dnsdist	高度なDNS- DoS- および不正使用を意識したロードバランサー
 dnsmap	パッシブDNSネットワークmapper(別名 サブドメイン bruteforcer)
 dnsmasq	軽量DNSフォワーダーとDHCPサーバー
 dnsperf	ネットワークの状態をシミュレートしてDNS性能を測定する
@@ -1219,7 +1220,7 @@ dropbear	POSIXベースのシステム用の小さなSSH サーバー/クライ�
 dropbox-uploader	Dropboxと対話するためのBashスクリプト
 druid	高性能で列指向の分散データstore
 dscanner	分析(例：Dコードのスタイルと構文)
-dsh	Dancer's shell、または分散シェル
+dsh	Dancerのシェル、または分散シェル
 dsocks	*BSD/MacOS のSOCKSクライアントラッパー
 dspdfviewer	ラテックスビーマー用のデュアルスクリーンPDF Viewer
 dssim	RGBA構造的類似性Rustの実装
@@ -1228,7 +1229,7 @@ dsvpn	Dead Simple VPN
 dtach	画面のデタッチ機能をエミュレートします
 dtc	デバイスツリーコンパイラ
 dterm	xtermや友達と一緒に使用するターミナルエミュレータ
-dtm	クロスランゲージ分散処理マネージャー
+dtm	多言語分散処理マネージャー
 dua-cli	ディスクスペースの使用状況を表示し不要なデータをすばやく削除します
 dub	Dプロジェクト用のビルドツール
 duc	ディスク使用量を検査するためのツールパッケージ
@@ -1290,7 +1291,7 @@ editorconfig	複数のエディター間で一貫したコーディングスタ�
 efl	Enlightenment Foundationライブラリ
 efm-langserver	汎用言語サーバー
 eg	Norton Guide Reader エキスパートガイド GNU/Linux
-eg-examples	コマンドラインでの便利な例
+eg-examples	コマンドラインでの便利な例え
 ehco	ネットワークリレーツールとタイプミス:)
 eiffelstudio	Eiffel言語の開発環境
 eigen	線形代数用のC++テンプレートライブラリ
@@ -1549,7 +1550,7 @@ fnt	フォント用のApt、MacOS/linux用の欠落しているフォントマ�
 fobis	最新のFortranプロジェクトを自動的にビルドするためのKISSビルドツール
 folderify	ネイティブスタイルでpixel-perfectなMacOSフォルダアイコンを生成する
 folly	Facebookで開発された再利用可能なC++ライブラリartifactsコレクション
-foma	有限状態コンパイラとCライブラリ
+foma	限定状態コンパイラとCライブラリ
 fon-flash-cli	Flash LaFoneraおよびAtherosチップセット互換デバイス
 font-util	X.Org：フォントパッケージユーティリティ 作成/インストール
 fontconfig	XWindows用のXMLベースのフォント構成API
@@ -1610,7 +1611,7 @@ fsevent_watch	MacOS FSEventsクライアント
 fsevents-tools	FSEvents APIのコマンドラインユーティリティ
 fsh	リモートコマンド実行を提供します
 fsql	SQL風のクエリでファイルシステムを検索する
-fst	有限状態transducersを使用して、大きなセットとマップをコンパクトに表現します
+fst	限定状態transducersを使用して、大きなセットとマップをコンパクトに表現します
 fstrm	Cでのフレームストリームの実装
 fsw	複数のバックエンドを備えたファイル変更モニター
 fswatch	ディレクトリの変更を監視し、シェルコマンドを実行します
@@ -1876,7 +1877,7 @@ gmailctl	Gmailフィルターの宣言型構成
 gmic	画像処理のためのフル機能のオープンソースフレームワーク
 gmime	MIMEメールユーティリティ
 gmp	GNU多精度算術ライブラリ
-gmsh	CADエンジンを備えた3D有限要素Grid発生器
+gmsh	CADエンジンを備えた3D限定要素Grid発生器
 gmt	地理データとCartesianデータを操作および立案するためのツール
 gmt@5	地理データとCartesianデータを操作および立案するためのツール
 gnirehtet	Android逆テザリングツール
@@ -1943,7 +1944,7 @@ gofumpt	より厳格なgofmt
 gojq	jqのPureGo実装
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
-gollum	Go n：mメッセージ multiplexer
+gollum	Go n：mメッセージ 多重装置
 golo	JVMの軽量動的言語
 gom	SQLiteのGObjectラッパー
 gomodifytags	Goツール。構造体フィールドタグを変更します
@@ -2354,7 +2355,7 @@ io	小さなプロトタイプベースのプログラミング言語
 ioctl	IoTeXブロックチェーンと対話するためのコマンドラインインターフェイス
 iodine	DNSサーバーを介してIPv4転送量をトンネリングする
 ioke	仮想マシンを対象とした動的言語
-ioping	I/O レイテンシをリアルタイムで監視するツール
+ioping	I/Oレイテンシをリアルタイムで監視するツール
 ios-class-guard	Mach-O実行可能ファイルのObjective-C難読化ツール
 ios-deploy	コマンドラインからiPhoneアプリをインストールしてデバッグする
 ios-sim	iOS模擬装置のコマンドラインアプリケーションランチャー
@@ -2405,7 +2406,7 @@ itpp	数学のライブラリ 信号 コミュニケーションのクラスと�
 itstool	XMLドキュメントをPOファイルを介して翻訳可能にする
 ivtools	X11ベクターグラフィックサーバー
 ivy	Agile依存関係マネージャー
-ivykis	非同期 I/O 支援ライブラリ
+ivykis	非同期I/O支援ライブラリ
 jabba	クロスプラットフォームのJavaバージョンマネージャー
 jack	オーディオ接続キット
 jadx	Dex toJavaデコンパイラー
@@ -2506,14 +2507,14 @@ jsonnet-bundler	Jsonnetのパッケージマネージャー
 jsonpp	コマンドラインJSONプリティプリンター
 jsonrpc-glib	JSON-RPCベースのピアと通信するためのGNOMEライブラリ
 jsonschema	PythonのJSONスキーマの実装
-jsonschema2pojo	JSONスキーマ(またはJSONの例)からJavaタイプを生成します
+jsonschema2pojo	JSONスキーマ(またはJSONの例え)からJavaタイプを生成します
 jsvc	Javaアプリケーションをデーモンとして起動するラッパー
 jthread	スレッドを簡単に利用できるC++クラス
 juise	JUNOSユーザーインターフェイススクリプト環境
 juju	DevOps管理ツール
 juju-wait	配置の設定を待つためのJujuプラグイン
 julia	高速で動的なプログラミング言語
-juliaup	Juliaインストーラーとバージョンmultiplexer
+juliaup	Juliaインストーラーとバージョン多重装置
 julius	Two-passの大量連続音声認識エンジン
 juman	日本の形態素解析システム
 jumanpp	RNNLMに基づく日本語形態素解析器
@@ -2717,7 +2718,7 @@ libaacs	Advanced Access ContentSystem仕様を実装します
 libadwaita	最新のアダプティブGNOMEアプリケーションのビルディングブロック
 libaec	Golomb-Riceアルゴリズムを実装した適応均質化コーディング
 libagg	C++の忠実度の高い2Dグラフィックライブラリ
-libaio	Linuxネイティブの非同期 I/O アクセスライブラリ
+libaio	Linuxネイティブの非同期I/Oアクセスライブラリ
 libantlr3c	CのANTLRv3解析ライブラリ
 libao	クロスプラットフォームオーディオライブラリ
 libarchive	Multi-formatのアーカイブおよび圧縮ライブラリ
@@ -2731,7 +2732,7 @@ libb2	安全なハッシュ関数
 libb64	Base64ライブラリ エンコーディング/デコーディング
 libbdplus	BD+システム仕様を実装します
 libbi	並列コンピューターハードウェアでのBayesian state-spaceモデル化
-libbinio	バイナリ I/O ストリームクラスライブラリ
+libbinio	バイナリI/Oストリームクラスライブラリ
 libbitcoin	ビットコインクロスプラットフォームC++開発ツールキット
 libbitcoin-blockchain	Bitcoinブロックチェーンライブラリ
 libbitcoin-client	Bitcoinクライアントクエリライブラリ
@@ -2823,7 +2824,7 @@ libfixbuf	IPFIX手続きをCライブラリとして実装します
 libfixposix	POSIXシステムコールの薄いラッパー
 libflowmanager	パケットベースの入力によるFlow-basedの測定タスク
 libfontenc	X.Org：フォントエンコーディングライブラリ
-libforensic1394	IEEE 1394( "FireWire")インターフェースを介したライブメモリフォレンジック
+libforensic1394	IEEE 1394( "FireWire")インターフェースを介したライブメモリの科学調査
 libfreefare	MIFAREカード操作用のAPI
 libfreehand	Aldus/Macromedia/AdobeFreeHand ドキュメントの解釈とインポート
 libfreenect	XboxKinectデバイスのドライバーとライブラリ
@@ -2857,7 +2858,7 @@ libgphoto2	Gphoto2デジタルカメラライブラリ
 libgr	GRフレームワーク：視覚化アプリケーション用のグラフィックライブラリ
 libgrape-lite	並列グラフ処理用のC++ライブラリ
 libgraphqlparser	CおよびC++ APIを使用したC++のGraphQLクエリパーサー
-libgsf	構造化ファイル形式を処理するための I/O 抽象化ライブラリ
+libgsf	構造化ファイル形式を処理するためのI/O抽象化ライブラリ
 libgsm	非可逆音声圧縮ライブラリ
 libgtop	プロセスに関する情報を移植的に取得するためのライブラリ
 libgusb	libusb1のGObjectラッパー
@@ -3003,7 +3004,7 @@ librasterlite2	巨大なラスターカバレッジを保存および取得す�
 libraw	デジタルフォトカメラからRAWファイルを読み取るためのライブラリ
 librcsc	RoboCupサッカー模擬装置のライブラリ
 librdkafka	Apache Kafka C/C++ライブラリ
-libre	手続きスタックを使用した非同期ネットワーク I/O ツールキットライブラリ
+libre	手続きスタックを使用した非同期ネットワークI/Oツールキットライブラリ
 libreadline-java	JavaのGNU readlineのポート
 librealsense	Intel RealSense D400シリーズおよびSR300キャプチャ
 librem	リアルタイムのオーディオおよびビデオ処理用のツールキットライブラリ
@@ -3037,7 +3038,7 @@ libsixel	SIXELの実装 エンコーダー/デコーダー
 libslax	SLAX言語の実装(XSLTの代替品)
 libslirp	汎用TCP-IPエミュレーター
 libsm	X.Org：Xセッション管理ライブラリ
-libsmf	SMF( '* .mid')ファイルを処理するためのCライブラリ
+libsmf	SMF('* .mid')ファイルを処理するためのCライブラリ
 libsmi	SMIMIB情報にアクセスするためのライブラリ
 libsndfile	サンプリングされたサウンドを含むファイル用のCライブラリ
 libsodium	NaClネットワーキングおよび暗号化ライブラリ
@@ -3095,7 +3096,7 @@ libusb	USBデバイスアクセス用のライブラリ
 libusb-compat	USBデバイスアクセス用のライブラリ
 libusbmuxd	iOSデバイス用のUSB multiplexor
 libusrsctp	ポータブルSCTP userlandスタック
-libuv	非同期 I/O に焦点を当てたMulti-platformサポートライブラリ
+libuv	非同期I/Oに焦点を当てたMulti-platformサポートライブラリ
 libuvc	USBビデオデバイス用のクロスプラットフォームライブラリ
 libva	ハードウェアの加速によるビデオ処理ライブラリ
 libvdpau	オープンソースのビデオデコードおよび提示用APIライブラリ
@@ -4302,6 +4303,7 @@ procmail	自律型メール計算機
 procps	procfsを閲覧するためのユーティリティ
 procs	Rustによって書かれたpsの最新の代替品
 proctools	OpenBSDおよびDarwinバージョンの pgrep/pkill/pfind
+procyon-decompiler	Java5以降用の最新の逆コンパイラ
 prodigal	微生物の遺伝子予測
 profanity	コンソールベースのXMPPクライアント
 proftpd	高度に構成可能なGPLライセンスのFTPサーバーソフトウェア
@@ -4749,7 +4751,7 @@ scorecard	オープンソースのセキュリティヘルスmetrics
 scotch	グラフ分割用パッケージ グラフクラスタリング/スパースmatrixの順序付け
 scour	SVGファイルスクラバー
 scrcpy	Androidデバイスを表示および制御する
-screen	VT100/ANSI ターミナルエミュレーションを備えたターミナルmultiplexer
+screen	VT100/ANSI ターミナルエミュレーションを備えたターミナル多重装置
 screenfetch	ターミナルでASCIIアートを生成する シェル/OS情報 
 screenresolution	表示解像度の取得、設定、および一覧表示
 scriptcs	C#を記述して実行するためのツール
@@ -4900,7 +4902,7 @@ slacknimate	Slackメッセージのテキストアニメーション
 slashem	NethackのFork/変換
 sleef	初等関数を評価するためのSIMDライブラリ
 sleepwatcher	睡眠を監視する 起こす/Macのスリープ
-sleuthkit	フォレンジックツールキット
+sleuthkit	科学調査ツールキット
 slides	ターミナルベースの提示ツール
 slimerjs	Web開発者向けのスクリプト可能なブラウザ
 slirp4netns	非特権ネットワーク名前空間のユーザーモードネットワーク
@@ -5010,7 +5012,7 @@ spirv-llvm-translator	SPIR-VとLLVMIR間の双方向変換用のツールとラ�
 spirv-tools	SPIR-Vモジュールを処理するためのAPIとコマンド
 splint	安全なプログラミングリント
 sponge	標準入力を吸収してファイルに書き込む
-spoof-mac	MacOSでMACアドレスをスプーフィングする
+spoof-mac	MacOSでMACアドレスの偽装
 spot	LTLおよび自動操作のためのプラットフォーム
 spotbugs	Java静的分析用ツール(FindBugsの後継)
 spotify-tui	Spotifyのターミナルベースのクライアント
@@ -5018,8 +5020,8 @@ spotifyd	Spotifyデーモン
 spring-completion	SpringのBash補完
 spring-loaded	実行中のJVMでクラスのリロードを有効にするJavaエージェント
 spring-roo	Java開発者向けの迅速なアプリケーション開発ツール
-sproxy	「包囲に適した」方法でURLを収集するHTTPプロキシサーバー
-sql-lint	SQL静的解析ツールは、クエリの健全性チェックを実行し、DBからエラーを戻します
+sproxy	'siege-friendly'作法でURLを収集するHTTPプロキシサーバー
+sql-lint	クエリでエラーをDBから戻し健全性チェックを行うSQLリンター
 sql-translator	構造化データ定義の操作(SQLなど)
 sqlancer	DBMSでの論理バグの検出
 sqlbench	1つ以上のSQLクエリの実行時間を測定して比較します
@@ -5039,7 +5041,7 @@ sqsmover	AWSSQSメッセージムーバー
 sqtop	Squidプロキシのアクティブな接続に関する情報を表示する
 squashfs	Linuxの圧縮された読み取り専用ファイルシステム
 squashfuse	SquashfsアーカイブをマウントするためのFUSEファイルシステム
-squid	HTTP、HTTPS、FTP、およびGopher用の高度なCachingプロキシサーバー
+squid	高度なCachingプロキシサーバー HTTP/HTTPS/FTP/Gopher
 squirrel	高レベルの手続き型オブジェクト指向プログラミング言語
 sratom	LV2 atomをRDFとの間で順番化するためのライブラリ
 sratoolkit	INSDC順序リードアーカイブ用のデータツール
@@ -5059,11 +5061,11 @@ sshguard	SSHに対するブルートフォース攻撃から保護する
 sshs	SSHのグラフィカルコマンドラインクライアント
 sshtrix	SSHログインクラッカー
 sshuttle	貧乏人のVPNとして機能するプロキシサーバー
-ssldump	SSLv3/TLSネットワーク手続きアナライザ
+ssldump	ネットワーク手続きアナライザ SSLv3/TLS
 sslh	クライアントから送信された最初のデータパケットに基づいて接続を転送する
-ssllabs-scan	このツールは、SSL LabsAPIのコマンドラインクライアントです。
+ssllabs-scan	このツールはコマンドラインクライアントです SSL/LabsAPI
 sslmate	コマンドラインからSSL証明書を購入する
-sslscan	SSL/TLS対応サービスをテストして、サポートされている暗号パッケージを検出します
+sslscan	SSL/TLS 対応サービスをテストしてサポートされている暗号パッケージを検出します
 sslsplit	SSL暗号化ネットワーク接続に対するman-in-the-middle攻撃
 sslyze	SSLスキャナー
 ssss	Shamirの秘密共有schemeの実装
@@ -5086,12 +5088,12 @@ step	暗号とx509の万能ナイフ
 stern	複数のKubernetesポッドとそのコンテナをTailする
 stgit	Gitコミットをパッチのスタックとして管理する
 stk	サウンド合成ツールキット
-stlink	STM32ディスカバリーラインLinuxプログラマー
+stlink	STM32発見ラインLinuxプログラマー
 stm32flash	ST連続ブートローダーを使用したSTM32用のオープンソースフラッシュプログラム
 stockfish	強力なオープンソースのチェスエンジン
 stoken	RSA SecurID 128ビット(AES)と互換性のあるトークンコード発生器
 stolon	高可用性のためのクラウドネイティブPostgreSQLマネージャー
-stone	アプリケーション層のTCP/IPパケットリピーター
+stone	アプリケーション層のパケットリピーター TCP/IP
 stone-soup	Dungeon Crawl Stone Soup：ローグライクゲーム
 storj-uplink	StorjネットワークのアップリンクCLI
 storm	データストリームを処理するための分散型リアルタイム計算システム
@@ -5099,12 +5101,12 @@ stormlib	BlizzardMPQアーカイブを処理するためのライブラリ
 stormssh	ssh接続を管理するためのコマンドラインツール
 stormssh-completion	storm-sshの補完
 stout	信頼性の高い静的Webサイト展開ツール
-stow	単一のディレクトリツリー(例：/usr/local)の下でソフトウェアをきちんと整理する
-stp	Simple Theorem Prover、bitvectorsの効率的なSMT Solver
-strace	Linuxカーネルの診断、教育、およびデバッグツール
+stow	単一のディレクトリツリー(例：/usr/local)の下でソフトウェアを正しく整理する
+stp	単純な定理証明 ビットベクトル用の効率的なSMTソルバー
+strace	Linuxカーネル用のデバッグツール 診断/教育
 streamlink	さまざまなWebサイトからビデオプレーヤーにストリームを抽出するためのCLI
 streamripper	Shoutcastsタイトルストリーミングによる個別のトラック
-stress	コンピュータシステムに負荷をかけ、ストレステストを行うためのツール
+stress	コンピュータシステムに負荷をかけストレステストを行うためのツール
 stress-ng	さまざまな選択可能な方法でコンピュータシステムのストレステストを行う
 strongswan	IPsecに基づくVPN
 structurizr-cli	Structurizrのコマンドラインユーティリティ
@@ -5121,32 +5123,32 @@ subversion	より良いCVSになるように設計されたバージョン管理
 subversion@1.8	バージョン管理システム
 suil	LV2プラグインUIをロードおよびラップするための軽量Cライブラリ
 suite-sparse	Sparse行列ソフトウェアのパッケージ
-sundials	非線形および微分/代数方程式Solver
+sundials	非線形と微分/代数 方程式Solver
 superlu	大規模で限られたな非対称連立方程式を解く
 supermodel	セガモデル3アーケードエミュレーター
 supertux	古典的な2Dジャンプアンドラン横スクロールゲーム
 supervisor	プロセス制御システム
-surfraw	Webに対するシェルユーザーの革命的な最前線の怒り
-suricata	ネットワークIDS、IPS、およびセキュリティ監視エンジン
+surfraw	シェルユーザーのウェブに対する革命的なフロントレイジ
+suricata	ネットワークIDS/IPSとセキュリティ監視エンジン
 svg2pdf	SVG画像をPDFファイルに表現します(Cairoを使用)
 svg2png	SVGからPNGへの変換器
 svgbob	アスキーダイアグラムの落書きを幸せな小さなSVGに変換します
 svgcleaner	不要なデータを削除してSVGファイルをクリーンアップします
 svgo	SVGベクターグラフィックファイルを最適化するためのNodejsベースのツール
 svtplay-dl	https://www.svtplay.se/からビデオをダウンロードします
-swagger-codegen	OpenAPI仕様からクライアント、サーバースタブ、およびドキュメントを生成します
-swagger-codegen@2	OpenAPI仕様からクライアント、サーバースタブ、およびドキュメントを生成します
+swagger-codegen	クライアントを生成する サーバースタブとOpenAPI仕様のドキュメント
+swagger-codegen@2	クライアントを生成する サーバースタブとOpenAPI仕様のドキュメント
 swagger2markup-cli	AsciiDocまたはMarkdown変換器へのSwagger
 swaks	SMTPコマンドラインテストツール
 swfmill	xml2swfとswf2xmlの計算機
 swftools	SWF操作および生成ツール
-swi-prolog	ISO /エジンバラスタイルのProlog解釈プログラム
+swi-prolog	ISO/Edinburgh-styleのProlog解釈プログラム
 swift	高性能システムプログラミング言語
 swift-format	Swiftソースコードのフォーマット技術
 swift-protobuf	Swiftでprotobufを使用するためのプラグインとランタイムライブラリ
 swift-sh	簡単なzero-conf依存関係のインポートによるスクリプト
 swiftformat	Swiftコードを再フォーマットするためのフォーマットツール
-swiftgen	アセット、ストーリーボード、Localizable.strings、
+swiftgen	アセット用のSwiftコードジェネレーター ストーリーボード Localizable.strings...
 swiftlint	Swiftのスタイルと規則を適用するためのツール
 swiftplantuml	SwiftソースからUMLクラス図を生成する
 swig	C/C++コードへのスクリプトインターフェイスを生成します
@@ -5167,14 +5169,14 @@ syntaxerl	Erlangコードと設定ファイルの構文チェッカー
 sysbench	システム性能基準比較ツール
 sysdig	システムレベルの調査と修繕のツール
 sysstat	Linuxの性能監視ツール
-systemc	コアSystemC言語と例
+systemc	コアSystemC言語と例え
 systemd	システムおよびサービスマネージャー
-sz81	ZX80/81エミュレーター
+sz81	ZX80/81 エミュレーター
 szip	Rice拡張で損失の無い圧縮アルゴリズムの実装
 t-completion	Twitter用CLIパワーツールの補完
 t-rec	WebのアニメーションGIF画像を生成する非常に高速なターミナルレコーダー
-t1lib	タイプ1フォントからビットマップを生成/ラスタライズするためのCライブラリ
-t1utils	タイプ1フォントを処理するためのコマンドラインツール
+t1lib	Type 1フォントからビットマップを生成/ラスタライズするためのCライブラリ
+t1utils	Type 1フォントを処理するためのコマンドラインツール
 ta-lib	市場分析のためのツール
 tag	MacOSファイルのタグを操作してクエリする
 taglib	オーディオメタデータライブラリ
@@ -5189,13 +5191,13 @@ talloc	デストラクタを含む階層的な参照カウントメモリプー�
 tanka	Jsonnetを使用したKubernetesの柔軟で再利用可能な簡潔な構成
 tarantool	インメモリデータベースとLuaアプリケーションサーバー
 tarlz	データ圧縮機
-tarsnap	真に妄想的な人のためのオンラインバックアップ
+tarsnap	本当に妄想的な人のためのオンラインバックアップ
 tarsnap-gui	TarsnapコマンドラインクライアントのクロスプラットフォームGUI
 tarsnapper	gfs-schemeを使用してバックアップを期限切れにするTarsnapラッパー
 task	機能豊富なコンソールベースのtodoリストマネージャー
 task-spooler	タスクを次々に実行するバッチシステム
 taskd	ToDoリストのクライアントサーバー同期
-taskell	Trelloをサポートするコマンドラインかんばんボード/タスクマネージャー
+taskell	TrelloをサポートするコマンドラインKanbanボード/タスクマネージャー
 tasksh	Taskwarriorコマンドのシェルラッパー
 taskwarrior-tui	taskwarriorのターミナルユーザーインターフェイス
 tass64	65xxシリーズ計算機のMulti Pass最適化Macro Assembler
@@ -5203,12 +5205,12 @@ tbb	C++での並列処理への豊富で完全なアプローチ
 tbb@2020	C++での並列処理への豊富で完全なアプローチ
 tbox	GlibのようなマルチプラットフォームCライブラリ
 tcc	小さなCコンパイラ
-tccutil	MacOSアクセシビリティデータベース(TCC.db)を変更するユーティリティ
+tccutil	MacOS近接性データベース(TCC.db)を変更するユーティリティ
 tcl-tk	ツールコマンド言語
 tclap	テンプレート化されたC++コマンドラインパーサーライブラリ
 tcpdump	コマンドラインパケットアナライザ
-tcpflow	TCP/IPパケットデマルチプレクサ
-tcping	指定されたIP /ポートコンボにTCP接続します
+tcpflow	TCP/IPパケットdemultiplexer
+tcping	指定されたIP/ポートコンボにTCP接続します
 tcpkali	高性能TCPおよびWebSocketロード発生器とシンク
 tcpreplay	保存したtcpdumpファイルを任意の速度で再生します
 tcpsplit	パケットトレースをいくつかのサブトレースに分割します
@@ -5222,13 +5224,13 @@ td	ターミナルのToDoリスト
 tdkjs	Tixte開発キット
 tdlib	Telegramクライアントを構築するためのクロスプラットフォームライブラリ
 tealdeer	Rustでのtldrの非常に高速な実装
-teapot	テーブルエディターおよびプランナー
-tectonic	近代化された、完全な、自己完結型のTeX/LaTeXエンジン
+teapot	テーブルエディターとプランナー
+tectonic	近代化され完全な自己完結型のTeX/LaTeXエンジン
 tee-clc	Microsoft Team ExplorerEverywhereコマンドラインクライアント
 teem	科学ラスターデータ用のライブラリ
 teensy_loader_cli	TeensyUSB開発ボードのコマンドライン統合
 tektoncd-cli	TektonCDと対話するためのCLI
-teku	イーサリアム2.0ビーコンチェーンのJava実装
+teku	イーサリアム2.0 Beacon ChainのJava実装
 teleconsole	ターミナルセッションを信頼できる人と共有するための無料サービス
 telegraf	InfluxDBのサーバーレベルのメトリック収集エージェント
 telegram-cli	Telegramのコマンドラインインターフェイス
@@ -5249,20 +5251,20 @@ terminalimageviewer	ブロックグラフィック文字を使用して端末に
 terminator	1つのウィンドウに複数のGNOME端末
 termius	termius.com(別名serverauditor.com)のCLIツール
 termrec	端末出力のビデオを録画する
-termshare	クライアントまたはWebを介した対話、または表示専用の端末共有
+termshare	クライアントまたはWebを介した対話または表示専用の端末共有
 termshark	Wiresharkに触発されたtsharkのターミナルUI
 termtosvg	ターミナルセッションをSVGアニメーションとして記録する
-terracognita	既存のクラウドプロバイダーから読み取り、Terraformコードを生成します
-terraform	基礎構造を構築、変更、およびバージョン管理するためのツール
+terracognita	既存のクラウドプロバイダーから読み取りTerraformコードを生成します
+terraform	構築するツール 変化とバージョン基礎構造
 terraform-docs	Terraformモジュールからドキュメントを生成するためのツール
 terraform-inventory	TerraformState → AnsibleDynamicInventory
 terraform-ls	Terraform言語サーバー
 terraform-lsp	Terraformの言語サーバー手続き
 terraform-provider-libvirt	libvirtを使用しLinux KVMにTerraformを提供する
 terraform-rover	Terraform visualizer
-terraform@0.11	基礎構造を構築、変更、およびバージョン管理するためのツール
-terraform@0.12	基礎構造を構築、変更、およびバージョン管理するためのツール
-terraform@0.13	基礎構造を構築、変更、およびバージョン管理するためのツール
+terraform@0.11	構築するツール 変化とバージョン基礎構造
+terraform@0.12	構築するツール 変化とバージョン基礎構造
+terraform@0.13	構築するツール 変化とバージョン基礎構造
 terraform_landscape	Terraformの計画出力を改善する
 terraformer	既存の基礎構造からTerraformファイルを生成するCLIツール
 terraforming	既存のAWSリソースをTerraformスタイル(tf、tfstate)に転送する
@@ -5272,15 +5274,15 @@ terrahub	Terraform自動化およびオーケストレーションツール
 terrascan	基礎構造全体の整合性およびセキュリティ違反をコードとして検出する
 tesseract	OCR(光学式文字認識)エンジン
 tesseract-lang	Tesseractの追加言語サポートを有効にします
-testdisk	強力な無料のデータ回復ユーティリティ
+testdisk	強力でFreeのデータ回復ユーティリティ
 testssl	TLS/SSL暗号と欠陥のサポートをチェックするツール
 texapp	TTYtterに基づくApp.netクライアント
 texi2html	TeXinfoファイルをHTMLに変換する
 texinfo	GNUプロジェクトの公式ドキュメント形式
 texlab	LaTeXのLanguage Server手続きの実装
-texlive	TeX植字システムの無料ソフトウェア配布
+texlive	TeX植字システムのFreeソフトウェア配布
 texmath	LaTeX数学をMathMLに変換するためのHaskellライブラリ
-textidote	LaTeXドキュメントのスペル、文法、スタイルのチェック
+textidote	つづり LaTeXドキュメントの文法とスタイルのチェック
 textql	テキストファイル全体でSQLを実行します
 tfenv	rbenvに触発されたTerraformバージョンマネージャー
 tfk8s	KubernetesYAMLマニフェストからTerraformHCLへの変換器
@@ -5288,7 +5290,7 @@ tflint	Terraformファイルの静的解析ツール
 tfmigrate	GitOpsのTerraform状態移行ツール
 tfproviderlint	TerraformプロバイダーLint Tool
 tfschema	Terraformプロバイダーのスキーマインスペクター
-tfsec	テラフォームコード用の静的分析セキュリティスキャナー
+tfsec	Terraformコード用の静的分析セキュリティスキャナー
 tfupdate	Terraform構成のバージョン制約を更新します
 tgenv	tfenvに触発されたTerragruntバージョンマネージャー
 tgif	Xlibベースの対話的な2D描画ツール
@@ -5300,11 +5302,11 @@ thefuck	入力ミスのあるコンソールコマンドをプログラムで修
 theharvester	公開ソースから資料を収集する(ペンテスター用)
 theora	オープンビデオ圧縮形式
 thors-serializer	C++の宣言型順番化ライブラリ(JSON/YAML)
-thrax	文法を有限状態トランスデューサにコンパイルするためのツール
+thrax	文法を限定状態トランスデューサにコンパイルするためのツール
 threadweaver	マルチスレッドプログラミングのヘルパー
-threemux	i3に触発されたターミナルマルチプレクサ
-thrift	scalableなクロスランゲージサービス開発のためのフレームワーク
-thrift@0.9	scalableなクロスランゲージサービス開発のためのフレームワーク
+threemux	i3に触発されたターミナル多重装置
+thrift	scalableな多言語サービス開発のためのフレームワーク
+thrift@0.9	scalableな多言語サービス開発のためのフレームワーク
 thrulay	ネットワークの性能を測定する
 tidy-html5	最新の標準をサポートするHTMLツールの祖父
 tidy-viewer	CLIcsvプリティプリンター
@@ -5313,20 +5315,20 @@ tiff2png	TIFFからPNGへの変換器
 tig	Gitリポジトリのテキストインターフェース
 tiger-vnc	VNCの高性能でプラットフォームに依存しない実装
 tika	コンテンツ分析ツールキット
-tile38	In-memory geolocation data store、空間インデックス、およびリアルタイムジオフェンス
-tilt	開発環境をコードとして定義します。Kubernetesのマイクロサービスアプリの場合
+tile38	In-memory geolocation data store、空間インデックス/リアルタイムジオフェンス
+tilt	開発環境をコードとして定義します Kubernetesのマイクロサービスアプリの場合
 timedog	MacOS TimeMachineのバックアップによって保存されたファイルを一覧表示します
 timelimit	プロセスの絶対実行時間を制限する
 timewarrior	コマンドラインタイムトラッキングアプリケーション
 timg	ターミナル画像およびビデオViewer
 timidity	ソフトウェアシンセサイザー
-tin	スレッドベース、NNTPベース、およびスプールベースのUseNetニュースリーダー
+tin	UseNetニュースリーダー スレッドベース/NNTPベース/スプールベース
 tinc	仮想プライベートネットワーク(VPN)ツール
 tintin	MUDクライアント
 tiny-fugue	プログラム可能なMUDクライアント
 tinycdb	定数データベースの作成と読み取り
 tinyproxy	POSIXシステム用のHTTP/HTTPSプロキシ
-tinysvm	パターン認識のためのサポート ベクターマシンライブラリ
+tinysvm	パターン認識のためのサポートベクターマシンライブラリ
 tinyxml	XMLパーサー
 tinyxml2	改善されたtinyxml(メモリ効率とサイズ)
 tio	シンプルなTTY端末I/Oアプリケーション
@@ -5336,17 +5338,17 @@ titlecase	テキストをタイトルケースに変換するスクリプト
 tivodecode	.tivoを.mpegに変換します
 tkdiff	グラフィカルなサイドバイサイド差分ユーティリティ
 tldr	簡素化されたコミュニティ主導のマニュアルページ
-tlx	洗練されたC++データ構造、アルゴリズム、ヘルパーのコレクション
+tlx	洗練されたC++データ構造のコレクション アルゴリズム/ヘルパー
 tm	knativeオブジェクトを操作するためのTriggerMeshCLI
 tmate	即時端末共有
 tmpreaper	経過時間に基づいてディレクトリ内のファイルをクリーンアップします
 tmpwatch	指定された時間内にアクセスされなかったファイルを検索して削除します
-tmux	ターミナルマルチプレクサ
-tmux-mem-cpu-load	tmuxで使用するCPU、RAMメモリ、および負荷モニター
+tmux	ターミナル多重装置
+tmux-mem-cpu-load	tmuxで使用するための負荷モニター CPU/RAMメモリ
 tmux-xpanes	tmuxを搭載した究極のターミナルディバイダー
 tmuxinator	複雑なtmuxセッションを簡単に管理
 tmuxinator-completion	Tmuxinatorのシェル補完
-tmuxp	Tmuxセッションマネージャー。libtmux上に構築
+tmuxp	Tmuxセッションマネージャー libtmux上に構築
 tmx	ゲームにタイルマップをロードするためのポータブルCライブラリ
 tnef	MicrosoftMS-TNEFアタッチメントアンパッカー
 tnftp	NetBSDのFTPクライアント
@@ -5354,7 +5356,7 @@ tnftpd	NetBSDのFTPサーバー
 toast	コンテナでタスクを実行するためのツール
 todo-txt	最低限のtodo.txtに焦点を当てたエディター
 todoman	シンプルなCalDAVベースのtodoマネージャー
-tofrodos	DOS <-> UNIXテキストファイルを変換します、alias tofromdos
+tofrodos	DOS <-> UNIXテキストファイルを変換します alias tofromdos
 toilet	figletのカラーベースの代替品(libcacaを使用)
 tokei	コードをすばやくカウントできるプログラム
 tokyo-cabinet	軽量データベースライブラリ
@@ -5402,19 +5404,19 @@ tree	ディレクトリをツリーとして表示(オプションのカラー/H
 tree-sitter	パーサ発生器ツールとインクリメンタル解析ライブラリ
 treecc	コンパイラを書くためのアスペクト指向アプローチ
 treefrog	Webアプリケーション用の高速C++ MVCフレームワーク
-trezor-agent	Trezor、Keepkey、Ledger用のハードウェアSSH/GPGエージェント
+trezor-agent	ハードウェアSSH/GPGエージェント Trezor/Keepkey/Ledger
 triangle	Delaunay三角形分割を使用して、画像をコンピューターで生成されたアートに変換します
 trimage	PNGおよびJPGファイルを最適化するためのクロスプラットフォームツール
 trino	ビッグデータ用の分散SQLクエリエンジン
 triton	Joyent Triton CLI
 trojan-go	Goのトロイの木馬プロキシ
 truecrack	TrueCryptのブルートフォースパスワードクラッカー
-truffle	イーサリアムの開発環境、テストフレームワーク、アセットパイプライン
+truffle	開発環境 イーサリアムのテストフレームワークとアセットパイプライン
 truncate	ファイルを指定されたサイズに切り捨てます
-trunk	Rust WASMアプリケーションをビルドし、バンドルしてWebに送信します
+trunk	ビルド RustWASMアプリケーションをバンドルしてWebに送信する
 tsduck	MPEG転送ストリームツールキット
 tssh	SSH軽量管理ツール
-tsung	HTTP、PostgreSQL、Jabberなどの負荷テスト
+tsung	負荷テスト HTTP/PostgreSQL/Jabberなど
 tta	損失の無いオーディオコーデック
 ttf2eot	TTFファイルをEOTに変換する
 ttf2pt1	TrueTypeフォントからPostScriptType1への変換器
@@ -5432,7 +5434,7 @@ tunnel	ローカルサーバーをインターネットに安全に公開する
 tup	ファイルベースのビルドシステム
 tvnamer	thetvdb.comからのデータを使用する自動TVエピソードファイルの名前変更
 twarc	TwitterJSONをアーカイブするためのコマンドラインツールとPythonライブラリ
-tweak	コマンドライン、ncursesライブラリベースの16進エディタ
+tweak	コマンドライン ncursesライブラリベースの16進エディタ
 twemcache	memcachedのTwitterフォーク
 twine-pypi	PyPIと対話するためのユーティリティ
 two-lame	最適化されたMPEGオーディオレイヤー2(MP2)エンコーダー
@@ -5452,7 +5454,7 @@ ucg	大量のソースコードを検索するためのツール(grepなど)
 uchardet	エンコーディング検出器ライブラリ
 ucl	足跡メモリが小さいデータ圧縮ライブラリ
 ucloud	UCloudサービスを管理するための公式ツール
-ucommon	スレッド、ソケット、および解析用のGNU C++ランタイムライブラリ
+ucommon	スレッド用のGNUC++ランタイムライブラリ ソケット/構文解析
 ucon64	ROMバックアップツールとエミュレーターの万能ナイフ
 ucspi-tcp	TCPクライアントサーバーアプリケーションを構築するためのツール
 udis86	x86用の最低限の逆アセンブラライブラリ
@@ -5460,10 +5462,10 @@ udptunnel	TCP接続を介してUDPパケットをトンネリングする
 udpxy	UDPからHTTPへのマルチキャスト転送量リレーデーモン
 udunits	Unidata単位変換ライブラリ
 ufraw	未確認のFlyingRAW：RAW画像処理ユーティリティ
-uftp	安全で信頼性が高く、効率的なマルチキャストファイル転送プログラム
+uftp	安全で信頼性が高く効率的なマルチキャストファイル転送プログラム
 uftrace	C/C++/Rust用の関数グラフトレーサー
 uggconv	汎用ゲームGenieコード変換器
-ugrep	クエリUI、あいまい検索、アーカイブ検索などを備えた超高速grep
+ugrep	クエリUIを備えた超高速grep あいまい検索/アーカイブ検索など
 uhd	すべてのUSRPデバイス用のハードウェアドライバー
 ultralist	コマンドライン用のシンプルなGTDスタイルのタスク管理
 um	個人のマニュアルページを作成および保守するためのコマンドラインユーティリティ
@@ -5472,17 +5474,17 @@ umple	モデル指向プログラミングを可能にするモデル化ツー�
 unac	文字列からアクセントを削除するCライブラリとコマンド
 unar	複数の形式をサポートするコマンドラインアーカイブ解除ツール
 unarj	ARJファイルアーカイバ
-unbound	検証、再帰、Caching DNS Resolver
+unbound	検証 再帰 DNSリゾルバーのキャッシュ
 uncrustify	ソースコード美化
-ungit	Gitを使用する最も簡単な方法。どのプラットフォームでも。どこでも
+ungit	Gitを使用する最も簡単な方法 どのプラットフォームでも どこでも
 uni	コマンドライン用のUnicodeデータベースクエリツール
 uni2ascii	UTF-8とさまざまなASCIIフレーバー間の双方向変換
 unibilium	非常に基本的なterminfoライブラリ
 unicorn	軽量のmulti-architecture CPUエミュレーションフレームワーク
-unifdef	C 条件付き前処理プログラム ディレクティブを選択的に処理します
+unifdef	C条件付き前処理プログラム ディレクティブを選択的に処理します
 unison	OSXのファイル同期ツール
-unittest	C++ ユニットテストフレームワーク
-unittest-cpp	C++ ユニットテストフレームワーク
+unittest	C++ユニットテストフレームワーク
+unittest-cpp	C++ユニットテストフレームワーク
 uniutils	Unicodeテキストを操作および分析する
 universal-ctags	維持されたctagsの実装
 unixodbc	UNIXのODBC3接続
@@ -5492,7 +5494,7 @@ unp	1つのコマンドですべてを解凍します
 unpaper	スキャン/コピーされた本の後処理
 unrtf	RTFから他のフォーマットへの変換器
 unshield	InstallShieldキャビネットファイルからファイルを抽出する
-unum	数値、Unicode、およびHTML/XHTMLエンティティを相互変換します
+unum	数値の相互変換 Unicode/HTML/XHTMLエンティティ
 unyaffs	YAFFS2ファイルシステムイメージからファイルを抽出します
 unzip	.zip圧縮アーカイブの抽出ユーティリティ
 up	即時ライブプレビューでコマンドラインパイプを作成するためのツール
@@ -5506,9 +5508,9 @@ urh	汎用ラジオハッカー
 uriparser	URI解析ライブラリ(厳密にRFC 3986に準拠)
 urlview	URLエクストラクタ/ランチャー
 urlwatch	Webページが変更されたときに通知を受け取る
-uru	複数のプラットフォームで複数のルビーを使用する
+uru	複数のプラットフォームで複数のRubyを使用する
 urweb	Ur/Webプログラミング言語
-usb.ids	USBデバイスで使用されるベンダー、デバイス、サブシステム、およびデバイスクラスIDのリポジトリ
+usb.ids	USBdeで使用されるサブシステムおよびデバイスクラスID ベンダーのリポジトリ/デバイス
 usbredir	USB転送量リダイレクトライブラリ
 usbutils	USBデバイスに関する詳細情報を一覧表示します
 userspace-rcu	ユーザースペースRCU用のライブラリ(read-copy-update)
@@ -5519,7 +5521,7 @@ util-macros	X.Org：他のxorgパッケージを構築するために使用さ�
 utimer	多機能タイマーツール
 uudeview	スマートマルチファイルマルチパートデコーダー
 uutils-coreutils	GNUcoreutilsのクロスプラットフォームRustリライト
-uuu	汎用アップデートユーティリティ、mfgtools3.0。NXPI.MXチップイメージ展開ツール
+uuu	汎用アップデートユーティリティ mfgtools3.0。NXPI.MXチップイメージ展開ツール
 uwsgi	ホスティングサービスを構築するためのフルスタック
 v	Z for vim
 v2ray	ネットワーク制限をバイパスするプロキシを構築するためのプラットフォーム
@@ -5539,14 +5541,14 @@ vapoursynth-imwri	VapourSynthフィルター-ImageMagickHDRIライター/リー�
 vapoursynth-ocr	VapourSynthフィルター-TesseractOCRフィルター
 vapoursynth-sub	VapourSynthフィルター-字幕フィルター
 varnish	高性能HTTPアクセラレータ
-vassh	VagrantHost-ゲストSSHコマンドラッパー/プロキシ/フォワーダー
-vault	シークレットへのアクセスを保護、保存、および厳密に制御します
+vassh	VagrantHost-ゲストSSHコマンド ラッパー/プロキシ/フォワーダー
+vault	sstoresシークレットへのアクセスを厳しく管理します
 vault-cli	JackrabbitFileVaultと連携するSubversionのようなユーティリティ
 vaulted	環境の安全な保管と実行を可能にします
 vbindiff	ビジュアルバイナリ差分
 vc	C++のSIMD空間クラス
 vc4asm	Broadcom VideoCore IV、別名Raspberry PiGPUのマクロアセンブラー
-vcdimager	(スーパー)ビデオCDオーサリングソリューション
+vcdimager	(スーパー)ビデオCD解決ソリューション
 vcftools	VCFファイルを操作するためのツール
 vcpkg	C++ライブラリマネージャー
 vcprompt	シェルプロンプトでバージョン管理情報を提供する
@@ -5554,7 +5556,7 @@ vcs	ビデオのビデオコンタクトシート(プレビュー)を作成し�
 vcsh	gitに基づく構成マネージャー
 vde	イーサネット準拠の仮想ネットワーク
 vdirsyncer	カレンダーと連絡先を同期する
-veclibfort	AppleのvecLibに対するGNUFortranの互換性
+veclibfort	AppleのvecLibに対するGNU Fortranの互換性
 vecx	Vectrexエミュレーター
 vegeta	HTTP負荷テストツールとライブラリ
 velero	Kubernetesリソースと永続ボリュームの災害からの回復
@@ -5575,7 +5577,7 @@ viennacl	many-core基本設計およびmulti-core CPUの線形代数ライブラ
 viewvc	CVSおよびSubversionリポジトリのブラウザインターフェイス
 vifm	Viのようなkeybindingsを備えたNcursesベースのファイルマネージャー
 vilistextum	HTMLからテキストへの変換器
-vim	多くの追加機能を備えたVi「workalike」
+vim	多くの追加機能を備えたVi'workalike'
 vimpager	PagerとしてViMを使用する
 vimpc	Viを備えたkeybindingsのようなNcursesベースのmpdクライアント
 vint	VimスクリプトLanguage Lint
@@ -5601,18 +5603,18 @@ vivid	複数のカラーテーマをサポートするLS_COLORSの発生器
 vkectl	VKE(VolcanoEngine Kubernetes Engine)のコマンドラインインターフェイス
 vlang	Vプログラミング言語
 vlmcsd	CのKMSエミュレーター
-vmdktool	生のファイルシステムをVMDKファイルに、またはその逆に変換します。
+vmdktool	未加工のファイルシステムをVMDKファイルに、またはその逆に変換します。
 vmtouch	ポータブルファイルシステムのキャッシュ診断と制御
 vncsnapshot	VNCスナップショットを作成するためのコマンドラインユーティリティ
 vnstat	コンソールベースのネットワーク転送量モニター
-vnu	Nuマークアップチェッカー：コマンドラインおよびサーバーのHTML確認
-volatility	高度なメモリフォレンジックフレームワーク
+vnu	Nu Markup Checker：コマンドラインとサーバーのHTML確認
+volatility	高度なメモリ科学調査フレームワーク
 voldemort	分散型Key-Value保管システム
 volk	カーネルの速度最適化ライブラリ
-volt	メタレベルのvimパッケージマネージャー
+volt	メタレベルのVimパッケージマネージャー
 volta	再現可能な環境のためのJavaScriptツールチェーンマネージャー
 vorbis-tools	Ogg VorbisCODECツール
-vorbisgain	OggVorbisファイルにリプレイゲインボリュームタグを追加する
+vorbisgain	Ogg VorbisファイルにReplay Gainボリュームタグを追加する
 voro++	3Dボロノイセルソフトウェアライブラリ
 vowpal-wabbit	オンライン学習アルゴリズム
 vpcs	IP経由をテストするためのVirtualPC模擬装置
@@ -5622,52 +5624,52 @@ vroom	配車ルートオープンソース最適化マシン
 vrpn	バーチャルリアリティ周辺機器ネットワーク
 vsearch	微生物叢分析のための多用途のオープンソースツール
 vsftpd	UNIXの安全なFTPサーバー
-vsh	HashiCorpVault対話的シェル
+vsh	HashiCorp Vault対話的シェル
 vstr	C文字列ライブラリ
-vsts-cli	コマンドラインからVSTS/TFSリソースを管理および操作する
+vsts-cli	コマンドラインからリソースを管理および操作する VSTS/TFS
 vtable-dumper	共有ライブラリ内の仮想テーブルの内容を一覧表示します
 vtclock	テキストモードのフルスクリーンデジタル時計
 vte3	GNOMEターミナルで使用されるターミナルエミュレータウィジェット
-vtk	3Dコンピュータグラフィックス、画像処理、および視覚化のためのツールキット
-vtk@8.2	3Dコンピュータグラフィックス、画像処理、および視覚化のためのツールキット
+vtk	3Dコンピュータグラフィックス用のツールキット 画像処理/視覚化
+vtk@8.2	3Dコンピュータグラフィックス用のツールキット 画像処理/視覚化
 vttest	VT100互換端末の互換性をテストします
 vue-cli	Vue.js開発のための標準ツール
 vulkan-headers	VulkanヘッダーファイルとAPIレジストリ
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
 w-calc	非常に有能な計算機
-w3m	Pager/テキスト baseのブラウザ
-wabt	Web Assembly Binary Toolkit
+w3m	Pager/テキスト ベースのブラウザ
+wabt	Web Assemblyバイナリツールキット
 waffle	実行時にOpenGLAPIとウィンドウシステムを選択するためのCライブラリ
 wagyu	暗号通貨ウォレットを生成するためのRustライブラリ
 wait_on	シェルスクリプトにkqueue(3)へのアクセスを提供します
-wakatime-cli	WakaTimeAPIへのコマンドラインインターフェイス
+wakatime-cli	WakaTime APIへのコマンドラインインターフェイス
 wakeonlan	ネットワークデバイスをウェイクアップするためにマジックパケットを送信します
 wal2json	PostgreSQLチェンジセットをJSON形式に変換します
 walkmod	コード規約を適用および共有するためのJavaベースのオープンソースツール
 wallpaper	デスクトップの壁紙を管理する
-wandio	zip、bzip2、lzma、またはzstdアーカイブからの透過的な読み取りと書き込み
-wangle	モジュール式の構成可能なクライアント/サーバー抽象化フレームワーク
+wandio	zipからの読み取りとzipへの書き込みを透過的に行う bzip2/lzmaまたはzstdアーカイブ 
+wangle	基本単位 構成可能な抽象化フレームワーク クライアント/サーバー
 waon	Wave-to-notesトランスクライバー
 wapm	WebAssemblyパッケージマネージャー(CLI)
 wartremover	柔軟なScalaコードlintingツール
 wasm-pack	お気に入りのrust-> wasmワークフローツール！
 wasm3	高性能WebAssembly解釈プログラム
 wasmer	🚀 汎用WebAssemblyランタイム
-wasmtime	Craneliftを使用したWebAssemblyの独立型JITスタイルのランタイム
-watch	プログラムを定期的に実行し、出力を全画面表示します
+wasmtime	WebAssembly用の独立型JIT-styleのランタイム Craneliftを使用する
+watch	プログラムを定期的に実行し出力を全画面表示します
 watch-sim	コマンドラインWatchKitアプリケーションランチャー
 watchexec	監視対象ファイルが変更されたときにコマンドを実行する
-watchman	ファイルを監視し、ファイルが変更されたときにアクションを実行します
+watchman	ファイルを監視しファイルが変更されたときにアクションを実行します
 watson	(あなたの)時間を追跡するためのコマンドラインツール
 wavpack	合成で損失の無いオーディオ圧縮
-wayland	コンポジターがクライアントと通信するための手続き
+wayland	植字工がクライアントと通信するための手続き
 wayland-protocols	Wayland手続きの追加
-waypoint	任意のプラットフォームで任意のアプリケーションを構築、展開、リリースするためのツール
+waypoint	構築するツール 配備 任意のプラットフォームで任意のアプリケーションをリリースします
 wbox	HTTPテストツールと構成不要のHTTPサーバー
 wcslib	FITS世界座標系のライブラリとユーティリティ
-wdc	WebDAVクライアントは、WebDAVサーバーを操作するための簡単で便利な機能を提供します
-wdfs	Webdavファイルシステム
+wdc	WebDAVクライアントは簡単でWebDAVサーバーでの作業に便利
+wdfs	WebDAVファイルシステム
 wdiff	テキストファイル間の単語の違いを表示する
 weaver	Weaverのコマンドラインツール
 web100clt	NDT診断クライアントのコマンドラインバージョン
@@ -5690,43 +5692,43 @@ weggli	CおよびC++コードベース用の高速で堅牢なセマンティッ
 wego	ターミナルの天気アプリ
 weighttp	マルチスレッドをサポートするWebサーバー基準比較ツール
 wellington	Sassとスピリットを管理するためのプロジェクトに焦点を当てたツール
-wemux	tmuxを拡張して、マルチユーザー端末の多重化を提供します
+wemux	tmuxを拡張してマルチユーザー端末の多重化を提供します
 west	Zephyrメタツール
 wgcf	CloudflareWarpアカウントからWireGuardプロファイルを生成する
 wget	インターネットファイルRetriever
-wgetpaste	多数のペーストビンサービスへの貼り付けを自動化する
-whalebrew	自作、ただしDockerイメージを使用
+wgetpaste	多数のpastebinサービスへの貼り付けを自動化する
+whalebrew	Homebrew ただしDockerイメージを使用
 whatmask	ネットワーク設定ヘルパー
 whatmp3	FLACからmp3トレントを作成するための小さなスクリプト
 when	小さな個人カレンダー
-whistle	HTTP、HTTP2、HTTPS、Websocketデバッグプロキシ
+whistle	Websocketデバッグプロキシ HTTP/HTTP2/HTTPS
 whois	ドメイン名やその他のインターネットリソースの検索ツール
-widelands	SettlersIIのような無料のリアルタイム戦略ゲーム
+widelands	Settlers IIのようなFreeのリアルタイム戦略ゲーム
 wifi-password	現在のWiFiネットワークパスワードを表示する
 wiggle	競合する変更を含むパッチを適用するためのプログラム
 wiiuse	ニンテンドーWiiリモートを接続する
 wiki	ウィキペディアのようなMediaWikiウィキから要約を取得する
-wildfly-as	アプリケーションを構築するためのマネージドアプリケーションランタイム
+wildfly-as	アプリケーションを構築するための管理されたアプリケーションランタイム
 wildmidi	シンプルなソフトウェアMIDIプレーヤー
-willgit	William'sのその他のgitツール
-wimlib	Windows Imagingファイルを作成、抽出、および変更するためのライブラリ
+willgit	William'sの多方面のgitツール
+wimlib	作成するライブラリ 引用 WindowsImagingファイルを変更します
 winetricks	Wineの問題に対する自動回避策
-winexe	リモートWindows-コマンドエグゼキュータ
+winexe	リモートWindowsコマンド executor
 wiredtiger	データ管理のための高性能NoSQL拡張可能プラットフォーム
-wireguard-go	WireGuardのUserspaceGo実装
-wireguard-tools	WireGuardセキュアネットワークトンネル用のツール
+wireguard-go	WireGuardのUserspace Go実装
+wireguard-tools	WireGuard安全なネットワークトンネル用のツール
 wiremock-standalone	HTTPベースのAPI用の模擬装置
 wireshark	グラフィカルネットワークアナライザとキャプチャツール
 wirouter_keyrec	サポートされているルーターからデフォルトのWPAパスフレーズを回復する
 with-readline	GNUReadlineを任意のプログラムで使用できるようにする
 wla-dx	さらに別のクロスアセンブラーパッケージ
 wllvm	プログラム全体のLLVMビットコードファイルを構築するためのツールキット
-wmctrl	EWMH/NetWMと対話するためのUNIX/Linuxコマンドラインツール
+wmctrl	UNIX/LinuxコマンドラインツールからEWMH/NetWMと対話する
 woff2	Web Open Font File(WOFF)ファイルを作成および変換するためのユーティリティ
-wolfmqtt	小さく、高速で、ポータブルなMQTTクライアントCの実装
+wolfmqtt	小さく高速なポータブルなMQTTクライアントCの実装
 wolfssl	Cで書かれた埋め込みSSLライブラリ
 woob	ブラウザ以外のWeb
-woof	アドホック単一ファイルWebサーバー
+woof	Ad-hoc単一ファイルWebサーバー
 wordgrinder	端末で実行されるUnicode対応のワード計算機
 wordnet	英語の語彙データベース
 wordplay	アナグラム発生器
@@ -5734,7 +5736,7 @@ wownero	Wownero暗号通貨の公式ウォレットおよびノードソフト�
 wp-cli	WordPressのコマンドラインインターフェイス
 wp-cli-completion	WpcliのBash補完
 wput	ファイルをアップロードするための小さなwgetのようなFTPクライアント
-wrangler	emacsとEclipseが統合されたErlangのリファクタリングツール
+wrangler	emacsとEclipseが統合されたErlangのRefactoringツール
 wren	小さくて高速なクラスベースの並行スクリプト言語
 wren-cli	Wrenスクリプトを実行するためのシンプルなREPLおよびCLIツール
 write-good	英語の散文のための素朴な静的解析ツール
@@ -5743,17 +5745,17 @@ wrk	HTTP基準比較ツール
 wrk-trello	Trelloへのコマンドラインインターフェイス
 wsk	OpenWhiskコマンドラインインターフェイス(CLI)
 wskdeploy	Apache OpenWhiskプロジェクト展開ユーティリティ
-wslay	CWebSocketライブラリ
+wslay	C WebSocketライブラリ
 wtf	一般的なインターネットの頭字語を翻訳する
 wtfutil	端末の個人情報ダッシュボード
-wumpus	古代のBASICHunt theWumpusゲームの正確なクローン
-wv	MicrosoftWord文書にアクセスするためのプログラム
-wv2	MicrosoftWord文書にアクセスするためのプログラム
+wumpus	古来のBASIC Hunt the Wumpusゲームの正確なクローン
+wv	Microsoft Word文書にアクセスするためのプログラム
+wv2	Microsoft Word文書にアクセスするためのプログラム
 wwwoffle	断続的な接続があるコンピューターのブラウジングの改善
 wxmaxima	MaximaのクロスプラットフォームGUI
 wxpython	wxWidgetsのPython bindings
 wxwidgets	クロスプラットフォームのC++ GUIツールキット
-wxwidgets@3.0	クロスプラットフォームのC++ GUIツールキット-安定版リリース
+wxwidgets@3.0	クロスプラットフォームのC++ GUIツールキット 安定版
 wy60	Wyse60互換のターミナルエミュレータ
 x11vnc	実際のXディスプレイ用のVNCサーバー
 x264	H.264/AVCエンコーダー
@@ -5761,7 +5763,7 @@ x265	H.265/HEVCエンコーダー
 x3270	X WindowSystemおよびWindowsのIBM3270ターミナルエミュレーター
 x86_64-elf-binutils	x86_64のGNUBinutils-elfクロス開発
 x86_64-elf-gcc	x86_64-elfのGNUコンパイラコレクション
-x86_64-elf-gdb	x86_64のGNUデバッガー-elf相互開発
+x86_64-elf-gdb	x86_64-elfの相互開発のためのGNUデバッガー
 xa	6502クロスアセンブラー
 xalan-c	XSLT計算機
 xapian	C++検索エンジンライブラリ
@@ -5786,20 +5788,20 @@ xcodegen	スペックファイルとフォルダ構造からXcodeプロジェク
 xcproj	Xcodeプロジェクトファイルを操作する
 xcprojectlint	Xcodeプロジェクトの静的解析ツール
 xctool	いくつかの追加機能を備えたxcodebuildのDrop-in置換
-xcv	Bashでファイルを切り取り、コピー、貼り付け
-xdelta	バイナリ差分、差分圧縮ツール
+xcv	Cut Bashでファイルをコピーペースト 
+xdelta	バイナリ差分 差分圧縮ツール
 xdot	Graphvizのドット言語で書かれたグラフ用の対話的Viewer
 xdotool	X用の偽のキーボード/マウス入力とウィンドウ管理
 xdpyinfo	X.Org：Xサーバーに関する情報を表示するためのユーティリティ
 xerces-c	XMLパーサーの検証
 xfig	統計の対話的な生成のための機能
-xgboost	拡張性のあるポータブルな分散型グラジエントブースティングライブラリ
+xgboost	拡張可能なポータブルで分散型の勾配ブースティングライブラリ
 xh	HTTPリクエストを送信するための親しく高速なツール
 xhyve	FreeBSDのbhyveに基づく軽量のMacOS仮想化ソリューション
-xidel	XPath/XQuery 3.0、HTML/XML/JSONからデータを抽出するJSONiq解釈プログラム
+xidel	XPath/XQuery 3.0 データを抽出するJSONiq解釈プログラム HTML/XML/JSON
 xinput	X入力デバイスを構成およびテストするためのユーティリティ
-xkeyboardconfig	X WindowSystemのキーボード構成データベース
-xlearn	高性能で使いやすく、拡張性のある機械学習パッケージ
+xkeyboardconfig	X Window Systemのキーボード構成データベース
+xlearn	高性能で簡単な拡張性のある機械学習パッケージ
 xlispstat	Lispに基づく統計データサイエンス環境
 xlslib	コードでExcel.xlsファイルを構築するためのC++/Cライブラリ
 xmake	Luaに基づくクロスプラットフォームビルドユーティリティ
@@ -5818,18 +5820,18 @@ xmltoman	XMLからmanページへの変換
 xmount	複数の入力ディスクイメージタイプと出力ディスクイメージタイプの間で変換する
 xmp	モジュール音楽フォーマット(MOD、S3M、ITなど)用のコマンドラインプレーヤー
 xmrig	Monero(XMR)CPUマイナー
-xonsh	Pythonを利用した、クロスプラットフォームのUnixを注視するシェル言語とコマンドプロンプト
+xonsh	Pythonを利用したクロスプラットフォーム Unixを注視するシェル言語とコマンドプロンプト
 xorgproto	X.Org：手続きヘッダー
 xorgrgb	X.Org：色名データベース
-xorriso	ISO9660+ RR操作ツール
+xorriso	ISO9660+RR操作ツール
 xpa	Unixプログラム間のSeamlessな通信
 xpdf	PDF Viewer
-xplanet	惑星地球のHQ壁紙を作成する
-xplr	ハッキング可能、最低限、高速のTUIファイルエクスプローラー
+xplanet	地球のHQ壁紙を作成する
+xplr	ハッキング可能で最低限の高速のTUIファイルエクスプローラー
 xqilla	XQueryおよびXPath2コマンドライン解釈プログラム
 xray	ネットワーク制限をバイパスするプロキシを構築するためのプラットフォーム
-xrick	リック・デンジャラスのクローン
-xrootd	高性能で拡張性のあるフォールトトレラントなデータアクセス
+xrick	Rick Dangerousのクローン
+xrootd	高性能で拡張性のあるfault-tolerantデータアクセス
 xsane	グラフィカルスキャンフロントエンド
 xsd	C++のXMLデータbindings
 xsel	X選択の内容を取得および設定するためのコマンドラインプログラム
@@ -5841,8 +5843,8 @@ xtensor	ブロードキャストとレイジーコンピューティングを備
 xterm	X WindowSystem用のターミナルエミュレータ
 xtitle	X端末のウィンドウタイトルとアイコンを設定する
 xtrans	X.Org：Xネットワークトランスポート層の共有コード
-xvid	高性能、高品質のMPEG-4ビデオライブラリ
-xxh	sshを通過する場所ならどこでも、お気に入りのシェルを持ってきてください
+xvid	高性能で高品質のMPEG-4ビデオライブラリ
+xxh	sshを通過する場所ならどこでもお気に入りのシェルを持ってきてください
 xxhash	非常に高速な非暗号化ハッシュアルゴリズム
 xz	圧縮率の高い汎用データ圧縮
 yacas	汎用数式処理システム
@@ -5861,29 +5863,29 @@ yank	端末出力をクリップボードにコピーします
 yapf	Pythonコードの整形ツール
 yara	マルウェアの識別および分類ツール
 yarn	JavaScriptパッケージマネージャー
-yarn-completion	糸のBash補完
+yarn-completion	YarnのBash補完
 yash	さらに別のシェル：POSIX準拠のコマンドラインシェル
 yasm	NASMのモジュラーBSD再実装
 yaws	動的コンテンツ用のWebサーバー(Erlangで記述)
-yaz	Z39.50/SRW/SRUクライアント/サーバー用のツールキット
+yaz	ツールキット Z39.50/SRW/SRUクライアント/サーバー
 yaze-ag	さらに別のZ80エミュレーター(AGによる)
 yazpp	Yazツールキット用のC++ API
 yconalyzer	TCP転送量アナライザ
 ydcv	YouDaoコンソールバージョン
-ydiff	色付きの差分を並べて表示し、自動Pagerをサポート
+ydiff	色付きの差分を並べて表示し自動Pagerをサポート
 yelp-tools	MallardまたはDocBookのドキュメントの作成と編集に役立つツール
 yeti	JVM上で実行されるMLスタイルの関数型プログラミング言語
 yetris	ターミナル用にカスタマイズ可能なテトリス
 yh	jqだけができる色をもたらすYAMLシンタックスハイライト
-yj	YAML、TOML、JSON、HCL間で変換するCLI
+yj	YAML/TOML/JSON/HCL間で変換するCLI
 ykclient	YubiCloudに対してYubiKeyOTPを検証するためのライブラリ
 ykdl	中国本土のビデオサイトに焦点を当てたビデオダウンローダー
 ykman	YubiKey構成を管理するためのツール
 ykneomgr	CCIDと対話するためのCLIおよびCライブラリ-YubiKeyNEOの一部
 ykpers	YubiKeyパーソナライズライブラリとツール
 yle-dl	コマンドラインからYleビデオをダウンロードする
-yosys	VerilogRTL合成のフレームワーク
-you-get	ウェブをこすり落とすダムダウンローダー
+yosys	Verilog RTL合成のフレームワーク
+you-get	ウェブを削り取るDumbダウンローダー
 youtube-dl	コマンドラインからYouTubeビデオをダウンロードする
 youtube-dlc	YouTubeなどのさまざまなサイトをサポートするメディアダウンローダー
 youtubedr	GolangでYoutubeビデオをダウンロード
@@ -5891,11 +5893,11 @@ youtubeuploader	YouTubeへのスクリプトによるアップロード
 yq	CLIからYAMLドキュメントを処理する
 yq@3	CLIからYAMLドキュメントを処理する-バージョン3
 yt-dlp	追加機能と修正を加えたyoutube-dlのフォーク
-yubico-piv-tool	YubiKeyPIVアプリケーション用のコマンドラインツール
-yubikey-agent	YubiKeysおよびその他のPIVトークン用のSeamlessなssh-agent
+yubico-piv-tool	YubiKey PIVアプリケーション用のコマンドラインツール
+yubikey-agent	YubiKeysおよびその他のPIVトークン用のシームレスなssh-agent
 yuicompressor	Yahoo! JavaScriptとCSS圧縮機
 yydecode	yEncアーカイブをデコードする
-z	最もよく使用されるディレクトリを追跡して、CDをよりスマートにします
+z	最もよく使用されるディレクトリを追跡して賢いCDを作ります
 z.lua	習慣を学ぶことでより速くナビゲートするのに役立つ新しいcdコマンド
 z3	高性能定理証明者
 z80asm	ZilogZ80 microprcessorおよび互換機用のアセンブラー
@@ -5905,25 +5907,25 @@ zabbix-cli	Zabbixモニタリングシステムと対話するためのCLIツー
 zanata-client	Zanata翻訳システムのコマンドラインクライアント
 zbackup	グローバルに重複排除するバックアップツール(rsyncのアイデアに基づく)
 zbar	バーコード読み取りツールのパッケージ
-zbctl	ZeebeCLIクライアント
+zbctl	Zeebe CLIクライアント
 zboy	ゲームボーイエミュレータ
 zebra	情報管理システム
 zeek	ネットワークセキュリティモニター
 zelda-roth-se	Hylian SEのゼルダの伝説
-zellij	ターミナルマルチプレクサを基本機能とするプラグ可能なターミナルワークスペース
+zellij	プラグ可能なターミナルワークスペース 基本機能としてターミナル多重装置を使用
 zenith	*nixシステムのターミナルグラフィカルメトリック
 zenity	コマンドライン用のGTK+ダイアログボックス
 zero-install	分散型クロスプラットフォームソフトウェアインストールシステム
 zeromq	高性能の非同期メッセージングライブラリ
-zet	和集合、共通部分を検索し、ファイルの差を設定するためのCLIユーティリティ
-zig	堅牢性、最適性、および明快さのために設計されたプログラミング言語
+zet	和集合を見つけるためのCLIユーティリティ 交差とファイルの違いを設定します
+zig	堅牢性のために設計されたプログラミング言語 最適性/明快
 zile	テキストエディタ開発キット
 zim	Wikiページのコレクションを維持するために使用されるグラフィカルテキストエディタ
-zimg	スケーリング、色空間変換、およびディザリングライブラリ
+zimg	拡大縮小 色空間変換/ディザリングライブラリ
 zinc	sbtのScalaインクリメンタルコンパイラの独立型バージョン
 zinit	柔軟で高速なZshプラグインマネージャー
-zint	50以上のシンボル体系をサポートするバーコードエンコーディングライブラリ
-zip	圧縮およびファイルのパッケージ化/アーカイブユーティリティ
+zint	50以上のシンボル体系をサポートするBarcodeエンコーディングライブラリ
+zip	圧縮およびファイルのユーティリティ パッケージ/アーカイブ
 zita-convolver	高速なパーティション畳み込みエンジンライブラリ
 zk	プレーンテキストのメモ取りアシスタント
 zlib	汎用で損失の無いデータ圧縮ライブラリ
@@ -5940,18 +5942,18 @@ zorba	NoSQLクエリ計算機
 zork	ダンジョンがFORTRANからCに変更されました
 zoro	ローカルサーバーを外部ネットワークに公開する
 zoxide	ファイルシステムをより速くナビゲートするためのシェル拡張
-zpaq	インクリメンタルなジャーナリングコマンドラインアーカイバ
+zpaq	増分 ジャーナリングコマンドラインアーカイバ 
 zplug	zshの次世代プラグインマネージャー
 zrepl	ワンストップZFSバックアップおよびレプリケーションソリューション
 zsdx	Solarus DXのゼルダミステリー
 zsh	UNIXシェル(コマンド解釈プログラム)
 zsh-async	外部ツールを使用せずに非同期でタスクを実行する
-zsh-autosuggestions	zshに対するFishのような高速/目立たない自動提案
+zsh-autosuggestions	zshに対するFishのような高速/目立たないautosuggestions
 zsh-completions	zshの追加の補完定義
 zsh-fast-syntax-highlighting	Zshの機能豊富な構文の強調表示
 zsh-git-prompt	zshの有益なgitプロンプト
-zsh-history-substring-search	Fishshellの履歴検索のZshポート
-zsh-lovers	zshのヒント、コツ、例
+zsh-history-substring-search	Fishシェルの履歴検索Zshポート
+zsh-lovers	zshのヒント コツ 例え
 zsh-navigation-tools	Zsh cursesベースのツール(複数単語の履歴サーチャーなど)
 zsh-syntax-highlighting	zshの構文強調表示のようなフィッシュシェル
 zsh-vi-mode	ZSHのより優れた親しいvi(vim)モードプラグイン
@@ -5962,8 +5964,8 @@ zstd	Zstandardはリアルタイム圧縮アルゴリズムです
 zsxd	Solarus XDのゼルダミステリー
 zsync	ファイル転送プログラム
 zurl	ZeroMQインターフェースを備えたHTTPおよびWebSocketクライアントワーカー
-zxcc	UNIXでのクロスコンパイルおよびCP/Mツール用のCP/M2/3エミュレーター
-zydis	高速で軽量なx86/x86_64逆アセンブラライブラリ
+zxcc	UNIXでのクロスコンパイルおよび CP/Mツール用の CP/M2/3エミュレーター
+zydis	高速で軽量な x86/x86_64逆アセンブラライブラリ
 zyre	ピアツーピアアプリケーションのためのローカルエリアクラスタリング
 zzuf	透過的なアプリケーション入力ファザー
 zzz	Macをスリープ状態にするコマンドラインツール
