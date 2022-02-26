@@ -1,11 +1,11 @@
 font-3270	IBM 3270
-font-3270-nerd-font	3270オタクフォント（3270）
+font-3270-nerd-font	3270オタクフォント(3270)
 font-437-plus	DOS時代のIBMPCおよび互換機からのクラシックテキストモードフォントのコレクション
 font-abeezee	ABeeZee
 font-abel	Abel
 font-abhaya-libre	Abhaya Libre
 font-aboriginal-sans	LanguageGeek アボリジニ Sans Serif
-font-aboriginal-serif	アボリジニ Serif
+font-aboriginal-serif	Aboriginal Serif
 font-abril-fatface	Abril Fatface
 font-abyssinica-sil	Abyssinica SIL
 font-academicons	学者のためのスペシャリストアイコンフォント
@@ -18,7 +18,7 @@ font-adobe-blank	Adobe Blank
 font-advent-pro	Advent Pro
 font-african-sans	African Sans
 font-african-serif	African Serif
-font-agave-nerd-font	Agave Nerd Font (Agave)
+font-agave-nerd-font	Agave Nerd Font(Agave)
 font-aguafina-script	Aguafina Script
 font-ahuramzda	Ahuramzda
 font-aileron	Aileron
@@ -62,7 +62,7 @@ font-amiri-quran-colored	Amiri Quran Colored
 font-amita	Amita
 font-amstelvar-alpha	Amstelvar Alpha
 font-anaheim	Anaheim
-font-andada-pro	有機スラブセリフ、ハイブリッドスタイル、テキスト用ミディアムコントラストタイプ
+font-andada-pro	Organic-slab serifハイブリッドスタイルとテキスト用ミディアムコントラストタイプ
 font-andagii	Andagii
 font-andale-mono	Andale Mono
 font-andika	Andika
@@ -81,7 +81,7 @@ font-anek-telugu	Anek Telugu
 font-angkor	Angkor
 font-anka-coder	Anka/Coder
 font-annie-use-your-telescope	Annie Use Your Telescope
-font-anonymice-nerd-font	Anonymice Nerd Font (Anonymous Pro)
+font-anonymice-nerd-font	Anonymice Nerd Font(Anonymous Pro)
 font-anonymice-powerline	Anonymice Powerline
 font-anonymous-pro	Anonymous Pro
 font-antic	Antic
@@ -105,7 +105,7 @@ font-arial	Arial
 font-arial-black	Arial Black
 font-arima-madurai	Arima Madurai
 font-arimo	Arimo
-font-arimo-nerd-font	Arimo Nerd Font (Arimo)
+font-arimo-nerd-font	Arimo Nerd Font(Arimo)
 font-arizonia	Arizonia
 font-armata	Armata
 font-arsenal	Arsenal
@@ -121,12 +121,12 @@ font-assistant	Assistant
 font-astloch	Astloch
 font-asul	Asul
 font-athiti	Athiti
-font-atkinson-hyperlegible	ロービジョンリーダー向けの読みやすさと読みやすさを備えたフォント
+font-atkinson-hyperlegible	視覚障害向けの読みやすさと読みやすさを備えたフォント
 font-atma	Atma
 font-atomic-age	Atomic Age
 font-aubrey	Aubrey
 font-audiowide	Audiowide
-font-aurulent-sans-mono-nerd-font	AurulentSansMonoオタクフォント（Aurulent Sans Mono）
+font-aurulent-sans-mono-nerd-font	AurulentSansMonoオタクフォント(Aurulent Sans Mono)
 font-autour-one	Autour One
 font-average	Average
 font-average-mono	Average Mono
@@ -181,36 +181,36 @@ font-benchnine	BenchNine
 font-benne	ジョン・ハリントンによって開発されたKannadaテキストフォント
 font-bentham	Bentham
 font-berkshire-swash	Berkshire Swash
-font-besley	Designed by owen earl (indestructible type*)
+font-besley	Designed by owen earl(indestructible type*)
 font-beth-ellen	Beth Ellen
 font-bevan	Bevan
 font-bhavuka	Bhavuka
-font-bhutuka-expanded-one	aoifemooney窶冱biorhyme拡張ライト書体のグルムキーコンパニオン
-font-big-shoulders-display	ビッグショルダーディスプレイ
+font-bhutuka-expanded-one	Gurmukhiの仲間 aoifemooneyのbiorhyme拡張ライト書体
+font-big-shoulders-display	Big Shouldersディスプレイ
 font-big-shoulders-inline-display	凝縮されたアメリカンゴシック書体のスーパーファミリー
 font-big-shoulders-inline-text	凝縮されたアメリカンゴシック書体のスーパーファミリー
 font-big-shoulders-stencil-display	凝縮されたアメリカンゴシック書体のスーパーファミリー
 font-big-shoulders-stencil-text	凝縮されたアメリカンゴシック書体のスーパーファミリー
-font-big-shoulders-text	ビッグショルダーテキスト
-font-bigblue-terminal-nerd-font	BigBlue_Terminalオタクフォントファミリ（BigBlueターミナル）
+font-big-shoulders-text	Big Shouldersテキスト
+font-bigblue-terminal-nerd-font	BigBlue_Terminalオタクフォントファミリ(BigBlueターミナル)
 font-bigelow-rules	Bigelow Rules
 font-bigshot-one	Bigshot One
 font-bilbo	Bilbo
 font-bilbo-swash-caps	Bilbo Swash Caps
 font-bio-rhyme	Bio Rhyme
 font-bio-rhyme-expanded	Bio Rhyme 拡張
-font-birthstone	キャップとエンディングのスワッシュフォームを含む兄弟誕生石の跳ね返り
-font-birthstone-bounce	より光沢と遊び心を加える誕生石の兄弟ファミリー
+font-birthstone	キャップとエンディングのスワッシュフォームを含む弾むbirthstone兄弟
+font-birthstone-bounce	より光沢と遊び心を加えるbirthstoneの兄弟ファミリー
 font-biryani	Biryani
 font-bitstream-vera	Bitstream Vera
-font-bitstream-vera-sans-mono-nerd-font	BitstreamVeraSansMonoオタクフォント（Bitstream Vera Sans Mono）
+font-bitstream-vera-sans-mono-nerd-font	BitstreamVeraSansMonoオタクフォント(Bitstream Vera Sans Mono)
 font-bitter	電子インク画面用に最適化されたSlab-serif書体
 font-bitter-ht	電子インク画面用に最適化されたSlab-serif書体
 font-black-and-white-picture	黒と白の画像
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
 font-blackout	Blackout
-font-blex-mono-nerd-font	BlexMonoオタクフォント（IBM Plex Mono）
+font-blex-mono-nerd-font	BlexMonoオタクフォント(IBM Plex Mono)
 font-blinker	Blinker
 font-blokk-neue	BLOKK Neue
 font-bm	BM
@@ -227,7 +227,7 @@ font-bree-serif	Bree Serif
 font-brill	Brill
 font-bruno-ace	Bruno Ace
 font-bruno-ace-sc	Bruno Ace SC
-font-brygada-1918	プロジェクトのウェブサイトで入手可能
+font-brygada-1918	Webサイトプロジェクトで利用可能
 font-bubblegum-sans	Bubblegum Sans
 font-bubbler-one	Bubbler One
 font-buda	Buda
@@ -236,12 +236,12 @@ font-bukyvede-bold	BukyVede Bold
 font-bukyvede-italic	BukyVede Italic
 font-bukyvede-regular	BukyVede Regular
 font-bungee	Bungee
-font-bungee-color	アメリカを拠点に活動するタイプデザイナー、デビッド・ジョナサン・ロスが率いる
+font-bungee-color	デビッド・ジョナサン・ロスが率いる アメリカを拠点に活動する書体デザイナー
 font-bungee-hairline	Bungee Hairline
 font-bungee-inline	Bungee Inline
 font-bungee-outline	Bungee Outline
 font-bungee-shade	Bungee Shade
-font-bungee-spice	シルオープンフォントライセンスの下でリリース
+font-bungee-spice	sil openフォントライセンスの下でリリース
 font-butcherman	Butcherman
 font-butterfly-kids	Butterfly Kids
 font-cabin	Cabin
@@ -272,8 +272,8 @@ font-cascadia-code	プログラミング合字を含む等幅フォント
 font-cascadia-code-pl	Powerline記号が埋め込まれたCascadiaコードのバージョン
 font-cascadia-mono	合字のないCascadiaコードのバージョン
 font-cascadia-mono-pl	糸結びがなく、Powerlineが埋め込まれたCascadiaコードのバージョン
-font-caskaydia-cove-nerd-font	CaskaydiaCove Nerdフォント（Caskaydiaコード）
-font-castoro	北アメリカのビーバー、キャスターカナデンシスにちなんで名付けられました
+font-caskaydia-cove-nerd-font	CaskaydiaCove Nerdフォント(Caskaydiaコード)
+font-castoro	北米ビーバーにちなんで名付けられました castor canadensis
 font-catamaran	Catamaran
 font-caudex	Caudex
 font-caveat	Caveat
@@ -302,10 +302,10 @@ font-chewy	Chewy
 font-chicle	Chicle
 font-chilanka	Chilanka
 font-chivo	Chivo
-font-chokokutai	文字がファンキーな外観の日本語表示フォント
-font-chomsky	New York Timesのマストヘッド、フルフォントとして再考
+font-chokokutai	文字が面白い外観の日本語表示フォント
+font-chomsky	New York Timesのマストヘッド フルフォントとして再考
 font-chonburi	Chonburi
-font-church-slavonic	教会スラヴフォント
+font-church-slavonic	教会スラヴ語フォント
 font-cica	Cica
 font-cinzel	Cinzel
 font-cinzel-decorative	Cinzel Decorative
@@ -314,15 +314,15 @@ font-clicker-script	Clicker Script
 font-cochineal	Cochineal
 font-coda	Coda
 font-coda-caption	Coda Caption
-font-code-new-roman-nerd-font	CodeNewRomanオタクフォント（Code New Roman）
+font-code-new-roman-nerd-font	CodeNewRomanオタクフォント(Code New Roman)
 font-code2002	Code2002
 font-codystar	Codystar
-font-coelacanth	ブルース・ロジャースのケンタウロスに触発されたセリフ書体
+font-coelacanth	ブルース・ロジャースのCentaurに触発されたSerif書体
 font-coiny	Coiny
 font-combo	Combo
 font-comfortaa	Comfortaa
 font-comforter	多くの用途にアピール
-font-comforter-brush	快適さのブラシのようなコンパニオン、弾力のある、直立したブラシスタイルのスクリプト
+font-comforter-brush	comforter Brushyの仲間 弾む 直立したブラシスタイルのスクリプト
 font-comic-mono	読みやすい等幅フォント
 font-comic-neue	Comic Neue
 font-comic-sans-ms	Comic Sans
@@ -355,7 +355,7 @@ font-courier-prime-code	Courier Prime Code
 font-courier-prime-medium-and-semi-bold	Courier Prime Medium & Semi-Bold
 font-courier-prime-sans	Courier Prime Sans
 font-cousine	Cousine
-font-cousine-nerd-font	Cousine Nerd Font (Cousine)
+font-cousine-nerd-font	Cousine Nerd Font(Cousine)
 font-coustard	Coustard
 font-covered-by-your-grace	Covered By Your Grace
 font-cozette	Cozette
@@ -367,12 +367,13 @@ font-crimson-pro	Crimson Pro
 font-crimson-text	Crimson Text
 font-croissant-one	Croissant One
 font-crushed	Crushed
+font-cubic-11	オープンソースの11x11繁体字中国語ビットマップフォント
 font-cuprum	Cuprum
 font-cute-font	Cute Font
 font-cutive	Cutive
 font-cutive-mono	Cutive Mono
 font-d2coding	D2 Coding
-font-daddy-time-mono-nerd-font	DaddyTimeMonoオタクフォント（DaddyTimeMono）
+font-daddy-time-mono-nerd-font	DaddyTimeMonoオタクフォント(DaddyTimeMono)
 font-damion	Damion
 font-dancing-script	Dancing Script
 font-dangrek	Dangrek
@@ -380,13 +381,13 @@ font-darker-grotesque	Darker Grotesque
 font-darumadrop-one	Darumadrop One
 font-dashicons	Dashicons
 font-david-clm	David CLM
-font-david-libre	イスラエルのテルアビブを拠点とする書体デザイナー、メイア・サダンが率いる
+font-david-libre	meir sadanが率いる テルアビブを拠点とする書体デザイナー イスラエル 
 font-dawning-of-a-new-day	新しい日の夜明け
 font-days-one	Days One
 font-decovar-alpha	Decovar Alpha
 font-dejavu	DejaVu
 font-dejavu-sans-mono-for-powerline	DejaVu Sans Mono for Powerline
-font-dejavu-sans-mono-nerd-font	DejaVu Sans Monoオタクフォント（DejaVu Sans Mono）
+font-dejavu-sans-mono-nerd-font	DejaVu Sans Monoオタクフォント(DejaVu Sans Mono)
 font-dekko	Dekko
 font-dela-gothic-one	Dela Gothic One
 font-delius	Delius
@@ -419,14 +420,14 @@ font-dotgothic16	DotGothic16
 font-doulos-sil	Doulos SIL
 font-dr-sugiyama	杉山博士
 font-droid-sans-mono-for-powerline	Droid Sans Mono for Powerline
-font-droid-sans-mono-nerd-font	DroidSansMonoオタクフォント（Droid Sans Mono）
+font-droid-sans-mono-nerd-font	DroidSansMonoオタクフォント(Droid Sans Mono)
 font-duru-sans	Duru Sans
 font-dynalight	Dynalight
 font-eagle-lake	Eagle Lake
 font-east-sea-dokdo	East Sea Dokdo
 font-eater	Eater
-font-eb-garamond	1592バーナー標本に基づくガラモンド書体
-font-ebh	エクセター本のスクリプトに基づくベクトル化されたフォント
+font-eb-garamond	1592バーナー標本に基づくGaramond書体
+font-ebh	Exeter Bookのスクリプトに基づくベクトル化されたフォント
 font-economica	Economica
 font-eczar	Eczar
 font-edlo	Edlo
@@ -448,7 +449,7 @@ font-engagement	Engagement
 font-englebert	Englebert
 font-enriqueta	Enriqueta
 font-envy-code-r	Envy Code R
-font-ephesis	カジュアルな招待状、カード、チューブ、スクラップブッキングに最適な現代的なスクリプト
+font-ephesis	カジュアルな招待状に最適な現代的なスクリプト カード/チューブ/スクラップブッキング
 font-epilogue	ウェイト軸を持つSans serif可変フォント
 font-erica-one	Erica One
 font-escumasia	escumasiaに触発された古代の生物学スタイルのフォント
@@ -467,7 +468,7 @@ font-fahkwang	Fahkwang
 font-fairfax	Fairfax
 font-fandol	Fandol
 font-fantasque-sans-mono	Fantasque Sans Mono
-font-fantasque-sans-mono-nerd-font	FantasqueSansMonoオタクフォント（Fantasque Sans Mono）
+font-fantasque-sans-mono-nerd-font	FantasqueSansMonoオタクフォント(Fantasque Sans Mono)
 font-fantasque-sans-mono-noloopk	Fantasque Sans Mono NoLoopK
 font-fanwood-text	Fanwood Text
 font-farro	Farro
@@ -486,10 +487,10 @@ font-fenix	Fenix
 font-festive	Festive
 font-finger-paint	Finger Paint
 font-fira-code	Fira Code
-font-fira-code-nerd-font	FiraCode Nerd Font (Fira Code)
+font-fira-code-nerd-font	FiraCode Nerd Font(Fira Code)
 font-fira-mono	Fira Mono
 font-fira-mono-for-powerline	Fira Mono for Powerline
-font-fira-mono-nerd-font	FiraMono Nerd Font (Fira)
+font-fira-mono-nerd-font	FiraMono Nerd Font(Fira)
 font-fira-sans	Fira Sans
 font-fira-sans-condensed	Fira Sans Condensed
 font-fira-sans-extra-condensed	Fira Sans Extra Condensed
@@ -510,10 +511,10 @@ font-foundation-icons	Foundation Icons
 font-foundry-sterling	Foundry Sterling
 font-francois-one	Francois One
 font-frank-ruhl-libre	Frank Ruhl Libre
-font-fraunces	ディスプレイ、古いスタイルのソフトセリフ書体
+font-fraunces	ディスプレイ 古いスタイルのsoft-serif書体
 font-freckle-face	Freckle Face
 font-fredericka-the-great	Fredericka the Great
-font-fredoka	イスラエルを拠点とするタイパーデザインファウンドリ、ベンネイサンが率いる
+font-fredoka	ben nathanが率いる イスラエルを拠点とするタイパーデザイン製造所
 font-fredoka-one	Fredoka One
 font-free-mono-tengwar	Unicode tengwar monospaced font
 font-freefont	FreeFont
@@ -568,7 +569,7 @@ font-give-you-glory	Give You Glory
 font-glass-antiqua	Glass Antiqua
 font-glegoo	Glegoo
 font-gloria-hallelujah	Gloria Hallelujah
-font-glory	利用可能な6つのウェイトを使用して、ロゴ、ヘッドライン、および本文テキストに適しています
+font-glory	ロゴに適しています 利用可能な6つのウエイトを持つ見出しと本文
 font-glow-sans-j-compressed	Glow Sans J Compressed
 font-glow-sans-j-condensed	Glow Sans J Condensed
 font-glow-sans-j-extended	Glow Sans J Extended
@@ -587,10 +588,10 @@ font-glow-sans-tc-wide	Glow Sans TC Wide
 font-gluten	Filling, we'll put it that way
 font-gnu-unifont	GNU Unifont
 font-go	Go
-font-go-mono-nerd-font	GoMono Nerd Font (Go)
+font-go-mono-nerd-font	GoMono Nerd Font(Go)
 font-goblin-one	Goblin One
 font-gochi-hand	Gochi Hand
-font-gohufont-nerd-font	GohuFontオタクフォント（Gohu）
+font-gohufont-nerd-font	GohuFontオタクフォント(Gohu)
 font-goldman	ポスター用に設計されたラテンのディスプレイ書体
 font-gorditas	Gorditas
 font-gothic-a1	Gothic A1
@@ -617,10 +618,10 @@ font-gwendolyn	Gwendolyn
 font-habibi	Habibi
 font-hachi-maru-pop	手書きフォント
 font-hack	Hack
-font-hack-nerd-font	Hackオタクフォント（Hack）
+font-hack-nerd-font	Hackオタクフォント(Hack)
 font-hackgen	HackとGenJyuu-Gothicで構成される日本語プログラミングフォント
 font-hackgen-nerd	HackとGenJyuu-Gothicで構成される日本語プログラミングフォント
-font-hahmlet	あらゆる種類の植字、印刷、画面に最適
+font-hahmlet	あらゆる種類の植字に最適 印刷または画面
 font-halant	Halant
 font-hammersmith-one	Hammersmith One
 font-han-nom-a	HAN NOM A
@@ -634,9 +635,9 @@ font-hanuman	Hanuman
 font-happy-monkey	Happy Monkey
 font-harmattan	Harmattan
 font-hasklig	等幅合字のコードフォント
-font-hasklug-nerd-font	Hasklugオタクフォント（Hasklig）
+font-hasklug-nerd-font	Hasklugオタクフォント(Hasklig)
 font-headland-one	Headland One
-font-heavy-data-nerd-font	HeavyData Nerd Font (Heavy Data)
+font-heavy-data-nerd-font	HeavyData Nerd Font(Heavy Data)
 font-heebo	Heebo
 font-henny-penny	Henny Penny
 font-hepta-slab	Hepta Slab
@@ -656,9 +657,9 @@ font-hind-vadodara	Hind Vadodara
 font-holtwood-one-sc	Holtwood One SC
 font-homemade-apple	Homemade Apple
 font-homenaje	Homenaje
-font-hubballi	非公式で親しみやすい外観のモノリニア書体
+font-hubballi	非公式で親しみやすい外観のMonolinear書体
 font-humor-sans	Humor Sans
-font-hurmit-nerd-font	Hurmit Nerd Font (Hermit)
+font-hurmit-nerd-font	Hurmit Nerd Font(Hermit)
 font-hurricane	Hurricane
 font-hyppolit	Hyppolit
 font-ia-writer-duo	iA Writer Duo
@@ -691,7 +692,7 @@ font-im-fell-french-canon-sc	IM Fell French Canon SC
 font-im-fell-great-primer	IM Fell Great Primer
 font-im-fell-great-primer-sc	IM Fell Great Primer SC
 font-im-fell-types	IM Fell Types
-font-im-writing-nerd-font	iMWritingオタクフォントファミリー（iA Writer）
+font-im-writing-nerd-font	iMWritingオタクフォントファミリー(iA Writer)
 font-imbue	可変凝縮 Didone font
 font-impact	Impact
 font-imperial-script	きれいな接続とエレガントな外観の正式なスクリプトフォント
@@ -702,10 +703,10 @@ font-inconsolata-for-powerline	Inconsolata for Powerline
 font-inconsolata-for-powerline-bold	Inconsolata Bold for Powerline
 font-inconsolata-g	Inconsolata-g
 font-inconsolata-g-for-powerline	Inconsolata-g for Powerline
-font-inconsolata-go-nerd-font	InconsolataGoオタクフォント（Inconsolata Go）
+font-inconsolata-go-nerd-font	InconsolataGoオタクフォント(Inconsolata Go)
 font-inconsolata-lgc	Inconsolata LGC
-font-inconsolata-lgc-nerd-font	InconsolataLGCオタクフォント（Inconsolata LGC）
-font-inconsolata-nerd-font	Inconsolataオタクフォント（Inconsolata）
+font-inconsolata-lgc-nerd-font	InconsolataLGCオタクフォント(Inconsolata LGC)
+font-inconsolata-nerd-font	Inconsolataオタクフォント(Inconsolata)
 font-inder	Inder
 font-indie-flower	Indie Flower
 font-infini	Infini
@@ -717,31 +718,31 @@ font-inria-sans	Inria Sans
 font-inria-serif	Inria Serif
 font-inspiration	Inspiration
 font-inter	Inter
-font-iosevka	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-aile	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-curly	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-curly-slab	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-etoile	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-nerd-font	Iosevkaオタクフォント（Iosevka）
-font-iosevka-slab	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss01	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss02	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss03	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss04	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss05	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss06	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss07	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss08	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss09	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss10	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss11	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss12	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss13	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss14	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss15	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss16	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss17	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
-font-iosevka-ss18	Sans-serif、slab-serif、monospace、およびquasi‑proportionalの書体ファミリー
+font-iosevka	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-aile	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-curly	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-curly-slab	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-etoile	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-nerd-font	Iosevkaオタクフォント(Iosevka)
+font-iosevka-slab	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss01	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss02	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss03	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss04	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss05	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss06	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss07	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss08	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss09	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss10	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss11	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss12	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss13	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss14	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss15	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss16	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss17	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-ss18	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-ipaexfont	IPAex Fonts
 font-ipafont	IPA Fonts
 font-ipamjmincho	IPAmj明朝
@@ -761,7 +762,7 @@ font-jeju-gothic	Jeju Gothic
 font-jeju-hallasan	Jeju Hallasan
 font-jeju-myeongjo	Jeju Myeongjo
 font-jetbrains-mono	開発者向けに作られた書体
-font-jetbrains-mono-nerd-font	JetBrainsMonoオタクフォント（JetBrains Mono）
+font-jetbrains-mono-nerd-font	JetBrainsMonoオタクフォント(JetBrains Mono)
 font-jf-open-huninn	ピンクの丸い jf open
 font-jim-nightshade	Jim Nightshade
 font-jockey-one	Jockey One
@@ -792,18 +793,18 @@ font-just-another-hand	Just Another Hand
 font-just-me-again-down-here	Just Me Again Down Here
 font-k2d	K2D
 font-kadwa	Kadwa
-font-kaisei-decol	漢字と同じ要素でデザインされた、ストロークの終わりにある小さな点
+font-kaisei-decol	漢字と同じ要素でデザインされたストロークの終わりにある小さな点
 font-kaisei-harunoumi	Kaisei 春の海
 font-kaisei-opti	モダンな和文書体
-font-kaisei-tokumin	読みやすさを維持しながら、さらに大胆な書体としての力を発揮するように設計されています
+font-kaisei-tokumin	読みやすさを維持しながらさらに大胆な書体としての力を発揮するように設計されています
 font-kaiso	現代の幻想的な日本語フォント
 font-kalam	Kalam
 font-kameron	Kameron
 font-kanit	Kanit
-font-kanjistrokeorders	6500以上の漢字、180以上のかな記号、ラテン文字の書き順図
+font-kanjistrokeorders	6500字以上の漢字の書き順図 180以上のかな記号とラテン文字
 font-kantumruy	Kantumruy
-font-kapakana	2ウェイトフォントで、静的インスタンスと可変フォントの両方で使用できます
-font-karantina	ライト、レギュラー、ボールドを含む3つのウェイトファミリー
+font-kapakana	2ウェイトフォントで静的インスタンスと可変フォントの両方で使用できます
+font-karantina	ライト/レギュラー/ボールド を含む3つのウェイトファミリー
 font-karla	Karla
 font-karla-tamil-inclined	Karla Tamil 傾斜
 font-karla-tamil-upright	Karla Tamil Upright
@@ -821,8 +822,8 @@ font-khand	Khand
 font-khmer	Khmer
 font-khula	Khula
 font-khyay	Khyay
-font-kimberella	キンベレラに触発された古代生物学スタイルのフォント
-font-kings	3セットのフォントファミリー（kings honor, kings quest and kings dominion）に基づく
+font-kimberella	kimberellaに触発された古代生物学スタイルのフォント
+font-kings	3セットのフォントファミリーに基づく kings honor/kings quest/kings dominion
 font-kirang-haerang	Kirang Haerang
 font-kite-one	Kite One
 font-kiwi-maru	日常や俗語の表現を視覚化するための書体
@@ -830,7 +831,7 @@ font-klee-one	Klee One
 font-knewave	Knewave
 font-ko-pub-batang	Ko Pub Batang
 font-kodchasan	Kodchasan
-font-koh-santepheap	クメールフォント
+font-koh-santepheap	本文用のKhmerフォント
 font-koho	KoHo
 font-kokoro	心
 font-kolker-brush	コピーを編集するときにすべて大文字を使用することはお勧めしません
@@ -843,7 +844,7 @@ font-kreon	Kreon
 font-kristi	Kristi
 font-krona-one	Krona One
 font-krub	Krub
-font-kufam	現代の情報デザインを目的としたアラビア-ラテンのバイリンガル書体
+font-kufam	現代の情報デザインを目的としたArabic-Latinのバイリンガル書体
 font-kulim-park	Kulim Park
 font-kumar-one	Kumar One
 font-kumbh-sans	幾何学的なsans-serif多目的フォント
@@ -854,29 +855,29 @@ font-laila	Laila
 font-lakki-reddy	Lakki Reddy
 font-lalezar	Lalezar
 font-lancelot	Lancelot
-font-langar	非公式で遊び心のある文字形式に基づくワンウェイトラテン/グルムキー表示フォント
+font-langar	非公式で遊び心のある文字形式に基づくワンウェイトlatin/gurmukhi表示フォント
 font-langdon	Langdon
 font-lao-muang-don	Lao Muang Don
 font-lao-muang-khong	Lao Muang Khong
 font-lao-sans-pro	Lao Sans Pro
-font-last-resort	Unicode文字のタイプを表すグリフを提供する専用フォント
-font-last-resort-high-efficiency	Unicode文字のタイプを表すグリフを提供する専用フォント
+font-last-resort	専用フォント Unicode文字のタイプを表すglyphsを提供する
+font-last-resort-high-efficiency	Unicode文字のタイプを表すglyphsを提供する
 font-lateef	Lateef
 font-latin-modern	Latin Modern
 font-latin-modern-math	Latin Modern Math
 font-lato	Lato
-font-league-gothic	古い古典、代替ゴシック＃1の復活
-font-league-mono	Fira Mono、Libertinus Mono、およびCourierに触発されたモノスペース書体
+font-league-gothic	古い古典の復活 代替ゴシック＃1
+font-league-mono	FiraMonoに触発されたMonospace書体 Libertinus Mono/Courier
 font-league-script	League スクリプト
-font-league-spartan	ATF窶冱古典的なスパルタンの幾何学的なsans-serif復活
+font-league-spartan	ATFの古典的なSpartanの幾何学的なsans-serif再生
 font-leckerli-one	Leckerli One
 font-ledger	Ledger
 font-lekton	Lekton
-font-lekton-nerd-font	Lekton Nerd Font (Lekton)
+font-lekton-nerd-font	Lekton Nerd Font(Lekton)
 font-lemon	Lemon
 font-lemonada	Lemonada
 font-lemonada-vf-beta	Lemonada VF Beta
-font-lexend	8つのウェイトの範囲を持つフォントビューローによって拡張されました
+font-lexend	8つのウェイトの範囲を持つフォントbureauによって拡張されました
 font-lexend-deca	Lexend Deca
 font-lexend-exa	Lexend Exa
 font-lexend-giga	Lexend Giga
@@ -886,20 +887,20 @@ font-lexend-tera	Lexend Tera
 font-lexend-zetta	Lexend Zetta
 font-liberation	Liberation
 font-liberation-mono-for-powerline	Literation Mono for Powerline
-font-liberation-nerd-font	Literation Nerdフォントファミリー（解放）
-font-libertinus	19世紀の本のタイプに触発されたプロポーショナルセリフ書体
+font-liberation-nerd-font	Literation Nerdフォントファミリー(解放)
+font-libertinus	19世紀の本のタイプに触発されたプロポーショナルserif書体
 font-libre-barcode-128	Libreバーコード128
 font-libre-barcode-128-text	Libreバーコード128テキスト
 font-libre-barcode-39	Libreバーコード39
 font-libre-barcode-39-extended	Libreバーコード39拡張
 font-libre-barcode-39-extended-text	Libreバーコード39拡張テキスト
 font-libre-barcode-39-text	Libreバーコード39テキスト
-font-libre-barcode-ean13-text	ドイツのニュルンベルクを拠点とするフォントおよびWeb開発者であるlassefisterが率いる
+font-libre-barcode-ean13-text	lasse fisterが率いる ドイツのニュルンベルクを拠点とするフォントおよびWeb開発者
 font-libre-baskerville	Libre Baskerville
 font-libre-caslon-display	Libre Caslonディスプレイ
 font-libre-caslon-text	Libre Caslonテキスト
 font-libre-franklin	Libre フランクリン
-font-licorice	完璧なスクラップブッキング、カード、招待状、楽しいイベント
+font-licorice	完璧なスクラップブッキングカード/招待状/楽しいイベント
 font-life-savers	ライフセーバー
 font-ligature-symbols	合字記号
 font-lilex	Lilex
@@ -931,10 +932,11 @@ font-luckiest-guy	Luckiest Guy
 font-luculent	Luculent
 font-lusitana	Lusitana
 font-lustria	Lustria
-font-luxurious-roman	一貫性のないセリフを含む半手書きフォント
+font-luxurious-roman	一貫性のないserifを含む半手書きフォント
 font-luxurious-script	豪華なスクリプト
 font-lxgw-new-clear-gothic	IPAexゴシックから派生した簡体字中国語のsans-serifフォント
 font-lxgw-wenkai	FontworksのKleeOneから派生したオープンソースの中国語フォント
+font-lxgw-zhenkai	LXGW WenKaiのBolder-weightエディション
 font-m-plus-1	M PLUS 1
 font-m-plus-1-code	M PLUS 1 Code
 font-m-plus-2	M PLUS 2
@@ -985,7 +987,7 @@ font-megrim	Megrim
 font-meie-script	Meie Script
 font-meltho	Meltho Fonts
 font-menlo-for-powerline	Menlo for Powerline
-font-meow-script	6つのスタイルセットのいくつかの代替フォームを備えたモノラインフォント
+font-meow-script	6つのスタイルセットのいくつかの代替フォームを備えたMonolineフォント
 font-merge-one	Merge One
 font-merienda	Merienda
 font-merienda-one	Merienda One
@@ -994,8 +996,8 @@ font-merriweather-sans	Merriweather Sans
 font-mervale-script	Mervale Script
 font-meslo-for-powerline	Meslo for Powerline
 font-meslo-lg	Meslo LG
-font-meslo-lg-dz	Dotted-zero variant of the Meslo LG font
-font-meslo-lg-nerd-font	MesloLGオタクフォントファミリー（Meslo LG）
+font-meslo-lg-dz	MesloLGフォントDotted-zeroの変種
+font-meslo-lg-nerd-font	MesloLGオタクフォントファミリー(Meslo LG)
 font-metal	Metal
 font-metal-mania	Metal Mania
 font-metamorphous	Metamorphous
@@ -1033,13 +1035,13 @@ font-molle	Molle
 font-monda	Monda
 font-monofett	Monofett
 font-monofur-for-powerline	monofur for Powerline
-font-monofur-nerd-font	Monofur オタクフォント（Monofur）
+font-monofur-nerd-font	Monofur オタクフォント(Monofur)
 font-monoid	Monoid
-font-monoid-nerd-font	Monoid オタクフォント（Monoid）
+font-monoid-nerd-font	Monoid オタクフォント(Monoid)
 font-monoisome	Monoisome
 font-monomaniac-one	等幅フォントのムードでフォントを表示
 font-mononoki	Mononoki
-font-mononoki-nerd-font	Mononokiオタクフォント（Mononoki）
+font-mononoki-nerd-font	Mononokiオタクフォント(Mononoki)
 font-monoton	Monoton
 font-monsieur-la-doulaise	ラ・ドゥレーズ氏
 font-montaga	Montaga
@@ -1056,7 +1058,7 @@ font-moulpali	Moulpali
 font-mountains-of-christmas	Mountains of Christmas
 font-mouse-memoirs	Mouse Memoirs
 font-mplus	M+ FONTS
-font-mplus-nerd-font	mplus Nerd Font (M+)
+font-mplus-nerd-font	mplus Nerd Font(M+)
 font-mr-bedfort	Mr Bedfort
 font-mr-dafoe	Mr Dafoe
 font-mr-de-haviland	Mr De Haviland
@@ -1067,7 +1069,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	ディスプレイとテキストの両方のタイポグラフィ用に設計されたミニマリストのsans-serif書体
+font-mulish	最低限のsans serif書体 表示と凸版テキストのために設計されています
 font-murecho	9つの実用的なウェイトと可変フォントで利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1084,7 +1086,7 @@ font-nanum-pen-script	Nanum Pen Script
 font-national-park	National Park
 font-nats	NATS
 font-neonderthaw	ネオンをシミュレートするシングルウェイトスクリプト
-font-nerko-one	チャンキーmarkerエフェクトフォント
+font-nerko-one	Chunky ‘marker’エフェクトフォント
 font-neucha	Neucha
 font-neuton	Neuton
 font-new-rocker	New Rocker
@@ -1107,7 +1109,7 @@ font-notable	Notable
 font-nothing-you-could-do	Nothing You Could Do
 font-noticia-text	Noticia Text
 font-noto-color-emoji	Noto カラー絵文字
-font-noto-color-emoji-compat-test	Noto カラー絵文字コンパットテスト
+font-noto-color-emoji-compat-test	Noto カラー絵文字Compat Test
 font-noto-emoji	Noto 絵文字
 font-noto-kufi-arabic	Noto Kufi アラビア
 font-noto-mono	Noto Mono
@@ -1116,7 +1118,7 @@ font-noto-music	Noto Music
 font-noto-naskh-arabic	Noto Naskh アラビア
 font-noto-naskh-arabic-ui	Noto Naskh アラビア UI
 font-noto-nastaliq-urdu	Noto Nastaliq ウルドゥー
-font-noto-nerd-font	Noto オタクフォントファミリー（Noto）
+font-noto-nerd-font	Noto オタクフォントファミリー(Noto)
 font-noto-rashi-hebrew	Noto Rashi ヘブライ
 font-noto-sans	Noto Sans
 font-noto-sans-adlam	Noto Sans Adlam
@@ -1336,7 +1338,7 @@ font-odor-mean-chey	Odor Mean Chey
 font-office-code-pro	Office Code Pro
 font-offside	Offside
 font-ofl-sorts-mill-goudy-tt	OFLはMill Goudy TTをソートします
-font-oi	さまざまな言語で使用される感動詞
+font-oi	さまざまな言語で使用されるInterjection
 font-old-standard-tt	Old Standard TT
 font-oldenburg	Oldenburg
 font-ole	Ole
@@ -1344,7 +1346,7 @@ font-oleo-script	Oleo スクリプト
 font-oleo-script-swash-caps	Oleo スクリプト Swash Caps
 font-oooh-baby	Oooh Baby
 font-open-dyslexic	OpenDyslexic
-font-open-dyslexic-nerd-font	OpenDyslexicオタクフォントファミリ（OpenDyslexic）
+font-open-dyslexic-nerd-font	OpenDyslexicオタクフォントファミリ(OpenDyslexic)
 font-open-iconic	Open Iconic
 font-open-sans	Open Sans
 font-open-sans-condensed	Open Sans Condensed
@@ -1367,7 +1369,7 @@ font-overlock	Overlock
 font-overlock-sc	Overlock SC
 font-overpass	Overpass
 font-overpass-mono	Overpass Mono
-font-overpass-nerd-font	Overpass Nerd Font (Overpass)
+font-overpass-nerd-font	Overpass Nerd Font(Overpass)
 font-ovo	Ovo
 font-oxanium	Oxanium
 font-oxygen	Oxygen
@@ -1431,16 +1433,16 @@ font-post-no-bills-jaffna	Post No Bills Jaffna
 font-potta-one	ブラシレタリングに触発された文字形式を特徴とするシングルスタイルフォントファミリ
 font-powerline-symbols	Powerline Symbols
 font-pragati-narrow	Pragati Narrow
-font-praise	カジュアル（非接続）からフォーマルなアピールまでのバリエーションを持つ用途の広いスクリプト
+font-praise	カジュアル(非接続)からフォーマルなアピールまでのバリエーションを持つ用途の広いスクリプト
 font-prata	Prata
 font-preahvihear	Preahvihear
 font-press-start-2p	Press Start 2P
 font-pridi	Pridi
 font-princess-sofia	Princess Sofia
 font-prociono	Prociono
-font-profont-nerd-font	ProFont オタクフォントファミリー（ProFont）
+font-profont-nerd-font	ProFont オタクフォントファミリー(ProFont)
 font-profontx	ProFontX
-font-proggy-clean-tt-nerd-font	ProggyCleanTT オタクフォントファミリー（ProggyCleanTT）
+font-proggy-clean-tt-nerd-font	ProggyCleanTT オタクフォントファミリー(ProggyCleanTT)
 font-prompt	Prompt
 font-prosto-one	Prosto One
 font-proza-libre	Proza Libre
@@ -1469,7 +1471,7 @@ font-racing-sans-one	Racing Sans One
 font-radley	Radley
 font-rajdhani	Rajdhani
 font-rakkas	Rakkas
-font-raleway	エレガントなsans-serifフォントファミリー、現在は9つのウェイトとイタリックスタイル
+font-raleway	エレガントなsans-serifフォントファミリー 現在は9つのウェイトとイタリックスタイル
 font-raleway-dots	Raleway Dots
 font-ramabhadra	Ramabhadra
 font-ramaraja	Ramaraja
@@ -1484,7 +1486,7 @@ font-rationale	Rationale
 font-ravi-prakash	Ravi Prakash
 font-readex-pro	可変フォントのファミリー
 font-recursive	Recursive
-font-recursive-code	powerlineグリフを含む、Recursiveのビルド済みのテキストエディタに適したファイル
+font-recursive-code	Recursiveのビルド済みのテキストエディターに適したファイル powerline glyphsを含む
 font-red-hat-display	Red Hat Display
 font-red-hat-mono	Red Hat Mono
 font-red-hat-text	Red Hat Text
@@ -1506,11 +1508,11 @@ font-ricty-diminished	Ricty Diminished
 font-righteous	Righteous
 font-risque	Risque
 font-road-rage	Return to the days of grunge
-font-roboto	機械的な骨格とフォームを備えたフォントは、主に幾何学的です
+font-roboto	機械的な骨格とフォームを備えたフォントは主に幾何学的です
 font-roboto-flex	Roboto Flex
 font-roboto-mono	Roboto Mono
 font-roboto-mono-for-powerline	Roboto Mono for Powerline
-font-roboto-mono-nerd-font	RobotoMonoオタクフォント（RobotoMono）
+font-roboto-mono-nerd-font	RobotoMonoオタクフォント(RobotoMono)
 font-roboto-serif	印刷媒体での読み取りと作業も同様に快適です
 font-roboto-slab	Roboto Slab
 font-rochester	Rochester
@@ -1531,7 +1533,7 @@ font-rowdies	Rowdies
 font-rozha-one	Rozha One
 font-ru-serius	RU Serius
 font-rubik	Rubik
-font-rubik-beastly	Based on the google fonts rubik by hubert and fischer, meir sadan and cyreal
+font-rubik-beastly	グーグルフォントに基づくrubik by hubert and fischer, meir sadan and cyreal
 font-rubik-mono-one	Rubik Mono One
 font-rubik-one	Rubik One
 font-ruda	Ruda
@@ -1561,12 +1563,12 @@ font-sansita-one	Sansita One
 font-sansita-swashed	ヴィンテージ形式の美しい表示フォント
 font-sarabun	Sarabun
 font-sarala	Sarala
-font-sarasa-gothic	IosevkaとSourceHanSansに基づくCJKプログラミングフォント
+font-sarasa-gothic	IosevkaとSource Han Sansに基づくCJKプログラミングフォント
 font-sarina	Sarina
 font-sarpanch	Sarpanch
 font-sassy-frass	Sassy Frass
 font-satisfy	Satisfy
-font-sauce-code-pro-nerd-font	SauceCodeProオタクフォント（ソースコードプロ）
+font-sauce-code-pro-nerd-font	SauceCodeProオタクフォント(ソースコードプロ)
 font-sawarabi-gothic	さわらびゴシック
 font-sawarabi-mincho	さわらび明朝
 font-scada	Scada
@@ -1608,13 +1610,13 @@ font-shizuru	Shizuru
 font-shojumaru	Shojumaru
 font-short-stack	Short Stack
 font-shrikhand	Shrikhand
-font-shure-tech-mono-nerd-font	ShureTechMonoオタクフォント（Share Tech Mono）
+font-shure-tech-mono-nerd-font	ShureTechMonoオタクフォント(Share Tech Mono)
 font-siemreap	Siemreap
 font-sigmar-one	Sigmar One
 font-signika	優しいキャラクターのSans-serif看板書体
 font-signika-negative	Signika Negative
 font-signika-negative-sc	Signika SCフォントの代替バージョン
-font-signika-sc	Signikaフォントのスモールキャップバージョン
+font-signika-sc	SignikaフォントのSmall-capsバージョン
 font-simonetta	Simonetta
 font-simple-line-icons	Simple Line Icons
 font-single-day	Single Day
@@ -1652,7 +1654,7 @@ font-source-serif-4	Source Serif 4
 font-source-serif-pro	ソース Serif Pro
 font-space-grotesk	Space Grotesk
 font-space-mono	Space Mono
-font-space-mono-nerd-font	SpaceMonoオタクフォント（Space Mono）
+font-space-mono-nerd-font	SpaceMonoオタクフォント(Space Mono)
 font-spartan	Spartan
 font-special-elite	Special Elite
 font-spectral	Spectral
@@ -1674,7 +1676,7 @@ font-stick	キュートで遊び心のある直線デザイン
 font-stick-no-bills	Sinhalaとラテン文字をサポートするStencil styleの書体
 font-stint-ultra-condensed	Stint Ultra Condensed
 font-stint-ultra-expanded	Stint Ultra Expanded
-font-stix	科学的、技術的、および数学的なテキスト用のUnicodeフォント
+font-stix	科学用のUnicodeフォント テクニカル/数学のテキスト
 font-stix-two-math	STIX Two Math
 font-stix-two-text	STIX Two Text
 font-stoke	Stoke
@@ -1696,9 +1698,9 @@ font-suravaram	Suravaram
 font-suwannaphum	Suwannaphum
 font-swanky-and-moo-moo	Swanky and Moo Moo
 font-syncopate	Syncopate
-font-syne	もともとアートセンター共感覚のために設計された書体
+font-syne	もともとアートセンター'Synesthésie'のために設計された書体
 font-syne-mono	コントロールを手放す別の見方
-font-syne-tactile	もともとアートセンター「共感覚」のために設計されました
+font-syne-tactile	もともとアートセンター'Synesthésie'のために設計されました
 font-tajawal	Tajawal
 font-takaoex	TakaoEx
 font-tangerine	Tangerine
@@ -1708,10 +1710,10 @@ font-taviraj	Taviraj
 font-teko	Teko
 font-telex	Telex
 font-tenali-ramakrishna	Tenali Ramakrishna
-font-tengwar-formal-csur	CSURに準拠したTengwarUnicodeフォント
-font-tengwar-telcontar	Tengwar Telcontar-UnicodeTengwarフォント
+font-tengwar-formal-csur	CSURに準拠したTengwar Unicodeフォント
+font-tengwar-telcontar	Tengwar Telcontar-Unicode Tengwarフォント
 font-tenor-sans	Tenor Sans
-font-terminess-ttf-nerd-font	TerminessTTFオタクフォント（Terminus）
+font-terminess-ttf-nerd-font	TerminessTTFオタクフォント(Terminus)
 font-terminus	Terminus TTF
 font-tex-gyre-adventor	TeX Gyre Adventor
 font-tex-gyre-bonum	TeX Gyre Bonum
@@ -1726,7 +1728,7 @@ font-tex-gyre-schola-math	Schola Math
 font-tex-gyre-termes	TeX Gyre Termes
 font-tex-gyre-termes-math	Termes Math
 font-text-me-one	Text Me One
-font-texturina	guillermotorresによるデザイン
+font-texturina	guillermo torresによるデザイン
 font-thabit	Thabit
 font-tharlon	Tharlon
 font-thasadith	Thasadith
@@ -1738,7 +1740,7 @@ font-times-new-roman	Times New Roman
 font-times-newer-roman	Times New Romanと同じように見えますが、文字の幅が5〜10％広くなっています
 font-timmana	Timmana
 font-tinos	Tinos
-font-tinos-nerd-font	Tinos Nerd Font (Tinos)
+font-tinos-nerd-font	Tinos Nerd Font(Tinos)
 font-titan-one	Titan One
 font-titillium	Titillium
 font-titillium-web	Titillium Web
@@ -1749,13 +1751,13 @@ font-trade-winds	Trade Winds
 font-train-one	Train One
 font-trebuchet-ms	Trebuchet MS
 font-trirong	Trirong
-font-trispace	Designed by tyler finck (etc)
+font-trispace	Designed by tyler finck(etc)
 font-trocchi	Trocchi
 font-trochut	Trochut
-font-truculenta	パッケージング、ブランディング、ブックカバー、イラスト版、映画のタイトル
+font-truculenta	包装用/ブランディング/本の表紙/イラスト版/映画のタイトル
 font-trykker	Trykker
 font-tsukimi-rounded	丸みを帯びた端子を備えたsans-serif書体
-font-tt2020	高度なオープンソースのハイパーリアリスティックな多言語タイプライターフォント
+font-tt2020	高度なオープンソースの現実的な多言語タイプライターフォント
 font-tuffy	Tuffy
 font-tulpen-one	Tulpen One
 font-turret-road	Turret Road
@@ -1766,8 +1768,8 @@ font-ubuntu	明確にするために手動でヒントを与えられたsans-ser
 font-ubuntu-condensed	Ubuntu Condensed
 font-ubuntu-mono	Ubuntu Mono
 font-ubuntu-mono-derivative-powerline	Ubuntu Mono derivative Powerline
-font-ubuntu-mono-nerd-font	UbuntuMonoオタクフォント（Ubuntu Mono）
-font-ubuntu-nerd-font	Ubuntuオタクフォント（Ubuntu）
+font-ubuntu-mono-nerd-font	UbuntuMonoオタクフォント(Ubuntu Mono)
+font-ubuntu-nerd-font	Ubuntuオタクフォント(Ubuntu)
 font-uchen	Uchen
 font-ultra	Ultra
 font-uncial-antiqua	Uncial Antiqua
@@ -1791,7 +1793,7 @@ font-viaoda-libre	Viaoda Libre
 font-vibes	Vibes
 font-vibur	Vibur
 font-victor-mono	Victor Mono
-font-victor-mono-nerd-font	VictorMonoオタクフォント（Victor Mono）
+font-victor-mono-nerd-font	VictorMonoオタクフォント(Victor Mono)
 font-vidaloka	Vidaloka
 font-viga	Viga
 font-voces	Voces
@@ -1846,7 +1848,7 @@ font-zen-kaku-gothic-new	クラシックでありながらシンプルでスタ�
 font-zen-kurenaido	手書き感のある日本語フォント
 font-zen-loop	yoshimichi ohiraがZenフォントコレクションの一部としてデザインしたラテンフォント
 font-zen-maru-gothic	どんなシーンでも使いやすい
-font-zen-old-mincho	テキストの使用を目的としており、大きなサイズでもうまく機能します
+font-zen-old-mincho	テキストの使用を目的としており大きなサイズでもうまく機能します
 font-zen-tokyo-zoo	Zen 東京 Zoo
 font-zeyada	Zeyada
 font-zhi-mang-xing	Zhi Mang Xing
@@ -1867,7 +1869,7 @@ blocks-code	LittleFoot言語を使用してROLIBLOCKSのアプリケーション
 blue-sherpa	ブルーUSBマイク用コンパニオンアプリ
 bose-soundtouch	コンピューターからBoseSoundTouchシステムを制御する
 bose-updater	Bose製品のソフトウェアアップデート
-bragi-updater	ダッシュの新しいスキルを確認し、言語を切り替えます
+bragi-updater	Dashの新しいスキルを確認し言語を切り替えます
 brother-p-touch-update-software	ブラザーP-touchラベルプリンター用ソフトウェア
 caldigit-docking-utility	CalDigit Thunderboltドッキングステーションユーティリティ
 caldigit-thunderbolt-charging	Appleデバイスのサポートの改善
@@ -1875,18 +1877,18 @@ camengine	ライブストリーマーCAM用アプリ
 cameracontroller	アプリからUSBカメラを制御する
 canon-captureontouch-utility	CaptureOnTouch
 canon-eos-utility	キヤノンEOSカメラとの通信
-canon-eos-webcam-utility	キヤノンのカメラをウェブカメラとして使用する
+canon-eos-webcam-utility	キヤノンのカメラをWebカメラとして使用する
 canon-fax	Canon imageCLASSMFプリンター用のファックスドライバーとユーティリティ
-canon-ijscanner1	キヤノンE500、E600、MG2100、MG3100、MG4100、MG5100、MG5200、MG5300、MG6100、MG6200、MG8100、MG8200、MP190、MP210、MP220、MP240、MP250、MP260、MP270、MP280、MP470、MP480、 MP490、MP493、MP495、MP520、MP540、MP550、MP560、MP610、MP620、MP630、MP640、MP970、MP980、MP990、MX300、MX310、MX320、MX330、MX340、MX350、MX360、MX370、MX410、MX420、MX430、 MX510、MX700、MX710、MX7600、MX850、MX860、MX870、MX880、MX890シリーズ
-canon-ijscanner13f	キヤノンMG2400、MG2500、MG3500、MG5500、MG6400、MG6500、MG7100、P200シリーズ用のキヤノンスキャナーICAドライバー
-canon-ijscanner14f	Canon E460、MB2000、MB2300、MB5000、MB5300、MG2900、MG5600、MG6600、MG6700、MG7500シリーズ用のCanon ScannerICAドライバー
-canon-ijscanner15f	Canon G2000、G3000、MG3600、MG5700、MG6800、MG6900、MG7700シリーズ用のCanon ScannerICAドライバー
-canon-ijscanner16f	キヤノンE410、E470、G4000、MG3000、TS5000、TS6000、TS8000、TS9000シリーズ用のキヤノンスキャナーICAドライバー
-canon-ijscanner2	CanoScan 5600F、9000F、LiDE 100、LiDE 110、LiDE 200、LiDE 210、LiDE700F用のCanonScannerICAドライバー
-canon-ijscanner3	キヤノンE510、MG2200、MG3200、MG4200、MG5400、MG6300、MP230シリーズ用のキヤノンスキャナーICAドライバー
+canon-ijscanner1	キヤノンE500/E600/MG2100/MG3100/MG4100/MG5100/MG5200/MG5300/MG6100/MG6200/MG8100/MG8200/MP190/MP210/MP220/MP240/MP250/MP260/MP270/MP280/MP470/MP480/ MP490/MP493/MP495/MP520/MP540/MP550/MP560/MP610/MP620/MP630/MP640/MP970/MP980/MP990/MX300/MX310/MX320/MX330/MX340/MX350/MX360/MX370/MX410/MX420/MX430/ MX510/MX700/MX710/MX7600/MX850/MX860/MX870/MX880/MX890シリーズ
+canon-ijscanner13f	キヤノンMG2400/MG2500/MG3500/MG5500/MG6400/MG6500/MG7100/P200シリーズ用のキヤノンスキャナーICAドライバー
+canon-ijscanner14f	Canon E460/MB2000/MB2300/MB5000/MB5300/MG2900/MG5600/MG6600/MG6700/MG7500シリーズ用のCanon ScannerICAドライバー
+canon-ijscanner15f	Canon G2000/G3000/MG3600/MG5700/MG6800/MG6900/MG7700シリーズ用のCanon ScannerICAドライバー
+canon-ijscanner16f	キヤノンE410/E470/G4000/MG3000/TS5000/TS6000/TS8000/TS9000シリーズ用のキヤノンスキャナーICAドライバー
+canon-ijscanner2	CanoScan 5600F/9000F/LiDE 100/LiDE 110/LiDE 200/LiDE 210/LiDE700F用のCanonScannerICAドライバー
+canon-ijscanner3	キヤノンE510/MG2200/MG3200/MG4200/MG5400/MG6300/MP230シリーズ用のキヤノンスキャナーICAドライバー
 canon-ijscanner4	CanoScan 9000F MarkII用のCanon Scanner ICAドライバー
-canon-ijscanner5	Canon E610、MX390、MX450、MX520、MX720、MX920シリーズ用のCanon Scanner ICAドライバー
-canon-ijscanner6	CanoScan LiDE 120、LiDE220用のCanon Scanner ICAドライバー
+canon-ijscanner5	Canon E610/MX390/MX450/MX520/MX720/MX920シリーズ用のCanon Scanner ICAドライバー
+canon-ijscanner6	CanoScan LiDE 120/LiDE220用のCanon Scanner ICAドライバー
 canon-imageformula-driver	Canon ImageFormula Twain Driver
 canon-mf-printer	Canon imageCLASSMFプリンター用のプリンタードライバーとユーティリティ
 canon-pixma25xx-printer	Canon PixmaMG25XXシリーズプリンター用プリンタードライバー
@@ -1903,13 +1905,13 @@ cycliqplus-firmware-updater	CycliqFlyバイクカメラ用のファームウェ�
 datacolor-spyder-elite	モニターキャリブレーションツール
 datacolor-spyder-express	モニターキャリブレーションツール
 datacolor-spyder-pro	モニターキャリブレーションツール
-displaylink	DisplayLinkドック、アダプター、モニター用のドライバー
+displaylink	DisplayLinkドック用のドライバー アダプター/モニター
 displaylink-login-extension	ログイン前にDisplayLink画面を有効にします
 drobo-dashboard	データロボティクスストレージデバイス用の管理ソフトウェアとドライバー
 eizo-colornavigator	Eizo Coloredge画面を調整する
 elecom-mouse-assistant	ELECOMマウスをより効果的に使用するためのソフトウェア
 elektron-overbridge	Elektronハードウェアを音楽ソフトウェアに統合する
-elektron-transfer	サンプル、プリセット、ファームウェアアップデートを転送するためのツール
+elektron-transfer	サンプルを転送するためのツール プリセットとファームウェアの更新
 elgato-camera-hub	Elgato FACECAM構成ツール
 elgato-control-center	Elgatoキーライトを制御する
 elgato-game-capture-hd	ゲームキャプチャーHD
@@ -1919,49 +1921,49 @@ elgato-video-capture	Elgatoビデオキャプチャ
 elgato-wave-link	コンテンツ作成用にカスタムビルドされたソフトウェア
 evoluent-vertical-mouse-device-controller	Evoluent垂直マウスデバイスコントローラー
 evolv-escribe-suite	DNAデバイスの動作を構成、監視、および変更する
-fitbit-connect	FitbitConnect
+fitbit-connect	Fitbit Connect
 flashforge-flashprint	FlashPrint
 fnatic-op	FNATICGEARデバイスをカスタマイズする
 focusrite-control	Focusriteインターフェースを制御する
 focusrite-saffire-mixcontrol	Focusrite製品のソフトウェア
 focusrite-thunderbolt	Focusriteデバイス用のThunderboltドライバー
-fractal-bot	Fractal AudioSystems製品との間でデータを送受信します
+fractal-bot	Fractal Audio Systems製品との間でデータを送受信します
 ftdi-vcp-driver	FTDI VCPドライバー
-fujifilm-x-acquire	FUJIFILMX取得
-fujifilm-x-raw-studio	Fujifilmカメラに接続して、RAWファイルを希望どおりに抽出および変換します
-fujifilm-x-webcam	XシリーズとGFXシステムのデジタルカメラをウェブカメラに変えるソリューション
+fujifilm-x-acquire	FUJIFILM X取得
+fujifilm-x-raw-studio	Fujifilmカメラに接続してRAWファイルを希望どおりに抽出および変換します
+fujifilm-x-webcam	XシリーズとGFXシステムのデジタルカメラをWebカメラに変えるソリューション
 fujitsu-scansnap-home	富士通ScanSnapスキャナーソフトウェア
 fujitsu-scansnap-manager	富士通ドキュメントスキャナー用スキャンソフトウェア
 fujitsu-scansnap-manager-ix500	富士通ScanSnapiX500用ScanSnap Manager
 fujitsu-scansnap-manager-s1300	富士通ScanSnapS1300用ScanSnap Manager
 g-raid-with-thunderbolt-configurator	ThunderboltConfiguratorを使用したG-RAID
 garmin-basecamp	3Dマッピングアプリケーション
-garmin-express	マップとソフトウェアを更新し、Garmin Connectと同期して、デバイスを登録します
+garmin-express	マップとソフトウェアを更新する Garmin Connectと同期してデバイスを登録します
 garmin-virb-edit	ガーミンVIRB編集
 genki-softwave	ウェーブリングソフトウェア
 genki-wave-for-work	ウェーブリングソフトウェア
-gk6-plus	GK6シリーズPCB /キーボード用のキーボードユーティリティ
+gk6-plus	GK6シリーズPCB/キーボード用のキーボードユーティリティ
 gopro-webcam	GoProをWebカメラとして使用するためのGoProユーティリティ
 gutenprint	CUPSおよびGIMPで使用するためのさまざまなプリンター用のドライバー
-hdhomerun	地上波HDTVの視聴、スケジュール設定、録画
-hhkb-keymap-tool	Happy Hacking Keyboard Professional用のキーマップツール（ハイブリッドモデルのみ）
+hdhomerun	見守る 地上波HDTVのスケジュールと録画
+hhkb-keymap-tool	Happy Hacking Keyboard Professional用のキーマップツール(ハイブリッドモデルのみ)
 hhkb-pro-driver	HHKB Professionalのドライバー
 hp-connectivity-kit	HPコネクティビティキット
 hp-easy-start	HP Easy Start
 huiontablet	Huionタブレット用ドライバー
-insta360-studio	ビデオおよび写真エディタ
+insta360-studio	ビデオおよび写真エディター
 interstuhl-s40	Interstuhl S4.0
 jabra-direct	Jabraヘッドセットを最適化してパーソナライズする
-kensington-trackball-works	ケンジントントラックボールをプログラムするソフトウェア
-kensingtonworks	ケンジントンのトラックボール、マウス、プレゼンターをパーソナライズするソフトウェア
+kensington-trackball-works	Kensingtonトラックボールをプログラムするソフトウェア
+kensingtonworks	Kensingtonのトラックボールをパーソナライズするソフトウェア マウス/プレゼンター
 kiibohd-configurator	モジュラーコミュニティキーボードファームウェア
-konica-minolta-bizhub-c220-c280-c360-driver	コニカミノルタBizhubC220/C280/C360 PostScriptプリンタードライバー
+konica-minolta-bizhub-c220-c280-c360-driver	コニカ ミノルタBizhubC220/C280/C360 PostScriptプリンタードライバー
 konica-minolta-bizhub-c750i-driver	PostScriptプリンタードライバー
-konica-minolta-bizhub-c759-c658-c368-c287-c3851-driver	コニカミノルタBizhubプリンター用ドライバー
-kyocera-printer-drivers	京セラマックドライバー
+konica-minolta-bizhub-c759-c658-c368-c287-c3851-driver	コニカ ミノルタBizhubプリンター用ドライバー
+kyocera-printer-drivers	京セラMacドライバー
 lacie-network-assistant	CloudBoxとすべてのLaCieネットワーク接続ストレージを管理します
 lg-onscreen-control	接続されているすべてのLGモニター情報を表示します
-linn-konfig	リン・コンフィグ
+linn-konfig	Linn Konfig
 lmsclients-squeezeplay	メディアサーバークライアント
 logitech-camera-settings	カメラコントロールへのアクセスを提供します
 logitech-control-center	マウスとキーボードをカスタマイズする
@@ -1983,10 +1985,10 @@ motu-m-series	MOTU M2およびM4システム拡張機能をインストールし
 muteme	MuteMe物理ミュートボタンのコンパニオンアプリ
 netgear-switch-discovery-tool	NETGEARネットワークスイッチを検出するためのソフトウェア
 ni-488-2	NI-488.2
-nitrokey	NitroKeyデバイスを管理するためのアプリケーション
+nitrokey	Nitro Keyデバイスを管理するためのアプリケーション
 nordic-nrf-command-line-tools	Nordic nRF Semiconductorsのコマンドラインツール
 nordic-nrf-connect	Bluetooth Low EnergyおよびcIoT用の開発ソフトウェア
-nvidia-cuda-toolkit	高性能GPUアクセラレーションアプリケーションを作成するためのツール
+nvidia-cuda-toolkit	高性能GPU加速アプリケーションを作成するためのツール
 nvidia-web-driver	NVIDIA Webドライバー
 obinskit	Anne ProおよびAnne Pro2用のソフトウェア
 obsbot-me-tool	OBSBOT Meの構成およびファームウェア更新ユーティリティ
@@ -1994,15 +1996,15 @@ obsbot-tinycam	OBSBOT TinyおよびTiny4K Webカメラの構成およびファ�
 openintelwireless-heliport	Intel Wi-Fiアダプターカーネル拡張用のクライアント
 opentx-companion	OpenTXファームウェアで実行されているRC無線送信機のユーティリティ
 pallotron-yubiswitch	Yubikey Nanoを有効/無効にするステータスバーアプリケーション
-phidget-control-panel	Phidg​​etsセンシングキット用のライブラリと制御ソフトウェア
+phidget-control-panel	Phidgetsセンシングキット用のライブラリと制御ソフトウェア
 philips-hue-sync	スマートライトシステムを制御する
 picoscope	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
 plantronics-hub	Plantronics Hub
 pololu-avr-programmer-v2	Pololu AVRプログラマーv2のドライバー
 prolific-pl2303	PL2303 USB-シリアルドライバ
-qflipper	フリッパーゼロデバイス用のコンパニオンアプリ
+qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
 qmk-toolbox	QMKファームウェアのツールボックスコンパニオン
-qnap-external-raid-manager	QNAP外部RAIDデバイスの設定、監視、およびステータスの表示
+qnap-external-raid-manager	QNAP外部RAIDデバイスのステータスを表示します 設定/モニター
 rapoo-mt750s	マルチモードワイヤレスレーザーマウスドライバー
 razer-synapse	Razer周辺機器の構成ソフトウェア
 reinersct-cyberjack	REINER SCTによるスマートカードリーダー用ドライバー
@@ -2010,18 +2012,18 @@ reolink-client	Reolinkクライアント
 ricoh-ps-printers-vol3-exp-driver	PSドライバーが印刷デバイスを制御し、全機能を有効にすることを許可する
 ricoh-ps-printers-vol4-exp-driver	Ricoh PSプリンターVol4 EXPドライバー
 ricoh-theta	RICOH THETA
-rode-central	RØDEデバイスの設定、機能、機能、およびファームウェアを構成します
+rode-central	RØDEデバイス設定を構成する 特徴/関数/ファームウェア
 roland-quad-capture-usb-driver	Roland Quad-CaptureUSBドライバー
 roli-connect	ROLI製品のツールマネージャー
 safenet-authentication-client	スマートカードリーダーとセキュリティトークンのクライアント
 saleae-logic	Saleaeのデバイスの信号分析
 samsung-portable-ssd-t5	Samsung外部ストレージドライブ用のソフトウェア
-sandisk-security	SanDisk ExtremeポータブルSSDラインの新しい（V2）バージョンをパスワードで保護する
+sandisk-security	SanDisk ExtremeポータブルSSDラインの新しい(V2)バージョンをパスワードで保護する
 seagate-dashboard	Seagateダッシュボード
 segger-jlink	SeggerJ-Linkデバッグプローブ用のソフトウェアおよびドキュメントパック
 segger-ozone	J-Linkデバッガーおよびパフォーマンスアナライザー
 shearwater	デスクトップコンピューターをShearwaterダイブコンピューターにリンクします
-shureplus-motiv	Shure MV7およびMV88 +マイクの追加機能とコントロール
+shureplus-motiv	Shure MV7とMV88 +マイクの追加機能とコントロール
 silicon-labs-vcp-driver	CP210x USB to UARTブリッジVCPドライバー
 smartscope	SmartScopeオシロスコープに接続するためのアプリ
 sonos	Sonosシステムを制御する
@@ -2038,7 +2040,7 @@ synology-drive	Synology NASドライブへの同期およびバックアップ�
 synology-photo-station-uploader	写真やビデオをSynology Photo Stationに一括アップロードする
 synology-surveillance-station-client	Synology製品のSurveillance Stationにアクセスするためのデスクトップユーティリティ
 synologyassistant	LAN全体でSynology NASを管理するためのツール
-tiptoi-manager	子供のRavensburger tip toiオーディオペンのデータを管理する
+tiptoi-manager	子供のデータを管理する Ravensburger tip toi audio pen
 tomtom-mydrive-connect	TomTomナビゲーションデバイスを更新します
 tomtom-sports-connect	TomTom MySports Connect
 toneprint	TonePrintペダルのキャラクターを変更する
@@ -2070,28 +2072,28 @@ ableton-live-suite9	Ableton Live 9 Suite
 adguard-nightly	スタンドアロンの広告ブロッカー
 adguard-vpn-nightly	プライバシーとセキュリティのためのVPN
 adoptopenjdk8	ビルド済みのOpenJDKバイナリ
-aerial-beta	Apple TV空中スクリーンセーバー
+aerial-beta	Apple TV Aerialスクリーンセーバー
 affinity-designer-beta	写真編集およびグラフィックデザインソフトウェア
 affinity-photo-beta	Serif Affinity Photo
-affinity-publisher-beta	プロのデスクトップパブリッシングソフトウェア
+affinity-publisher-beta	プロのデスクトップ出版ソフトウェア
 alfred2	Alfred
 alfred3	アプリケーションランチャーと生産性ソフトウェア
 anaconda2	Continuum Analytics Anaconda2
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
-appcode-eap	Swift、Objective-C、C、およびC ++開発用のIDE
+appcode-eap	Swift/Objective-C/C/C++ 開発用のIDE
 arduino-ide-beta	エレクトロニクスプロトタイピングプラットフォーム
 arduino-ide-nightly	エレクトロニクスプロトタイピングプラットフォーム
 arduino-nightly	Arduino
 arq5	マルチクラウドバックアップアプリケーション
-atom-beta	クロスプラットフォームのテキストエディタ
-atom-nightly	クロスプラットフォームのテキストエディタ
+atom-beta	クロスプラットフォームのテキストエディター
+atom-nightly	クロスプラットフォームのテキストエディター
 azure-data-studio-insiders	SQLServerでの作業を可能にするデータ管理ツール
 background-music-pre	オーディオユーティリティ
-blender-lts	無料のオープンソース3D作成スイート
-brave-browser-beta	プライバシーに焦点を当てたWebブラウザ
-brave-browser-dev	プライバシーに焦点を当てたWebブラウザ
-brave-browser-nightly	プライバシーに焦点を当てたWebブラウザ
+blender-lts	Freeのオープンソース3D作成スイート
+brave-browser-beta	プライバシーに焦点を当てたWebブラウザー
+brave-browser-dev	プライバシーに焦点を当てたWebブラウザー
+brave-browser-nightly	プライバシーに焦点を当てたWebブラウザー
 buckets-beta	予算編成ツール
 calibre4	電子書籍管理ソフトウェア
 carbon-copy-cloner5	ハードディスクのバックアップとクローン作成ユーティリティ
@@ -2099,7 +2101,7 @@ charles-applejava	Charles
 charles-beta	Webデバッグプロキシアプリケーション
 chromedriver-beta	Google Chrome用のWebアプリの自動テスト
 citra-nightly	ニンテンドー3DSエミュレーター
-clashx-pro	クラッシュに基づくGUIを備えたルールベースのカスタムプロキシ
+clashx-pro	clashに基づくGUIを備えたルールベースのカスタムプロキシ
 cleanmymac3	CleanMyMac
 corretto11	AmazonからのOpenJDKディストリビューション
 corretto8	AmazonからのOpenJDKディストリビューション
@@ -2107,11 +2109,11 @@ daedalus-flight	Cardanoブロックチェーン上のada用のDaedalus暗号通�
 dash2	Dash
 dash3	Dash
 dash4	Dash
-dash5	APIドキュメントブラウザとコードスニペットマネージャー
-db-browser-for-sqlite-nightly	SQLite用のデータベースブラウザ
+dash5	APIドキュメントブラウザーとコードスニペットマネージャー
+db-browser-for-sqlite-nightly	SQLite用のデータベースブラウザー
 deadbeef-nightly	モジュラーオーディオプレーヤー
-defold-alpha	デスクトップ、モバイル、ウェブゲームの開発のためのゲームエンジン
-defold-beta	デスクトップ、モバイル、ウェブゲームの開発のためのゲームエンジン
+defold-alpha	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
+defold-beta	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
 discord-canary	音声およびテキストチャットソフトウェア
 discord-development	音声およびテキストチャットソフトウェア
 discord-ptb	音声およびテキストチャットソフトウェア
@@ -2120,33 +2122,33 @@ dolphin-dev	ゲームキューブとWiiのゲームをプレイするエミュ�
 dotnet-preview	開発者プラットフォーム
 dotnet-sdk-preview	開発者プラットフォーム
 dropbox-beta	Dropboxクラウドストレージサービスのクライアント
-emacs-nightly	GNU Emacsテキストエディタ
-emacs-pretest	Text editor
-ferdi-beta	複数のサービスを組み合わせたメッセージングブラウザ
-figma-beta	コラボレーティブチームソフトウェア
-firefox-beta	Web browser
-firefox-developer-edition	Web browser
-firefox-esr	Web browser
-firefox-nightly	Web browser
+emacs-nightly	GNU Emacsテキストエディター
+emacs-pretest	テキストエディター
+ferdi-beta	複数のサービスを組み合わせたメッセージングブラウザー
+figma-beta	協調的チームソフトウェア
+firefox-beta	Webブラウザー
+firefox-developer-edition	Webブラウザー
+firefox-esr	Webブラウザー
+firefox-nightly	Webブラウザー
 fork-dev	GITクライアント
 forklift2	ForkLift
-freecad-pre	3Dパラメトリックモデラー
-geogebra5	数学の問題、グラフ関数などを解決、保存、共有します
+freecad-pre	3D parametricモデラー
+geogebra5	解決 数学の問題を保存して共有する グラフ関数等 
 ghidra-beta	Ghidra
 github-beta	GitHubリポジトリ用のデスクトップクライアント
-google-chrome-beta	Web browser
-google-chrome-canary	Web browser
-google-chrome-dev	Web browser
+google-chrome-beta	Webブラウザー
+google-chrome-canary	Webブラウザー
+google-chrome-dev	Webブラウザー
 google-japanese-ime-dev	Google日本語入力方式エディター
 gpg-suite-nightly	メールやファイルを保護するためのツール
-hamsket-nightly	無料のオープンソースメッセージングおよび電子メールアプリ
+hamsket-nightly	Freeのオープンソースメッセージングおよび電子メールアプリ
 hyper-canary	Webテクノロジーに基づいて構築されたターミナル
 inso-beta	CLI HTTPおよびGraphQLクライアント
 insomnia-alpha	HTTPおよびGraphQLクライアント
 intellij-idea-ce19	Java開発用IDE-コミュニティ版
 intellij-idea19	JVM言語用のIDE
 istat-menus5	iStatsメニュー
-iterm2-beta	Appleのターミナルアプリの代替としてのターミナルエミュレータ
+iterm2-beta	Appleのターミナルアプリの代替ターミナルエミュレータ
 iterm2-legacy	iTerm2
 iterm2-nightly	iTerm2
 java-beta	Javaプログラミング言語用の早期アクセス開発キット
@@ -2160,16 +2162,16 @@ keka-beta	File archiver
 keyboard-maestro8	キーボードMaestro
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
 lando-edge	Docker上に構築されたローカル開発環境とDevOpsツール
-libreoffice-still	無料のクロスプラットフォームオフィススイート
+libreoffice-still	Freeのクロスプラットフォームオフィススイート
 lilypond-dev	音楽彫刻プログラム
 little-snitch4	ホストベースのアプリケーションファイアウォール
-local-beta	FlywheelによるWordPressローカル開発ツール（ベータ版）
+local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
 macfuse-dev	ファイルシステム統合
 macloggerdx-beta	アマチュア無線ロギングおよびリグ制御ソフトウェア
 macpass-dev	KeePass-clientおよびパスワードマネージャー
-mi-beta	Text editor
-microsoft-edge-beta	マルチプラットフォームのWebブラウザ
-microsoft-edge-dev	マルチプラットフォームのWebブラウザ
+mi-beta	テキストエディター
+microsoft-edge-beta	マルチプラットフォームのWebブラウザー
+microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2011	Microsoft Office 2011
 microsoft-office-2016	オフィススイート
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
@@ -2179,17 +2181,17 @@ mono-mdk-for-visual-studio	Microsoftの.NETFrameworkのオープンソース実�
 morpheus-beta	多細胞システム生物学のモデリング環境
 mullvadvpn-beta	VPNクライアント
 mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
-netnewswire-beta	無料のオープンソースRSSリーダー
-olympus	Everest（ビデオゲームCeleste用のModローダー）インストーラー/マネージャー
+netnewswire-beta	FreeのオープンソースRSSリーダー
+olympus	Everest(ビデオゲームCeleste用のModローダー) インストーラー/マネージャー
 omnifocus2	OmniFocus
 omnigraffle6	OmniGraffle 6
 omniplan3	プロジェクト計画および管理ソフトウェア
 openemu-experimental	レトロなビデオゲームエミュレーション
 openscad-snapshot	OpenSCAD
-openshot-video-editor-daily	クロスプラットフォームのビデオエディタ
+openshot-video-editor-daily	クロスプラットフォームのビデオエディター
 openzfs-dev	ZFSドライバーとユーティリティ
-opera-beta	Web browser
-opera-developer	Web browser
+opera-beta	Webブラウザー
+opera-developer	Webブラウザー
 osu-development	リズムゲーム
 papers3	あなたの個人的な研究ライブラリ
 parallels12	デスクトップ仮想化ソフトウェア
@@ -2197,7 +2199,7 @@ parallels13	デスクトップ仮想化ソフトウェア
 parallels14	デスクトップ仮想化ソフトウェア
 parallels15	デスクトップ仮想化ソフトウェア
 parallels16	デスクトップ仮想化ソフトウェア
-pdf-expert-beta	PDFリーダー、エディター、アノテーター
+pdf-expert-beta	PDFリーダー エディター/注釈
 pgadmin3	pgAdmin
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
 powershell-preview	コマンドラインシェルとスクリプト言語
@@ -2213,49 +2215,49 @@ reflector2	ワイヤレス画面ミラーリングアプリケーション
 royal-tsx-beta	リモート管理ソリューション
 rstudio-daily	RStudio
 rstudio-preview	RとPythonに焦点を当てたデータサイエンスソフトウェア
-safari-technology-preview	ウェブブラウザ
+safari-technology-preview	Webブラウザー
 screenflow5	ScreenFlow
-scribus-dev	無料のオープンソースページレイアウトプログラム
+scribus-dev	Freeのオープンソースページレイアウトプログラム
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 sequel-pro-nightly	Sequel Pro
 shadow-beta	Shadow Beta
 signal-beta	セキュリティに焦点を当てたインスタントメッセージングアプリケーション
 sketch-beta	デジタルデザインおよびプロトタイピングプラットフォーム
-skype-preview	ビデオチャット、音声通話、インスタントメッセージングアプリケーション
+skype-preview	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype7	Skype
-slack-beta	チームコミュニケーションおよびコラボレーションソフトウェア
+slack-beta	チームコミュニケーションおよび協力ソフトウェア
 slicer-preview	医用画像処理および視覚化システム
 smcfancontrol-beta	内蔵ファンの最低速度を設定します
 snagit4	Snagit
 sonarr-beta	sonarr-beta
-sonos-s1-controller	Gen 1Sonos製品のコントローラー
+sonos-s1-controller	Gen 1 Sonos製品のコントローラー
 soulver2	Soulver
 sourcetree-beta	Gitバージョン管理用のグラフィカルクライアント
 sublime-merge-dev	Gitクライアント
-sublime-text-dev	コード、マークアップ、散文用のテキストエディタ
+sublime-text-dev	コード用のテキストエディタ マークアップ/散文
 sublime-text2	Sublime Text 2
 synergy-beta	Synergy
 telegram-desktop-beta	Telegramメッセンジャー用のデスクトップクライアント
-temurin11	Eclipse Foundation（Adoptium）のJDK
-temurin8	Eclipse Foundation（Adoptium）のJDK
+temurin11	Eclipse Foundation(Adoptium)のJDK
+temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
-textmate-preview	汎用テキストエディタ
+textmate-preview	汎用テキストエディター
 thunderbird-beta	Mozilla Thunderbird
 thunderbird-daily	カスタマイズ可能なメールクライアント
-tinymediamanager3	メディア管理ツール、V3バージョンライセンスは不要
-tor-browser-alpha	セキュリティに重点を置いたWebブラウザ
+tinymediamanager3	メディア管理ツール V3バージョンライセンスは不要
+tor-browser-alpha	セキュリティに重点を置いたWebブラウザー
 tower2	Tower
 transmission-nightly	オープンソースのBitTorrentクライアント
 transmit4	Transmit
-tunnelblick-beta	OpenVPN用の無料のオープンソースグラフィックユーザーインターフェイス
+tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
 utm-beta	QEMUを使用した仮想マシンUI
 virtualbox-beta	Oracle VirtualBox
 virtualbox-extension-pack-beta	Oracle VirtualBox Extension Pack
-visual-studio-code-insiders	コードエディタ
-vivaldi-snapshot	カスタマイズと制御に焦点を当てたWebブラウザ
+visual-studio-code-insiders	コードエディター
+vivaldi-snapshot	カスタマイズと制御に焦点を当てたWebブラウザー
 vlc-nightly	オープンソースのクロスプラットフォームマルチメディアプレーヤー
-vmware-fusion-tech-preview	仮想マシンを作成、管理、および実行する
+vmware-fusion-tech-preview	仮想マシンを実行します 作成/管理
 vmware-fusion10	VMware Fusion
 vmware-fusion11	再起動せずに他のオペレーティングシステムを実行するアプリ
 vmware-fusion7	VMware Fusion
@@ -2265,7 +2267,7 @@ whatsapp-beta	WhatsApp用のデスクトップクライアント
 whoozle-android-file-transfer-nightly	Androidファイル転送
 wine-devel	Windowsアプリケーションを実行するための互換性レイヤー
 wine-staging	Windowsアプリケーションを実行するための互換性レイヤー
-xampp7	MySQL、PHP 7、およびPerlを含むApacheディストリビューション
+xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
