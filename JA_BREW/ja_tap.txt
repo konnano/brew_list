@@ -52,6 +52,7 @@ font-almendra	Almendra
 font-almendra-display	Almendra Display
 font-almendra-sc	Almendra SC
 font-alumni-sans	Alumni Sans
+font-alumni-sans-inline-one	同窓生 Sans Inline One
 font-amarante	Amarante
 font-amaranth	Amaranth
 font-amatic-sc	Amatic SC
@@ -101,6 +102,7 @@ font-archivo-black	Archivo Black
 font-archivo-narrow	Archivo Narrow
 font-are-you-serious	とても楽しい精神を持った楽しい遊び心のあるフォント
 font-aref-ruqaa	Aref Ruqaa
+font-aref-ruqaa-ink	カリド・ホスニーが率いる カイロを拠点とする書体デザイナー エジプト
 font-arial	Arial
 font-arial-black	Arial Black
 font-arima-madurai	Arima Madurai
@@ -139,6 +141,7 @@ font-awesome-terminal-fonts	素晴らしいターミナルフォント
 font-azeret-mono	martinváchaとdanielquisekによるデザイン
 font-b612	B612
 font-b612-mono	B612 Mono
+font-babylonica	直立または逆傾斜のフォームによってさえぎられ強調が発生します
 font-bad-script	Bad Script
 font-bahiana	Bahiana
 font-bahianita	Bahianita
@@ -171,6 +174,7 @@ font-baumans	Baumans
 font-bayon	Bayon
 font-be-vietnam	Be Vietnam
 font-be-vietnam-pro	ハイテク企業やスタートアップに最適
+font-beau-rivage	太いストロークと細いストロークのコントラストが強い古典的な書体
 font-bebas-neue	Bebas Neue
 font-belgrano	Belgrano
 font-bellefair	Bellefair
@@ -602,6 +606,7 @@ font-gowun-dodum	Gowun Dodum
 font-graduate	Graduate
 font-grand-hotel	Grand Hotel
 font-grandstander	ウェイト軸を使用して可変フォントを表示する
+font-grape-nuts	1800年代後半にさかのぼる有名な朝食用シリアルから派生
 font-gravitas-one	Gravitas One
 font-great-vibes	Great Vibes
 font-grechen-fuemen	太いウェイトと細いウェイトを非正統的に使用した遊び心のあるフォント
@@ -1069,7 +1074,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	最低限のsans serif書体 表示と凸版テキストのために設計されています
+font-mulish	最低限のsans serif書体 表示とテキストの体裁のために設計されています
 font-murecho	9つの実用的なウェイトと可変フォントで利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1534,8 +1539,14 @@ font-rozha-one	Rozha One
 font-ru-serius	RU Serius
 font-rubik	Rubik
 font-rubik-beastly	グーグルフォントに基づくrubik by hubert and fischer, meir sadan and cyreal
+font-rubik-bubbles	Rubik Bubbles
+font-rubik-glitch	Rubik Glitch
+font-rubik-microbe	Rubik Microbe
 font-rubik-mono-one	Rubik Mono One
+font-rubik-moonrocks	Rubik Moonrocks
 font-rubik-one	Rubik One
+font-rubik-puddles	Rubik Puddles
+font-rubik-wet-paint	Rubik Wet Paint
 font-ruda	Ruda
 font-rufina	Rufina
 font-ruge-boogie	Ruge Boogie
@@ -2082,8 +2093,8 @@ anaconda2	Continuum Analytics Anaconda2
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
 appcode-eap	Swift/Objective-C/C/C++ 開発用のIDE
-arduino-ide-beta	エレクトロニクスプロトタイピングプラットフォーム
-arduino-ide-nightly	エレクトロニクスプロトタイピングプラットフォーム
+arduino-ide-beta	電子工学プロトタイピングプラットフォーム
+arduino-ide-nightly	電子工学プロトタイピングプラットフォーム
 arduino-nightly	Arduino
 arq5	マルチクラウドバックアップアプリケーション
 atom-beta	クロスプラットフォームのテキストエディター
