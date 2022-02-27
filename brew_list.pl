@@ -1166,13 +1166,13 @@ if [[ $2 ]];then
      rmdir ~/.BREW_LIST/3
    curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip ||\
     { math_rm; ${die:?curl 5 error}; }
-   zip -q ~/.BREW_LIST/top.zip ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/master3.zip ||\
-    { rm -f top.zip; math_rm; ${die:?zip error}; }
+   zip -q ~/.BREW_LIST/keepme.zip ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/master3.zip ||\
+    { rm -f keepme.zip; math_rm; ${die:?zip error}; }
      rmdir ~/.BREW_LIST/4
   fi
 
   if [[ $2 -eq 2 ]];then
-   unzip -qj ~/.BREW_LIST/top.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip error}; }
+   unzip -qj ~/.BREW_LIST/keepme.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip error}; }
   fi
 
    unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
