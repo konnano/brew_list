@@ -795,7 +795,7 @@ my( $list,$file,$in,$re ) = @_;
     $re->{'MEM'} .= "$brew_2\t$brew_3\n" if defined $brew_2;
      $re->{'MEM'} =~ s/\t/\n/ unless defined $brew_2;
       Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
-       $re->{'BN'} ++ if $mem and $brew_1 !~ m|==> homebrew/|;
+       $re->{'BN'}++ if $mem and $brew_1 !~ m|==> homebrew/|;
         $re->{'AN'}++ if $brew_1 !~ m|==> homebrew/|;
    }
   }
