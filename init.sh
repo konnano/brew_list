@@ -50,7 +50,7 @@ if [[ ! "$LINK" || "$LINK" = JA ]];then
    [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
  else
   cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die:?copy 3 error}
-   [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && mkdir ~/.JA_BREW && cp $DIR/JA_BREW/ja_brew.txt ~/.JA_BREW
+   [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && mkdir -p ~/.JA_BREW && cp $DIR/JA_BREW/ja_brew.txt ~/.JA_BREW
  fi
  brew_list -new
 fi
