@@ -139,7 +139,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.06_4\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.06_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -321,7 +321,7 @@ my( $re,$tap,$HA,$AN ) = @_;
   for my $ls(@tap){
    $HA->{$ls}++;
     push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
-     Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"};
+     Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
   }
 }
 
