@@ -47,10 +47,10 @@ if [[ ! "$LINK" || "$LINK" = JA ]];then
  if [[ "$NAME" = Darwin ]];then
   [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/brew_list || ${die:?copy 1 error}; } ||\
    { cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list || ${die:?copy 2 error}; }
-    [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
+   [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
  else
   cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die:?copy 3 error}
-    [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
+   [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && mkdir ~/.JA_BREW && cp $DIR/JA_BREW/ja_brew.txt ~/.JA_BREW
  fi
  brew_list -new
 fi
