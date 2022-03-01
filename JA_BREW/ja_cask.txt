@@ -1191,6 +1191,7 @@ gargoyle	双方向フィクションプレーヤーのIOレイヤー
 gas-mask	ホストファイルエディター/マネージャー
 gather	仮想ビデオ通話スペース
 gb-studio	レトロゲームクリエイターをドラッグアンドドロップします
+gcc-aarch64-embedded	64ビットArmプロセッサ用のビルド済みGNUベアメタルツールチェーン
 gcc-arm-embedded	32ビットArmプロセッサ用の構築済みGNUベアメタルツールチェーン
 gcollazo-mongodb	MongoDBのアプリラッパー
 gcs	GURPS第4版ロールプレイングゲームのキャラクターシートエディター
@@ -1513,6 +1514,7 @@ ipfs	IPFSピアツーピアネットワーク用のメニューバーアプリ�
 iphoto-library-manager	複数のiPhotoライブラリ間で写真を整理するためのアプリ
 ipremoteutility	Flanders Scientificハードウェアの管理
 ipsecuritas	IPSecクライアント
+iptvnator	オープンソース m3u/m3u8プレーヤー
 ipvanish-vpn	VPNクライアント
 ipynb-quicklook	ipynb-quicklook
 irccloud	IRCクライアント
@@ -1756,6 +1758,8 @@ lens	Kubernetes IDE
 leocad	仮想LEGOモデルを作成するためのCADプログラム
 lepton	Snippet管理アプリ
 letter-opener	winmail.datファイルをMail.appに直接表示します
+libcblite	CおよびC++用のCouchbase Liteライブラリ(エンタープライズ版)
+libcblite-community	CおよびC ++用のCouchbaseLiteライブラリ（コミュニティエディション）
 librecad	LibreCAD
 libreelec-usb-sd-creator	LibreELEC USB-SDクリエーター
 libreoffice	オフィスパッケージ
@@ -2564,6 +2568,7 @@ platypus	コマンドラインスクリプトからネイティブアプリケ�
 play	Play
 playback	ビデオプレーヤー
 playcover	iOSアプリとゲームをサイドロードする
+playdate-simulator	ローカル開発用のドキュメントとシミュレータ PlaydateLua/CAPI
 playmemories-home	写真やビデオを管理および編集するフリーウェア
 playonmac	Windows用に設計されたソフトウェアのインストールと使用を許可します
 plex	ホームメディアプレーヤー
