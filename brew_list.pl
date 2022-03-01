@@ -24,6 +24,7 @@ MAIN:{
  }elsif( $AR[0] eq '-i' ){  $name = $re;  $re->{'PRINT'} = 1;
  }elsif( $AR[0] eq '-c' ){  $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ci'){  $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ct'){  $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = 3;
@@ -139,7 +140,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.06_5\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -151,7 +152,8 @@ sub Died_1{
   -ddd\t:  All uninstall : pipe xargs brew uninstall
   -g\t:  Independent formula\n    Only mac : Cask
   -c\t:  cask list\n  -ct\t:  cask tap list\n  -ci\t:  instaled cask
-  -cx\t:  can't install cask\n  -cs\t:  some name cask and formula\n";
+  -cx\t:  can't install cask\n  -cs\t:  some name cask and formula
+  -cd\t:  Display required list casks\n";
 }
 
 sub Init_1{
@@ -375,7 +377,7 @@ my( $re,$list,$file ) = @_;
     chomp( @$file=<$BREW> );
    close $BREW;
   }
-  if( $re->{'CAS'} and -f $re->{'Q_TAP'} and ( $re->{'S_OPT'} or $re->{'TAP'} ) ){
+  if( $re->{'CAS'} and -f $re->{'Q_TAP'} and ( $re->{'S_OPT'} or $re->{'TAP'} or $re->{'DEP'} ) ){
    open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$BREW>){ chomp $tap;
      if( $tap =~ /^[3-9#]$/ ){
@@ -396,19 +398,20 @@ my( $re,$list,$file ) = @_;
      push @$file,$tap;
     }
    close $BREW;
-  }elsif( $re->{'CAS'} and $re->{'TAP'} and not -f $re->{'Q_TAP'} ){
+  }elsif( $re->{'TAP'} and not -f $re->{'Q_TAP'} ){
     die " Tap No such file or directory\n";
   }
-  if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} ) ){
+  if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
     no warnings 'closed';
-   if( $re->{'FOR'} ){
+   if( $re->{'FOR'} or $re->{'DEP'} ){
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist brew JA_file ###\n";
      while( my $an = <$JA> ){
      my( $name,$desc ) = split "\t",$an;
       chomp( $JA{$name} = $desc );
      }
     close $JA;
-   }elsif( not $re->{'TAP'} ){
+   }
+   if( $re->{'CAS'} and ( not $re->{'TAP'} or $re->{'DEP'} ) ){
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " ### Not exist cask JA_file ###\n";
      while( my $an = <$JA> ){
      my( $name,$desc ) = split "\t",$an;
@@ -417,7 +420,7 @@ my( $re,$list,$file ) = @_;
     close $JA;
    }
    if( $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ){
-    if( $re->{'CAS'} and $re->{'PRINT'} or $re->{'TAP'} ){
+    if( $re->{'CAS'} and $re->{'PRINT'} or $re->{'TAP'} or $re->{'DEP'} ){
      open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " ### Not exist tap JA_file ###\n";
       while( my $an = <$JA> ){
       my( $name,$desc ) = split "\t",$an;
@@ -427,6 +430,7 @@ my( $re,$list,$file ) = @_;
     }
    }
   }
+  Format_3( $file,$re ) if $re->{'DEP'};
  Search_1( $list,$file,0,$re );
 }
 
@@ -1094,6 +1098,61 @@ my $re = shift;
  }
 }
 
+sub Format_3{
+ my( $file,$re,$line1,$line2 ) = @_;
+  if( $Locale ){ $line1 = '├──'; $line2 = '└──';
+  }else{ $line1 = '|--'; $line2 = '`--'; }
+   print"  ### require Cask ###\n";
+  for(my $m=0;$m<@$file;$m++){
+   print"  homebrew/cask-drivers\n" if $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/|;
+   print"  homebrew/cask-versions\n" if $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/|;
+    next if $$file[$m] =~ m[^[012]$|^homebrew/];
+   my( $name,$ver,$desc ) = split '\t',$$file[$m];
+    my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
+     $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';
+     my @an = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
+     my @bn = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
+      my $flag1;
+    for(my $i=0;$i<@an;$i++){
+     my $desc2 = $JA{$an[$i]} ? $JA{$an[$i]} : $re->{'OS'}{"${an[$i]}c_desc"} ?
+      $re->{'OS'}{"${an[$i]}c_desc"} : $re->{'OS'}{"${an[$i]}c_name"} ? $re->{'OS'}{"${an[$i]}c_name"} : '';
+  #   ( $flag1 and $flag1 eq $name and $i == $#an and @bn ) ? print"$line1 c $an[$i]\t$desc2\n\n" :
+      ( $flag1 and $flag1 eq $name and $i == $#an ) ? print"$line2 c $an[$i]\t$desc2\n\n" :
+        $#an > 0 ? print"$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" :
+        @bn ? print"$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" :
+              print"$name\t$desc1\n$line2 c $an[$i]\t$desc2\n\n";
+       $flag1 = $name;
+    }
+   if( $re->{'OS'}{"${name}d_cask"} and $re->{'OS'}{"${name}formula"} ){
+    for(my $e=0;$e<@bn;$e++){
+     my $desc3 = $JA{$bn[$e]} ? $JA{$bn[$e]} : $re->{'OS'}{"${bn[$e]}f_desc"} ?
+      $re->{'OS'}{"${bn[$e]}f_desc"} : $re->{'OS'}{"${bn[$e]}f_name"} ? $re->{'OS'}{"${bn[$e]}f_name"} : '';
+      ( $e == $#bn ) ? print"$line2 f $bn[$e]\t$desc3\n\n" : print"$line1 f $bn[$e]\t$desc3\n";
+    }
+   }
+  }
+   print"  ### require Formula ###\n";
+  for(my $m=0;$m<@$file;$m++){
+   print"  homebrew/cask-drivers\n" if $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/|;
+   print"  homebrew/cask-versions\n" if $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/|;
+    next if $$file[$m] =~ m[^[012]$|^homebrew/];
+   my( $name,$ver,$desc ) = split '\t',$$file[$m];
+    my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ?  $re->{'OS'}{"${name}c_desc"} :
+     $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';
+     my @an = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
+      my $flag1;
+    for(my $i=0;$i<@an;$i++){
+     my $desc2 = $JA{$an[$i]} ? $JA{$an[$i]} : $re->{'OS'}{"${an[$i]}f_desc"} ?
+      $re->{'OS'}{"${an[$i]}f_desc"} : $re->{'OS'}{"${an[$i]}f_name"} ? $re->{'OS'}{"${an[$i]}f_name"} : '';
+      ( $flag1 and $flag1 eq $name and $i == $#an ) ? print"$line2 f $an[$i]\t$desc2\n\n" :
+        $#an > 0 ? print"$name\t$desc1\n$line1 f $an[$i]\t$desc2\n" :
+                   print"$name\t$desc1\n$line2 f $an[$i]\t$desc2\n\n";
+       $flag1 = $name;
+    }
+  }
+ exit;
+}
+
 sub Nohup_1{
 my $re = shift;
  ++$re->{'NEW'} and Init_1( $re )
@@ -1641,22 +1700,27 @@ unless( $ARGV[0] ){
  }
 }
  if( $re->{'MAC'} ){
- rmdir "$ENV{'HOME'}/.BREW_LIST/8";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/8"; my $IN = 0;
   for my $dir2(@CASK){ chomp $dir2;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
  #  $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
+    $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
-     }elsif( $data =~ /^\s*depends_on\s+formula:/ ){
-       $tap{"${name}formula"} = 1;
+     }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
+       $tap{"${name}formula"} .= "$data\t";
        if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+)/ ){
         $tap{"${name}formula"} = 0 if $CPU ne $ls3;
        }
-     }elsif( $data =~ /^\s*depends_on\s+cask:/ ){
-       $tap{"${name}d_cask"} = 1;
+     }elsif( $data =~ /^\s*depends_on\s+cask:\s+/ or $IN ){
+      if( $data =~ /^\s*depends_on\s+cask:\s+\[/ ){ $IN = 1; next; }
+       if( $data =~ /^\s*\]/ ){ $IN = 0; next; }
+      $data =~ s/^\s*"([^"]+)".*\n/$1/;
+       $data =~ s/^\s*depends_on\s+cask:\s+"([^"]+)".*\n/$1/;
+        $tap{"${name}d_cask"} .= "$data\t";
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        $IF1 = 0; $ELIF = $ELS = 1;
        if( eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
