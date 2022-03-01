@@ -319,22 +319,27 @@ unless( $ARGV[0] ){
  }
 }
  if( $re->{'MAC'} ){
- rmdir "$ENV{'HOME'}/.BREW_LIST/8";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/8"; my $IN = 0;
   for my $dir2(@CASK){ chomp $dir2;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
  #  $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
+    $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
-     }elsif( $data =~ /^\s*depends_on\s+formula:/ ){
-       $tap{"${name}formula"} = 1;
+     }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
+       $tap{"${name}formula"} .= "$data\t";
        if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+)/ ){
         $tap{"${name}formula"} = 0 if $CPU ne $ls3;
        }
-     }elsif( $data =~ /^\s*depends_on\s+cask:/ ){
-       $tap{"${name}d_cask"} = 1;
+     }elsif( $data =~ /^\s*depends_on\s+cask:\s+/ or $IN ){
+      if( $data =~ /^\s*depends_on\s+cask:\s+\[/ ){ $IN = 1; next; }
+       if( $data =~ /^\s*\]/ ){ $IN = 0; next; }
+      $data =~ s/^\s*"([^"]+)".*\n/$1/;
+       $data =~ s/^\s*depends_on\s+cask:\s+"([^"]+)".*\n/$1/;
+        $tap{"${name}d_cask"} .= "$data\t";
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        $IF1 = 0; $ELIF = $ELS = 1;
        if( eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
