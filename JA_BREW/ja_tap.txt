@@ -939,6 +939,7 @@ font-lusitana	Lusitana
 font-lustria	Lustria
 font-luxurious-roman	一貫性のないserifを含む半手書きフォント
 font-luxurious-script	豪華なスクリプト
+font-lxgw-bright	Ysabeau OfficeとLXGW WenKaiのフォントを統合
 font-lxgw-new-clear-gothic	IPAexゴシックから派生した簡体字中国語のsans-serifフォント
 font-lxgw-wenkai	FontworksのKleeOneから派生したオープンソースの中国語フォント
 font-lxgw-zhenkai	LXGW WenKaiのBolder-weightエディション
@@ -991,6 +992,7 @@ font-meera-inimai	Meera Inimai
 font-megrim	Megrim
 font-meie-script	Meie Script
 font-meltho	Meltho Fonts
+font-mengshen-regular	同綴異義語をサポートするオープンソースのピンインフォント
 font-menlo-for-powerline	Menlo for Powerline
 font-meow-script	6つのスタイルセットのいくつかの代替フォームを備えたMonolineフォント
 font-merge-one	Merge One
@@ -2145,7 +2147,6 @@ fork-dev	GITクライアント
 forklift2	ForkLift
 freecad-pre	3D parametricモデラー
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等 
-ghidra-beta	Ghidra
 github-beta	GitHubリポジトリ用のデスクトップクライアント
 google-chrome-beta	Webブラウザー
 google-chrome-canary	Webブラウザー
