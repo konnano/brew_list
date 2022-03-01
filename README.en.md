@@ -1,6 +1,6 @@
 google translate　Please read in the atmosphere
 
-brew list command extended version: version 1.06_4
+brew list command extended version: version 1.07
 
 : how to use
 
@@ -61,6 +61,8 @@ Only Mac: Cask
 '-cx'option　Cask can't installe list is displayed, regular expressions //
 
 '-cs' option　Formula and Cask same name list is displayed, regular expressions //
+
+'-cd' option Display the required list of casks
 
 : Display mark
 
