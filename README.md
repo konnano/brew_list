@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.06_5　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.07　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 MacOS10.9から対応します10.8以前は現在のhomebrewインストール出来ないのでわかりません
 
@@ -67,6 +67,8 @@ Only 　Mac : Cask
 '-cx' オプションでインストールできないCaskが表示されます、//で正規表現が使えます
 
 '-cs' オプションで同名のFormulaとCaskが表示されます、//で正規表現が使えます
+
+'-cd' オプションでCaskが必要とするCaskとFormulaが一覧表示されます
 
 : 表示マーク
 
