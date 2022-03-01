@@ -3,6 +3,7 @@ a52dec	ATSC A/52 ストリームをデコードするためのライブラリ(�
 aacgain	AAC対応バージョンのmp3gain
 aalib	ポータブルASCIIアートグラフィックライブラリ
 aamath	数式をASCIIアートとして表現します
+aarch64-elf-binutils	aarch64-elfクロス開発のためのGNU Binutils
 aardvark_shell_utils	シェルスクリプトまたはコマンドラインユーザーを支援するユーティリティ
 abcde	より良いCDエンコーダー
 abcl	Armed Bear Common Lisp：CommonLispの完全な実装
@@ -35,7 +36,6 @@ adplug	Freeのハードウェアに依存しないAdLibサウンドプレーヤ�
 adr-tools	基本設計決定レコードを操作するためのCLIツール
 advancecomp	ファイルの再圧縮ユーティリティ .PNG/.MNG/.ZIP/.GZ
 advancemame	高度なビデオサポートを備えたMAME
-advancemenu	AdvanceMAME/MESS フロントエンド
 advancescan	AdvanceMAME/MESS ROMマネージャー
 adwaita-icon-theme	GNOMEプロジェクトのアイコン
 aerc	ターミナルで実行される電子メールクライアント
@@ -422,6 +422,7 @@ bittwist	Libcapベースのイーサネットパケット発生器
 bitwarden-cli	すべてのデバイスの安全で無料のパスワードマネージャー
 bitwise	ncursesのターミナルベースのビットmanipulator
 bk	ターミナルEPUBリーダー
+bkt	シェルコマンドの結果をキャッシュするためのユーティリティ
 black	Pythonコード整形ツール
 blackbox	安全に保存する Git/Mercurial/Subversion
 blahtexml	方程式をMath MLに変換します
@@ -1207,6 +1208,7 @@ dovecot	IMAP/POP3 サーバー
 doxygen	いくつかのプログラミング言語のドキュメントを生成する
 doxymacs	Emacsでdoxygenを使用するためのElispパッケージ
 dpkg	Debianパッケージ管理システム
+dpp	DソースコードにCヘッダーを直接含める
 dprint	Rustで記述されたプラグイン可能で構成可能なコードフォーマットプラットフォーム
 dps8m	Multics dps-8/m メインフレーム用の模擬装置
 draco	3Dジオメトリックメッシュとポイントクラウド圧縮ライブラリ
@@ -1223,6 +1225,7 @@ dscanner	分析(例：Dコードのスタイルと構文)
 dsh	Dancerのシェル、または分散シェル
 dsocks	*BSD/MacOS のSOCKSクライアントラッパー
 dspdfviewer	ラテックスビーマー用のデュアルスクリーンPDF Viewer
+dsq	JSONに対してSQLクエリを実行するためのCLIツール CSV/Excel/寄木細工など
 dssim	RGBA構造的類似性Rustの実装
 dstask	Gitを利用したパーソナルタスクトラッカー
 dsvpn	Dead Simple VPN
@@ -1266,6 +1269,7 @@ dxflib	DXFファイルを解析するためのC++ライブラリ
 dxpy	Python用のDNAnexusツールキットユーティリティとプラットフォームAPI bindings
 dyld-headers	ダイナミックリンカのヘッダーファイル
 dylibbundler	ライブラリをMacOSの実行可能ファイルにバンドルするユーティリティ
+dynaconf	Pythonの構成管理
 dynamips	Cisco 7200/3600/3725/3745/2600/1700 ルータエミュレータ
 dynare	経済モデル、特にDSGEおよびOLGモデルのプラットフォーム
 dynet	動的神経ネットワークツールキット
@@ -2070,6 +2074,7 @@ gst-libav	LibavのGStreamerプラグイン(FFmpegのフォーク)
 gst-plugins-bad	GStreamerプラグインはあまりサポートされていません 完全にはテストされていません
 gst-plugins-base	GStreamerプラグイン(十分にサポートされた基本セット)
 gst-plugins-good	GStreamerプラグイン(十分にサポートされている、LGPLの下で)
+gst-plugins-rs	Rustで書かれたGStreamerプラグイン
 gst-plugins-ugly	メディア処理コンポーネントのグラフを作成するためのライブラリ
 gst-python	gobject-introspection-baseのpygst bindingsのPythonオーバーライド
 gst-rtsp-server	GStreamerに基づくRTSPサーバーライブラリ
@@ -4097,7 +4102,6 @@ pdf2svg	SVGへのPDF変換器
 pdfcpu	Goで書かれたPDF計算機
 pdfcrack	PDFファイルパスワードクラッカー
 pdfgrep	正規表現に一致する文字列をPDFで検索する
-pdflib-lite	PDFlib 7の機能のサブセット
 pdfpc	PDFファイルのマルチモニターをサポートするPresenterコンソール
 pdfsandwich	スキャンしたファイルからOCR PDFを合成する
 pdftilecut	PDFページを小さなページに分割して、印刷できるようにします
@@ -4460,6 +4464,7 @@ quasi88	PC-8801エミュレータ
 quazip	GillesVollantのZIP/UNZIPパッケージのC++ラッパー
 questdb	時系列データベース
 quex	字句アナライザーを生成する
+quick-lint-js	JavaScriptコードのバグを見つける
 quickjs	小さくて埋め込み可能なJavaScriptエンジン
 quicktype	JSON、Schema、GraphQLからタイプと変換器を生成する
 quill	C++14非同期低遅延Loggingライブラリ
@@ -4631,6 +4636,7 @@ rom-tools	マルチアーケードマシンエミュレータ用のツール
 ronn	マニュアルを作成します roffの反対です
 root	大規模データ分析のためのオブジェクト指向フレームワーク
 rosa-cli	RedHat OpenShift Service on AWS(ROSA)コマンドラインインターフェース
+rospo	🐸 組み込みのsshサーバーを備えたシンプルで信頼性の高い永続的なsshトンネル
 roswell	主要な環境向けのLispインストーラーとランチャー
 roundup	ユニットテストツール
 rover	Apollo Studioでデータグラフを管理および保守するためのCLI
@@ -5414,6 +5420,7 @@ truecrack	TrueCryptのブルートフォースパスワードクラッカー
 truffle	開発環境 イーサリアムのテストフレームワークとアセットパイプライン
 truncate	ファイルを指定されたサイズに切り捨てます
 trunk	ビルド RustWASMアプリケーションをバンドルしてWebに送信する
+trzsz	lrzsz (rz/sz)に似たシンプルなファイル転送ツール tmuxと互換性があります
 tsduck	MPEG転送ストリームツールキット
 tssh	SSH軽量管理ツール
 tsung	負荷テスト HTTP/PostgreSQL/Jabberなど
@@ -5730,6 +5737,7 @@ wolfssl	Cで書かれた埋め込みSSLライブラリ
 woob	ブラウザ以外のWeb
 woof	Ad-hoc単一ファイルWebサーバー
 wordgrinder	端末で実行されるUnicode対応のワード計算機
+wordle	コマンドラインでwordleを再生する
 wordnet	英語の語彙データベース
 wordplay	アナグラム発生器
 wownero	Wownero暗号通貨の公式ウォレットおよびノードソフトウェア
