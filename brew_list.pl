@@ -1098,7 +1098,7 @@ my $re = shift;
 }
 
 sub Format_3{
- my( $file,$re,$line1,$line2,,$flag1,$flag2,$ca,$fo ) = @_;
+ my( $file,$re,$line1,$line2,$flag1,$flag2,$ca,$fo ) = @_;
    if( $Locale ){ $line1 = '├──'; $line2 = '└──';
    }else{ $line1 = '|--'; $line2 = '`--'; }
 
