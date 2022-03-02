@@ -317,7 +317,7 @@ my( $re,$list,%HA,@AN ) = @_;
 }
 
 sub Uses_1{
-my( $re,$tap,$HA,$AN ) = @_; my $i;
+my( $re,$tap,$HA,$AN ) = @_;
  my @tap = split '\t',$tap;
   for my $ls(@tap){
    $HA->{$ls}++;
