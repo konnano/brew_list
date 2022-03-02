@@ -1098,57 +1098,48 @@ my $re = shift;
 }
 
 sub Format_3{
- my( $file,$re,$line1,$line2 ) = @_;
-  if( $Locale ){ $line1 = '├──'; $line2 = '└──';
-  }else{ $line1 = '|--'; $line2 = '`--'; }
-   print"  ### require Cask ###\n";
+ my( $file,$re,$line1,$line2,,$flag1,$flag2,$ca,$fo ) = @_;
+   if( $Locale ){ $line1 = '├──'; $line2 = '└──';
+   }else{ $line1 = '|--'; $line2 = '`--'; }
+
   for(my $m=0;$m<@$file;$m++){
-   print"  homebrew/cask-drivers\n" if $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/|;
-   print"  homebrew/cask-versions\n" if $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/|;
-    next if $$file[$m] =~ m[^[012]$|^homebrew/];
+   if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
+    $fo .= "  == homebrew/cask-drivers ==\n"; $ca .= "  == homebrew/cask-drivers ==\n";
+   }elsif( $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/| ){
+    $fo .= "  == homebrew/cask-versions ==\n"; $ca .= "  == homebrew/cask-versions ==\n";
+   }  next if $$file[$m] =~ m[^[012]$|^homebrew/];
+
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
-    my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
-     $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';
-     my @an = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
-     my @bn = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
-      my $flag1;
+    my @an = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
+    my @bn = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
+     my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
+      $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';    
     for(my $i=0;$i<@an;$i++){
      my $desc2 = $JA{$an[$i]} ? $JA{$an[$i]} : $re->{'OS'}{"${an[$i]}c_desc"} ?
       $re->{'OS'}{"${an[$i]}c_desc"} : $re->{'OS'}{"${an[$i]}c_name"} ? $re->{'OS'}{"${an[$i]}c_name"} : '';
-  #   ( $flag1 and $flag1 eq $name and $i == $#an and @bn ) ? print"$line1 c $an[$i]\t$desc2\n\n" :
-      ( $flag1 and $flag1 eq $name and $i == $#an ) ? print"$line2 c $an[$i]\t$desc2\n\n" :
-        $#an > 0 ? print"$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" :
-        @bn ? print"$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" :
-              print"$name\t$desc1\n$line2 c $an[$i]\t$desc2\n\n";
-       $flag1 = $name;
+     $ca .= ( $flag1 and $flag1 eq $name and $i == $#an and @bn ) ? "$line1 c $an[$i]\t$desc2\n\n" :
+            ( $flag1 and $flag1 eq $name and $i == $#an ) ? "$line2 c $an[$i]\t$desc2\n\n" :
+              $#an > 0 ? "$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" :
+              @bn ? "$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" : "$name\t$desc1\n$line2 c $an[$i]\t$desc2\n\n";
+        $flag1 = $name;
     }
    if( $re->{'OS'}{"${name}d_cask"} and $re->{'OS'}{"${name}formula"} ){
     for(my $e=0;$e<@bn;$e++){
      my $desc3 = $JA{$bn[$e]} ? $JA{$bn[$e]} : $re->{'OS'}{"${bn[$e]}f_desc"} ?
       $re->{'OS'}{"${bn[$e]}f_desc"} : $re->{'OS'}{"${bn[$e]}f_name"} ? $re->{'OS'}{"${bn[$e]}f_name"} : '';
-      ( $e == $#bn ) ? print"$line2 f $bn[$e]\t$desc3\n\n" : print"$line1 f $bn[$e]\t$desc3\n";
+     $ca .= ( $e == $#bn ) ? "$line2 f $bn[$e]\t$desc3\n\n" : "$line1 f $bn[$e]\t$desc3\n";
     }
    }
-  }
-   print"  ### require Formula ###\n";
-  for(my $m=0;$m<@$file;$m++){
-   print"  homebrew/cask-drivers\n" if $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/|;
-   print"  homebrew/cask-versions\n" if $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/|;
-    next if $$file[$m] =~ m[^[012]$|^homebrew/];
-   my( $name,$ver,$desc ) = split '\t',$$file[$m];
-    my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ?  $re->{'OS'}{"${name}c_desc"} :
-     $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';
-     my @an = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
-      my $flag1;
-    for(my $i=0;$i<@an;$i++){
-     my $desc2 = $JA{$an[$i]} ? $JA{$an[$i]} : $re->{'OS'}{"${an[$i]}f_desc"} ?
-      $re->{'OS'}{"${an[$i]}f_desc"} : $re->{'OS'}{"${an[$i]}f_name"} ? $re->{'OS'}{"${an[$i]}f_name"} : '';
-      ( $flag1 and $flag1 eq $name and $i == $#an ) ? print"$line2 f $an[$i]\t$desc2\n\n" :
-        $#an > 0 ? print"$name\t$desc1\n$line1 f $an[$i]\t$desc2\n" :
-                   print"$name\t$desc1\n$line2 f $an[$i]\t$desc2\n\n";
-       $flag1 = $name;
+    for(my $i=0;$i<@bn;$i++){
+     my $desc2 = $JA{$bn[$i]} ? $JA{$bn[$i]} : $re->{'OS'}{"${bn[$i]}f_desc"} ?
+      $re->{'OS'}{"${bn[$i]}f_desc"} : $re->{'OS'}{"${bn[$i]}f_name"} ? $re->{'OS'}{"${bn[$i]}f_name"} : '';
+     $fo .= ( $flag2 and $flag2 eq $name and $i == $#bn ) ? "$line2 f $bn[$i]\t$desc2\n\n" :
+              $#bn > 0 ? "$name\t$desc1\n$line1 f $bn[$i]\t$desc2\n" :
+                         "$name\t$desc1\n$line2 f $bn[$i]\t$desc2\n\n";
+        $flag2 = $name;
     }
   }
+  print"  ### require Cask ###\n$ca  ### require Formula ###\n$fo";
  exit;
 }
 
