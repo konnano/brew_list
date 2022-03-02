@@ -140,7 +140,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -240,11 +240,11 @@ my $re = shift;
    }
   closedir $dir;
  }else{
-  my $dirs = Dirs_1( '/usr/local/Caskroom',1 );
+  my $dirs = Dirs_1( "$re->{'CEL'}",1 );
   for(my $in=0;$in<@$dirs;$in++){
    my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
-   if( $name and -d "/usr/local/Caskroom/$name/.metadata" ){
-    my $meta = Dirs_1( "/usr/local/Caskroom/$name/.metadata",1 );
+   if( $name and -d "$re->{'CEL'}/$name/.metadata" ){
+    my $meta = Dirs_1( "$re->{'CEL'}/$name/.metadata",1 );
      ($re->{'DMG'}{$name}) = $$meta[0] =~ /^\s(.+)\n/;
    }
   }
@@ -1110,32 +1110,32 @@ sub Format_3{
    }  next if $$file[$m] =~ m[^[012]$|^homebrew/];
 
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
-    my @an = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
-    my @bn = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
+    my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
+    my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
       $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';    
-    for(my $i=0;$i<@an;$i++){
-     my $desc2 = $JA{$an[$i]} ? $JA{$an[$i]} : $re->{'OS'}{"${an[$i]}c_desc"} ?
-      $re->{'OS'}{"${an[$i]}c_desc"} : $re->{'OS'}{"${an[$i]}c_name"} ? $re->{'OS'}{"${an[$i]}c_name"} : '';
-     $ca .= ( $flag1 and $flag1 eq $name and $i == $#an and @bn ) ? "$line1 c $an[$i]\t$desc2\n\n" :
-            ( $flag1 and $flag1 eq $name and $i == $#an ) ? "$line2 c $an[$i]\t$desc2\n\n" :
-              $#an > 0 ? "$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" :
-              @bn ? "$name\t$desc1\n$line1 c $an[$i]\t$desc2\n" : "$name\t$desc1\n$line2 c $an[$i]\t$desc2\n\n";
+    for(my $i=0;$i<@cas;$i++){
+     my $desc2 = $JA{$cas[$i]} ? $JA{$cas[$i]} : $re->{'OS'}{"${cas[$i]}c_desc"} ?
+      $re->{'OS'}{"${cas[$i]}c_desc"} : $re->{'OS'}{"${cas[$i]}c_name"} ? $re->{'OS'}{"${cas[$i]}c_name"} : '';
+     $ca .= ( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]\t$desc2\n\n" :
+            ( $flag1 and $flag1 eq $name and $i == $#cas ) ? "$line2 c $cas[$i]\t$desc2\n\n" :
+              $#cas > 0 ? "$name\t$desc1\n$line1 c $cas[$i]\t$desc2\n" :
+              @fom ? "$name\t$desc1\n$line1 c $cas[$i]\t$desc2\n" : "$name\t$desc1\n$line2 c $cas[$i]\t$desc2\n\n";
         $flag1 = $name;
     }
    if( $re->{'OS'}{"${name}d_cask"} and $re->{'OS'}{"${name}formula"} ){
-    for(my $e=0;$e<@bn;$e++){
-     my $desc3 = $JA{$bn[$e]} ? $JA{$bn[$e]} : $re->{'OS'}{"${bn[$e]}f_desc"} ?
-      $re->{'OS'}{"${bn[$e]}f_desc"} : $re->{'OS'}{"${bn[$e]}f_name"} ? $re->{'OS'}{"${bn[$e]}f_name"} : '';
-     $ca .= ( $e == $#bn ) ? "$line2 f $bn[$e]\t$desc3\n\n" : "$line1 f $bn[$e]\t$desc3\n";
+    for(my $e=0;$e<@fom;$e++){
+     my $desc3 = $JA{$fom[$e]} ? $JA{$fom[$e]} : $re->{'OS'}{"${fom[$e]}f_desc"} ?
+      $re->{'OS'}{"${fom[$e]}f_desc"} : $re->{'OS'}{"${fom[$e]}f_name"} ? $re->{'OS'}{"${fom[$e]}f_name"} : '';
+     $ca .= ( $e == $#fom ) ? "$line2 f $fom[$e]\t$desc3\n\n" : "$line1 f $fom[$e]\t$desc3\n";
     }
    }
-    for(my $i=0;$i<@bn;$i++){
-     my $desc2 = $JA{$bn[$i]} ? $JA{$bn[$i]} : $re->{'OS'}{"${bn[$i]}f_desc"} ?
-      $re->{'OS'}{"${bn[$i]}f_desc"} : $re->{'OS'}{"${bn[$i]}f_name"} ? $re->{'OS'}{"${bn[$i]}f_name"} : '';
-     $fo .= ( $flag2 and $flag2 eq $name and $i == $#bn ) ? "$line2 f $bn[$i]\t$desc2\n\n" :
-              $#bn > 0 ? "$name\t$desc1\n$line1 f $bn[$i]\t$desc2\n" :
-                         "$name\t$desc1\n$line2 f $bn[$i]\t$desc2\n\n";
+    for(my $d=0;$d<@fom;$d++){
+     my $desc4 = $JA{$fom[$d]} ? $JA{$fom[$d]} : $re->{'OS'}{"${fom[$d]}f_desc"} ?
+      $re->{'OS'}{"${fom[$d]}f_desc"} : $re->{'OS'}{"${fom[$d]}f_name"} ? $re->{'OS'}{"${fom[$d]}f_name"} : '';
+     $fo .= ( $flag2 and $flag2 eq $name and $d == $#fom ) ? "$line2 f $fom[$d]\t$desc4\n\n" :
+              $#fom > 0 ? "$name\t$desc1\n$line1 f $fom[$d]\t$desc4\n" :
+                          "$name\t$desc1\n$line2 f $fom[$d]\t$desc4\n\n";
         $flag2 = $name;
     }
   }
