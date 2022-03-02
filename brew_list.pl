@@ -291,7 +291,6 @@ sub Top_1{
 my( $re,$list,%HA,@AN ) = @_;
  for my $ls(@$list){
   $ls =~ s/^\s(.*)\n/$1/;
-  next if $ls eq 'python@3.8';  ### brew uses --installed python@3.8; brew info liblqr
    Uses_1( $re,$ls,\%HA,\@AN );
     if( @AN < 2 ){
      my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
@@ -318,8 +317,8 @@ my( $re,$list,%HA,@AN ) = @_;
 }
 
 sub Uses_1{
-my( $re,$tap,$HA,$AN ) = @_;
- my @tap = $tap =~ /\t/ ? split '\t',$tap : $tap;  ### Useless use of private variable in void context
+my( $re,$tap,$HA,$AN ) = @_; my $i;
+ my @tap = split '\t',$tap;
   for my $ls(@tap){
    $HA->{$ls}++;
     push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
