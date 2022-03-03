@@ -80,6 +80,7 @@ MAIN:{
  die " Not installed HOME BREW\n" unless -d $re->{'CEL'};
   print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n"
    unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
+    $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
 
  $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
    if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
@@ -140,7 +141,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -166,8 +167,10 @@ my( $re,$list ) = @_;
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
    Wait_1( $re );
  }
- DB_1( $re );
-  DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
+  if( not $re->{'TREE'} or $re->{'TREE'} < 2 ){
+   DB_1( $re );
+    DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
+  }
    Dele_1( $re ) if $re->{'DEL'};
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
@@ -230,7 +233,7 @@ my $re = shift;
 
 sub DB_1{
 my $re = shift;
- if( $re->{'FOR'} ){
+ if( $re->{'FOR'} or $re->{'DEP' } ){
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for my $com(readdir $dir){
     my $hand = readlink "$re->{'BIN'}/$com";
@@ -239,7 +242,8 @@ my $re = shift;
     $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir;
- }else{
+ }
+ if( $re->{'CAS'} or $re->{'DEP'} ){
   my $dirs = Dirs_1( "$re->{'CEL'}",1 );
   for(my $in=0;$in<@$dirs;$in++){
    my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
@@ -362,7 +366,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
     $re->{'LIST'} = 1;
      Fork_1( $re );
   }elsif( $do or $re->{'DD'} ){
-   $re->{'COLOR'} = $re->{'TREE'} = 1;
+   $re->{'COLOR'} = $re->{'TREE'} = 2;
     $re->{'DEL'} = 0;
      Fork_1( $re );
   } 
@@ -419,7 +423,7 @@ my( $re,$list,$file ) = @_;
     close $JA;
    }
    if( $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ){
-    if( $re->{'CAS'} and $re->{'PRINT'} or $re->{'TAP'} or $re->{'DEP'} ){
+    if( $re->{'CAS'} or $re->{'TAP'} or $re->{'DEP'} ){
      open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " ### Not exist tap JA_file ###\n";
       while( my $an = <$JA> ){
       my( $name,$desc ) = split "\t",$an;
@@ -1098,7 +1102,7 @@ my $re = shift;
 }
 
 sub Format_3{
- my( $file,$re,$line1,$line2,$flag1,$flag2,$ca,$fo ) = @_;
+my( $file,$re,$line1,$line2,$flag1,$flag2,$ca,$fo ) = @_;
    if( $Locale ){ $line1 = '├──'; $line2 = '└──';
    }else{ $line1 = '|--'; $line2 = '`--'; }
 
@@ -1113,34 +1117,41 @@ sub Format_3{
     my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
-      $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';    
-    for(my $i=0;$i<@cas;$i++){
-     my $desc2 = $JA{$cas[$i]} ? $JA{$cas[$i]} : $re->{'OS'}{"${cas[$i]}c_desc"} ?
-      $re->{'OS'}{"${cas[$i]}c_desc"} : $re->{'OS'}{"${cas[$i]}c_name"} ? $re->{'OS'}{"${cas[$i]}c_name"} : '';
-     $ca .= ( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]\t$desc2\n\n" :
-            ( $flag1 and $flag1 eq $name and $i == $#cas ) ? "$line2 c $cas[$i]\t$desc2\n\n" :
-              $#cas > 0 ? "$name\t$desc1\n$line1 c $cas[$i]\t$desc2\n" :
-              @fom ? "$name\t$desc1\n$line1 c $cas[$i]\t$desc2\n" : "$name\t$desc1\n$line2 c $cas[$i]\t$desc2\n\n";
+      $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';
+       my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
+
+    for(my $i=0;$i<@cas;$i++){ my $tap = $cas[$i];
+      $tap =~ s|.+/(.+)|$1|;
+       my $in = $re->{'DMG'}{$tap} ? ' (I)' : '';
+     my $desc2 = $JA{$tap} ? $JA{$tap} : $re->{'OS'}{"${tap}c_desc"} ?
+      $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
+     $ca .= ( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n\n" :
+            ( $flag1 and $flag1 eq $name and $i == $#cas ) ? "$line2 c $cas[$i]$in\t$desc2\n\n" :
+              $#cas > 0 ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
+                   @fom ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
+                          "$name$dn\t$desc1\n$line2 c $cas[$i]$in\t$desc2\n\n";
         $flag1 = $name;
     }
    if( $re->{'OS'}{"${name}d_cask"} and $re->{'OS'}{"${name}formula"} ){
-    for(my $e=0;$e<@fom;$e++){
+    for(my $e=0;$e<@fom;$e++){  my $in = $re->{'HASH'}{$fom[$e]} ? ' (I)' : '';
      my $desc3 = $JA{$fom[$e]} ? $JA{$fom[$e]} : $re->{'OS'}{"${fom[$e]}f_desc"} ?
       $re->{'OS'}{"${fom[$e]}f_desc"} : $re->{'OS'}{"${fom[$e]}f_name"} ? $re->{'OS'}{"${fom[$e]}f_name"} : '';
-     $ca .= ( $e == $#fom ) ? "$line2 f $fom[$e]\t$desc3\n\n" : "$line1 f $fom[$e]\t$desc3\n";
+     $ca .= ( $e == $#fom ) ? "$line2 f $fom[$e]$in\t$desc3\n\n" : "$line1 f $fom[$e]$in\t$desc3\n";
     }
    }
-    for(my $d=0;$d<@fom;$d++){
+   unless( $re->{'OS'}{"${name}d_cask"} ){
+    for(my $d=0;$d<@fom;$d++){  my $in = $re->{'HASH'}{$fom[$d]} ? ' (I)' : '';
      my $desc4 = $JA{$fom[$d]} ? $JA{$fom[$d]} : $re->{'OS'}{"${fom[$d]}f_desc"} ?
       $re->{'OS'}{"${fom[$d]}f_desc"} : $re->{'OS'}{"${fom[$d]}f_name"} ? $re->{'OS'}{"${fom[$d]}f_name"} : '';
-     $fo .= ( $flag2 and $flag2 eq $name and $d == $#fom ) ? "$line2 f $fom[$d]\t$desc4\n\n" :
-              $#fom > 0 ? "$name\t$desc1\n$line1 f $fom[$d]\t$desc4\n" :
-                          "$name\t$desc1\n$line2 f $fom[$d]\t$desc4\n\n";
+     $fo .= ( $flag2 and $flag2 eq $name and $d == $#fom ) ? "$line2 f $fom[$d]$in\t$desc4\n\n" :
+              $#fom > 0 ? "$name$dn\t$desc1\n$line1 f $fom[$d]$in\t$desc4\n" :
+                          "$name$dn\t$desc1\n$line2 f $fom[$d]$in\t$desc4\n\n";
         $flag2 = $name;
     }
+   }
   }
-  print"  ### require Cask ###\n$ca  ### require Formula ###\n$fo";
- exit;
+  print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo";
+ exit;;
 }
 
 sub Nohup_1{
