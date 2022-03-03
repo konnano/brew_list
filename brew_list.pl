@@ -141,7 +141,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07_3\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -1076,17 +1076,24 @@ my $re = shift;
   print"$re->{'INF'}\n" if @{$re->{'UNI'}};
    for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
  }
-
- if( $re->{'DD'} ){ my( %AN,@KO );
- print"$re->{'INF'}\n" if $re->{'DDD'};
-  for my $key(sort{$b cmp $a} keys %HA){
-   my( $num,$name ) = $key =~ /^(\d)(.+)/;
-   $AN{$name}++;
-    push @KO,"$HA{\"$num$name\"}" if $AN{$name} < 2;
-  }
-  for(my $e=$#KO;$e>=0;$e--){
-   print "$KO[$e]\n";
-  }
+ if( $re->{'DD'} ){ my( %HA1,%HA2,$flag );
+  print"$re->{'INF'}\t" if $re->{'DDD'};
+   for my $key1(sort{$b cmp $a} keys %HA){
+    my( $num,$name ) = $key1 =~ /^(\d)(.+)/;
+     $HA1{$name}++;
+    $HA2{$key1} = $name if $HA1{$name} < 2;
+   }
+   for my $key2(sort keys %HA2){
+    my( $num,$name ) = $key2 =~ /^(\d)(.+)/;
+    if( $re->{'DDD'} ){
+      print "$HA2{$key2}\t";
+    }else{
+      ( $flag and $flag != $num ) ?
+      print "\n $num : $HA2{$key2}\t" : ( not $flag ) ?
+      print " 1 : $HA2{$key2}\t" : print "$HA2{$key2}\t";
+    }
+   $flag = $num;
+  }print"\n" if $flag;
  }
 }
 
