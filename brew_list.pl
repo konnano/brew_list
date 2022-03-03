@@ -1032,7 +1032,7 @@ my $re = shift;
    if( $re->{'DD'} ){
     my @bn = split '\|',$_;
      $bn[$#bn] =~ s/^-+\s+([^\s]+).*\n/$1/;
-      $HA{"$#bn$bn[$#bn]"} = $bn[$#bn];
+      $HA{"$#bn:$bn[$#bn]"} = $bn[$#bn];
    }
    if( $Locale ){
     $_ =~ s/\|/│/g;
@@ -1077,14 +1077,14 @@ my $re = shift;
    for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
  }
  if( $re->{'DD'} ){ my( %HA1,%HA2,$flag );
-  print"$re->{'INF'}\t" if $re->{'DDD'};
+  %HA ? print"$re->{'INF'}\t" : print"$re->{'INF'}\n" if $re->{'DDD'};
    for my $key1(sort{$b cmp $a} keys %HA){
-    my( $num,$name ) = $key1 =~ /^(\d)(.+)/;
+    my( $num,$name ) = $key1 =~ /^(\d+):(.+)/;
      $HA1{$name}++;
     $HA2{$key1} = $name if $HA1{$name} < 2;
    }
    for my $key2(sort keys %HA2){
-    my( $num,$name ) = $key2 =~ /^(\d)(.+)/;
+    my( $num ) = $key2 =~ /^(\d+):.+/;
     if( $re->{'DDD'} ){
       print "$HA2{$key2}\t";
     }else{
