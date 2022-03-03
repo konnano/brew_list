@@ -13,7 +13,7 @@ MAIN:{
 
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
              'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
-             'HOME'=>$HOME,'TXT'=>"$HOME/cask.txt",'Q_TAP'=>"$HOME/Q_TAP.txt"};
+             'HOME'=>$HOME,'TXT'=>"$HOME/cask.txt",'Q_TAP'=>"$HOME/Q_TAP.txt" };
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
@@ -141,7 +141,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -1077,34 +1077,23 @@ my $re = shift;
    for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
  }
 
- if( $re->{'DD'} ){
- my $i = 1; my $flag = 1;
- print" $re->{'INF'}" if $re->{'DDD'};
-  for my $key(sort keys %HA){
-   my( $cou,$name ) = $key =~ /^(\d)(.*)/;
-    $HA{$name}++;
-   if( $re->{'DDD'} and $HA{$name}<2 ){
-    print" $HA{$key}";
-   }else{
-    if( $cou != $i and $HA{$name}<2 ){
-     $flag++; $i++; print"\n";
-    }
-    if( $flag and $HA{$name} < 2 ){
-     $flag--; print" $i :";
-    }
-    if( not $flag and $HA{$name} < 2 ){
-     print" $HA{$key}";
-    }
-   }
-  } 
-  print"\n" if %HA and not $re->{'DDD'};
+ if( $re->{'DD'} ){ my( %AN,@KO );
+ print"$re->{'INF'}\n" if $re->{'DDD'};
+  for my $key(sort{$b cmp $a} keys %HA){
+   my( $num,$name ) = $key =~ /^(\d)(.+)/;
+   $AN{$name}++;
+    push @KO,"$HA{\"$num$name\"}" if $AN{$name} < 2;
+  }
+  for(my $e=$#KO;$e>=0;$e--){
+   print "$KO[$e]\n";
+  }
  }
 }
 
 sub Format_3{
-my( $file,$re,$line1,$line2,$flag1,$flag2,$ca,$fo ) = @_;
-   if( $Locale ){ $line1 = '├──'; $line2 = '└──';
-   }else{ $line1 = '|--'; $line2 = '`--'; }
+ my( $file,$re,$line1,$line2,$flag1,$flag2,$ca,$fo ) = @_;
+  if( $Locale ){ $line1 = '├──'; $line2 = '└──';
+  }else{ $line1 = '|--'; $line2 = '`--'; }
 
   for(my $m=0;$m<@$file;$m++){
    if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
