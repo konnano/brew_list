@@ -141,7 +141,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07_4\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -686,7 +686,7 @@ my( $re,$ls1,$ls2 ) = @_;
     Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
 
  for my $gz( @{$re->{'TAR'}} ){
-  if( $gz =~ s/^$ls1--([\d._-]+)\.[^\d_-]+$/$1/ or $gz =~ s/^$ls1--([\d._-]+)$/$1/ ){
+  if( $gz =~ s/^$ls1--([\d._-]+)\.[^\d_-]+\d?$/$1/ or $gz =~ s/^$ls1--([\d._-]+)$/$1/ ){
     $re->{'GZ'} = ( $re->{'FOR'} and Version_1($gz,$re->{'HASH'}{$ls1}) ) ? 1 :
                   ( $re->{'CAS'} and Version_1($gz,$re->{'DMG'}{$ls1}) )  ? 1 : 0;
     last if $re->{'GZ'};
@@ -928,7 +928,7 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
         $OP{$ls1} = $ls2;
      }
     }
-    for my $key(sort keys %HA){
+    for my $key(sort{$a cmp $b} keys %HA){
      if( $HA{$key} == 1 ){
       $OP{$key} =~ /^$re->{'CEL'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
      }else{
@@ -944,7 +944,7 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
 sub Dirs_2{
 my( $an,$re ) = @_;
  opendir my $dir,$an or die " N_Dirs $!\n";
-  for my $bn(sort readdir($dir)){
+  for my $bn(sort{$a cmp $b} readdir($dir)){
    next if $bn =~ /^\.{1,2}$/;
     ( -d "$an/$bn" and not -l "$an/$bn" ) ?
    Dirs_2( "$an/$bn",$re ) : push @{$re->{'ARR'}},"$an/$bn";
@@ -1026,13 +1026,13 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
 
 sub Format_2{
 my $re = shift;
- my( $wap,$leng,@TODO,%HA ); my $cou = 0;
+ my( $wap,$leng,@TODO ); my $cou = 0; my $SC = [];
  for( @{$re->{'UNI'}} ){ my $an;
   $wap++;
    if( $re->{'DD'} ){
     my @bn = split '\|',$_;
      $bn[$#bn] =~ s/^-+\s+([^\s]+).*\n/$1/;
-      $HA{"$#bn:$bn[$#bn]"} = $bn[$#bn];
+    push @{$SC->[$#bn-1]},$bn[$#bn];
    }
    if( $Locale ){
     $_ =~ s/\|/│/g;
@@ -1076,24 +1076,21 @@ my $re = shift;
   print"$re->{'INF'}\n" if @{$re->{'UNI'}};
    for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
  }
- if( $re->{'DD'} ){ my( %HA1,%HA2,$flag );
-  %HA ? print"$re->{'INF'}\t" : print"$re->{'INF'}\n" if $re->{'DDD'};
-   for my $key1(sort{$b cmp $a} keys %HA){
-    my( $num,$name ) = $key1 =~ /^(\d+):(.+)/;
-     $HA1{$name}++;
-    $HA2{$key1} = $name if $HA1{$name} < 2;
+ if( $re->{'DD'} ){ my( %HA,$flag ); my $AR = [];
+  @$SC ? print"$re->{'INF'}\t" : print"$re->{'INF'}\n" if $re->{'DDD'};
+  for(my $i=$#$SC;$i>=0;$i--){
+   for my $key( sort{$a cmp $b} @{$SC->[$i]} ){
+    $HA{$key}++;
+   push @{$AR->[$i]},"$key\t" if $HA{$key} < 2;
    }
-   for my $key2(sort keys %HA2){
-    my( $num ) = $key2 =~ /^(\d+):.+/;
-    if( $re->{'DDD'} ){
-      print "$HA2{$key2}\t";
-    }else{
-      ( $flag and $flag != $num ) ?
-      print "\n $num : $HA2{$key2}\t" : ( not $flag ) ?
-      print " 1 : $HA2{$key2}\t" : print "$HA2{$key2}\t";
-    }
-   $flag = $num;
-  }print"\n" if $flag;
+  }
+  for(my $e=0;$e<@$AR;$e++){ $flag++;
+   if( $re->{'DDD'} ){
+    print "@{$AR->[$e]}";
+   }else{
+    print "$flag : @{$AR->[$e]}\n";
+   }
+  } print "\n" if $re->{'DDD'} and $flag;
  }
 }
 
