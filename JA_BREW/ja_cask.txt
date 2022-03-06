@@ -1369,6 +1369,7 @@ hedgewars	ターン制戦略 砲兵/アクション/コメディーゲーム
 heimdall-suite	Samsungモバイルデバイスへのフラッシュファームウェア
 helium	Helium
 helo	メールテスターとデバッガー
+hepta	視覚学習のためのメモ取りツール
 hermes	Hermes
 hermit-crab	現在のアプリを離れずにシェルコマンドを実行する
 heroic	オープンソースゲームランチャー
@@ -2405,7 +2406,6 @@ operadriver	ChromiumベースのOperaリリース用のドライバー
 operator	Prelude Operatorはデスクトップの敵対者エミュレーションプラットフォームです
 opgg	ゲームの記録とチャンピオンの分析
 optimage	画像最適化ツール
-optimal-layout	最適なレイアウト
 optimus-player	メディアプレーヤー
 oracle-jdk	OracleのJDK
 oracle-jdk-javadoc	OracleJDKのドキュメント
@@ -2478,7 +2478,6 @@ parsehub	ParseHub
 parsify	単位と通貨の変換を備えた拡張可能な計算機
 particle-dev	粒子デバイスをプログラミングするためのIDE
 pashua	Pashua
-password-assistant	パスワードアシスタント
 password-gorilla	パスワードゴリラ
 pastebot	生産性を向上させるワークフローアプリケーション
 patchwork	Patchwork
@@ -3848,6 +3847,7 @@ wowmatrix	WowMatrix
 wowup	World of Warcraftアドオンマネージャー
 wpsoffice	オールインワンのオフィスパッケージ
 wrike	プロジェクト管理アプリ
+write	手書き用ワードプロセッサ
 writefull	あなたの執筆に関するフィードバックを提供します
 writemapper	マインドマップを使用してテキストドキュメントを作成するのに役立つライティングツール
 writer	Fountain言語に基づくスクリーンライティングアプリ
