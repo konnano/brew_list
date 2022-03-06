@@ -91,6 +91,7 @@ font-antic-slab	Antic Slab
 font-antinoou	Antinoou
 font-anton	Anton
 font-antonio	Antonio
+font-anybody	10程度 目立つか微妙
 font-aoboshi-one	Aoboshi One
 font-arapey	Arapey
 font-arbutus	Arbutus
@@ -470,6 +471,7 @@ font-explora	スワッシュフォームの美しい書道書体
 font-ezra-sil	Ezra SIL
 font-fahkwang	Fahkwang
 font-fairfax	Fairfax
+font-familjen-grotesk	現代的な外観のSans serif書体
 font-fandol	Fandol
 font-fantasque-sans-mono	Fantasque Sans Mono
 font-fantasque-sans-mono-nerd-font	FantasqueSansMonoオタクフォント(Fantasque Sans Mono)
@@ -2223,6 +2225,7 @@ propresenter6	ライブイベントのプレゼンテーションおよび制作
 qgis-ltr	地理情報システム
 qt-creator-dev	アプリケーション開発のためのIDE
 quicktime-player7	QuickTime Player 7
+rambox-ce	Freeのオープンソースメッセージングおよび電子メールアプ
 reflector2	ワイヤレス画面ミラーリングアプリケーション
 royal-tsx-beta	リモート管理ソリューション
 rstudio-daily	RStudio
