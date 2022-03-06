@@ -4,6 +4,7 @@ aacgain	AAC対応バージョンのmp3gain
 aalib	ポータブルASCIIアートグラフィックライブラリ
 aamath	数式をASCIIアートとして表現します
 aarch64-elf-binutils	aarch64-elfクロス開発のためのGNU Binutils
+aarch64-elf-gcc	aarch64-elf用のGNUコンパイラコレクション
 aardvark_shell_utils	シェルスクリプトまたはコマンドラインユーザーを支援するユーティリティ
 abcde	より良いCDエンコーダー
 abcl	Armed Bear Common Lisp：CommonLispの完全な実装
@@ -778,6 +779,7 @@ closure-stylesheets	拡張CSS前処理プログラム、linterと国際化
 cloud-nuke	クラウドリソースを削除(削除)するCLIツール
 cloud-watch	Amazon CloudWatchコマンドラインツール
 cloudflare-wrangler	Cloudflareワーカー向けのCLIツール
+cloudflared	Cloudflareトンネルクライアント(以前のArgoトンネル)
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
 cloudformation-guard	宣言型構文を使用してCloudFormationテンプレートの整合性をチェックします
 cloudiscovery	クラウド環境でリソースを発見するのに役立ちます
@@ -3205,6 +3207,7 @@ liquidctl	liquid coolersとその他のデバイス用のクロスプラット�
 liquidprompt	bashおよびzshシェルの適応プロンプト
 liquigraph	Neo4jの移行ランナー
 lit	LLVMおよびClang-styleの組テストのポータブルツール
+litani	Metabuildシステム
 litecli	自動補完と構文の強調表示を備えたSQLiteデータベースのCLI
 literate-git	階層的なgitリポジトリをHTMLに表現する
 little-cms	Little CMSライブラリのバージョン1
@@ -5528,6 +5531,7 @@ util-macros	X.Org：他のxorgパッケージを構築するために使用さ�
 utimer	多機能タイマーツール
 uudeview	スマートマルチファイルマルチパートデコーダー
 uutils-coreutils	GNUcoreutilsのクロスプラットフォームRustリライト
+uutils-findutils	GNU findutilsのクロスプラットフォームRustリライト
 uuu	汎用アップデートユーティリティ mfgtools3.0。NXPI.MXチップイメージ展開ツール
 uwsgi	ホスティングサービスを構築するためのフルスタック
 v	Z for vim
@@ -5808,6 +5812,7 @@ xh	HTTPリクエストを送信するための親しく高速なツール
 xhyve	FreeBSDのbhyveに基づく軽量のMacOS仮想化ソリューション
 xidel	XPath/XQuery 3.0 データを抽出するJSONiq解釈プログラム HTML/XML/JSON
 xinput	X入力デバイスを構成およびテストするためのユーティリティ
+xkcd	最新の取得　ターミナル内のランダムまたは特定のxkcdコミック
 xkeyboardconfig	X Window Systemのキーボード構成データベース
 xlearn	高性能で簡単な拡張性のある機械学習パッケージ
 xlispstat	Lispに基づく統計データサイエンス環境
