@@ -1026,13 +1026,13 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
 
 sub Format_2{
 my $re = shift;
- my( $wap,$leng,@TODO ); my $cou = 0; my $SC = [];
+ my( $wap,$leng,@TODO,@SC ); my $cou = 0;
  for( @{$re->{'UNI'}} ){ my $an;
   $wap++;
    if( $re->{'DD'} ){
     my @bn = split '\|',$_;
      $bn[$#bn] =~ s/^-+\s+([^\s]+).*\n/$1/;
-    push @{$SC->[$#bn-1]},$bn[$#bn];
+    push @{$SC[$#bn-1]},$bn[$#bn];
    }
    if( $Locale ){
     $_ =~ s/\|/│/g;
@@ -1076,19 +1076,19 @@ my $re = shift;
   print"$re->{'INF'}\n" if @{$re->{'UNI'}};
    for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
  }
- if( $re->{'DD'} ){ my( %HA,$flag ); my $AR = [];
-  @$SC ? print"$re->{'INF'}\t" : print"$re->{'INF'}\n" if $re->{'DDD'};
-  for(my $i=$#$SC;$i>=0;$i--){
-   for my $key( sort{$a cmp $b} @{$SC->[$i]} ){
+ if( $re->{'DD'} ){ my( %HA,@AR,$flag );
+  @SC ? print"$re->{'INF'}\t" : print"$re->{'INF'}\n" if $re->{'DDD'};
+  for(my $i=$#SC;$i>=0;$i--){
+   for my $key( sort{$a cmp $b} @{$SC[$i]} ){
     $HA{$key}++;
-   push @{$AR->[$i]},"$key\t" if $HA{$key} < 2;
+   push @{$AR[$i]},"$key\t" if $HA{$key} < 2;
    }
   }
-  for(my $e=0;$e<@$AR;$e++){ $flag++;
+  for(my $e=0;$e<@AR;$e++){ $flag++;
    if( $re->{'DDD'} ){
-    print "@{$AR->[$e]}";
+    print "@{$AR[$e]}";
    }else{
-    print "$flag : @{$AR->[$e]}\n";
+    print "$flag : @{$AR[$e]}\n";
    }
   } print "\n" if $re->{'DDD'} and $flag;
  }
@@ -1143,7 +1143,9 @@ sub Format_3{
     }
    }
   }
+   system " printf '\033[?7l' " if -t STDOUT;
   print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo";
+   system " printf '\033[?7h' " if -t STDOUT;
  exit;;
 }
 
