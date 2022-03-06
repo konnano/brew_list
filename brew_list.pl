@@ -1133,9 +1133,11 @@ sub Format_3{
     }
    }
    unless( $re->{'OS'}{"${name}d_cask"} ){
-    for(my $d=0;$d<@fom;$d++){  my $in = $re->{'HASH'}{$fom[$d]} ? ' (I)' : '';
-     my $desc4 = $JA{$fom[$d]} ? $JA{$fom[$d]} : $re->{'OS'}{"${fom[$d]}f_desc"} ?
-      $re->{'OS'}{"${fom[$d]}f_desc"} : $re->{'OS'}{"${fom[$d]}f_name"} ? $re->{'OS'}{"${fom[$d]}f_name"} : '';
+    for(my $d=0;$d<@fom;$d++){ my $mem = $fom[$d];
+     $mem =~ s/^python$/python\@3.9/; $mem =~ s/^openssl$/openssl\@3/;
+      my $in = $re->{'HASH'}{$mem} ? ' (I)' : '';
+     my $desc4 = $JA{$mem} ? $JA{$mem} : $re->{'OS'}{"${mem}f_desc"} ?
+      $re->{'OS'}{"${mem}f_desc"} : $re->{'OS'}{"${mem}f_name"} ? $re->{'OS'}{"${mem}f_name"} : '';
      $fo .= ( $flag2 and $flag2 eq $name and $d == $#fom ) ? "$line2 f $fom[$d]$in\t$desc4\n\n" :
               $#fom > 0 ? "$name$dn\t$desc1\n$line1 f $fom[$d]$in\t$desc4\n" :
                           "$name$dn\t$desc1\n$line2 f $fom[$d]$in\t$desc4\n\n";
