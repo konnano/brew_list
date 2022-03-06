@@ -124,7 +124,7 @@ font-assistant	Assistant
 font-astloch	Astloch
 font-asul	Asul
 font-athiti	Athiti
-font-atkinson-hyperlegible	視覚障害向けの読みやすさと読みやすさを備えたフォント
+font-atkinson-hyperlegible	視覚障害向けの読みやすさを備えたフォント
 font-atma	Atma
 font-atomic-age	Atomic Age
 font-aubrey	Aubrey
