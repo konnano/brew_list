@@ -6,7 +6,7 @@ use Fcntl ':DEFAULT';
 my( $IN,$CIN,$KIN,$VER ) = ( 0,0,0,0 );
 chomp( my $UNAME = `uname -m` );
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK,@ALIA );
 
 if( $^O eq 'darwin' ){
  $re->{'MAC'} = 1;
@@ -22,26 +22,31 @@ unless( $ARGV[0] ){
  $Xcode = `xcodebuild -version 2>/dev/null` ?
   `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
     $Xcode =~ s/^(\d\.)/0$1/;
-
  $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
-                  `/usr/bin/clang --version|sed -n '/Apple/s/.*clang-\\([^.]*\\).*/\\1/p'` : 0;
+                  `/usr/bin/clang --version|sed '/Apple/!d;s/.*clang-\\([^.]*\\).*/\\1/'` : 0;
  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null` ?
                 `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
-                 sed -n '/version/s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/p'` : 0;
+                 sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
 }
   %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
 
   if( $CPU eq 'intel\?' ){
-   Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 ) unless $ARGV[0];
+   unless( $ARGV[0] ){
+    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
+      Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
+       Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
+   }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 ) unless $ARGV[0];
-      Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 ) unless $ARGV[0];
   }else{
-   Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 ) unless $ARGV[0];
+   unless( $ARGV[0] ){
+    Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
+      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
+       Dirs_1( '/opt/homebrew/Library/Taps',1,0 );
+   }
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
-     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 ) unless $ARGV[0];
-      Dirs_1( '/opt/homebrew/Library/Taps',1,0 ) unless $ARGV[0];
   }
  rmdir "$ENV{'HOME'}/.BREW_LIST/7";
 }else{
@@ -49,9 +54,9 @@ unless( $ARGV[0] ){
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
    $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc/{print \$2}'` : 0;
     $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
-
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
+  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
+   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
 }
 
 sub Dirs_1{
@@ -63,14 +68,25 @@ sub Dirs_1{
     if( -d $card ){
      Dirs_1( $card,$ls,$cask );
     }else{
-     $cask ? push @CASK,"$card\n" : push @BREW,"$card\n" if $card =~ /\.rb$/;
+     if( $card =~ /\.rb$/ ){
+      $cask ? push @CASK,$card : push @BREW,$card;
+     }elsif( -l $card ){
+      push @ALIA,$card;
+     } 
     }
   }
 }
+
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
 tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0644 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
- for my $dir1(@BREW){ chomp $dir1;
+ for my $alias(@ALIA){
+  my $hand = readlink $alias;
+  $alias =~ s|.+/(.+)|$1|;
+   $hand =~ s|.+/(.+)\.rb|$1|;
+  $tap{"${alias}alias"} = $hand;
+ }
+ for my $dir1(@BREW){
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
   open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
@@ -318,9 +334,9 @@ unless( $ARGV[0] ){
    $tap{'glibcLinux'} = 0;
  }
 }
- if( $re->{'MAC'} ){
- rmdir "$ENV{'HOME'}/.BREW_LIST/8"; my $IN = 0;
-  for my $dir2(@CASK){ chomp $dir2;
+ if( $re->{'MAC'} ){ my $IN = 0;
+ rmdir "$ENV{'HOME'}/.BREW_LIST/8";
+  for my $dir2(@CASK){
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
  #  $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
