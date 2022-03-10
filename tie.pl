@@ -338,7 +338,7 @@ unless( $ARGV[0] ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/8";
   for my $dir2(@CASK){
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
- #  $tap{"${name}cask"} = $dir2;
+    $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
     $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
