@@ -7,11 +7,11 @@ my( $OS_Version,$OS_Version2,$CPU,%MAC_OS,$Locale,%JA );
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
- my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'UNI'=>[],
+ my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],
              'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
              'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt" };
 
- my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,
+ my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],
              'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
              'HOME'=>$HOME,'TXT'=>"$HOME/cask.txt",'Q_TAP'=>"$HOME/Q_TAP.txt" };
 
@@ -78,15 +78,15 @@ MAIN:{
     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
  die " Not installed HOME BREW\n" unless -d $re->{'CEL'};
-  print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n"
-   unless not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'};
-    $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
-
  $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
-   if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
-    $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0;
-   }elsif( not $Locale ){ $name->{'EN'} = 1; }
-
+  if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
+   $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0;
+  }elsif( not $Locale ){ $name->{'EN'} = 1; }
+  unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
+   print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
+    File_1( $ref );
+  }
+   $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
  if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
    $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
@@ -141,7 +141,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07_6\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -374,7 +374,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
 }
 
 sub File_1{
-my( $re,$list,$file ) = @_;
+my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
   unless( $re->{'TAP'} ){
    open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
     chomp( @$file=<$BREW> );
@@ -398,7 +398,9 @@ my( $re,$list,$file ) = @_;
        }
       next;
      }
-     push @$file,$tap;
+     exit unless $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
+      $i++ if $tap =~ /^[012]$/;
+       push @{$tap[$i]},$tap;
     }
    close $BREW;
   }elsif( $re->{'TAP'} and not -f $re->{'Q_TAP'} ){
@@ -434,7 +436,11 @@ my( $re,$list,$file ) = @_;
    }
   }
   Format_3( $file,$re ) if $re->{'DEP'};
- Search_1( $list,$file,0,$re );
+ if( $re->{'TAP'} ){
+  for( @tap ){ Search_1( $list,$_,0,$re ); }
+ }else{
+  Search_1( $list,$file,0,$re );
+ }
 }
 
 sub Unic_1($\$$$;$){
@@ -644,7 +650,7 @@ my( $name,$re,$ls ) = @_;
 
 sub Memo_1{
 my( $re,$mem,$dir ) = @_;
- if( $dir ){
+ if( defined $dir ){
   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
   if( @$file ){
      $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
@@ -705,11 +711,11 @@ my( $re,$ls1,$ls2 ) = @_;
 }
 
 sub Search_1{ no warnings 'regexp';
-my( $list,$file,$in,$re ) = @_;
+my( $list,$file,$in,$re,$mem ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split '\t',$file->[$i];
    next if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
-    my $mem = ( $re->{'L_OPT'} and ( $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ) ? 1 : 0;
+    $mem = ( $re->{'L_OPT'} and ( $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
@@ -786,7 +792,7 @@ my( $list,$file,$in,$re ) = @_;
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
          $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
            $re->{'MEM'} =~ s/^.{9}$brew_1\t/      X  $brew_1\tNot Formula\n/;
-            Memo_1( $re,$mem,0 );
+            Memo_1( $re,$mem );
              $in++; $i--; next;
      }else{
       if( $re->{'FOR'} and $brew_2 ne $re->{'HASH'}{$brew_1} and
@@ -801,21 +807,42 @@ my( $list,$file,$in,$re ) = @_;
     }
     $re->{'MEM'} .= "$brew_2\t$brew_3\n" if defined $brew_2;
      $re->{'MEM'} =~ s/\t/\n/ unless defined $brew_2;
-      Memo_1( $re,$mem,0 ) if $re->{'LIST'} or $pop;
+      Memo_1( $re,$mem ) if $re->{'LIST'} or $pop;
        $re->{'BN'}++ if $mem and $brew_1 !~ m|==> homebrew/|;
         $re->{'AN'}++ if $brew_1 !~ m|==> homebrew/|;
    }
   }
  }
-  if( $list->[$in] ){
-   Tap_1( $list,$re,\$in ) while($list->[$in]);
+ if( $list->[$in] ){
+  Tap_1( $list,$re,\$in ) while($list->[$in]);
+ }
+ unless( $re->{'LIST'} ){ my(@font,@driv,@vers);
+  for my $ary( @{$re->{'ARY'}} ){
+   push @vers,$ary if $ary =~ s/^homebrew-cask-versions\n(.+)/$1/;
+    push @driv,$ary if $ary =~ s/^homebrew-cask-drivers\n(.+)/$1/;
+     push @font,$ary if $ary =~ s/^homebrew-cask-fonts\n(.+)/$1/;
   }
+  if( @font ){
+   $re->{'ALL'} .= "          ==> homebrew/cask-fonts\n";
+    for( @font ){ $re->{'ALL'} .= $_; }
+  }
+  if( @driv ){
+   $re->{'ALL'} .= "          ==> homebrew/cask-drivers\n";
+    for( @driv ){ $re->{'ALL'} .= $_; }
+  }
+  if( @vers ){
+   $re->{'ALL'} .= "          ==> homebrew/cask-versions\n";
+    for( @vers ){ $re->{'ALL'} .= $_; }
+  }
+ }
 }
 
 sub Tap_1{ no warnings 'regexp';
 my( $list,$re,$in ) = @_;
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
   my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
+   my( $dirs ) = $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+|
+    if not $re->{'FOR'} and $re->{'OS'}{"${tap}cask"};
 
     my $ver = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_version"}) ?
      $re->{'OS'}{"${tap}f_version"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_version"}) ?
@@ -832,15 +859,15 @@ my( $list,$re,$in ) = @_;
      $com = $JA{$tap} if $JA{$tap};
 
       my $brew = 1;
- if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
-     $re->{'LINK'} and $re->{'LINK'} == 2 and not $re->{'OS'}{"${tap}un_Linux"} or
-     $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"$tap$OS_Version"} or
-     $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
-     $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} or
-     $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{'OS'}{"deps$tap"} or
-     $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} ){
+   if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
+       $re->{'LINK'} and $re->{'LINK'} == 2 and not $re->{'OS'}{"${tap}un_Linux"} or
+       $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"$tap$OS_Version"} or
+       $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
+       $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} or
+       $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{'OS'}{"deps$tap"} or
+       $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} ){
       $brew = 0;
- }
+   }
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
       Mine_1( $tap,$re,1 );
@@ -854,6 +881,7 @@ my( $list,$re,$in ) = @_;
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap} or
         $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
         $re->{'MEM'} = "      X  $tap\tNot Formula\n";
+         Memo_1( $re,$mem ) unless $re->{'FOR'};
     }elsif( $re->{'FOR'} and $ver ne $re->{'HASH'}{$tap} and
           ( not $re->{'OS'}{"${tap}un_xcode"} or not $re->{'OS'}{"${tap}un_Linux"} ) or
             $re->{'CAS'} and not $re->{'OS'}{"${tap}un_cask"} and $ver ne $re->{'DMG'}{$tap} ){
@@ -863,8 +891,9 @@ my( $list,$re,$in ) = @_;
         $re->{'MEM'} = "         $tap\t$ver\t$com\n";
          Type_1( $re,$tap,' i ' );
     }
-     if( $brew and not $re->{'TAP'} ){
-      Memo_1( $re,$mem,0 );
+       push @{$re->{'ARY'}},"$dirs\n".$re->{'MEM'} if $dirs;
+     if( $brew and not @{$re->{'ARY'}} ){
+      Memo_1( $re,$mem );
        $re->{'AN'}++; $re->{'IN'}++;
       ++$re->{'BN'} and ++$re->{'CN'} if $mem;
      }
@@ -1717,7 +1746,7 @@ unless( $ARGV[0] ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/8";
   for my $dir2(@CASK){
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
- #  $tap{"${name}cask"} = $dir2;
+    $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
     $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
