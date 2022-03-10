@@ -234,7 +234,7 @@ my $re = shift;
 sub DB_1{
 my $re = shift;
  if( $re->{'FOR'} or $re->{'DEP' } ){
-  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
+  opendir my $dir,"$re->{'BIN'}" or die " DB_1 $!\n";
    for my $com(readdir $dir){
     my $hand = readlink "$re->{'BIN'}/$com";
      next if not $hand or $hand !~ m|^\.\./Cellar/|;
@@ -376,12 +376,12 @@ my( $re,@AN,%HA,@an,$do ) = @_;
 sub File_1{
 my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
   unless( $re->{'TAP'} ){
-   open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
+   open my $BREW,'<',"$re->{'TXT'}" or die " File_1 $!\n";
     chomp( @$file=<$BREW> );
    close $BREW;
   }
   if( $re->{'CAS'} and -f $re->{'Q_TAP'} and ( $re->{'S_OPT'} or $re->{'TAP'} or $re->{'DEP'} ) ){
-   open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
+   open my $BREW,'<',"$re->{'Q_TAP'}" or die " File_1 $!\n";
     while(my $tap=<$BREW>){ chomp $tap;
      if( $tap =~ /^[3-9#]$/ ){
        if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} and $tap ne '9' or
@@ -493,7 +493,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my( $IN,$CIN ) = ( 0,0 );
       push @{$re->{$brew}},@an if $HA->{$brew} < 2;
   }
 
- open my $BREW1,'<',$name or die " Info_1 $!\n";
+ open my $BREW1,'<',"$name" or die " Info_1 $!\n";
   while(my $data=<$BREW1>){
    if( $re->{'MAC'} ){
      if( $data =~ /^\s*on_linux\s*do/ ){ $IN = 1; next;
@@ -656,8 +656,8 @@ my( $re,$mem,$dir ) = @_;
      $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
      $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n" if $mem;
    for(my $i=0;$i<@$file;$i++){
-     $re->{'ALL'} .= @$file-1 == $i ? "    $$file[$i]\n" : "     $$file[$i]" unless $re->{'L_OPT'};
-     $re->{'EXC'} .= @$file-1 == $i ? "    $$file[$i]\n" : "     $$file[$i]" if $mem;
+     $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]" unless $re->{'L_OPT'};
+     $re->{'EXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]" if $mem;
    }
   }else{
      $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n" unless $re->{'L_OPT'};
@@ -711,11 +711,11 @@ my( $re,$ls1,$ls2 ) = @_;
 }
 
 sub Search_1{ no warnings 'regexp';
-my( $list,$file,$in,$re,$mem ) = @_;
+my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split '\t',$file->[$i];
    next if $brew_1 =~ m|^homebrew/| and not $re->{'S_OPT'};
-    $mem = ( $re->{'L_OPT'} and ( $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ) ? 1 : 0;
+    my $mem = ( $re->{'L_OPT'} and ( $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
@@ -816,23 +816,24 @@ my( $list,$file,$in,$re,$mem ) = @_;
  if( $list->[$in] ){
   Tap_1( $list,$re,\$in ) while($list->[$in]);
  }
- unless( $re->{'LIST'} ){ my(@font,@driv,@vers);
+ unless( $re->{'LIST'} ){ my @tap = ([],[],[]);
   for my $ary( @{$re->{'ARY'}} ){
-   push @vers,$ary if $ary =~ s/^homebrew-cask-versions\n(.+)/$1/;
-    push @driv,$ary if $ary =~ s/^homebrew-cask-drivers\n(.+)/$1/;
-     push @font,$ary if $ary =~ s/^homebrew-cask-fonts\n(.+)/$1/;
-  }
-  if( @font ){
-   $re->{'ALL'} .= "          ==> homebrew/cask-fonts\n";
-    for( @font ){ $re->{'ALL'} .= $_; }
-  }
-  if( @driv ){
-   $re->{'ALL'} .= "          ==> homebrew/cask-drivers\n";
-    for( @driv ){ $re->{'ALL'} .= $_; }
-  }
-  if( @vers ){
-   $re->{'ALL'} .= "          ==> homebrew/cask-versions\n";
-    for( @vers ){ $re->{'ALL'} .= $_; }
+   push @{$tap[2]},$ary if $ary =~ s/^homebrew-cask-versions\n(.+)/$1/;
+    push @{$tap[1]},$ary if $ary =~ s/^homebrew-cask-drivers\n(.+)/$1/;
+     push @{$tap[0]},$ary if $ary =~ s/^homebrew-cask-fonts\n(.+)/$1/;
+  } my $i;
+  for my $tap( @tap ){ $i++;
+   $i++ unless @$tap;
+   for( @$tap ){
+    if( $i == 1 ){ $i++;
+      $re->{'ALL'} .= "          ==> homebrew/cask-fonts\n";
+    }elsif( $i == 3 ){ $i++;
+      $re->{'ALL'} .= "          ==> homebrew/cask-drivers\n";
+    }elsif( $i == 5 ){ $i++;
+      $re->{'ALL'} .= "          ==> homebrew/cask-versions\n";
+    } $re->{'ALL'} .= $_;
+     $re->{'AN'}++; $re->{'IN'}++;
+   }
   }
  }
 }
@@ -972,7 +973,7 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
 
 sub Dirs_2{
 my( $an,$re ) = @_;
- opendir my $dir,$an or die " N_Dirs $!\n";
+ opendir my $dir,"$an" or die " N_Dirs $!\n";
   for my $bn(sort{$a cmp $b} readdir($dir)){
    next if $bn =~ /^\.{1,2}$/;
     ( -d "$an/$bn" and not -l "$an/$bn" ) ?
@@ -1497,7 +1498,7 @@ unless( $ARGV[0] ){
  for my $dir1(@BREW){
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
-  open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
+  open my $BREW,'<',"$dir1" or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
      if( $data =~ /^\s*bottle\s+do/ ){
       $KIN = 1; next;
@@ -1749,7 +1750,7 @@ unless( $ARGV[0] ){
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
     $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
-   open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
+   open my $BREW,'<',"$dir2" or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
