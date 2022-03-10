@@ -89,7 +89,7 @@ unless( $ARGV[0] ){
  for my $dir1(@BREW){
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
-  open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
+  open my $BREW,'<',"$dir1" or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
      if( $data =~ /^\s*bottle\s+do/ ){
       $KIN = 1; next;
@@ -341,7 +341,7 @@ unless( $ARGV[0] ){
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
     $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
-   open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
+   open my $BREW,'<',"$dir2" or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless eval "$OS_Version $ls1 $MAC_OS{$ls2}";
