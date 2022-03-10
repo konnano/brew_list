@@ -284,6 +284,7 @@ avro-tools	Avroコマンドラインツールとユーティリティ
 awf	A Widget Factoryは、gtk2とgtk3のテーマプレビューアプリケーションです。
 awk	テキスト処理スクリプト言語
 aws-apigateway-importer	SwaggerまたはRAMLAPIからAmazon API GatewayAPIを作成または更新します
+aws-auth	IAMロールを介してAWSアカウントにプログラムで認証できるようにします
 aws-cdk	AWSクラウド開発キット AWS基礎構造をコードとして定義するためのフレームワーク
 aws-cfn-tools	Amazon CloudFormation Webサービスのクライアント
 aws-console	AWS CLI認証情報を使用してブラウザでAWSコンソールを起動するコマンドライン
@@ -1698,6 +1699,7 @@ geeqie	軽量Gtk+ベースの画像Viewer
 gegl	グラフベースの画像処理フレームワーク
 gel	モダンgemマネージャー
 gem-completion	gemのBash補完
+gemgen	Commonmark MarkdownをGemtextに変換するためのコマンドラインツール
 genact	無意味で活発な発生器
 genders	クラスター管理用の静的クラスター構成データベース
 generate-json-schema	サンプルJSONからJSONスキーマを生成する
@@ -3339,6 +3341,7 @@ manticoresearch	オープンソースのテキスト検索エンジン
 mapcidr	Subnet/CIDR 操作ユーティリティ
 mapcrafter	Minecraft map renderer
 mapnik	地図アプリケーションを開発するためのツールキット
+mapproxy	Webマッププロキシの高速化
 mapserver	空間データと対話的な地図アプリをウェブに公開する
 marcli	MARC(ISO 2709)ファイルを解析する
 mariadb	MySQLのDrop-in代替品
@@ -3615,6 +3618,7 @@ mtoc	Mach-Oから PE/COFF のバイナリ変換器
 mtools	MSDOSファイルを操作するためのツール
 mtr	単一のツールでの'traceroute'と'ping'
 mu	maildir形式で保存された電子メールメッセージを検索するためのツール
+mu-repo	複数のgitリポジトリを操作するためのツール
 muffet	Goの高速websiteリンクチェッカー
 mujs	埋め込み可能なJavascript解釈プログラム
 multi-git-status	コミットされていない表示 複数Gitリポジトリの追跡されていない変更/プッシュされていない変更
@@ -3921,6 +3925,7 @@ opencv@2	オープンソースの画像認識ライブラリ
 opencv@3	オープンソースの画像認識ライブラリ
 opendbx	Cの軽量で拡張可能なデータベースアクセスライブラリ
 opendetex	ドキュメントからTeXまたはLaTeXコマンドを取り除くためのツール
+opendht	C++ 14分散ハッシュテーブルの実装
 openexr	ハイダイナミックレンジ画像ファイル形式
 openexr@2	ハイダイナミックレンジ画像ファイル形式
 openfast	NRELがサポートするOpenFAST全回転シミュレーションコード
@@ -4780,6 +4785,7 @@ sdcv	StarDictコンソールバージョン
 sdedit	連続図表を非常に高速に生成するためのツール
 sdf	構文定義形式：文法の高レベルの説明
 sdl	オーディオへの低レベルのアクセス キーボード/マウス/ジョイスティック/グラフィックス
+sdl12-compat	舞台裏でSDL2.0を使用するSDL1.2互換性レイヤー
 sdl2	オーディオへの低レベルのアクセス キーボード/マウス/ジョイスティック/グラフィックス
 sdl2_gfx	SDL2グラフィックス描画プリミティブおよびその他のサポート機能
 sdl2_image	画像をSDLサーフェスおよびテクスチャとしてロードするためのライブラリ
@@ -5012,6 +5018,7 @@ sphinx-doc	高度で美しいドキュメントを作成するためのツール
 spice-gtk	SPICEのGTKクライアント/ライブラリ
 spice-protocol	SPICE手続きのヘッダー
 spidermonkey	JavaScript-Cエンジン
+spidermonkey@78	JavaScript-Cエンジン
 spigot	コマンドラインストリーミングの正確な実際の計算機
 spim	MIPS32模擬装置
 spin	マルチスレッドソフトウェアの効率的な検証ツール
@@ -5950,7 +5957,7 @@ znapzend	リモート機能とmbuffer統合を備えたZFSバックアップ
 znc	高度なIRCバウンサー
 zola	すべてが組み込まれた単一のバイナリの高速静的サイト発生器
 zookeeper	サービスの分散調整のための集中型サーバー
-zopfli	新しいzlib(gzip、deflate)互換圧縮機
+zopfli	新しいzlib (gzip/deflate)互換圧縮機
 zorba	NoSQLクエリ計算機
 zork	ダンジョンがFORTRANからCに変更されました
 zoro	ローカルサーバーを外部ネットワークに公開する
@@ -5961,14 +5968,14 @@ zrepl	ワンストップZFSバックアップおよびレプリケーション�
 zsdx	Solarus DXのゼルダミステリー
 zsh	UNIXシェル(コマンド解釈プログラム)
 zsh-async	外部ツールを使用せずに非同期でタスクを実行する
-zsh-autosuggestions	zshに対するFishのような高速/目立たないautosuggestions
+zsh-autosuggestions	zshに対するFishのようなautosuggestions 高速/目立たない
 zsh-completions	zshの追加の補完定義
 zsh-fast-syntax-highlighting	Zshの機能豊富な構文の強調表示
 zsh-git-prompt	zshの有益なgitプロンプト
-zsh-history-substring-search	Fishシェルの履歴検索Zshポート
+zsh-history-substring-search	Zshポート Fishシェルの履歴検索
 zsh-lovers	zshのヒント コツ 例え
 zsh-navigation-tools	Zsh cursesベースのツール(複数単語の履歴サーチャーなど)
-zsh-syntax-highlighting	zshの構文強調表示のようなフィッシュシェル
+zsh-syntax-highlighting	Zsh Fishシェルのような構文強調表示
 zsh-vi-mode	ZSHのより優れた親しいvi(vim)モードプラグイン
 zsh-you-should-use	入力したコマンドに既存のエイリアスを使用するように通知するZSHプラグイン
 zshdb	zshのデバッガー
