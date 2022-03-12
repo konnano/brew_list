@@ -9,12 +9,12 @@ MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
  my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],
              'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
-             'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt" };
+             'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt",SPA=>' 'x9 };
 
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],
              'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
              'HOME'=>$HOME,'TXT'=>"$HOME/cask.txt",
-             'Q_TAP'=>"$HOME/Q_TAP.txt",SPA=>' 'x10 };
+             'Q_TAP'=>"$HOME/Q_TAP.txt",SPA=>' 'x9 };
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
@@ -397,7 +397,8 @@ my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
              $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
               $re->{'TEN'} = 1;  Wait_1( $re );
        }
-       last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} );
+        last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} );
+       exit unless not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
       next;
      }
       if( $re->{'TAP'} ){
@@ -447,11 +448,11 @@ my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
     Search_1( $list,$_,0,$re );
      unless( $re->{'L_OPT'} ){
       $i = $re->{'AN'} - $i; $e = $re->{'IN'} - $e;
-       $re->{'ALL'} .= "$re->{'SPA'}item $i : install $e\n" if $i;
+       $re->{'ALL'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
       $i = $re->{'AN'}; $e = $re->{'IN'};
      }else{
       $i = $re->{'BN'} - $i; $e = $re->{'CN'} - $e;
-       $re->{'EXC'} .= "$re->{'SPA'}item $i : install $e\n" if $i;
+       $re->{'EXC'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
       $i = $re->{'BN'}; $e = $re->{'CN'};
      }
    }
@@ -779,7 +780,7 @@ my( $list,$file,$in,$re ) = @_;
         " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
        " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_xcode"} ? " x       $brew_1\t" :
-       $re->{'OS'}{"${brew_1}keg"} ? "   k     $brew_1\t" : "         $brew_1\t";
+       $re->{'OS'}{"${brew_1}keg"} ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
       }else{
        $re->{'MEM'} = ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ?
         " x s     $brew_1\t" : ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}d_cask"} ) ?
@@ -787,14 +788,14 @@ my( $list,$file,$in,$re ) = @_;
         " x f     $brew_1\t" : $re->{'OS'}{"${brew_1}un_cask"} ? " x       $brew_1\t" :
        $re->{'OS'}{"${brew_1}so_name"} ? "   s     $brew_1\t" : $re->{'OS'}{"${brew_1}d_cask"} ?
         "   c     $brew_1\t" :  $re->{'OS'}{"${brew_1}formula"} ?
-        "   f     $brew_1\t" : "         $brew_1\t";
+        "   f     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
       }
      }else{
        $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
        " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
         ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
        " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_Linux"}  ? " x       $brew_1\t" :
-       $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "         $brew_1\t";
+       $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
      }
     if( $pop ){
      if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
@@ -840,17 +841,17 @@ my( $list,$file,$in,$re ) = @_;
      push @{$tap[0]},$ary if $ary =~ s/^homebrew-cask-fonts\n(.+)/$1/;
   } my( $i,$flag1,$flag2 ); my $e = 0;
   for my $tap( @tap ){ $i++;
-   ++$flag2 and $re->{'ALL'} .= "$re->{'SPA'}in_item $re->{'IN'}\n" if @$tap and not $flag2;
+   ++$flag2 and $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if @$tap and not $flag2;
    $i++ unless @$tap;
    for( @$tap ){
     if( $i == 1 ){ $i++;
-      $re->{'ALL'} .= "$re->{'SPA'}==> homebrew/cask-fonts\n";
+      $re->{'ALL'} .= "$re->{'SPA'} ==> homebrew/cask-fonts\n";
     }elsif( $i == 3 ){ $i++;
-      $re->{'ALL'} .= "          in_item $e\n" if $e; $e = 0;
-      $re->{'ALL'} .= "$re->{'SPA'}==> homebrew/cask-drivers\n";
+      $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n" if $e; $e = 0;
+      $re->{'ALL'} .= "$re->{'SPA'} ==> homebrew/cask-drivers\n";
     }elsif( $i == 5 ){ $i++;
-      $re->{'ALL'} .= "          in_item $e\n" if $e; $e = 0;
-      $re->{'ALL'} .= "$re->{'SPA'}==> homebrew/cask-versions\n";
+      $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n" if $e; $e = 0;
+      $re->{'ALL'} .= "$re->{'SPA'} ==> homebrew/cask-versions\n";
     }
     if( $i == 2 ){ $e++;
     }elsif( $i == 4 ){ $e++;
@@ -859,7 +860,7 @@ my( $list,$file,$in,$re ) = @_;
      $re->{'AN'}++; $re->{'IN'}++;
    }
   }
-  $re->{'ALL'} .= "$re->{'SPA'}in_item $e\n" if $flag1;
+  $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n" if $flag1;
  }
 }
 
@@ -911,10 +912,10 @@ my( $list,$re,$in ) = @_;
     }elsif( $re->{'FOR'} and $ver ne $re->{'HASH'}{$tap} and
           ( not $re->{'OS'}{"${tap}un_xcode"} or not $re->{'OS'}{"${tap}un_Linux"} ) or
             $re->{'CAS'} and not $re->{'OS'}{"${tap}un_cask"} and $ver ne $re->{'DMG'}{$tap} ){
-        $re->{'MEM'} = "         $tap\t$ver\t$com\n";
+        $re->{'MEM'} = "$re->{'SPA'}$tap\t$ver\t$com\n";
          Version_2( $re,$tap,$ver );
     }else{
-        $re->{'MEM'} = "         $tap\t$ver\t$com\n";
+        $re->{'MEM'} = "$re->{'SPA'}$tap\t$ver\t$com\n";
          Type_1( $re,$tap,' i ' );
     }
        push @{$re->{'ARY'}},"$dirs1\n".$re->{'MEM'} if $dirs1;
