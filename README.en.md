@@ -4,10 +4,6 @@ brew list command extended version: version 1.07_5
 
 : how to use
 
-brew tap konnano/brew_list
-
-brew install brew_list
-
 OR After downloading, run ./init.sh in the brew_list-main folder
 
 It takes a little time to create the cache file, the command name is brew_list
