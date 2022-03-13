@@ -1587,6 +1587,7 @@ jellyfin	メディアシステム
 jellyfin-media-player	Jellyfinデスクトップクライアント
 jenkins-menu	Jenkins CIサーバーのステータスを表示するメニュー項目
 jet	サービスとしてのCI/CD
+jetbrains-gateway	Jetbrainsによるリモート開発ゲートウェイ
 jetbrains-space	チームコミュニケーションおよび協力的ソフトウェア
 jetbrains-toolbox	JetBrainsツールマネージャー
 jettison	外付けドライブを自動的に排出します
@@ -1846,6 +1847,7 @@ lyricsx	iTunesの歌詞 Spotify/Vox/Audirvana Plus
 lyx	LaTeX植字システムに基づくオープンソースのGUIドキュメントプロセッサ
 m3unify	M3Unify
 mac2imgur	mac2imgur
+macast	DLNA Media Renderer
 macbreakz	健康上の問題を防ぐための人間工学的アシスタント
 maccleaner-pro	ジャンクを削除する 不要なファイルやフォルダとコンピュータを高速化します
 maccpuid	CPUID命令で情報を表示します
@@ -2446,6 +2448,7 @@ packages	統合パッケージング環境
 packet-peeper	ネットワーク手続きアナライザ
 packetproxy	Javaで記述されたローカルプロキシ
 packetsender	TCPを送受信するためのネットワークユーティリティ UDP/SSL
+paddle-easydl	フライングパドルEasyDL-デスクトップ...詳しくはENで
 padloc	最新のパスワードマネージャー
 pages-data-merge	Pagesデータマージ
 pagico	すべてのタスクを管理する ファイル/メモ
@@ -2489,7 +2492,6 @@ pcoipclient	VMエージェントおよびリモートワークステーション
 pd	マルチメディア用のビジュアルプログラミング言語
 pd-extended	Pd拡張
 pd-l2ork	コンピュータ音楽およびマルチメディアアプリケーションのプログラミング環境
-pd-runner	Parallels Desktop用のVMランチャー
 pdf-converter-master	PDF変換マスター
 pdf-expert	PDFリーダー/エディター/注釈
 pdf-images	PDF-画像
@@ -2548,6 +2550,7 @@ pineapple	Pineapple
 pinegrow	Webエディター
 pingid	クラウドベースの多要素認証
 pingmenu	メニューバーに現在のネットワーク遅延を表示するユーティリティ
+pingnoo	pingnoo
 pingplotter	ネットワーク監視ツール
 pinta	シンプルなGtk#ペイントプログラム
 piskel	Piskel
@@ -2592,6 +2595,7 @@ poi	拡張性のあるKanColleブラウザーとツール
 pokemon-reborn	ポケモンリボーン
 pokemon-showdown	ポケモン対決
 pokemon-trading-card-game-online	ポケモンTCGをオンラインでプレイ
+poker-copilot	オンラインポーカーHUDおよび追跡ソフトウェア
 pokerstars	Freeでプレイできるオンラインポーカー
 pokerth	FreeのTexas hold'emポーカー
 polar-bookshelf	統合された読書環境
@@ -2665,7 +2669,6 @@ procexp	プロセスエクスプローラー
 proclaim	教会のプレゼンテーションソフトウェア
 product-hunt	Product Hunt
 profilecreator	標準またはカスタマイズされた構成プロファイルを作成する
-profilemanager	Mozillaプロファイルマネージャー
 profind	ファイル検索アプリ
 programmer-dvorak	プログラマーDvorak
 progressive-downloader	ダウンロードマネジャー
@@ -3309,6 +3312,7 @@ supercollider	サウンド合成とアルゴリズム作曲のための サー�
 superduper	バックアップ/リカバリ/クローン作成ソフトウェア
 superhuman	メールクライアント
 supermjograph	データから科学的なグラフを生成する
+supernotes	共同メモ取りアプリ
 superproductivity	やることリストと時間監視
 superslicer	3DモデルをGコード命令またはPNGレイヤーに変換します
 supersync	SuperSync
