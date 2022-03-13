@@ -6,7 +6,10 @@ MacOS10.9から対応します10.8以前は現在のhomebrewインストール�
 
 : 使用方法
 
-ダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
+brew tap konnano/brew_list
+brew install brew_list
+
+もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
 キャッシュファイル作成に少し時間がかかります、コマンドはbrew_listです
 
