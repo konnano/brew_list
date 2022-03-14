@@ -1,8 +1,12 @@
 google translate　Please read in the atmosphere
 
-brew list command extended version: version 1.07_5
+brew list command extended version: version 1.07_8
 
 : how to use
+
+brew tap konnano/brew_list
+
+brew install brew_list
 
 OR After downloading, run ./init.sh in the brew_list-main folder
 
