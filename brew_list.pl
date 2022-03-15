@@ -841,7 +841,7 @@ my( $list,$file,$in,$re ) = @_;
      push @{$tap[0]},$ary if $ary =~ s/^homebrew-cask-fonts\n(.+)/$1/;
   } my( $i,$flag1,$flag2 ); my $e = 0;
   for my $tap( @tap ){ $i++;
-   ++$flag2 and $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if @$tap and not $flag2;
+   ++$flag2 and $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if @$tap and $re->{'ALL'} and not $flag2;
    $i++ unless @$tap;
    for( @$tap ){
     if( $i == 1 ){ $i++;
