@@ -483,10 +483,10 @@ braid	Gitリポジトリ内のベンダーブランチを追跡するのに役�
 brainfuck	brainfuck言語の通訳
 breezy	マルチフォーマットをサポートするPythonで実装されたバージョン管理システム
 brev	brev.devによって提供されるワークスペースを管理するためのCLIツール
-brew-cask-completion	brew-caskのFishの補完
-brew-gem	自作式としてRuby Gemsをインストールする
+brew-cask-completion	brew-cask用のFish補完
+brew-gem	homebrew formulaeとしてRuby Gemsをインストールする
 brew-php-switcher	PHPバージョン間で構成を切り替えます Apache/Valet/CLI
-brew-pip	自作式としてpipパッケージをインストールする
+brew-pip	homebrew formulaeとしてpipパッケージをインストールする
 brigade-cli	Brigadeのコマンドラインインターフェース
 brightness	コマンドラインからMacOSディスプレイの明るさを変更する
 briss	PDFファイルを切り抜く
@@ -522,6 +522,7 @@ burl	curl(1)の便利なショートカットを提供するシェルスクリ�
 burp	ネットワークのバックアップと復元
 butane	人間が読めるButane構成を機械が読める点火構成に変換します
 bvi	Viのようなバイナリファイル(16進)エディタ
+bvm	すべてのバイナリのバージョンマネージャー
 bwa	DNAの対調整のためのBurrow-Wheeler Aligner
 bwctl	ネットワーク測定ツールのコマンドラインツールとデーモン
 bwfmetaedit	BWFファイルのメタデータを 埋め込み/検証/転送 するためのツール
@@ -1573,6 +1574,7 @@ forge	高性能の視覚化
 fork-cleaner	GitHubアカウントの古くて非アクティブなフォークをクリーンアップします
 format-udf	ブロックデバイスをUDFにフォーマットするためのBashスクリプト
 fortio	HTTPおよびgRPC負荷テストおよび視覚化ツールとサーバー
+fortran-language-server	Fortran用言語サーバー
 fortune	悪名高い電子フォーチュンクッキー発生器
 fossil	分散ソフトウェア構成管理
 fourstore	効率的で安定したRDFデータベース
@@ -1935,6 +1937,7 @@ go@1.13	Goプログラミング環境(1.13)
 go@1.14	Goプログラミング環境(1.14)
 go@1.15	Goプログラミング環境(1.15)
 go@1.16	Goプログラミング環境(1.16)
+go@1.17	Goプログラミング環境(1.17)
 goaccess	Apache Webサーバーのログアナライザーと対話的Viewer
 goad	Goに組み込まれたAWS Lambdaを利用した、高度に分散された負荷テストツール
 goawk	Goで記述されたPOSIX準拠のAWK解釈プログラム
@@ -2595,6 +2598,7 @@ knot-resolver	最小、Caching、DNSSEC有効DNS Resolver
 known_hosts	既知のホストのコマンドラインマネージャー
 ko	KubernetesでGoアプリケーションをビルドして展開する
 kobalt	ビルドシステム
+koka	Koka言語コンパイラ
 kommit	コミットせずにより詳細なコミットメッセージ！
 kompose	`docker-compose`からKubernetesに移動するためのツール
 komposition	スクリーンキャスター向けに構築されたビデオエディタ
@@ -2626,6 +2630,7 @@ kubecfg	複雑なエンタープライズKubernetes環境をコードとして�
 kubecm	KubeConfigマネージャー
 kubeconform	FAST Kubernetesマニフェストの確認、Custom Resourcesのサポート！
 kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成できるツール
+kubekey	Kubernetes and/or KubeSphereのインストーラー...詳しくはENで
 kubeless	Kubernetesネイティブ Serverlessフレームワーク
 kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋めるためのコマンドのコレクション
@@ -3845,6 +3850,7 @@ obfs4proxy	Tor用のプラグ可能な転送プロキシ、obfs4の実装
 objc-codegenutils	XCodeの操作に役立つ3つの小さなツール
 objc-run	シェルスクリプトのようなタスクにObjective-Cファイルを使用する
 objfw	Objective-C言語用のポータブルで軽量なフレームワーク
+observerward	クロスプラットフォームコミュニティのWeb指紋識別ツール
 ocaml	MLファミリーの汎用プログラミング言語
 ocaml-findlib	OCamlライブラリマネージャー
 ocaml-num	任意精度演算用のOCamlレガシーNumライブラリ
@@ -4608,7 +4614,7 @@ rgxg	(拡張された)正規表現を生成するためのCライブラリとコ
 rhash	ファイルのハッシュ合計を計算および検証するためのユーティリティ
 rhino	JavaScriptエンジン
 rhit	Nginxログエクスプローラー
-richmd	ターミナルでMarkdownをRichでフォーマットする
+rich-cli	ターミナルでの派手な出力のためのコマンドラインツールボックス
 riemann	イベントストリーム計算機
 riemann-client	Riemann監視システム用のCクライアントライブラリ
 riff	riffはKubernetes上のサービスとしての関数です
@@ -5291,6 +5297,7 @@ terrascan	基礎構造全体の整合性およびセキュリティ違反をコ�
 tesseract	OCR(光学式文字認識)エンジン
 tesseract-lang	Tesseractの追加言語サポートを有効にします
 testdisk	強力でFreeのデータ回復ユーティリティ
+testkube	テストの定義と実行のためのKubernetes-nativeフレームワーク
 testssl	TLS/SSL暗号と欠陥のサポートをチェックするツール
 texapp	TTYtterに基づくApp.netクライアント
 texi2html	TeXinfoファイルをHTMLに変換する
@@ -5425,6 +5432,7 @@ triangle	Delaunay三角形分割を使用して、画像をコンピューター
 trimage	PNGおよびJPGファイルを最適化するためのクロスプラットフォームツール
 trino	ビッグデータ用の分散SQLクエリエンジン
 triton	Joyent Triton CLI
+trivy	コンテナ画像の脆弱性スキャナー ファイルシステム/Git repos
 trojan-go	Goのトロイの木馬プロキシ
 truecrack	TrueCryptのブルートフォースパスワードクラッカー
 truffle	開発環境 イーサリアムのテストフレームワークとアセットパイプライン
