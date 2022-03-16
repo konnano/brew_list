@@ -4,7 +4,7 @@
 [[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                       rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
+                       rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK} ~/.JA_BREWG ; }
 if [[ $1 -eq 1 ]];then
  TI=$(date +%s)
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
@@ -24,6 +24,20 @@ if [[ $2 ]];then
    exit 2
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
+
+  LS1=$(date -r ~/.JA_BREW "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
+ if [[ $LS1 ]];then
+  if [[ "$NAME" = Darwin ]];then
+   LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS1" +%s 2>/dev/null)+60*60*24 ))
+  else
+   LS1=$(( $(date +%s --date "$LS1" 2>/dev/null)+60*60*24 ))
+  fi
+  if [[ $TI -gt $LS1 ]];then
+   git clone https://github.com/konnano/JA_BREW ~/.JA_BREWG || { math_rm; ${die:?git clone error}; }
+    cp ~/.JA_BREWG/* ~/.JA_BREW
+     rm -rf ~/.JA_BREWG
+  fi
+ fi
 
  if [[ "$NAME" = Darwin ]];then
   if [[ $2 -eq 1 ]];then
