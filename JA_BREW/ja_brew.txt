@@ -421,7 +421,7 @@ bitcoin	分散型のピアツーピア決済ネットワーク
 bitlbee	他のチャットネットワークゲートウェイへのIRC
 bitrise	コマンドライン自動化ツール
 bittwist	Libcapベースのイーサネットパケット発生器
-bitwarden-cli	すべてのデバイスの安全で無料のパスワードマネージャー
+bitwarden-cli	すべてのデバイスの安全でFreeのパスワードマネージャー
 bitwise	ncursesのターミナルベースのビットmanipulator
 bk	ターミナルEPUBリーダー
 bkt	シェルコマンドの結果をキャッシュするためのユーティリティ
@@ -836,7 +836,7 @@ colima	最低限のセットアップでMacOSでのContainer runtimes
 collada-dom	COLLADAデータをロードおよび保存するためのC++ライブラリ
 collectd	統計収集および監視デーモン
 collector-sidecar	Graylogを介してログコレクターを管理する
-color-code	無料の高度なMasterMindクローン
+color-code	Freeで高度なMasterMindクローン
 colordiff	色で強調表示されたdiff(1)出力
 colormake	出力を色付けするためのラッパー
 colortail	tail(1)と同様ですが指定された出力に対してさまざまな色が使用されます
@@ -881,7 +881,7 @@ corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
 cosi	拡張可能な集合署名の実装
 cosign	コンテナ署名
-coturn	TURNおよびSTUNサーバーの無料のオープンソース実装
+coturn	TURNおよびSTUNサーバーのFreeオープンソース実装
 couchdb	Apache CouchDBデータベースサーバー
 couchdb-lucene	Luceneを使用したCouchDBドキュメントの全文検索
 couchpotatoserver	映画を自動的にダウンロードする
@@ -898,7 +898,7 @@ cpmtools	ファイルシステムにアクセスするためのツール CP/M
 cpp-gsl	MicrosoftのC++ガイドラインサポートライブラリ
 cppad	C++アルゴリズムの差別化
 cppcheck	C/C++のコードの静的分析
-cppcms	無料の高性能Web開発フレームワーク
+cppcms	Free高性能Web開発フレームワーク
 cppi	Cのネストを反映する前処理プログラムディレクティブをインデントします
 cpplint	C++静的コードチェッカー
 cppman	cplusplus.comとcppreference.com C++ 98/11/14/17/20 マニュアルページ
@@ -1630,7 +1630,7 @@ fuego	囲碁のゲーム用のC++ライブラリのコレクション
 func-e	Envoyを簡単に実行
 funcoeszz	数十のコマンドラインミニアプリケーション(ポルトガル語)
 functionalplus	C++用の関数型プログラミングライブラリ
-fuse-emulator	無料のUnix Spectrumエミュレーター
+fuse-emulator	FreeのUnix Spectrumエミュレーター
 fuse-overlayfs	overlayfsのFUSE実装
 fuse-zip	ZIPアーカイブを作成および操作するためのFUSEファイルシステム
 fuseki	SPARQLサーバー
@@ -2122,7 +2122,7 @@ gulp-cli	Gulpのコマンドラインユーティリティ
 gumbo-parser	HTML5を解析するためのC99ライブラリ
 gupnp	UPnPデバイスとコントロールポイントを作成するためのフレームワーク
 gupnp-av	UPnP A/V プロファイルの実装に役立つライブラリ
-gupnp-tools	IntelのUPnPツールの無料交換
+gupnp-tools	IntelのUPnPツールのFree交換
 gvp	Go バージョニングパッケージャー
 gwenhywfar	aqbankingおよび関連ソフトウェアに必要なユーティリティライブラリ
 gws	gitリポジトリで構成されるワークスペースを管理する
@@ -3462,7 +3462,7 @@ miller	sed/awk/cut/join/sort のようなCSVとして名前インデックスデ
 mimalloc	コンパクトな汎用メモリ割り当て
 mimic	CMUFliteに基づく軽量のテキスト読み上げエンジン
 minbif	Pidginライブラリを使用したIRC-to-other-IM-networksゲートウェイ
-minetest	無料のオープンソースvoxelゲームエンジンとゲーム
+minetest	Freeのオープンソースvoxelゲームエンジンとゲーム
 mingw-w64	必要最低限のGNU for WindowsおよびGCCクロスコンパイラー
 minica	小さくてシンプルな認証局
 minicom	メニュー方式のコミュニケーションプログラム
@@ -3665,7 +3665,7 @@ nagios-plugins	nagiosネットワーク監視システム用のプラグイン
 nailgun	コマンドラインクライアント Javaプログラムのプロトコルとサーバー
 name-that-hash	最新のハッシュ識別システム
 namebench	DNS基準比較ユーティリティ
-nano	Picoテキストエディタの無料(GNU)代替品
+nano	PicoテキストエディタのFree(GNU)代替品
 nanoflann	KDツリーを使用した最近傍検索用のヘッダーのみのライブラリ
 nanomsg	Cのソケットライブラリ
 nanomsgxx	C++11のNanomsg bindings
@@ -3939,7 +3939,7 @@ openfortivpn	PPP+SSL VPNトンネルサービス用のOpen Fortinetクライア�
 openfpgaloader	FPGAをプログラミングするための汎用ユーティリティ
 openfst	荷重限界状態トランスデューサのライブラリ
 openh264	CiscoのH.264コーデック
-openhmd	没入型テクノロジー用の無料のオープンソースAPIとドライバー
+openhmd	没入型テクノロジー用のFreeオープンソースAPIとドライバー
 openimageio	読み込むためのライブラリ 画像処理/書き込み
 openj9	高性能で拡張性のあるJava仮想マシン
 openjazz	オープンソースのJazz Jackrabitエンジン
@@ -4721,7 +4721,7 @@ s3ql	オブジェクトstoreをブロックストレージとして使用するP
 s4cmd	SuperS3コマンドラインツール
 s6	小さくて安全な監視ソフトウェアパッケージ
 safe-rm	ファイルの危険な削除を防ぐためにrmをラップします
-sagittarius-scheme	R6RSおよびR7RSをサポートする無料のSchemeの実装
+sagittarius-scheme	R6RSおよびR7RSをサポートするFreeSchemeの実装
 sail	WordPressアプリケーションを提供しDigitalOceanに展開するためのCLIツールキット
 saldl	速度と早期プレビュー用に最適化されたCLIダウンローダー
 salt	動的基礎構造通信バス
@@ -5253,7 +5253,7 @@ teem	科学ラスターデータ用のライブラリ
 teensy_loader_cli	TeensyUSB開発ボードのコマンドライン統合
 tektoncd-cli	TektonCDと対話するためのCLI
 teku	イーサリアム2.0 Beacon ChainのJava実装
-teleconsole	ターミナルセッションを信頼できる人と共有するための無料サービス
+teleconsole	ターミナルセッションを信頼できる人と共有するためのFreeサービス
 telegraf	InfluxDBのサーバーレベルのメトリック収集エージェント
 telegram-cli	Telegramのコマンドラインインターフェイス
 teleport	分散基礎構造を管理するチーム向けの最新のSSHサーバー
