@@ -46,6 +46,7 @@ MAIN:{
  }elsif( $AR[0] eq '-g' ){  $re->{'TOP'}= $ref->{'TOP'} = 1;
  }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s' ){  $re->{'S_OPT'} = 1;
+ }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }else{  Died_1();
  }
    my $UNAME = `uname -m`;
@@ -80,6 +81,13 @@ MAIN:{
  }
  die " Not installed HOME BREW\n" unless -d $re->{'CEL'};
  $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
+  if( $re->{'JA'} ){
+   die " \033[31mNot connected\033[00m\n"
+    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
+   die " Not Locale\n" unless $Locale;
+   ( -d "$ENV{'HOME'}/.JA_BREW" ) ?
+    print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW';  exit;
+  }
   if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0;
   }elsif( not $Locale ){ $name->{'EN'} = 1; }
@@ -142,7 +150,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07_8\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.07_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -155,7 +163,11 @@ sub Died_1{
   -g\t:  Independent formula\n    Only mac : Cask
   -c\t:  cask list\n  -ct\t:  cask tap list\n  -ci\t:  instaled cask
   -cx\t:  can't install cask\n  -cs\t:  some name cask and formula
-  -cd\t:  Display required list casks\n";
+  -cd\t:  Display required list casks
+
+  # Japanese Language -JA option
+  # English display in Japanese version is argument EN
+  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall\n\n";
 }
 
 sub Init_1{
@@ -1243,7 +1255,7 @@ __END__
 [[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                       rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK}; }
+                       rm -rf ~/.BREW_LIST/{homebrew*,{0..9},WAIT,LOCK} ~/.JA_BREWG ; }
 if [[ $1 -eq 1 ]];then
  TI=$(date +%s)
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
@@ -1263,6 +1275,20 @@ if [[ $2 ]];then
    exit 2
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
+
+  LS1=$(date -r ~/.JA_BREW "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
+ if [[ $LS1 ]];then
+  if [[ "$NAME" = Darwin ]];then
+   LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS1" +%s 2>/dev/null)+60*60*24 ))
+  else
+   LS1=$(( $(date +%s --date "$LS1" 2>/dev/null)+60*60*24 ))
+  fi
+  if [[ $TI -gt $LS1 ]];then
+   git clone https://github.com/konnano/JA_BREW ~/.JA_BREWG || { math_rm; ${die:?git clone error}; }
+    cp ~/.JA_BREWG/* ~/.JA_BREW
+     rm -rf ~/.JA_BREWG
+  fi
+ fi
 
  if [[ "$NAME" = Darwin ]];then
   if [[ $2 -eq 1 ]];then
