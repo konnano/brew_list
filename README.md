@@ -5,11 +5,11 @@ MacOS10.9から対応します10.8以前は現在のhomebrewインストール�
 10.13メインなので新しいバージョンは行けるだろうと。。。特にApple M1は妄想で対応してます
 
 : 使用方法
-
+```
 brew tap konnano/brew_list
 
 brew install brew_list
-
+```
 もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
 キャッシュファイル作成に少し時間がかかります、コマンドはbrew_listです
