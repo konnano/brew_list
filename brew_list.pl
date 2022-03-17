@@ -150,7 +150,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.07_9\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.08_0\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -1276,7 +1276,7 @@ if [[ $2 ]];then
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
-  LS1=$(date -r ~/.JA_BREW "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
+  LS1=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS1 ]];then
   if [[ "$NAME" = Darwin ]];then
    LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS1" +%s 2>/dev/null)+60*60*24 ))
@@ -1286,7 +1286,8 @@ if [[ $2 ]];then
   if [[ $TI -gt $LS1 ]];then
    git clone https://github.com/konnano/JA_BREW ~/.JA_BREWG || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW
-     rm -rf ~/.JA_BREWG
+     rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
+    [[ "$NAME" = Linux ]] && rm ~/.JA_BREW/ja_cask.txt ~/.JA_BREW/ja_tap.txt
   fi
  fi
 
