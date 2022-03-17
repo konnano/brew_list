@@ -1,9 +1,5 @@
 brew list コマンド拡張版 : version 1.07_8　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
-MacOS10.9から対応します10.8以前は現在のhomebrewインストール出来ないのでわかりません
-
-10.13メインなので新しいバージョンは行けるだろうと。。。特にApple M1は妄想で対応してます
-
 : 使用方法
 ```
 brew tap konnano/brew_list
