@@ -1,6 +1,6 @@
 google translate　Please read in the atmosphere
 
-brew list command extended version: version 1.07_9
+brew list command extended version: version 1.08_1
 
 : how to use
 ```
@@ -16,37 +16,39 @@ Uninstall ./init.sh unlink in the brew_list-main folder
 
 : Optional
 
-'-l'option　Formula list is displayed, regular expressions //
+'-l' option　Formula list is displayed, regular expressions //
 
-'-lb'option　bottle install Formula list is displayed, regular expressions //
+'-lb' option　bottle install Formula list is displayed, regular expressions //
 
-'-lx'option　Can't install Formula list is displayed, regular expressions //
+'-lx' option　Can't install Formula list is displayed, regular expressions //
 
-'-i'option　Installed Formula list is displayed
+'-i' option　Installed Formula list is displayed
 
-'-s'option　Search Formula, regular expressions //
+'-s' option　Search Formula, regular expressions //
 
-'-co'option　Formula library list is displayed
+'-co' option　Formula library list is displayed
 
-'-in'option　Formula required Formula list is displayed
+'-in' option　Formula required Formula list is displayed
 
-'-t'option　Formula required Formula is displayed by tree
+'-t' option　Formula required Formula is displayed by tree
 
-'-tt'option　Only Formula required Formula is displayed by tree
+'-tt' option　Only Formula required Formula is displayed by tree
 
-'-de'option　Unistall Formula, don't need Formula list is displayed
+'-de' option　Unistall Formula, don't need Formula list is displayed
 
-'-d'option　Unistall Formula, don't need Formula is displayed by tree
+'-d' option　Unistall Formula, don't need Formula is displayed by tree
 
-'-dd'option　Unistall Formula, don't need only Formula is displayed in order by tree
+'-dd' option　Unistall Formula, don't need only Formula is displayed in order by tree
 
-'-ddd'option　Unistall Formula, don't need only Formula, uninstall list in order by pipe.
+'-ddd' option　Unistall Formula, don't need only Formula, uninstall list in order by pipe.
 
 Please check -dd or -de option   ( brew_list -ddd Formula | xargs brew uninstall )
 
-'-u'option　Installed Formula depend on Formula is displayed
+'-u' option　Installed Formula depend on Formula is displayed
 
-'-ua'option　Formula depend on All Formula is displayed
+'-ua' option　Formula depend on All Formula is displayed
+
+'-is' option Display in order of size
 
 '-g'option　Independent Formula is displayed
 
@@ -56,13 +58,13 @@ Please check -dd or -de option   ( brew_list -ddd Formula | xargs brew uninstall
 
 Only Mac: Cask
 
-'-c'option　Cask list is displayed, regular expressions //
+'-c' option　Cask list is displayed, regular expressions //
 
-'-ct'option　Cask Tap list is displayed, regular expressions //
+'-ct' option　Cask Tap list is displayed, regular expressions //
 
-'-ci'option　Cask installed list is displayed
+'-ci' option　Cask installed list is displayed
 
-'-cx'option　Cask can't installe list is displayed, regular expressions //
+'-cx' option　Cask can't installe list is displayed, regular expressions //
 
 '-cs' option　Formula and Cask same name list is displayed, regular expressions //
 
