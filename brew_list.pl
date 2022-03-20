@@ -42,6 +42,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
  }elsif( $AR[0] eq '-new' ){$name = $re;  $re->{'NEW'}  = 1;
+ }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'} = 1;
  }elsif( $AR[0] eq '-o' ){  $re->{'DAT'}= $ref->{'DAT'} = 1;
  }elsif( $AR[0] eq '-g' ){  $re->{'TOP'}= $ref->{'TOP'} = 1;
  }elsif( $AR[0] eq '-' ){   $re->{'BL'} = $ref->{'BL'}  = 1;
@@ -106,14 +107,15 @@ MAIN:{
  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
      $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
       $re->{'NEW'}++; Init_1( $re );
- }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and $name->{'LIST'} ){
+ }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and ( $name->{'LIST'} or $re->{'IS'} ) ){
   if( $re->{'INF'} ){
    $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
     $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
      `/usr/bin/clang --version|sed '/Apple/!d;s/.*clang-\\([^.]*\\).*/\\1/'` : 0 if $re->{'MAC'};
   }else{
-   $re->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
-    $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
+   $re->{'INF'} = $AR[1] if $re->{'IS'};
+    $re->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
+     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
   }
  }elsif( $re->{'S_OPT'} ){
    $ref->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
@@ -150,7 +152,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_0\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.08_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -160,7 +162,7 @@ sub Died_1{
   -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order
   -ddd\t:  All uninstall : pipe xargs brew uninstall
-  -g\t:  Independent formula\n    Only mac : Cask
+  -is\t:  Display in order of size\n  -g\t:  Independent formula\n   Only mac : Cask
   -c\t:  cask list\n  -ct\t:  cask tap list\n  -ci\t:  instaled cask
   -cx\t:  can't install cask\n  -cs\t:  some name cask and formula
   -cd\t:  Display required list casks
@@ -188,12 +190,52 @@ my( $re,$list ) = @_;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
 
- $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} ) ?
+ $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} or $re->{'IS'} )?
   Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
  @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
 
- $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ?
-   Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : File_1( $re,$list );
+ $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
+ $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : File_1( $re,$list );
+}
+
+sub Size_1{ no warnings 'numeric';
+ my( $re,$list,%HA,%AR,$size,@data,$ls,$c ) = @_;
+ exit if $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}};
+  if( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
+   @data = split "\t",$re->{'OS'}{"$re->{'INF'}deps"} if $re->{'OS'}{"$re->{'INF'}deps"};
+    unshift @data,$re->{'INF'};
+  }
+   my @AN = @data ? @data : @$list;
+  for my $dir( @AN ){ $dir =~ s/^\s+(.+)\n/$1/;
+   @{$AR{$dir}} = glob "$re->{'CEL'}/$dir/*";
+    chomp(my $ls = `du -ks $re->{'CEL'}/$dir|awk '{print \$1}'`);
+     $HA{"$ls\t$dir"} = "$ls\t$dir";
+  }
+  system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
+  system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
+  for my $dir2(sort{$b <=> $a} keys %HA){ $c++;
+   my( $cou,$name ) = split "\t",$dir2;
+   for my $json( @{$AR{$name}} ){
+    $ls = `cat $json/INSTALL_RECEIPT.json 2>/dev/null` ?
+    `cat $json/INSTALL_RECEIPT.json|sed '/"time":/!d;s/.*"time":[^0-9]*\\([0-9]*\\),.*/\\1/'` : 0;
+    last if $ls;
+   }
+     my $time = [localtime($ls)];
+     $time->[5] += 1900;
+     $time->[4] = sprintf "%02d",++$time->[4];
+     $time->[3] = sprintf "%02d",$time->[3];
+   $cou = sprintf "%.2fM",$cou/=1000;
+   $size += $cou;
+  format STDOUT=
+@|||||||||||||||||||||||||||||||||||@<<<<<<<<<<<<<<<<<<<<@>>>>>>>>>>>>>>>>>>>>
+  $name,"size : $cou","install : $time->[5]/$time->[4]/$time->[3]"
+.
+  write
+  }
+  print" Totsl Size ${size}M  item $c\n" if -t STDOUT; 
+  system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
+  system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
+ exit;
 }
 
 sub Doc_1{
@@ -493,6 +535,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
    ( $re->{'TREE'} and not $re->{'DD'} and not $re->{'TT'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$$brew if $re->{'DEL'} and $re->{'OS'}{"deps$$brew"} < 2;
+ $re->{'OS'}{"$re->{'INF'}deps"} .= "$$brew\t" if $re->{'OS'}{"deps$$brew"} < 2;
 }
 
 sub Read_1{
@@ -1526,7 +1569,7 @@ unless( $ARGV[0] ){
 sub Dirs_1{
  my( $dir,$ls,$cask ) = @_;
  my @files = glob "$dir/*";
-  for my $card(@files) {
+  for my $card(@files){
    next if $ls and $card =~ m!/homebrew$|/homebrew-core$|/homebrew-cask$|
                               /homebrew-bundle$|/homebrew-services$!x;
     if( -d $card ){
