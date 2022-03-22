@@ -743,7 +743,7 @@ dd-utility	オペレーティングシステムのIMGおよびISOファイルの
 ddnet	DDRaceのTeeworldsバージョン
 deadbolt	Deadbolt
 deathtodsstore	DeathToDSStore
-debookee	ネットワークトラフィックアナライザ
+debookee	ネットワークトラフィック分析
 deckset	Deckset
 decloner	高速で信頼性の高い重複ファイルファインダー
 deco	React Nativeアプリケーションを構築するためのIDE
@@ -803,7 +803,7 @@ discretescroll	一般的なスクロールホイールの問題を修正する�
 disk-arbitrator	ディスクArbitrator
 disk-diet	ディスクスペースを解放します
 disk-drill	データ回復ソフトウェア
-disk-expert	ディスクスペースアナライザ
+disk-expert	ディスクスペース分析
 disk-inventory-x	ディスク使用ユーティリティ
 diskcatalogmaker	DiskCatalogMakerのToast-bundledバージョン
 diskmaker-x	システムインストールディスクを構築するためのツール
@@ -1302,7 +1302,7 @@ gplates	電極テクトニクスプログラム
 gpodder	ポッドキャストクライアント
 gpower	統計的検出力分析を計算するためのツール
 gps4cam	写真にGeotagを付ける
-gpxsee	GPSログファイルビューアおよびアナライザ
+gpxsee	GPSログファイルビューアおよび分析
 gqrx	GNURadioとQtを搭載したソフトウェア無線受信機
 grads	地球科学データを視覚化する アクセス/操作
 grafx	256色の塗装プログラム
@@ -1399,7 +1399,7 @@ houseparty	対面のソーシャルネットワーキングアプリ
 hp-eprint	モバイル印刷ソリューション
 hp-prime	グラフ電卓エミュレータ
 hstracker	Hearthstoneのデッキ監視およびデッキマネージャー
-http-toolkit	HTTP（S）デバッグプロキシ/アナライザー/クライアント
+http-toolkit	HTTP（S）デバッグプロキシ/分析/クライアント
 hubstaff	作業時間監視
 hue-topia	Philips Hue電球の手動制御
 hugin	パノラマ写真スティッチャー
@@ -1810,7 +1810,7 @@ lofi	WebGLビジュアライゼーションを備えたミニSpotifyプレーヤ
 logdna-agent	エージェントはログファイルからLogDNAアカウントにストリーミングします
 logdna-cli	LogDNA CLI
 logicalshift-zoom	Z-Code用プレーヤー TADS/HUGOの物語やゲーム
-logicsniffer	Open Bench Logic Sniffer倫理アナライザハードウェアのソフトウェアクライアント
+logicsniffer	Open Bench Logic Sniffer倫理分析器ハードウェアのソフトウェアクライアント
 loginputmac	中国語入力方式
 logisim	デジタル論理回路を設計およびシミュレーションするためのツール
 logisim-evolution	デジタル倫理デザイナーおよび模擬装置
@@ -1945,7 +1945,7 @@ marvin	個人の生産性アプリ
 masscode	開発者向けのオープンソースコードsnippetsマネージャー
 massreplaceit	MassReplaceIt
 master-pdf-editor	PDFエディター
-mat	Javaヒープアナライザ
+mat	Java heap分析
 mate-translate	任意のアプリでテキストを選択して翻訳します
 mater	Mater
 material-colors	Mac用の素材の色
@@ -2446,7 +2446,7 @@ p4v	Helix Coreのビジュアルクライアント
 pablodraw	PabloDraw
 pacifist	パッケージファイルからファイルとフォルダを抽出します ディスクイメージ/アーカイブ
 packages	統合パッケージング環境
-packet-peeper	ネットワーク手続きアナライザ
+packet-peeper	ネットワーク手続き分析
 packetproxy	Javaで記述されたローカルプロキシ
 packetsender	TCPを送受信するためのネットワークユーティリティ UDP/SSL
 paddle-easydl	フライングパドルEasyDL-デスクトップ...詳しくはENで
@@ -3832,8 +3832,8 @@ winx-hd-video-converter	HDビデオ変換器
 winzip	WinZip
 wire	セキュリティに焦点を当てた協調的プラットフォーム
 wireframe-sketcher	WireframeSketcher
-wireshark	ネットワーク手続きアナライザ
-wireshark-chmodbpf	ネットワーク手続きアナライザ
+wireshark	ネットワーク手続き分析
+wireshark-chmodbpf	ネットワーク手続き分析
 witch	アプリを切り替える windows/tabs
 wiznote	WizNote
 wjoy	任天堂 wiimoteドライバー
