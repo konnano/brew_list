@@ -86,7 +86,7 @@ MAIN:{
    die " \033[31mNot connected\033[00m\n"
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
    die " Not Locale\n" unless $Locale;
-   ( -d "$ENV{'HOME'}/.JA_BREW" ) ?
+    -d "$ENV{'HOME'}/.JA_BREW" ?
     print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW';  exit;
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
@@ -152,7 +152,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.08_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
   -lb\t:  bottled install formula\n  -lx\t:  can't install formula
   -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
@@ -199,38 +199,49 @@ my( $re,$list ) = @_;
 }
 
 sub Size_1{ no warnings 'numeric';
- my( $re,$list,%HA,%AR,$size,@data,$ls,$c ) = @_;
- exit if $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}};
-  if( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
+ my( $re,$list,%HA,%AR,$size,@data,$c,$pid ) = @_;
+  if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
+  }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split "\t",$re->{'OS'}{"$re->{'INF'}deps"} if $re->{'OS'}{"$re->{'INF'}deps"};
-    unshift @data,$re->{'INF'};
+    push @data,$re->{'INF'};
   }
-   my @AN = @data ? @data : @$list;
-  for my $dir( @AN ){ $dir =~ s/^\s+(.+)\n/$1/;
-   @{$AR{$dir}} = glob "$re->{'CEL'}/$dir/*";
-    chomp(my $ls = `du -ks $re->{'CEL'}/$dir|awk '{print \$1}'`);
-     $HA{"$ls\t$dir"} = "$ls\t$dir";
+  unless( @data ){
+   $pid = fork;
+    die " IS Not fork : $!\n" unless defined $pid;
+  }
+  unless( $pid or @data ){ Wait_1( $re );
+  }else{
+    my @AN = @data ? @data : @$list;
+   for my $dir( @AN ){ $dir =~ s/^\s+(.+)\n/$1/;
+    @{$AR{$dir}} = glob "$re->{'CEL'}/$dir/*";
+     my $du = `du -ks $re->{'CEL'}/$dir|awk '{print \$1}'`;
+      $HA{"$du\t$dir"} = 1;
+   }
+   waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT";
   }
   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
   system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-  for my $dir2(sort{$b <=> $a} keys %HA){ $c++;
+  for my $dir2(sort{$b <=> $a} keys %HA){ my $utime; $c++;
    my( $cou,$name ) = split "\t",$dir2;
    for my $json( @{$AR{$name}} ){
-    $ls = `cat $json/INSTALL_RECEIPT.json 2>/dev/null` ?
-    `cat $json/INSTALL_RECEIPT.json|sed '/"time":/!d;s/.*"time":[^0-9]*\\([0-9]*\\),.*/\\1/'` : 0;
-    last if $ls;
-   }
-     my $time = [localtime($ls)];
-     $time->[5] += 1900;
-     $time->[4] = sprintf "%02d",++$time->[4];
-     $time->[3] = sprintf "%02d",$time->[3];
-   $cou = sprintf "%.2fM",$cou/=1000;
-   $size += $cou;
+    if( -f "$json/INSTALL_RECEIPT.json" ){
+     open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
+      while(my $js = <$dir>){
+       ( $utime ) = $js =~ /^.*"time":[^0-9]*([0-9]+),.*/;
+       last if $utime;
+      }
+     close $dir;
+    }
+   } $utime = $utime ? $utime : 0;
+    my $time = [localtime($utime)];
+    my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
+   $size += $cou = sprintf "%.2fM",$cou/=1000;
   format STDOUT=
 @|||||||||||||||||||||||||||||||||||@<<<<<<<<<<<<<<<<<<<<@>>>>>>>>>>>>>>>>>>>>
-  $name,"size : $cou","install : $time->[5]/$time->[4]/$time->[3]"
+  $name,"size : $cou","install : $timer"
 .
   write
+
   }
   print" Totsl Size ${size}M  item $c\n" if -t STDOUT; 
   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
@@ -248,20 +259,23 @@ sub Doc_1{
 }
 
 sub Wait_1{
-my $re = shift;
+my( $re,$pid ) = @_;
  mkdir $re->{'HOME'};
  mkdir "$re->{'HOME'}/WAIT";
   my( $not,$dok,@ten ) = Doc_1;
-   my $pid = fork;
- die " Wait Not fork : $!\n" unless defined $pid;
-  if($pid){
+  unless( $re->{'IS'} ){
+   $pid = fork;
+    die " Wait Not fork : $!\n" unless defined $pid;
+  }
+  if( $pid or $re->{'IS'} ){
    unless( -d "$re->{'HOME'}/LOCK" ){
     if( -t STDOUT ){
      print STDERR "\x1B[?25l";
-     if( $^O eq 'linux' or $re->{'TEN'} ){ my $i = 0;
+     if( $^O eq 'linux' or $re->{'TEN'} or $re->{'IS'} ){ my $i = 0;
+      my $name = $re->{'IS'} ? 'Please wait' : 'Makes new cache';
        while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
         -d "$re->{'HOME'}/WAIT" ?
-         print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : Makes new cache" : last;
+         print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : $name" : last;
           $i++; system 'sleep 0.1';
        }
      }else{ my $i = 0; my $ma = '';
@@ -274,9 +288,12 @@ my $re = shift;
           } $i++; $ma .= '#';
          }
        }
-     } waitpid($pid,0);
+     }
+     unless( $re->{'IS'} ){
+      waitpid($pid,0);
       ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
         $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? (print "\x1B[?25h$dok" and exit) : die "\x1B[?25h$not";
+     }else{ print "\r\x1B[?25h"; }
     }
    } exit;
   }else{
@@ -519,10 +536,10 @@ sub Unic_1($\$$$;$){
 my( $re,$brew,$spa,$AN,$build ) = @_;
  my $name = $$brew;
   $$brew =  $re->{'OS'}{"$${brew}alias"} ? $re->{'OS'}{"$${brew}alias"} : $$brew;
- $name = ( -t STDOUT ) ? "$name \033[33m(require)\033[00m" : "$name (require)"
+ $name = -t STDOUT ? "$name \033[33m(require)\033[00m" : "$name (require)"
    if not $re->{'COLOR'} and ( not $re->{'HASH'}{$$brew} or
           $re->{'OS'}{"$${brew}ver"} gt $re->{'HASH'}{$$brew} );
- $name = ( -t STDOUT ) ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
+ $name = -t STDOUT ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
    if $re->{'COLOR'} and $re->{'HASH'}{$$brew} and $re->{"$${brew}delet"};
 
  $re->{'OS'}{"deps$$brew"} +=
@@ -1242,7 +1259,7 @@ sub Format_3{
     for(my $e=0;$e<@fom;$e++){  my $in = $re->{'HASH'}{$fom[$e]} ? ' (I)' : '';
      my $desc3 = $JA{$fom[$e]} ? $JA{$fom[$e]} : $re->{'OS'}{"${fom[$e]}f_desc"} ?
       $re->{'OS'}{"${fom[$e]}f_desc"} : $re->{'OS'}{"${fom[$e]}f_name"} ? $re->{'OS'}{"${fom[$e]}f_name"} : '';
-     $ca .= ( $e == $#fom ) ? "$line2 f $fom[$e]$in\t$desc3\n\n" : "$line1 f $fom[$e]$in\t$desc3\n";
+     $ca .= $e == $#fom ? "$line2 f $fom[$e]$in\t$desc3\n\n" : "$line1 f $fom[$e]$in\t$desc3\n";
     }
    }
    unless( $re->{'OS'}{"${name}d_cask"} ){
