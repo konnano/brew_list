@@ -2079,6 +2079,7 @@ yubico-yubikey-piv-manager	PIV対応のYubiKeyを設定するためのアプリ�
 zsa-wally	ZSAキーボード用のフラッシュツール
 1password-beta	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
 1password-cli-beta	1Passwordパスワードマネージャーのコマンドラインヘルパー
+1password-cli1	1Passwordパスワードマネージャーのコマンドラインヘルパー
 1password6	1Password
 ableton-live-intro10	サウンドと音楽のエディター
 ableton-live-lite10	サウンドと音楽のエディター
