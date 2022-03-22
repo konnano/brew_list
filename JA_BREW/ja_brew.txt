@@ -95,7 +95,7 @@ ampl-mp	数理計画法のためのオープンソースライブラリ
 amqp-cpp	RabbitMQメッセージブローカーと通信するためのC++ライブラリ
 amtk	GNOMEのアクション、メニュー、ツールバーキット
 amtterm	Intel AMTのSerial-over-LAN(sol)クライアント
-analog	ログファイルアナライザー
+analog	ログファイル分析器
 angband	ダンジョン探検ゲーム
 angle-grinder	コマンドラインでログファイルをスライスおよびdiceします
 angular-cli	AngularのCLIツール
@@ -326,9 +326,9 @@ ballerina	ネットワーク分散アプリケーションのプログラミン�
 bam	Luaを使用してビルドプロセスを記述するビルドシステム
 bamtools	BAMデータ用のC++ APIおよびコマンドラインツールキット
 bandcamp-dl	BandcampアルバムをダウンロードするためのシンプルなPythonスクリプト
-bandit	Pythonコードのセキュリティ指向の静的アナライザー
+bandit	Pythonコードのセキュリティ指向の静的分析器
 bandwhich	端末処理能力利用ツール
-baobab	Gnomeディスク使用量アナライザー
+baobab	Gnomeディスク使用量分析器
 bar	シェルスクリプトのプログレスバーを提供する
 bareos-client	Bareosのクライアント(バックアップアーカイブ リカバリオープンソース)
 baresip	モジュラーSIPユーザーエージェント
@@ -550,7 +550,7 @@ c7n	クラウドセキュリティのためのRuleエンジン コスト最適�
 ca-certificates	Mozilla CA証明書store
 cabal-install	CabalおよびHackageのコマンドラインインターフェイス
 cabextract	Microsoftキャビネットファイルからファイルを抽出する
-cabocha	さらに別の日本語の依存関係構造アナライザー
+cabocha	さらに別の日本語の依存関係構造分析
 cacli	Cloud Annotationsから機械学習モデルをトレーニングする
 cadaver	DAVのコマンドラインクライアント
 caddy	自動HTTPSを備えた強力なエンタープライズ対応のオープンソースWebサーバー
@@ -690,7 +690,7 @@ cheat	*nixコマンドの対話的チートシートを作成して表示する
 check	Cのユニットテストフレームワーク
 check_postgres	Postgresデータベースを監視する
 checkbashisms	シェルスクリプトのbashismsをチェックします
-checkmake	Makefilesのリンター/アナライザー
+checkmake	Makefilesの静的解析/分析
 checkov	IaCツールのビルド時にクラウドの設定ミスを防ぐ
 checkstyle	Javaソースをコーディング標準と照合します
 cheops	チェス対戦相手模擬装置
@@ -736,7 +736,7 @@ cjson	ANSICの超軽量JSONパーサー
 ckan	包括的なKerbalアーカイブネットワーク
 cksfv	ファイル検証ユーティリティ
 clac	後置表記を使用したコマンドラインのスタックベースの計算機
-clair	コンテナの脆弱性静的分析
+clair	コンテナの脆弱性静的分析器
 clamav	ウイルス対策ソフト
 clamz	AmazonのミュージックstoreからMP3ファイルをダウンロードする
 clang-format	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
@@ -746,7 +746,7 @@ clarinet	Clarityスマートコントラクト言語のコマンドラインツ�
 clash	Goのルールベースのトンネル
 classads	求人広告(HTCondor Central Managerが使用)
 claws-mail	ユーザーに親しく軽量の高速の電子メールクライアント
-clazy	Qt指向の静的コードアナライザー
+clazy	Qt指向の静的コード分析器
 clblas	OpenCLで記述されたBLAS関数を含むライブラリ
 clblast	調整されたOpenCLBLASライブラリ
 clean	正規表現に一致するファイルを検索して削除します
@@ -897,7 +897,7 @@ cpm	高速CPANモジュールインストーラー
 cpmtools	ファイルシステムにアクセスするためのツール CP/M
 cpp-gsl	MicrosoftのC++ガイドラインサポートライブラリ
 cppad	C++アルゴリズムの差別化
-cppcheck	C/C++のコードの静的分析
+cppcheck	C/C++のコードの静的分析器
 cppcms	Free高性能Web開発フレームワーク
 cppi	Cのネストを反映する前処理プログラムディレクティブをインデントします
 cpplint	C++静的コードチェッカー
@@ -1012,7 +1012,7 @@ dark-mode	コマンドラインからMacOSダークモードを制御する
 darkhttpd	CGIのない小さな静的ウェブサーバー
 darkice	ライブオーディオストリーマー
 darksky-weather	darksky.netAPIからのコマンドライン天気
-darkstat	ネットワーク転送量アナライザ
+darkstat	ネットワーク転送量分析器
 dartsim	ダイナミックアニメーションおよびロボティクスツールキット
 dasel	JSON/YAML/TOML/XML とCSVクエリと変更ツール
 dash	NetBSDのashのPOSIX準拠の子孫(Almquistシェル)
@@ -1073,7 +1073,7 @@ desk	シェルの軽量ワークスペースマネージャー
 desktop-file-utils	デスクトップエントリを操作するためのコマンドラインユーティリティ
 detach	デタッチされたプロセスで指定されたコマンドを実行します
 detect-secrets	コード内の機密を検出および防止する企業に親しい方法
-detekt	Kotlinの静的コード分析
+detekt	Kotlinの静的コード分析器
 detox	ファイル名の問題のある文字を置き換えるユーティリティ
 devd	開発者向けのローカルWebサーバー
 devdash	開発者向けの高度に構成可能なターミナルダッシュボード
@@ -1336,7 +1336,7 @@ emp	帝国のためのCLI
 empty	シェルスクリプト用の軽量ExpectのようなPTYツール
 ems-flasher	EMSゲームボーイUSBカートをフラッシュするためのソフトウェア
 emscripten	LLVMバイトコードからJavaScriptコンパイラへ
-enca	文字セットアナライザーと変換器
+enca	文字セット分析器と変換器
 encfs	暗号化されたパススルーFUSEファイルシステム
 enchant	スペルチェッカーラッピングライブラリ
 enet	UDPの上にネットワーク通信層を提供します
@@ -1357,6 +1357,7 @@ eot-utils	フォントを OTF/TTF からEOT形式に変換するためのツー�
 epeg	サムネイルスケーリング JPEG/JPG
 ephemeralpg	分離された一時的なPostgresデータベースでテストを実行します
 epic5	強化されたプログラム可能なIRCクライアント
+epinio	EpinioのCLI Kubernetesのアプリケーション開発エンジン
 epr	コマンドラインEPUBリーダー
 eprover	平等で完全な一階述語論理の定理証明
 epsilon	強力なwavelet画像圧縮機
@@ -1527,7 +1528,7 @@ flatcc	FlatBuffersコンパイラとCforCのライブラリ
 flawfinder	コードを調べてセキュリティ上の弱点の可能性を報告します
 fleet-cli	Kubernetesクラスターの大規模なfleetを管理する
 fleetctl	分散型initシステム
-flex	高速字句アナライザ スキャナーを生成します(tokenizers)
+flex	高速字句分析器 スキャナーを生成します(tokenizers)
 flickcurl	Flickr APIのライブラリ
 flif	Freeで損失の無い画像フォーマット
 flint	数論のためのCライブラリ
@@ -1597,7 +1598,7 @@ freedink	Dink Smallwoodゲームエンジンのポータブルバージョン
 freeglut	OpenGL Utility Toolkit(GLUT)ライブラリに代わるオープンソース
 freeimage	FreeImage用のライブラリ 依存関係のないグラフィックライブラリ
 freeipmi	帯域内および帯域外IPMI(v1.5/2.0)ソフトウェア
-freeling	言語アナライザーのパッケージ
+freeling	言語分析のパッケージ
 freeradius-server	高性能で高度に構成可能なRADIUSサーバー
 freerdp	リモートデスクトップ手続き(RDP)のX11実装
 freeswitch	さまざまな通信手続きを経由するためのTelephony platform
@@ -1692,7 +1693,7 @@ gdl	GNOMEドッキングライブラリはGTK+3のドッキング機能を提供
 gdm	Go Dependency Manager(gdm)
 gdmap	フォルダの使用スペースを検査するツール
 gdrive	GoogleドライブCLIクライアント
-gdu	Goで記述されたコンソールインターフェイスを備えたディスク使用量アナライザ
+gdu	Goで記述されたコンソールインターフェイスを備えたディスク使用量分析器
 gdub	Gradlew/gradle ラッパー
 gearman	他のマシンまたはプロセスに作業をファームアウトするためのアプリケーションフレームワーク
 geckodriver	WebDriver <-> Marionetteプロキシ
@@ -1939,7 +1940,7 @@ go@1.14	Goプログラミング環境(1.14)
 go@1.15	Goプログラミング環境(1.15)
 go@1.16	Goプログラミング環境(1.16)
 go@1.17	Goプログラミング環境(1.17)
-goaccess	Apache Webサーバーのログアナライザーと対話的Viewer
+goaccess	Apache Webサーバーのログ分析と対話的Viewer
 goad	Goに組み込まれたAWS Lambdaを利用した、高度に分散された負荷テストツール
 goawk	Goで記述されたPOSIX準拠のAWK解釈プログラム
 gobject-introspection	GObjectライブラリの内観的データを生成する
@@ -2225,7 +2226,7 @@ hostess	/etc/hostsのファイルを管理するコマンドラインユーテ�
 howard-hinnant-date	<chrono>に基づく日付と時刻の操作のためのC++ライブラリ
 howdoi	コマンドラインを介した即時コーディングの回答
 hpack	Haskellパッケージの最新フォーマット
-hping	コマンドライン指向の TCP/IP パケット アセンブラ/アナライザ
+hping	コマンドライン指向の TCP/IP パケット アセンブラ/分析
 hqx	ピクセルアートに設計された倍率フィルター
 hr	<hr />、ターミナルウィンドウ用
 hsd	応答確認デーモン & Full Node
@@ -2339,7 +2340,7 @@ inadyn	ダイナミックDNSクライアントサポート IPv4/IPv6/SL/TLS
 include-what-you-use	CおよびC++ソースファイルの #includesを分析するためのツール
 indicators	最新のC++の活発なインジケーター
 inetutils	ネットワークのGNUユーティリティ
-infer	静的アナライザー Java/C/C++/Objective-C
+infer	静的分析器 Java/C/C++/Objective-C
 influxdb	データベース 時系列/イベント/metrics
 influxdb-cli	InfluxDBv2でリソースを管理するためのCLI
 influxdb@1	データベース 時系列/イベント/metrics
@@ -2355,7 +2356,7 @@ innoextract	Inno Setupによって作成されたインストーラーを解凍�
 innotop	MySQLのTopクローン
 inotify-tools	inotifyするためのシンプルなインターフェイスを提供するCライブラリとコマンドラインプログラム
 insect	物理単位をサポートする高精度関数電卓
-inspectrum	オフライン無線信号アナライザ
+inspectrum	オフライン無線信号分析器
 inspircd	モジュラーC++インターネットRelay Chatデーモン
 instalooter	Instagramのプロフィールから関連付けられている写真やビデオをダウンロードする
 instead	シンプルなテキストアドベンチャーの通訳
@@ -3045,8 +3046,8 @@ libshout	Icecastサーバーのデータおよび接続ライブラリ
 libsigc++	C++のCallbackフレームワーク
 libsigc++@2	C++のCallbackフレームワーク
 libsignal-protocol-c	シグナル命令のCライブラリ
-libsigrok	論理アナライザーおよびその他のサポートされているデバイスのドライバー
-libsigrokdecode	論理アナライザーおよびその他のサポートされているデバイスのドライバー
+libsigrok	論理分析およびその他のサポートされているデバイスのドライバー
+libsigrokdecode	論理分析およびその他のサポートされているデバイスのドライバー
 libsigsegv	ユーザーモードでページの欠点を処理するためのライブラリ
 libsixel	SIXELの実装 エンコーダー/デコーダー
 libslax	SLAX言語の実装(XSLTの代替品)
@@ -3250,7 +3251,7 @@ logcli	Lokiサーバーに対してLogQLクエリを実行する
 logrotate	回転/圧縮/メールシステムログ
 logstalgia	レトロなスタイルのWebサーバーアクセスログvisualizer
 logstash	イベントとログを管理するためのツール
-logswan	確率的データ構造を使用した高速Webログアナライザー
+logswan	確率的データ構造を使用した高速Webログ分析器
 logtalk	宣言型オブジェクト指向論理プログラミング言語
 loki	水平方向に拡張性のある可用性の高いログ集約システム
 lolcat	あなたのコンソールに虹とユニコーン！
@@ -3411,8 +3412,8 @@ mecab-ipadic	MeCab用にコンパイルされたIPA辞書
 mecab-jumandic	mecabを参照してください
 mecab-ko	mecabを参照してください
 mecab-ko-dic	mecabを参照してください
-mecab-unidic	MeCabのMorphologicalアナライザー
-mecab-unidic-extended	MeCab用の拡張形態アナライザー
+mecab-unidic	MeCabのMorphological分析器
+mecab-unidic-extended	MeCab用の拡張形態分析器
 media-info	オーディオ/ビデオ の技術データとtagデータの統合表示
 mediaconch	適合性チェッカーおよび技術metadataレポーター
 mednafen	Multi-systemエミュレータ
@@ -3486,7 +3487,7 @@ minizip	zLibを介したCライブラリ zip/unzip
 minizip-ng	minizip1.x互換性レイヤーを備えたZipファイル操作ライブラリ
 mint	Swiftコマンドラインツールパッケージをインストールして実行する依存関係マネージャー
 minuit2	関数最小化のための物理分析ツール
-miruo	Pretty-print TCPセッション モニター/アナライザー
+miruo	Pretty-print TCPセッション モニター/分析
 mist	Macコマンドラインツール MacOSの インストーラー/ファームウェア を自動的にダウンロードする
 mit-scheme	Scheme開発ツールとランタイムライブラリ MIT/GNU
 mitie	情報抽出のためのライブラリとツール
@@ -4152,7 +4153,7 @@ pev	PE分析ツールキット
 pex	PostgreSQLのパッケージマネージャー
 pfetch	POSIX shで書かれたかなりのシステム情報ツール
 pg_top	PostgreSQLプロセスを監視する
-pgbadger	PostgreSQLログアナライザ
+pgbadger	PostgreSQLログ分析器
 pgbouncer	PostgreSQLの軽量接続Pooler
 pgcli	自動補完と構文の強調表示を備えたPostgresのCLI
 pgdbf	テーブルのPostgreSQLへの変換器 XBase/FoxPro
@@ -4249,7 +4250,7 @@ plplot	科学的な立案を作成するためのクロスプラットフォー�
 plustache	MustacheテンプレートシステムのC++ポート
 plzip	データ圧縮機
 pmccabe	C/C++コードのMcCabe-styleの循環的複雑度を計算します
-pmd	Java/JavaScript などのソースコードアナライザー
+pmd	Java/JavaScript などのソースコード分析器
 pmdmini	PC-88/98PMDチップチューン形式で音楽を再生します
 pms	ncursesベースのMPDクライアントであるPracticalMusic Search
 pnetcdf	OpenMPIライブラリを使用した科学データ用の並列netCDFライブラリ
@@ -4480,7 +4481,7 @@ quantlib	数理ファイナンスのための図書館
 quasi88	PC-8801エミュレータ
 quazip	GillesVollantのZIP/UNZIPパッケージのC++ラッパー
 questdb	時系列データベース
-quex	字句アナライザーを生成する
+quex	字句分析を生成する
 quick-lint-js	JavaScriptコードのバグを見つける
 quickjs	小さくて埋め込み可能なJavaScriptエンジン
 quicktype	JSON、Schema、GraphQLからタイプと変換器を生成する
@@ -4668,6 +4669,7 @@ rpm2cpio	RPMパッケージをCPIOアーカイブに変換するツール
 rqlite	SQLite上に構築された軽量の分散リレーショナルデータベース
 rrdtool	Round Robinデータベース
 rsc_2fa	コマンドラインでの二段階認証
+rslint	非常に高速なJavaScriptおよびTypeScript静的解析
 rsnapshot	ファイルシステムスナップショットユーティリティ(rsyncに基づく)
 rssh	OpenSSHで使用するための制限付きシェル
 rsstail	RSSフィードを監視し、検出されると新しいエントリを送信します
@@ -4884,7 +4886,7 @@ siege	HTTP回帰テストと基準比較ユーティリティ
 sift	grepに代わる高速で強力なオープンソース
 signal-cli	WhisperSystems/libsignal-service-java のCLIとdbusインターフェース
 signify-osx	暗号で署名しファイルを検証する
-sigrok-cli	論理アナライザーなどを使用するためのSigrokコマンドラインインターフェイス
+sigrok-cli	論理分析などを使用するためのSigrokコマンドラインインターフェイス
 sile	TeXに触発された最新の植字システム
 silicon	ソースコードの美しい画像を作成する
 silk	転送量分析ツールのコレクション
@@ -5046,7 +5048,7 @@ spring-completion	SpringのBash補完
 spring-loaded	実行中のJVMでクラスのリロードを有効にするJavaエージェント
 spring-roo	Java開発者向けの迅速なアプリケーション開発ツール
 sproxy	'siege-friendly'作法でURLを収集するHTTPプロキシサーバー
-sql-lint	クエリでエラーをDBから戻し健全性チェックを行うSQLリンター
+sql-lint	クエリでエラーをDBから戻し健全性チェックを行うSQL静的解析
 sql-translator	構造化データ定義の操作(SQLなど)
 sqlancer	DBMSでの論理バグの検出
 sqlbench	1つ以上のSQLクエリの実行時間を測定して比較します
@@ -5086,7 +5088,7 @@ sshguard	SSHに対するブルートフォース攻撃から保護する
 sshs	SSHのグラフィカルコマンドラインクライアント
 sshtrix	SSHログインクラッカー
 sshuttle	貧乏人のVPNとして機能するプロキシサーバー
-ssldump	ネットワーク手続きアナライザ SSLv3/TLS
+ssldump	ネットワーク手続き分析 SSLv3/TLS
 sslh	クライアントから送信された最初のデータパケットに基づいて接続を転送する
 ssllabs-scan	このツールはコマンドラインクライアントです SSL/LabsAPI
 sslmate	コマンドラインからSSL証明書を購入する
@@ -5207,7 +5209,7 @@ ta-lib	市場分析のためのツール
 tag	MacOSファイルのタグを操作してクエリする
 taglib	オーディオメタデータライブラリ
 tagref	コードベースの他の場所を参照してください
-tailor	Swiftのクロスプラットフォーム静的アナライザーと静的解析ツール
+tailor	Swiftのクロスプラットフォーム静的分析と静的解析ツール
 tailscale	WireGuardと2FAを使用する最も簡単で安全な方法
 takt	テキストベースの音楽プログラミング言語
 taktuk	リモートnodeにコマンドを展開する(潜在的に大きなset)
@@ -5234,7 +5236,7 @@ tcc	小さなCコンパイラ
 tccutil	MacOS近接性データベース(TCC.db)を変更するユーティリティ
 tcl-tk	ツールコマンド言語
 tclap	テンプレート化されたC++コマンドラインパーサーライブラリ
-tcpdump	コマンドラインパケットアナライザ
+tcpdump	コマンドラインパケット分析器
 tcpflow	TCP/IPパケットdemultiplexer
 tcping	指定されたIP/ポートコンボにTCP接続します
 tcpkali	高性能TCPおよびWebSocketロード発生器とシンク
@@ -5622,7 +5624,7 @@ virtuoso	高性能オブジェクトリレーショナルSQLデータベース
 virustotal-cli	VirusTotalのコマンドラインインターフェイス
 vis	Vimのようなテキストエディタ
 visionmedia-watch	指定されたコマンドを定期的に実行します
-visitors	Webサーバーログアナライザ
+visitors	Webサーバーログ分析器
 visp	ビジュアルサーボプラットフォームライブラリ
 vit	Taskwarriorのフルスクリーンターミナルインターフェース
 vite	次世代のフロントエンドツール。これは速い！
@@ -5703,7 +5705,7 @@ wdfs	WebDAVファイルシステム
 wdiff	テキストファイル間の単語の違いを表示する
 weaver	Weaverのコマンドラインツール
 web100clt	NDT診断クライアントのコマンドラインバージョン
-webalizer	Webサーバーのログファイル分析
+webalizer	Webサーバーのログファイル分析器
 webarchiver	Safariの.webarchiveファイルを作成できます
 webdis	JSON出力を使用したRedisHTTPインターフェース
 webfs	純粋に静的なコンテンツ用のHTTPサーバー
@@ -5748,7 +5750,7 @@ wiredtiger	データ管理のための高性能NoSQL拡張可能プラットフ�
 wireguard-go	WireGuardのUserspace Go実装
 wireguard-tools	WireGuard安全なネットワークトンネル用のツール
 wiremock-standalone	HTTPベースのAPI用の模擬装置
-wireshark	グラフィカルネットワークアナライザとキャプチャツール
+wireshark	グラフィカルネットワーク分析とキャプチャツール
 wirouter_keyrec	サポートされているルーターからデフォルトのWPAパスフレーズを回復する
 with-readline	GNUReadlineを任意のプログラムで使用できるようにする
 wla-dx	さらに別のクロスアセンブラーパッケージ
@@ -5902,7 +5904,7 @@ yaws	動的コンテンツ用のWebサーバー(Erlangで記述)
 yaz	ツールキット Z39.50/SRW/SRUクライアント/サーバー
 yaze-ag	さらに別のZ80エミュレーター(AGによる)
 yazpp	Yazツールキット用のC++ API
-yconalyzer	TCP転送量アナライザ
+yconalyzer	TCP転送量分析器
 ydcv	YouDaoコンソールバージョン
 ydiff	色付きのdiffを並べて表示し自動Pagerをサポート
 yelp-tools	MallardまたはDocBookのドキュメントの作成と編集に役立つツール
