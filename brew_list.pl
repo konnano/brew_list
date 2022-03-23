@@ -9,12 +9,12 @@ MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
  my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],
              'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
-             'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt",SPA=>' 'x9 };
+             'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt",'SPA'=>' 'x9 };
 
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],
              'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
              'HOME'=>$HOME,'TXT'=>"$HOME/cask.txt",
-             'Q_TAP'=>"$HOME/Q_TAP.txt",SPA=>' 'x9 };
+             'Q_TAP'=>"$HOME/Q_TAP.txt",'SPA'=>' 'x9 };
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
@@ -929,8 +929,7 @@ my( $list,$file,$in,$re ) = @_;
     } $re->{'ALL'} .= $_;
      $re->{'AN'}++; $re->{'IN'}++;
    }
-  }
-  $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n" if $flag1;
+  } $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n" if $flag1;
  }
 }
 
