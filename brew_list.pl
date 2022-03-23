@@ -216,8 +216,7 @@ sub Size_1{ no warnings 'numeric';
     @{$AR{$dir}} = glob "$re->{'CEL'}/$dir/*";
      my $du = `du -ks $re->{'CEL'}/$dir|awk '{print \$1}'`;
       $HA{"$du\t$dir"} = 1;
-   }
-   waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT";
+   } waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT";
   }
   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
   system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
@@ -241,7 +240,6 @@ sub Size_1{ no warnings 'numeric';
   $name,"size : $cou","install : $timer"
 .
   write
-
   }
   print" Totsl Size ${size}M  item $c\n" if -t STDOUT; 
   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
@@ -552,7 +550,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
    ( $re->{'TREE'} and not $re->{'DD'} and not $re->{'TT'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$$brew if $re->{'DEL'} and $re->{'OS'}{"deps$$brew"} < 2;
- $re->{'OS'}{"$re->{'INF'}deps"} .= "$$brew\t" if $re->{'OS'}{"deps$$brew"} < 2;
+ $re->{'OS'}{"$re->{'INF'}deps"} .= "$$brew\t" if $re->{'OS'}{"deps$$brew"} < 2 and not $build;
 }
 
 sub Read_1{
