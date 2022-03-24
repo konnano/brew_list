@@ -406,8 +406,8 @@ brainfm	brain.fm用のデスクトップクライアント
 brave-browser	プライバシーに焦点を当てたWebブラウザー
 breaktimer	定期的な休憩を管理するためのツール
 breitbandmessung	ドイツ連邦ネットワーク庁による公式インターネット速度テスト
-brewlet	自作のメニューレットがありません
-brewservicesmenubar	自作サービスを開始および停止するためのメニュー項目
+brewlet	Homebrewのメニューレットがありません
+brewservicesmenubar	homebrewサービスを開始および停止するためのメニュー項目
 brewtarget	brewtarget
 bria	ソフトフォンアプリケーション
 bricklink-partdesigner	独自のLEGOパーツをデザインする
@@ -446,7 +446,7 @@ cacher	コードスニペットオーガナイザー
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
 cajviewer	CAJクラウドリーディング
 cakebrew	HomebrewのGUIアプリ
-cakebrewjs	電子で書かれた自作GUIアプリ
+cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
 calendar-366	イベントと通知の日程表メニューバー
 calibre	電子書籍管理ソフトウェア
@@ -1338,7 +1338,7 @@ gureumkim	クラウド入力
 gyazmail	メールクライアント
 gyazo	スクリーンショットと画面記録ツール
 gzdoom	OpenGL RendererをZDoomソースポートに追加します
-ha-menu	一般的なHomeAssistant機能を実行するためのメニューバーアプリ
+ha-menu	一般的なHome Assistant機能を実行するためのメニューバーアプリ
 hacker-menu	デスクトップに配信されるハッカーニュース：ダンサー：
 hackintool	Hackintoshパッチツール
 hackmd	HackMD
@@ -1810,7 +1810,7 @@ lofi	WebGLビジュアライゼーションを備えたミニSpotifyプレーヤ
 logdna-agent	エージェントはログファイルからLogDNAアカウントにストリーミングします
 logdna-cli	LogDNA CLI
 logicalshift-zoom	Z-Code用プレーヤー TADS/HUGOの物語やゲーム
-logicsniffer	Open Bench Logic Sniffer倫理分析器ハードウェアのソフトウェアクライアント
+logicsniffer	Open Bench Logic Sniffer倫理分析ハードウェアのソフトウェアクライアント
 loginputmac	中国語入力方式
 logisim	デジタル論理回路を設計およびシミュレーションするためのツール
 logisim-evolution	デジタル倫理デザイナーおよび模擬装置
@@ -3632,6 +3632,7 @@ understand	コードの視覚化と探索ツール
 unetbootin	Linux/BSD ディストリビューションをパーティションまたはUSBドライブにインストールするためのツール
 unexpectedly	クラッシュからのレポートを参照して視覚化する
 unicodechecker	Unicodeを調べて変換する
+unicopedia-plus	Unicopedia Plus
 unified-remote	ユニファイドリモート
 uniflash	マイクロコントローラ用のフラッシュツール
 uninstallpkg	PKGソフトウェアパッケージアンインストールツール
