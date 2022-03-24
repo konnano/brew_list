@@ -344,7 +344,7 @@ bash-git-prompt	Gitユーザー向けの有益で派手なbashプロンプト
 bash-language-server	Bashの言語サーバー
 bash-preexec	Bashのpreexecおよびprecmd関数(Zshなど)
 bash-snippets	ヘビーターミナルユーザー向けの小さなbashスクリプトのコレクション
-bash_unit	プロフェッショナル向けのBashユニットテストエンタープライズ版フレームワーク
+bash_unit	プロフェッショナル向けのBash単体テストエンタープライズ版フレームワーク
 bashdb	Bashシェルデバッガー
 bashish	テキスト端末のテーマ環境
 basis_universal	基準汎用GPUテクスチャコーデック コマンドライン圧縮ツール
@@ -687,7 +687,7 @@ chart-testing	指導チャートのテストとlinting
 chcase	Perlファイルの名前変更スクリプト
 cheapglk	非常に最低限のGlkライブラリ
 cheat	*nixコマンドの対話的チートシートを作成して表示する
-check	Cのユニットテストフレームワーク
+check	Cの単体テストフレームワーク
 check_postgres	Postgresデータベースを監視する
 checkbashisms	シェルスクリプトのbashismsをチェックします
 checkmake	Makefilesの静的解析/分析
@@ -695,7 +695,7 @@ checkov	IaCツールのビルド時にクラウドの設定ミスを防ぐ
 checkstyle	Javaソースをコーディング標準と照合します
 cheops	チェス対戦相手模擬装置
 cherrytree	リッチテキストと構文の強調表示を特徴とする階層的なメモ取りアプリケーション
-chezmoi	複数の異なるマシン間でドットファイルを安全に管理します
+chezmoi	複数の異なるマシン間でdotfileを安全に管理します
 chezscheme	Chez Scheme言語の実装
 chgems	Ruby gemsのChroot
 chibi-scheme	C言語拡張として使用するための小さなSchemeの足跡
@@ -803,9 +803,9 @@ cmdshelf	cmdshelfを使用したスクリプトライフの向上
 cmigemo	Migemoはローマ字による日本語のインクリメンタルサーチをサポートするツールです。
 cminpack	非線形方程式と非線形最小二乗問題を解きます
 cmix	高い圧縮率のデータ圧縮プログラム
-cmocka	Cのユニットテストフレームワーク
-cmockery	Cのユニットテストと模擬ライブラリ
-cmockery2	Googleからcmockeryユニットテストフレームワークを復活させる
+cmocka	Cの単体テストフレームワーク
+cmockery	Cの単体テストと模擬ライブラリ
+cmockery2	Googleからcmockery単体テストフレームワークを復活させる
 cmt	カスタムテンプレートに基づいて一貫性のあるgitcommitメッセージを作成する
 cmu-pocketsphinx	モバイルデバイスの軽量音声認識エンジン
 cmu-sphinxbase	モバイルデバイスの軽量音声認識エンジン
@@ -906,8 +906,8 @@ cppp	Cの部分前処理プログラム
 cpprestsdk	クラウドベースのclient-server通信用のC++ライブラリ
 cpptest	C++で自動テストを処理する単体テストフレームワーク
 cpptoml	TOMLを解析するためのヘッダーのみのライブラリ
-cppunit	C++のユニットテストフレームワーク
-cpputest	C/C++ベースのユニットxUnitテストフレームワーク
+cppunit	C++の単体テストフレームワーク
+cpputest	C/C++ベースの単体xUnitテストフレームワーク
 cppzmq	libzmqのヘッダーのみのC++ bindings
 cpr	C++リクエスト、Python Requestsのスピリチュアルポート
 cproto	入力ファイル内の関数の関数プロトタイプを生成します
@@ -982,7 +982,7 @@ curlftpfs	FUSEとlibcurlに基づいてFTPホストにアクセスするため�
 curlie	カールのPower、httpieの使いやすさ
 curlpp	libcURLのC++ラッパー
 curseofwar	ペースの速いアクション戦略ゲーム
-cutter	CおよびC++のユニットテストフレームワーク
+cutter	CおよびC++の単体テストフレームワーク
 cvs	バージョン管理システム
 cvs-fast-export	RCSまたはCVSの履歴を高速インポートストリームとして転送します
 cvsps	CVSからパッチセット情報を作成する
@@ -992,7 +992,7 @@ cwb3	言語注釈付きの大きなテキストコーパスを管理およびク
 cweb	洗練されたドキュメンテーションシステム C/C++/Java
 cwlogs	CloudwatchLogsからログを読み取るためのCLIツール
 cxxopts	軽量のC++コマンドラインオプションパーサー
-cxxtest	JUnit/CppUnit/xUnit に似たC++ユニットテストフレームワーク
+cxxtest	JUnit/CppUnit/xUnit に似たC++単体テストフレームワーク
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
 cyral-gimme-db-token	データベースへのSSOログインにCyralを簡単に使用
 cyrus-sasl	Simple Authentication and Security Layer
@@ -1202,7 +1202,7 @@ dosbox	DOSエミュレータ
 dosbox-staging	近代化されたDOSBoxソフトフォーク
 dosbox-x	正確なエミュレーションと幅広いテストを備えたDOSBox
 dosfstools	FATファミリーのファイルシステムを 作成/チェック/ラベル付け するためのツール
-dotbot	ドットファイルをブートストラップするツール
+dotbot	dotbotをブートストラップするツール
 dotenv-linter	Rustで記述された.envファイル用の高速静的解析ツール
 dotnet	.NET Core
 double-conversion	IEEE doublesの2進化10進および10進2進ルーチン
@@ -1658,7 +1658,7 @@ gammaray	実行時にQtアプリケーションの内部を調べて操作する
 gammu	電話を制御するためのコマンドラインユーティリティ
 gandi.cli	パブリックAPIを使用したGandi.net製品へのコマンドラインインターフェイス
 ganglia	拡張性のある分散監視システム
-garmintools	Garmin Forerunner GPSユニットへのインターフェース
+garmintools	Garmin Forerunner GPS単体へのインターフェース
 gateway-go	OpenIoTHub用のGateWayクライアント
 gatsby-cli	Gatsbyコマンドラインインターフェイス
 gau	Open Threat Exchange ウェイバックマシン コモンクロールURLフェッチャー
@@ -2010,7 +2010,7 @@ gplcver	実用的なCソフトウェアGPLCver 2001
 gpm	GoのBarebones依存関係マネージャー
 gpp	カスタマイズ可能な構文を備えた汎用前処理プログラム
 gpredict	リアルタイムサテライト 追跡/予測 アプリケーション
-gprof2dot	多くのプロファイラーからの出力をGraphvizドットグラフに変換します
+gprof2dot	多くのプロファイラーからの出力をGraphviz dotグラフに変換します
 gpsbabel	GPSウェイポイントを 変換/アップロード します トラック/ルート
 gpsd	全地球測位システム(GPS)デーモン
 gpsim	MicrochipのPICマイクロコントローラーの模擬装置
@@ -2216,7 +2216,7 @@ hmmer	プロファイルHMMを構築しデータベース順序に対してス�
 hoedown	安全なMarkdown処理(Sundownの復活したフォーク)
 homeassistant-cli	Home Assistantのコマンドラインユーティリティ
 homebank	自宅で個人アカウントを管理する
-homeshick	bashで記述されたGitドットファイル同期装置
+homeshick	bashで記述されたGit dotfile同期装置
 homesick-completion	HomesickのBash補完
 homeworlds	BinaryHomeworldsのゲーム用のC++フレームワーク
 honcho	Procfileベースのアプリケーションを管理するためのForemanのPythonクローン
@@ -2348,6 +2348,7 @@ inform6	対話的のフィクションのデザインシステム
 infracost	Terraformのコスト見積もり
 infrakit	宣言型基礎構造を作成および管理するためのツールキット
 inframap	tfstateまたはHCLを読み取ってグラフを生成します
+inih	Cの単純な.INIファイル解析器
 iniparser	iniファイルを解析するためのライブラリ
 inja	最新のC++のテンプレートエンジン
 inko	安全で並列のオブジェクト指向プログラミング言語
@@ -4544,7 +4545,7 @@ rbtools	レビューボードでコードとドキュメントのレビューを
 rbw	非公式のBitwarden CLIクライアント
 rc	AT＆T Plan9シェルの実装
 rclone	クラウドストレージ用のRsync
-rcm	RCファイル(ドットファイル)管理
+rcm	RCファイル(dotfile)管理
 rcs	GNUリビジョン管理システム
 rdate	リモートホストからシステムの日付を設定する
 rdesktop	Windowsリモートデスクトップサービスに接続するためのUNIXクライアント
@@ -4656,7 +4657,7 @@ root	大規模データ分析のためのオブジェクト指向フレームワ
 rosa-cli	RedHat OpenShift Service on AWS(ROSA)コマンドラインインターフェース
 rospo	🐸 組み込みのsshサーバーを備えたシンプルで信頼性の高い永続的なsshトンネル
 roswell	主要な環境向けのLispインストーラーとランチャー
-roundup	ユニットテストツール
+roundup	単体テストツール
 rover	Apollo Studioでデータグラフを管理および保守するためのCLI
 rp	PE/Elf/Mach-O x86/x64 binaries でROP順序を検索するためのツール
 rpcgen	手続きコンパイラ
@@ -4878,7 +4879,7 @@ showkey	シンプルなキーストロークvisualizer
 shpotify	MacでのSpotifyのコマンドラインインターフェイス
 shtool	GNUのポータブルシェルツール
 shtools	球面調和関数ツール
-shunit2	Bourneベースのシェルスクリプトのユニットテストフレームワーク
+shunit2	Bourneベースのシェルスクリプトの単体テストフレームワーク
 shyaml	コマンドラインYAMLパーサー
 sic	最低限の多重化IRCクライアント
 sickle	品質を使用したFASTQファイルのウィンドウ化された適応トリミング
@@ -5514,8 +5515,8 @@ unibilium	非常に基本的なterminfoライブラリ
 unicorn	軽量のmulti-architecture CPUエミュレーションフレームワーク
 unifdef	C条件付き前処理プログラム ディレクティブを選択的に処理します
 unison	OSXのファイル同期ツール
-unittest	C++ユニットテストフレームワーク
-unittest-cpp	C++ユニットテストフレームワーク
+unittest	C++単体テストフレームワーク
+unittest-cpp	C++単体テストフレームワーク
 uniutils	Unicodeテキストを操作および分析する
 universal-ctags	維持されたctagsの実装
 unixodbc	UNIXのODBC3接続
@@ -5823,7 +5824,7 @@ xcprojectlint	Xcodeプロジェクトの静的解析ツール
 xctool	いくつかの追加機能を備えたxcodebuildのDrop-in置換
 xcv	Cut Bashでファイルをコピーペースト 
 xdelta	バイナリdiff 差分圧縮ツール
-xdot	Graphvizのドット言語で書かれたグラフ用の対話的Viewer
+xdot	Graphvizのdit言語で書かれたグラフ用の対話的Viewer
 xdotool	X用の偽のキーボード/マウス入力とウィンドウ管理
 xdpyinfo	X.Org：Xサーバーに関する情報を表示するためのユーティリティ
 xerces-c	XMLパーサーの検証
@@ -5882,7 +5883,7 @@ xxh	sshを通過する場所ならどこでもお気に入りのシェルを持�
 xxhash	非常に高速な非暗号化ハッシュアルゴリズム
 xz	圧縮率の高い汎用データ圧縮
 yacas	汎用数式処理システム
-yadm	さらに別のDotfilesマネージャー
+yadm	さらに別のDotfileマネージャー
 yaegi	さらに別のエレガントなGoインタプリタ
 yaf	さらに別の流量計：pcap(3)からのパケットデータを処理します
 yafc	コマンドラインFTPクライアント
