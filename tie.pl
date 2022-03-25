@@ -180,7 +180,8 @@ unless( $ARGV[0] ){
 
       if( my( $ls1,$ls2 ) =
         $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([^"]+)"/ ){
-         if( $re->{'MAC'} and not $Xcode and $ls1 =~ /^[<=>]+$/ and eval "$re->{'CLT'} $ls1 $ls2" ){
+         if( $re->{'MAC'} and
+             not $Xcode and $ls1 =~ /^[<=>]+$/ and $ls2 =~ /^\d+\.\d+$/ and eval "$re->{'CLT'} $ls1 $ls2" ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          }elsif( $re->{'LIN'} ){
@@ -253,7 +254,7 @@ unless( $ARGV[0] ){
           $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
        }elsif( my( $ds1,$ds2,$ds3 ) =
         $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
-         if( $re->{'MAC'} and $ds2 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds2 $ds3" ){
+         if( $re->{'MAC'} and $ds2 =~ /^[<=>]+$/ and $ds3 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds2 $ds3" ){
           $tap{"${ds1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
          }
        }elsif( my( $ds4,$ds5 ) =
@@ -287,7 +288,7 @@ unless( $ARGV[0] ){
          }
        }elsif( my($ls4,$ls5,$ls6) =
         $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
-         if( $re->{'MAC'} and $ls5 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ls5 $ls6" ){
+         if( $re->{'MAC'} and $ls5 =~ /^[<=>]+$/ and $ls6 =~ /^\d+$/ and eval "$re->{'CLANG'} $ls5 $ls6" ){
           $tap{"${ls4}uses"} .= "$name\t";
          }
        }elsif( my( $ls7,$ls8 ) =
