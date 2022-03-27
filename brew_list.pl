@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use Encode;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$OS_Version2,$CPU,%MAC_OS,$Locale,%JA );
@@ -90,12 +91,12 @@ MAIN:{
     print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW';  exit;
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
-   $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0;
+   $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
   }elsif( not $Locale ){ $name->{'EN'} = 1; }
   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
     File_1( $ref );
-  }
+  } $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.';
    $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
  if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -114,8 +115,9 @@ MAIN:{
      `/usr/bin/clang --version|sed '/Apple/!d;s/.*clang-\\([^.]*\\).*/\\1/'` : 0 if $re->{'MAC'};
   }else{
    $re->{'INF'} = $AR[1] if $re->{'IS'};
-    $re->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
-     $name->{'L_OPT'} = $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
+    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
+     $name->{'L_OPT'} = $name->{'KEN'} ? decode('utf-8',$re->{'STDI'}) :
+      $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
   }
  }elsif( $re->{'S_OPT'} ){
    $ref->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
@@ -152,19 +154,20 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_3\n   Option\n  -new\t:  creat new cache
-  -l\t:  formula list\n  -i\t:  instaled formula\n  -\t:  brew list command
-  -lb\t:  bottled install formula\n  -lx\t:  can't install formula
-  -s\t:  type search name\n  -o\t:  outdated\n  -co\t:  library display
-  -in\t:  formula require formula\n  -t\t:  formula require formula, display tree
-  -tt\t:  only require formula, display tree\n  -u\t:  formula depend on formula
-  -ua\t:  formula depend on formula, all\n  -de\t:  uninstalled, not require formula
-  -d\t:  uninstalled, not require formula, display tree
+ die " Enhanced brew_list : version 1.08_4\n   Option\n  -new\t:  creat new cache
+  -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
+  -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
+  -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
+  -co\t:  formula library display\n  -in\t:  formula require formula list
+  -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
+  -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
+  -de\t:  uninstalled, not require formula\n  -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order
-  -ddd\t:  All uninstall : pipe xargs brew uninstall
-  -is\t:  Display in order of size\n  -g\t:  Independent formula\n   Only mac : Cask
-  -c\t:  cask list\n  -ct\t:  cask tap list\n  -ci\t:  instaled cask
-  -cx\t:  can't install cask\n  -cs\t:  some name cask and formula
+  -ddd\t:  All uninstall : pipe xargs brew uninstall\n  -is\t:  Display in order of size
+  -g\t:  Independent formula\n   Only mac : Cask
+  -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
+  -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
+  -ci\t:  instaled cask list\n  -cx\t:  can't install cask list\n  -cs\t:  some name cask and formula
   -cd\t:  Display required list casks
 
   # Japanese Language -JA option
@@ -244,7 +247,7 @@ sub Size_1{ no warnings 'numeric';
   print" Totsl Size ${size}M  item $c\n" if -t STDOUT; 
   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
   system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
- exit;
+ Nohup_1( $re );
 }
 
 sub Doc_1{
@@ -511,7 +514,7 @@ my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
    }
   }
   Format_3( $file,$re ) if $re->{'DEP'};
-   $re->{'AN'} = $re->{'IN'} = $re->{'BN'} = $re->{'CN'} = 0;
+   $re->{'AN'} = $re->{'IN'} = $re->{'BN'} = $re->{'CN'} = $re->{'DN'} = $re->{'DI'} = 0;
   if( $re->{'TAP'} ){ my $i = 0; my $e = 0; 
    for( @tap ){
     Search_1( $list,$_,0,$re );
@@ -519,10 +522,14 @@ my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
       $i = $re->{'AN'} - $i; $e = $re->{'IN'} - $e;
        $re->{'ALL'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
       $i = $re->{'AN'}; $e = $re->{'IN'};
-     }else{
+     }elsif( not $re->{'KEN'} ){
       $i = $re->{'BN'} - $i; $e = $re->{'CN'} - $e;
        $re->{'EXC'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
       $i = $re->{'BN'}; $e = $re->{'CN'};
+     }else{
+      $i = $re->{'DN'} - $i; $e = $re->{'DI'} - $e;
+       $re->{'KXC'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
+      $i = $re->{'DN'}; $e = $re->{'DI'};
      }
    }
   }else{
@@ -541,13 +548,11 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
    if $re->{'COLOR'} and $re->{'HASH'}{$$brew} and $re->{"$${brew}delet"};
 
  $re->{'OS'}{"deps$$brew"} +=
-   ( $re->{'TREE'} and $re->{'TT'} and $name =~ /\(require\)/ ) ?
-    push @{$re->{'UNI'}},"${spa}-- $name\n" :
    ( $re->{'TREE'} and $re->{'DD'} and $name =~ /\(can delete\)/ ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" :
-   ( $re->{'TREE'} and $build and not $re->{'DD'} and not $re->{'TT'} ) ?
+   ( $re->{'TREE'} and $build and not $re->{'DD'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
-   ( $re->{'TREE'} and not $re->{'DD'} and not $re->{'TT'} ) ?
+   ( $re->{'TREE'} and not $re->{'DD'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$$brew if $re->{'DEL'} and $re->{'OS'}{"deps$$brew"} < 2;
  $re->{'OS'}{"$re->{'INF'}deps"} .= "$$brew\t" if $re->{'OS'}{"deps$$brew"} < 2 and not $build;
@@ -755,7 +760,19 @@ my( $re,$mem,$dir ) = @_;
   }
  }else{
     $re->{'ALL'} .= $re->{'MEM'} unless $re->{'L_OPT'};
-    $re->{'EXC'} .= $re->{'MEM'} if $mem;
+     if( $re->{'KEN'} ){
+      my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
+      my( $brew ) = split '\t',$mee;
+      my $name = encode('utf-8',$re->{'L_OPT'});
+       if( $mee =~ /^ ==>/ or $mee =~ s/(\Q$name\E)/\033[33m$1\033[00m/ig ){
+           $mee =~ s/\033\[33m|\033\[00m//g unless -t STDOUT;
+        $re->{'DI'}++ if $re->{'HASH'}{$brew};
+         $re->{'DN'}++ if $mee !~ /^ ==>/;
+        $re->{'KXC'} .= "$top$mee\n";
+       }
+     }else{
+      $re->{'EXC'} .= $re->{'MEM'} if $mem;
+     }
  }
 }
 
@@ -767,8 +784,10 @@ my( $ls1,$ls2 ) = @_;
   for(;$i<@ls2;$i++){
    if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
     return 1 if $ls1[$i] gt $ls2[$i];
+    return 0 if $ls1[$i] lt $ls2[$i];
    }else{
     return 1 if $ls1[$i] and $ls1[$i] > $ls2[$i];
+    return 0 if $ls1[$i] and $ls1[$i] < $ls2[$i];
    }
   }
  $ls1[$i] ? 1 : 0;
@@ -780,7 +799,6 @@ my( $re,$ls1,$ls2 ) = @_;
   Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew",2 ) : ( $re->{'MAC'} and $re->{'CAS'} ) ?
    Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",2 ) :
     Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
-
  for my $gz( @{$re->{'TAR'}} ){
   if( $gz =~ s/^$ls1--([\d._-]+)\.[^\d_-]+\d?$/$1/ or $gz =~ s/^$ls1--([\d._-]+)$/$1/ ){
     $re->{'GZ'} = ( $re->{'FOR'} and Version_1($gz,$re->{'HASH'}{$ls1}) ) ? 1 :
@@ -1047,7 +1065,7 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
      if( $ls1 =~ m[^$re->{'CEL'}/\.|^$re->{'CEL'}/s?bin/]o ){
              print"$ls1\n";
      }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
-             print"$ls1\n"; $re->{'IN'} = 1;
+             print"$ls1\n"; $re->{'INN'} = 1;
      }else{ $ls2 = $ls1;
       $ls1 =~ s|^($re->{'CEL'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
         $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
@@ -1059,11 +1077,11 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
      if( $HA{$key} == 1 ){
       $OP{$key} =~ /^$re->{'CEL'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
      }else{
-      ( $re->{'IN'} and  $key =~ m|^$re->{'CEL'}/lib$|o ) ?
+      ( $re->{'INN'} and  $key =~ m|^$re->{'CEL'}/lib$|o ) ?
       print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
      }
     }
-   exit;
+   Nohup_1( $re );
   }
  }
 }
@@ -1097,15 +1115,32 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
    $re->{'EXC'} =~ m|^\s{10}==>.*\n$| ? '' :
    $re->{'EXC'} if $re->{'TAP'} and $re->{'EXC'};
 
-  $re->{'EXC'} =~ s/(.+)\n\s{10}item.+:.+/$1/
-   if $re->{'EXC'} and $re->{'EXC'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
+   $re->{'KXC'} = $re->{'KXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
+   $re->{'KXC'} =~ m|^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2$3$4" :
+   $re->{'KXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
+   $re->{'KXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
+   $re->{'KXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n\s{10}==> .*\n$| ? "$1$2" :
+   $re->{'KXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2" :
+   $re->{'KXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
+   $re->{'KXC'} =~ m|^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
+   $re->{'KXC'} =~ m|^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$| ? "$1$2" :
+   $re->{'KXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
+   $re->{'KXC'} =~ m|^\s{10}==>.*\n$| ? '' :
+   $re->{'KXC'} if $re->{'TAP'} and $re->{'KXC'};
+
   $re->{'ALL'} =~ s/(.+)\n\s{10}item.+:.+/$1/
-  if $re->{'ALL'} and $re->{'ALL'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
+   if $re->{'ALL'} and $re->{'ALL'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
+  $re->{'EXC'} =~ s/(.+)\n\s{10}item.+:.+/$1/
+  if $re->{'EXC'} and $re->{'EXC'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
+  $re->{'KXC'} =~ s/(.+)\n\s{10}item.+:.+/$1/
+   if $re->{'KXC'} and $re->{'KXC'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
    system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-    $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}" if $re->{'ALL'} or $re->{'EXC'};
+    $re->{'KEN'} ? print"$re->{'KXC'}" : $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}"
+     if $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'};
      print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'};
      print " item $re->{'BN'} : install $re->{'CN'}\n" if $re->{'EXC'};
+     print " item $re->{'DN'} : install $re->{'DI'}\n" if $re->{'KXC'};
   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
    system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
  }elsif( $re->{'DAT'} ){
@@ -1154,7 +1189,17 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
 }
 
 sub Format_2{
-my $re = shift;
+my( $re,$mm,@tt ) = @_; my $e = 0;
+ if( $re->{'TT'} ){
+  for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
+   $mm = () = ${$re->{'UNI'}}[$i] =~ /\|/g;
+   if( $mm == $e or ${$re->{'UNI'}}[$i] =~ /require/ ){
+    push @tt,${$re->{'UNI'}}[$i];
+     $e = $mm - 1;
+   }
+  } @{$re->{'UNI'}} = ();
+ @{$re->{'UNI'}} = reverse @tt;
+ }
  my( $wap,$leng,@TODO,@SC ); my $cou = 0;
  for( @{$re->{'UNI'}} ){ my $an;
   $wap++;
@@ -1277,7 +1322,7 @@ sub Format_3{
    system " printf '\033[?7l' " if -t STDOUT;
   print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo";
    system " printf '\033[?7h' " if -t STDOUT;
- exit;;
+ Nohup_1( $re );
 }
 
 sub Nohup_1{
@@ -1290,6 +1335,7 @@ my $re = shift;
        $time1->[3] > $time2->[3] or $time1->[2] > $time2->[2] ){
     system 'nohup ~/.BREW_LIST/font.sh 1 1 >/dev/null 2>&1 &';
    }
+ exit;
 }
 
 sub Tied_1{
