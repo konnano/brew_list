@@ -1,6 +1,4 @@
-google translate　Please read in the atmosphere
-
-brew list command extended version: version 1.08_1
+brew list command extended version: version 1.08_4
 
 : how to use
 ```
@@ -16,7 +14,7 @@ Uninstall ./init.sh unlink in the brew_list-main folder
 
 : Optional
 
-'-l' option　Formula list is displayed, regular expressions //
+'-l' option　Formula list is displayed, First argument Formula search, Second argument '.' Full-text search
 
 '-lb' option　bottle install Formula list is displayed, regular expressions //
 
@@ -56,11 +54,11 @@ Please check -dd or -de option   ( brew_list -ddd Formula | xargs brew uninstall
 
 '-' option　Brew list command
 
-Only Mac: Cask
+  Only Mac: Cask
 
-'-c' option　Cask list is displayed, regular expressions //
+'-c' option　Cask list is displayed, First argument Formula search, Second argument '.' Full-text search
 
-'-ct' option　Cask Tap list is displayed, regular expressions //
+'-ct' option　Cask Tap list is displayed, First argument Formula search, Second argument '.' Full-text search
 
 '-ci' option　Cask installed list is displayed
 
@@ -70,7 +68,7 @@ Only Mac: Cask
 
 '-cd' option Display the required list of casks
 
-: Display mark
+ : Display mark
 
 b mark is bottle installation Formula
 
@@ -86,7 +84,7 @@ x mark is can't installed Formula
 
 t mark Installed formula version upgrade can't installed
 
-Onle Mac: Cask
+  Onle Mac: Cask
 
 s mark is Formula and Cask same name: --cask option for installation
 
