@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.08_1　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.08_4　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -18,7 +18,7 @@ brew install brew_list
 
 : オプション
 
-'-l' オプションでFormulaリストが表示されます、//で正規表現が使えます
+'-l' オプションでFormulaリストが表示されます、最初の引数でFormula検索、2番目の引数'.'で全文検索 
 
 '-lb' オプションでボトルインストールFormulaが表示されます、//で正規表現が使えます
 
@@ -60,9 +60,9 @@ brew install brew_list
 
 Only 　Mac : Cask
 
-'-c' オプションでCaskリストが表示されます、//で正規表現が使えます
+'-c' オプションでCaskリストが表示されます、最初の引数でFormula検索、2番目の引数'.'で全文検索 
 
-'-ct' オプションでCaskのTapリストが表示されます、//で正規表現が使えます
+'-ct' オプションでCaskのTapリストが表示されます、最初の引数でFormula検索、2番目の引数'.'で全文検索 
 
 '-ci' オプションでCaskインストール済みリストが表示されます
 
@@ -95,4 +95,3 @@ s マークは同名のFormulaとCask : インストールには --caskオプシ
 f マークはFormulaを必要とするCask
 
 c マークはCaskaを必要とするCask
-
