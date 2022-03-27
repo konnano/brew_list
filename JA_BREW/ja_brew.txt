@@ -344,7 +344,7 @@ bash-git-prompt	Gitユーザー向けの有益で派手なbashプロンプト
 bash-language-server	Bashの言語サーバー
 bash-preexec	Bashのpreexecおよびprecmd関数(Zshなど)
 bash-snippets	ヘビーターミナルユーザー向けの小さなbashスクリプトのコレクション
-bash_unit	プロフェッショナル向けのBash単体テストエンタープライズ版フレームワーク
+bash_unit	プロフェッショナル向けのBash単体テスト エンタープライズ版フレームワーク
 bashdb	Bashシェルデバッガー
 bashish	テキスト端末のテーマ環境
 basis_universal	基準汎用GPUテクスチャコーデック コマンドライン圧縮ツール
@@ -2036,7 +2036,7 @@ graphicsmagick	画像処理ツールコレクション
 graphite2	non-Romanスクリプトのスマートフォントrenderer
 graphql-cli	一般的なGraphQL開発ワークフローのコマンドラインツール
 graphqurl	自動補完を使用したGraphQL用のCurl サブスクリプション/GraphiQL 
-graphviz	AT＆Tおよびベル研究所のグラフ視覚化ソフトウェア
+graphviz	AT＆Tおよびベル研究所のdotグラフ視覚化ソフトウェア
 gravity	埋め込み可能なプログラミング言語
 grc	ログファイルとコマンド出力の色付け
 greed	消費のゲーム
@@ -3421,6 +3421,7 @@ mednafen	Multi-systemエミュレータ
 megacmd	mega.co.nz保管サービスのコマンドラインクライアント
 megatools	Mega.co.nzのコマンドラインクライアント
 meilisearch	非常に関連性が高く、瞬時でタイプミスに強い全文検索API
+melody	正規表現にコンパイルされる言語
 memcache-top	memcacheからリアルタイムの統計情報を取得します
 memcached	高性能の分散メモリオブジェクトcachingシステム
 memcacheq	memcacheのキューサービス
@@ -3565,7 +3566,6 @@ most	強力なpagingプログラム
 moto	模擬AWSサービス
 movgrab	ダウンローダー YouTube/Dailymotion/その他のビデオWebサイト
 moz-git-tools	MozillaでGitを操作するためのツール
-mozilla-addon-sdk	JS、HTML、およびCSSを使用してFirefoxアドオンを作成する
 mozjpeg	改善されたJPEGエンコーダ
 mp3blaster	テキストベースのmp3プレーヤー
 mp3cat	mp3ファイルの読み取りと書き込み
@@ -4852,6 +4852,7 @@ sha2	ハッシュアルゴリズムの実装 SHA-256/SHA-384/SHA-512
 sha3sum	チェックサムユーティリティ Keccak/SHA-3/SHAKE/RawSHAKE
 shadowenv	リバーシブルディレクトリ-ローカル環境変数の操作
 shadowsocks-libev	shadowsocksのLibevポート
+shadowsocks-rust	ShadowsocksのRustポート
 shairport	Airtunesエミュレーター
 shairport-sync	マルチルーム機能を追加するAirTunesエミュレーター
 shakespeare	シェイクスピア英語でプログラムを書く
@@ -5824,7 +5825,7 @@ xcprojectlint	Xcodeプロジェクトの静的解析ツール
 xctool	いくつかの追加機能を備えたxcodebuildのDrop-in置換
 xcv	Cut Bashでファイルをコピーペースト 
 xdelta	バイナリdiff 差分圧縮ツール
-xdot	Graphvizのdit言語で書かれたグラフ用の対話的Viewer
+xdot	Graphvizのdot言語で書かれたグラフ用の対話的Viewer
 xdotool	X用の偽のキーボード/マウス入力とウィンドウ管理
 xdpyinfo	X.Org：Xサーバーに関する情報を表示するためのユーティリティ
 xerces-c	XMLパーサーの検証
