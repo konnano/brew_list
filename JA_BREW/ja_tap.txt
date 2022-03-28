@@ -26,6 +26,7 @@ font-akaya-kanadaka	Akaya Kanadaka
 font-akaya-telivigala	Akaya Telivigala
 font-akronim	Akronim
 font-aksara-bali-galang	Aksara Bali Galang
+font-akshar	サポートされています
 font-aladin	Aladin
 font-alata	Alata
 font-alatsi	Alatsi
@@ -211,6 +212,10 @@ font-bitstream-vera	Bitstream Vera
 font-bitstream-vera-sans-mono-nerd-font	BitstreamVeraSansMonoオタクフォント(Bitstream Vera Sans Mono)
 font-bitter	電子インク画面用に最適化されたSlab-serif書体
 font-bitter-ht	電子インク画面用に最適化されたSlab-serif書体
+font-biz-udgothic	BIZ UDGothic
+font-biz-udmincho	BIZ UDMincho
+font-biz-udpgothic	BIZ UDPGothic
+font-biz-udpmincho	BIZ UDPMincho
 font-black-and-white-picture	黒と白の画像
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
@@ -717,6 +722,7 @@ font-inconsolata-nerd-font	Inconsolataオタクフォント(Inconsolata)
 font-inder	Inder
 font-indie-flower	Indie Flower
 font-infini	Infini
+font-ingrid-darling	遊び心のある、気まぐれな魅力を持つ筆記体の手書きスタイルに基づいています
 font-inika	Inika
 font-inknut-antiqua	Inknut Antiqua
 font-input	Input
@@ -873,6 +879,7 @@ font-lateef	Lateef
 font-latin-modern	Latin Modern
 font-latin-modern-math	Latin Modern Math
 font-lato	Lato
+font-lavishly-yours	魅力的な書道スクリプト
 font-league-gothic	古い古典の復活 代替ゴシック＃1
 font-league-mono	FiraMonoに触発されたMonospace書体 Libertinus Mono/Courier
 font-league-script	League スクリプト
@@ -1073,6 +1080,7 @@ font-mr-dafoe	Mr Dafoe
 font-mr-de-haviland	Mr De Haviland
 font-mrs-saint-delafield	Mrs Saint Delafield
 font-mrs-sheppards	Mrs Sheppards
+font-ms-madi	このフォントをすべて大文字で使用することは決して良い考えではありません
 font-mukta	Mukta
 font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
@@ -1082,6 +1090,7 @@ font-mulish	最低限のsans serif書体 表示とテキストの体裁のため
 font-murecho	9つの実用的なウェイトと可変フォントで利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
+font-my-soul	微妙に装飾された大文字の形をしたフラットペン書道スタイル
 font-myanmar-sans-pro	ミャンマー Sans Pro
 font-myrica	Myrica
 font-myricam	MyricaM
@@ -1183,11 +1192,13 @@ font-noto-sans-hanifi-rohingya	Noto Sans Hanifi Rohingya
 font-noto-sans-hanunoo	Noto Sans Hanunoo
 font-noto-sans-hatran	Noto Sans Hatran
 font-noto-sans-hebrew	Noto Sans ヘブライ
+font-noto-sans-hk	漢民族の表意文字の繁体字中国語の変形を使用したSans-serifデザイン
 font-noto-sans-imperial-aramaic	Noto Sans Imperial Aramaic
 font-noto-sans-indic-siyaq-numbers	Noto Sans Indic Siyaq Numbers
 font-noto-sans-inscriptional-pahlavi	Noto Sans Inscriptional Pahlavi
 font-noto-sans-inscriptional-parthian	Noto Sans Inscriptional Parthian
 font-noto-sans-javanese	Noto Sans Javanese
+font-noto-sans-jp	日本語用の変調されていない(“sans serif”)デザイン
 font-noto-sans-kaithi	Noto Sans Kaithi
 font-noto-sans-kannada	Noto Sans Kannada
 font-noto-sans-kannada-ui	Noto Sans Kannada UI
@@ -1197,6 +1208,7 @@ font-noto-sans-khmer	Noto Sans Khmer
 font-noto-sans-khmer-ui	Noto Sans Khmer UI
 font-noto-sans-khojki	Noto Sans Khojki
 font-noto-sans-khudawadi	Noto Sans Khudawadi
+font-noto-sans-kr	韓国語の変調されてい(“sans serif”)デザイン
 font-noto-sans-lao	Noto Sans Lao
 font-noto-sans-lao-ui	Noto Sans Lao UI
 font-noto-sans-lepcha	Noto Sans Lepcha
@@ -1256,6 +1268,7 @@ font-noto-sans-rejang	Noto Sans Rejang
 font-noto-sans-runic	Noto Sans Runic
 font-noto-sans-samaritan	Noto Sans Samaritan
 font-noto-sans-saurashtra	Noto Sans Saurashtra
+font-noto-sans-sc	漢民族表意文字の簡体字中国語版Sans-serifデザイン
 font-noto-sans-sharada	Noto Sans Sharada
 font-noto-sans-shavian	Noto Sans Shavian
 font-noto-sans-siddham	Noto Sans Siddham
@@ -1281,6 +1294,7 @@ font-noto-sans-takri	Noto Sans Takri
 font-noto-sans-tamil	Noto Sans Tamil
 font-noto-sans-tamil-supplement	Noto Sans Tamil Supplement
 font-noto-sans-tamil-ui	Noto Sans Tamil UI
+font-noto-sans-tc	台湾とマカオの言語の変調されていない(“sans serif”)デザイン
 font-noto-sans-telugu	Noto Sans Telugu
 font-noto-sans-telugu-ui	Noto Sans Telugu UI
 font-noto-sans-thaana	Noto Sans Thaana
@@ -1315,15 +1329,19 @@ font-noto-serif-grantha	Noto Serif Grantha
 font-noto-serif-gujarati	Noto Serif Gujarati
 font-noto-serif-gurmukhi	Noto Serif Gurmukhi
 font-noto-serif-hebrew	Noto Serif Hebrew
+font-noto-serif-jp	日本語用の変調(“serif”)デザイン
 font-noto-serif-kannada	Noto Serif Kannada
 font-noto-serif-khmer	Noto Serif Khmer
+font-noto-serif-kr	韓国語の変調(“serif”)デザイン
 font-noto-serif-lao	Noto Serif Lao
 font-noto-serif-malayalam	Noto Serif Malayalam
 font-noto-serif-myanmar	Noto Serif Myanmar
 font-noto-serif-nyiakeng-puachue-hmong	Noto Serif Nyiakeng Puachue Hmong
+font-noto-serif-sc	簡体字中国語の変調(“serif”)デザイン
 font-noto-serif-sinhala	Noto Serif Sinhala
 font-noto-serif-tamil	Noto Serif Tamil
 font-noto-serif-tangut	Noto Serif Tangut
+font-noto-serif-tc	台湾、香港、マカオの言語の変調(“serif”)デザイン
 font-noto-serif-telugu	Noto Serif Telugu
 font-noto-serif-thai	Noto Serif Thai
 font-noto-serif-tibetan	Noto Serif Tibetan
@@ -1421,6 +1439,7 @@ font-play	Play
 font-playball	Playball
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
+font-plus-jakarta-sans	用途が広い modern type family
 font-podkova	Podkova
 font-podkova-vf-beta	Podkova VF Beta
 font-poetsen-one	Poetsen One
@@ -1477,6 +1496,7 @@ font-quintessential	Quintessential
 font-qwigley	Qwigley
 font-qwitcher-grypen	少しエッジのあるカジュアルなブラッシュスクリプト
 font-racing-sans-one	Racing Sans One
+font-radio-canada	Radio Canada
 font-radley	Radley
 font-rajdhani	Rajdhani
 font-rakkas	Rakkas
@@ -1598,6 +1618,7 @@ font-sedan-sc	Sedan SC
 font-sedgwick-ave	Sedgwick Ave
 font-sedgwick-ave-display	Sedgwick Ave Display
 font-sen	Sen
+font-send-flowers	年配の視聴者に適しています
 font-seoul-hangang	Seoul Hangang
 font-seoul-hangang-condensed	Seoul Hangang Condensed
 font-seoul-namsan	Seoul Namsan
@@ -1680,6 +1701,7 @@ font-spirax	Spirax
 font-spleen	Spleen
 font-spline-sans	spline teamによって開始された元の書体
 font-squada-one	Squada One
+font-square-peg	Square Peg
 font-sree-krushnadevaraya	Sree Krushnadevaraya
 font-sriracha	Sriracha
 font-srisakdi	Srisakdi
@@ -1795,6 +1817,7 @@ font-unifrakturmaguntia	UnifrakturMaguntia
 font-unkempt	Unkempt
 font-unlock	Unlock
 font-unna	Unna
+font-updock	クリーンなコネクタを備えた非常に読みやすい正式なスクリプト
 font-urbanist	Urbanist
 font-urw-base35	URW++ base 35
 font-vampiro-one	Vampiro One
@@ -1802,6 +1825,7 @@ font-varela	Varela
 font-varela-round	Varela Round
 font-varta	Varta
 font-vast-shadow	Vast Shadow
+font-vazirmatn	robotoと組み合わせる
 font-verdana	Verdana
 font-vesper-libre	Vesper Libre
 font-viaoda-libre	Viaoda Libre
@@ -1826,6 +1850,7 @@ font-warnes	Warnes
 font-waterfall	Calligraphic script
 font-wellfleet	Wellfleet
 font-wendy-one	Wendy One
+font-whisper	Whisper
 font-windsong	複数の文体セットを含む細長いスクリプト
 font-wire-one	Wire One
 font-work-sans	Work Sans
@@ -2121,6 +2146,7 @@ citra-nightly	ニンテンドー3DSエミュレーター
 clashx-pro	clashに基づくGUIを備えたルールベースのカスタムプロキシ
 cleanmymac3	CleanMyMac
 corretto11	AmazonからのOpenJDKディストリビューション
+corretto17	AmazonからのOpenJDKディストリビューション
 corretto8	AmazonからのOpenJDKディストリビューション
 daedalus-flight	Cardanoブロックチェーン上のada用のDaedalus暗号通貨ウォレットのプレリリース
 dash2	Dash
@@ -2288,5 +2314,6 @@ xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
+zulu17	AzulからのOpenJDKディストリビューション
 zulu7	AzulからのOpenJDKディストリビューション
 zulu8	AzulからのOpenJDKディストリビューション
