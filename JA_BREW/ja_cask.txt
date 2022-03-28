@@ -1524,6 +1524,7 @@ iridium	セキュリティとプライバシーに焦点を当てたWebブラウ
 iris	ブルーライトフィルターと目の保護ソフトウェア
 iriunwebcam	携帯電話のカメラをワイヤレスWebカメラとして使用する
 irpf2021	ブラジルの連邦歳入庁(RFB)の昨年の収入を宣言する
+irpf2022	ブラジルの歳入サービスの税レポート(DIRPF)に記入する
 isabelle	一般的な証明アシスタント
 ishowu	iShowU
 ishowu-instant	リアルタイム画面録画
@@ -1983,6 +1984,7 @@ megasync	コンピューターとMEGAクラウドドライブ間でファイル�
 megax	分子進化統計分析と系統樹の構築
 megazeux	ASCIIベースのゲーム作成システム
 meld	ビジュアル差分およびマージツール
+mellel	長くて複雑なドキュメント用に構築された高度なワードプロセッサ
 mellow	ルールベースのグローバル透過プロキシクライアント
 mellowplayer	gitlabに移動しました
 melodics	楽器の演奏を学ぶのに役立ちます
@@ -3361,7 +3363,6 @@ syncroom	オンラインリモートコンサートサービス：遠く離れ�
 syncsettings	アプリの設定を同期して保存する
 syncterm	BBSターミナルプログラム
 syncthing	リアルタイムファイル同期ソフトウェア
-synergy	キーボードとマウスの共有ツール-オープンソースコア
 synfigstudio	2Dアニメーションソフトウェア
 synology-chat	SynologyNASで実行されるメッセージングサービス
 synology-note-station-client	コンテンツが豊富なメモを管理および共有する 書く/見る
