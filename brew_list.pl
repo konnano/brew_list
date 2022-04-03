@@ -203,6 +203,7 @@ my( $re,$list ) = @_;
 
 sub Size_1{ no warnings 'numeric';
  my( $re,$list,%HA,%AR,$size,@data,$c,$pid ) = @_;
+ $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\r\x1B[?25h\n"; };
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split "\t",$re->{'OS'}{"$re->{'INF'}deps"} if $re->{'OS'}{"$re->{'INF'}deps"};
@@ -269,7 +270,7 @@ my( $re,$pid ) = @_;
     die " Wait Not fork : $!\n" unless defined $pid;
   }
   if( $pid or $re->{'IS'} ){
-   unless( -d "$re->{'HOME'}/LOCK" ){
+   if( $re->{'IS'} or $re->{'TEN'} or not -d "$re->{'HOME'}/LOCK" ){
     if( -t STDOUT ){
      print STDERR "\x1B[?25l";
      if( $^O eq 'linux' or $re->{'TEN'} or $re->{'IS'} ){ my $i = 0;
