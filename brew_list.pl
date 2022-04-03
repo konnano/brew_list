@@ -116,8 +116,8 @@ MAIN:{
   }else{
    $re->{'INF'} = $AR[1] if $re->{'IS'};
     $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
-     $name->{'L_OPT'} = $name->{'KEN'} ? decode('utf-8',$re->{'STDI'}) :
-      $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
+     $name->{'L_OPT'} = ( $name->{'KEN'} and $Locale ) ? decode('utf-8',$re->{'STDI'}) :
+      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
   }
  }elsif( $re->{'S_OPT'} ){
    $ref->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
@@ -763,10 +763,10 @@ my( $re,$mem,$dir ) = @_;
      if( $re->{'KEN'} ){
       my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
       my( $brew ) = split '\t',$mee;
-      my $name = encode('utf-8',$re->{'L_OPT'});
+      my $name = $Locale ? encode('utf-8',$re->{'L_OPT'}) : $re->{'L_OPT'};
        if( $mee =~ /^ ==>/ or $mee =~ s/(\Q$name\E)/\033[33m$1\033[00m/ig ){
            $mee =~ s/\033\[33m|\033\[00m//g unless -t STDOUT;
-        $re->{'DI'}++ if $re->{'HASH'}{$brew};
+          $re->{'DI'}++ if $re->{'HASH'}{$brew};
          $re->{'DN'}++ if $mee !~ /^ ==>/;
         $re->{'KXC'} .= "$top$mee\n";
        }
@@ -783,11 +783,11 @@ my( $ls1,$ls2 ) = @_;
  my $i = 0;
   for(;$i<@ls2;$i++){
    if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
-    return 1 if $ls1[$i] gt $ls2[$i];
-    return 0 if $ls1[$i] lt $ls2[$i];
+    if( $ls1[$i] gt $ls2[$i] ){ return 1;
+    }elsif( $ls1[$i] lt $ls2[$i] ){ return 0; }
    }else{
-    return 1 if $ls1[$i] and $ls1[$i] > $ls2[$i];
-    return 0 if $ls1[$i] and $ls1[$i] < $ls2[$i];
+    if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
+    }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return 0 ; }
    }
   }
  $ls1[$i] ? 1 : 0;
@@ -1197,8 +1197,7 @@ my( $re,$mm,@tt ) = @_; my $e = 0;
     push @tt,${$re->{'UNI'}}[$i];
      $e = $mm - 1;
    }
-  } @{$re->{'UNI'}} = ();
- @{$re->{'UNI'}} = reverse @tt;
+  } @{$re->{'UNI'}} = reverse @tt;
  }
  my( $wap,$leng,@TODO,@SC ); my $cou = 0;
  for( @{$re->{'UNI'}} ){ my $an;
