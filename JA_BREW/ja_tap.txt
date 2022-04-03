@@ -111,6 +111,9 @@ font-arima-madurai	Arima Madurai
 font-arimo	Arimo
 font-arimo-nerd-font	Arimo Nerd Font(Arimo)
 font-arizonia	Arizonia
+font-ark-pixel-10px	Ark Pixel 10px
+font-ark-pixel-12px	Ark Pixel 12px
+font-ark-pixel-16px	Ark Pixel 16px
 font-armata	Armata
 font-arsenal	Arsenal
 font-artifika	Artifika
