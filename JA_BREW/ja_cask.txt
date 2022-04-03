@@ -1728,6 +1728,7 @@ lagrange	Geminispaceを閲覧するためのデスクトップGUIクライアン
 lando	Docker上に構築されたローカル開発環境とDevOpsツール
 landrop	LAN上の任意のデバイスに任意のファイルをドロップします
 lantern	Lantern
+lapce	Rustで書かれたオープンソースコードエディタ
 laravel-kit	デスクトップLaravel管理パネルアプリ
 lark	プロジェクト管理ソフトウェア
 lastfm	音楽サービスマネージャー
@@ -3090,6 +3091,7 @@ simple-comic	コミック 見る/読む
 simplediagrams	SimpleDiagrams
 simplefloatingclock	シンプルなフローティングクロック
 simplelink-msp432-sdk	MSP432P4マイクロコントローラー用のソフトウェア開発キット
+simplemind	SimpleMind
 simplenote	SimplenoteのReactクライアント
 simplesynth	SimpleSynth
 simplistic	jlutil
