@@ -932,6 +932,7 @@ creduce	関心のある属性を維持しながらC/C++プログラムを削減�
 crf++	連続データを セグメント化/ラベル付け するための条件付き確率場
 cri-tools	Kubelet Container Runtime Interface(CRI)のCLIおよび検証ツール
 crispy-doom	ChocolateDoomに基づく制限を削除する拡張解像度のDoomソースポート
+criterion	21世紀のクロスプラットフォームCおよびC++ユニットテストフレームワーク
 crm114	調査/並べ替え ログまたはデータストリームのフィルタリングまたは変更
 croaring	C(およびC++)での轟音ビットマップ
 croc	あるコンピュータから別のコンピュータに物を安全に送る
@@ -1053,6 +1054,7 @@ dcraw	デジタルカメラRAW写真デコードソフトウェア
 ddate	退屈な通常の日付を楽しいディスコーディアの日付に変換します
 ddcctl	Mac OSXコマンドラインのDDCモニターコントロール(明るさ)
 ddclient	ダイナミックDNSエントリを更新する
+ddcutil	DDC/CIとUSBを使用してモニター設定を制御する
 ddd	コマンドラインデバッガーのグラフィカルフロントエンド
 ddgr	ターミナルからのDuckDuckGo
 ddrescue	GNUデータ回復ツール
@@ -1115,6 +1117,7 @@ diff-so-fancy	diff-highlightなどを使用した見栄えの良いdiff
 diffoscope	ファイル、アーカイブ、およびディレクトリの詳細な比較
 diffr	端末からのコードレビューを容易にするLCSベースのdiffハイライトツール
 diffstat	diffファイルによって導入された変更のグラフを作成します
+difftastic	構文を理解するDiff
 diffutils	ファイル比較ユーティリティ
 digdag	ワークロード自動化システム
 digitemp	1線式ネットで温度センサーを読み取る
@@ -2210,6 +2213,7 @@ hg-fast-export	高速MercurialからGitへの変換器
 hicolor-icon-theme	FreeDesktop.orgアイコンテーマの代替品テーマ
 hidapi	USBおよびBluetoothHIDデバイスと通信するためのライブラリ
 highlight	ソースコードを構文の強調表示を使用してフォーマットされたテキストに変換します
+highs	線形最適化ソフトウェア
 hilite	コマンドを実行し、STDERR出力を強調表示するCLIツール
 himalaya	Rustで書かれたCLIメールクライアント
 hiredis	Redisの最低限のクライアント
@@ -2601,6 +2605,7 @@ kitchen-sync	ダンプおよびリロードすることなく、データベー�
 kite	プログラマーの経験を最低限に抑えるように設計されたプログラミング言語
 klavaro	Freeタッチタイピングtutorプログラム
 klee	シンボリック実行エンジン
+kmod	Linuxカーネルモジュールの処理
 kn	Knative ServingおよびEventingリソースを管理するためのコマンドラインインターフェイス
 knock	Port-knockサーバー
 knot	高性能な権限のみのDNSサーバー
@@ -2800,6 +2805,7 @@ libcroco	GNOMEのCSS解析および操作ツールキット
 libcsv	ANSI C89のCSVライブラリ
 libcue	CのCue sheetパーサーライブラリ
 libcuefile	CUEファイルを操作するためのライブラリ
+libcython	Python言語のC拡張機能を作成するためのコンパイラ
 libdaemon	UNIXデーモンの作成を容易にするCライブラリ
 libdap	科学データネットワーキングのフレームワーク
 libdazzle	GObjectおよびGtk+のGNOME手引きライブラリ
@@ -3368,6 +3374,7 @@ mariadb@10.2	MySQLのDrop-in代替品
 mariadb@10.3	MySQLのDrop-in代替品
 mariadb@10.4	MySQLのDrop-in代替品
 mariadb@10.5	MySQLのDrop-in代替品
+mariadb@10.6	MySQLのドロップイン置換
 markdown	テキストからHTMLへの変換ツール
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
 marked	速さのために構築されたマークダウンパーサーとコンパイラ
@@ -3553,6 +3560,7 @@ mongo-c-driver	MongoDBのCドライバー
 mongo-cxx-driver	MongoDBのC++ドライバー
 mongo-orchestration	単一のホストでMongoDB構成を管理するためのREST API
 mongocli	MongoDB CLIを使用すると、クラウドでMongoDBを管理できます
+mongodb-atlas-cli	Atlas CLIを使用するとMongoDB Atlasを管理できます
 mongoose	Libmongoose組み込みライブラリ上に構築されたWebサーバー
 mongosh	MongoDBシェル接続 構成/クエリ/MongoDBデータベース操作
 mongrel2	アプリケーション 言語 およびネットワーク基本設計に依存しないWebサーバー
@@ -3846,6 +3854,7 @@ nuttcp	ネットワーク性能測定ツール
 nuvie	Ultima 6エンジン
 nuxeo	企業コンテンツ管理
 nvc	VHDLコンパイラと模擬装置
+nvchecker	ソフトウェアリリースの新しいバージョンチェッカー
 nvi	44BSDによるviの再実装
 nvm	複数のNode.jsバージョンを管理する
 nwchem	高性能計算化学ツール
@@ -5508,6 +5517,7 @@ ufraw	未確認のFlyingRAW：RAW画像処理ユーティリティ
 uftp	安全で信頼性が高く効率的なマルチキャストファイル転送プログラム
 uftrace	C/C++/Rust用の関数グラフトレーサー
 uggconv	汎用ゲームGenieコード変換器
+ugit	gitコマンドを元に戻します あなたのダメージコントロール git buddy
 ugrep	クエリUIを備えた超高速grep あいまい検索/アーカイブ検索など
 uhd	すべてのUSRPデバイス用のハードウェアドライバー
 ultralist	コマンドライン用のシンプルなGTDスタイルのタスク管理
