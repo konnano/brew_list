@@ -30,6 +30,7 @@ abscissa	立案ソフトウェア
 abstract	スケッチファイルをサポートする協力的デザインツール
 abyssoft-teleport	仮想KVM
 accessmenubarapps	メニューバーアプリへの即時アクセス
+accord	最新のMac用にSwiftで書かれたDiscordクライアント
 accordance	聖書研究ソフトウェア
 accurics	コードとしての基盤のセキュリティと順守
 ace-link	VLCプレーヤーでAce Streamビデオストリームを再生できるメニューバーアプリ
@@ -148,6 +149,7 @@ anybar	メニューバーステータスインジケーター
 anydesk	コンピュータへのリモート接続を許可します
 anydo	通知 計画/日程表
 anylist	食料品の買い物リスト
+anypointstudio	Muleアプリケーションを設計およびテストするためのEclipse-based IDE
 ao	エレガントなMicrosoft To-Doデスクトップアプリ
 apache-couchdb	マルチマスター同期データベース
 apache-directory-studio	EclipseベースのLDAPブラウザーとディレクトリクライアント
@@ -219,6 +221,7 @@ audio-hijack	任意のアプリケーションからのオーディオを録音�
 audiobook-builder	オーディオCDとファイルをオーディオブックに変える
 audiogridder-plugin	VST2/VST3/AU/AAXDSP サーバープラグイン
 audiogridder-server	VST2/VST3/AUDSP サーバー
+audiorelay	AudioRelay
 audioscrobbler	最小限の堅牢なiTunesのscrobbling
 audioslicer	オーディオファイル内のすべての無音を検索します
 audirvana	オーディオ再生ソフトウェア
@@ -313,6 +316,7 @@ betelguese	脱獄されたデバイス用のOdysseyra1nインストーラーGUI
 better-window-manager	より良いウィンドウマネージャー
 betterdiscord-installer	BetterDiscordのインストーラー
 betterdummy	カスタム解像度を実現するためのAppleシリコンMac用ダミーディスプレイ
+bettermouse	サードパーティのマウスのパフォーマンスと機能を向上させるユーティリティ
 bettertouchtool	入力デバイスをカスタマイズしコンピューターシステムを自動化するためのツール
 betterzip	アーカイブを作成および変更するためのユーティリティ
 between	カップルのための関係アプリ
@@ -1143,6 +1147,7 @@ franz	WhatsAppのメッセージングアプリ Facebookメッセンジャー/�
 freac	オーディオ変換器とCD Ripper
 fredm-fuse	UNIX ZXSpectrumエミュレーターFuseのポート
 free-download-manager	ダウンロード 加速/整理
+free-gpgmail	GnuPG暗号化電子メール用のApple Mailプラグイン
 free-ruler	水平および垂直定規
 free42-binary	HP-42S計算機模擬装置
 free42-decimal	HP-42S計算機模擬装置
@@ -1636,6 +1641,7 @@ katalon-studio	テスト自動化ソリューション
 katana	オープンソースのスクリーンショットユーティリティ
 katrain	ゲームを分析して遊ぶためのツールはKataGoからのAIフィードバックに対応しています
 kawa	代替入力ソース切り替え
+kdenlive	Freeオープンソースビデオエディタ
 kdiff3	ファイルとディレクトリを比較およびマージするためのユーティリティ
 kdocs	Word用のオンラインコラボレーションエディタ Excel/PPTドキュメント
 kdrive	kDriveコラボレーティブ共同クラウドストレージサービスのクライアント
@@ -2427,6 +2433,7 @@ oscilloscope	光線オシロスコープの美学を模倣する
 osculator	MIDIコントローラーとOSCコントローラーを接続する
 osirix-quicklook	OsiriX DICOMファイル用のQuickLookプラグイン
 osmc	Freeのオープンソースメディアセンター
+osp-tracker	物理教育のためのビデオ分析およびモデリングツール
 osquery	SQLを利用したオペレーティングシステムのインストルメンテーションと分析
 oss-browser	OSS(オブジェクトストレージサービス)用のグラフィカルな管理ツール
 osxfuse	ファイルシステム統合
@@ -2608,6 +2615,7 @@ polkadot-js	PolkadotおよびSubstrateネットワークへのポータル
 polycom-content	Polycomコンテンツアプリ
 polycom-realpresence	ビデオ協調アプリ
 polymail	Polymail
+polymc	マインクラフトランチャー
 polypane	野心的な開発者のためのブラウザー
 polyphone	Polyphone
 pomatez	Pomodoroタイマー
@@ -2633,6 +2641,7 @@ postgres-unofficial	Postgresのアプリラッパー
 postgrespreferencepane	PostgresPrefs
 postico	PostgreSQLデータベース用のGUIクライアント
 postman	API開発のための協力的プラットフォーム
+postman-agent	Postman on theWebのデスクトップエージェント
 powder	物理サンドボックスゲーム
 powder-player	パウダープレーヤー
 power-manager	タスクを自動化し電力管理を改善するユーティリティ
@@ -2842,6 +2851,7 @@ react-native-debugger	ReactNativeアプリをデバッグするための独立�
 react-proto	開発と設計のためのReactアプリケーションプロトタイピングツール
 react-studio	ReactStudio
 reactotron	React JSおよびReact Nativeプロジェクトを検査するためのデスクトップアプリ
+readyapi	自動APIテストプラットフォーム
 realforce	Realforceキーボードおよびマウス用のソフトウェア
 reamp	SwiftUIで記述されたWinAMPクローン
 reaper	デジタルオーディオ制作アプリケーション
@@ -3775,6 +3785,7 @@ waltr	Appleデバイス用のメディア直接転送ツール
 waltr-heic-converter	HEICからJPEGへの画像変換器をドラッグアンドドロップします
 waltr-pro	Appleデバイス用のメディア変換および直接転送ツール
 wannianli	メニューバー 中国の太陰暦
+warp	Warp
 warsow	一人称シューティングゲーム
 warzone-2100	Freeのオープンソースリアルタイム戦略ゲーム
 wasabi-wallet	プライバシーに焦点を当てたビットコインウォレット オープンソース/非管理
