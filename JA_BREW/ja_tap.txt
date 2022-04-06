@@ -1811,6 +1811,7 @@ font-ubuntu-mono-derivative-powerline	Ubuntu Mono derivative Powerline
 font-ubuntu-mono-nerd-font	UbuntuMonoオタクフォント(Ubuntu Mono)
 font-ubuntu-nerd-font	Ubuntuオタクフォント(Ubuntu)
 font-uchen	Uchen
+font-udev-gothic	BIZ UD GothicとJetBrains Mono のフォントを統合する
 font-ultra	Ultra
 font-uncial-antiqua	Uncial Antiqua
 font-underdog	Underdog
@@ -1951,6 +1952,7 @@ datacolor-spyder-pro	モニターキャリブレーションツール
 displaylink	DisplayLinkドック用のドライバー アダプター/モニター
 displaylink-login-extension	ログイン前にDisplayLink画面を有効にします
 drobo-dashboard	データロボティクスストレージデバイス用の管理ソフトウェアとドライバー
+droidcam-obs	OBS Studioで直接カメラとして携帯電話を使用する
 eizo-colornavigator	Eizo Coloredge画面を調整する
 elecom-mouse-assistant	ELECOMマウスをより効果的に使用するためのソフトウェア
 elektron-overbridge	Elektronハードウェアを音楽ソフトウェアに統合する
@@ -2008,6 +2010,7 @@ lacie-network-assistant	CloudBoxとすべてのLaCieネットワーク接続ス�
 lg-onscreen-control	接続されているすべてのLGモニター情報を表示します
 linn-konfig	Linn Konfig
 lmsclients-squeezeplay	メディアサーバークライアント
+logi-options-plus	Logitechデバイス用のソフトウェア 
 logitech-camera-settings	カメラコントロールへのアクセスを提供します
 logitech-control-center	マウスとキーボードをカスタマイズする
 logitech-firmwareupdatetool	Logitechワイヤレスレシーバーと選択したキーボードを更新します
