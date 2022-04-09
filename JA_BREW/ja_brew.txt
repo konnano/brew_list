@@ -1299,6 +1299,7 @@ ec2-ami-tools	Amazon EC2 AMIツール(Amazonマシンイメージのバンドル
 ec2-api-tools	Amazon EC2 Webサービスへのクライアントインターフェース
 ecasound	マルチトラック対応のオーディオレコーダーとエフェクト計算機
 eccodes	GRIB 1/2 とBUFR 3/4 形式のメッセージをデコードおよびエンコードします
+ecflow-ui	client/serverワークフローパッケージのユーザーインターフェイス
 echoprint-codegen	EchoprintのCodegen
 ecl	埋め込み可能なCommon Lisp
 ecm	CDイメージファイルを作成して圧縮率を高めます
@@ -2268,6 +2269,7 @@ httping	HTTPリクエストのpingのようなツール
 httpry	HTTP転送量を表示およびログ記録するためのパケット探知
 httpstat	Curl統計がシンプルに
 httpx	高速で多目的のHTTPツールキット
+httpyac	すばやく簡単にRESTを送信します SOAP GraphQL/gRPC リクエスト
 httrack	Webサイトブラウザ copier/offline
 hub	コマンドラインでgitにGitHubサポートを追加する
 hubble	ネットワーク eBPFを使用したKubernetesのサービスとセキュリティの可観測性解析
@@ -2347,6 +2349,7 @@ imgur-screenshot	スクリーンショットを選択 upload to imgur. + more co
 imlib2	画像の読み込みと解釈のライブラリ
 immortal	OSにとらわれない(*nix)クロスプラットフォーム管理
 immudb	軽量で高速な不変のデータベース
+imposm3	OpenStreetMapデータをPostgreSQL/PostGISデータベースにインポートします
 inadyn	ダイナミックDNSクライアントサポート IPv4/IPv6/SL/TLS
 include-what-you-use	CおよびC++ソースファイルの #includesを分析するためのツール
 indicators	最新のC++の活発なインジケーター
@@ -2936,6 +2939,7 @@ liblwgeom	SpatiaLiteがPostGISのようなST_MakeValid()をサポートできる
 liblzf	非常に小さく、非常に高速なデータ圧縮ライブラリ
 libmaa	ハッシュテーブルを含む低レベルのデータ構造 セット/リスト
 libmagic	file(1)コマンドの実装
+libmarpa	Marpa解析エンジンCライブラリ -- STABLE
 libmatio	MATLAB MATファイルの読み取りと書き込み用のCライブラリ
 libmatroska	拡張可能 オーディオ/ビデオ のオープンスタンダードコンテナフォーマット
 libmaxminddb	MaxMind DBファイル形式のCライブラリ
