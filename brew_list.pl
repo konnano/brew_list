@@ -224,7 +224,8 @@ sub Size_1{ no warnings 'numeric';
        $HA{"$du\t$AN[$i]"} = 1;
     }
      while(<$FH>){ chomp;
-      $HA{$_} = 1; }
+      $HA{$_} = 1;
+     } close $FH;
    }else{
     for(my $i=$in;$i<@AN;$i++){
       chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
