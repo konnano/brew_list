@@ -223,8 +223,8 @@ sub Size_1{ no warnings 'numeric';
       chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
        $HA{"$du\t$AN[$i]"} = 1;
     }
-    my @pype = <$FH>;
-   chomp and $HA{$_} = 1 for(@pype);
+     while(<$FH>){ chomp;
+      $HA{$_} = 1; }
    }else{
     for(my $i=$in;$i<@AN;$i++){
       chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
