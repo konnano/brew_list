@@ -215,11 +215,21 @@ sub Size_1{ no warnings 'numeric';
   }
   unless( $pid or @data ){ Wait_1( $re );
   }else{
-    my @AN = @data ? @data : @$list;
-   for my $dir( @AN ){ $dir =~ s/^\s+(.+)\n/$1/;
-    @{$AR{$dir}} = glob "$re->{'CEL'}/$dir/*";
-     my $du = `du -ks $re->{'CEL'}/$dir|awk '{print \$1}'`;
-      $HA{"$du\t$dir"} = 1;
+   my @AN = @data ? @data : map{ $_=~s/^\s+(.+)\n/$1/;$_; }@$list;
+    @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@AN);
+   my $in = int @AN/2;
+   if( open my $FH,'-|' ){
+    for(my $i=0;$i<$in;$i++){
+      chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
+       $HA{"$du\t$AN[$i]"} = 1;
+    }
+    my @pype = <$FH>;
+   chomp and $HA{$_} = 1 for(@pype);
+   }else{
+    for(my $i=$in;$i<@AN;$i++){
+      chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
+       print "$du\t$AN[$i]\n";
+    } exit;
    } waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT";
   }
   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
