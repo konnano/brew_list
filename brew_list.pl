@@ -226,6 +226,7 @@ sub Size_1{ no warnings 'numeric';
      while(<$FH>){ chomp;
       $HA{$_} = 1;
      } close $FH;
+     if( $? ){ waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT"; die " can't open process\n"; }
    }else{
     for(my $i=$in;$i<@AN;$i++){
       chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
@@ -567,7 +568,8 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
    ( $re->{'TREE'} and not $re->{'DD'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$$brew if $re->{'DEL'} and $re->{'OS'}{"deps$$brew"} < 2;
- $re->{'OS'}{"$re->{'INF'}deps"} .= "$$brew\t" if $re->{'OS'}{"deps$$brew"} < 2 and not $build;
+  $re->{'OS'}{"$re->{'INF'}deps"} .= "$$brew\t"
+   if $re->{'OS'}{"deps$$brew"} < 2 and $re->{'HASH'}{$$brew} and not $build;
 }
 
 sub Read_1{
