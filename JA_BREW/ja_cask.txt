@@ -974,6 +974,7 @@ epubquicklook	QuickLook生成器とSpotlightインポーター
 eqmac	システム全体のオーディオイコライザー
 equinox	ダイナミックな壁紙を作成する
 eset-cyber-security-pro	ESET Cyber Security Pro
+espanso	Rustで書かれたクロスプラットフォームのテキストエキスパンダー
 espresso	才能と効率に焦点を当てたWebサイトエディター
 ethereum-wallet	イーサリアムネットワーク上のÐappsのブラウザー
 etrecheckpro	コンピュータシステムの問題を見つけて修正するためのユーティリティ
@@ -1201,6 +1202,7 @@ gcc-arm-embedded	32ビットArmプロセッサ用の構築済みGNUベアメタ�
 gcollazo-mongodb	MongoDBのアプリラッパー
 gcs	GURPS第4版ロールプレイングゲームのキャラクターシートエディター
 gdat	常染色体DNAを利用して家系図の研究を支援するアプリ
+gdevelop	誰もが使用できるように設計されたオープンソースのクロスプラットフォームゲームエンジン
 gdisk	ディスクパーティションツール
 gdlauncher	カスタムMinecraftランチャー
 geany	高速で軽量なIDE
@@ -2242,6 +2244,7 @@ ndm	Node.jsパッケージマネージャー(NPM)のデスクトップマネー�
 neat-reader	読む ePubブックに注釈を付けて管理する
 neo4j	Neo4jインスタンス用の開発者IDEまたは管理環境
 neofinder	デジタルメディアアセットマネージャー
+neovide	Neovimクライアント
 nestopia	ファミコン(NES)エミュレータ
 netbeans	開発環境 ツーリングプラットフォーム/アプリケーションフレームワーク
 netdownloadhelpercoapp	Webからのビデオダウンロードを許可します
