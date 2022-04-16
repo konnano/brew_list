@@ -460,7 +460,6 @@ boost	ポータブルC++ソースライブラリのコレクション
 boost-bcp	Boostライブラリのサブセットを抽出するためのユーティリティ
 boost-build	C++ビルドシステム
 boost-mpi	相互運用性のためのC++ライブラリ C++/MPI
-boost-python	相互運用性のためのC++ライブラリ C++/Python2
 boost-python3	相互運用性のためのC++ライブラリ C++/Python3
 boost@1.76	ポータブルC++ソースライブラリのコレクション
 boot-clj	Clojureのツールを構築する
@@ -1989,6 +1988,7 @@ gopass-jsonapi	Gopassブラウザbindings
 gopls	Go言語の言語サーバー
 goplus	工学のためのプログラミング言語 STEM技術/データサイエンス
 goproxy	Goモジュールのグローバルプロキシ
+gops	システムで現在実行されているGoプロセスを一覧表示および診断するためのツール
 gor	Goで記述されたリアルタイムHTTP転送再生ツール
 goredo	Go djbのやり直しの実装 扱うことが少ないMakefileの交換
 goreleaser	Goバイナリをできるだけ速く簡単に配信する
@@ -2619,7 +2619,6 @@ kobalt	ビルドシステム
 koka	Koka言語コンパイラ
 kommit	コミットせずにより詳細なコミットメッセージ！
 kompose	`docker-compose`からKubernetesに移動するためのツール
-komposition	スクリーンキャスター向けに構築されたビデオエディタ
 kona	Kプログラミング言語のオープンソース実装
 kondo	ソフトウェアプロジェクトから不要なファイルを削除してディスク容量を節約します
 kopia	高速で安全なオープンソースバックアップ
@@ -5752,6 +5751,7 @@ wego	ターミナルの天気アプリ
 weighttp	マルチスレッドをサポートするWebサーバー基準比較ツール
 wellington	Sassとスピリットを管理するためのプロジェクトに焦点を当てたツール
 wemux	tmuxを拡張してマルチユーザー端末の多重化を提供します
+werf	Kubernetes用の一貫した配信ツール
 west	Zephyrメタツール
 wgcf	CloudflareWarpアカウントからWireGuardプロファイルを生成する
 wget	インターネットファイルRetriever
