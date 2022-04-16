@@ -648,6 +648,7 @@ font-handlee	Handlee
 font-hannari	Hannari
 font-hanuman	Hanuman
 font-happy-monkey	Happy Monkey
+font-harano-aji	日本語フォント(Adobe-Japan1(AJ1)CIDを使用したSource Hanフォント)
 font-harmattan	Harmattan
 font-hasklig	等幅合字のコードフォント
 font-hasklug-nerd-font	Hasklugオタクフォント(Hasklig)
@@ -2129,6 +2130,7 @@ alfred3	アプリケーションランチャーと生産性ソフトウェア
 anaconda2	Continuum Analytics Anaconda2
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
+anki-beta	記憶力トレーニングアプリケーション
 appcode-eap	Swift/Objective-C/C/C++ 開発用のIDE
 arduino-ide-beta	電子工学プロトタイピングプラットフォーム
 arduino-ide-nightly	電子工学プロトタイピングプラットフォーム
