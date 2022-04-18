@@ -3744,6 +3744,7 @@ vitalsigns	温度およびメモリモニター
 vitalsource-bookshelf	eTextbooksにアクセスする
 vitamin-r	生産性ツールと技術のコレクション
 vivaldi	カスタマイズと制御に焦点を当てたWebブラウザー
+vivid	ディスプレイの適応輝度
 vk-messenger	メッセンジャーアプリ
 vlc	マルチメディアプレーヤー
 vlc-setup	VLCRemoteのVLCを設定する
