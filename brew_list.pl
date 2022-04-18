@@ -343,7 +343,7 @@ my $re = shift;
 
 sub DB_2{
  my $re = shift;
- tie my %tap,"NDBM_File","$re->{'HOME'}/DBM",O_RDONLY,0 or die " Not read DBM\n";
+ tie my %tap,"NDBM_File","$re->{'HOME'}/DBM",O_RDONLY,0 or die " Not read DBM $!\n";
  $re->{'OS'} = \%tap;
 }
 
@@ -855,7 +855,7 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'LINK'} == 3 and $re->{'OS'}{"$brew_1$OS_Version"} or
       $re->{'LINK'} == 4 and $re->{'OS'}{"${brew_1}un_cask"} or
       $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
-      $re->{'LINK'} == 6 and $re->{'OS'}{"deps$brew_1"} or
+      $re->{'LINK'} == 6 and $re->{"deps$brew_1"} or
       $re->{'LINK'} == 7 and $re->{"${brew_1}delet"} ){
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
@@ -992,7 +992,7 @@ my( $list,$re,$in ) = @_;
        $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"$tap$OS_Version"} or
        $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
        $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} or
-       $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{'OS'}{"deps$tap"} or
+       $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{"deps$tap"} or
        $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} ){
       $brew = 0;
    }
@@ -1353,8 +1353,7 @@ sub Tied_1{
 my( $re,$i,@file1,@file2 ) = @_;
  while(my $tap = <DATA>){
   ++$i and next if $tap =~ /^__TIE__$/;
-   push @file1,$tap unless $i;
-    push @file2,$tap if $i;
+   $i ? push @file2,$tap : push @file1,$tap;
  }
  open my $file1,'>',"$re->{'HOME'}/font.sh" or die " Tied1 $!\n";
   print $file1 @file1;
@@ -1658,7 +1657,7 @@ sub Dirs_1{
 }
 
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
-tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0644 or die " tie DBM $!\n";
+tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
  for my $alias(@ALIA){
   my $hand = readlink $alias;
