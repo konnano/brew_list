@@ -88,7 +88,7 @@ MAIN:{
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
    die " Not Locale\n" unless $Locale;
     -d "$ENV{'HOME'}/.JA_BREW" ?
-    print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW';  exit;
+    print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW'; exit;
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
@@ -154,7 +154,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_4\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.08_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -206,7 +206,7 @@ sub Size_1{ no warnings 'numeric';
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\r\x1B[?25h\n"; };
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
-   @data = split "\t",$re->{'OS'}{"$re->{'INF'}deps"} if $re->{'OS'}{"$re->{'INF'}deps"};
+   @data = split "\t",$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
   }
   unless( @data ){
@@ -342,11 +342,9 @@ my $re = shift;
 }
 
 sub DB_2{
-my( $re,%NA ) = @_;
- tie my %tap,"NDBM_File","$re->{'HOME'}/DBM",O_RDONLY,0;
-   %NA = %tap;
-  untie %tap;
- $re->{'OS'} = %NA ? \%NA : die " Not read DBM\n";
+ my $re = shift;
+ tie my %tap,"NDBM_File","$re->{'HOME'}/DBM",O_RDONLY,0 or die " Not read DBM\n";
+ $re->{'OS'} = \%tap;
 }
 
 sub Dirs_1{
@@ -560,16 +558,16 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
  $name = -t STDOUT ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
    if $re->{'COLOR'} and $re->{'HASH'}{$$brew} and $re->{"$${brew}delet"};
 
- $re->{'OS'}{"deps$$brew"} +=
+ $re->{"deps$$brew"} +=
    ( $re->{'TREE'} and $re->{'DD'} and $name =~ /\(can delete\)/ ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" :
    ( $re->{'TREE'} and $build and not $re->{'DD'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
    ( $re->{'TREE'} and not $re->{'DD'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
- push @$AN,$$brew if $re->{'DEL'} and $re->{'OS'}{"deps$$brew"} < 2;
-  $re->{'OS'}{"$re->{'INF'}deps"} .= "$$brew\t"
-   if $re->{'OS'}{"deps$$brew"} < 2 and $re->{'HASH'}{$$brew} and not $build;
+ push @$AN,$$brew if $re->{'DEL'} and $re->{"deps$$brew"} < 2;
+  $re->{"$re->{'INF'}deps"} .= "$$brew\t"
+   if $re->{"deps$$brew"} < 2 and $re->{'HASH'}{$$brew} and not $build;
 }
 
 sub Read_1{
@@ -1112,7 +1110,7 @@ my( $an,$re ) = @_;
 }
 
 sub Format_1{
-my( $re,$ls,$sl,$ss,$ze ) = @_;
+ my $re = shift;
  if( $re->{'TREE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
 
@@ -1161,7 +1159,7 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
   print for( @{$re->{'OUT'}} );
    $re->{'CAS'} = 0;
  }else{
-  if( -t STDOUT ){
+  if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
    my $leng = $re->{'LEN1'};
     my $tput = `tput cols`;
      my $size = int $tput/($leng+2);
@@ -1203,8 +1201,8 @@ my( $re,$ls,$sl,$ss,$ze ) = @_;
 }
 
 sub Format_2{
-my( $re,$mm,@tt ) = @_; my $e = 0;
- if( $re->{'TT'} ){
+my $re = shift;
+ if( $re->{'TT'} ){ my( $mm,@tt ); my $e = 0;
   for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
    $mm = () = ${$re->{'UNI'}}[$i] =~ /\|/g;
    if( $mm == $e or ${$re->{'UNI'}}[$i] =~ /require/ ){
