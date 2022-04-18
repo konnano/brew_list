@@ -78,7 +78,7 @@ sub Dirs_1{
 }
 
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
-tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0644 or die " tie DBM $!\n";
+tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
  for my $alias(@ALIA){
   my $hand = readlink $alias;
