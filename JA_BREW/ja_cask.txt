@@ -273,6 +273,7 @@ balance-lock	オーディオバランスが左右にドリフトするのを防�
 balenaetcher	OSイメージをSDカードとUSBドライブにフラッシュするツール
 ballast	オーディオバランスがずれないようにするステータスバーアプリ
 balsamiq-wireframes	UIワイヤーフレーミングツール
+banana-cake-pop	GraphQLサーバーと対話するためのIDE
 bandage	Denovoアセンブリグラフをナビゲートするための生物情報科学アプリケーション
 bankid	電子個人識別システム
 banking-4	German会計ソフトウェア
@@ -768,6 +769,7 @@ deluge	BitTorrentクライアント
 dendroscope	rootの系統treeとネットワークのための双方向なビューア
 denemo	楽譜作成プログラム
 depthmapx	空間ネットワーク分析ソフトウェア
+descript	オーディオおよびビデオエディタ
 deskreen	Webブラウザーを備えたデバイスをセカンダリ画面に変えます
 desktoppr	デスクトップ画像を設定するためのコマンドラインツール
 desktoputility	便利なシステムタスクへのクイックアクセス
@@ -1675,6 +1677,7 @@ keyfinder	音楽調検出ツール
 keyman	別の言語で入力するようにキーボードを再構成します
 keymanager	KeyManager
 keypad-layout	Ctrlキーとテンキーを使用してウィンドウレイアウトを制御するユーティリティ
+keysafe	Keysafe
 keyshot	KeyShot
 keysmith	あらゆるもののカスタムキーボードショートカットを作成する
 keystore-explorer	JavaコマンドラインユーティリティkeytoolおよびjarsignerのGUI置換
@@ -1932,6 +1935,7 @@ manico	アプリランチャーと切り替え
 manictime	コンピューターの使用状況データを自動的に収集する時間監視
 manta	カスタマイズ可能なテンプレートを使用したInvoicingデスクトップアプリ
 manuskript	作家のためのツール
+manymc	ネイティブarm64をサポートするMinecraftランチャー
 manyverse	ピアツーピアSSB手続きに基づいて構築されたソーシャルネットワーク
 mapture	Mapture
 marathon	三部作で最初の一人称シューティングゲーム
@@ -2088,6 +2092,7 @@ mission-control-plus	Mission Controlでウィンドウを管理する
 missive	チームの受信トレイとチャットツール
 mit-app-inventor	MIT App Inventor
 mixed-in-key	DJと音楽プロデューサーのための調和的ミキシング
+mixed-in-key-live	キーライブでミックス
 mixxx	オープンソースのDJソフトウェア
 mjml	MJML用デスクトップアプリ
 mjolnir	軽量の自動化と生産性のアプリ
@@ -3533,6 +3538,7 @@ tlv	Tableau Log Viewer
 tn3270-x	IBM3270端末を使用するコンピューターに接続するための端末エミュレーター
 tnefs-enough	MicrosoftTNEFファイルからファイルを読み取って抽出します
 today-scripts	今日のスクリプト
+todesk	リモートコントロールソフトウェア
 todoist	やることリスト
 todometer	メーターベースのやることリスト
 todotxt	最低限 キーボード駆動のToDoマネージャー
@@ -3874,6 +3880,7 @@ wormhole	PCで電話を閲覧&制御 iOSおよびAndroid用のScreenFusion
 wowmatrix	WowMatrix
 wowup	World of Warcraftアドオンマネージャー
 wpsoffice	オールインワンのオフィスパッケージ
+wpsoffice-cn	WPS Office
 wrike	プロジェクト管理アプリ
 write	手書き用ワードプロセッサ
 writefull	あなたの執筆に関するフィードバックを提供します
