@@ -104,6 +104,7 @@ anime-downloader	お気に入りのアニメをダウンロード
 anjuta	GNOME統合開発環境
 ansible	展開の自動化 構成/アップグレード
 ansible-cmdb	Ansibleファクトから静的HTML概要ページを生成します
+ansible-language-server	Ansibleファイル用の言語サーバー
 ansible-lint	実践と行動についてAnsibleプレイブックをチェックします
 ansible@2.8	展開の自動化 構成/アップグレード
 ansible@2.9	展開の自動化 構成/アップグレード
@@ -3256,6 +3257,7 @@ lmod	PATH変数を変更するLuaベースの環境モジュールシステム
 lnav	ログファイルを表示および分析するためのCursesベースのツール
 loc	コードの行をすばやくカウントする
 localstack	完全に機能するローカルAWSクラウドスタック
+localtunnel	テストと共有を容易にするためにローカルホストを世界に公開します
 locateme	Appleのジオロケーションサービスを使用して現在地を検索する
 lockrun	オーバーラン保護を使用してcronジョブを実行する
 locust	Pythonで記述された拡張性のあるユーザー負荷テストツール
@@ -5016,6 +5018,7 @@ sonarqube	コード品質を管理する
 sonarqube-lts	コード品質を管理する
 sonic	高速/軽量 スキーマレスの検索バックエンド
 sonobuoy	クラスタの適合性に関する報告を生成するKubernetesコンポーネント
+sophus	Eigenを使用したLie GroupのC++実装
 sops	暗号化されたファイルの編集
 sord	RDFデータをメモリに格納するためのCライブラリ
 sound-touch	オーディオ処理ライブラリ
@@ -5224,7 +5227,6 @@ sysstat	Linuxの性能監視ツール
 systemc	コアSystemC言語と例え
 systemd	システムおよびサービスマネージャー
 sz81	ZX80/81 エミュレーター
-szip	Rice拡張で損失の無い圧縮アルゴリズムの実装
 t-completion	Twitter用CLIパワーツールの補完
 t-rec	WebのアニメーションGIF画像を生成する非常に高速なターミナルレコーダー
 t1lib	Type 1フォントからビットマップを生成/ラスタライズするためのCライブラリ
