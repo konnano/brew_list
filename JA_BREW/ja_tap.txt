@@ -1812,7 +1812,8 @@ font-ubuntu-mono-derivative-powerline	Ubuntu Mono derivative Powerline
 font-ubuntu-mono-nerd-font	UbuntuMonoオタクフォント(Ubuntu Mono)
 font-ubuntu-nerd-font	Ubuntuオタクフォント(Ubuntu)
 font-uchen	Uchen
-font-udev-gothic	BIZ UD GothicとJetBrains Mono のフォントを統合する
+font-udev-gothic	BIZ UD GothicとJetBrains Monoのフォントを統合する
+font-udev-gothic-nf	BIZ UD GothicとJetBrains Monoのフォントを統合す
 font-ultra	Ultra
 font-uncial-antiqua	Uncial Antiqua
 font-underdog	Underdog
@@ -2210,6 +2211,7 @@ keepassxc-beta	パスワードマネージャーアプリ
 keepassxc-snapshot	パスワードマネージャーアプリ
 keka-beta	File archiver
 keyboard-maestro8	キーボードMaestro
+kitty-nightly	GPU-basedターミナルエミュレータ
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
 lando-edge	Docker上に構築されたローカル開発環境とDevOpsツール
 libreoffice-still	Freeのクロスプラットフォームオフィススイート
