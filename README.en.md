@@ -1,4 +1,4 @@
-brew list command extended version: version 1.08_5
+brew list command extended version: version 1.08_6
 
 : how to use
 ```
@@ -54,6 +54,8 @@ Please check -dd or -de option   ( brew_list -ddd Formula | xargs brew uninstall
 
 '-' option　Brew list command
 
+'-ai' Analytics Data ( not argument 365d or argument 1 30d,2 90d )sort
+
   Only Mac: Cask
 
 '-c' option　Cask list is displayed, First argument Formula search, Second argument '.' Full-text search
@@ -67,6 +69,8 @@ Please check -dd or -de option   ( brew_list -ddd Formula | xargs brew uninstall
 '-cs' option　Formula and Cask same name list is displayed, regular expressions //
 
 '-cd' option Display the required list of casks
+
+'-ac' Analytics Data ( not argument 365d or argument 1 30d,2 90d )sort
 
  : Display mark
 
