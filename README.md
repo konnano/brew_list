@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.08_5　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.08_6　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -58,6 +58,8 @@ brew install brew_list
 
 '-' オプションで brew list コマンド
 
+'-ai' オプションで解析データ( 引数なし 365d,引数 1 30d,引数 2 90d )ソート
+
 Only 　Mac : Cask
 
 '-c' オプションでCaskリストが表示されます、最初の引数でFormula検索、2番目の引数'.'で全文検索 
@@ -71,6 +73,8 @@ Only 　Mac : Cask
 '-cs' オプションで同名のFormulaとCaskが表示されます、//で正規表現が使えます
 
 '-cd' オプションでCaskが必要とするCaskとFormulaが一覧表示されます
+
+'-ac' オプションで解析データ( 引数なし 365d,引数 1 30d,引数 2 90d )ソート
 
 : 表示マーク
 
