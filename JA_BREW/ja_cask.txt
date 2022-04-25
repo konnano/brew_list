@@ -587,6 +587,7 @@ cmd-eikana	⌘英かな
 cmdtap	Task Switcherに他の機能を追加します
 cncjs	CNCフライス盤コントローラーのインターフェース
 cncnet	CnCNet：クラシックコマンド&Conquer
+cnkiexpress	アカデミックアプリケーション
 coarchi	Archi用の協力的モデルプラグイン
 coccinellida	シンプルなSSHトンネルマネージャー
 coccoc	コック・コックブラウザー
@@ -2335,6 +2336,7 @@ nutstore	Nutstore
 nvalt	アプリを取ることに注意してください
 nvidia-geforce-now	クラウドゲームプラットフォーム
 nwjs	すべてのNode.jsモジュールをDOMおよびWebワーカーから直接呼び出します
+nym-wallet	コインを結合したり、Nymノードとやり取りしたり、他のノードに委任したりするために使用します
 nzbget	効率に焦点を当てたUsenetダウンローダー
 nzbvortex	パフォーマンスと使いやすさのために最適化されたNZBクライアント
 objectivesharpie	Objective-Cコードから始まるC#インターフェイスを生成するために使用されるツール
@@ -3849,6 +3851,7 @@ window-switch	Window Switch
 windows95	Electron Windows 95
 winds	Getstream.ioを利用したオープンソースのRSSおよびポッドキャストアプリ
 windscribe	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
+windterm	SSH/SFTP/Shell/Telnet/Serial ターミナル
 wine-stable	Windowsアプリケーションを実行するための互換性レイヤー
 wing-personal	学生や愛好家のために設計されたFreeのPython IDE
 wings3d	高度な分割モデラー
@@ -3975,7 +3978,7 @@ zeitgeist	Vercelの展開に注意してください
 zenbeats	音楽作成アプリ
 zenmap	公式のNmapセキュリティスキャナー用のマルチプラットフォームグラフィカルインターフェイス
 zenmate-vpn	ZenMate VPN
-zeplin	共有 デザインの整理と協調
+zeplin	共有デザインの整理と協調
 zerobranestudio	Lua IDE
 zeronet	ZeroNet
 zerotier-one	メッシュVPNクライアント
