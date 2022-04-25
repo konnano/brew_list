@@ -48,7 +48,7 @@ unless( $ARGV[0] ){
    }
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
   }
- rmdir "$ENV{'HOME'}/.BREW_LIST/7";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/13";
 }else{
  $re->{'LIN'} = 1;
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
@@ -85,8 +85,11 @@ unless( $ARGV[0] ){
   $alias =~ s|.+/(.+)|$1|;
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alias"} = $hand;
- }
- for my $dir1(@BREW){
+ } my $in = int @BREW/4; my $e;
+ for my $dir1(@BREW){ $e++;
+  if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
+  }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
+  }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16"; }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
   open my $BREW,'<',"$dir1" or die " tie Info_1 $!\n";
@@ -335,9 +338,11 @@ unless( $ARGV[0] ){
    $tap{'glibcLinux'} = 0;
  }
 }
- if( $re->{'MAC'} ){ my $IN = 0;
- rmdir "$ENV{'HOME'}/.BREW_LIST/8";
-  for my $dir2(@CASK){
+ if( $re->{'MAC'} ){ my( $IN,$e ) = 0;
+ rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+  my $in = int @CASK/2;
+  for my $dir2(@CASK){ $e++;
+   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $e == $in;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
