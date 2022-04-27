@@ -157,7 +157,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_6\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.08_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -582,7 +582,7 @@ my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
 sub Unic_1($\$$$;$){
 my( $re,$brew,$spa,$AN,$build ) = @_;
  my $name = $$brew;
-  $$brew =  $re->{'OS'}{"$${brew}alias"} ? $re->{'OS'}{"$${brew}alias"} : $$brew;
+  $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
  $name = -t STDOUT ? "$name \033[33m(require)\033[00m" : "$name (require)"
    if not $re->{'COLOR'} and ( not $re->{'HASH'}{$$brew} or
           $re->{'OS'}{"$${brew}ver"} gt $re->{'HASH'}{$$brew} );
@@ -1786,12 +1786,14 @@ unless( $ARGV[0] ){
   my $hand = readlink $alias;
   $alias =~ s|.+/(.+)|$1|;
    $hand =~ s|.+/(.+)\.rb|$1|;
-  $tap{"${alias}alias"} = $hand;
- } my $in = int @BREW/4; my $e;
- for my $dir1(@BREW){ $e++;
-  if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
-  }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
-  }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16"; }
+  $tap{"${alias}alia"} = $hand;
+ } my( $in,$e ) = int @BREW/4;
+ for my $dir1(@BREW){
+  if( $re->{'MAC'} ){ $e++;
+   if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
+   }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
+   }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16"; }
+  }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
   open my $BREW,'<',"$dir1" or die " tie Info_1 $!\n";
@@ -2040,9 +2042,9 @@ unless( $ARGV[0] ){
    $tap{'glibcLinux'} = 0;
  }
 }
- if( $re->{'MAC'} ){ my( $IN,$e ) = 0;
+ if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
-  my $in = int @CASK/2;
+ my( $IN,$in,$e ) = ( 0,int @CASK/2 );
   for my $dir2(@CASK){ $e++;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $e == $in;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
