@@ -1350,7 +1350,7 @@ sub Format_3{
    }
    unless( $re->{'OS'}{"${name}d_cask"} ){
     for(my $d=0;$d<@fom;$d++){
-     my $mem = $re->{'OS'}{"${fom[$d]}alias"} ? $re->{'OS'}{"${fom[$d]}alias"} : $fom[$d];
+     my $mem = $re->{'OS'}{"${fom[$d]}alia"} ? $re->{'OS'}{"${fom[$d]}alia"} : $fom[$d];
       my $in = $re->{'HASH'}{$mem} ? ' (I)' : '';
      my $desc4 = $JA{$mem} ? $JA{$mem} : $re->{'OS'}{"${mem}f_desc"} ?
       $re->{'OS'}{"${mem}f_desc"} : $re->{'OS'}{"${mem}f_name"} ? $re->{'OS'}{"${mem}f_name"} : '';
