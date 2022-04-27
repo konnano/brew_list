@@ -334,6 +334,7 @@ baobab	Gnomeディスク使用量分析器
 bar	シェルスクリプトのプログレスバーを提供する
 bareos-client	Bareosのクライアント(バックアップアーカイブ リカバリオープンソース)
 baresip	モジュラーSIPユーザーエージェント
+bartib	コマンドライン用の単純時間追跡
 bartycrouch	Stringsファイルを段階的に 更新/翻訳 します
 bas55	ECMA-55で定義されている最低限のBASICプログラミング言語解釈プログラム
 base64	base64ファイルのエンコードとデコード
@@ -1057,6 +1058,7 @@ ddclient	ダイナミックDNSエントリを更新する
 ddcutil	DDC/CIとUSBを使用してモニター設定を制御する
 ddd	コマンドラインデバッガーのグラフィカルフロントエンド
 ddgr	ターミナルからのDuckDuckGo
+ddh	高速複製ファイルファインダー
 ddrescue	GNUデータ回復ツール
 deark	古い形式のファイル変換ユーティリティ
 debianutils	Debianに固有のその他のユーティリティ
@@ -2279,6 +2281,7 @@ huexpress	PCエンジンエミュレータ
 hugo	構成可能な静的サイト発生器
 hunspell	スペルチェッカーと形態素解析器
 hurl	プレーンテキストとcurlを使用してHTTPリクエストを実行およびテストする
+hut	sr.ht用のCLIツール
 hwloc	現代建築の階層topologyのポータブル抽象化
 hy	Pythonに埋め込まれているLispの方言
 hydra	多くのサービスをサポートするネットワークlogonクラッカー
@@ -5089,6 +5092,7 @@ sqlite-utils	SQLiteデータベースを操作するためのCLIユーティリ�
 sqliteodbc	SQLiteのODBCドライバー
 sqlmap	SQLインジェクションおよびデータベースサーバーの侵入テスト
 sqlparse	非検証SQLパーサー
+sqls	Goで記述されたSQL言語サーバー
 sqlx-cli	RustSQLツールキットであるSQLxのコマンドラインユーティリティ
 sqoop	Hadoopと構造化データstore間でバルクデータを転送する
 sqsmover	AWSSQSメッセージムーバー
@@ -5609,6 +5613,7 @@ vc	C++のSIMD空間クラス
 vc4asm	Broadcom VideoCore IV、別名Raspberry PiGPUのマクロアセンブラー
 vcdimager	(スーパー)ビデオCD解決ソリューション
 vcftools	VCFファイルを操作するためのツール
+vcluster	ホストk8sクラスターの名前空間内に完全に機能する仮想k8sクラスターを作成します
 vcpkg	C++ライブラリマネージャー
 vcprompt	シェルプロンプトでバージョン管理情報を提供する
 vcs	ビデオのビデオコンタクトシート(プレビュー)を作成します
