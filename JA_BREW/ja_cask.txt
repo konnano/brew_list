@@ -334,7 +334,6 @@ binance	暗号通貨交換
 binary-ninja	逆エンジニアリングプラットフォーム
 bingpaper	Bingの毎日の写真を壁紙として使用します
 bino	ビデオプレーヤー
-biopassfido	BioPass FIDO2マネージャー
 birdfont	フォントエディター
 biscuit	アプリを整理するためのブラウザー
 bisq	分散型ビットコイン交換ネットワーク
@@ -391,7 +390,6 @@ boom-3d	ボリュームブースターおよびイコライザーソフトウェ
 boop	開発者向けのスクリプト可能なスクラッチパッド
 boost-note	開発者向けのマークダウンノートエディター
 boostnote	開発者向けのマークダウンエディター
-bootchamp	BootCamp Windowsパーティションを起動するためのメニューバーアプリ
 bootstrap-studio	Bootstrapフレームワークを使用したWebサイトの設計とプロトタイプ
 bootxchanger	古いMacのブートロゴを変更するユーティリティ
 bossa	bossa
@@ -1069,7 +1067,6 @@ firecamp	マルチ手続きAPI開発プラットフォーム
 firefly	IOTAの公式ウォレット
 firefox	Webブラウザー
 firestorm	仮想世界にアクセスするためのViewer
-firestormos	仮想世界にアクセスするためのViewer
 fireworks	パーティクルエフェクトエディター
 firmaec	デジタル証明書を介してドキュメントに署名する
 fiscript	FiScript
@@ -1086,7 +1083,6 @@ flexiglass	Flexiglass
 flic	FlicBluetoothボタンのドライバー
 flickr-uploadr	Flickrアップローダー
 flightgear	フライト模擬装置
-flip4mac	再生してWindowsメディアを変換する
 flipper	モバイル開発者向けのデスクトップデバッグプラットフォーム
 fliqlo	Flip clockのスクリーンセーバー
 flirc	Flirc
@@ -1104,12 +1100,12 @@ flume	Instagramデスクトップクライアント
 fluor	アクティブなアプリケーションに応じてfnキーの動作を変更します
 flutter	モバイル向けアプリケーションを構築するためのUIツールキット Web/デスクトップ
 flux	画面の色温度コントローラー
-flvcd-bigrats	大きなネズミMAC
 fly	Concourse CIの公式CLIツール
 flycast	Dreamcast、NaomiとAtomiswaveエミュレーター
 flycut	開発者向けクリップボードマネージャー
 flying-carpet	一時的wifiを介したファイル転送
 fmail	Fastmailの非公式ネイティブアプリケーション
+fmail2	Fastmail用の非公式(軽量)ネイティブアプリケーション
 fman	fman
 fme	空間データを統合するためのプラットフォーム
 focus	Webサイトとアプリケーションブロッカー
@@ -1766,7 +1762,6 @@ leapp	クラウド認証情報マネージャー
 ledger-live	複数の暗号通貨を維持するためのウォレットデスクトップアプリケーション
 leech	軽量ダウンロードマネージャー
 leela	使いやすいグラフィカルインターフェイスでプログラムをプレイしてください
-lego-digital-designer	仮想レゴブロックを使用してモデルを構築する
 lego-mindstorms-ev3	Lego Mindstorms EV3 ホーム版
 lehreroffice	LehrerOffice
 leksah	Haskell IDE
@@ -2180,7 +2175,6 @@ multifirefox	MultiFirefox
 multimc	マインクラフトランチャー
 multipass	仮想Ubuntuインスタンスを調整します
 multipatch	ファイルパッチユーティリティ
-multiscan-3b	マルチスキャン3B
 multitouch	トラックパッドとマジックマウスのジェスチャーを追加する
 mumble	オープンソース/低遅延 ゲーム用の高品質ボイスチャットソフトウェア
 mumu	Mumu
@@ -2203,7 +2197,6 @@ mutesync	mütesync物理ボタンへのコンパニオンアプリ
 mutify	Mutify
 muzzle	画面共有中に困惑する通知を黙らせる
 mweb-pro	マークダウンライティング ノートをつたえる静的ブログ生成機アプリ
-mxsrvs	ANMP(Apache/Nginx/MySQL/PHP)統合開発環境
 my-budget	予算編成ツール
 my-image-garden	写真編集および印刷ツール
 mycloud	スイスのクラウドストレージデスクトップアプリ
@@ -2575,7 +2568,6 @@ pingmenu	メニューバーに現在のネットワーク遅延を表示する�
 pingnoo	pingnoo
 pingplotter	ネットワーク監視ツール
 pinta	シンプルなGtk#ペイントプログラム
-piskel	Piskel
 pitch	共同プレゼンテーションソフトウェア
 pitchperfect	一分の隙もない
 pivy	pivy
@@ -3711,6 +3703,7 @@ veepn	VPNクライアント
 vellum	電子ブック作成ソフトウェア
 veracrypt	TrueCryptに基づくセキュリティに焦点を当てたディスク暗号化ソフトウェア
 versions	Subversionクライアント
+vertcoin-core	Vertcoinクライアントとウォレット
 vesta	電子的および構造的分析のための視覚化
 veusz	科学的立案アプリケーション
 via	VIA
