@@ -84,12 +84,14 @@ unless( $ARGV[0] ){
   my $hand = readlink $alias;
   $alias =~ s|.+/(.+)|$1|;
    $hand =~ s|.+/(.+)\.rb|$1|;
-  $tap{"${alias}alias"} = $hand;
- } my $in = int @BREW/4; my $e;
- for my $dir1(@BREW){ $e++;
-  if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
-  }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
-  }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16"; }
+  $tap{"${alias}alia"} = $hand;
+ } my( $in,$e ) = int @BREW/4;
+ for my $dir1(@BREW){
+  if( $re->{'MAC'} ){ $e++;
+   if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
+   }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
+   }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16"; }
+  }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
   open my $BREW,'<',"$dir1" or die " tie Info_1 $!\n";
@@ -338,9 +340,9 @@ unless( $ARGV[0] ){
    $tap{'glibcLinux'} = 0;
  }
 }
- if( $re->{'MAC'} ){ my( $IN,$e ) = 0;
+ if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
-  my $in = int @CASK/2;
+ my( $IN,$in,$e ) = ( 0,int @CASK/2 );
   for my $dir2(@CASK){ $e++;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $e == $in;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
