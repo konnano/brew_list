@@ -221,14 +221,17 @@ sub Ana_1{
    }
   }
  close $dir;
-  print ' 'x43,"|     30d  |     90d  |    365d  |\n",'-'x77,"\n";
+  my $ana = (' 'x44)."|     30d  |     90d  |    365d  |\n".('-'x78)."\n";
  for my $fi(@an){
   next unless $fi;
   my( $ls1,$ls2,$ls3,$ls4 ) = split '\t',$fi;
-   my $le = int( (40-(length $ls1))/2 );
-   $ls1 = ' 'x$le.$ls1.' 'x$le;
-   printf "%40s   |%7s   |%7s   |%7s   |\n",$ls1,$ls2,$ls3,$ls4;
+   my $le = int( (44-(length $ls1))/2 );
+    $ls1 = ' 'x$le.$ls1.' 'x$le;
+   $ana .= sprintf "%44s|%7s   |%7s   |%7s   |\n",$ls1,$ls2,$ls3,$ls4;
  }
+  open my $pipe,'|-','more';
+   print $pipe "$ana";
+  close $pipe;
  Nohup_1( $re );
 }
 
@@ -283,7 +286,7 @@ sub Size_1{ no warnings 'numeric';
     my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
    $size += $cou = sprintf "%.2fM",$cou/=1024;
   format STDOUT =
-@|||||||||||||||||||||||||||||||||||@<<<<<<<<<<<<<<<<<<<<@>>>>>>>>>>>>>>>>>>>>
+@||||||||||||||||||||||||||||||||||||||||@<<<<<<<<<<<<<<<<<<<<@>>>>>>>>>>>>>>>>>>>>
   $name,"size : $cou","install : $timer"
 .
   write
