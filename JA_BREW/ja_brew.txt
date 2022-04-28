@@ -3164,6 +3164,7 @@ libxaw3d	X.Org：Xtライブラリに基づく3DAthenaウィジェットセッ�
 libxc	コードの交換および相関汎関数のライブラリ
 libxcb	X.Org：X WindowSystem手続きのインターフェイス
 libxcomposite	X.Org：複合機能拡張のクライアントライブラリ
+libxcrypt	復号化のための拡張暗号化ライブラリ md5crypt/bcryptなど
 libxcursor	X.Org：X WindowSystemカーソル管理ライブラリ
 libxdamage	X.Org：Xダメージ拡張ライブラリ
 libxdg-basedir	XDGベースディレクトリ仕様のC実装
@@ -5065,6 +5066,7 @@ spim	MIPS32模擬装置
 spin	マルチスレッドソフトウェアの効率的な検証ツール
 spiped	セキュアパイプデーモン
 spirv-cross	リフレクションの実行とSPIR-Vの逆アセンブル
+spirv-headers	SPIR-V用のヘッダー
 spirv-llvm-translator	SPIR-VとLLVMIR間の双方向変換用のツールとライブラリ
 spirv-tools	SPIR-Vモジュールを処理するためのAPIとコマンド
 splint	安全なプログラミングリント
