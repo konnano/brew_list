@@ -3116,7 +3116,6 @@ sip	収集 色を整理して共有する
 sipgate-softphone	コンピューターで電話をかける
 sirimote	Apple TV SiriRemoteでコンピュータを制御する
 sitala	Drum samplerプラグインと独立型アプリ
-sitebulb	Webサイト監査ツール
 sitesucker-pro	Webサイトダウンローダーツール
 sixtyforce	N64エミュレーター
 siyuan	ローカルファーストの直接認識マネジメントシステム
@@ -3267,7 +3266,6 @@ squeak	Squeak
 squidman	SquidMan
 squirrel	ライム入力方式エンジン
 squirrelsql	JDBC準拠のデータベースの構造を表示するためのグラフィカルJavaプログラム
-srware-iron	SRWare SRWare Iron
 ssdreporter-free	SSDヘルスモニタリングツール
 ssh-config-editor	OpenSSH sshクライアント構成ファイルを管理するためのツール
 ssh-tunnel-manager	SSHトンネルマネージャー
@@ -3477,7 +3475,6 @@ thonny	初心者のためのPythonIDE
 thonny-xxl	初心者のためのPython IDE
 thor	アプリケーションを切り替えるユーティリティ
 thorium	Epubリーダー
-thought-train	メモ取りとやることリストの申請
 threads	集中的な議論と意思決定のためのコミュニケーションツール
 threema	End-to-endの暗号化されたインスタントメッセージングアプリケーション
 threema-work	End-to-endの暗号化されたインスタントメッセージングアプリケーション
@@ -3719,7 +3716,6 @@ vidyo	Vidyo
 vienna	RSSとAtomリーダー
 vimediamanager	ViMediaManager
 vimr	NeovimテキストエディターのGUI
-vin047-abgx360	vin047-abgx360
 vine-server	VNCサーバー
 vip-access	2段階認証ソフトウェア
 vipriser	印刷可能な任意のアプリケーションからPDFを作成します
@@ -3984,7 +3980,6 @@ zoho-mail	メールクライアント
 zoho-workdrive	Zohoクラウドストレージサービスのクライアント
 zoom	ビデオ通信および仮想会議プラットフォーム
 zoom-for-it-admins	ビデオ通信および仮想会議プラットフォーム
-zoom-outlook-plugin	Zoom.us用のOutlookプラグイン
 zoomus	ビデオコミュニケーションツールZoomの一時的な仮のエイリアス
 zotero	研究ソースを共有する 収集/整理/引用
 zprint	ClojureおよびClojurescriptのソースコードとS式を再フォーマットするためのライブラリ
