@@ -377,7 +377,7 @@ my $re = shift;
 
 sub DB_2{
  my $re = shift;
- tie my %tap,"NDBM_File","$re->{'HOME'}/DBM",O_RDONLY,0 or die " Not read DBM $!\n";
+ tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",O_RDONLY,0 or die " Not read DBM $!\n";
  $re->{'OS'} = \%tap;
 }
 
@@ -1783,7 +1783,7 @@ sub Dirs_1{
 }
 
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
-tie my %tap,"NDBM_File","$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
+tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
  for my $alias(@ALIA){
   my $hand = readlink $alias;
