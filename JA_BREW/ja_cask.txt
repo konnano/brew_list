@@ -2439,6 +2439,7 @@ osmc	Freeのオープンソースメディアセンター
 osp-tracker	物理教育のためのビデオ分析およびモデリングツール
 osquery	SQLを利用したオペレーティングシステムのインストルメンテーションと分析
 oss-browser	OSS(オブジェクトストレージサービス)用のグラフィカルな管理ツール
+osu	リズムゲーム
 osxfuse	ファイルシステム統合
 otto-matic	Pangea Softwareのサイエンスフィクション3Dアクション/アドベンチャーゲーム
 otx	Mach-O逆アセンブラ
