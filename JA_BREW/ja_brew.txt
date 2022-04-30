@@ -3475,6 +3475,7 @@ mgba	ゲームボーイアドバンスエミュレータ
 mhash	多数のハッシュアルゴリズムへの統一されたインターフェース
 mhonarc	メールからHTMLへの変換器変換器
 micro	モダンで直感的な端末ベースのテキストエディタ
+micro_inetd	シンプルネットワークサービスspawner
 micronaut	モジュラーmicroservicesを構築するための最新のJVM-baseのフレームワーク
 microplane	多くのリポジトリ間でgitを変更するためのCLIツール
 micropython	マイクロコントローラーと制約のあるシステムのためのPythonの実装
@@ -5733,6 +5734,7 @@ wavpack	合成で損失の無いオーディオ圧縮
 wayland	植字工がクライアントと通信するための手続き
 wayland-protocols	Wayland手続きの追加
 waypoint	構築するツール 配備 任意のプラットフォームで任意のアプリケーションをリリースします
+wb32-dfu-updater_cli	USBデバイスとの間でファームウェアをダウンロードとアップロードするためのUSBプログラマー
 wbox	HTTPテストツールと構成不要のHTTPサーバー
 wcslib	FITS世界座標系のライブラリとユーティリティ
 wdc	WebDAVクライアントは簡単でWebDAVサーバーでの作業に便利
