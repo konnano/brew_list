@@ -1807,25 +1807,25 @@ unless( $ARGV[0] ){
      }elsif( $data =~ /^\s*rebuild/ and $KIN == 1 ){
        next;
      }elsif( $data !~ /^\s*end/ and $KIN == 1 ){
-       $tap{"$name$data"} =
-       $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
-       $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
-       $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
-       $data =~ s/.*big_sur:.*\n/11.0/          ? 1 :
-       $data =~ s/.*catalina:.*\n/10.15/        ? 1 :
-       $data =~ s/.*mojave:.*\n/10.14/          ? 1 :
-       $data =~ s/.*high_sierra:.*\n/10.13/     ? 1 :
-       $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
-       $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
-       $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
-       $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : 0; # x86_64
-        if( $data =~ /.*,\s+all:/ ){
-         $tap{"${name}12.0M1"} = $tap{"${name}12.0"} =
-         $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
-         $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-         $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} =
-         $tap{"${name}Linux"} = 1;
-        }
+       if( $data =~ /.*,\s+all:/ ){
+        $tap{"${name}12.0M1"} = $tap{"${name}12.0"} =
+        $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
+        $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
+        $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} =
+        $tap{"${name}Linux"} = 1;
+       }
+        $tap{"$name$data"} =
+        $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
+        $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
+        $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
+        $data =~ s/.*big_sur:.*\n/11.0/          ? 1 :
+        $data =~ s/.*catalina:.*\n/10.15/        ? 1 :
+        $data =~ s/.*mojave:.*\n/10.14/          ? 1 :
+        $data =~ s/.*high_sierra:.*\n/10.13/     ? 1 :
+        $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
+        $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
+        $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
+        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
       $KIN = 0; next;
