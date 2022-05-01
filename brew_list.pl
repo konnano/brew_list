@@ -1405,7 +1405,7 @@ __END__
 [[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK} ~/.JA_BREWG ; }
+                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK} ~/.JA_BREWG; }
 if [[ $1 -eq 1 ]];then
  TI=$(date +%s)
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
@@ -1580,26 +1580,20 @@ perl<<"EOF"
    close $FILE3;
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n"; $i1 = 1;
    while( $an1=<$dir1> ){
-   next if $an1 =~ /\s--HEAD|\s--with/;
-    if( $an1 =~ s|^.*<td><a[^>]+><code>(.+)</code></a></td>.*\n|$1| ){
-     $HA1{$an1} = $i1++;
-    }
+    next if $an1 =~ /\s--HEAD|\s--with/;
+     $HA1{$an1} = $i1++ if $an1 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/cna2.html" or die " cna2 $!\n"; $i2 = 1;
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     if( $an2 =~ s|^.*<td><a[^>]+><code>(.+)</code></a></td>.*\n|$1| ){
-      $HA2{$an2} = $i2++;
-     }
+     $HA2{$an2} = $i2++ if $an2 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/cna3.html" or die " cna3 $!\n"; $i3 = 1;
    while( $an3=<$dir3> ){
-   next if $an3 =~ /\s--HEAD|\s--with/;
-    if( $an3 =~ s|^.*<td><a[^>]+><code>(.+)</code></a></td>.*\n|$1| ){
-     $HA3{$an3} = $i3++;
-    }
+    next if $an3 =~ /\s--HEAD|\s--with/;
+     $HA3{$an3} = $i3++ if $an3 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir3;
   for($in1=0;$in1<@ANA;$in1++){
@@ -1654,26 +1648,20 @@ perl<<"EOF"
    close $FILE2;
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/ana1.html" or die " ana1 $!\n"; $i1 = 1;
    while( $an1=<$dir1> ){
-   next if $an1 =~ /\s--HEAD|\s--with/;
-    if( $an1 =~ s|^.*<td><a[^>]+><code>(.+)</code></a></td>.*\n|$1| ){
-     $HA1{$an1} = $i1++;
-    }
+    next if $an1 =~ /\s--HEAD|\s--with/;
+     $HA1{$an1} = $i1++ if $an1 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/ana2.html" or die " ana2 $!\n"; $i2 = 1;
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     if( $an2 =~ s|^.*<td><a[^>]+><code>(.+)</code></a></td>.*\n|$1| ){
-      $HA2{$an2} = $i2++;
-     }
+     $HA2{$an2} = $i2++ if $an2 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/ana3.html" or die " ana3 $!\n"; $i3 = 1;
    while( $an3=<$dir3> ){
-   next if $an3 =~ /\s--HEAD|\s--with/;
-    if( $an3 =~ s|^.*<td><a[^>]+><code>(.+)</code></a></td>.*\n|$1| ){
-     $HA3{$an3} = $i3++;
-    }
+    next if $an3 =~ /\s--HEAD|\s--with/;
+     $HA3{$an3} = $i3++ if $an3 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir3;
   for($in1=0;$in1<@ANA;$in1++){
