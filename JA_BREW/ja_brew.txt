@@ -1469,6 +1469,7 @@ fcgi	対話型プログラムをWebサーバーと接続するための手続き
 fcgiwrap	NginxのCGIサポート
 fcitx-remote-for-osx	コマンドラインで入力メソッドを処理する
 fcl	柔軟な衝突ライブラリ
+fclones	効率的な複製ファイルファインダー
 fcp	従来のUnix cp(1)コマンドの大幅に高速な代替品
 fcrackzip	Zipパスワードクラッカー
 fd	findのシンプルで高速かつユーザーに親しい代替手段
@@ -3118,6 +3119,7 @@ libtool	包括的ライブラリサポートスクリプト
 libtorch	Tensorsと動的神経ネットワーク
 libtorrent-rakshasa	高性能に焦点を当てたBitTorrentライブラリ
 libtorrent-rasterbar	Python bindingsを備えたC++ビットトレントライブラリ
+libtpms	Trusted Platform Moduleのソフトウェアエミュレーション用のライブラリ
 libtrace	複数の入力をサポートするトレース処理用のライブラリ
 libtrng	Tinaの乱数発生器ライブラリ
 libu2f-host	汎用二段階認証(U2F)手続きのホスト側
@@ -5689,6 +5691,7 @@ vpn-slice	簡単で安全なスプリットトンネルVPNセットアップの�
 vramsteg	コマンドラインアプリケーションにプログレスバーを追加する
 vroom	配車ルートオープンソース最適化マシン
 vrpn	バーチャルリアリティ周辺機器ネットワーク
+vsce	パッケージング用のツール VSCode拡張機能の公開と管理
 vsearch	微生物叢分析のための多用途のオープンソースツール
 vsftpd	UNIXの安全なFTPサーバー
 vsh	HashiCorp Vault対話的シェル
