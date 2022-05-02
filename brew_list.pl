@@ -44,6 +44,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'}  = 1;
  }elsif( $AR[0] eq '-u' ){  $name = $re;  $re->{'USE'}  = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = 1;
+ }elsif( $AR[0] eq '-us' ){ $name = $re;  $re->{'uses'} = 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
  }elsif( $AR[0] eq '-new' ){$name = $re;  $re->{'NEW'}  = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
@@ -157,13 +158,14 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_7\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.08_8\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
   -co\t:  formula library display\n  -in\t:  formula require formula list
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
+  -us\t:  formula depend on formula list count
   -de\t:  uninstalled, not require formula\n  -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order
   -ddd\t:  All uninstall : pipe xargs brew uninstall\n  -is\t:  Display in order of size
@@ -196,13 +198,13 @@ my( $re,$list ) = @_;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
  unless( $re->{'ANA'} ){
-  $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} or $re->{'IS'} )?
+  $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} or $re->{'IS'} ) ?
    Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
  }
  $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) :
-   $re->{'ANA'} ? Ana_1( $re ) : File_1( $re,$list );
+   $re->{'ANA'} ? Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : File_1( $re,$list );
 }
 
 sub Ana_1{
@@ -250,7 +252,7 @@ sub Size_1{ no warnings 'numeric';
   }
   unless( $pid or @data ){ Wait_1( $re );
   }else{
-   my @AN = @data ? @data : map{ $_=~s/^\s+(.+)\n/$1/;$_; }@$list;
+   my @AN = @data ? @data : @$list;
     @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@AN);
    my $in = int @AN/2;
    if( open my $FH,'-|' ){
@@ -355,7 +357,7 @@ my( $re,$pid ) = @_;
 sub DB_1{
 my $re = shift;
  if( $re->{'FOR'} or $re->{'DEP' } ){
-  opendir my $dir,"$re->{'BIN'}" or die " DB_1 $!\n";
+  opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for my $com(readdir $dir){
     my $hand = readlink "$re->{'BIN'}/$com";
      next if not $hand or $hand !~ m|^\.\./Cellar/|;
@@ -367,10 +369,10 @@ my $re = shift;
  if( $re->{'CAS'} or $re->{'DEP'} ){
   my $dirs = Dirs_1( "$re->{'CEL'}",1 );
   for(my $in=0;$in<@$dirs;$in++){
-   my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
+   my $name = $$dirs[$in];
    if( $name and -d "$re->{'CEL'}/$name/.metadata" ){
     my $meta = Dirs_1( "$re->{'CEL'}/$name/.metadata",1 );
-     ($re->{'DMG'}{$name}) = $$meta[0] =~ /^\s(.+)\n/;
+     $re->{'DMG'}{$name} = $$meta[0];
    }
   }
  }
@@ -385,14 +387,14 @@ sub DB_2{
 sub Dirs_1{
 my( $url,$ls,$re,$bn ) = @_;
  my $an = [];
- opendir my $dir_1,"$url" or die " Dirs_1 $!\n";
+ opendir my $dir_1,$url or die " Dirs_1 $!\n";
   for my $hand_1(readdir $dir_1){
    next if $hand_1 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/$hand_1\n" if( -f "$url/$hand_1" or -l "$url/$hand_1" ) and not $ls;
     if( $ls != 2 ){
      next unless -d "$url/$hand_1";
     }
-   $ls == 1 ? push @$an," $hand_1\n" : push @$an,$hand_1;
+   push @$an,$hand_1;
   }
  closedir $dir_1;
   @$an = sort{$a cmp $b}@$an;
@@ -422,7 +424,7 @@ my( $re,$list,%HA,@AN ) = @_;
       }
      $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
     }
-  @AN = (); %HA = ();
+  @AN = %HA = ();
  }
 }
 
@@ -430,13 +432,26 @@ sub Brew_1{
 my( $re,$list,%HA,@AN ) = @_;
  return unless @$list;
   for(my $i=0;$i<@$list;$i++){
-   my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
+   my $tap = $list->[$i];
     (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $tap,$re,0 ) :
      ( $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'} ) ? Uses_1( $re,$tap,\%HA,\@AN ) :
        $re->{'USES'} ? push @AN,$tap : 0;
   }
   @AN = sort{$a cmp $b}@AN;
    Mine_1( $_,$re,0 ) for(@AN);
+}
+
+sub Brew_2{
+my( $re,@AN,%HA ) = @_;
+ for my $key(sort keys %{$re->{'HASH'}}){
+  my @an = split '\t',$re->{'OS'}{"${key}uses"} if $re->{'OS'}{"${key}uses"};
+   Uses_1( $re,$_,\%HA,\@AN ) for(@an);
+    my $le = int( (36-(length $key))/2 );
+    $key = ' 'x$le.$key.' 'x$le;
+   printf"%36s uses %3s formula\n",$key,@AN+0;
+  @AN = %HA = ();
+ }
+ Nohup_1( $re );
 }
 
 sub Uses_1{
@@ -462,7 +477,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
      print"required formula  ==>  $_\n" for( @an );
       exit;
    }
-  %HA= (); @AN =();
+  @AN = %HA = ();
   Info_1( $re,0,0,\@AN,\%HA );
    my @list1 = sort{$a cmp $b}@AN;
    for my $brew( @list1 ){
@@ -495,12 +510,12 @@ my( $re,@AN,%HA,@an,$do ) = @_;
 sub File_1{
 my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
   unless( $re->{'TAP'} ){
-   open my $BREW,'<',"$re->{'TXT'}" or die " File_1 $!\n";
+   open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
     chomp( @$file=<$BREW> );
    close $BREW;
   }
   if( $re->{'CAS'} and -f $re->{'Q_TAP'} ){
-   open my $BREW,'<',"$re->{'Q_TAP'}" or die " File_1 $!\n";
+   open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$BREW>){ chomp $tap;
      if( $tap =~ /^[3-9#]$/ ){
        if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} and $tap ne '9' or
@@ -633,7 +648,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my( $IN,$CIN ) = ( 0,0 );
       push @{$re->{$brew}},@an if $HA->{$brew} < 2;
   }
 
- open my $BREW1,'<',"$name" or die " Info_1 $!\n";
+ open my $BREW1,'<',$name or die " Info_1 $!\n";
   while(my $data=<$BREW1>){
    if( $re->{'MAC'} ){
      if( $data =~ /^\s*on_linux\s*do/ ){ $IN = 1; next;
@@ -1135,7 +1150,7 @@ my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
 
 sub Dirs_2{
 my( $an,$re ) = @_;
- opendir my $dir,"$an" or die " N_Dirs $!\n";
+ opendir my $dir,$an or die " N_Dirs $!\n";
   for my $bn(sort{$a cmp $b} readdir($dir)){
    next if $bn =~ /^\.{1,2}$/;
     ( -d "$an/$bn" and not -l "$an/$bn" ) ?
@@ -1788,7 +1803,7 @@ unless( $ARGV[0] ){
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
-  open my $BREW,'<',"$dir1" or die " tie Info_1 $!\n";
+  open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
      if( $data =~ /^\s*bottle\s+do/ ){
       $KIN = 1; next;
@@ -2043,7 +2058,7 @@ unless( $ARGV[0] ){
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
     $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
-   open my $BREW,'<',"$dir2" or die " tie Info_2 $!\n";
+   open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
