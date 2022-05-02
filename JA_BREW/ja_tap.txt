@@ -2049,6 +2049,7 @@ phidget-control-panel	Phidgetsセンシングキット用のライブラリと�
 philips-hue-sync	スマートライトシステムを制御する
 picoscope	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
 plantronics-hub	Plantronics Hub
+playdate-mirror	Playdateからゲームプレイのオーディオとビデオをストリーミングするアプリケーション
 pololu-avr-programmer-v2	Pololu AVRプログラマーv2のドライバー
 prolific-pl2303	PL2303 USB-シリアルドライバ
 qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
