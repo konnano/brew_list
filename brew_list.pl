@@ -198,7 +198,7 @@ my( $re,$list ) = @_;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
  unless( $re->{'ANA'} ){
-  $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} or $re->{'IS'} ) ?
+  $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} or $re->{'IS'} or $re->{'COM'} ) ?
    Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
  }
@@ -252,7 +252,7 @@ sub Size_1{ no warnings 'numeric';
   }
   unless( $pid or @data ){ Wait_1( $re );
   }else{
-   my @AN = @data ? @data : @$list;
+   my @AN = @data ? @data : map{ $_=~s/^\s+(.+)\n/$1/;$_; }@$list;
     @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@AN);
    my $in = int @AN/2;
    if( open my $FH,'-|' ){
@@ -369,10 +369,10 @@ my $re = shift;
  if( $re->{'CAS'} or $re->{'DEP'} ){
   my $dirs = Dirs_1( "$re->{'CEL'}",1 );
   for(my $in=0;$in<@$dirs;$in++){
-   my $name = $$dirs[$in];
+   my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
    if( $name and -d "$re->{'CEL'}/$name/.metadata" ){
     my $meta = Dirs_1( "$re->{'CEL'}/$name/.metadata",1 );
-     $re->{'DMG'}{$name} = $$meta[0];
+     ($re->{'DMG'}{$name}) = $$meta[0] =~ /^\s(.+)\n/;
    }
   }
  }
@@ -391,10 +391,8 @@ my( $url,$ls,$re,$bn ) = @_;
   for my $hand_1(readdir $dir_1){
    next if $hand_1 =~ /^\./;
    $re->{'FILE'} .= " File exists $url/$hand_1\n" if( -f "$url/$hand_1" or -l "$url/$hand_1" ) and not $ls;
-    if( $ls != 2 ){
-     next unless -d "$url/$hand_1";
-    }
-   push @$an,$hand_1;
+    if( $ls != 2 ){ next unless -d "$url/$hand_1"; }
+   $ls == 1 ? push @$an," $hand_1\n" : push @$an,$hand_1;
   }
  closedir $dir_1;
   @$an = sort{$a cmp $b}@$an;
@@ -419,9 +417,7 @@ my( $re,$list,%HA,@AN ) = @_;
    Uses_1( $re,$ls,\%HA,\@AN );
     if( @AN < 2 ){
      my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
-      for my $bui(@BUI){
-       $ls .= " : $bui" if $re->{'HASH'}{$bui};
-      }
+      for my $bui(@BUI){ $ls .= " : $bui" if $re->{'HASH'}{$bui}; }
      $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
     }
   @AN = %HA = ();
@@ -432,13 +428,13 @@ sub Brew_1{
 my( $re,$list,%HA,@AN ) = @_;
  return unless @$list;
   for(my $i=0;$i<@$list;$i++){
-   my $tap = $list->[$i];
+   my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
     (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $tap,$re,0 ) :
      ( $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'} ) ? Uses_1( $re,$tap,\%HA,\@AN ) :
        $re->{'USES'} ? push @AN,$tap : 0;
   }
   @AN = sort{$a cmp $b}@AN;
-   Mine_1( $_,$re,0 ) for(@AN);
+ Mine_1( $_,$re,0 ) for(@AN);
 }
 
 sub Brew_2{
