@@ -44,7 +44,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'}  = 1;
  }elsif( $AR[0] eq '-u' ){  $name = $re;  $re->{'USE'}  = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = 1;
- }elsif( $AR[0] eq '-us' ){ $name = $re;  $re->{'uses'} = 1;
+ }elsif( $AR[0] eq '-ul' ){ $name = $re;  $re->{'uses'} = 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
  }elsif( $AR[0] eq '-new' ){$name = $re;  $re->{'NEW'}  = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
@@ -165,7 +165,7 @@ sub Died_1{
   -co\t:  formula library display\n  -in\t:  formula require formula list
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
-  -us\t:  formula depend on formula list count
+  -ul\t:  formula depend on formula, item count
   -de\t:  uninstalled, not require formula\n  -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order
   -ddd\t:  All uninstall : pipe xargs brew uninstall\n  -is\t:  Display in order of size
