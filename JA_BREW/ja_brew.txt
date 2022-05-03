@@ -1605,6 +1605,7 @@ fprobe	LibpcapベースのNetFlow調査
 fq	性能に最適化された仲介メッセージキュー
 fragroute	指定されたホストの出力転送を 傍受/変更/書き換 出来ます
 freealut	OpenALのALUT標準の実装
+freebayes	ベイズハプロタイプベースの遺伝多型の発見と遺伝型決定
 freeciv	Freeでオープンソースの帝国建設戦略ゲーム
 freediameter	オープンソースのDiameter(認証)手続きの実装
 freedink	Dink Smallwoodゲームエンジンのポータブルバージョン
@@ -4520,6 +4521,7 @@ quicktype	JSON、Schema、GraphQLからタイプと変換器を生成する
 quill	C++14非同期低遅延Loggingライブラリ
 quilt	一連のパッチを操作する
 quotatool	コマンドラインからディスク割り当てを編集する
+quran	ターミナルでコーランの章と詩を印刷する
 quvi	ビデオのダウンロードURLを解析する
 qwt	技術的アプリケーション用のQtウィジェット
 qwt-qt5	技術的アプリケーション用のQtウィジェット
@@ -5509,6 +5511,7 @@ twtxt	ハッカーのための分散型で必要最低限のマイクロブロ�
 twty	golangで記述されたコマンドラインTwitterクライアント
 txr	便利なデータ変更のためのオリジナルの新しいプログラミング言語
 txt2tags	いくつかのファイル形式を生成するための変換ツール
+tygo	GolangソースコードからTypescriptタイプを生成する
 typedb	知識工学のための分散型ハイパーリレーショナルデータベース
 typescript	アプリケーション規模のJavaScript開発用言語
 typespeed	正しく入力して画面上を飛んでいる単語をZapする
