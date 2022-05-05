@@ -52,6 +52,7 @@ aften	ATSC A/52 圧縮オーディオストリームを生成するオーディ�
 afuse	FUSEを使用してユーザースペースに実装された自動マウントファイルシステム
 agda	依存型関数型プログラミング言語
 age	シンプルでモダンに安全なファイル暗号化
+age-plugin-yubikey	YubiKeysなどの年齢およびPIVトークンを使用してファイルを暗号化するためのプラグイ
 agedu	無駄なディスクスペースを追跡するためのUnixユーティリティ
 aggregate	プレフィックスのリストを最適化してリストの長さを短縮します
 aha	ANSIHTMLアダプター
@@ -198,6 +199,7 @@ artifactory	バイナリを管理します
 artillery	開発者/SRE 向けのクラウドネイティブの性能と信頼性テスト
 arturo	効率的なスクリプティングのためのシンプルでモダンでポータブルなプログラミング言語
 arx-libertatis	ArxFatalisのクロスプラットフォームのオープンソースポート
+arxiv_latex_cleaner	arXivに送信するLaTeXコードをクリーンアップします
 as-tree	パスのリストをパスのツリーとして印刷する 🌳
 ascii	ASCIIイディオム名と 8進数/10進数 のコードポイント形式を一覧表示します
 ascii2binary	テキストをバイナリに変換して戻す
@@ -895,6 +897,7 @@ cowsay	ASCIIアートで構成可能な話す文字
 cp2k	量子化学および固体物理学ソフトウェアパッケージ
 cpanminus	CPANからモジュールを 取得/解凍/ビルド/およびインストール します
 cpansearch	Cで書かれたCPANモジュール検索
+cpi	Tiny c++ interpreter
 cpio	cpioまたはtarアーカイブにファイルをコピーしたりアーカイブからファイルをコピーしたりします
 cpl	天文データ削減タスクを開発するためのISO-Cライブラリ
 cpm	高速CPANモジュールインストーラー
@@ -2758,6 +2761,7 @@ libagg	C++の忠実度の高い2Dグラフィックライブラリ
 libaio	Linuxネイティブの非同期I/Oアクセスライブラリ
 libantlr3c	CのANTLRv3解析ライブラリ
 libao	クロスプラットフォームオーディオライブラリ
+libapplewm	Apple-WM拡張機能用のXlib-baseのライブラリ
 libarchive	Multi-formatのアーカイブおよび圧縮ライブラリ
 libart	高性能2Dグラフィックス用のライブラリ
 libass	ASS/SSA 字幕形式の字幕renderer
@@ -3176,6 +3180,7 @@ libxdmcp	X.Org：X Display Managerコントロール手続きライブラリ
 libxext	X.Org：X11手続きの一般的な機能拡張のライブラリ
 libxfixes	X.Org：XFIXES機能拡張のヘッダーファイル
 libxfont	X.Org：レガシーX11フォントシステムのコア
+libxfont2	X11フォントラスタライズライブラリ
 libxft	X.Org：XFreeTypeライブラリ
 libxi	X.Org：X入力機能拡張のライブラリ
 libxinerama	X.Org：X11手続きのXinerama拡張用のAPI
@@ -3502,6 +3507,7 @@ minidjvu	DjVuマルチページエンコーダー シングルページ エン�
 minidlna	クライアントに準拠したメディアサーバーソフトウェア DLNA/UPnP-AV
 minikube	Kubernetesクラスターをローカルで実行する
 minimal-racket	最新のプログラミング言語 Lisp/Scheme family
+minimap2	ゲノムおよびスプライシングされたヌクレオチド配列のための多用途のペアワイズアライナー
 minimesos	Mesosフレームワーク基礎構造のテスト
 minimodem	汎用ソフトウェアオーディオFSKモデム
 minio	高性能、Kubernetesネイティブオブジェクト記憶装置
@@ -3529,6 +3535,7 @@ mkcert	ローカルで信頼できる開発証明書を作成するためのシ�
 mkclean	MatroskaおよびWebMファイルを最適化します
 mkcue	CDからCUEシートを生成する
 mkdocs	マークダウンを使用したプロジェクトドキュメント
+mkfontscale	X用のスケーラブルフォントファイルのインデックスを作成します
 mkhexgrid	完全に構成可能な16進Grid発生器
 mksh	MirBSD Korn シェル
 mktorrent	BitTorrentメタ情報ファイルを作成する
@@ -3578,6 +3585,7 @@ mongoose	Libmongoose組み込みライブラリ上に構築されたWebサーバ
 mongosh	MongoDBシェル接続 構成/クエリ/MongoDBデータベース操作
 mongrel2	アプリケーション 言語 およびネットワーク基本設計に依存しないWebサーバー
 mongroup	 monでプロセスのグループを監視する
+monika	合成モニタリングが容易になりました
 monit	プロセスの管理と監視 ファイル/ディレクトリ/デバイス
 monitoring-plugins	nagios互換の監視システム用のプラグイン
 monkeysphere	OpenPGP Web of Trustを使用してssh接続を確認します
@@ -4349,6 +4357,7 @@ prestd	既存または新規のPostgresアプリケーションの開発を簡�
 prestodb	ビッグデータ用の分散SQLクエリエンジン
 prettier	コード整形ツール JavaScript/CSS/JSON/GraphQL/Markdown/YAML
 prettyping	pingの出力を色付けして簡素化するラッパー
+primecount	高速素数計数関数プログラムと C/C++ライブラリ
 primer3	PCRプライマーを設計するためのプログラム
 primesieve	高速C/C++素数発生器
 principalmapper	AWSでIAM権限をすばやく評価する
@@ -5116,6 +5125,7 @@ srt	安全で信頼性の高い輸送
 srtp	安全なリアルタイム転送手続きの実装
 ssdb	多くのデータ構造をサポートするNoSQLデータベース：Redisの代替品
 ssdeep	再帰的な区分的ハッシュツール
+sse2neon	Intel SSE組み込み関数からArm/Aarch64 NEON実装へのトランスレータ
 ssed	スーパーsedストリームエディター
 ssh-audit	SSHサーバーとクライアントの監査
 ssh-copy-id	リモートマシンのauthorized_keysファイルに公開鍵を追加します
@@ -5656,6 +5666,7 @@ vint	VimスクリプトLanguage Lint
 vip	パイプラインでの対話的な編集を提供するプログラム
 vips	画像処理ライブラリ
 virgil	Virgilアカウントとアプリケーションを管理するためのCLIツール
+virt-manager	仮想マシンを管理するためのアプリ
 virtualenv	分離された仮想Python環境を作成するためのツール
 virtualenvwrapper	Python virtualenv機能拡張
 virtualhost.sh	MacOSがApache仮想ホストを作成するためのスクリプト
@@ -5877,6 +5888,7 @@ xh	HTTPリクエストを送信するための親しく高速なツール
 xhyve	FreeBSDのbhyveに基づく軽量のMacOS仮想化ソリューション
 xidel	XPath/XQuery 3.0 データを抽出するJSONiq解釈プログラム HTML/XML/JSON
 xinput	X入力デバイスを構成およびテストするためのユーティリティ
+xkbcomp	XKBキーボード記述コンパイラ
 xkcd	最新の取得　ターミナル内のランダムまたは特定のxkcdコミック
 xkeyboardconfig	X Window Systemのキーボード構成データベース
 xlearn	高性能で簡単な拡張性のある機械学習パッケージ
