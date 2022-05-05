@@ -158,7 +158,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_8\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.08_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -198,8 +198,9 @@ my( $re,$list ) = @_;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
  unless( $re->{'ANA'} ){
-  $list = ( $re->{'S_OPT'} or $re->{'BL'} or $re->{'TOP'} or $re->{'IS'} or $re->{'COM'} ) ?
-   Dirs_1( $re->{'CEL'},1 ) : $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
+  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},1 ) : 
+   ( $re->{'TOP'} or $re->{'IS'} or $re->{'COM'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+     $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
  }
  $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
@@ -252,7 +253,7 @@ sub Size_1{ no warnings 'numeric';
   }
   unless( $pid or @data ){ Wait_1( $re );
   }else{
-   my @AN = @data ? @data : map{ $_=~s/^\s+(.+)\n/$1/;$_; }@$list;
+   my @AN = @data ? @data : @$list;
     @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@AN);
    my $in = int @AN/2;
    if( open my $FH,'-|' ){
@@ -413,13 +414,12 @@ my( $url,$ls,$re,$bn ) = @_;
 sub Top_1{
 my( $re,$list,%HA,@AN ) = @_;
  for my $ls(@$list){
-  $ls =~ s/^\s(.*)\n/$1/;
-   Uses_1( $re,$ls,\%HA,\@AN );
-    if( @AN < 2 ){
-     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
-      for my $bui(@BUI){ $ls .= " : $bui" if $re->{'HASH'}{$bui}; }
-     $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
-    }
+  Uses_1( $re,$ls,\%HA,\@AN );
+   if( @AN < 2 ){
+    my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
+     for my $bui(@BUI){ $ls .= " : $bui" if $re->{'HASH'}{$bui}; }
+    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
+   }
   @AN = %HA = ();
  }
 }
@@ -504,12 +504,13 @@ my( $re,@AN,%HA,@an,$do ) = @_;
 }
 
 sub File_1{
-my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
+my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
   unless( $re->{'TAP'} ){
    open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
     chomp( @$file=<$BREW> );
    close $BREW;
   }
+  $tap[0] = $file if $re->{'CAS'} and $re->{'S_OPT'};
   if( $re->{'CAS'} and -f $re->{'Q_TAP'} ){
    open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$BREW>){ chomp $tap;
@@ -530,9 +531,12 @@ my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
        exit unless not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
       next;
      }
-      if( $re->{'TAP'} ){
+      if( $re->{'TAP'} and not $re->{'S_OPT'} ){
        $i++ if $tap =~ /^[012]$/;
         push @{$tap[$i]},$tap;
+      }elsif( $re->{'S_OPT'} ){
+        $e++ if $tap =~ /^[012]$/;
+         push @{$tap[$e]},$tap;
       }else{
         push @{$file},$tap;
       }
@@ -588,6 +592,10 @@ my( $re,$list,$file ) = @_; my $i = -1; my @tap = ([],[],[]);
        $re->{'KXC'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
       $i = $re->{'DN'}; $e = $re->{'DI'};
      }
+   }
+  }elsif( $re->{'CAS'} and $re->{'S_OPT'} ){
+   for( @tap ){
+    Search_1( $list,$_,0,$re );
    }
   }else{
    Search_1( $list,$file,0,$re );
@@ -788,8 +796,12 @@ my( $re,$file,$spa,$AN,$HA ) = @_; my( $IN,$CIN ) = ( 0,0 );
 sub Mine_1{
 my( $name,$re,$ls ) = @_;
  $name = "$name (I)" if( $ls and -t STDOUT );
+ if( $name !~ m|^ ==> homebrew/| ){
   $re->{'LEN'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
+ }else{
+   push @{$re->{'ARR'}},$name; return;
+ }
  if( $name =~ m|^homebrew/cask-versions/| ){
    $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
  }elsif( $name =~ m|^homebrew/cask-drivers/| ){
@@ -886,6 +898,8 @@ my( $list,$file,$in,$re ) = @_;
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
+  if( $re->{'S_OPT'} and $brew_1 =~ m|^ ==> homebrew/| ){
+       Mine_1($brew_1,$re,0); next; }
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
    $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
@@ -1013,6 +1027,7 @@ my( $list,$file,$in,$re ) = @_;
 
 sub Tap_1{ no warnings 'regexp';
 my( $list,$re,$in ) = @_;
+if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
   my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
    my( $dirs1 ) = $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+|
@@ -1074,6 +1089,7 @@ my( $list,$re,$in ) = @_;
   }else{
     Memo_1( $re,$mem,$tap );
   }
+ }
  $$in++;
 }
 
@@ -1113,7 +1129,7 @@ my( $re,$brew_1,$i,$e ) = @_;
 sub Command_1{
 my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
  for(my $in=0;$in<@$list;$in++){
-  if( $list->[$in] =~ s/^\s(.*)\n/$1/ and $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
+  if( $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
    my $name = $list->[$in];
    exit unless my $num = $re->{'HASH'}{$name};
     Dirs_2( "$re->{'CEL'}/$name/$num",$re );
@@ -1210,36 +1226,48 @@ sub Format_1{
     my $tput = `tput cols`;
      my $size = int $tput/($leng+2);
       my $in = 1;
-   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and ${$re->{'ARR'}}[0]!~m|^homebrew/|;
-    print" ==> Formulae\n" if $re->{'FOR'} and @{$re->{'ARR'}};
-     for my $arr( @{$re->{'ARR'}} ){
-      if( $arr =~ m|^homebrew/cask-fonts/| and not $ls ){
-       print"\n" if $ze;
-        print" ==> brew tap : homebrew/cask-fonts\n";
-         $leng = $re->{'LEN2'};
-          $size = int $tput/($leng+2);  $in = $ls = 1;
-      }elsif( $arr =~ m|^homebrew/cask-drivers/| and not $sl ){
-       print"\n" if $ze;
-        print" ==> brew tap : homebrew/cask-drivers\n";
-         $leng = $re->{'LEN3'};
-          $size = int $tput/($leng+2);  $in = $sl = 1;
-      }elsif( $arr =~ m|^homebrew/cask-versions/| and not $ss ){
-       print"\n" if $ze;
-        print" ==> brew tap : homebrew/cask-versions\n";
-         $leng = $re->{'LEN4'};
-          $size = int $tput/($leng+2);  $in = $ss = 1;
-      }
-       for(my $i=$re->{'LEN'}{$arr};$i<$leng+2;$i++){
-        $arr .= ' ';
+   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/|;
+    print" ==> Formula\n" if $re->{'FOR'} and @{$re->{'ARR'}};
+     for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
+      if( $re->{'ARR'}[$e] =~ m|^ ==> homebrew/| ){
+       print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] !~ m|^ ==> homebrew/|;
+        $in = 1;
+      }else{
+       if( $re->{'ARR'}[$e] =~ m|^homebrew/cask-fonts/| and not $ls ){
+        print"\n" if $ze;
+         print" ==> brew tap : homebrew/cask-fonts\n";
+          $leng = $re->{'LEN2'};
+           $size = int $tput/($leng+2);  $in = $ls = 1;
+       }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-drivers/| and not $sl ){
+        print"\n" if $ze;
+         print" ==> brew tap : homebrew/cask-drivers\n";
+          $leng = $re->{'LEN3'};
+           $size = int $tput/($leng+2);  $in = $sl = 1;
+       }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-versions/| and not $ss ){
+        print"\n" if $ze;
+         print" ==> brew tap : homebrew/cask-versions\n";
+          $leng = $re->{'LEN4'};
+           $size = int $tput/($leng+2);  $in = $ss = 1;
+       } 
+       for(my $i=$re->{'LEN'}{$re->{'ARR'}[$e]};$i<$leng+2;$i++){
+        $re->{'ARR'}[$e] .= ' ';
        }
-      print"$arr";
-      print"\n" unless $ze = eval "$in % $size";
-      $in++;
+        print $re->{'ARR'}[$e];
+        unless( $ze = eval "$in % $size" ){
+         print"\n";
+        }elsif( $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] =~ m|^ ==> homebrew/| ){
+         print"\n"; $ze = 0;
+        }
+       $in++;
+      }
      }
     print"\n" if $ze;
-   }else{
-    print"$_\n" for @{$re->{'ARR'}};
+  }else{
+   for( @{$re->{'ARR'}} ){
+    next if m| ==> homebrew/.+|;
+     print"$_\n";
    }
+  }
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
