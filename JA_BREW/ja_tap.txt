@@ -53,6 +53,7 @@ font-almendra	Almendra
 font-almendra-display	Almendra Display
 font-almendra-sc	Almendra SC
 font-alumni-sans	Alumni Sans
+font-alumni-sans-collegiate-one	Impact Blackに触発されたフォント
 font-alumni-sans-inline-one	同窓生 Sans Inline One
 font-amarante	Amarante
 font-amaranth	Amaranth
@@ -223,6 +224,9 @@ font-black-and-white-picture	黒と白の画像
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
 font-blackout	Blackout
+font-blaka	現在、グーグルクローム(バージョン98以降)のようないくつかのアプリケーションに限定されています
+font-blaka-hollow	Blaka Hollow
+font-blaka-ink	Blaka Ink
 font-blex-mono-nerd-font	BlexMonoオタクフォント(IBM Plex Mono)
 font-blinker	Blinker
 font-blokk-neue	BLOKK Neue
@@ -782,6 +786,7 @@ font-jetbrains-mono	開発者向けに作られた書体
 font-jetbrains-mono-nerd-font	JetBrainsMonoオタクフォント(JetBrains Mono)
 font-jf-open-huninn	ピンクの丸い jf open
 font-jim-nightshade	Jim Nightshade
+font-joan	Under development
 font-jockey-one	Jockey One
 font-jolly-lodger	Jolly Lodger
 font-jomhuria	Jomhuria
@@ -915,6 +920,7 @@ font-libre-barcode-39-extended-text	Libreバーコード39拡張テキスト
 font-libre-barcode-39-text	Libreバーコード39テキスト
 font-libre-barcode-ean13-text	lasse fisterが率いる ドイツのニュルンベルクを拠点とするフォントおよびWeb開発者
 font-libre-baskerville	Libre Baskerville
+font-libre-bodoni	Libre Bodoni
 font-libre-caslon-display	Libre Caslonディスプレイ
 font-libre-caslon-text	Libre Caslonテキスト
 font-libre-franklin	Libre フランクリン
@@ -1363,6 +1369,7 @@ font-ntr	NTR
 font-numans	Numans
 font-nunito	Nunito
 font-nunito-sans	Nunito Sans
+font-nuosu-sil	Nuosu SIL
 font-ocr	OCR
 font-odibee-sans	Odibee Sans
 font-odor-mean-chey	Odor Mean Chey
@@ -1704,6 +1711,7 @@ font-spinnaker	Spinnaker
 font-spirax	Spirax
 font-spleen	Spleen
 font-spline-sans	spline teamによって開始された元の書体
+font-spline-sans-mono	スプラインチームによって開始された元の書体
 font-squada-one	Squada One
 font-square-peg	Square Peg
 font-sree-krushnadevaraya	Sree Krushnadevaraya
@@ -1745,6 +1753,7 @@ font-syne-tactile	もともとアートセンター'Synesthésie'のために設
 font-tajawal	Tajawal
 font-takaoex	TakaoEx
 font-tangerine	Tangerine
+font-tapestry	少し素朴で田舎風のRoman calligraphicファミリー
 font-taprom	Taprom
 font-tauri	Tauri
 font-taviraj	Taviraj
@@ -1782,6 +1791,14 @@ font-times-newer-roman	Times New Romanと同じように見えますが、文字
 font-timmana	Timmana
 font-tinos	Tinos
 font-tinos-nerd-font	Tinos Nerd Font(Tinos)
+font-tiro-bangla	伝統的な文学出版に適しています
+font-tiro-devanagari-hindi	より広いプロポーション、寛大なカウンターと強い斜めのストローク
+font-tiro-devanagari-marathi	より広いプロポーション、寛大なカウンターと強い斜めのストローク
+font-tiro-devanagari-sanskrit	より広いプロポーション、寛大なカウンターと強い斜めのストローク
+font-tiro-gurmukhi	伝統的なパンジャブ原稿のストローク変調を再導入
+font-tiro-kannada	伝統的な文学出版に特に適しています
+font-tiro-tamil	伝統的な文学出版に特に適しています
+font-tiro-telugu	伝統的な文学出版に特に適しています
 font-titan-one	Titan One
 font-titillium	Titillium
 font-titillium-web	Titillium Web
@@ -1853,6 +1870,7 @@ font-wallpoet	Wallpoet
 font-walter-turncoat	Walter Turncoat
 font-waptia	Ancient-biology スタイルのフォント
 font-warnes	Warnes
+font-water-brush	水彩テクスチャ紙に色で満たされたCamelヘアブラシ
 font-waterfall	Calligraphic script
 font-wellfleet	Wellfleet
 font-wendy-one	Wendy One
