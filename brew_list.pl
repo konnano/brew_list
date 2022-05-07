@@ -158,7 +158,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.08_9\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.09_0\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -226,9 +226,9 @@ sub Ana_1{
   }
  close $dir;
   my $ana = (' 'x44)."|     30d  |     90d  |    365d  |\n".('-'x78)."\n";
- for my $fi(@an){
-  next unless $fi;
-  my( $ls1,$ls2,$ls3,$ls4 ) = split '\t',$fi;
+ for(@an){
+  next unless $_;
+  my( $ls1,$ls2,$ls3,$ls4 ) = split '\t';
    my $le = int( (44-(length $ls1))/2 );
     $ls1 = ' 'x$le.$ls1.' 'x$le;
    $ana .= sprintf "%44s|%7s   |%7s   |%7s   |\n",$ls1,$ls2,$ls3,$ls4;
@@ -240,14 +240,14 @@ sub Ana_1{
 }
 
 sub Size_1{ no warnings 'numeric';
- my( $re,$list,%HA,%AR,$size,@data,$c,$pid ) = @_;
+ my( $re,$list,%HA,%AR,$size,@data,$pid,$c ) = @_;
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\r\x1B[?25h\n"; };
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
   }
-  unless( @data ){
+  unless(@data){
    $pid = fork;
     die " IS Not fork : $!\n" unless defined $pid;
   }
@@ -274,9 +274,9 @@ sub Size_1{ no warnings 'numeric';
   }
   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
   system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-  for my $dir2(sort{$b <=> $a} keys %HA){ my $utime; $c++;
-   my( $cou,$name ) = split '\t',$dir2;
-   for my $json( @{$AR{$name}} ){
+  for(sort{$b <=> $a} keys %HA){ my $utime; $c++;
+   my( $cou,$name ) = split '\t';
+   for my $json(@{$AR{$name}}){
     if( -f "$json/INSTALL_RECEIPT.json" ){
      open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
       while(my $js = <$dir>){
@@ -359,21 +359,20 @@ sub DB_1{
 my $re = shift;
  if( $re->{'FOR'} or $re->{'DEP' } ){
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
-   for my $com(readdir $dir){
-    my $hand = readlink "$re->{'BIN'}/$com";
+   for(readdir $dir){
+    my $hand = readlink "$re->{'BIN'}/$_";
      next if not $hand or $hand !~ m|^\.\./Cellar/|;
-    my( $an,$bn ) = $hand =~ m|^\.\./Cellar/(.+)/(.+)|;
-    $re->{'HASH'}{$an} = $bn;
+    my( $an,$bn ) = $hand =~ m|^\.\./Cellar/([^/]+)/(.+)|;
+     $re->{'HASH'}{$an} = $bn;
    }
   closedir $dir;
  }
  if( $re->{'CAS'} or $re->{'DEP'} ){
-  my $dirs = Dirs_1( "$re->{'CEL'}",1 );
+  my $dirs = Dirs_1( "$re->{'CEL'}",3 );
   for(my $in=0;$in<@$dirs;$in++){
-   my( $name ) = $$dirs[$in] =~ /^\s(.+)\n/;
-   if( $name and -d "$re->{'CEL'}/$name/.metadata" ){
-    my $meta = Dirs_1( "$re->{'CEL'}/$name/.metadata",1 );
-     ($re->{'DMG'}{$name}) = $$meta[0] =~ /^\s(.+)\n/;
+   if( $$dirs[$in] and -d "$re->{'CEL'}/$$dirs[$in]/.metadata" ){
+    my $meta = Dirs_1( "$re->{'CEL'}/$$dirs[$in]/.metadata",3 );
+     $re->{'DMG'}{$$dirs[$in]} = $$meta[0];
    }
   }
  }
@@ -389,22 +388,22 @@ sub Dirs_1{
 my( $url,$ls,$re,$bn ) = @_;
  my $an = [];
  opendir my $dir_1,$url or die " Dirs_1 $!\n";
-  for my $hand_1(readdir $dir_1){
-   next if $hand_1 =~ /^\./;
-   $re->{'FILE'} .= " File exists $url/$hand_1\n" if( -f "$url/$hand_1" or -l "$url/$hand_1" ) and not $ls;
-    if( $ls != 2 ){ next unless -d "$url/$hand_1"; }
-   $ls == 1 ? push @$an," $hand_1\n" : push @$an,$hand_1;
+  for my $hand(readdir $dir_1){
+   next if $hand =~ /^\./;
+   $re->{'FILE'} .= " File exists $url/$hand\n" if( -f "$url/$hand" or -l "$url/$hand" ) and not $ls;
+    if( $ls != 2 ){ next unless -d "$url/$hand"; }
+   $ls == 1 ? push @$an," $hand\n" : push @$an,$hand;
   }
  closedir $dir_1;
   @$an = sort{$a cmp $b}@$an;
    return $an if $ls;
 
- for( my $in=0;$in<@$an;$in++ ){
+ for(my $in=0;$in<@$an;$in++){
   push @$bn," $$an[$in]\n";
   opendir my $dir_2,"$url/$$an[$in]" or die " Dirs_2 $!\n";
-   for my $hand_2(readdir $dir_2){
-    next if $hand_2 =~ /^\./;
-     push @$bn,"$hand_2\n";
+   for(readdir $dir_2){
+    next if /^\./;
+     push @$bn,"$_\n";
    }
   closedir $dir_2;
  }
@@ -465,24 +464,21 @@ my( $re,@AN,%HA,@an,$do ) = @_;
  exit unless $re->{'HASH'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN );
    @AN = sort{$a cmp $b}@AN;
-    for my $uses( @AN ){
+    for my $uses(@AN){
      next if $uses eq $re->{'INF'};
       push @an,$uses;
     }
-   if( @an ){
-     print"required formula  ==>  $_\n" for( @an );
-      exit;
-   }
-  @AN = %HA = ();
+  print"required formula  ==>  $_\n" for(@an);
+   @AN = %HA = ();
   Info_1( $re,0,0,\@AN,\%HA );
    my @list1 = sort{$a cmp $b}@AN;
-   for my $brew( @list1 ){
+   for my $brew(@list1){
     my @list2 = sort{$a cmp $b}@{$re->{$brew}};
     my $i = 0; my $e = 0;
-     for( ;$i<@list2;$i++ ){
+     for(;$i<@list2;$i++){
       my $flag = 0;
       next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
-       for( ;$e<@list1;$e++ ){
+       for(;$e<@list1;$e++){
         last if $list1[$e] eq $list2[$i];
         ++$flag and last if $list1[$e] gt $list2[$i];
        }
@@ -498,9 +494,9 @@ my( $re,@AN,%HA,@an,$do ) = @_;
   }elsif( $do or $re->{'DD'} ){
    $re->{'COLOR'} = $re->{'TREE'} = 2;
     $re->{'DEL'} = 0;
-     Fork_1( $re );
-  } 
- exit;
+     Fork_1( $re ) unless @an;
+  }
+ Nohup_1( $re );
 }
 
 sub File_1{
@@ -531,7 +527,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
        exit unless not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
       next;
      }
-      if( $re->{'TAP'} and not $re->{'S_OPT'} ){
+      if( $re->{'TAP'} ){
        $i++ if $tap =~ /^[012]$/;
         push @{$tap[$i]},$tap;
       }elsif( $re->{'S_OPT'} ){
@@ -577,7 +573,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
   Format_3( $file,$re ) if $re->{'DEP'};
    $re->{'AN'} = $re->{'IN'} = $re->{'BN'} = $re->{'CN'} = $re->{'DN'} = $re->{'DI'} = 0;
   if( $re->{'TAP'} ){ my $i = 0; my $e = 0; 
-   for( @tap ){
+   for(@tap){
     Search_1( $list,$_,0,$re );
      unless( $re->{'L_OPT'} ){
       $i = $re->{'AN'} - $i; $e = $re->{'IN'} - $e;
@@ -594,7 +590,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
      }
    }
   }elsif( $re->{'CAS'} and $re->{'S_OPT'} ){
-   for( @tap ){
+   for(@tap){
     Search_1( $list,$_,0,$re );
    }
   }else{
@@ -921,9 +917,13 @@ my( $list,$file,$in,$re ) = @_;
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
-    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
+    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){ my $ls = $brew_1;
+     if( $re->{'FOR'} and $re->{'S_OPT'} ){
+      Tap_2( '/usr/local/Homebrew/Library/Taps',$re ) unless $re->{'TAP2'};
+       for(@{$re->{'TAP2'}}){ $ls = $_ if m|/$brew_1$|; }
+     }
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
-      Mine_1( $brew_1,$re,1 ) : Mine_1( $brew_1,$re,0 )
+      Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 )
        if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
         $in++; $re->{'IN'}++; $pop = 1;
          $re->{'CN'} ++ if $mem;
@@ -997,15 +997,15 @@ my( $list,$file,$in,$re ) = @_;
   Tap_1( $list,$re,\$in ) while($list->[$in]);
  }
  unless( $re->{'LIST'} ){ my @tap = ([],[],[]);
-  for my $ary( @{$re->{'ARY'}} ){
-   push @{$tap[2]},$ary if $ary =~ s/^homebrew-cask-versions\n(.+)/$1/;
-    push @{$tap[1]},$ary if $ary =~ s/^homebrew-cask-drivers\n(.+)/$1/;
-     push @{$tap[0]},$ary if $ary =~ s/^homebrew-cask-fonts\n(.+)/$1/;
+  for(@{$re->{'ARY'}}){
+   push @{$tap[2]},$_ if s/^homebrew-cask-versions\n(.+)/$1/;
+    push @{$tap[1]},$_ if s/^homebrew-cask-drivers\n(.+)/$1/;
+     push @{$tap[0]},$_ if s/^homebrew-cask-fonts\n(.+)/$1/;
   } my( $i,$flag1,$flag2 ); my $e = 0;
   for my $tap( @tap ){ $i++;
    ++$flag2 and $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if @$tap and $re->{'ALL'} and not $flag2;
    $i++ unless @$tap;
-   for( @$tap ){
+   for(@$tap){
     if( $i == 1 ){ $i++;
       $re->{'ALL'} .= "$re->{'SPA'} ==> homebrew/cask-fonts\n";
     }elsif( $i == 3 ){ $i++;
@@ -1059,7 +1059,10 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
    }
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
-      Mine_1( $tap,$re,1 );
+       if( $re->{'FOR'} and $re->{'S_OPT'} ){
+        Tap_2( '/usr/local/Homebrew/Library/Taps',$re ) unless $re->{'TAP2'};
+         for(@{$re->{'TAP2'}}){ $tap = $_ if m|/$tap$|; }
+       } Mine_1( $tap,$re,1 );
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
      Memo_1( $re,$mem,$tap );
@@ -1091,6 +1094,18 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
   }
  }
  $$in++;
+}
+
+sub Tap_2{
+my( $dir,$re ) = @_;
+ for(glob "$dir/*"){
+  next if m[/homebrew$|/homebrew-core$|/homebrew-cask$|/homebrew-bundle$|/homebrew-services$];
+   Tap_2( $_,$re ) if -d;
+  if( /\.rb$/ ){
+   s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb|$1/$2/$3|;
+     push @{$re->{'TAP2'}},$_;
+  }
+ }
 }
 
 sub Type_1{
@@ -1218,7 +1233,7 @@ sub Format_1{
   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
    system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
  }elsif( $re->{'DAT'} ){
-  print for( @{$re->{'OUT'}} );
+  print for(@{$re->{'OUT'}});
    $re->{'CAS'} = 0;
  }else{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
@@ -1263,7 +1278,7 @@ sub Format_1{
      }
     print"\n" if $ze;
   }else{
-   for( @{$re->{'ARR'}} ){
+   for(@{$re->{'ARR'}}){
     next if m| ==> homebrew/.+|;
      print"$_\n";
    }
@@ -1286,18 +1301,18 @@ my $re = shift;
   } @{$re->{'UNI'}} = reverse @tt;
  }
  my( $wap,$leng,@TODO,@SC ); my $cou = 0;
- for( @{$re->{'UNI'}} ){ my $an;
+ for(@{$re->{'UNI'}}){ my $an;
   $wap++;
    if( $re->{'DD'} ){
-    my @bn = split '\|',$_;
+    my @bn = split '\|';
      $bn[$#bn] =~ s/^-+\s+([^\s]+).*\n/$1/;
     push @{$SC[$#bn-1]},$bn[$#bn];
    }
    if( $Locale ){
-    $_ =~ s/\|/│/g;
-    $_ =~ s/│--/├──/g;
+    s/\|/│/g;
+    s/│--/├──/g;
    }
-   my @an = split '\\s{3}',$_;
+   my @an = split '\\s{3}';
    for(@an){ $an++;
      $cou = $an if $cou < $an;
    } $an = 0;
@@ -1305,8 +1320,8 @@ my $re = shift;
  unless( $re->{'DDD'} ){
   for(my $i=0;$i<$cou;$i++){ my $in;
    $leng = $in = 0;
-   for my $data( @{$re->{'UNI'}} ){ $leng++;
-    my @an = split '\\s{3}',$data;
+   for(@{$re->{'UNI'}}){ $leng++;
+    my @an = split '\\s{3}';
     for(@an){
      $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──|\|--/;
      if( not $an[$i] and $TODO[$in] or
@@ -1333,7 +1348,7 @@ my $re = shift;
    }
   }
   print"$re->{'INF'}\n" if @{$re->{'UNI'}};
-   for( @{$re->{'UNI'}} ){ s/#/ /g; print; }
+   for(@{$re->{'UNI'}}){ s/#/ /g; print; }
  }
  if( $re->{'DD'} ){ my( %HA,@AR,$flag );
   @SC ? print"$re->{'INF'}\t" : print"$re->{'INF'}\n" if $re->{'DDD'};
@@ -1793,21 +1808,12 @@ unless( $ARGV[0] ){
 }
 
 sub Dirs_1{
- my( $dir,$ls,$cask ) = @_;
- my @files = glob "$dir/*";
-  for my $card(@files){
-   next if $ls and $card =~ m!/homebrew$|/homebrew-core$|/homebrew-cask$|
-                              /homebrew-bundle$|/homebrew-services$!x;
-    if( -d $card ){
-     Dirs_1( $card,$ls,$cask );
-    }else{
-     if( $card =~ /\.rb$/ ){
-      $cask ? push @CASK,$card : push @BREW,$card;
-     }elsif( -l $card ){
-      push @ALIA,$card;
-     } 
-    }
-  }
+my( $dir,$ls,$cask ) = @_;
+ for(glob "$dir/*"){
+  next if $ls and m[/homebrew$|/homebrew-core$|/homebrew-cask$|/homebrew-bundle$|/homebrew-services$];
+   -d ? Dirs_1( $_,$ls,$cask ) : -l ? push @ALIA,$_ :
+   ( /\.rb$/ and $cask ) ? push @CASK,$_ : ( /\.rb$/ ) ? push @BREW,$_ : 0;
+ }
 }
 
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
@@ -1978,6 +1984,7 @@ unless( $ARGV[0] ){
             $tap{"$name$OS_Version2"} = 0;
          }elsif( $re->{'LIN'} ){
            $tap{"${name}un_Linux"} = 1;
+            $tap{"${name}Linux"} = 0; # bottle
          } next;
       }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
           $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
