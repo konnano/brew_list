@@ -60,21 +60,12 @@ unless( $ARGV[0] ){
 }
 
 sub Dirs_1{
- my( $dir,$ls,$cask ) = @_;
- my @files = glob "$dir/*";
-  for my $card(@files){
-   next if $ls and $card =~ m!/homebrew$|/homebrew-core$|/homebrew-cask$|
-                              /homebrew-bundle$|/homebrew-services$!x;
-    if( -d $card ){
-     Dirs_1( $card,$ls,$cask );
-    }else{
-     if( $card =~ /\.rb$/ ){
-      $cask ? push @CASK,$card : push @BREW,$card;
-     }elsif( -l $card ){
-      push @ALIA,$card;
-     } 
-    }
-  }
+my( $dir,$ls,$cask ) = @_;
+ for(glob "$dir/*"){
+  next if $ls and m[/homebrew$|/homebrew-core$|/homebrew-cask$|/homebrew-bundle$|/homebrew-services$];
+   -d ? Dirs_1( $_,$ls,$cask ) : -l ? push @ALIA,$_ :
+   ( /\.rb$/ and $cask ) ? push @CASK,$_ : ( /\.rb$/ ) ? push @BREW,$_ : 0;
+ }
 }
 
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
@@ -94,7 +85,7 @@ unless( $ARGV[0] ){
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
-  open my $BREW,'<',"$dir1" or die " tie Info_1 $!\n";
+  open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
      if( $data =~ /^\s*bottle\s+do/ ){
       $KIN = 1; next;
@@ -245,6 +236,7 @@ unless( $ARGV[0] ){
             $tap{"$name$OS_Version2"} = 0;
          }elsif( $re->{'LIN'} ){
            $tap{"${name}un_Linux"} = 1;
+            $tap{"${name}Linux"} = 0; # bottle
          } next;
       }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
           $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
@@ -349,7 +341,7 @@ unless( $ARGV[0] ){
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
     $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
-   open my $BREW,'<',"$dir2" or die " tie Info_2 $!\n";
+   open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
