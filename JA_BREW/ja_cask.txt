@@ -773,6 +773,7 @@ deskreen	Webブラウザーを備えたデバイスをセカンダリ画面に�
 desktoppr	デスクトップ画像を設定するためのコマンドラインツール
 desktoputility	便利なシステムタスクへのクイックアクセス
 desmume	ニンテンドーDSエミュレーター
+detail	ビデオ通話用のプロカメラ
 detectx-swift	検索およびトラブルシューティングツール
 detexify	Detexify
 devbook	開発者向けの検索エンジン
@@ -2272,6 +2273,7 @@ nimblenote	キーボードによるメモを取る
 nimbus	独立型IRCCloudデスクトップクライアント
 ninja-download-manager-ndm	ファイルダウンロードオーガナイザーと加速器
 nisus-thesaurus	'Service'メニュー用の電子シソーラス
+nitro-pdf-pro	PDF編集ソフトウェア
 nitroshare	ネットワークファイル転送アプリケーション
 no-ip-duc	現在のIPアドレスの同期を維持します
 nocturn	マルチプラットフォームのTwitterクライアント
@@ -3909,6 +3911,7 @@ xemu	オリジナルのXboxエミュレーター
 xiami	音楽コンテンツの管理と配信
 ximalaya	ポッドキャスティングとオーディオ共有のためのプラットフォーム
 xit	gitバージョン管理システムのGUI
+xiv-on-mac	Wineラッパー FFXIVのセットアップツールとランチャー
 xld	劣化無しオーディオデコーダー
 xlplayer	ビデオプレーヤー
 xmind	マインドマッピングとbrainstormingツール
