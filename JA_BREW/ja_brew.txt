@@ -3421,6 +3421,7 @@ maxwell	JSONからKafkaへMySQLのbinlogを読み取り行の更新を書き込�
 mbedtls	暗号化と SSL/TLS ライブラリ
 mbedtls@2	暗号化と SSL/TLS ライブラリ
 mbelib	P25 1段階およびProVoice vocoder
+mbw	メモリ帯域幅ベンチマーク
 mcabber	コンソールJabberクライアント
 mcfly	シェルの履歴を飛び越す
 mcpp	C/C++前処理プログラムの代替品
@@ -5146,6 +5147,7 @@ sslyze	SSLスキャナー
 ssss	Shamirの秘密共有schemeの実装
 sstp-client	SSTP(PPP over SSLのMicrosoftリモートアクセスソリューション)クライアント
 st	コマンドラインからの統計
+stanc3	Stan変換器
 standardese	C++の次世代ドキュメント発生器
 stanford-corenlp	コアNLPツールのJavaパッケージ
 stanford-ner	スタンフォードNLPグループによる固有表現抽出の実装
