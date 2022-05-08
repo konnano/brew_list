@@ -2199,6 +2199,7 @@ mutesync	mütesync物理ボタンへのコンパニオンアプリ
 mutify	Mutify
 muzzle	画面共有中に困惑する通知を黙らせる
 mweb-pro	マークダウンライティング ノートをつたえる静的ブログ生成機アプリ
+mx-power-gadget	Apple Mxプロセッサの電源管理と監視
 my-budget	予算編成ツール
 my-image-garden	写真編集および印刷ツール
 mycloud	スイスのクラウドストレージデスクトップアプリ
@@ -3542,6 +3543,7 @@ tofu	Tofu
 toggl-track	時間監視
 toinane-colorpicker	カラーコードを取得して保存する
 toland-qlmarkdown	Markdownファイル用のQuickLook生成器
+tomatobar	メニューバーポモドーロタイマー
 tomighty	Pomodoroデスクトップタイマー
 tongbu	携帯電話管理ツール
 tonido	Tonido
