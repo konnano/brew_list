@@ -95,7 +95,7 @@ MAIN:{
     print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW'; exit;
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
-   $name->{'EN'} = 1 ; $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
+   $name->{'EN'} = 1; $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
   }elsif( not $Locale ){ $name->{'EN'} = 1; }
   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
@@ -120,7 +120,7 @@ MAIN:{
   }else{
    $re->{'INF'} = $AR[1] if $re->{'IS'};
     $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
-     $name->{'L_OPT'} = ( $name->{'KEN'} and $Locale ) ? decode('utf-8',$re->{'STDI'}) :
+     $name->{'L_OPT'} = ( $name->{'KEN'} and $Locale ) ? decode 'utf-8',$re->{'STDI'} :
       $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
   }
  }elsif( $re->{'S_OPT'} ){
@@ -158,7 +158,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.09_0\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.09_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -167,10 +167,10 @@ sub Died_1{
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
   -ul\t:  formula depend on formula, item count
   -de\t:  uninstalled, not require formula\n  -d\t:  uninstalled, not require formula, display tree
-  -dd\t:  uninstalled, only not require formula, display tree and order
-  -ddd\t:  All uninstall : pipe xargs brew uninstall\n  -is\t:  Display in order of size
-  -g\t:  Independent formula\n  -ai\t:  Analytics Data ( not argument or argument 1,2 )
-   Only mac : Cask\n  -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
+  -dd\t:  uninstalled, only not require formula, display tree and order\n  -ddd\t:  All deps uninstall
+  -is\t:  Display in order of size  -g\t:  Independent formula
+  -ai\t:  Analytics Data ( not argument or argument 1,2 )\n   Only mac : Cask
+  -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
   -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
   -ci\t:  instaled cask list\n  -cx\t:  can't install cask list\n  -cs\t:  some name cask and formula
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( not argument or argument 1,2 )
@@ -295,7 +295,7 @@ sub Size_1{ no warnings 'numeric';
 .
   write
   }
-  print" Totsl Size ${size}M  item $c\n" if -t STDOUT; 
+  print" Totsl Size ${size}M  item $c\n" if -t STDOUT;
   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
   system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
  Nohup_1( $re );
@@ -443,7 +443,7 @@ my( $re,@AN,%HA ) = @_;
    Uses_1( $re,$_,\%HA,\@AN ) for(@an);
     my $le = int( (36-(length $key))/2 );
     $key = ' 'x$le.$key.' 'x$le;
-   printf"%36s uses %3s formula\n",$key,@AN+0;
+   printf"%36s uses :%4s formula\n",$key,@AN+0;
   @AN = %HA = ();
  }
  Nohup_1( $re );
@@ -455,7 +455,7 @@ my( $re,$tap,$HA,$AN ) = @_;
   for my $ls(@tap){
    $HA->{$ls}++;
     push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
-     Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
+   Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
   }
 }
 
@@ -829,10 +829,10 @@ my( $re,$mem,$dir ) = @_;
      if( $re->{'KEN'} ){
       my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
       my( $brew ) = split '\t',$mee;
-      my $name = $Locale ? encode('utf-8',$re->{'L_OPT'}) : $re->{'L_OPT'};
+      my $name = $Locale ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
        if( $mee =~ /^ ==>/ or $mee =~ s/(\Q$name\E)/\033[33m$1\033[00m/ig ){
            $mee =~ s/\033\[33m|\033\[00m//g unless -t STDOUT;
-          $re->{'DI'}++ if $re->{'HASH'}{$brew};
+          $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
          $re->{'DN'}++ if $mee !~ /^ ==>/;
         $re->{'KXC'} .= "$top$mee\n";
        }
@@ -1190,48 +1190,32 @@ sub Format_1{
  my $re = shift;
  if( $re->{'TREE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
+  $re->{'ZEN'} = $re->{'ALL'} ? $re->{'ALL'} : $re->{'EXC'} ? $re->{'EXC'} : $re->{'KXC'} ? $re->{'KXC'} : 0;
+   $re->{'ZEN'} = $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? 0 :
+   $re->{'ZEN'} =~ m|^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2$3$4" :
+   $re->{'ZEN'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
+   $re->{'ZEN'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
+   $re->{'ZEN'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n\s{10}==> .*\n$| ? "$1$2" :
+   $re->{'ZEN'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2" :
+   $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
+   $re->{'ZEN'} =~ m|^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
+   $re->{'ZEN'} =~ m|^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$| ? "$1$2" :
+   $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n$| ? 0 :
+   $re->{'ZEN'} =~ m|^\s{10}==>.*\n$| ? 0 :
+   $re->{'ZEN'} if $re->{'TAP'} and ( $re->{'EXC'} or $re->{'KXC'} );
+  $re->{'ZEN'} =~ s/(.+)\n\s{10}item.+:.+/$1/
+   if $re->{'ZEN'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
 
-   $re->{'EXC'} = $re->{'EXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
-   $re->{'EXC'} =~ m|^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2$3$4" :
-   $re->{'EXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
-   $re->{'EXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
-   $re->{'EXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n\s{10}==> .*\n$| ? "$1$2" :
-   $re->{'EXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2" :
-   $re->{'EXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
-   $re->{'EXC'} =~ m|^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
-   $re->{'EXC'} =~ m|^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$| ? "$1$2" :
-   $re->{'EXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
-   $re->{'EXC'} =~ m|^\s{10}==>.*\n$| ? '' :
-   $re->{'EXC'} if $re->{'TAP'} and $re->{'EXC'};
-
-   $re->{'KXC'} = $re->{'KXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
-   $re->{'KXC'} =~ m|^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2$3$4" :
-   $re->{'KXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
-   $re->{'KXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
-   $re->{'KXC'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n\s{10}==> .*\n$| ? "$1$2" :
-   $re->{'KXC'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2" :
-   $re->{'KXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
-   $re->{'KXC'} =~ m|^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
-   $re->{'KXC'} =~ m|^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$| ? "$1$2" :
-   $re->{'KXC'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n$| ? '' :
-   $re->{'KXC'} =~ m|^\s{10}==>.*\n$| ? '' :
-   $re->{'KXC'} if $re->{'TAP'} and $re->{'KXC'};
-
-  $re->{'ALL'} =~ s/(.+)\n\s{10}item.+:.+/$1/
-   if $re->{'ALL'} and $re->{'ALL'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
-  $re->{'EXC'} =~ s/(.+)\n\s{10}item.+:.+/$1/
-  if $re->{'EXC'} and $re->{'EXC'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
-  $re->{'KXC'} =~ s/(.+)\n\s{10}item.+:.+/$1/
-   if $re->{'KXC'} and $re->{'KXC'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
-  system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
-   system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-    $re->{'KEN'} ? print"$re->{'KXC'}" : $re->{'L_OPT'} ? print"$re->{'EXC'}" : print"$re->{'ALL'}"
-     if $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'};
-     print " item $re->{'AN'} : install $re->{'IN'}\n" if $re->{'ALL'};
-     print " item $re->{'BN'} : install $re->{'CN'}\n" if $re->{'EXC'};
-     print " item $re->{'DN'} : install $re->{'DI'}\n" if $re->{'KXC'};
-  system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
-   system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
+  if( $re->{'ZEN'} ){
+   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
+    system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
+     print $re->{'ZEN'};
+     $re->{'ALL'} ? print " item a $re->{'AN'} : install $re->{'IN'}\n" :
+     $re->{'EXC'} ? print " item b $re->{'BN'} : install $re->{'CN'}\n" :
+     $re->{'KXC'} ? print " item c $re->{'DN'} : install $re->{'DI'}\n" : 0;
+   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
+    system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
+  }
  }elsif( $re->{'DAT'} ){
   print for(@{$re->{'OUT'}});
    $re->{'CAS'} = 0;
@@ -1300,40 +1284,32 @@ my $re = shift;
    }
   } @{$re->{'UNI'}} = reverse @tt;
  }
- my( $wap,$leng,@TODO,@SC ); my $cou = 0;
- for(@{$re->{'UNI'}}){ my $an;
-  $wap++;
+ my( $wap,$leng,@TODO,@SC );
+ for(@{$re->{'UNI'}}){ $wap++;
    if( $re->{'DD'} ){
     my @bn = split '\|';
      $bn[$#bn] =~ s/^-+\s+([^\s]+).*\n/$1/;
     push @{$SC[$#bn-1]},$bn[$#bn];
    }
-   if( $Locale ){
-    s/\|/│/g;
-    s/│--/├──/g;
-   }
-   my @an = split '\\s{3}';
-   for(@an){ $an++;
-     $cou = $an if $cou < $an;
-   } $an = 0;
+  s/\|/│/g and s/│--/├──/g if $Locale;
  }
  unless( $re->{'DDD'} ){
-  for(my $i=0;$i<$cou;$i++){ my $in;
-   $leng = $in = 0;
+  for(my $i=0;$i<$wap;$i++){
+   my $in = $leng = 0;
    for(@{$re->{'UNI'}}){ $leng++;
     my @an = split '\\s{3}';
     for(@an){
      $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──|\|--/;
      if( not $an[$i] and $TODO[$in] or
         $wap == $leng and $an[$i] and $an[$i] !~ /├──|\|--/ ){
-      $TODO[++$in] = $leng;
-       $wap != $leng ? $in++ : last;	
+       $TODO[++$in] = $leng;
+      $wap != $leng ? $in++ : last;	
      }
     }
    }
     $wap = $leng = 0;
    for(my $p=0;$p<@{$re->{'UNI'}};$p++){
-    $wap++; my $plus = '';
+    $wap++; my $plus;
     my @an = split '\\s{3}',${$re->{'UNI'}}[$p];
      for(my $e=0;$e<@an;$e++){
        if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
@@ -1341,30 +1317,35 @@ my $re = shift;
        }
       $an[$e] =~ s/\|--/`--/ or $an[$e] =~ s/├──/└──/ if $TODO[$leng] and $TODO[$leng] == $wap;
        $leng += 2 if $TODO[$leng+1] and $TODO[$leng+1] == $wap;
-        $plus .= "   $an[$e]";
+      $plus .= "   $an[$e]";
      }
-    $plus =~ s/^\s{3}//;
-     ${$re->{'UNI'}}[$p] = $plus;
+     $plus =~ s/^\s{3}//;
+    ${$re->{'UNI'}}[$p] = $plus;
    }
   }
   print"$re->{'INF'}\n" if @{$re->{'UNI'}};
+  if( not $re->{'DD'} or -t STDOUT ){
    for(@{$re->{'UNI'}}){ s/#/ /g; print; }
+  }
  }
  if( $re->{'DD'} ){ my( %HA,@AR,$flag );
-  @SC ? print"$re->{'INF'}\t" : print"$re->{'INF'}\n" if $re->{'DDD'};
   for(my $i=$#SC;$i>=0;$i--){
    for my $key( sort{$a cmp $b} @{$SC[$i]} ){
     $HA{$key}++;
    push @{$AR[$i]},"$key\t" if $HA{$key} < 2;
    }
   }
+  if( $re->{'DDD'} ){
+   print STDERR "$re->{'INF'} : deps All delete [y/n]:";
+   <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
+  }
   for(my $e=0;$e<@AR;$e++){ $flag++;
    if( $re->{'DDD'} ){
-    print "@{$AR[$e]}";
+    system "brew uninstall @{$AR[$e]}";
    }else{
-    print "$flag : @{$AR[$e]}\n";
+    -t STDOUT ? print "$flag : @{$AR[$e]}\n" : print "@{$AR[$e]}\n";
    }
-  } print "\n" if $re->{'DDD'} and $flag;
+  }
  }
 }
 
