@@ -1284,17 +1284,19 @@ my $re = shift;
    }
   } @{$re->{'UNI'}} = reverse @tt;
  }
- my( $wap,$leng,@TODO,@SC );
+ my( $wap,$leng,@TODO,@SC ); my $cou = 0;
  for(@{$re->{'UNI'}}){ $wap++;
    if( $re->{'DD'} ){
     my @bn = split '\|';
      $bn[$#bn] =~ s/^-+\s+([^\s]+).*\n/$1/;
     push @{$SC[$#bn-1]},$bn[$#bn];
    }
-  s/\|/│/g and s/│--/├──/g if $Locale;
+   s/\|/│/g and s/│--/├──/g if $Locale;
+   my @an = split '\\s{3}';
+  $cou = @an+0 if $cou < @an+0;
  }
  unless( $re->{'DDD'} ){
-  for(my $i=0;$i<$wap;$i++){
+  for(my $i=0;$i<$cou;$i++){
    my $in = $leng = 0;
    for(@{$re->{'UNI'}}){ $leng++;
     my @an = split '\\s{3}';
