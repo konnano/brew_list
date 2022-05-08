@@ -245,6 +245,7 @@ aviatrix-vpn-client	SAML認証を提供するVPNクライアント
 avibrazil-rdm	Retinaディスプレイをカスタム解像度に設定するユーティリティ
 avidcodecsle	Media ComposerのないシステムでAvidコーデックを使用してQuickTimeムービーを使用する
 avidemux	動画編集
+avifquicklook	AVIF画像用のQuickLookプラグイン
 avira-antivirus	ウイルス対策およびVPNソフトウェア
 avitools	さまざまなビデオファイル処理ツールのグラフィカルインターフェイス
 avocode	デザインファイルでの協調
@@ -3937,6 +3938,7 @@ yandex	Webブラウザー
 yandex-cloud-cli	Yandex Cloud CLI
 yandex-disk	クラウドストレージ
 yate	メディアファイルタグエディター
+yattee	代替のプライバシーに優しいYouTubeフロントエンド
 yed	ダイアグラムを手動で作成するか分析のために外部データをインポートします
 yemuzip	YemuZip
 yep	ドキュメントマネージャー
