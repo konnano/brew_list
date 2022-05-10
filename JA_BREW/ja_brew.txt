@@ -3173,6 +3173,7 @@ libxcb	X.Org：X WindowSystem手続きのインターフェイス
 libxcomposite	X.Org：複合機能拡張のクライアントライブラリ
 libxcrypt	復号化のための拡張暗号化ライブラリ md5crypt/bcryptなど
 libxcursor	X.Org：X WindowSystemカーソル管理ライブラリ
+libxcvt	VESA CVT標準タイミングモードラインジェネレーター
 libxdamage	X.Org：Xダメージ拡張ライブラリ
 libxdg-basedir	XDGベースディレクトリ仕様のC実装
 libxdiff	バイナリファイルとテキストファイルのdiff関数を実装します
@@ -3421,6 +3422,7 @@ maxwell	JSONからKafkaへMySQLのbinlogを読み取り行の更新を書き込�
 mbedtls	暗号化と SSL/TLS ライブラリ
 mbedtls@2	暗号化と SSL/TLS ライブラリ
 mbelib	P25 1段階およびProVoice vocoder
+mbt	クラウドアプリケーション用のマルチターゲットアプリケーション(MTA)ビルドツール
 mbw	メモリ帯域幅ベンチマーク
 mcabber	コンソールJabberクライアント
 mcfly	シェルの履歴を飛び越す
@@ -5461,6 +5463,7 @@ trace2html	JSONトレースをHTMLに変換するためのGoogle TraceViewerの�
 tracebox	ミドルボックス検出ツール
 tracker	効率的な検索エンジンとトリプルstoreであるライブラリとデーモン
 tractorgen	ASCIIトラクターアートを生成します
+tradcpp	K＆RスタイルのCプリプロセッサ
 trader	スタートレーダー
 traefik	最新の逆プロキシ
 traefik@1	最新の逆プロキシ(v1.7)
