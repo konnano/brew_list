@@ -451,12 +451,11 @@ my( $re,@AN,%HA ) = @_;
 
 sub Uses_1{
 my( $re,$tap,$HA,$AN ) = @_;
- my @tap = split '\t',$tap;
-  for my $ls(@tap){
-   $HA->{$ls}++;
-    push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
-   Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
-  }
+ for my $ls(split '\t',$tap){
+  $HA->{$ls}++;
+   push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
+  Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
+ }
 }
 
 sub Dele_1{
@@ -491,7 +490,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
    $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
     $re->{'LIST'} = 1;
      Fork_1( $re );
-  }elsif( $do or $re->{'DD'} ){
+  }elsif( $do ){
    $re->{'COLOR'} = $re->{'TREE'} = 2;
     $re->{'DEL'} = 0;
      Fork_1( $re ) unless @an;
@@ -849,11 +848,13 @@ my( $ls1,$ls2 ) = @_;
  my $i = 0;
   for(;$i<@ls2;$i++){
    if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
-    if( $ls1[$i] gt $ls2[$i] ){ return 1;
-    }elsif( $ls1[$i] lt $ls2[$i] ){ return 0; }
+     if( $ls1[$i] gt $ls2[$i] ){ return 1;
+     }elsif( $ls1[$i] lt $ls2[$i] ){ return 0;
+     }
    }else{
-    if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
-    }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return 0 ; }
+     if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
+     }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return 0;
+     }
    }
   }
  $ls1[$i] ? 1 : 0;
@@ -1099,10 +1100,10 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
 sub Tap_2{
 my( $dir,$re ) = @_;
  for(glob "$dir/*"){
-  next if m[/homebrew$|/homebrew-core$|/homebrew-cask$|/homebrew-bundle$|/homebrew-services$];
+  next if m|/homebrew$|;
    Tap_2( $_,$re ) if -d;
   if( /\.rb$/ ){
-   s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb|$1/$2/$3|;
+   s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb$|$1/$2/$3|;
      push @{$re->{'TAP2'}},$_;
   }
  }
@@ -1293,7 +1294,7 @@ my $re = shift;
    }
    s/\|/│/g and s/│--/├──/g if $Locale;
    my @an = split '\\s{3}';
-  $cou = @an+0 if $cou < @an+0;
+  $cou = @an if $cou < @an;
  }
  unless( $re->{'DDD'} ){
   for(my $i=0;$i<$cou;$i++){
@@ -1810,9 +1811,10 @@ unless( $ARGV[0] ){
  } my( $in,$e ) = int @BREW/4;
  for my $dir1(@BREW){
   if( $re->{'MAC'} ){ $e++;
-   if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
-   }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
-   }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16"; }
+    if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
+    }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
+    }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16";
+    }
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
