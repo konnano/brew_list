@@ -740,9 +740,12 @@ dbvisualizer	データベース管理および分析ツール
 dcommander	Two-paneファイルマネージャー
 dcp-o-matic	ビデオを変換する DCP(Digital Cinema Democratized)へのオーディオと字幕
 dcp-o-matic-batch-converter	ビデオを変換する DCP(Digital Cinema Democratized)へのオーディオと字幕
+dcp-o-matic-combiner	dcp-o-matic-combiner
+dcp-o-matic-disk-writer	DCP-o-matic ディスクライター
 dcp-o-matic-encode-server	ビデオを変換する DCP(Digital Cinema Democratized)へのオーディオと字幕
 dcp-o-matic-kdm-creator	ビデオを変換する DCP(Digital Cinema Democratized)へのオーディオと字幕
 dcp-o-matic-player	デジタルシネマパッケージを再生する
+dcp-o-matic-playlist-editor	DCP-o-matic プレイリストエディター
 dcv-viewer	NICE DCVリモートディスプレイ手続きのクライアント
 dd-utility	オペレーティングシステムのIMGおよびISOファイルの書き込みとバックアップ
 ddnet	DDRaceのTeeworldsバージョン
@@ -1989,6 +1992,7 @@ mediahuman-youtube-downloader	YouTubeビデオダウンローダー
 mediainfo	ビデオおよびオーディオファイルの技術データとタグデータを表示する
 mediathekview	ドイツ語のオンラインマルチメディアライブラリを管理します オーストリアとスイスの公共放送
 medibangpaintpro	デジタルアートとコミックを作成する
+medis	Medis
 meetingbar	メニューバーに次の会議を表示します
 megacmd	MEGAcmd
 megasync	コンピューターとMEGAクラウドドライブ間でファイルを同期します
@@ -2065,6 +2069,7 @@ milanote	アイデアやプロジェクトをビジュアルボードに整理�
 milkman	拡張可能な要求および応答ワークベンチ
 milkytracker	FT2と互換性のあるミュージック監視
 millie	韓国の電子書籍ストア
+miln-movie-splitter	Milnムービースプリッター
 mimecast	Mac用のMimecast
 mimestream	Gmail用のネイティブアプリのメールクライアント
 min	プライバシーを保護する最小限のブラウザー
@@ -2081,6 +2086,7 @@ miniforge	conda-forgeに固有のcondaの最小限のインストーラー
 minishift	Minishift
 minitimer	miniTimer
 minitube	YouTubeアプリケーション
+miniwol	miniWOL
 minizincide	オープンソースの制約モデリング言語とIDE
 mipony	Mipony
 miro	オンラインコラボレーティブ共同ホワイトボードプラットフォーム
@@ -2151,6 +2157,7 @@ mousepose	マウスポインタとカーソル位置を強調表示します
 movist	QuickTimeとFFmpegをベースにしたムービープレーヤー
 movist-pro	メディアプレーヤー
 mp3gain-express	MP3Gain表現
+mp3tag	Mp3tag
 mp4tools	MP4ビデオの作成と編集
 mpeg-streamclip	ビデオ変換器 プレーヤー/エディター
 mplab-xc16	コンパイラ 16ビットPIC/SAMMCU/MPU
