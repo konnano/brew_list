@@ -61,6 +61,7 @@ advancedrestclient	APIテストツール
 aegisub	字幕の作成と変更
 aerial	Apple TV Aerialスクリーンセーバー
 aether	ピアツーピアの一時的な公開コミュニティー
+aethersx2	AetherSX2
 aexol-remote-mouse	Aexolリモートマウス
 affinity-designer	プロのグラフィックデザインソフトウェア
 affinity-photo	プロの画像編集ソフトウェア
@@ -1044,6 +1045,7 @@ feishu	プロジェクト管理ソフトウェア
 fellow	共同会議の議事 ノート/アクションアイテム
 fenix	協調的機能を備えたシンプルで視覚的な静的Webサーバー
 ferdi	複数のサービスを組み合わせたメッセージングブラウザー
+ferdium	Ferdium
 fetch	ファイル転送クライアント
 ff-works	ビデオエンコーディングおよびトランスコーディングアプリ
 fig	ターミナルを再考する
@@ -1623,6 +1625,7 @@ jpadilla-rabbitmq	RabbitMQのアプリラッパー
 jpadilla-redis	Redisのアプリラッパー
 jprofiler	Javaプロファイラー
 jqbx	他の人と同期してSpotifyの音楽を聴く
+jquake	JQuake
 jt-bridge	WSJT-Xとアマチュア無線ロギングアプリケーション間のブリッジとして機能します
 jtool	逆エンジニアリングを支援するツール セキュリティ研究/tweak開発
 jtool2	逆エンジニアリングを支援するツール セキュリティ研究/tweak開発
@@ -1934,6 +1937,7 @@ mana-security	個人の脆弱性管理
 manageengine-mibbrowser	ManageEngine MibBrowser
 manico	アプリランチャーと切り替え
 manictime	コンピューターの使用状況データを自動的に収集する時間監視
+manila	Manila
 manta	カスタマイズ可能なテンプレートを使用したInvoicingデスクトップアプリ
 manuskript	作家のためのツール
 manymc	ネイティブarm64をサポートするMinecraftランチャー
@@ -2465,6 +2469,7 @@ overkill	iPhoneを接続するときにiTunesが開かないようにする
 oversight	コンピューターのマイクとWebカメラを監視します
 owasp-zap	FreeのオープンソースWebアプリスキャナー
 owncloud	ownCloud用のデスクトップ同期クライアント
+oxwu	OX ウェイクアップ
 oxygen-xml-editor	OxygenXML開発および作成を含むXML編集用のツール
 p4	これを使用して操作に即座にアクセスしシステムを完全に制御します
 p4v	Helix Coreのビジュアルクライアント
@@ -2610,10 +2615,13 @@ plotdigitizer	機能データのスキャンされた立案をデジタル化す
 plover	Stenotypeエンジン
 plug	The Hype Machineの音楽プレーヤー
 pluginval	クロスプラットフォームプラグインvalidatorおよびテスターアプリケーション
+plus42-binary	Plus42 バイナリ
+plus42-decimal	Plus42 10進数
 pngyu	pngquant用のフロントエンドGUIアプリケーション
 pock	タッチバーにドックを表示するユーティリティ
 pocket-casts	Podcastプラットフォーム
 podcastmenu	メニューバーに曇りを表示するツール
+podman-desktop	Podman デスクトップ
 podolski	仮想アナログシンセサイザー
 podpisuj	電子署名と署名の検証のアプリケーション
 poedit	翻訳エディター
@@ -3623,7 +3631,6 @@ tweeten	Twitterクライアント
 twilioquest	16ビットゲームでクラウドを保存するミッションでCrewをコーディングして導く方法を学びましょう
 twine	双方向で非線形のストーリーを伝えるためのツール
 twist	チームコミュニケーションおよび協力的ソフトウェア
-twitch	Twitch
 twitterrific	Twitterクライアント
 twobird	共同メモをクライアントにメールで送信
 twonkyserver	DLNA/UPnP メディアサーバー
@@ -3726,6 +3733,7 @@ videostream	パソコンからChromecastにメディアをストリーミング�
 vidl	youtube-dlのGUIフロントエンド
 vidrio	プレゼンテーションデザインツール
 vidyo	Vidyo
+vieb	Vieb
 vienna	RSSとAtomリーダー
 vimediamanager	ViMediaManager
 vimr	NeovimテキストエディターのGUI
@@ -3946,6 +3954,7 @@ yammer	Yammer用のデスクトップクライアント
 yandex	Webブラウザー
 yandex-cloud-cli	Yandex Cloud CLI
 yandex-disk	クラウドストレージ
+yandex-music-unofficial	Yandex ミュージック非公式
 yate	メディアファイルタグエディター
 yattee	代替のプライバシーに優しいYouTubeフロントエンド
 yed	ダイアグラムを手動で作成するか分析のために外部データをインポートします
