@@ -2715,6 +2715,7 @@ propresenter	ライブイベントのプレゼンテーションおよび制作�
 prosys-opc-ua-browser	OPCUAサーバーからのデータを参照して視覚化する
 protege	Protect
 protoio-overflow	双方向なユーザーフロー図を作成する
+protokol	MIDI/OSC モニター
 protonmail-bridge	ProtonMailをIMAPおよびSMTP手続きをサポートする電子メールクライアントにブリッジします
 protonvpn	セキュリティに重点を置いたVPNクライアント
 protopie	双方向なプロトタイプを作成する
