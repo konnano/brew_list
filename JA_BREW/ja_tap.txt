@@ -411,6 +411,9 @@ font-delius	Delius
 font-delius-swash-caps	Delius Swash Caps
 font-delius-unicase	Delius Unicase
 font-della-respira	Della Respira
+font-delugia-book	Cascadiaコード + オタクフォント,Caskaydia Coveオタクフォントのわずかな違い
+font-delugia-complete	Cascadiaコード + オタクフォント,Caskaydia Coveオタクフォントのわずかな違い
+font-delugia-mono-complete	Cascadiaコード + オタクフォント,Caskaydia Coveオタクフォントのわずかな違い
 font-denk-one	Denk One
 font-devicons	Devicons
 font-devonshire	Devonshire
@@ -993,6 +996,7 @@ font-marko-one	Marko One
 font-marmelad	Marmelad
 font-martel	Martel
 font-martel-sans	Martel Sans
+font-martian-mono	Evil Martians の等幅フォント
 font-marvel	Marvel
 font-masinahikan	Masinahikan
 font-masinahikan-dene	Masinahikan Dene
@@ -2290,6 +2294,7 @@ rstudio-preview	RとPythonに焦点を当てたデータサイエンスソフト
 safari-technology-preview	Webブラウザー
 screenflow5	ScreenFlow
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
+semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 sequel-pro-nightly	Sequel Pro
 shadow-beta	Shadow Beta
