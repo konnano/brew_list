@@ -3505,7 +3505,7 @@ thunder	VPNおよびWiFiプロキシ
 thunderbird	カスタマイズ可能なメールクライアント
 thyme	タスクタイマー
 ti-connect-ce	グラフ電卓のTI-84Plusファミリ用の接続ソフトウェア
-ti-smartview-ce-for-the-ti-84-plus-family	TI SmartView CE Emulator Software for the TI-84 Plus Family
+ti-smartview-ce-for-the-ti-84-plus-family	TI-84 Plusファミリ用のTI SmartView CEエミュレータソフトウェア
 tibco-jaspersoft-studio	JasperReports用のEclipseベースのレポート開発ツール
 tic80	作るためのファンタジーコンピュータ 小さなゲームをプレイして共有する
 tickeys	入力時に音声フィードバックを生成するためのユーティリティ
