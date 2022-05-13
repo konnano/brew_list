@@ -1338,6 +1338,7 @@ gridea	静的なブログ執筆クライアント
 grids	Instagramデスクトップアプリケーション
 gridtracker	使いやすいインターフェースで表示されるアマチュア無線情報の倉庫
 grisbi	個人財務管理プログラム
+groestlcoin-core	Groestlcoin クライアント/ウォレット
 growlnotify	通知システム
 gswitch	使用するグラフィックカードを設定する
 gtkwave	GTK+ ベースのウェーブビューア
@@ -3504,6 +3505,7 @@ thunder	VPNおよびWiFiプロキシ
 thunderbird	カスタマイズ可能なメールクライアント
 thyme	タスクタイマー
 ti-connect-ce	グラフ電卓のTI-84Plusファミリ用の接続ソフトウェア
+ti-smartview-ce-for-the-ti-84-plus-family	TI SmartView CE Emulator Software for the TI-84 Plus Family
 tibco-jaspersoft-studio	JasperReports用のEclipseベースのレポート開発ツール
 tic80	作るためのファンタジーコンピュータ 小さなゲームをプレイして共有する
 tickeys	入力時に音声フィードバックを生成するためのユーティリティ
