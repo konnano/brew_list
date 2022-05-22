@@ -468,6 +468,7 @@ boost-python3	相互運用性のためのC++ライブラリ C++/Python3
 boost@1.76	ポータブルC++ソースライブラリのコレクション
 boot-clj	Clojureのツールを構築する
 bootloadhid	AVRマイクロコントローラー用のHIDベースのUSBブートローダー
+bore-cli	モダン ローカルポートをリモートサーバーに公開するRustの単純なTCPトンネル
 borgbackup	圧縮と認証された暗号化を使用したアーカイバの重複排除
 borgmatic	ボーグバックアップソフトウェアのシンプルなラッパースクリプト
 boringtun	RustでのUserspace WireGuardの実装
@@ -1043,6 +1044,7 @@ dbacl	単純ベイズ分類器
 dbdeployer	サンドボックス化されたMySQLデータベースサーバーを展開するためのツール
 dbhash	SQLiteデータベースのスキーマとコンテンツのSHA1ハッシュを計算します
 dbmate	軽量でフレームワークに依存しないデータベース移行ツール
+dbml-cli	DBMLファイルをSQLに、またはその逆に変換します
 dbus	アプリケーション間通信を提供するメッセージバスシステム
 dbus-glib	D-BusメッセージバスシステムのGLib bindings
 dbxml	XQueryサポートおよびその他の高度な機能を備えた埋め込み可能なXMLデータベース
@@ -1215,6 +1217,7 @@ dosbox-staging	近代化されたDOSBoxソフトフォーク
 dosbox-x	正確なエミュレーションと幅広いテストを備えたDOSBox
 dosfstools	FATファミリーのファイルシステムを 作成/チェック/ラベル付け するためのツール
 dotbot	dotbotをブートストラップするツール
+dotdrop	ドットファイルを一度保存して、どこにでも展開します
 dotenv-linter	Rustで記述された.envファイル用の高速静的解析ツール
 dotnet	.NET Core
 double-conversion	IEEE doublesの2進化10進および10進2進ルーチン
@@ -1382,6 +1385,7 @@ erlang	高度に拡張性のあるリアルタイムシステムのためのプ�
 erlang@21	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@22	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@23	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
+erlang@24	高度スケーラブルなリアルタイムシステムのためのプログラミング言語
 erofs-utils	拡張読み取り専用ファイルシステムのユーティリティ
 esbuild	非常に高速なJavaScript bundler and minifier
 eslint	JavaScript用のASTベースのパターンチェッカー
@@ -1550,6 +1554,7 @@ flint	数論のためのCライブラリ
 flint-checker	contributor frictionの日常的な原因についてプロジェクトをCheckしてください
 flintrock	Apache Sparkクラスターを起動するためのツール
 flit	Pythonモジュールの簡略化されたパッケージ化
+flix	静的に型付けされた機能 命令型の論理プログラミング言語
 flow	JavaScriptの静的型チェッカー
 flow-cli	Flowアプリケーションを構築するためのユーティリティを提供するコマンドラインインターフェイス
 flow-tools	NetFlowデータ報告の収集、送信、処理、および生成
@@ -1689,6 +1694,7 @@ gcal	カレンダーを計算して印刷するためのプログラム
 gcalcli	コマンドラインからGoogleカレンダーに簡単にアクセスできます
 gcc	GNUコンパイラコレクション
 gcc@10	GNUコンパイラコレクション
+gcc@12	GNUコンパイラコレクション
 gcc@4.9	GNUコンパイラコレクション
 gcc@5	GNUコンパイラコレクション
 gcc@6	GNUコンパイラコレクション
@@ -1843,6 +1849,7 @@ git-url-sub	複数のリポジトリの代わりにリモートURLを再帰的�
 git-utils	さまざまなGitヘルパーユーティリティ
 git-vendor	gitベンダーの依存関係を管理するためのコマンド
 git-when-merged	コミットがgitでマージされた場所を見つける
+git-workspace	複数のプロバイダーからの個人リポジトリと仕事用Gitリポジトリを同期する
 git-xargs	1つのコマンドで複数のGithubリポジトリ間で更新を行うためのCLI
 gitbackup	Bitbucket、GitHub、GitLabリポジトリをバックアップするためのツール
 gitbatch	gitリポジトリを1か所で管理する
@@ -1882,6 +1889,7 @@ glib	C用のコアアプリケーションライブラリ
 glib-networking	glibのネットワーク関連モジュール
 glib-openssl	glib用のOpenSSLGIOモジュール
 glibc	GNUCライブラリ
+glibc@2.13	GNU Cライブラリ
 glibmm	glibへのC++インターフェース
 glibmm@2.66	glibへのC++インターフェース
 glide	簡素化されたGoプロジェクト管理 依存関係管理/ベンダー
@@ -1967,6 +1975,7 @@ gobuster	Goで書かれたDNS bustingツール ディレクトリ/ファイル
 gocloc	少し速いLoCカウンター
 gocr	光学式文字認識(OCR)、画像をテキストに変換します
 gocryptfs	Goで記述された暗号化され隠されたファイルシステム
+goctl	WebおよびRPCサービスのサーバー側およびクライアント側のコードを生成します
 goenv	GOバージョン管理
 gofabric8	KubernetesまたはOpenShiftで実行されているfabric8のCLI
 goffice	数値スプレッドシートプログラム
@@ -2203,6 +2212,7 @@ hello	GNUコーディング標準と実践のためのモデルを提供する�
 helm	Kubernetesパッケージマネージャー
 helm@2	Kubernetesパッケージマネージャー
 helmfile	Kubernetes展開するHelm チャート
+helmify	Kubernetes yamlからHelmチャートを作成する
 helmsman	コードツールとしてのHelmチャート
 help2man	簡単なマニュアルページを自動的に生成する
 heppdt2	さまざまなMC発生器およびPDG標準との間の細かいIDの変換
@@ -2755,6 +2765,7 @@ lha	lzhアーカイブを作成して開くためのユーティリティ
 lhasa	.lzhおよび.lzsアーカイブを解凍するためのLHA実装
 lib3ds	3D-Studioリリース3および4の「.3DS」ファイルを管理するためのライブラリ
 libaacs	Advanced Access ContentSystem仕様を実装します
+libabw	AbiWordドキュメントを解析するためのライブラリ
 libadwaita	最新のアダプティブGNOMEアプリケーションのビルディングブロック
 libaec	Golomb-Riceアルゴリズムを実装した適応均質化コーディング
 libagg	C++の忠実度の高い2Dグラフィックライブラリ
@@ -3268,6 +3279,7 @@ lm4tools	TI StellarisLaunchpadボード用のツール
 lmdb	Lightningメモリマップデータベース：Key-Valueデータstore
 lmod	PATH変数を変更するLuaベースの環境モジュールシステム
 lnav	ログファイルを表示および分析するためのCursesベースのツール
+lndir	別のディレクトリツリーへのシンボリックリンクのシャドウディレクトリを作成します
 loc	コードの行をすばやくカウントする
 localstack	完全に機能するローカルAWSクラウドスタック
 localtunnel	テストと共有を容易にするためにローカルホストを世界に公開します
@@ -3910,6 +3922,7 @@ ocrmypdf	スキャンしたPDFファイルにOCRテキストレイヤーを追�
 octant	開発者向けのKubernetesイントロスペクションツール
 octave	数値計算のための高レベルのインタプリタ言語
 octomap	八分木に基づく効率的で確率的3Dマッピングフレームワーク
+octosql	さまざまなファイル形式やデータベースのデータを分析するSQLクエリツール
 ode	関節式剛体力学の模擬検証
 odin	シンプル、性能、最新のシステムに焦点を当てたプログラミング言語
 odo	コマンドライン用の原子走行距離計
@@ -4200,6 +4213,7 @@ pgbadger	PostgreSQLログ分析器
 pgbouncer	PostgreSQLの軽量接続Pooler
 pgcli	自動補完と構文の強調表示を備えたPostgresのCLI
 pgdbf	テーブルのPostgreSQLへの変換器 XBase/FoxPro
+pget	ファイルダウンロードクライアント
 pgformatter	PostgreSQL構文美化
 pgloader	PostgreSQLのデータ読み込みツール
 pgpdump	PGPパケットvisualizer
@@ -4631,6 +4645,7 @@ regina-rexx	Rexxの通訳
 regipy	オフラインレジストリハイブ解析ツール
 regldg	正規表現文法言語辞書発生器
 regula	Open Policy Agent/Rego を使用して基礎構造をコードテンプレートとしてチェックします
+release-it	バージョン管理とパッケージ公開に関連するタスクを自動化する汎用CLIツール
 rem	OSXLeminders.appデータベースにアクセスするためのコマンドラインツール
 remake	改善されたエラー処理/トレース/デバッガー を備えたGNU Make
 remarshal	TOML/YAML/JSON 間の変換
@@ -4848,6 +4863,7 @@ sdl2_gfx	SDL2グラフィックス描画プリミティブおよびその他の�
 sdl2_image	画像をSDLサーフェスおよびテクスチャとしてロードするためのライブラリ
 sdl2_mixer	サンプルマルチチャンネルオーディオミキサーライブラリ
 sdl2_net	小さなサンプルのクロスプラットフォームネットワークライブラリ
+sdl2_sound	SDL用の抽象サウンドファイルデコーダー
 sdl2_ttf	SDLアプリケーションでTrueTypeフォントを使用するためのライブラリ
 sdl_gfx	グラフィックス描画プリミティブおよびその他のサポート関数
 sdl_image	画像ファイル読み込みライブラリ
@@ -4891,6 +4907,7 @@ sfcgal	CGAL周辺のC++ラッパーライブラリ
 sfk	コマンドラインツールコレクション
 sfml	複数の言語のbindingsを備えたマルチメディアライブラリ
 sfst	形態素解析器およびその他のFSTベースのツール用のツールボックス
+sftpgo	オプションのHTTP/S,FTP/S,WebDAV をサポートするフル機能のSFTPサーバー
 sgrep	SGML/XML/HTML を検索する
 sha1dc	SHAtteredを含むファイル内のSHA-1衝突を検出するためのツール
 sha2	ハッシュアルゴリズムの実装 SHA-256/SHA-384/SHA-512
@@ -5505,6 +5522,7 @@ ttf2eot	TTFファイルをEOTに変換する
 ttf2pt1	TrueTypeフォントからPostScriptType1への変換器
 ttfautohint	TrueTypeフォントの自動ヒンター
 tth	TeX/LaTeXからHTMLへの変換器
+ttmath	C++用のBignumライブラリ
 tty-clock	ncursesのデジタル時計
 tty-share	インターネットを介した端末共有
 tty-solitaire	Ncursesベースのklondikeソリティアゲーム
@@ -5877,6 +5895,7 @@ xcenv	Xcodeバージョンマネージャー
 xcinfo	利用可能なXcodeバージョンに関する情報を取得してインストールするためのツール
 xclip	コマンドラインからX11クリップボードにアクセスする
 xclogparser	Xcodeで使用されるSLF連続化形式を解析するためのツール
+xcode-kotlin	KotlinネイティブXcodeプラグイン
 xcodegen	スペックファイルとフォルダ構造からXcodeプロジェクトを生成します
 xcproj	Xcodeプロジェクトファイルを操作する
 xcprojectlint	Xcodeプロジェクトの静的解析ツール
