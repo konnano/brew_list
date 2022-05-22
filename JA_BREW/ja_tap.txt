@@ -507,6 +507,7 @@ font-felipa	Felipa
 font-fenix	Fenix
 font-festive	Festive
 font-finger-paint	Finger Paint
+font-finlandica	Finlandica
 font-fira-code	Fira Code
 font-fira-code-nerd-font	FiraCode Nerd Font(Fira Code)
 font-fira-mono	Fira Mono
@@ -828,6 +829,7 @@ font-kameron	Kameron
 font-kanit	Kanit
 font-kanjistrokeorders	6500字以上の漢字の書き順図 180以上のかな記号とラテン文字
 font-kantumruy	Kantumruy
+font-kantumruy-pro	work sansより 幅とウエイトを変更
 font-kapakana	2ウェイトフォントで静的インスタンスと可変フォントの両方で使用できます
 font-karantina	ライト/レギュラー/ボールド を含む3つのウェイトファミリー
 font-karla	Karla
@@ -840,6 +842,7 @@ font-kavivanar	Kavivanar
 font-kavoon	Kavoon
 font-kawkab-mono	Kawkab Mono
 font-kdam-thmor	Kdam Thmor
+font-kdam-thmor-pro	プロジェクトでラテン語対応として使用されます
 font-keania-one	Keania One
 font-kelly-slab	Kelly Slab
 font-kenia	ケニヤ
@@ -1754,6 +1757,7 @@ font-syncopate	Syncopate
 font-syne	もともとアートセンター'Synesthésie'のために設計された書体
 font-syne-mono	コントロールを手放す別の見方
 font-syne-tactile	もともとアートセンター'Synesthésie'のために設計されました
+font-tai-heritage-pro	通常の太字のウェイトで利用可能 OpenTypeとグラファイトレンダリングの両方で
 font-tajawal	Tajawal
 font-takaoex	TakaoEx
 font-tangerine	Tangerine
@@ -2031,6 +2035,7 @@ konica-minolta-bizhub-c750i-driver	PostScriptプリンタードライバー
 konica-minolta-bizhub-c759-c658-c368-c287-c3851-driver	コニカ ミノルタBizhubプリンター用ドライバー
 kyocera-printer-drivers	京セラMacドライバー
 lacie-network-assistant	CloudBoxとすべてのLaCieネットワーク接続ストレージを管理します
+lg-dual-controller	デュアルコントローラーにより、システム間でのキーボードとマウスの共有が可能になります
 lg-onscreen-control	接続されているすべてのLGモニター情報を表示します
 linn-konfig	Linn Konfig
 lmsclients-squeezeplay	メディアサーバークライアント
