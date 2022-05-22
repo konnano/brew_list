@@ -329,7 +329,9 @@ bfxr	Bfxr
 bibdesk	参考文献の編集と管理
 big-mean-folder-machine	ファイル/フォルダ 管理ユーティリティ
 biglybt	Azureusオープンソースプロジェクトに基づくBittorrentクライアント
+bike	アイデアを記録して処理する
 bilibili	非公式のbilibiliクライアント
+bilibili-official	公式のbilibiliビデオストリーミングおよび共有プラットフォーム
 bilimini	小さなウィンドウのbilibiliクライアント
 billings-pro	Invoices/推定 引用と時間追跡
 binance	暗号通貨交換
@@ -472,6 +474,7 @@ caption	字幕を自動的に検索して設定します
 capto	スクリーン キャプチャ/レコーダー/ビデオエディター
 carbon-copy-cloner	ハードディスクのバックアップとクローン作成ユーティリティ
 cardhop	連絡先マネージャー
+cardpresso	プロのカード制作のためのカードソフトウェアツール
 caret	Caret
 cashnotify	メニューバーからStripeアカウントとPaypalアカウントを監視します
 castr	Castrストリーミングプラットフォームを制御するためのデスクトップアプリケーション
@@ -937,6 +940,7 @@ electron-fiddle	小さな電子実験を作成して遊ぶ
 electronic-wechat	電子WeChat
 electronmail	非公式のProtonMailデスクトップアプリ
 electrum	ビットコインシンクライアント
+electrum-grs	Electrum-GRS
 electrum-ltc	ライトコインウォレット
 electrumsv	ビットコインSV用のデスクトップウォレット
 element	Matrix協調クライアント
@@ -966,7 +970,6 @@ engine-prime	DenonのエンジンOSハードウェア用の音楽管理ソフト
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
 enjoyable	Enjoyable
 enpass	パスワードと認証情報の管理
-entropy	ファイルアーカイバ
 envkey	認証情報を保護し構成を同期します
 enzymex	EnzymeX
 epic	プライベートで安全なWebブラウザー
@@ -1261,7 +1264,6 @@ gitup	視覚的な相互作用に焦点を当てたGitインターフェース
 gitx	GitX
 glance	ネイティブでサポートされていないファイルのQuicklookプレビューを提供するユーティリティ
 glimmerblocker	GlimmerBlocker
-gloomhaven-helper	Gloomhavenボードゲームをプレイするための公式にライセンスされたコンパニオンアプリケーション
 gltfquicklook	glTFファイル用のQuickLookプラグイン
 gluemotion	タイムラプス動画を作成して修正する
 glyphfinder	デザイナーのためのキャラクター検索 開発/ライター
@@ -1483,7 +1485,6 @@ immersed	VROffice用デスクトップエージェント
 imo	Imoメッセンジャー
 impactor	モバイルデバイスを操作するためのGUIツール
 inav-configurator	INAV飛行制御システムの構成ツール
-indigo	Indigo Domotics
 infinity	カスタマイズ可能な作業管理プラットフォーム
 infoflow	AIオフィスプラットフォーム
 inform	自然言語に基づく会話型フィクションの書記体系
@@ -1493,6 +1494,7 @@ inkscape	ベクターグラフィックエディター
 inkstitch	機械刺繍デザイン用のInkscape拡張
 inky	ink用エディター：inkleの物語スクリプト言語
 inloop-qlplayground	inloop-qlplayground
+input-source-pro	多言語ユーザー向けのツール
 inso	CLIHTTPおよびGraphQLクライアント
 insomnia	HTTPおよびGraphQLクライアント
 inssider	inSSIDer
@@ -1587,7 +1589,6 @@ jasp	統計分析アプリケーション
 jasper	GitHubの問題リーダー
 jaxx-liberty	ブロックチェーンウォレット 持ち株/暗号価格/ニュース
 jazzup	入力時に効果音を再生します
-jbidwatcher	JBidwatcher
 jbrowse	Genomeブラウザー
 jclasslib-bytecode-viewer	コンパイルされたJavaクラスファイルと含まれているバイトコードのすべての側面を視覚化します
 jcryptool	暗号化アルゴリズムを適用して分析する
@@ -1696,7 +1697,6 @@ kindle-comic-converter	電子ブックリーダー用のコミックとマンガ
 kindle-comic-creator	Kindleコミッククリエーター
 kindle-previewer	Kindle電子書籍のプレビューと監査
 kinza	Webブラウザー
-kite	すべてのコードエディターにコード補完を追加します
 kitematic	Docker Container管理用のビジュアルユーザーインターフェイス
 kitty	GPUベースのターミナルエミュレータ
 kiwi-for-gmail	フル機能のデスクトップオフィス生産性アプリのようにGmailを強化します
@@ -1730,6 +1730,7 @@ kryoflux	ホスト Software - DiskTool コンソール(dtc)およびUI
 ksdiff	KaleidoscopeのAppStoreバージョン用のコマンドラインツール
 ksnip	スクリーンショットと注釈ツール
 kstars	天文学ソフトウェア
+ktalk	Kontur Talk
 kube-cluster	kubeクラスター
 kube-forwarder	kubeフォワーダー
 kubecontext	Kubernetesコンテキストを管理するためのメニューバーアプリ
@@ -1999,9 +2000,9 @@ mediathekview	ドイツ語のオンラインマルチメディアライブラリ
 medibangpaintpro	デジタルアートとコミックを作成する
 medis	Medis
 meetingbar	メニューバーに次の会議を表示します
+mega	分子進化統計分析と系統樹の構築
 megacmd	MEGAcmd
 megasync	コンピューターとMEGAクラウドドライブ間でファイルを同期します
-megax	分子進化統計分析と系統樹の構築
 megazeux	ASCIIベースのゲーム作成システム
 meld	ビジュアル差分およびマージツール
 mellel	長くて複雑なドキュメント用に構築された高度なワードプロセッサ
@@ -2252,7 +2253,6 @@ navicat-for-sql-server	SQLサーバー用のデータベース管理および開
 navicat-for-sqlite	SQLite用のデータベース管理および開発ツール
 navicat-premium	データベース管理および開発ツール
 navicat-premium-essentials	データベース管理および開発ツール
-nbtexplorer	Minecraft用の名前付きバイナリタグ(NBT)データエディター
 ncar-ncl	科学データの分析と視覚化のための通訳言語
 ndm	Node.jsパッケージマネージャー(NPM)のデスクトップマネージャー
 neat-reader	読む ePubブックに注釈を付けて管理する
@@ -2452,6 +2452,7 @@ oscilloscope	光線オシロスコープの美学を模倣する
 osculator	MIDIコントローラーとOSCコントローラーを接続する
 osirix-quicklook	OsiriX DICOMファイル用のQuickLookプラグイン
 osmc	Freeのオープンソースメディアセンター
+oso-cloud	OSOクラウドと対話するためのツール
 osp-tracker	物理教育のためのビデオ分析およびモデリングツール
 osquery	SQLを利用したオペレーティングシステムのインストルメンテーションと分析
 oss-browser	OSS(オブジェクトストレージサービス)用のグラフィカルな管理ツール
@@ -3094,7 +3095,6 @@ shortcat	Sproutcube Shortcat
 shortcutdetective	どのアプリがキーボードショートカット(ホットキー)を受信するかを検出します
 shortcutor	iOSショートカットエディター
 shortcuts	再起動/スリープ/ログアウト/シャットダウン/ロックショートカット
-shortery	ショートカットの自動化
 shotcut	動画編集
 shottr	スクリーンショット測定および注釈ツール
 showhiddenfiles	ShowHiddenFiles
@@ -3514,7 +3514,6 @@ tidal	忠実度の高いサウンドと高解像度のビデオ品質を備え�
 tiddly	TiddlyWiki
 tidelift	Tideliftシステムと対話するためのツール
 tidgi	個人知識ベースアプリ
-tifig	Tifig
 tiger-trade	取引プラットフォーム
 tigerjython	Jythonベースの教育プログラミング環境
 tigervnc-viewer	マルチプラットフォームVNCクライアントおよびサーバー
@@ -3564,7 +3563,6 @@ toland-qlmarkdown	Markdownファイル用のQuickLook生成器
 tomatobar	メニューバーポモドーロタイマー
 tomighty	Pomodoroデスクトップタイマー
 tongbu	携帯電話管理ツール
-tonido	Tonido
 toolreleases	最新のAppleツールリリース(ベータリリースを含む)について通知するユーティリティ
 toontown-rewritten	ディズニーのToontownオンラインのファンによる再生
 topcat	表形式データ用の双方向グラフィカルビューアおよびエディター
@@ -3584,6 +3582,7 @@ touchosc-editor	OSCおよびMIDI用のモジュラータッチコントロール
 touchswitcher	タッチバーを使用してアプリを切り替えます
 tower	パワーと生産性に焦点を当てたGitクライアント
 townwifi	TownWiFi
+tqsl	QSOレコードに署名してLogbook of the World(LoTW)にアップロードする
 trackerzapper	リンク追跡パラメータを自動的に削除するメニューバーアプリ
 trader-workstation	トレーディングソフトウェア
 tradingview	投資トレーダーのためのチャートとソーシャルネットワーキング
@@ -3608,6 +3607,7 @@ trim-enabler	SSDパフォーマンスのトリムを有効にする
 trinity	暗号通貨ウォレット
 triplecheese	甘美で安っぽいシンセサイザー
 tripmode	低速または高価なネットワークでのデータ使用量の制御
+trivial	多くのプロトコルをサポートするシンプルなファイル転送サーバー
 trojanx	グレートファイアウォールをバイパスするメカニズム
 trolcommander	muCommanderファイルマネージャーのフォーク
 tropy	研究写真管理
@@ -3681,6 +3681,7 @@ unity-hub	Unityの管理ツール
 unity-ios-support-for-editor	UnityのiOSターゲットサポート
 unity-webgl-support-for-editor	UnityのWebGLターゲットサポート
 unity-windows-support-for-editor	UnityのWindows(Mono)ターゲットサポート
+universal-android-debloater	ルート権限を取得していないAndroidデバイスをデブロートするためにADBを使用するGUI
 universal-battle	リアルタイムマルチプレイヤー卓上戦争ゲーム
 universal-gcode-platform	CNC用Gコードセンダー(GRBL/TinyG/g2core/Smoothieware と互換性があります)
 universal-media-server	DLNA/UPnP/HTTP(S) をサポートするメディアサーバー
@@ -3940,7 +3941,6 @@ xmind-zen	マインドマップとbrainstormingアプリ
 xmplify	XMLエディター
 xnconvert	画像変換およびresizerツール
 xnviewmp	フォトビューアー 画面管理/画像リサイザーなど
-xoctave	Xoctave
 xonotic	アリーナスタイルの一人称シューティングゲーム
 xournal-plus-plus	手書きのメモ取りソフトウェア
 xpra	画面とアプリケーションの転送システム
