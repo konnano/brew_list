@@ -643,6 +643,7 @@ console	コンソール
 container-ps	すべてのDocker画像を表示するアプリ
 contexts	アプリケーションウィンドウを切り替えることができます
 continuity-activation-tool	互換性のあるハードウェアで継続性機能を有効にする
+contour	ターミナルエミュレータ
 contraste	Contraste
 controllermate	ControllerMate
 controlplane	ControlPlane
@@ -1378,6 +1379,7 @@ hashbackup	コマンドラインバックアッププログラム
 hazel	自動化された組織
 hazeover	Windowsマネージャーとデスクトップオーガナイザー
 hbuilderx	HTMLエディター
+hdfview	HDFファイルを閲覧および編集するためのツール
 hdrmerge	拡張されたダイナミックレンジで生の画像を作成します
 headset	YouTubeとRedditを搭載した音楽プレーヤー
 heaven	PCハードウェアのパフォーマンスと安定性のテスト
