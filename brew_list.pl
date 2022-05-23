@@ -11,6 +11,7 @@ MAIN:{
  my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],
              'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
              'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt",
+             'TAP_S'=>'/usr/local/Homebrew/Library/Taps',
              'CAN'=>"$HOME/ana.txt",'SPA'=>' 'x9 };
 
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],
@@ -60,6 +61,7 @@ MAIN:{
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
+    $re->{'TAP_S'} = '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps';
     $OS_Version = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
  }else{
   $OS_Version = `sw_vers -productVersion`;
@@ -81,6 +83,7 @@ MAIN:{
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
+     $re->{'TAP_S'} = '/opt/homebrew/Library/Taps';
   $ref->{'VERS'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions/Casks';
    $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers/Casks';
     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
@@ -411,16 +414,16 @@ my( $url,$ls,$re,$bn ) = @_;
 }
 
 sub Top_1{
-my( $re,$list,%HA,@AN ) = @_;
+my( $re,$list,%HA,@AN,$top ) = @_;
  for my $ls(@$list){
   Uses_1( $re,$ls,\%HA,\@AN );
    if( @AN < 2 ){
     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
      for my $bui(@BUI){ $ls .= " : $bui" if $re->{'HASH'}{$bui}; }
-    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2/ ? print"$ls\n" : Mine_1( $ls,$re,0 );
+    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
    }
   @AN = %HA = ();
- }
+ }print $top if $top;
 }
 
 sub Brew_1{
@@ -783,7 +786,7 @@ my( $list,$file,$in,$re ) = @_;
       $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){ my $ls = $brew_1;
      if( $re->{'FOR'} and $re->{'S_OPT'} ){
-      Tap_2( '/usr/local/Homebrew/Library/Taps',$re ) unless $re->{'TAP2'};
+      Tap_2( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
        for(@{$re->{'TAP2'}}){ $ls = $_ if m|/$brew_1$|; }
      }
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
@@ -924,7 +927,7 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
        if( $re->{'FOR'} and $re->{'S_OPT'} ){
-        Tap_2( '/usr/local/Homebrew/Library/Taps',$re ) unless $re->{'TAP2'};
+        Tap_2( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
          for(@{$re->{'TAP2'}}){ $tap = $_ if m|/$tap$|; }
        } Mine_1( $tap,$re,1 );
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
