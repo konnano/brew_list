@@ -1000,6 +1000,7 @@ cvsync	ポータブルCVSリポジトリ同期ユーティリティ
 cwb3	言語注釈付きの大きなテキストコーパスを管理およびクエリするためのツール
 cweb	洗練されたドキュメンテーションシステム C/C++/Java
 cwlogs	CloudwatchLogsからログを読み取るためのCLIツール
+cxgo	CをGOに変換する
 cxxopts	軽量のC++コマンドラインオプションパーサー
 cxxtest	JUnit/CppUnit/xUnit に似たC++単体テストフレームワーク
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
@@ -1982,6 +1983,7 @@ goffice	数値スプレッドシートプログラム
 gofish	クロスプラットフォームシステムパッケージマネージャー
 gofumpt	より厳格なgofmt
 gojq	jqのPureGo実装
+gokart	Goコードを保護するための静的コード分析
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
 gollum	Go n：mメッセージ 多重装置
@@ -3720,6 +3722,7 @@ nagios-plugins	nagiosネットワーク監視システム用のプラグイン
 nailgun	コマンドラインクライアント Javaプログラムのプロトコルとサーバー
 name-that-hash	最新のハッシュ識別システム
 namebench	DNS基準比較ユーティリティ
+naml	Kubernetes YAMLをGolangに変換する
 nano	FreeのPicoテキストエディタ(GNU)代替品
 nanoflann	KDツリーを使用した最近傍検索用のヘッダーのみのライブラリ
 nanomsg	Cのソケットライブラリ
@@ -4032,6 +4035,7 @@ openssl@1.1	暗号化と SSL/TLS ツールキット
 openssl@3	暗号化と SSL/TLS ツールキット
 openstackclient	OpenStackのコマンドラインクライアント
 opensubdiv	オープンソースのsubdivision surfaceライブラリ
+opentelemetry-cpp	OpenTelemetry C++クライアント
 opentracing-cpp	C++のOpenTracing API
 opentsdb	拡張性のある分散時系列データベース
 openttd	Transport Tycoon Deluxeをベースにしたシミュレーションゲーム
@@ -5425,6 +5429,7 @@ tintin	MUDクライアント
 tiny-fugue	プログラム可能なMUDクライアント
 tinycdb	定数データベースの作成と読み取り
 tinyproxy	POSIXシステム用のHTTP/HTTPSプロキシ
+tinysearch	小さなRustとWasmで構築された静的Webサイトの全文検索エンジン
 tinysvm	パターン認識のためのサポートベクターマシンライブラリ
 tinyxml	XMLパーサー
 tinyxml2	改善されたtinyxml(メモリ効率とサイズ)
@@ -5940,6 +5945,7 @@ xorgrgb	X.Org：色名データベース
 xorriso	ISO9660+RR操作ツール
 xpa	Unixプログラム間のSeamlessな通信
 xpdf	PDF Viewer
+xpipe	入力を分割し指定されたユーティリティにフィードします
 xplanet	地球のHQ壁紙を作成する
 xplr	ハッキング可能で最低限の高速のTUIファイルエクスプローラー
 xqilla	XQueryおよびXPath2コマンドライン解釈プログラム
