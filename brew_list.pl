@@ -161,7 +161,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.09_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.09_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -275,8 +275,6 @@ sub Size_1{ no warnings 'numeric';
     } exit;
    } waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT";
   }
-  system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
-  system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
   for(sort{$b <=> $a} keys %HA){ my $utime; $c++;
    my( $cou,$name ) = split '\t';
    for my $json(@{$AR{$name}}){
@@ -291,16 +289,14 @@ sub Size_1{ no warnings 'numeric';
    } $utime = $utime ? $utime : 0;
     my $time = [localtime($utime)];
     my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
-   $size += $cou = sprintf "%.2fM",$cou/=1024;
+   $size += $cou = sprintf "%.2f",$cou/=1024;
   format STDOUT =
 @||||||||||||||||||||||||||||||||||||||||@<<<<<<<<<<<<<<<<<<<<@>>>>>>>>>>>>>>>>>>>>
-  $name,"size : $cou","install : $timer"
+  $name,"size : ${cou}M","install : $timer"
 .
   write
   }
   print" Totsl Size ${size}M  item $c\n" if -t STDOUT;
-  system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
-  system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
  Nohup_1( $re );
 }
 
