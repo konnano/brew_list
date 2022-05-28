@@ -1241,9 +1241,8 @@ sub Format_3{
       $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
      $ca .= ( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n\n" :
             ( $flag1 and $flag1 eq $name and $i == $#cas ) ? "$line2 c $cas[$i]$in\t$desc2\n\n" :
-              $#cas > 0 ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
-                   @fom ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
-                          "$name$dn\t$desc1\n$line2 c $cas[$i]$in\t$desc2\n\n";
+            ( $#cas > 0 or @fom ) ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
+                                    "$name$dn\t$desc1\n$line2 c $cas[$i]$in\t$desc2\n\n";
         $flag1 = $name;
     }
    if( $re->{'OS'}{"${name}d_cask"} and $re->{'OS'}{"${name}formula"} ){
