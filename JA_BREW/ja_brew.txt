@@ -1253,6 +1253,7 @@ dtach	画面のデタッチ機能をエミュレートします
 dtc	デバイスツリーコンパイラ
 dterm	xterm and friendsに使用するターミナルエミュレータ
 dtm	多言語分散処理マネージャー
+dtrx	インテリジェントなアーカイブ抽出
 dua-cli	ディスクスペースの使用状況を表示し不要なデータをすばやく削除します
 dub	Dプロジェクト用のビルドツール
 duc	ディスク使用量を検査するためのツールパッケージ
@@ -2191,6 +2192,7 @@ haskell-stack	Haskellプロジェクトを開発するためのクロスプラ�
 haste-client	速攻サーバーのCLIクライアント
 hasura-cli	Hasura GraphQLエンジンのコマンドラインインターフェイス
 hatari	Atari ST/STE/TT/Falcon エミュレーター
+hatch	最新の拡張可能なPythonプロジェクト管理
 haxe	Multi-platformプログラミング言語
 hayai	google testフレームワークに触発されたC++ 基準比較フレームワーク
 hbase	Hadoopデータベース：分散型で拡張性のあるbig data store
@@ -5371,6 +5373,7 @@ terraforming	既存のAWSリソースをTerraformスタイル(tf、tfstate)に�
 terragrunt	Terraformの薄いラッパー(ロック状態など)
 terrahelp	Terraformに追加機能を提供するツール
 terrahub	Terraform自動化およびオーケストレーションツール
+terramate	変更検出とコード生成によるTerraformスタックの管理
 terrascan	基礎構造全体の整合性およびセキュリティ違反をコードとして検出する
 tesseract	OCR(光学式文字認識)エンジン
 tesseract-lang	Tesseractの追加言語サポートを有効にします
