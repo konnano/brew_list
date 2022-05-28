@@ -2350,6 +2350,7 @@ whoozle-android-file-transfer-nightly	Androidファイル転送
 wine-devel	Windowsアプリケーションを実行するための互換性レイヤー
 wine-staging	Windowsアプリケーションを実行するための互換性レイヤー
 xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
+xmind8	マインドマッピングとブレーンストーミングツール
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
