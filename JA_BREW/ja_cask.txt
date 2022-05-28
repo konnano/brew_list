@@ -330,6 +330,7 @@ bibdesk	参考文献の編集と管理
 big-mean-folder-machine	ファイル/フォルダ 管理ユーティリティ
 biglybt	Azureusオープンソースプロジェクトに基づくBittorrentクライアント
 bike	アイデアを記録して処理する
+bili-downloader	BiliBiliメディアダウンローダー
 bilibili	非公式のbilibiliクライアント
 bilibili-official	公式のbilibiliビデオストリーミングおよび共有プラットフォーム
 bilimini	小さなウィンドウのbilibiliクライアント
@@ -591,7 +592,6 @@ cmdtap	Task Switcherに他の機能を追加します
 cncjs	CNCフライス盤コントローラーのインターフェース
 cncnet	CnCNet：クラシックコマンド&Conquer
 cnkiexpress	アカデミックアプリケーション
-coarchi	Archi用の協力的モデルプラグイン
 coccinellida	シンプルなSSHトンネルマネージャー
 coccoc	コック・コックブラウザー
 cockatrice	マルチプレイヤーカードゲーム用の仮想卓上
@@ -692,7 +692,6 @@ cryptomator	マルチプラットフォームのクライアント側クラウ�
 cryptonomic-galleon	Tezosブロックチェーン用のソフトウェアウォレット
 cryptr	HashicorpのVaultのGUI
 crystalmaker	結晶および分子構造を視覚化する
-crystax-ndk	GoogleのAndroid NDKのドロップイン代替品
 cscreen	コマンドライン表示管理ユーティリティ
 cubicsdr	クロスプラットフォームソフトウェア無線アプリケーション
 cuda-z	CUDA対応のGPUとGPGPUに関する基本情報を表示する
@@ -2614,7 +2613,6 @@ plex-media-server	ホームメディアサーバー
 plexamp	ビジュアルに焦点を当てた音楽プレーヤー
 pliim	ワンクリックでステージに上がり輝きを放ちます！
 plistedit-pro	プロパティリストとJSONエディター
-plistedplus	Plistファイルエディター
 plotdigitizer	機能データのスキャンされた立案をデジタル化する
 plover	Stenotypeエンジン
 plug	The Hype Machineの音楽プレーヤー
@@ -2850,7 +2848,6 @@ qview	画像ビューア
 qxmledit	XMLエディター
 r	統計計算とグラフィックスのための環境
 r-name	R-Name
-race-into-space	宇宙への進行
 racket	Lisp/Scheme ファミリーの最新のプログラミング言語
 radar	メニューバーから重要な指標を確認する
 radarr	Couchpotatoの映画で作業するSonarrのフォーク 
@@ -2950,6 +2947,7 @@ ringcentral-meetings	ビデオ会議/画面共有/チームメッセージング
 ringcentral-phone	電話システムマネージャー
 ripcord	Slack(およびDiscord)用のデスクトップチャットクライアント
 ripme	さまざまなWebサイトのアルバムリッパー
+roam-research	ネットワーク化された思考のためのメモを取るツール
 roaringapps	RoaringApps
 robo-3t	MongoDB管理ツール
 robofont	フォントエディター
@@ -3331,7 +3329,6 @@ stretchly	休憩時間通知アプリ
 stringsfile	StringsFile QuickLookプラグイン
 stringz	ローカライズ可能なファイルのエディター
 strongvpn	StrongVPN
-stubbymanager	StubbyManager
 studio-3t	SDI/クライアント/MongoDBのGUI
 studiolinkstandalone	高品質のAudioover IP(AoIP)接続を作成するためのSIPアプリケーション
 subethaedit	プレーンテキストとソースエディター
@@ -3373,6 +3370,7 @@ sweet-home3d	インテリアデザインアプリケーション
 swift	Swift XMPPクライアント
 swift-publisher	ページレイアウトとデスクトップ出版アプリケーション
 swiftbar	メニューバーカスタマイズツール
+swiftcord	Swiftcord
 swiftdefaultappsprefpane	Swiftで書かれたRCDefaultAppsの代替品
 swiftformat-for-xcode	Swiftコードを再フォーマットするためのXcode拡張
 swiftplantumlapp	XcodeでSwiftコードのクラス図を生成して表示します
@@ -3939,7 +3937,6 @@ xiv-on-mac	Wineラッパー FFXIVのセットアップツールとランチャ�
 xld	劣化無しオーディオデコーダー
 xlplayer	ビデオプレーヤー
 xmind	マインドマッピングとbrainstormingツール
-xmind-zen	マインドマップとbrainstormingアプリ
 xmplify	XMLエディター
 xnconvert	画像変換およびresizerツール
 xnviewmp	フォトビューアー 画面管理/画像リサイザーなど
@@ -3955,7 +3952,6 @@ xtorrent	トレントクライアント
 yacreader	コミックリーダー
 yakyak	Google Hangouts用のデスクトップチャットクライアント
 yam-display	さらに別のモニター
-yammer	Yammer用のデスクトップクライアント
 yandex	Webブラウザー
 yandex-cloud-cli	Yandex Cloud CLI
 yandex-disk	クラウドストレージ
