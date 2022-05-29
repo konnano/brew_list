@@ -78,7 +78,6 @@ MAIN:{
   %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
              'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  }
-
  if( $re->{'MAC'} and ( $CPU eq 'arm\?' or not -d $re->{'CEL'} ) ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
@@ -88,53 +87,44 @@ MAIN:{
    $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers/Casks';
     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
  }
- die " Not installed HOME BREW\n" unless -d $re->{'CEL'};
- $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
+   die " Not installed HOME BREW\n" unless -d $re->{'CEL'};
+   $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
   if( $re->{'JA'} ){
    die " \033[31mNot connected\033[00m\n"
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
    die " Not Locale\n" unless $Locale;
     -d "$ENV{'HOME'}/.JA_BREW" ?
     print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW'; exit;
-  }
-  if( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
+  }elsif( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name->{'EN'} = 1; $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
   }elsif( not $Locale ){ $name->{'EN'} = 1; }
   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
-    File_1( $ref );
-  } $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.';
-   $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
- if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
-  $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
-   $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
- }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
-  die" nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
- }
+    File_1( $ref ); }
 
- if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
-     $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
-      $re->{'NEW'}++; Init_1( $re );
- }elsif( $re->{'COM'} or $re->{'INF'} or $AR[1] and ( $name->{'LIST'} or $re->{'IS'} or $name->{'ANA'} ) ){
-  if( $re->{'INF'} ){
-   $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
-    $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
-     `/usr/bin/clang --version|sed '/Apple/!d;s/.*clang-\\([^.]*\\).*/\\1/'` : 0 if $re->{'MAC'};
-  }else{
-   $re->{'INF'} = $AR[1] if $re->{'IS'};
-    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
-     $name->{'L_OPT'} = ( $name->{'KEN'} and $Locale ) ? decode 'utf-8',$re->{'STDI'} :
-      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
+  if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
+   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
+    $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
+  }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
+   die" nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
- }elsif( $re->{'S_OPT'} ){
-   $ref->{'STDI'} = $AR[1] ? lc $AR[1] : Died_1();
-    $re->{'S_OPT'} = $ref->{'S_OPT'} =
-     $ref->{'STDI'} =~ s|^/(.+)/$|$1| ? $ref->{'STDI'} : "\Q$ref->{'STDI'}\E";
- }elsif( $re->{'USE'} ){
+   $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.' and not $re->{'S_OPT'};
+   $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
+  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
+      $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
+       $re->{'NEW'}++; Init_1( $re );
+  }elsif( $re->{'INF'} ){ $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = $AR[1];
+  }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and ( $name->{'LIST'} or $name->{'ANA'} ) ){
+   $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
+    $name->{'L_OPT'} = ( $name->{'KEN'} and $Locale ) ? decode 'utf-8',$re->{'STDI'} :
+     $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
+      $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
+  }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
- }elsif( $re->{'USES'} ){
+  }elsif( $re->{'USES'} ){
    $re->{'USE'} = $re->{'USES'} = $AR[1] ? lc $AR[1] : Died_1();
- }
+  }
  Fork_1( $name,$re,$ref );
 }
 
@@ -200,13 +190,13 @@ my( $re,$list ) = @_;
    Dele_1( $re ) if $re->{'DEL'};
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
- unless( $re->{'ANA'} ){
+ unless( $re->{'ANA'} or $re->{'COM'} ){
   $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},1 ) : 
-   ( $re->{'TOP'} or $re->{'IS'} or $re->{'COM'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+   ( $re->{'TOP'} or $re->{'IS'} ) ? Dirs_1( $re->{'CEL'},3 ) :
      $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
  }
- $re->{'COM'} ? Command_1( $re,$list ) : ( $re->{'BL'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
+ $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) :
    $re->{'ANA'} ? Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : File_1( $re,$list );
 }
@@ -290,11 +280,11 @@ sub Size_1{ no warnings 'numeric';
     my $time = [localtime($utime)];
     my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
    $size += $cou = sprintf "%.2f",$cou/=1024;
-  format STDOUT =
+format STDOUT =
 @||||||||||||||||||||||||||||||||||||||||@<<<<<<<<<<<<<<<<<<<<@>>>>>>>>>>>>>>>>>>>>
-  $name,"size : ${cou}M","install : $timer"
+$name,"size : ${cou}M","install : $timer"
 .
-  write
+write
   }
   print" Totsl Size ${size}M  item $c\n" if -t STDOUT;
  Nohup_1( $re );
@@ -1005,37 +995,32 @@ my( $re,$brew_1,$i,$e ) = @_;
 }
 
 sub Command_1{
-my( $re,$list,$ls1,$ls2,%HA,%OP ) = @_;
- for(my $in=0;$in<@$list;$in++){
-  if( $list->[$in] =~ /^\Q$re->{'STDI'}\E$/o ){
-   my $name = $list->[$in];
-   exit unless my $num = $re->{'HASH'}{$name};
-    Dirs_2( "$re->{'CEL'}/$name/$num",$re );
-     $re->{'CEL'} = "$re->{'CEL'}/\Q$name\E/$num";
-    for $ls1(@{$re->{'ARR'}}){
-     next if $ls1 =~ m[^$re->{'CEL'}/[^.][^/]+$|^$re->{'CEL'}/\.brew]o;
-     if( $ls1 =~ m[^$re->{'CEL'}/\.|^$re->{'CEL'}/s?bin/]o ){
-             print"$ls1\n";
-     }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
-             print"$ls1\n"; $re->{'INN'} = 1;
-     }else{ $ls2 = $ls1;
-      $ls1 =~ s|^($re->{'CEL'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
-        $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
-      $ls2 =~ s|^$re->{'CEL'}/[^/]+/[^/]+/(.+)|$1|o;
-        $OP{$ls1} = $ls2;
-     }
-    }
-    for my $key(sort keys %HA){
-     if( $HA{$key} == 1 ){
-      $OP{$key} =~ /^$re->{'CEL'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
-     }else{
-      ( $re->{'INN'} and  $key =~ m|^$re->{'CEL'}/lib$|o ) ?
-      print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
-     }
-    }
-   Nohup_1( $re );
+my( $re,$ls1,$ls2,%HA,%OP ) = @_;
+ exit unless my $num = $re->{'HASH'}{$re->{'STDI'}};
+ Dirs_2( "$re->{'CEL'}/$re->{'STDI'}/$num",$re );
+ $re->{'CEL'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
+  for $ls1(@{$re->{'ARR'}}){
+   next if $ls1 =~ m[^$re->{'CEL'}/[^.][^/]+$|^$re->{'CEL'}/\.brew]o;
+   if( $ls1 =~ m[^$re->{'CEL'}/\.|^$re->{'CEL'}/s?bin/]o ){
+           print"$ls1\n";
+   }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
+           print"$ls1\n"; $re->{'INN'} = 1;
+   }else{ $ls2 = $ls1;
+     $ls1 =~ s|^($re->{'CEL'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
+       $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
+     $ls2 =~ s|^$re->{'CEL'}/[^/]+/[^/]+/(.+)|$1|o;
+       $OP{$ls1} = $ls2;
+   }
   }
- }
+  for my $key(sort keys %HA){
+   if( $HA{$key} == 1 ){
+     $OP{$key} =~ /^$re->{'CEL'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
+   }else{
+     ( $re->{'INN'} and  $key =~ m|^$re->{'CEL'}/lib$|o ) ?
+     print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
+   }
+  }
+ Nohup_1( $re );
 }
 
 sub Dirs_2{
