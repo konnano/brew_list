@@ -2981,6 +2981,7 @@ runelite	Old School RuneScapeのクライアント
 runescape	RuneScape
 runjs	コードが入力されると自動評価されるJavaScriptプレイグラウンド
 runway	機械学習を活用したクリエイティブツールキット
+rustdesk	オープンソースの 仮想/リモート デスクトップアプリケーション
 rwts-pdfwriter	ドキュメントをPDFファイルに直接印刷するためのプリンタードライバー
 ryver	Ryver
 sabaki	囲碁とSGFエディター
