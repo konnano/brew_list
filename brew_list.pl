@@ -4,7 +4,7 @@ use warnings;
 use Encode;
 use NDBM_File;
 use Fcntl ':DEFAULT';
-my( $OS_Version,$OS_Version2,$CPU,%MAC_OS,$Locale,%JA );
+my( $OS_Version,$Locale,%JA );
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -56,29 +56,20 @@ MAIN:{
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }else{  Died_1();
  }
-   my $UNAME = `uname -m`;
-  $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
+  my $UNAME = `uname -m`;
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
     $re->{'TAP_S'} = '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps';
-    $OS_Version = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
  }else{
-  $OS_Version = `sw_vers -productVersion`;
-   $OS_Version =~ s/^(10\.)(9).*\n/${1}0$2/;
-    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
-     $OS_Version =~ s/^11.*\n/11.0/;
-      $OS_Version =~ s/^12.*\n/12.0/;
-  die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
-   $OS_Version2 = $OS_Version;
-    $OS_Version = "${OS_Version}M1" if $CPU eq 'arm\?';
+  chomp( $OS_Version =  `sw_vers -productVersion` );
+   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
+    $OS_Version = "${OS_Version}M1" if $UNAME =~ /arm64/;
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions/Casks';
    $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers/Casks';
     $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
-  %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
-             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
  }
- if( $re->{'MAC'} and ( $CPU eq 'arm\?' or not -d $re->{'CEL'} ) ){
+ if( $re->{'MAC'} and ( $UNAME =~ /arm64/ or not -d $re->{'CEL'} ) ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
