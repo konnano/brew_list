@@ -404,6 +404,10 @@ my( $re,$list,%HA,@AN,$top ) = @_;
  for my $ls(@$list){
   Uses_1( $re,$ls,\%HA,\@AN );
    if( @AN < 2 ){
+    if( $re->{'FOR'} ){
+     Tap_2( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
+      for(@{$re->{'TAP2'}}){ $ls = $_ if m|/$ls$|; }
+    }
     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
      for my $bui(@BUI){ $ls .= " : $bui" if $re->{'HASH'}{$bui}; }
     $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
@@ -784,7 +788,7 @@ my( $list,$file,$in,$re ) = @_;
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
        Mine_1( $brew_1,$re,0 )
-        if $opt =~ /\b$re->{'S_OPT'}\b/ and $re->{'S_OPT'} !~ /^(-|\\-)$/;
+        if $opt =~ /\b$re->{'S_OPT'}\b/o and $re->{'S_OPT'} !~ /^(-|\\-)$/;
       }else{ Mine_1( $brew_1,$re,0 ); }
      }
     }
@@ -954,10 +958,7 @@ my( $dir,$re ) = @_;
  for(glob "$dir/*"){
   next if m|/homebrew$|;
    Tap_2( $_,$re ) if -d;
-  if( /\.rb$/ ){
-   s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb$|$1/$2/$3|;
-    push @{$re->{'TAP2'}},$_;
-  }
+  push @{$re->{'TAP2'}},$_ if s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb$|$1/$2/$3|;
  }
 }
 
