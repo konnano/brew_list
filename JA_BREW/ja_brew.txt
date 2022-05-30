@@ -1895,6 +1895,7 @@ glibc@2.13	GNU Cライブラリ
 glibmm	glibへのC++インターフェース
 glibmm@2.66	glibへのC++インターフェース
 glide	簡素化されたGoプロジェクト管理 依存関係管理/ベンダー
+glider	複数のプロトコルをサポートするフォワードプロキシ
 glkterm	ターミナルウィンドウGlkライブラリ
 glktermw	UnicodeをサポートするターミナルウィンドウGlkライブラリ
 glm	グラフィックソフトウェア用のC++数学ライブラリ
@@ -6007,6 +6008,7 @@ ykman	YubiKey構成を管理するためのツール
 ykneomgr	CCIDと対話するためのCLIおよびCライブラリ-YubiKeyNEOの一部
 ykpers	YubiKeyパーソナライズライブラリとツール
 yle-dl	コマンドラインからYleビデオをダウンロードする
+yorkie	共同アプリケーション用のDocument store
 yosys	Verilog RTL合成のフレームワーク
 you-get	ウェブを削り取るDumbダウンローダー
 youtube-dl	コマンドラインからYouTubeビデオをダウンロードする
