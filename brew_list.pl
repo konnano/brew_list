@@ -191,8 +191,8 @@ my( $re,$list ) = @_;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
  unless( $re->{'ANA'} or $re->{'COM'} ){
-  $list = ( $re->{'S_OPT'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},1 ) : 
-   ( $re->{'TOP'} or $re->{'IS'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+  $list = ( $re->{'S_OPT'} ) ? Dirs_1( $re->{'CEL'},1 ) :
+   ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
      $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
  }
@@ -404,10 +404,7 @@ my( $re,$list,%HA,@AN,$top ) = @_;
  for my $ls(@$list){
   Uses_1( $re,$ls,\%HA,\@AN );
    if( @AN < 2 ){
-    if( $re->{'FOR'} ){
-     Tap_2( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
-      for(@{$re->{'TAP2'}}){ $ls = $_ if m|/$ls$|; }
-    }
+    Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'};
     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
      for my $bui(@BUI){ $ls .= " : $bui" if $re->{'HASH'}{$bui}; }
     $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
@@ -419,9 +416,9 @@ my( $re,$list,%HA,@AN,$top ) = @_;
 sub Brew_1{
 my( $re,$list,%HA,@AN ) = @_;
  return unless @$list;
-  for(my $i=0;$i<@$list;$i++){
-   my( $tap ) = $list->[$i] =~ /^\s(.*)\n/ ? $1 : $list->[$i];
-    (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $tap,$re,0 ) :
+  for(my $i=0;$i<@$list;$i++){ my $tap = $list->[$i];
+   Tap_2( $re->{'TAP_S'},$re,\$list->[$i] ) if $re->{'FOR'};
+    (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $list->[$i],$re,0 ) :
      ( $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'} ) ? Uses_1( $re,$tap,\%HA,\@AN ) :
        $re->{'USES'} ? push @AN,$tap : 0;
   }
@@ -775,10 +772,7 @@ my( $list,$file,$in,$re ) = @_;
      Tap_1( $list,$re,\$in );
       $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){ my $ls = $brew_1;
-     if( $re->{'FOR'} and $re->{'S_OPT'} ){
-      Tap_2( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
-       for(@{$re->{'TAP2'}}){ $ls = $_ if m|/$brew_1$|; }
-     }
+     Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'} and $re->{'S_OPT'};
      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
       Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 )
        if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
@@ -916,10 +910,8 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
    }
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
-       if( $re->{'FOR'} and $re->{'S_OPT'} ){
-        Tap_2( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
-         for(@{$re->{'TAP2'}}){ $tap = $_ if m|/$tap$|; }
-       } Mine_1( $tap,$re,1 );
+       Tap_2( $re->{'TAP_S'},$re,\$tap ) if $re->{'FOR'};
+        Mine_1( $tap,$re,1 );
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
      Memo_1( $re,$mem,$tap );
@@ -954,10 +946,16 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
 }
 
 sub Tap_2{
+my( $dir,$re,$tap ) = @_;
+ Tap_3( $dir,$re ) unless $re->{'TAP2'};
+  for(@{$re->{'TAP2'}}){ $$tap = $_ if m|/$$tap|; }
+}
+
+sub Tap_3{
 my( $dir,$re ) = @_;
  for(glob "$dir/*"){
   next if m|/homebrew$|;
-   Tap_2( $_,$re ) if -d;
+   Tap_3( $_,$re ) if -d;
   push @{$re->{'TAP2'}},$_ if s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb$|$1/$2/$3|;
  }
 }
