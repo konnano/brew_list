@@ -61,6 +61,7 @@ MAIN:{
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
     $re->{'TAP_S'} = '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps';
+     $OS_Version = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
