@@ -4215,6 +4215,7 @@ petsc-complex	科学計算のためのポータブルで拡張可能なツール
 pev	PE分析ツールキット
 pex	PostgreSQLのパッケージマネージャー
 pfetch	POSIX shで書かれたかなりのシステム情報ツール
+pg_partman	PostgreSQLのパーティション管理拡張機能
 pg_top	PostgreSQLプロセスを監視する
 pgbadger	PostgreSQLログ分析器
 pgbouncer	PostgreSQLの軽量接続Pooler
