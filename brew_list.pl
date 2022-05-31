@@ -62,13 +62,18 @@ MAIN:{
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
     $re->{'TAP_S'} = '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps';
  }else{
-  chomp( $OS_Version =  `sw_vers -productVersion` );
-   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
-    $OS_Version = "${OS_Version}M1" if $UNAME =~ /arm64/;
+  $OS_Version =  `sw_vers -productVersion`;
+   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
+    $OS_Version =~ s/^(10\.)(9).*\n/${1}0$2/;
+     $OS_Version =~ s/^11.*\n/11.0/;
+      $OS_Version =~ s/^12.*\n/12.0/;
+  die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
+   $OS_Version = "${OS_Version}M1" if $UNAME =~ /arm64/;
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions/Casks';
    $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers/Casks';
     $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
  }
+
  if( $re->{'MAC'} and ( $UNAME =~ /arm64/ or not -d $re->{'CEL'} ) ){
   $re->{'CEL'} = '/opt/homebrew/Cellar';
    $re->{'BIN'} = '/opt/homebrew/opt';
@@ -1580,7 +1585,7 @@ my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK,@ALIA );
 if( $^O eq 'darwin' ){
  $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/^(10.1[0-5])\.?\d*\n/$1/;
+  $OS_Version =~ s/^(10\.1[0-5])\.?\d*\n/$1/;
    $OS_Version =~ s/^(10\.)(9)\.?\d*\n/${1}0$2/;
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
