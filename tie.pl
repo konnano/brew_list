@@ -11,7 +11,7 @@ my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK,@ALIA );
 if( $^O eq 'darwin' ){
  $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/^(10.1[0-5])\.?\d*\n/$1/;
+  $OS_Version =~ s/^(10\.1[0-5])\.?\d*\n/$1/;
    $OS_Version =~ s/^(10\.)(9)\.?\d*\n/${1}0$2/;
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
