@@ -768,18 +768,18 @@ my( $list,$file,$in,$re ) = @_;
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
-    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){ my $ls = $brew_1;
-     Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'} and $re->{'S_OPT'};
-     ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
-      Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 )
-       if $re->{'S_OPT'} and $brew_1 =~ /$re->{'S_OPT'}/o;
-        $in++; $re->{'IN'}++; $pop = 1;
-         $re->{'CN'} ++ if $mem;
+    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
+     if( $re->{'S_OPT'} ){ my $ls = $brew_1;
+      Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'};
+      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
+       Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 ) if $brew_1 =~ /$re->{'S_OPT'}/o;
+     }else{ $pop = ++$in;
+      $re->{'IN'}++; $re->{'CN'}++ if $mem;
+     }
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
-       Mine_1( $brew_1,$re,0 )
-        if $opt =~ /\b$re->{'S_OPT'}\b/o and $re->{'S_OPT'} !~ /^(-|\\-)$/;
+       Mine_1( $brew_1,$re,0 ) if $opt =~ /\b$re->{'S_OPT'}\b/o and $re->{'S_OPT'} !~ /^(-|\\-)$/;
       }else{ Mine_1( $brew_1,$re,0 ); }
      }
     }
@@ -1055,9 +1055,9 @@ sub Format_1{
    system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
      print $re->{'ZEN'};
-     $re->{'ALL'} ? print " item a $re->{'AN'} : install $re->{'IN'}\n" :
-     $re->{'EXC'} ? print " item b $re->{'BN'} : install $re->{'CN'}\n" :
-     $re->{'KXC'} ? print " item c $re->{'DN'} : install $re->{'DI'}\n" : 0;
+     $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
+     $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
+     $re->{'KXC'} ? print " item $re->{'DN'} : install $re->{'DI'}\n" : 0;
    system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
   }
