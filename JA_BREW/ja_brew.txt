@@ -297,6 +297,7 @@ aws-es-proxy	HTTPクライアントとAWS Elasticsearch間の小さなプロキ�
 aws-google-auth	Google Appsを使用してAWS認証情報を取得する
 aws-iam-authenticator	AWS IAM認証情報を使用してKubernetesの認証
 aws-keychain	AWS認証情報の保存にMacOSキーチェーンを使用します
+aws-nuke	AWSアカウント全体を削除しすべてのリソースを削除します
 aws-okta	Okta認証情報を使用してAWSで認証する
 aws-rotate-key	AWSアクセスキーを簡単にローテーション
 aws-sdk-cpp	AWS SDK for C++
@@ -2079,6 +2080,7 @@ grex	正規表現を生成するためのコマンドラインツール
 grin	Mimblewimble手続きの最低限の実装
 grin-wallet	暗号通貨Grinの公式ウォレット
 grip	GitHub Markdownプレビューア
+groestlcoin	分散型 ピアツーピア決済ネットワーク
 groff	GNU troffテキストフォーマットシステム
 grok	正規表現と幾つかの DRY/RAD
 grokj2k	JPEG2000ライブラリ
@@ -3410,6 +3412,7 @@ mariadb@10.3	MySQLのDrop-in代替品
 mariadb@10.4	MySQLのDrop-in代替品
 mariadb@10.5	MySQLのDrop-in代替品
 mariadb@10.6	MySQLのドロップイン置換
+mariadb@10.7	MySQLのドロップイン置換
 markdown	テキストからHTMLへの変換ツール
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
 marked	速さのために構築されたマークダウンパーサーとコンパイラ
@@ -5188,6 +5191,7 @@ statix	nixプログラミング言語のヒントと提案
 stdman	cppreference.comからのフォーマットされたC++ stdlibのマニュアルページ
 stella	Atari 2600VCSエミュレーター
 stellar-core	Stellar(XLM)ネットワークのバックボーン
+stencil	サービス開発用のスマートテンプレートエンジン
 step	暗号とx509の万能ナイフ
 stern	複数のKubernetesポッドとそのコンテナをTailする
 stgit	Gitコミットをパッチのスタックとして管理する
