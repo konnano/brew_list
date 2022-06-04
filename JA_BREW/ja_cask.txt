@@ -1299,7 +1299,6 @@ google-cloud-sdk	Google Cloudでホストされているリソースとアプリ
 google-drive	Googleドライブストレージサービスのクライアント
 google-drive-file-stream	Googleドライブストレージサービスのクライアント
 google-earth-pro	Virtual globe
-google-featured-photos	スクリーンセーバー写真プロバイダー
 google-japanese-ime	Google日本語入力方式エディター
 google-trends	Googleトレンドのスクリーンセーバー
 google-web-designer	双方向HTML5ベースのデザインとモーショングラフィックスを作成する
@@ -1774,7 +1773,6 @@ leech	軽量ダウンロードマネージャー
 leela	使いやすいグラフィカルインターフェイスでプログラムをプレイしてください
 lego-mindstorms-ev3	Lego Mindstorms EV3 ホーム版
 lehreroffice	LehrerOffice
-leksah	Haskell IDE
 lens	Kubernetes IDE
 leocad	仮想LEGOモデルを作成するためのCADプログラム
 lepton	Snippet管理アプリ
@@ -2218,11 +2216,9 @@ mycloud	スイスのクラウドストレージデスクトップアプリ
 mycrypto	イーサリアムウォレットマネージャー
 mylio	Mylio
 mymonero	Monero暗号通貨のウォレット
-myphone	myPhoneDesktop
 mysides	mysides
 mysql-connector-python	MySQLサーバーと通信するための自己完結型のPythonドライバー
 mysql-shell	双方向なJavaScript、PythonまたはSQLインターフェース
-mysql-utilities	MySQLユーティリティ
 mysqlworkbench	デザインするビジュアルツール MySQLサーバーの開発と管理
 mysteriumvpn	VPNクライアント
 n1ghtshade	32ビットiOSデバイスの ダウングレード/脱獄を許可します
@@ -2922,7 +2918,6 @@ resolume-arena	ビデオマッピングソフトウェア
 resolutionator	ディスプレイで利用可能な解像度のいずれかを使用します
 responsively	動的Web開発に役立つ変更されたブラウザー
 restream-chat	ストリーミングチャットを1か所に保管する
-retinizer	Retinizer
 retro-virtual-machine	ZX SpectrumおよびAmstrad CPCエミュレーター
 retroactive	互換性のないOSバージョンでAppleアプリを実行する
 retroarch	エミュレータフロントエンド(OpenGLグラフィックAPIバージョン)
