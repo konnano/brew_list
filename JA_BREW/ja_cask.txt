@@ -1561,7 +1561,6 @@ itch	itch.ioのゲームクライアント
 iterm2	Appleターミナルアプリの代替ターミナルエミュレータ
 ithoughtsx	マインドマッピングツール
 itk-snap	3D医用画像のセグメント構造
-itools	iTools
 itraffic	ステータスバーにプロセストラフィックを表示するためのモニター
 itsycal	日程表メニューバー
 itubedownloader	YouTubeビデオをダウンロードする チャンネル/プレイリスト
@@ -1945,7 +1944,6 @@ manta	カスタマイズ可能なテンプレートを使用したInvoicingデ�
 manuskript	作家のためのツール
 manymc	ネイティブarm64をサポートするMinecraftランチャー
 manyverse	ピアツーピアSSB手続きに基づいて構築されたソーシャルネットワーク
-mapture	Mapture
 marathon	三部作で最初の一人称シューティングゲーム
 marathon-infinity	三部作で3番目の一人称シューティングゲーム
 marathon2	三部作で2番目の一人称シューティングゲーム
@@ -2298,7 +2296,6 @@ nodebox	視覚化とジェネレーティブデザインのためのノードベ
 nodeclipse	Nodeclipse
 noisebuddy	NoiseBuddy
 noisy	ホワイトノイズ生成器
-noisytyper	騒々しいタイパー
 nomachine	リモートデスクトップソフトウェア
 nomachine-enterprise-client	リモートデスクトップソフトウェア
 nomad	NoMAD
@@ -2388,7 +2385,6 @@ onyx	システムファイルの構造を確認 その他のメンテナンス�
 oolite	oolite
 open-in-code	Visual StudioCodeで現在のフォルダーを開くためのFinderツールバーアプリ
 open-video-downloader	Electronとnode.jsで作成されたyoutube-dl用のクロスプラットフォームGUI
-openarena	OpenArena
 openaudible	Audibleユーザー向けのオーディオブックマネージャー
 openbazaar	OpenBazaar#{version.major}
 openbci	OpenBCIハードウェアに接続し 生理学的データを視覚化してストリーミングします
@@ -2445,6 +2441,7 @@ orange	コンポーネントベースのデータマイニングソフトウェ�
 orca	Orca
 origami-studio	Facebookのプロトタイプデザインツール デザイン/アニメート
 origin	PCゲームをプレイし友達とつながる
+orion	Orionブラウザ
 orka	AppleでのKubernetesとのオーケストレーション
 oryoki	薄いインターフェースを備えた実験的なWebブラウザー
 osbuddy	OSBuddy
@@ -2732,6 +2729,7 @@ prudent	個人および家族の元帳のための統合環境
 prusaslicer	3Dプリンター用のGコード生成器(RepRap/Makerbot/Ultimakerなど)
 psi	XMPPネットワーク用に設計されたインスタントメッセージングアプリケーション
 psi-plus	経験豊富なユーザー向けに設計されたXMPPクライアント
+psst	Spotifyクライアント
 psychopy	心理学および神経科学の実験を実行するため
 ptpwebcam	DSLRライブビュービデオプラグイン
 publii	静的Webサイト生成器
@@ -3132,7 +3130,6 @@ simplesynth	SimpleSynth
 simplistic	jlutil
 simply-fortran	Fortran開発環境
 simsim	ターミナルまたはファインダーでiOSアプリケーションフォルダーを探索するためのツール
-simtoolkitpro	模擬装置用のEFBソフトウェア
 singularity	Second LifeとOpenSimのクライアント
 sioyek	研究論文や技術書を読むために設計されたPDFビューア
 sip	収集 色を整理して共有する
@@ -3150,7 +3147,6 @@ sketch-toolbox	スケッチツールボックス
 sketchbook	描画 ペイント&スケッチ アプリケーション
 sketchpacks	スケッチパック
 sketchup	3D設計ソフトウェア
-sketchup-pro	3D視覚化ソフトウェア
 skim	PDFリーダーとメモ取りアプリケーション
 skitch	マークアップと共有機能を備えた画面キャプチャツール
 sky-ticket	スカイチケットコンテンツのストリーミング
@@ -3158,7 +3154,6 @@ skychart	星図を描く
 skyfonts	フォントマネージャー
 skype	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype-for-business	Microsoftのインスタントメッセージングエンタープライズソフトウェア
-skypewebplugin	Skype Webプラグイン
 slack	チームコミュニケーションおよび協力的ソフトウェア
 slate	ウィンドウ管理アプリケーション
 sleek	todo.txtに基づくTodoアプリ
@@ -3206,6 +3201,7 @@ softorino-youtube-converter	YouTubeダウンローダーと変換器
 softraid	強力で直感的なソフトウェアRAIDユーティリティ
 softube-central	Softube製品のインストールとライセンスアクティベーション用のインストーラー
 sogouinput	フルスペルとダブルスペルをサポートする入力方式
+sol	ランチャーとコマンドパレット
 solar2d	Luaベースのゲームエンジン
 solvespace	Parametric 2d/3d CAD
 sonarr	UsenetおよびBitTorrentユーザー向けのPVR
@@ -3315,7 +3311,6 @@ steamcmd	SteamCMD
 steermouse	マウスボタンをカスタマイズする ホイール/カーソル速度
 stella	マルチプラットフォームのAtari2600エミュレーター
 stellarium	画面上にリアルタイムでリアルな空をレンダリングするツール
-stems	オーディオファイルを個々のトラックに分割する
 stepmania	家庭用とアーケード用の両方で使用できるように設計された高度なリズムゲーム
 steveschow-gfxcardstatus	gfxCardStatus
 stoplight-studio	APIを設計および文書化するためのエディター
@@ -3475,7 +3470,6 @@ textual	インターネットリレーチャット(IRC)チャットルームと�
 texturepacker	ゲームsprite sheetパッカー
 texworks	メインコードベース
 tg-pro	温度監視、ファン制御および診断
-th-makerx	Th-MakerX
 the-archive	メモを取る：Nimble、Calm、Plain.txt
 the-archive-browser	アーカイブの内容を閲覧する
 the-battle-for-wesnoth	ファンタジーをテーマにしたターン制戦略ゲーム
@@ -3737,7 +3731,6 @@ videofusion	動画編集
 videostream	パソコンからChromecastにメディアをストリーミングする
 vidl	youtube-dlのGUIフロントエンド
 vidrio	プレゼンテーションデザインツール
-vidyo	Vidyo
 vieb	Vieb
 vienna	RSSとAtomリーダー
 vimediamanager	ViMediaManager
