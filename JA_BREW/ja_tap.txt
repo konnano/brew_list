@@ -4,6 +4,7 @@ font-437-plus	DOS時代のIBMPCおよび互換機からのクラシックテキ�
 font-abeezee	ABeeZee
 font-abel	Abel
 font-abhaya-libre	Abhaya Libre
+font-aboreto	薄め
 font-aboriginal-sans	LanguageGeek アボリジニ Sans Serif
 font-aboriginal-serif	Aboriginal Serif
 font-abril-fatface	Abril Fatface
@@ -108,6 +109,7 @@ font-aref-ruqaa	Aref Ruqaa
 font-aref-ruqaa-ink	カリド・ホスニーが率いる カイロを拠点とする書体デザイナー エジプト
 font-arial	Arial
 font-arial-black	Arial Black
+font-arima	ndiscoverが主導 ポルトガルを拠点とするタイプデザインファウンドリ
 font-arima-madurai	Arima Madurai
 font-arimo	Arimo
 font-arimo-nerd-font	Arimo Nerd Font(Arimo)
@@ -556,6 +558,7 @@ font-galdeano	Galdeano
 font-galindo	Galindo
 font-gamja-flower	Gamja Flower
 font-gandhi-sans	Gandhi Sans
+font-gantari	すべてのキャラクターが調和して見えるように設計されています
 font-gayathri	Gayathri
 font-gelasio	Gelasio
 font-gemunu-libre	Gemunu Libre
@@ -569,6 +572,7 @@ font-gensenrounded	GenSenRounded
 font-genshingothic	Gen Shin Gothic
 font-gentium-basic	Gentium Basic
 font-gentium-book-basic	Gentium Book Basic
+font-gentium-book-plus	縮小された文字セットファミリの新しいバージョン gentium book basic
 font-gentium-plus	Gentium
 font-genwanmin	GenWanMin
 font-genyogothic	GenYoGothic
@@ -635,6 +639,7 @@ font-griffy	Griffy
 font-gruppo	Gruppo
 font-gudea	Gudea
 font-gugi	Gugi
+font-gulzar	現代のウルドゥー nasta'liqフォント
 font-gupter	Gupter
 font-gurajada	Gurajada
 font-gwendolyn	Gwendolyn
@@ -1051,6 +1056,7 @@ font-milonga	Milonga
 font-miltonian	Miltonian
 font-miltonian-tattoo	Miltonian Tattoo
 font-mina	Mina
+font-mingzat	jasonglavyのjglepchaカスタムエンコードフォントに基づくUnicodeフォント
 font-miniver	Miniver
 font-miriam-libre	Miriam Libre
 font-miriam-mono-clm	Miriam Mono CLM
@@ -1716,6 +1722,7 @@ font-spectral-sc	Spectral SC
 font-spicy-rice	Spicy Rice
 font-spinnaker	Spinnaker
 font-spirax	Spirax
+font-splash	Splash
 font-spleen	Spleen
 font-spline-sans	spline teamによって開始された元の書体
 font-spline-sans-mono	スプラインチームによって開始された元の書体
