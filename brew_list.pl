@@ -201,12 +201,11 @@ my( $re,$list ) = @_;
 sub Ana_1{
  my( $re,@an ) = @_;
  ++$re->{'NEW'} and Init_1( $re ) unless -f $re->{'CAN'};
- $re->{'L_OPT'} = 0 if $re->{'L_OPT'} and $re->{'L_OPT'} !~ /[12]/;
+ $re->{'L_OPT'} = 0 if not $re->{'L_OPT'} or $re->{'L_OPT'} and $re->{'L_OPT'} !~ /^[12]$/;
  open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
   while( my $ls=<$dir> ){ chomp $ls;
    my( $ls1,$ls2,$ls3,$ls4 ) = split '\t',$ls;
-   my $co = ( $re->{'L_OPT'} and $re->{'L_OPT'} == 1 ) ? $ls2 :
-            ( $re->{'L_OPT'} and $re->{'L_OPT'} == 2 ) ? $ls3 : $ls4;
+   my $co = $re->{'L_OPT'} == 1 ? $ls2 : $re->{'L_OPT'} == 2 ? $ls3 : $ls4;
    if( $co ){
     $an[$co]  = $ls1;
     $an[$co] .= $ls2 ? "\t$ls2" : "\t";
