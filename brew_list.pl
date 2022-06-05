@@ -767,14 +767,12 @@ my( $list,$file,$in,$re ) = @_;
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
-    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
-     if( $re->{'S_OPT'} ){ my $ls = $brew_1;
+    }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){ my $ls = $brew_1;
       Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'};
       ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
        Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 ) if $brew_1 =~ /$re->{'S_OPT'}/o;
-     }else{ $pop = ++$in;
-      $re->{'IN'}++; $re->{'CN'}++ if $mem;
-     }
+        $pop = ++$in; $re->{'IN'}++;
+         $re->{'CN'}++ if $mem;
     }else{
      if( $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
