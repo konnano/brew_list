@@ -112,6 +112,7 @@ alva	コードコンポーネントを使用して動くプロトタイプを作
 amadeus-pro	多目的オーディオレコーダー エディター/変換器
 amadine	ベクトルグラフィックおよびイラストソフトウェア
 amazon-chime	通信サービス
+amazon-luna	Amazon Luna
 amazon-music	Amazon Music用のデスクトップクライアント
 amazon-photos	写真の保存と共有サービス
 amazon-workdocs	完全に管理 安全なコンテンツの作成/保管所/コラボレーション 
@@ -2434,6 +2435,7 @@ optimus-player	メディアプレーヤー
 oracle-jdk	OracleのJDK
 oracle-jdk-javadoc	OracleJDKのドキュメント
 orange	コンポーネントベースのデータマイニングソフトウェア
+orangedrangon-android-messages	Androidメッセージデスクトップ
 orca	Orca
 origami-studio	Facebookのプロトタイプデザインツール デザイン/アニメート
 origin	PCゲームをプレイし友達とつながる
