@@ -2463,6 +2463,7 @@ ivy	Agile依存関係マネージャー
 ivykis	非同期I/O支援ライブラリ
 jabba	クロスプラットフォームのJavaバージョンマネージャー
 jack	オーディオ接続キット
+jackett	お気に入りのトレントトラッカーのAPIサポート
 jadx	Dex toJavaデコンパイラー
 jags	Bayesian MCMCシミュレーションのもう1つのGibbs Sampler
 jailkit	chrootjailに制限付きユーザーアカウントを作成するためのユーティリティ
@@ -2625,6 +2626,7 @@ ki18n	KDE GettextベースのUIテキストの国際化
 kibana	Elasticsearchの分析と検索ダッシュボード
 kibana@6	Elasticsearchの分析と検索ダッシュボード
 kickstart	新しいプロジェクトを迅速に立ち上げて実行するための雛形ツール
+kics	脆弱性を検出する コンプライアンスの問題および設定ミス
 killswitch	MacOS用のVPNキルスイッチ
 kim-api	原子間モデル(KIM)APIの知識ベース
 kimwitu++	ツリー(つまり用語)を処理するためのツール
@@ -3237,7 +3239,6 @@ libyaml	YAMLパーサー
 libyubikey	Yubicoワンタイムパスワードを操作するためのCライブラリ
 libzdb	データベース接続プールライブラリ
 libzip	読むためのCライブラリ 作成/zipアーカイブの変更
-libzt	アプリケーション用の暗号化されたP2Pネットワークライブラリ(GPLv3)
 libzzip	ZIPアーカイブの読み取りアクセスを提供するライブラリ
 licensefinder	プロジェクトの依存関係のライセンスを検索する
 lifelines	テキストベースの系図ソフトウェア
@@ -3726,6 +3727,7 @@ naga	snakeゲームのターミナル実装
 nagios	ネットワーク監視および管理システム
 nagios-plugins	nagiosネットワーク監視システム用のプラグイン
 nailgun	コマンドラインクライアント Javaプログラムのプロトコルとサーバー
+nali	IP地理情報とCDNプロバイダーを照会するためのツール
 name-that-hash	最新のハッシュ識別システム
 namebench	DNS基準比較ユーティリティ
 naml	Kubernetes YAMLをGolangに変換する
@@ -3944,6 +3946,7 @@ ogmtools	OGGメディアストリーム操作ツール
 oh-my-posh	任意のシェルのプロンプトテーマエンジン
 oha	HTTPロードジェネレータ tuiアニメーション rakyll/hey に触発された
 ohcount	ソースコードラインカウンター
+ohdear-cli	あなたの大事なサイトを管理するツール
 oil	より一貫性のある構文と意味を備えたBash互換のUnixシェル
 oksh	パブリックドメインのKornシェル(pdksh)に基づくポータブルOpenBSD ksh
 okteto	Kubernetesで直接コードを開発してテストすることでより優れたアプリを構築します
@@ -4218,6 +4221,7 @@ petsc-complex	科学計算のためのポータブルで拡張可能なツール
 pev	PE分析ツールキット
 pex	PostgreSQLのパッケージマネージャー
 pfetch	POSIX shで書かれたかなりのシステム情報ツール
+pg_cron	PostgreSQLで定期的なジョブを実行す
 pg_partman	PostgreSQLのパーティション管理拡張機能
 pg_top	PostgreSQLプロセスを監視する
 pgbadger	PostgreSQLログ分析器
@@ -5343,6 +5347,7 @@ teleconsole	ターミナルセッションを信頼できる人と共有する�
 telegraf	InfluxDBのサーバーレベルのメトリック収集エージェント
 telegram-cli	Telegramのコマンドラインインターフェイス
 teleport	分散基礎構造を管理するチーム向けの最新のSSHサーバー
+teller	Goに組み込まれた開発者向けの秘密管理ツール
 telnet	TELNET手続きのユーザーインターフェイス
 telnetd	TELNETサーバー
 template-glib	GLibのGNOMEテンプレートライブラリ
