@@ -1988,6 +1988,7 @@ displaylink	DisplayLinkドック用のドライバー アダプター/モニタ�
 displaylink-login-extension	ログイン前にDisplayLink画面を有効にします
 drobo-dashboard	データロボティクスストレージデバイス用の管理ソフトウェアとドライバー
 droidcam-obs	OBS Studioで直接カメラとして携帯電話を使用する
+dymo-label	DYMO LabelWriters用ソフトウェア
 eizo-colornavigator	Eizo Coloredge画面を調整する
 elecom-mouse-assistant	ELECOMマウスをより効果的に使用するためのソフトウェア
 elektron-overbridge	Elektronハードウェアを音楽ソフトウェアに統合する
@@ -2279,6 +2280,7 @@ openscad-snapshot	OpenSCAD
 openshot-video-editor-daily	クロスプラットフォームのビデオエディター
 openzfs-dev	ZFSドライバーとユーティリティ
 opera-beta	Webブラウザー
+opera-crypto-developer	Web3ブラウザ
 opera-developer	Webブラウザー
 papers3	あなたの個人的な研究ライブラリ
 parallels12	デスクトップ仮想化ソフトウェア
