@@ -157,6 +157,7 @@ apache-couchdb	マルチマスター同期データベース
 apache-directory-studio	EclipseベースのLDAPブラウザーとディレクトリクライアント
 apk-icon-editor	APKアイコンを変更するためのエディター 名前/バージョン/その他のデータ
 app-cleaner	アンインストーラーとクリーニングアシスタント
+app-fair	Freeと商用のネイティブデスクトップアプリケーションのカタログ
 app-tamer	CPU管理アプリケーション
 apparency	アプリケーションバンドルを検査する
 appcleaner	アプリケーションアンインストーラ
@@ -909,6 +910,7 @@ easyfind	ファイルを探す フォルダまたは任意のファイルの内�
 easytether	キャリアに依存しないインターネット接続の共有（テザリング）
 ebibookreader	ebi.BookReader
 ebmac	電子辞書ビューア
+ecamm-live	ライブストリーミング＆ビデオ制作スタジオ
 eclipse-cpp	C/C++ 開発者向けのEclipse IDE
 eclipse-dsl	Java/DSL 開発者向けのEclipse IDE
 eclipse-ide	Eclipse統合開発環境
@@ -1201,7 +1203,6 @@ gameranger	GameRanger
 ganache	イーサリアム開発のためのパーソナルブロックチェーン
 ganttproject	Ganttチャートとプロジェクト管理アプリケーション
 gaphor	UML/SysML モデリングツール
-garagebuy	見つけるのを助けるためのアプリ 追跡/eBayで商品を購入する
 garagesale	eBayリストを管理する
 gargoyle	双方向フィクションプレーヤーのIOレイヤー
 gas-mask	ホストファイルエディター/マネージャー
@@ -1625,6 +1626,7 @@ josm	OpenStreetMap用の拡張可能なエディター
 journey	日記アプリ
 jpadilla-rabbitmq	RabbitMQのアプリラッパー
 jpadilla-redis	Redisのアプリラッパー
+jpc-qlcolorcode	構文を強調表示してソースコードをレンダリングするQuickLookプラグイン
 jprofiler	Javaプロファイラー
 jqbx	他の人と同期してSpotifyの音楽を聴く
 jquake	JQuake
@@ -3209,6 +3211,7 @@ sonic-robo-blast-2	DoomのDoom Legacyポートを使用して構築された3D�
 sonic-robo-blast-2-kart	クラシックなスタイルのカートレーサー 美しいコースと奇抜なアイテムを完備
 sonic-visualiser	音楽オーディオ録音の注釈 画面/分析
 sonic3air	ソニック3&ナックルズの再実装(オリジナルゲームが必要)
+sonixd	Subsonic-APIとJellyfinミュージックサーバー用のデスクトップクライアント
 sonoair	SonoAir
 sonobus	高品質のネットワークオーディオストリーミング
 soothe2	動的共振サプレッサー
