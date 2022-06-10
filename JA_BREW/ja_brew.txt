@@ -664,6 +664,7 @@ cflow	Cコードからコールグラフを生成する
 cfn-flip	AWS CloudFormationテンプレートをJSON形式とYAML形式の間で変換する
 cfn-format	AWS CloudFormationテンプレートをフォーマットするためのコマンドラインツール
 cfn-lint	CloudFormation仕様に対してCloudFormationテンプレートを検証します
+cfonts	コンソール用のSexy ANSI fonts
 cfr-decompiler	さらに別のJavaデコンパイラ
 cfssl	CloudFlareのPKIツールキット
 cfv	さまざまなファイル(.sfv, .csv, .crc, .torrentなど)をテストして作成します
@@ -1265,6 +1266,7 @@ duf	より優れた'df'代替品 ディスク 使用量/空き ユーティリ�
 duff	コマンドラインから一連のファイル内の重複をすばやく見つける
 duktape	コンパクトな足跡を備えた埋め込み可能なJavascriptエンジン
 dumb	プレーヤーライブラリ IT/XM/S3M/MOD
+dump1090-mutability	RTL-SDR用のADS-B地上局システム
 dune	OCaml用のコンポーザブルビルドシステム
 dungeon	古典的なテキストアドベンチャーゲーム
 duo_unix	SSHの二段階認証
@@ -1320,6 +1322,7 @@ efl	Enlightenment Foundationライブラリ
 efm-langserver	汎用言語サーバー
 eg	Norton Guide Reader エキスパートガイド GNU/Linux
 eg-examples	コマンドラインでの便利な例え
+eget	GitHubからビルド済みのバイナリを簡単にインストールできます
 ehco	ネットワークリレーツールとタイプミス:)
 eiffelstudio	Eiffel言語の開発環境
 eigen	線形代数用のC++テンプレートライブラリ
@@ -3990,6 +3993,7 @@ openblas	最適化されたBLASライブラリ
 opencascade	3Dモデル化および数値シミュレーションソフトウェア CAD/CAM/CAE
 opencbm	さまざまなフロッピードライブ形式へのアクセスを提供します
 opencc	簡体字-繁体字中国語変換ツール
+opencl-headers	OpenCL APIのC言語ヘッダーファイル
 openclonk	マルチプレイヤーアクションゲーム
 opencoarrays	オープンソースのcoarray Fortran ABI/API/コンパイララッパー
 opencolorio	映画制作を対象としたカラーマネジメントソリューション
@@ -4011,6 +4015,7 @@ openfst	荷重限界状態トランスデューサのライブラリ
 openh264	CiscoのH.264コーデック
 openhmd	没入型テクノロジー用のFreeオープンソースAPIとドライバー
 openimageio	読み込むためのライブラリ 画像処理/書き込み
+openiothub-server	OpenIoTHub用サーバー
 openj9	高性能で拡張性のあるJava仮想マシン
 openjazz	オープンソースのJazz Jackrabitエンジン
 openjdk	Javaプログラミング言語用の開発キット
@@ -4114,6 +4119,7 @@ packetq	PCAPファイルへのSQLのようなフロントエンド
 packmol	分子動力学シミュレーションのためのPackingの最適化
 packr	静的ファイルをGoバイナリに埋め込む簡単な方法
 pacman4console	コンソール用のパックマン
+pacmc	Minecraftパッケージマネージャーおよびランチャー
 pacparser	プロキシ自動設定(PAC)ファイルを解析するためのライブラリ
 pacvim	ゲームを介してVimコマンドを学ぶ
 pagmo	並列最適化のための科学ライブラリ
@@ -4911,7 +4917,6 @@ serialosc	モノームデバイス用のOpensoundコントロールサーバー
 sersniff	2つの順番ポート間をするプログラム tunnel/sniff
 serve	必要な場所にある静的httpサーバー
 serveit	静的コンテンツの同期サーバーと再構築
-server-go	OpenIoTHub用サーバー
 serverless	サーバーレス基本設計でアプリケーションを構築する
 servus	zeroconfネットワーキング用のライブラリとユーティリティ
 setweblocthumb	カスタムアイコンをweblocファイルに割り当てます
@@ -5493,6 +5498,7 @@ tor	TCPの匿名化overlayネットワーク
 torchvision	コンピュータービジョンのデータセット、変換、モデル
 torsocks	TorでSOCKSに適したアプリケーションを使用する
 tox	汎用Python virtualenv管理およびテストコマンドラインツール
+toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
 tpl	バイナリデータをCで保存および取得する
 tpp	Ncursesベースの提示ツール
 trace2html	JSONトレースをHTMLに変換するためのGoogle TraceViewerのユーティリティ
