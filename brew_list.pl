@@ -97,7 +97,8 @@ MAIN:{
   }elsif( not $Locale ){ $name->{'EN'} = 1; }
   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
-    File_1( $ref ); }
+    File_1( $ref );
+  }
 
   if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
    $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
@@ -148,7 +149,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.09_3\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.09_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -507,18 +508,16 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
              $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
               $re->{'TEN'} = 1;  Wait_1( $re );
        }
-        last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} );
+        last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
        exit unless not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
       next;
      }
       if( $re->{'TAP'} ){
        $i++ if $tap =~ /^[012]$/;
         push @{$tap[$i]},$tap;
-      }elsif( $re->{'S_OPT'} ){
-        $e++ if $tap =~ /^[012]$/;
-         push @{$tap[$e]},$tap;
       }else{
-        push @{$file},$tap;
+       $e++ if $tap =~ /^[012]$/;
+        push @{$tap[$e]},$tap;
       }
     }
    close $BREW;
@@ -529,16 +528,16 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
     no warnings 'closed';
    if( $re->{'FOR'} or $re->{'DEP'} ){
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist brew JA_file ###\n";
-     while( my $an = <$JA> ){
-     my( $name,$desc ) = split '\t',$an;
+     while(<$JA>){
+     my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
      }
     close $JA;
    }
    if( $re->{'CAS'} and ( not $re->{'TAP'} or $re->{'DEP'} ) ){
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " ### Not exist cask JA_file ###\n";
-     while( my $an = <$JA> ){
-     my( $name,$desc ) = split '\t',$an;
+     while(<$JA>){
+     my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
      }
     close $JA;
@@ -546,8 +545,8 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
    if( $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ){
     if( $re->{'CAS'} or $re->{'TAP'} or $re->{'DEP'} ){
      open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " ### Not exist tap JA_file ###\n";
-      while( my $an = <$JA> ){
-      my( $name,$desc ) = split '\t',$an;
+      while(<$JA>){
+      my( $name,$desc ) = split '\t';
        chomp( $JA{$name} = $desc );
       }
      close $JA;
@@ -1935,9 +1934,9 @@ unless( $ARGV[0] ){
 }
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- my( $IN,$in,$e ) = ( 0,int @CASK/2 );
-  for my $dir2(@CASK){ $e++;
-   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $e == $in;
+ my( $IN,$in,$e ) = ( 0,int @CASK/2,0 );
+  for my $dir2(@CASK){
+   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
