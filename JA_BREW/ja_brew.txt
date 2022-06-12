@@ -3370,6 +3370,7 @@ m4	マクロ処理言語
 mac-robber	デジタル調査ツール
 macchina	性能と最小化に重点を置いたシステム情報Fetcher
 mackup	Macのアプリケーション設定の同期を維持する
+maclaunch	macOSスタートアップアイテムを管理する
 macos-term-size	MacOSでターミナルウィンドウサイズを取得する
 macos-trash	ファイルとフォルダをゴミ箱に移動します
 macosvpn	プログラムでMacOS VPNを作成する
@@ -3913,6 +3914,7 @@ nyancat	PoptartCatのアニメーション化されたカラーANSIテキスト�
 nylon	プロキシサーバー
 nyx	Torのコマンドラインモニター
 nzbget	nzbファイル用のバイナリnewsgrabber
+oak	表現力豊かで単純な動的計画法言語
 oakc	コンパクトな中間表現を備えたポータブルプログラミング言語
 oath-toolkit	ワンタイムパスワード認証システム用のツール
 oauth2_proxy	OAuth2プロバイダーを介してユーザーを認証するための逆プロキシ
