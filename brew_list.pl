@@ -401,9 +401,12 @@ my( $re,$list,%HA,@AN,$top ) = @_;
  for my $ls(@$list){
   Uses_1( $re,$ls,\%HA,\@AN );
    if( @AN < 2 ){
-    Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'};
     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
-     for my $bui(@BUI){ $ls .= " : $bui" if $re->{'HASH'}{$bui}; }
+    Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'};
+     for my $bui(@BUI){ my $build = $bui;
+      Tap_2( $re->{'TAP_S'},$re,\$bui ) if $re->{'FOR'};
+       $ls .= " : $bui" if $re->{'HASH'}{$build};
+     }
     $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
    }
   @AN = %HA = ();
@@ -1988,7 +1991,7 @@ unless( $ARGV[0] ){
  @BREW = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
  @CASK = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK if $re->{'MAC'};
 
-  my $COU = $IN;
+  my $COU = $IN = 0;
  for(my $i=0;$i<@BREW;$i++){
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
