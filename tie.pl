@@ -362,9 +362,9 @@ unless( $ARGV[0] ){
 }
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- my( $IN,$in,$e ) = ( 0,int @CASK/2 );
-  for my $dir2(@CASK){ $e++;
-   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $e == $in;
+ my( $IN,$in,$e ) = ( 0,int @CASK/2,0 );
+  for my $dir2(@CASK){
+   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
