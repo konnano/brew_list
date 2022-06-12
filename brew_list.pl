@@ -402,9 +402,9 @@ my( $re,$list,%HA,@AN,$top ) = @_;
   Uses_1( $re,$ls,\%HA,\@AN );
    if( @AN < 2 ){
     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
-    Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'};
+    Tap_2( $re,\$ls ) if $re->{'FOR'};
      for my $bui(@BUI){ my $build = $bui;
-      Tap_2( $re->{'TAP_S'},$re,\$bui ) if $re->{'FOR'};
+      Tap_2( $re,\$bui ) if $re->{'FOR'};
        $ls .= " : $bui" if $re->{'HASH'}{$build};
      }
     $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
@@ -417,7 +417,7 @@ sub Brew_1{
 my( $re,$list,%HA,@AN ) = @_;
  return unless @$list;
   for(my $i=0;$i<@$list;$i++){ my $tap = $list->[$i];
-   Tap_2( $re->{'TAP_S'},$re,\$list->[$i] ) if $re->{'FOR'};
+   Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
     (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $list->[$i],$re,0 ) :
      ( $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'} ) ? Uses_1( $re,$tap,\%HA,\@AN ) :
        $re->{'USES'} ? push @AN,$tap : 0;
@@ -771,7 +771,7 @@ my( $list,$file,$in,$re ) = @_;
       $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      if( $re->{'S_OPT'} ){ my $ls = $brew_1;
-      Tap_2( $re->{'TAP_S'},$re,\$ls ) if $re->{'FOR'};
+      Tap_2( $re,\$ls ) if $re->{'FOR'};
       ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
        Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 ) if $brew_1 =~ /$re->{'S_OPT'}/o;
      } $pop = ++$in;
@@ -907,7 +907,7 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
    }
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
       $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'HASH'}{$tap}){
-       Tap_2( $re->{'TAP_S'},$re,\$tap ) if $re->{'FOR'};
+       Tap_2( $re,\$tap ) if $re->{'FOR'};
         Mine_1( $tap,$re,1 );
   }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
     if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
@@ -943,8 +943,8 @@ if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
 }
 
 sub Tap_2{
-my( $dir,$re,$tap ) = @_;
- Tap_3( $dir,$re ) unless $re->{'TAP2'};
+my( $re,$tap ) = @_;
+ Tap_3( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
   for(@{$re->{'TAP2'}}){ $$tap = $_ if m|/$$tap|; }
 }
 
