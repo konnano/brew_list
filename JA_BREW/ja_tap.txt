@@ -1352,6 +1352,7 @@ font-noto-serif-grantha	Noto Serif Grantha
 font-noto-serif-gujarati	Noto Serif Gujarati
 font-noto-serif-gurmukhi	Noto Serif Gurmukhi
 font-noto-serif-hebrew	Noto Serif Hebrew
+font-noto-serif-hk	ウェイト軸がエクストラライトからエクストラブラックまでの可変フォント
 font-noto-serif-jp	日本語用の変調(“serif”)デザイン
 font-noto-serif-kannada	Noto Serif Kannada
 font-noto-serif-khmer	Noto Serif Khmer
