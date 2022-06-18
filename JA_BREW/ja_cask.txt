@@ -227,6 +227,7 @@ audiogridder-server	VST2/VST3/AUDSP サーバー
 audiorelay	AudioRelay
 audioscrobbler	最小限の堅牢なiTunesのscrobbling
 audioslicer	オーディオファイル内のすべての無音を検索します
+audiostellar	オープンソースのデータ駆動型実験サンプラー
 audirvana	オーディオ再生ソフトウェア
 audius	音楽ストリーミングおよび共有プラットフォーム
 augur	Augur UIとugur Nodeをバンドルしローカルに展開するアプリ
@@ -947,6 +948,7 @@ electrum-grs	Electrum-GRS
 electrum-ltc	ライトコインウォレット
 electrumsv	ビットコインSV用のデスクトップウォレット
 element	Matrix協調クライアント
+elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
 eliot	オープンソースのスクラブルゲーム
 elmedia-player	ビデオおよびオーディオプレーヤー
 eloston-chromium	Google Chromium Googleとの統合はありません
@@ -1823,6 +1825,7 @@ loaf	アニメーションアイコンライブラリ
 local	FlywheelによるWordPressローカル開発ツール
 localdev	Localdev
 localizationeditor	Localization Editor
+localxpose	ローカルホストをインターネットに公開できるようにするリバースプロキシ
 locationsimulator	iOSを偽装するアプリケーション iPadOSまたはiPhoneSimulatorデバイスのLocation
 lockdown	セキュリティ構成設定の監査と修正
 lockrattler	セキュリティシステムをチェックし、問題を報告します
@@ -2197,7 +2200,6 @@ munki	ソフトウェアインストールマネージャー
 munkiadmin	Munkiリポジトリを管理するためのツール
 mural	ビジュアルオンライン協力的プラットフォーム
 murus	ファイアウォールアプリ
-murus-menulet	Murusファイアウォール
 muruslogsvisualizer	Murus Logs Visualizer
 musaicfm	SpotifyまたはLast.fmのプロファイルデータに基づいてアートワークを表示するスクリーンセーバー
 muse	TouchBarをサポートするオープンソースのSpotifyコントローラー
@@ -2568,6 +2570,7 @@ photosweeper-x	類似または重複した写真を削除するツール
 photosync	PhotoSyncコンパニオン
 photozoom-pro	デジタル写真やグラフィックスを拡大および縮小するためのソフトウェア
 phpstorm	JetBrainsによるPHP IDE
+phpwebstudy	PHPおよびWeb開発環境マネージャー
 physics-101	物理学の分野全体にわたるシミュレーション、ツール、および方程式のコレクション
 physicseditor	PhysicsEditor
 pibar	メニューバーのPi-hole(s)管理
