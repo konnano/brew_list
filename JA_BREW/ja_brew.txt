@@ -2477,6 +2477,7 @@ jailkit	chrootjailに制限付きユーザーアカウントを作成するた�
 jam	Make-likeビルドツール
 janet	動的言語とバイトコードの仮想マシン
 jansson	エンコーディング用のCライブラリ デコード/JSONの操作
+jaq	安全性、人間工学、パフォーマンスに重点を置いたコマンドライン削除ツール
 jasmin	Java仮想マシンのアセンブラ
 jasper	JPEG-2000画像を操作するためのライブラリ
 java-service-wrapper	展開の簡素化 Javaアプリケーションの起動と監視
