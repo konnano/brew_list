@@ -267,9 +267,8 @@ sub Size_1{ no warnings 'numeric';
    for my $json(@{$AR{$name}}){
     if( -f "$json/INSTALL_RECEIPT.json" ){
      open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
-      while(my $js = <$dir>){
-       ( $utime ) = $js =~ /^.*"time":[^0-9]*([0-9]+),.*/;
-       last if $utime;
+      while(<$dir>){
+       last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/;
       }
      close $dir;
     }
