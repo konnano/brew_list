@@ -204,8 +204,8 @@ sub Ana_1{
  ++$re->{'NEW'} and Init_1( $re ) unless -f $re->{'CAN'};
  $re->{'L_OPT'} = 0 if not $re->{'L_OPT'} or $re->{'L_OPT'} and $re->{'L_OPT'} !~ /^[12]$/;
  open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
-  while( my $ls=<$dir> ){ chomp $ls;
-   my( $ls1,$ls2,$ls3,$ls4 ) = split '\t',$ls;
+  while(<$dir>){ chomp;
+   my( $ls1,$ls2,$ls3,$ls4 ) = split '\t';
    my $co = $re->{'L_OPT'} == 1 ? $ls2 : $re->{'L_OPT'} == 2 ? $ls3 : $ls4;
    if( $co ){
     $an[$co]  = $ls1;
@@ -220,8 +220,7 @@ sub Ana_1{
   next unless $_;
   my( $ls1,$ls2,$ls3,$ls4 ) = split '\t';
    my $le = int( (44-(length $ls1))/2 );
-    $ls1 = ' 'x$le.$ls1.' 'x$le;
-   $ana .= sprintf "%44s|%7s   |%7s   |%7s   |\n",$ls1,$ls2,$ls3,$ls4;
+   $ana .= sprintf "%44s|%7s   |%7s   |%7s   |\n",' 'x$le.$ls1.' 'x$le,$ls2,$ls3,$ls4;
  }
   open my $pipe,'|-','more';
    print $pipe $ana;
@@ -431,8 +430,7 @@ my( $re,@AN,%HA ) = @_;
   my @an = split '\t',$re->{'OS'}{"${key}uses"} if $re->{'OS'}{"${key}uses"};
    Uses_1( $re,$_,\%HA,\@AN ) for(@an);
     my $le = int( (36-(length $key))/2 );
-    $key = ' 'x$le.$key.' 'x$le;
-   printf"%36s uses :%4s formula\n",$key,@AN+0;
+   printf"%36s uses :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
   @AN = %HA = ();
  }
  Nohup_1( $re );
@@ -451,11 +449,10 @@ sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
  exit unless $re->{'HASH'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN );
-   @AN = sort @AN;
-    for my $uses(@AN){
-     next if $uses eq $re->{'INF'};
-      push @an,$uses;
-    }
+   for my $uses(sort @AN){
+    next if $uses eq $re->{'INF'};
+     push @an,$uses;
+   }
   print"required formula  ==>  $_\n" for(@an);
    @AN = %HA = ();
   Info_1( $re,0,0,\@AN,\%HA );
