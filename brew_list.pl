@@ -449,37 +449,35 @@ sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
  exit unless $re->{'HASH'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN );
-   for my $uses(sort @AN){
-    next if $uses eq $re->{'INF'};
-     push @an,$uses;
-   }
-  print"required formula  ==>  $_\n" for(@an);
-   @AN = %HA = ();
+   $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
+    print"required formula  ==>  $_\n" for(@an);
+ unless( @an ){ @AN = %HA = ();
   Info_1( $re,0,0,\@AN,\%HA );
    my @list1 = sort @AN;
-   for my $brew(@list1){
-    my @list2 = sort @{$re->{$brew}};
-    my $i = 0; my $e = 0;
-     for(;$i<@list2;$i++){
-      my $flag = 0;
-      next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
-       for(;$e<@list1;$e++){
-        last if $list1[$e] eq $list2[$i];
-        ++$flag and last if $list1[$e] gt $list2[$i];
-       }
-      last if $flag;
-     }
-    $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
-   }
+  for my $brew(@list1){
+   my @list2 = sort @{$re->{$brew}};
+   my $i = 0; my $e = 0;
+    for(;$i<@list2;$i++){
+     my $flag = 0;
+     next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
+      for(;$e<@list1;$e++){
+       last if $list1[$e] eq $list2[$i];
+       ++$flag and last if $list1[$e] gt $list2[$i];
+      }
+     last if $flag;
+    }
+   $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
+  }
   if( $re->{'LINK'} and $do ){
    $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
-    $re->{'LIST'} = 1;
-     Fork_1( $re );
+   $re->{'LIST'} = 1;
+    Fork_1( $re );
   }elsif( $do ){
    $re->{'COLOR'} = $re->{'TREE'} = 2;
     $re->{'DEL'} = 0;
      Fork_1( $re ) unless @an;
   }
+ }
  Nohup_1( $re );
 }
 
