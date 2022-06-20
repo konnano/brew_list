@@ -457,8 +457,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
   for my $brew(@list1){
    my @list2 = sort @{$re->{$brew}};
    my $i = 0; my $e = 0;
-    for(;$i<@list2;$i++){
-     my $flag = 0;
+    for(;$i<@list2;$i++){ my $flag;
      next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
       for(;$e<@list1;$e++){
        last if $list1[$e] eq $list2[$i];
@@ -669,8 +668,8 @@ my( $re,$mem,$dir ) = @_;
      $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n" if $mem;
   }
  }else{
-    $re->{'ALL'} .= $re->{'MEM'} unless $re->{'L_OPT'};
-     if( $re->{'KEN'} ){
+    $re->{'ALL'} .= $re->{'MEM'} unless $re->{'L_OPT'};# print"$re->{'ALL'}\n";
+     if( $re->{'KEN'} and $re->{'L_OPT'} ){
       my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
       my( $brew ) = split '\t',$mee;
       my $name = $Locale ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
@@ -1108,7 +1107,7 @@ sub Format_1{
   }
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
- print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} );
+ print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
   Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
