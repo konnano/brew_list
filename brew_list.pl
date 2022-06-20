@@ -668,7 +668,7 @@ my( $re,$mem,$dir ) = @_;
      $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n" if $mem;
   }
  }else{
-    $re->{'ALL'} .= $re->{'MEM'} unless $re->{'L_OPT'};# print"$re->{'ALL'}\n";
+    $re->{'ALL'} .= $re->{'MEM'} unless $re->{'L_OPT'};
      if( $re->{'KEN'} and $re->{'L_OPT'} ){
       my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
       my( $brew ) = split '\t',$mee;
