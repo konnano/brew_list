@@ -31,6 +31,7 @@ font-akshar	サポートされています
 font-aladin	Aladin
 font-alata	Alata
 font-alatsi	Alatsi
+font-albert-sans	モダンで幾何学的な sans serifファミリー
 font-albertella	三葉虫に触発された古代生物学スタイルのフォント
 font-aldrich	Aldrich
 font-alef	Alef
@@ -44,6 +45,7 @@ font-alfa-slab-one	Alfa Slab One
 font-alice	Alice
 font-alike	Alike
 font-alike-angular	Alike Angular
+font-alkalami	非常に黒い、塗りつぶされた長方形
 font-allan	Allan
 font-allerta	Allerta
 font-allerta-stencil	Allerta Stencil
@@ -56,6 +58,7 @@ font-almendra-sc	Almendra SC
 font-alumni-sans	Alumni Sans
 font-alumni-sans-collegiate-one	Impact Blackに触発されたフォント
 font-alumni-sans-inline-one	同窓生 Sans Inline One
+font-alumni-sans-pinstripe	Alumni Sans Pinstripe
 font-amarante	Amarante
 font-amaranth	Amaranth
 font-amatic-sc	Amatic SC
@@ -453,6 +456,12 @@ font-ebh	Exeter Bookのスクリプトに基づくベクトル化されたフォ
 font-economica	Economica
 font-eczar	Eczar
 font-edlo	Edlo
+font-edu-nsw-act-foundation	Edu NSW ACT Foundation
+font-edu-qld-beginners	Edu QLDビギナー
+font-edu-sa-beginner	Edu SAビギナー
+font-edu-tas-beginner	Edu TASビギナー
+font-edu-vic-wa-nt-beginner	Edu VIC WA NTビギナー
+ ##### font-edwin
 font-ek-mukta	Ek Mukta
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
@@ -1589,7 +1598,13 @@ font-ru-serius	RU Serius
 font-rubik	Rubik
 font-rubik-beastly	グーグルフォントに基づくrubik by hubert and fischer, meir sadan and cyreal
 font-rubik-bubbles	Rubik Bubbles
+font-rubik-burned	Rubik Burned
+font-rubik-dirt	Rubik Dirt
+font-rubik-distressed	Rubik Distressed
 font-rubik-glitch	Rubik Glitch
+font-rubik-iso	Rubik Iso
+font-rubik-marker-hatch	Rubik Marker Hatch
+font-rubik-maze	Rubik Maze
 font-rubik-microbe	Rubik Microbe
 font-rubik-mono-one	Rubik Mono One
 font-rubik-moonrocks	Rubik Moonrocks
