@@ -1465,6 +1465,7 @@ fastjar	Sunのjarツールの実装
 fastlane	モバイルアプリを構築してリリースする最も簡単な方法
 fastme	正確で高速な距離ベースの系統発生推論プログラム
 fastmod	codemodツールの高速部分置換
+fastnetmon	sFlowを使用したDDoS検出ツール Netflow IPFIXとポートミラーのサポート
 fastp	超高速オールインワンFASTQ前処理プログラム
 fastq-tools	fastq連続ファイルを操作するための小さなユーティリティ
 fastqc	高性能連続データの品質管理ツール
@@ -1995,6 +1996,7 @@ gojq	jqのPureGo実装
 gokart	Goコードを保護するための静的コード分析
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
+gold	GNUゴールドリンカー
 gollum	Go n：mメッセージ 多重装置
 golo	JVMの軽量動的言語
 gom	SQLiteのGObjectラッパー
@@ -3758,6 +3760,7 @@ naturaldocs	拡張可能な多言語ドキュメント発生器
 nauty	グラフと有向グラフの自己同形群
 nave	Node.jsの仮想環境
 navi	コマンドライン用の対話的なcheatsheetツール
+nb	コマンドラインおよびローカルWebのメモ取り ブックマークとアーカイブ
 nbdime	JupyterNotebookの Diff/Mergeツール
 nbimg	AndroidおよびwinCEのスマートフォンの派手なブートスクリーン変換器
 nbsdgames	テキストベースの最新のゲーム
@@ -4626,9 +4629,7 @@ rbenv-communal-gems	複数のrbenv Rubyインストール間でgemを共有す�
 rbenv-ctags	rbenv Ruby stdlibsのctagsを自動的に生成します
 rbenv-default-gems	Rubyインストール用のgemを自動インストールします
 rbenv-gemset	基本的なgemsetサポートをrbenvに追加します
-rbenv-use	パッチレベルを参照せずにRubyを切り替える
 rbenv-vars	グローバルおよびプロジェクトごとの環境変数を安全に設定します
-rbenv-whatis	略語とエイリアスを解決します Rubyバージョン
 rbspy	Rubyのサンプリングプロファイラー
 rbtools	レビューボードでコードとドキュメントのレビューを操作するためのCLIとAPI
 rbw	非公式のBitwarden CLIクライアント
@@ -4693,6 +4694,7 @@ repo	Android開発用のリポジトリツール
 reposurgeon	バージョン管理リポジトリ履歴の編集
 reprepro	Debianパッケージリポジトリマネージャー
 reproc	クロスプラットフォーム(C99/C++11)プロセスライブラリ
+req	シンプルで独創的なHTTPスクリプト言語
 reshape	Postgresの使いやすいzero-downtimeのスキーマ移行ツール
 rest-shell	Spring HATEOAS準拠のRESTリソースと連携するシェル
 restic	高速で効率的かつ安全なバックアッププログラム
