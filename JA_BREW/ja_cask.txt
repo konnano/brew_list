@@ -35,7 +35,6 @@ accordance	聖書研究ソフトウェア
 accurics	コードとしての基盤のセキュリティと順守
 ace-link	VLCプレーヤーでAce Streamビデオストリームを再生できるメニューバーアプリ
 acorn	シンプルさに焦点を当てた画像エディター
-acousticbrainz-gui	オーディオ機能をAcousticBrainzデータベースに送信するためのグラフィカルクライアント
 acquia-dev	Drupalサイトをローカルに構築します インストール/テスト
 acronis-true-image	フルイメージのバックアップとクローン作成ソフトウェア
 acslogo	Logo通訳
@@ -320,7 +319,9 @@ bestres	メニューバーから画面の解像度をすばやく変更する
 betaflight-configurator	Betaflightファームウェアの構成ツール
 betelguese	脱獄されたデバイス用のOdysseyra1nインストーラーGUI
 better-window-manager	より良いウィンドウマネージャー
+betterandbetter	キーボード マウスとタッチパッドのモーションジェスチャ
 betterdiscord-installer	BetterDiscordのインストーラー
+betterdisplay	ディスプレイ管理ツー
 betterdummy	カスタム解像度を実現するためのAppleシリコンMac用ダミーディスプレイ
 bettermouse	サードパーティのマウスのパフォーマンスと機能を向上させるユーティリティ
 bettertouchtool	入力デバイスをカスタマイズしコンピューターシステムを自動化するためのツール
@@ -720,7 +721,6 @@ darwindumper	DarwinDumper
 dash	APIドキュメントブラウザーとコードsnippetマネージャー
 dash-dash	Dash - 暗号通貨の再発明
 dashcam-viewer	View videos GPSデータ ダッシュカムとアクションカムによって記録されたG-forceデータ
-dashlane	パスワードマネージャーとデジタルウォレットアプリケーション
 dat	人間のために構築されたピアツーピアデータ共有アプリ
 data-integration	エンドツーエンドのデータ統合および分析プラットフォーム
 data-rescue	データ回復ソフトウェア
@@ -830,10 +830,12 @@ displaycal	DisplayCAL
 displays	モニターの解像度と設定マネージャー
 ditto	スクリーンミラーリングとデジタル信号
 divvy	シンプルさに焦点を当てたアプリケーションウィンドウマネージャー
+dixa	カスタマーサービスプラットフォーム
 djl-bench	ユニバーサル機械学習モデルベンチマークツール
 djv	DJVイメージング
 djview	DjView
 dmenu-mac	キーボードのみのアプリケーションランチャー
+dmg-canvas	様式化されたディスクイメージが簡単に
 dmidiplayer	マルチプラットフォームMIDIファイルプレーヤー
 dmm-player	DMM.comプラットフォーム用のビデオプレーヤー
 dmm-player-for-chrome	ChromeでDMMの動画を再生する
@@ -1116,6 +1118,7 @@ fluor	アクティブなアプリケーションに応じてfnキーの動作を
 flutter	モバイル向けアプリケーションを構築するためのUIツールキット Web/デスクトップ
 flux	画面の色温度コントローラー
 fly	Concourse CIの公式CLIツール
+fly-key	ショートカットのワンクリック表示
 flycast	Dreamcast、NaomiとAtomiswaveエミュレーター
 flycut	開発者向けクリップボードマネージャー
 flying-carpet	一時的wifiを介したファイル転送
@@ -1127,7 +1130,6 @@ focus	Webサイトとアプリケーションブロッカー
 focus-booster	時間監視
 focusatwill	パーソナライズされたフォーカスミュージック
 focused	マークダウンライティングアプリ
-focuswriter	気を散らすことのないライティング環境
 fog	非公式のovercast.fmポッドキャストアプリ
 folder-colorizer	フォルダーアイコン エディター&マネージャー
 folding-at-home	折りたたみ用のグラフィカルインターフェイス制御
@@ -1270,7 +1272,6 @@ glance	ネイティブでサポートされていないファイルのQuicklook�
 glimmerblocker	GlimmerBlocker
 gltfquicklook	glTFファイル用のQuickLookプラグイン
 gluemotion	タイムラプス動画を作成して修正する
-glyphfinder	デザイナーのためのキャラクター検索 開発/ライター
 glyphs	フォントエディター
 gmail-notifier	最低限のGmail受信トレイ通知アプリ
 gmvault	Gmvault
@@ -1650,7 +1651,6 @@ kaku	Kaku
 kaleidoscope	テキストと画像のファイルまたはフォルダの違いを見つけてマージする
 kap	Webテクノロジーで構築されたオープンソースのスクリーンレコーダー
 kapitainsky-rclone-browser	Rcloneブラウザー
-kapow	Punch clockプログラム
 karabiner-elements	キーボードカスタマイザー
 katalon-studio	テスト自動化ソリューション
 katana	オープンソースのスクリーンショットユーティリティ
@@ -2047,6 +2047,7 @@ meteorologist	調整可能な天気表示アプリケーション
 mgba	ゲームボーイアドバンスエミュレータ
 mi	テキストエディター
 mia-for-gmail	Gmail用のデスクトップメールクライアント
+miaoyan	マークダウンエディタ
 mic-drop	グローバルショートカットまたはメニューバーコントロールを使用してマイクをすばやくミュートします
 michaelvillar-timer	タイマーアプリケーション
 micro-sniff	マイクのアクティビティを監視する
@@ -2200,7 +2201,6 @@ munki	ソフトウェアインストールマネージャー
 munkiadmin	Munkiリポジトリを管理するためのツール
 mural	ビジュアルオンライン協力的プラットフォーム
 murus	ファイアウォールアプリ
-muruslogsvisualizer	Murus Logs Visualizer
 musaicfm	SpotifyまたはLast.fmのプロファイルデータに基づいてアートワークを表示するスクリーンセーバー
 muse	TouchBarをサポートするオープンソースのSpotifyコントローラー
 museeks	音楽プレーヤー
@@ -2494,7 +2494,6 @@ panic-unison	Usenetニュースグループにアクセスするためのアプ�
 panoply	NetCDFから地理参照データをプロットします HDF/GRIB
 panwriter	Pandoc統合とページ化されたプレビューを備えたMarkdownエディター
 paparazzi	Webページのスクリーンショットを撮るユーティリティ
-paper	ライブ壁紙アプリ
 paperpile	Microsoft Wordの引用プラグイン
 papers	研究者のための参照管理ソフトウェア
 paperspace	Paperspaceクラウドコンピューティングプラットフォーム用のデスクトップアプリ
@@ -3151,7 +3150,6 @@ sketchpacks	スケッチパック
 sketchup	3D設計ソフトウェア
 skim	PDFリーダーとメモ取りアプリケーション
 skitch	マークアップと共有機能を備えた画面キャプチャツール
-sky-ticket	スカイチケットコンテンツのストリーミング
 skychart	星図を描く
 skyfonts	フォントマネージャー
 skype	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
@@ -3418,6 +3416,7 @@ tad	表形式のデータを表示および分析するためのデスクトッ�
 tag	音楽タグエディター
 tagger	バッチ編集とVGMdbデータのインポートをサポートする音楽メタデータエディター
 tagspaces	タグ付けをサポートするオフラインのオープンソースのドキュメントマネージャー
+tailscale	Wireguardに基づくMesh VPN
 tales-of-majeyal	トップダウン戦術RPGローグライクゲームとゲームエンジン
 talon	音声でコンピュータを制御できます アイトラッキング/ノイズ
 tandem	リモートチーム用のバーチャルオフィス
@@ -3632,6 +3631,7 @@ tweeten	Twitterクライアント
 twilioquest	16ビットゲームでクラウドを保存するミッションでCrewをコーディングして導く方法を学びましょう
 twine	双方向で非線形のストーリーを伝えるためのツール
 twist	チームコミュニケーションおよび協力的ソフトウェア
+twitch-studio	新しいストリーマー向けに設計された Freeストリーミングソフトウェア
 twitterrific	Twitterクライアント
 twobird	共同メモをクライアントにメールで送信
 twonkyserver	DLNA/UPnP メディアサーバー
@@ -3648,6 +3648,7 @@ ubports-installer	モバイルデバイスにubportsをインストールする�
 udeler	Udemyコースをダウンロードするためのデスクトップアプリケーション
 udig	uDig
 ueli	キーストロークランチャー
+ui	コーポレートWi-Fi VPN/SSO/HR アプリケーション
 ui-browser	AppleのアクセシビリティとAppleScript GUIスクリプティングのアシスタント
 ujam	UJAM製品の管理ツール 
 ukelele	Unicodeキーボードレイアウトエディター
@@ -3891,6 +3892,7 @@ workflowy	メモを取るツール
 workplace-chat	組織のコミュニケーションポータル
 workspaces	ワークスペース整理アプリ
 wormhole	PCで電話を閲覧&制御 iOSおよびAndroid用のScreenFusion
+wow	Wow TVコンテンツのストリーミング(formerly Sky Ticket)
 wowmatrix	WowMatrix
 wowup	World of Warcraftアドオンマネージャー
 wpsoffice	オールインワンのオフィスパッケージ
