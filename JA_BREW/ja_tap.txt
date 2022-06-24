@@ -457,11 +457,11 @@ font-economica	Economica
 font-eczar	Eczar
 font-edlo	Edlo
 font-edu-nsw-act-foundation	Edu NSW ACT Foundation
-font-edu-qld-beginners	Edu QLDビギナー
+font-edu-qld-beginner	Edu QLDビギナー
 font-edu-sa-beginner	Edu SAビギナー
 font-edu-tas-beginner	Edu TASビギナー
 font-edu-vic-wa-nt-beginner	Edu VIC WA NTビギナー
- ##### font-edwin
+font-edwin	楽譜のテキストフォント
 font-ek-mukta	Ek Mukta
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
