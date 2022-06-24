@@ -556,6 +556,7 @@ classroom-mode-for-minecraft	Minecraft Education Editionの教室管理アプリ
 clay	人々をよりよく覚えるためのプライベートrolodex 
 clean-me	ログ用のシステムクリーナー キャッシュなど
 cleanapp	SyniumソフトウェアCleanApp
+cleaneronepro	cleaneronepro
 cleanmymac	ディスクから不要なファイルやフォルダを削除するツール
 cleanmymac-zh	中国語版ディスクから不要なファイルやフォルダを削除するツール
 cleanshot	画面キャプチャツール
@@ -1056,6 +1057,7 @@ fellow	共同会議の議事 ノート/アクションアイテム
 fenix	協調的機能を備えたシンプルで視覚的な静的Webサーバー
 ferdi	複数のサービスを組み合わせたメッセージングブラウザー
 ferdium	Ferdium
+fertigt-slate	Slate (arm64)
 fetch	ファイル転送クライアント
 ff-works	ビデオエンコーディングおよびトランスコーディングアプリ
 fig	ターミナルを再考する
@@ -2038,6 +2040,7 @@ messenger-native	Facebookのメッセンジャーネイティブ
 messenger-unofficial	メッセンジャー
 meta	デジタル音楽用のタグエディター
 metabase	ビジネス知能と分析
+metadatics	高度なオーディオメタデータエディタ
 metaimage	読むエディター 画像メタデータの書き込みと編集
 metashape	デジタル画像を処理し3D空間データを生成します
 metashapepro	デジタル画像を処理し3D空間データを生成します
@@ -2607,6 +2610,7 @@ playdate-simulator	ローカル開発用のドキュメントとシミュレー�
 playmemories-home	写真やビデオを管理および編集するフリーウェア
 playonmac	Windows用に設計されたソフトウェアのインストールと使用を許可します
 plex	ホームメディアプレーヤー
+plex-htpc	Plex HTPC
 plex-media-player	ホームメディアプレーヤー
 plex-media-server	ホームメディアサーバー
 plexamp	ビジュアルに焦点を当てた音楽プレーヤー
@@ -3545,6 +3549,7 @@ tip	任意のアプリで使用できるプログラム可能なツールチッ�
 tipp10	フリータッチタイピングチューター
 tla-plus-toolbox	TLA+用のIDE
 tlv	Tableau Log Viewer
+tmpdisk	TmpDisk
 tn3270-x	IBM3270端末を使用するコンピューターに接続するための端末エミュレーター
 tnefs-enough	MicrosoftTNEFファイルからファイルを読み取って抽出します
 today-scripts	今日のスクリプト
@@ -3861,7 +3866,6 @@ wifispoof	コンピュータのMACアドレスを変更する
 winclone	BootCampのクローン作成とバックアップソリューション
 window-switch	Window Switch
 windows95	Electron Windows 95
-winds	Getstream.ioを利用したオープンソースのRSSおよびポッドキャストアプリ
 windscribe	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
 windterm	SSH/SFTP/Shell/Telnet/Serial ターミナル
 wine-stable	Windowsアプリケーションを実行するための互換性レイヤー
