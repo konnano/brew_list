@@ -340,17 +340,11 @@ unless( $ARGV[0] ){
     }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
       $tap{"${name}un_xcode"} = 1;
     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
-      if( $OS_Version and $MAC_OS{$data} > $OS_Version ){
-        $tap{"${name}un_xcode"} = 1;
-      }
+      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} > $OS_Version;
     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[:([^\s]+),\s+:build].*\n/$1/ ){
-      if( $OS_Version and $MAC_OS{$data} < $OS_Version ){
-        $tap{"${name}un_xcode"} = 1;
-      }
+      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} < $OS_Version;
     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+:([^\s]+).*\n/$1/ ){
-      if( $OS_Version and $MAC_OS{$data} < $OS_Version ){
-        $tap{"${name}un_xcode"} = 1;
-      }
+      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} < $OS_Version;
     }
    }
   close $BREW;
@@ -416,7 +410,7 @@ unless( $ARGV[0] ){
  @BREW = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
  @CASK = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK if $re->{'MAC'};
 
-  my $COU = $IN;
+  my $COU = $IN = 0;
  for(my $i=0;$i<@BREW;$i++){
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
