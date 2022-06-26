@@ -149,7 +149,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.09_4\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.09_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -168,7 +168,7 @@ sub Died_1{
 
   # Japanese Language -JA option
   # English display in Japanese version is argument EN
-  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall\n\n";
+  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n\n";
 }
 
 sub Init_1{
@@ -189,12 +189,13 @@ my( $re,$list ) = @_;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
  unless( $re->{'ANA'} or $re->{'COM'} ){
-  $list = ( $re->{'S_OPT'} ) ? Dirs_1( $re->{'CEL'},1 ) :
+  $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
    ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
      $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
  }
- $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
+
+ $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) :
    $re->{'ANA'} ? Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : File_1( $re,$list );
 }
@@ -222,7 +223,7 @@ sub Ana_1{
    my $le = int( (44-(length $ls1))/2 );
    $ana .= sprintf "%44s|%7s   |%7s   |%7s   |\n",' 'x$le.$ls1.' 'x$le,$ls2,$ls3,$ls4;
  }
-  open my $pipe,'|-','more';
+  open my $pipe,'|-','more' or die " can't exec command\n";
    print $pipe $ana;
   close $pipe;
  Nohup_1( $re );
@@ -487,7 +488,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
     chomp( @$file=<$BREW> );
    close $BREW;
   }
-  $tap[0] = $file if $re->{'CAS'} and $re->{'S_OPT'};
+  $tap[0] = $file if $re->{'CAS'} and $re->{'S_OPT'} or $re->{'BL'};
   if( $re->{'CAS'} and -f $re->{'Q_TAP'} ){
    open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$BREW>){ chomp $tap;
@@ -568,7 +569,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
       $i = $re->{'DN'}; $e = $re->{'DI'};
      }
    }
-  }elsif( $re->{'CAS'} and $re->{'S_OPT'} ){
+  }elsif( $re->{'CAS'} and $re->{'S_OPT'} or $re->{'BL'} ){
    for(@tap){
     Search_1( $list,$_,0,$re );
    }
@@ -739,7 +740,7 @@ my( $list,$file,$in,$re ) = @_;
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
-  if( $re->{'S_OPT'} and $brew_1 =~ m|^ ==> homebrew/| ){
+  if( ( $re->{'BL'} or $re->{'S_OPT'} ) and $brew_1 =~ m|^ ==> homebrew/| ){
        Mine_1($brew_1,$re,0); next; }
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
@@ -767,6 +768,7 @@ my( $list,$file,$in,$re ) = @_;
       Tap_2( $re,\$ls ) if $re->{'FOR'};
       ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
        Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 ) if $brew_1 =~ /$re->{'S_OPT'}/o;
+     }elsif( $re->{'BL'} and $re->{'DMG'}{$brew_1} ){ Mine_1( $brew_1,$re,0 );
      } $pop = ++$in;
         $re->{'IN'}++; $re->{'CN'}++ if $mem;
     }else{
@@ -776,7 +778,7 @@ my( $list,$file,$in,$re ) = @_;
       }else{ Mine_1( $brew_1,$re,0 ); }
      }
     }
-   unless( $re->{'S_OPT'} ){
+   unless( $re->{'S_OPT'} or $re->{'BL'} ){
      if( $re->{'MAC'} ){
       if( $re->{'FOR'} ){
        $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
@@ -868,10 +870,10 @@ my( $list,$file,$in,$re ) = @_;
 
 sub Tap_1{ no warnings 'regexp';
 my( $list,$re,$in ) = @_;
-if( not( $re->{'CAS'} and $re->{'S_OPT'} ) ){
- my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
-  my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
-   my( $dirs1 ) = $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+|
+ unless( $re->{'CAS'} and $re->{'S_OPT'} or $re->{'BL'} ){
+  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
+   my $mem = ( $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
+    my( $dirs1 ) = $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+|
     if not $re->{'FOR'} and $re->{'OS'}{"${tap}cask"};
 
     my $ver = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_version"}) ?
@@ -1908,17 +1910,11 @@ unless( $ARGV[0] ){
     }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
       $tap{"${name}un_xcode"} = 1;
     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
-      if( $OS_Version and $MAC_OS{$data} > $OS_Version ){
-        $tap{"${name}un_xcode"} = 1;
-      }
+      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} > $OS_Version;
     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[:([^\s]+),\s+:build].*\n/$1/ ){
-      if( $OS_Version and $MAC_OS{$data} < $OS_Version ){
-        $tap{"${name}un_xcode"} = 1;
-      }
+      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} < $OS_Version;
     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+:([^\s]+).*\n/$1/ ){
-      if( $OS_Version and $MAC_OS{$data} < $OS_Version ){
-        $tap{"${name}un_xcode"} = 1;
-      }
+      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} < $OS_Version;
     }
    }
   close $BREW;
