@@ -1205,6 +1205,8 @@ fvim	NeovimテキストエディターのGUI
 fxfactory	ブラウズ 巨大なカタログからエフェクトとプラグインをインストールして購入する
 g-desktop-suite	Gデスクトップパッケージ
 gactions	Google Actions SDK用のCLIツール
+gama	空間的に明示的なエージェントベースのシミュレーションを構築するためのIDE
+gama-jdk	空間的に明示的なエージェントベースのシミュレーションを構築するためのIDE
 gameranger	GameRanger
 ganache	イーサリアム開発のためのパーソナルブロックチェーン
 ganttproject	Ganttチャートとプロジェクト管理アプリケーション
