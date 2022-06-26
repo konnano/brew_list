@@ -1,4 +1,4 @@
-brew list command extended version: version 1.09_4
+brew list command extended version: version 1.09_6
 
 : how to use
 ```
@@ -45,6 +45,8 @@ Please check -dd or -de option   ( brew_list -ddd Formula | xargs brew uninstall
 '-u' option　Installed Formula depend on Formula is displayed
 
 '-ua' option　Formula depend on All Formula is displayed
+
+'-ul' option　Formula depend on Formula, item count is displayed
 
 '-is' option Display in order of size
 
