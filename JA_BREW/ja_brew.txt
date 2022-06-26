@@ -314,6 +314,7 @@ awsume	コマンドラインからAWS IAMロールを簡単に引き受けるた
 awsweeper	AWSアカウントをクリーンアップするためのCLIツール
 axel	Light UNIXダウンロードアクセラレータ
 azcopy	Azure Storageデータ転送ユーティリティ
+aztfy	既存のAzureリソースをTerraformの管理下に置きます
 azure-cli	Microsoft Azure CLI 2.0
 azure-storage-cpp	C++のMicrosoft Azure記憶装置 クライアントライブラリ
 b2-tools	B2クラウドストレージ コマンドラインツール
@@ -1411,6 +1412,7 @@ euler-py	Pythonで記述されたProject Eulerコマンドラインツール
 eureka	ターミナルを離れることなくアイデアを入力して保存するCLIツール
 eva	電卓REPL bc(1)と同様
 eventql	大規模なイベント分析のためのデータベース
+evernote-backup	Backup & export すべてのEvernoteノートとノートブック
 evernote2md	Evernote.enexファイルをMarkdownに変換します
 evince	GNOMEドキュメントViewer
 ex-vi	UTF8対応バージョンの伝統VI
@@ -2776,6 +2778,7 @@ lesspipe	Pagerの入力が少ないフィルタ
 lesstif	OSF/Motif のオープンソース実装
 leveldb	順序付けられたマッピングを備えたKey-Value保管ライブラリ
 lexbor	依存関係のないCで記述された高速の埋め込み可能なWebブラウザエンジン
+lexicon	標準化された方法でさまざまなDNSプロバイダーのDNSレコードを操作する
 lf	ターミナルファイルマネージャー
 lfe	ErlangVMの同時Lisp
 lft	高度なtracerouteツールであるLayerFour Traceroute(LFT)
@@ -3068,6 +3071,7 @@ libpsl	公開SuffixリストのCライブラリ
 libpst	PSTファイル形式のユーティリティ
 libpthread-stubs	X.Org：pthread-stubs.pc
 libpulsar	Apache Pulsar C++ライブラリ
+libpython-tabulate	Pythonで表形式のデータをきれいに印刷する
 libqalculate	Qalculateのライブラリ！プログラム
 libquantum	量子力学のシミュレーションのためのCライブラリ
 libquicktime	QuickTimeファイルを読み書きするためのライブラリ
@@ -3290,6 +3294,7 @@ llnode	node.jsアプリのデバッグ用LLDBプラグイン live/post-mortem
 llvm	次世代基礎構造コンパイラ
 llvm@11	次世代基礎構造コンパイラ
 llvm@12	次世代基礎構造コンパイラ
+llvm@13	次世代基礎構造コンパイラ
 llvm@7	次世代基礎構造コンパイラ
 llvm@8	次世代基礎構造コンパイラ
 llvm@9	次世代基礎構造コンパイラ
@@ -4534,6 +4539,7 @@ pyvim	純粋なPython Vimクローン
 pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
 q	CSVまたはTSVファイルでSQLを直接実行する
 qalculate-gtk	多目的デスクトップ計算機
+qbe	バッグエンドコンパイラ
 qbs	複数のプラットフォーム間でプロジェクトを開発するためのビルドツール
 qca	Qt暗号化基本設計(QCA)
 qcachegrind	CachegrindとCalltreeによって生成されたデータを視覚化する
@@ -5554,6 +5560,7 @@ truffle	開発環境 イーサリアムのテストフレームワークとア�
 truncate	ファイルを指定されたサイズに切り捨てます
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
 trzsz	lrzsz (rz/sz)に似たシンプルなファイル転送ツール tmuxと互換性があります
+trzsz-go	シンプルなファイル転送ツール lrzsz(rz/sz)に似ています tmuxと互換性があります
 tsduck	MPEG転送ストリームツールキット
 tssh	SSH軽量管理ツール
 tsung	負荷テスト HTTP/PostgreSQL/Jabberなど
@@ -5703,6 +5710,7 @@ vcsh	gitに基づく構成マネージャー
 vde	イーサネット準拠の仮想ネットワーク
 vdirsyncer	カレンダーと連絡先を同期する
 veclibfort	AppleのvecLibに対するGNU Fortranの互換性
+vectorscan	高性能正規表現マッチングライブラリ
 vecx	Vectrexエミュレーター
 vegeta	HTTP負荷テストツールとライブラリ
 velero	Kubernetesリソースと永続ボリュームの災害からの回復
