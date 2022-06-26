@@ -38,9 +38,9 @@ Uninstall ./init.sh unlink in the brew_list-main folder
 
 '-dd' option　Unistall Formula, don't need only Formula is displayed in order by tree
 
-'-ddd' option　Unistall Formula, don't need only Formula, uninstall list in order by pipe.
+'-ddd' option　Unistall Formula, don't need only Formula, uninstall list in order
 
-Please check -dd or -de option   ( brew_list -ddd Formula | xargs brew uninstall )
+Please check -dd or -de option
 
 '-u' option　Installed Formula depend on Formula is displayed
 
