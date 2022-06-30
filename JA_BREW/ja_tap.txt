@@ -448,6 +448,7 @@ font-droid-sans-mono-for-powerline	Droid Sans Mono for Powerline
 font-droid-sans-mono-nerd-font	DroidSansMonoオタクフォント(Droid Sans Mono)
 font-duru-sans	Duru Sans
 font-dynalight	Dynalight
+font-dynapuff	DynaPuff
 font-eagle-lake	Eagle Lake
 font-east-sea-dokdo	East Sea Dokdo
 font-eater	Eater
@@ -2321,6 +2322,7 @@ reflector2	ワイヤレス画面ミラーリングアプリケーション
 royal-tsx-beta	リモート管理ソリューション
 rstudio-daily	RStudio
 rstudio-preview	RとPythonに焦点を当てたデータサイエンスソフトウェア
+rstudio-preview-electron	RとPythonに焦点を当てたデータサイエンスソフトウェア
 safari-technology-preview	Webブラウザー
 screenflow5	ScreenFlow
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
