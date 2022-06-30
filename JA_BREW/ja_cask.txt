@@ -184,6 +184,7 @@ aquaterm	Grahicsレンダラー
 araxis-merge	2方向および3方向のファイル比較 マージ/フォルダー同期
 archipelago	Webテクノロジに基づいて構築されたターミナルエミュレータ
 archiver	アーカイブを開く ファイルを圧縮する ファイルを分割して結合するだけでなく
+archy	YAMLプロセッサ
 arctype	SQLクライアントおよびデータベース管理ツール
 arduino	電子工学プロトタイピングプラットフォーム
 aria-maestosa	MIDIシーケンサーとエディター
@@ -773,7 +774,6 @@ deezer	音楽プレーヤー
 default-folder-x	アプリケーションの[開く]および[保存]ダイアログを拡張するユーティリティ
 defold	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
 dejalu	DejaLu
-delicious-library	快適なライブラリ
 deltachat	電子メールサーバーネットワーク経由でチャット
 deltawalker	ファイルとフォルダを比較および同期するためのツール
 deluge	BitTorrentクライアント
@@ -2957,6 +2957,7 @@ roaringapps	RoaringApps
 robo-3t	MongoDB管理ツール
 robofont	フォントエディター
 roboform	パスワードマネージャーとフォームフィラーアプリケーション
+rockboxutility	Rockboxデジタルミュージックプレーヤーファームウェアの自動インストーラー
 rocket	目の不自由な人向けに最適化された絵文字picker
 rocket-chat	Rocket.Chatの公式デスクトップクライアント
 rocket-typist	ロケットタイピスト
@@ -3845,6 +3846,7 @@ webviewscreensaver	Webページを表示するスクリーンセーバー
 wechat	Freeのメッセージングおよび通話アプリケーション
 wechatwebdevtools	公式アカウントおよびミニプログラム開発用のWeixinDevTools
 wechatwork	メッセージングおよび通話アプリケーション
+weektodo	プライバシーに焦点を当てWeekly planner app
 weiyun	ドキュメントのバックアップとオンライン管理
 weka	データマイニングタスク用の機械学習アルゴリズムのコレクション
 welly	BBSクライアント
