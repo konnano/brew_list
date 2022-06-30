@@ -1012,6 +1012,7 @@ cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシ�
 cyral-gimme-db-token	データベースへのSSOログインにCyralを簡単に使用
 cyrus-sasl	Simple Authentication and Security Layer
 cython	Python言語のC機能拡張を作成するためのコンパイラ
+czg	標準化されたコミットメッセージを生成するインタラクティブなCommitizen CLI
 czmq	ZeroMQの高レベルC bindings
 daemon	他のプロセスをデーモンに変える
 daemonize	UNIXデーモンとしてコマンドを実行する
@@ -1270,6 +1271,7 @@ duff	コマンドラインから一連のファイル内の重複をすばやく
 duktape	コンパクトな足跡を備えた埋め込み可能なJavascriptエンジン
 dumb	プレーヤーライブラリ IT/XM/S3M/MOD
 dump1090-mutability	RTL-SDR用のADS-B地上局システム
+dumpling	MySQL互換データベースからのSQLダンプの作成
 dune	OCaml用のコンポーザブルビルドシステム
 dungeon	古典的なテキストアドベンチャーゲーム
 duo_unix	SSHの二段階認証
@@ -2101,7 +2103,6 @@ groonga	全文検索エンジンと列store
 groovy	Javaベースのスクリプト言語
 groovysdk	SDK for Groovy：Javaベースのスクリプト言語
 groovyserv	Groovyの起動時間を短縮する
-growly	コマンド出力をgrowl通知にリダイレクトします
 grpc	次世代のオープンソースRPCライブラリとフレームワーク
 grpc-swift	gRPCのSwift言語実装
 grpcui	postmanの方針に沿ったgRPCの対話的Web UI
@@ -2656,7 +2657,6 @@ knot	高性能な権限のみのDNSサーバー
 knot-resolver	最小、Caching、DNSSEC有効DNS Resolver
 known_hosts	既知のホストのコマンドラインマネージャー
 ko	KubernetesでGoアプリケーションをビルドして展開する
-kobalt	ビルドシステム
 koka	Koka言語コンパイラ
 kommit	コミットせずにより詳細なコミットメッセージ！
 kompose	`docker-compose`からKubernetesに移動するためのツール
@@ -2675,6 +2675,7 @@ krew	kubectlプラグインのパッケージマネージャー
 ksh	Kornシェル、ksh93
 kstart	キータブを使用して認証できるkinitの修正バージョン
 ksync	ローカルシステムとkubernetesクラスター間でファイルを同期する
+kt-connect	kubernetes開発環境とより効率的に統合するためのツールキット
 ktlint	整形ツール内蔵のAnti-bikeshedding Kotlin静的解析ツール
 ktmpl	KubernetesマニフェストのParameterizedされたテンプレート
 ktoblzcheck	German bankのためのライブラリ
@@ -2760,6 +2761,7 @@ leaf-proxy	軽量で高速なプロキシユーティリティ
 leakcanary-shark	LeakCanaryのCLIJavaメモリleakエクスプローラー
 lean	定理証明
 lean-cli	LeanCloudアプリを開発および管理するためのコマンドラインツール
+leapp-cli	クラウドクレデンシャルマネージャーCLI
 leaps	Golangで書かれた共同Webベースのテキスト編集サービス
 ledger	コマンドライン 複式簿記ツール
 ledit	対話的なコマンドのラインエディタ
@@ -2776,6 +2778,7 @@ lerna	複数のパッケージでJavaScriptプロジェクトを管理するた�
 less	moreに似たPagerプログラム
 lesspipe	Pagerの入力が少ないフィルタ
 lesstif	OSF/Motif のオープンソース実装
+levant	HashiCorp Nomadジョブ用のテンプレートおよびデプロイメントツール
 leveldb	順序付けられたマッピングを備えたKey-Value保管ライブラリ
 lexbor	依存関係のないCで記述された高速の埋め込み可能なWebブラウザエンジン
 lexicon	標準化された方法でさまざまなDNSプロバイダーのDNSレコードを操作する
@@ -3023,6 +3026,7 @@ libnghttp2	HTTP/2 Cライブラリ
 libngspice	SPICE回路模擬装置共有ライブラリ
 libnice	GLib ICEの実装
 libnids	ネットワーク侵入検知システムのEコンポーネントを実装します
+libnl	ネットリンクライブラリーセット
 libnotify	デスクトップ通知を通知デーモンに送信するライブラリ
 libnova	天体力学 位置天文学と宇宙力学ライブラリ
 libnsl	NIS(YP)およびNIS+のパブリッククライアントインターフェイス
@@ -3286,6 +3290,7 @@ litecli	自動補完と構文の強調表示を備えたSQLiteデータベース
 literate-git	階層的なgitリポジトリをHTMLに表現する
 little-cms	Little CMSライブラリのバージョン1
 little-cms2	ICCプロファイルをサポートするカラーマネジメントエンジン
+livekit	拡張可能高性能WebRTCサーバー
 livestreamer	ストリーミングサービスからVLCなどのプレーヤーにビデオをパイプします
 lizard	非常に高速な減圧を備えた効率的な圧縮機
 lizard-analyzer	Extensible Cyclomatic Complexity Analyzer
@@ -4366,6 +4371,7 @@ pocsuite3	オープンソースのリモート脆弱性テストフレームワ�
 pod2man	Perlドキュメント発生器
 podiff	2つのPOファイルのテキスト情報を比較する
 podman	OCIコンテナとポッドを管理するためのツール
+podman-compose	dockerの代替-podmanを使用して作成
 podofo	PDFファイル形式で動作するライブラリ
 poetry	Pythonパッケージ管理ツール
 points2grid	ローカルGridingを使用して数値標高モデルを生成する
