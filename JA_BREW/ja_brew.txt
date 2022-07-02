@@ -1214,6 +1214,7 @@ docutils	reStructuredTextのテキスト処理システム
 docuum	Dockerイメージの最も最近使用されていない(LRU)削除を実行します
 docx2txt	Microsoft Officedocxドキュメントを同等のテキストドキュメントに変換します
 dog	コマンドラインDNSクライアント
+doggo	人々の為のコマンドラインDNSクライアント
 doitlive	ライブ発表用に保存されたシェルコマンドを再生する
 dolt	データのGit
 dopewars	もともとDrug WarをベースにしたゲームのFreeリライト
@@ -1966,6 +1967,7 @@ gnuplot	コマンド駆動型の対話的関数プロット
 gnuplot@4	コマンド駆動型の対話的関数プロット
 gnuradio	ソフトウェア無線を実装するための信号処理ブロックのSDK
 gnuski	Skifreeのオープンソースクローン
+gnustep-base	汎用ライブラリー 非グラフィカルなObjectiveCオブジェクト
 gnustep-make	基本的なGNUstep Makefile
 gnutls	GNUトランスポート層セキュリティ(TLS)ライブラリ
 go	シンプルで信頼性が高く効率的なソフトウェアを構築するためのオープンソースプログラミング言語
@@ -2367,6 +2369,7 @@ ifuse	iOSデバイスのFUSEモジュール
 igraph	ネットワーク分析パッケージ
 igv	対話的な解析Viewer
 ii	必要最低限のIRCクライアント
+ijq	対話型 jq
 ike-scan	指紋を見い出す IKE hosts
 ilmbase	OpenEXR ILMベースライブラリ(high dynamic-range画像ファイル形式)
 imagejs	有効な画像ファイル内にJavaScriptを非表示にするツール
@@ -2444,6 +2447,7 @@ iprint	print_one関数を提供します
 iproute2	Linux設定ユーティリティ
 iproute2mac	MacOSの基本的なネットワークユーティリティのCLI wrapper -ipコマンド
 ipsumdump	ダンプファイルを自己記述型ASCII形式に要約します TCP/IP
+iptables	Linuxカーネルパケット制御ツール
 iputils	Linuxネットワークの小さく便利なユーティリティのセット
 ipv6calc	IPv6アドレスを操作するための小さなユーティリティ
 ipv6toolkit	IPv6のセキュリティ評価と修繕のツール
@@ -3018,10 +3022,12 @@ libmypaint	MyPaintブラシエンジンライブラリ
 libnatpmp	NATポートマッピング手続きライブラリ
 libnet	IPパケットを作成するためのCライブラリ
 libnetfilter-queue	カーネルパケットフィルターによってキューに入れられたパケットへのユーザースペースAPI
+libnetfilter_conntrack	カーネル内接続追跡状態テーブルにAPIを提供するライブラリ
 libnetworkit	NetworKitは、大規模なネットワーク分析のためのOSツールキットです。
 libnfc	低レベルのNFC SDKとプログラマーAPI
 libnfnetlink	netfilter関連の通信用の低レベルライブラリ
 libnfs	NFSのCクライアントライブラリ
+libnftnl	nf_tablesサブシステムへのインターフェースを提供するNetfilterライブラリ
 libnghttp2	HTTP/2 Cライブラリ
 libngspice	SPICE回路模擬装置共有ライブラリ
 libnice	GLib ICEの実装
@@ -3033,6 +3039,7 @@ libnsl	NIS(YP)およびNIS+のパブリッククライアントインターフ�
 libntlm	MicrosoftのNTLM認証を実装します
 libnxml	解析用のCライブラリ 書き込み/XMLファイルの作成
 liboauth	OAuthコアRFC5849標準のCライブラリ
+libobjc2	Clangでの使用を目的としたObjective-Cランタイムライブラリ
 libodfgen	librevengeを使用するプロジェクト用のODF転送ライブラリ
 libofx	OFXコマンド応答をサポートするライブラリ
 libogg	Oggビットストリームライブラリ
@@ -3385,6 +3392,7 @@ lzo	リアルタイムデータ圧縮ライブラリ
 lzop	ファイル圧縮機
 m-cli	MacOSの万能ナイフ
 m4	マクロ処理言語
+mabel	ターミナル用のFancy BitTorrentクライアント
 mac-robber	デジタル調査ツール
 macchina	性能と最小化に重点を置いたシステム情報Fetcher
 mackup	Macのアプリケーション設定の同期を維持する
@@ -3840,6 +3848,7 @@ nexus	binaryソフトウェアコンポーネント用のリポジトリマネ�
 nfcutils	POSIXシステムでの近距離無線通信(NFC)ツール
 nfdump	コマンドラインでNetFlowデータを収集および処理するためのツール
 nfpm	シンプルなdebおよびrpmパッケージャー
+nftables	Netfilterテーブルのユーザースペースツール
 nghttp2	HTTP/2C ライブラリ
 nginx	HTTP(S)サーバーと逆プロキシ IMAP/POP3 プロキシサーバー
 ngircd	軽量インターネットリレーチャットサーバー
@@ -4324,6 +4333,7 @@ pipgrip	軽量のPIP依存関係リゾルバー
 pipx	隔離された環境でPythonパッケージからバイナリを実行する
 pit	From hellプロジェクトマネージャー(Gitと統合)
 pius	PGP個別UID署名
+pixie	Kubernetesアプリケーション用の可観測性ツール
 pixman	ピクセル操作用の低レベルライブラリ
 pixz	並列/インデックス xz圧縮機
 pjproject	SIP/SDP/RTP などのマルチメディア手続きのCライブラリ
@@ -5554,6 +5564,7 @@ tree	ディレクトリをツリーとして表示(オプションのカラー/H
 tree-sitter	パーサ発生器ツールとインクリメンタル解析ライブラリ
 treecc	コンパイラを書くためのアスペクト指向アプローチ
 treefrog	Webアプリケーション用の高速C++ MVCフレームワーク
+tremor-runtime	非構造化データの初期段階のイベント処理システム
 trezor-agent	ハードウェアSSH/GPGエージェント Trezor/Keepkey/Ledger
 triangle	Delaunay三角形分割を使用して、画像をコンピューターで生成されたアートに変換します
 trimage	PNGおよびJPGファイルを最適化するためのクロスプラットフォームツール
@@ -5640,6 +5651,7 @@ unibilium	非常に基本的なterminfoライブラリ
 unicorn	軽量のmulti-architecture CPUエミュレーションフレームワーク
 unifdef	C条件付き前処理プログラム ディレクティブを選択的に処理します
 unison	OSXのファイル同期ツール
+unisonlang	未来からの親しいプログラミング言語
 unittest	C++単体テストフレームワーク
 unittest-cpp	C++単体テストフレームワーク
 uniutils	Unicodeテキストを操作および分析する
@@ -5844,6 +5856,7 @@ webfs	純粋に静的なコンテンツ用のHTTPサーバー
 webhook	軽量で構成可能な着信Webhookサーバー
 webify	Webサービスとしてのシェルコマンドのラッパー
 webkit2png	ターミナルからウェブページのスクリーンショットを作成する
+webkitgtk	WebKitへのGTKインターフェース
 webp	Web画像に可逆および非可逆圧縮を提供する画像形式
 webp-pixbuf-loader	WebP画像形式GdkPixbufローダー
 webpack	JavaScriptとその仲間のためのBundler
