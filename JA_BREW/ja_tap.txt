@@ -705,6 +705,7 @@ font-ia-writer-duo	iA Writer Duo
 font-ia-writer-duospace	iA Writer Duospace
 font-ia-writer-mono	iA Writer Mono
 font-ia-writer-quattro	iA Writer Quattro
+font-iansui	Klee Oneから派生した中国語フォント
 font-ibarra-real-nova	Ibarra Real Nova
 font-ibm-plex	IBM Plex
 font-ibm-plex-mono	IBM Plex Mono
