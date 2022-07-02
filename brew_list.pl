@@ -342,7 +342,7 @@ my( $re,$pid ) = @_;
 
 sub DB_1{
 my $re = shift;
- if( $re->{'FOR'} or $re->{'DEP' } ){
+ if( $re->{'FOR'} or $re->{'DEP'} ){
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for(readdir $dir){
     my $hand = readlink "$re->{'BIN'}/$_";
@@ -352,7 +352,7 @@ my $re = shift;
    }
   closedir $dir;
  }
- if( $re->{'CAS'} or $re->{'DEP'} ){
+ if( $re->{'CAS'} ){
   my $dirs = Dirs_1( "$re->{'CEL'}",3 );
   for(my $in=0;$in<@$dirs;$in++){
    if( $$dirs[$in] and -d "$re->{'CEL'}/$$dirs[$in]/.metadata" ){
@@ -399,7 +399,7 @@ sub Top_1{
 my( $re,$list,%HA,@AN,$top ) = @_;
  for my $ls(@$list){
   Uses_1( $re,$ls,\%HA,\@AN );
-   if( @AN < 2 ){
+   if( @AN and @AN < 2 ){
     my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
     Tap_2( $re,\$ls ) if $re->{'FOR'};
      for my $bui(@BUI){ my $build = $bui;
@@ -441,7 +441,7 @@ sub Uses_1{
 my( $re,$tap,$HA,$AN ) = @_;
  for my $ls(split '\t',$tap){
   $HA->{$ls}++;
-   push @$AN,$ls if $re->{'HASH'}{$ls} and $HA->{$ls} < 2;
+   push @$AN,$ls if( $re->{'HASH'}{$ls} or $re->{'DMG'}{$ls} ) and $HA->{$ls} < 2;
   Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
  }
 }
@@ -609,11 +609,12 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
   ++$re->{'NEW'} and Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|';
- if( $re->{'DEL'} ){
+ if( $re->{'DEL'} ){ my( %ha,@an );
   $HA->{$brew}++;
-   my( %ha,@an );
-    Uses_1( $re,$brew,\%ha,\@an ) if $HA->{$brew} < 2;
-     push @{$re->{$brew}},@an if $HA->{$brew} < 2;
+   if( $HA->{$brew} < 2 ){
+    Uses_1( $re,$brew,\%ha,\@an );
+     push @{$re->{$brew}},@an;
+   }
  }
  if( $re->{'OS'}{"${brew}deps_b"} ){
   for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){
