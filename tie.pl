@@ -362,15 +362,16 @@ unless( $ARGV[0] ){
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
-    $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
+    $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}formula"} .= "$data\t";
+        $tap{"${data}u_form"} .= "$name\t";
        if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+)/ ){
-        $tap{"${name}formula"} = 0 if $CPU ne $ls3;
+        $tap{"${name}formula"} = $tap{"${name}u_form"} = 0 if $CPU ne $ls3;
        }
      }elsif( $data =~ /^\s*depends_on\s+cask:\s+/ or $IN ){
       if( $data =~ /^\s*depends_on\s+cask:\s+\[/ ){ $IN = 1; next; }
@@ -378,6 +379,8 @@ unless( $ARGV[0] ){
       $data =~ s/^\s*"([^"]+)".*\n/$1/;
        $data =~ s/^\s*depends_on\s+cask:\s+"([^"]+)".*\n/$1/;
         $tap{"${name}d_cask"} .= "$data\t";
+         $data =~ s|.+/([^/]+)|$1|;
+          $tap{"${data}u_cask"} .= "$name\t";
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        $IF1 = 0; $ELIF = $ELS = 1;
        if( $ls4 =~ /^[<=>]+$/ and eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
