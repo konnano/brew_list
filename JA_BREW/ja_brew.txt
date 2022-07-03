@@ -3367,6 +3367,7 @@ luarocks	Luaプログラミング言語のパッケージマネージャー
 luau	Luaから派生した、高速で安全な、徐々に型付けされた埋め込み可能なスクリプト言語
 luaver	Lua/LuaJIT/Luarocks のバージョン管理および切り替えます
 luit	任意のアプリケーションとUTF-8ターミナルエミュレーター間のフィルター実行
+lunar-date	中国の月日付ライブラリ
 lunchy	launchctlの親しいラッパー
 lunchy-go	launchctlの親しいラッパー
 lunzip	lzipファイル用のデコンプレッサ
