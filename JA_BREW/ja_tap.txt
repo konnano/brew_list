@@ -1520,7 +1520,6 @@ font-public-sans	Public Sans
 font-puppies-play	遊び心のある流れを与えるコネクタを備えた楽しく弾力のあるスクリプト
 font-puritan	Puritan
 font-purple-purse	Purple Purse
-font-pushster	Pushster
 font-qahiri	Qahiri
 font-quando	Quando
 font-quantico	Quantico
@@ -1695,6 +1694,7 @@ font-signika	優しいキャラクターのSans-serif看板書体
 font-signika-negative	Signika Negative
 font-signika-negative-sc	Signika SCフォントの代替バージョン
 font-signika-sc	SignikaフォントのSmall-capsバージョン
+font-silkscreen	あなたのWebグラフィック書体
 font-simonetta	Simonetta
 font-simple-line-icons	Simple Line Icons
 font-single-day	Single Day
