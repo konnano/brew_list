@@ -583,6 +583,7 @@ clocksaver	Braunの時計に触発されたスクリーンセーバー
 clone-hero	Guitar Heroクローン
 clonk	Clonk Rage
 cloud-pbx	クラウドベースの電話システム
+cloud189	パブリッククラウドストレージサービス
 cloudapp	ビジュアルコミュニケーションプラットフォーム
 cloudash	サーバーレスアーキテクチャの監視とトラブルシューティング
 cloudcompare	CloudCompare
@@ -1987,6 +1988,7 @@ mauve	Mauve
 mavensmate	MavensMateサーバー用のパッケージデスクトップアプリ
 max	CDやファイルからさまざまな形式の高品質オーディオファイルを作成します
 maxon	インストール/使用 Maxon製品をお試しください
+mbcord	JellyfinとEmbyのDiscordリッチプレゼンスクライアント
 mbed-studio	MbedOSアプリケーションおよびライブラリ開発用のIDE
 mblock	STEAMを教えるために設計されたコーディングツール
 mcbopomofo	注音符号(北京語の発音記号)の入力方法
@@ -3289,6 +3291,7 @@ sqlpro-for-postgres	軽量のPostgresSQLデータベースクライアント
 sqlpro-for-sqlite	高度なsqliteエディター
 sqlpro-studio	データベース管理ツール
 sqlworkbenchj	DBMSに依存しないSQLクエリツール
+squash	バッチ画像プロセッサ リサイザーとコンバータ
 squeak	Squeak
 squidman	SquidMan
 squirrel	ライム入力方式エンジン
@@ -3435,6 +3438,7 @@ taskwarrior-pomodoro	Taskwarrior-ポモドーロ
 tastyworks	tastyworks証券会社向けのデスクトップ取引プラットフォーム
 tau	TAU
 td-agent	Fluentd配布パッケージ
+tdr-kotelnikov	範囲制御と柔軟性を組み合わせた広帯域ダイナミクスプロセッサ
 teacode	開発者向けのテキスト拡張アプリ
 teambition	Teambition
 teamdrive	安全なクラウドストレージサービス
