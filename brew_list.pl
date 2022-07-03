@@ -528,9 +528,11 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
       if( $re->{'TAP'} ){
        $i++ if $tap =~ /^[012]$/;
         push @{$tap[$i]},$tap;
-      }else{
+      }elsif( $re->{'BL'} or $re->{'S_OPT'} ){
        $e++ if $tap =~ /^[012]$/;
         push @{$tap[$e]},$tap;
+      }else{
+        push @{$file},$tap;
       }
     }
    close $BREW;
@@ -619,9 +621,9 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_;
- print "\033[33mCan't install $re->{'INF'}...\033[00m\n" 
-  if not $file and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_Linux"} );
- print"\033[33mexists Formula and Cask\033[00m\n" if not $file and $re->{'OS'}{"$re->{'INF'}so_name"};
+ print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and 
+($re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_Linux"} or $re->{'OS'}{"$re->{'INF'}un_cask"});
+ print" \033[33mexists Formula and Cask...\033[00m\n" if not $file and $re->{'OS'}{"$re->{'INF'}so_name"};
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
   ++$re->{'NEW'} and Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
@@ -1237,8 +1239,9 @@ sub Format_3{
     my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
-      $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} :'';
-       my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
+      $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} : '';
+       $name = " \033[33mCan't install $name...\033[00m\n".$name if $re->{'OS'}{"${name}un_cask"};
+        my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
 
     for(my $i=0;$i<@cas;$i++){ my $tap = $cas[$i];
       $tap =~ s|.+/(.+)|$1|;
