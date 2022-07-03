@@ -107,7 +107,10 @@ MAIN:{
    die" nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
    $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.' and not $re->{'S_OPT'};
-   $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
+    $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
+     $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
+      ( $re->{'FOR'} and $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} );
+
   if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
       $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
        $re->{'NEW'}++; Init_1( $re );
@@ -149,14 +152,14 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.09_6\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.09_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
   -co\t:  formula library display\n  -in\t:  formula require formula list
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
-  -ul\t:  formula depend on formula, item count
+  -ul\t:  formula depend on formula, item count\n  -g\t:  Independent Formula
   -de\t:  uninstalled, not require formula\n  -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order\n  -ddd\t:  All deps uninstall
   -is\t:  Display in order of size  -g\t:  Independent formula
@@ -192,7 +195,12 @@ my( $re,$list ) = @_;
   $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
    ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
      $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
-  @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"}; 
+  @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"};
+  if( $re->{'MAC'} and $re->{'USE'} ){
+   my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
+   my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
+    @$list = ( @$list,@list1,@list2 );
+  }
  }
 
  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
@@ -342,7 +350,7 @@ my( $re,$pid ) = @_;
 
 sub DB_1{
 my $re = shift;
- if( $re->{'FOR'} or $re->{'DEP'} ){
+ if( $re->{'FOR'} or $re->{'DEP' } ){
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for(readdir $dir){
     my $hand = readlink "$re->{'BIN'}/$_";
@@ -352,14 +360,15 @@ my $re = shift;
    }
   closedir $dir;
  }
- if( $re->{'CAS'} ){
-  my $dirs = Dirs_1( "$re->{'CEL'}",3 );
+ if( $re->{'CAS'} or $re->{'CELS'} ){
+  my $mem = $re->{'CEL'} and $re->{'CEL'} = $re->{'CELS'} if $re->{'CELS'};
+  my $dirs = Dirs_1( $re->{'CEL'},3 );
   for(my $in=0;$in<@$dirs;$in++){
    if( $$dirs[$in] and -d "$re->{'CEL'}/$$dirs[$in]/.metadata" ){
     my $meta = Dirs_1( "$re->{'CEL'}/$$dirs[$in]/.metadata",3 );
      $re->{'DMG'}{$$dirs[$in]} = $$meta[0];
    }
-  }
+  } $re->{'CEL'} = $mem if $re->{'CELS'};
  }
 }
 
@@ -417,9 +426,9 @@ my( $re,$list,%HA,@AN ) = @_;
  return unless @$list;
   for(my $i=0;$i<@$list;$i++){ my $tap = $list->[$i];
    Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
-    (( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $list->[$i],$re,0 ) :
-     ( $re->{'HASH'}{$tap} and $re->{'USE'} and not $re->{'USES'} ) ? Uses_1( $re,$tap,\%HA,\@AN ) :
-       $re->{'USES'} ? push @AN,$tap : 0;
+    ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $list->[$i],$re,0 ) :
+     ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'USE'} and not $re->{'USES'} ) ?
+      Uses_1( $re,$tap,\%HA,\@AN ) : $re->{'USES'} ? push @AN,$tap : 0;
   }
   @AN = sort @AN;
  Mine_1( $_,$re,0 ) for(@AN);
@@ -429,6 +438,11 @@ sub Brew_2{
 my( $re,@AN,%HA ) = @_;
  for my $key(sort keys %{$re->{'HASH'}}){
   my @an = split '\t',$re->{'OS'}{"${key}uses"} if $re->{'OS'}{"${key}uses"};
+  if( $re->{'MAC'} ){
+   my @an1 = split '\t',$re->{'OS'}{"${key}u_form"} if $re->{'OS'}{"${key}u_form"};
+   my @an2 = split '\t',$re->{'OS'}{"${key}u_cask"} if $re->{'OS'}{"${key}u_cask"};
+    @an = ( @an,@an1,@an2 );
+  }
    Uses_1( $re,$_,\%HA,\@AN ) for(@an);
     my $le = int( (36-(length $key))/2 );
    printf"%36s uses :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
@@ -442,16 +456,18 @@ my( $re,$tap,$HA,$AN ) = @_;
  for my $ls(split '\t',$tap){
   $HA->{$ls}++;
    push @$AN,$ls if( $re->{'HASH'}{$ls} or $re->{'DMG'}{$ls} ) and $HA->{$ls} < 2;
-  Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
+   Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
+   Uses_1( $re,$re->{'OS'}{"${ls}u_form"},$HA,$AN ) if $re->{'OS'}{"${ls}u_form"} and $re->{'HASH'}{$ls};
+   Uses_1( $re,$re->{'OS'}{"${ls}u_cask"},$HA,$AN ) if $re->{'OS'}{"${ls}u_cask"} and $re->{'DMG'}{$ls};
  }
 }
 
 sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
- exit unless $re->{'HASH'}{$re->{'INF'}};
+ exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN );
    $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
-    print"required formula  ==>  $_\n" for(@an);
+    $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
  unless( @an ){ @AN = %HA = ();
   Info_1( $re,0,0,\@AN,\%HA );
    my @list1 = sort @AN;
@@ -581,12 +597,13 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
  my $name = $$brew;
-  $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
+  $$brew =~ s|.+/([^/]+)|$1|;
+   $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
  $name = -t STDOUT ? "$name \033[33m(require)\033[00m" : "$name (require)"
-   if not $re->{'COLOR'} and ( not $re->{'HASH'}{$$brew} or
-          $re->{'OS'}{"$${brew}ver"} gt $re->{'HASH'}{$$brew} );
+   if not $re->{'COLOR'} and ( not $re->{'HASH'}{$$brew} and not $re->{'DMG'}{$$brew} or
+          $re->{'HASH'}{$$brew} and $re->{'OS'}{"$${brew}ver"} gt $re->{'HASH'}{$$brew} );
  $name = -t STDOUT ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
-   if $re->{'COLOR'} and $re->{'HASH'}{$$brew} and $re->{"$${brew}delet"};
+   if $re->{'COLOR'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
  $re->{"deps$$brew"} +=
    ( $re->{'TREE'} and $re->{'DD'} and $name =~ /\(can delete\)/ ) ?
@@ -603,8 +620,8 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_;
  print "\033[33mCan't install $re->{'INF'}...\033[00m\n" 
-  if not $file and ( $re->{'MAC'} and $re->{'OS'}{"$re->{'INF'}un_xcode"} or
-                     $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} );
+  if not $file and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_Linux"} );
+ print"\033[33mexists Formula and Cask\033[00m\n" if not $file and $re->{'OS'}{"$re->{'INF'}so_name"};
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
   ++$re->{'NEW'} and Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
@@ -630,6 +647,18 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
   for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){
    Unic_1( $re,\$data2,$spa,$AN );
     Info_1( $re,$data2,$spa,$AN,$HA );
+  }
+ }
+ if( $re->{'OS'}{"${brew}formula"} ){
+  for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){
+   Unic_1( $re,\$data3,$spa,$AN );
+    Info_1( $re,$data3,$spa,$AN,$HA );
+  }
+ }
+ if( $re->{'OS'}{"${brew}d_cask"} ){
+  for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){
+   Unic_1( $re,\$data4,$spa,$AN );
+    Info_1( $re,$data4,$spa,$AN,$HA );
   }
  }
 }
@@ -1067,7 +1096,7 @@ sub Format_1{
      my $size = int $tput/($leng+2);
       my $in = 1;
    print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/|;
-    print" ==> Formula\n" if $re->{'FOR'} and @{$re->{'ARR'}};
+    print" ==> Formula\n" if $re->{'FOR'} and @{$re->{'ARR'}} and not $re->{'USE'};
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
       if( $re->{'ARR'}[$e] =~ m|^ ==> homebrew/| ){
        print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] !~ m|^ ==> homebrew/|;
@@ -1933,15 +1962,16 @@ unless( $ARGV[0] ){
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
-    $tap{"${name}d_cask"} = ''; $tap{"${name}formula"} = '';
+    $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}formula"} .= "$data\t";
+        $tap{"${data}u_form"} .= "$name\t";
        if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+)/ ){
-        $tap{"${name}formula"} = 0 if $CPU ne $ls3;
+        $tap{"${name}formula"} = $tap{"${name}u_form"} = 0 if $CPU ne $ls3;
        }
      }elsif( $data =~ /^\s*depends_on\s+cask:\s+/ or $IN ){
       if( $data =~ /^\s*depends_on\s+cask:\s+\[/ ){ $IN = 1; next; }
@@ -1949,6 +1979,8 @@ unless( $ARGV[0] ){
       $data =~ s/^\s*"([^"]+)".*\n/$1/;
        $data =~ s/^\s*depends_on\s+cask:\s+"([^"]+)".*\n/$1/;
         $tap{"${name}d_cask"} .= "$data\t";
+         $data =~ s|.+/([^/]+)|$1|;
+          $tap{"${data}u_cask"} .= "$name\t";
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        $IF1 = 0; $ELIF = $ELS = 1;
        if( $ls4 =~ /^[<=>]+$/ and eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
