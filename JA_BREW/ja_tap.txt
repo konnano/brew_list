@@ -321,6 +321,7 @@ font-cherry-bomb-one	Cherry Bomb One
 font-cherry-cream-soda	Cherry Cream Soda
 font-cherry-swash	Cherry Swash
 font-chewy	Chewy
+font-chiayi-city	ChiaYi-cityのカリスマ性を反映したフォント
 font-chicle	Chicle
 font-chilanka	Chilanka
 font-chivo	Chivo
@@ -466,6 +467,7 @@ font-edwin	楽譜のテキストフォント
 font-ek-mukta	Ek Mukta
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
+font-elice-digital-baeum	Elice Digital Baeum
 font-elsie	Elsie
 font-elsie-swash-caps	Elsie Swash Caps
 font-elstobd	ElstobD
@@ -1501,6 +1503,9 @@ font-praise	カジュアル(非接続)からフォーマルなアピールまで
 font-prata	Prata
 font-preahvihear	Preahvihear
 font-press-start-2p	Press Start 2P
+font-pretendard	すべてのプラットフォームのsystem-uiの代替フォント
+font-pretendard-jp	すべてのプラットフォームのsystem-uiの代替フォント
+font-pretendard-std	すべてのプラットフォームのsystem-uiの代替フォント
 font-pridi	Pridi
 font-princess-sofia	Princess Sofia
 font-prociono	Prociono
@@ -2183,6 +2188,7 @@ affinity-photo-beta	Serif Affinity Photo
 affinity-publisher-beta	プロのデスクトップ出版ソフトウェア
 alfred2	Alfred
 alfred3	アプリケーションランチャーと生産性ソフトウェア
+ ##### alfred5
 anaconda2	Continuum Analytics Anaconda2
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
@@ -2290,6 +2296,7 @@ mullvadvpn-beta	VPNクライアント
 mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
 netnewswire-beta	FreeのオープンソースRSSリーダー
 olympus	Everest(ビデオゲームCeleste用のModローダー) インストーラー/マネージャー
+omegat-latest	翻訳メモリツール
 omnifocus2	OmniFocus
 omnigraffle6	OmniGraffle 6
 omniplan3	プロジェクト計画および管理ソフトウェア
