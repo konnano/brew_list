@@ -2188,7 +2188,6 @@ affinity-photo-beta	Serif Affinity Photo
 affinity-publisher-beta	プロのデスクトップ出版ソフトウェア
 alfred2	Alfred
 alfred3	アプリケーションランチャーと生産性ソフトウェア
- ##### alfred5
 anaconda2	Continuum Analytics Anaconda2
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
