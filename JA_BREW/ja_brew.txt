@@ -588,6 +588,7 @@ capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
 cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lockファイルを監査する
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
+cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
 cargo-c	Cのようなライブラリを構築してインストールするためのヘルパープログラム
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-instruments	Rustの機器トレースを簡単に生成
@@ -1030,6 +1031,7 @@ darkhttpd	CGIのない小さな静的ウェブサーバー
 darkice	ライブオーディオストリーマー
 darksky-weather	darksky.netAPIからのコマンドライン天気
 darkstat	ネットワーク転送量分析器
+dart-sdk	コアライブラリなどを含むDart言語SDK
 dartsim	ダイナミックアニメーションおよびロボティクスツールキット
 dasel	JSON/YAML/TOML/XML とCSVクエリと変更ツール
 dash	NetBSDのashのPOSIX準拠の子孫(Almquistシェル)
@@ -1324,6 +1326,7 @@ ecl	埋め込み可能なCommon Lisp
 ecm	CDイメージファイルを作成して圧縮率を高めます
 ed	従来のUNIXラインエディタ
 editorconfig	複数のエディター間で一貫したコーディングスタイルを維持する
+editorconfig-checker	ファイルが.editorconfigと調和していることを確認するためのツール
 efl	Enlightenment Foundationライブラリ
 efm-langserver	汎用言語サーバー
 eg	Norton Guide Reader エキスパートガイド GNU/Linux
@@ -2790,6 +2793,7 @@ lf	ターミナルファイルマネージャー
 lfe	ErlangVMの同時Lisp
 lft	高度なtracerouteツールであるLayerFour Traceroute(LFT)
 lftp	洗練されたファイル転送プログラム
+lgeneral	Panzer Generalに大きく影響を受けたターン制ストラテジーエンジン
 lgogdownloader	GOG.comゲームの非公式ダウンローダー
 lha	lzhアーカイブを作成して開くためのユーティリティ
 lhasa	.lzhおよび.lzsアーカイブを解凍するためのLHA実装
@@ -3298,6 +3302,7 @@ literate-git	階層的なgitリポジトリをHTMLに表現する
 little-cms	Little CMSライブラリのバージョン1
 little-cms2	ICCプロファイルをサポートするカラーマネジメントエンジン
 livekit	拡張可能高性能WebRTCサーバー
+livekit-cli	LiveKitへのコマンドラインインターフェイス
 livestreamer	ストリーミングサービスからVLCなどのプレーヤーにビデオをパイプします
 lizard	非常に高速な減圧を備えた効率的な圧縮機
 lizard-analyzer	Extensible Cyclomatic Complexity Analyzer
@@ -3600,6 +3605,7 @@ mkvalidator	MatroskaおよびWebMファイルの仕様適合性を検証する�
 mkvdts2ac3	matroskaファイル内でDTSオーディオをAC3に変換します
 mkvtomp4	mkvファイルをmp4に変換します
 mkvtoolnix	Matroskaメディアファイル操作ツール
+mle	柔軟な端末ベースのテキストエディタ
 mlkit	Standard MLプログラミング言語用のコンパイラ
 mlogger	コマンドラインからsyslogにログインします
 mlpack	拡張性のあるC++機械学習ライブラリ
@@ -3693,6 +3699,7 @@ mpir	複数の高精度整数と有理数(GMPのフォーク)
 mplayer	UNIXムービープレーヤー
 mplayershell	MacOSでのMPlayerのビジュアル技能の向上
 mpop	POP3クライアント
+mprocs	複数のコマンドを並行して実行する
 mps-youtube	ターミナルベースのYouTubeプレーヤーとダウンローダー
 mpssh	Mass並列ssh
 mpv	MPlayerとmplayer2に基づくメディアプレーヤー
@@ -3741,6 +3748,7 @@ mx	Graalプロジェクトの開発に使用されるコマンドラインツー
 mycli	自動補完と構文の強調表示を備えたMySQLのCLI
 mydumper	MySQLDBAとサポートエンジニアが'mysqldump'」をどのように想像するか;-)
 myman	NamcoのPac-Manに触発されたテキストモードのビデオゲーム
+mypaint-brushes	MyPaintやlibmypaintを使用する他のソフトウェアで使用されるBrushes
 mypy	Pythonの実験的なオプションの静的型チェッカー
 mysql	オープンソースのリレーショナルデータベース管理システム
 mysql++	MySQLのCAPIのC++ラッパー
@@ -3814,6 +3822,7 @@ neofetch	高速で高度にカスタマイズ可能なシステム情報スク�
 neomutt	Notmuch、NNTPなどをサポートする電子メールリーダー
 neon	Cインターフェイスを備えたHTTPおよびWebDAVクライアントライブラリ
 neopop-sdl	NeoGeo Pocketエミュレーター
+neovide	Rust実用的Neovim Client
 neovim	拡張性と敏捷性に焦点を当てた野心的なVimフォーク
 neovim-qt	NeoVim GUI, in Qt5
 neovim-remote	`nvr`コマンドラインツールを使用してnvimプロセスを制御する
@@ -4196,6 +4205,7 @@ pastebinit	コマンドラインからpastebinに送る
 pastel	色分析/変換/操作 を生成するコマンドラインツール
 patchelf	動的ELF実行可能ファイルを変更する
 patchutils	パッチファイルを操作するプログラムの小さなコレクション
+pax	Portable Archive交換アーカイブツール
 pax-construct	OSGiプロジェクトを高速にセットアップと開発するためのツール
 pax-runner	OSGiバンドルを提供するためのツール
 payara	GlassFishからフォークされたJava EEアプリケーションサーバー
@@ -5686,6 +5696,7 @@ usbutils	USBデバイスに関する詳細情報を一覧表示します
 userspace-rcu	ユーザースペースRCU用のライブラリ(read-copy-update)
 utf8cpp	ポータブルな方法でC++を使用したUTF-8
 utf8proc	UTF-8Unicodeデータを処理するためのクリーンなCライブラリ
+uthash	ハッシュテーブルなどのCマクロ
 util-linux	Linuxユーティリティのコレクション
 util-macros	X.Org：他のxorgパッケージを構築するために使用されるautoconfマクロのセット
 utimer	多機能タイマーツール
@@ -5734,6 +5745,7 @@ vecx	Vectrexエミュレーター
 vegeta	HTTP負荷テストツールとライブラリ
 velero	Kubernetesリソースと永続ボリュームの災害からの回復
 vera++	C++ソースコード用のプログラム可能なツール
+verapdf	業界でサポートされているオープンソースのPDF/A検証
 vercel-cli	Vercelのコマンドラインインターフェイス
 verilator	Verilog模擬装置
 vermin	コードの実行に必要なPythonの最低バージョンを同時に検出する
