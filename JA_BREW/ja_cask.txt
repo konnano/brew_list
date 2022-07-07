@@ -342,6 +342,7 @@ bilimini	小さなウィンドウのbilibiliクライアント
 billings-pro	Invoices/推定 引用と時間追跡
 binance	暗号通貨交換
 binary-ninja	逆エンジニアリングプラットフォーム
+bing-wallpaper	Bingの毎日の画像を壁紙として使用します
 bingpaper	Bingの毎日の写真を壁紙として使用します
 bino	ビデオプレーヤー
 birdfont	フォントエディター
@@ -399,7 +400,6 @@ boom	オーディオ入力を変換します
 boom-3d	ボリュームブースターおよびイコライザーソフトウェア
 boop	開発者向けのスクリプト可能なスクラッチパッド
 boost-note	開発者向けのマークダウンノートエディター
-boostnote	開発者向けのマークダウンエディター
 bootstrap-studio	Bootstrapフレームワークを使用したWebサイトの設計とプロトタイプ
 bootxchanger	古いMacのブートロゴを変更するユーティリティ
 bossa	bossa
@@ -1209,6 +1209,7 @@ gactions	Google Actions SDK用のCLIツール
 gama	空間的に明示的なエージェントベースのシミュレーションを構築するためのIDE
 gama-jdk	空間的に明示的なエージェントベースのシミュレーションを構築するためのIDE
 gameranger	GameRanger
+gamma-control	画面ごとの色調整
 ganache	イーサリアム開発のためのパーソナルブロックチェーン
 ganttproject	Ganttチャートとプロジェクト管理アプリケーション
 gaphor	UML/SysML モデリングツール
@@ -1362,6 +1363,7 @@ guppy	React.jsのフレンドリーなアプリケーションマネージャー
 gureumkim	クラウド入力 
 gyazmail	メールクライアント
 gyazo	スクリーンショットと画面記録ツール
+gyroflow	ジャイロスコープデータを使用したビデオ手ぶれ補正
 gzdoom	OpenGL RendererをZDoomソースポートに追加します
 ha-menu	一般的なHome Assistant機能を実行するためのメニューバーアプリ
 hacker-menu	デスクトップに配信されるハッカーニュース：ダンサー：
@@ -2810,7 +2812,6 @@ qr-journal	iSight(または互換性のある)カメラを使用しているユ�
 qsync-client	自動ファイル同期
 qsyncthingtray	Syncthingのトレイアプリ
 qt-creator	アプリケーション開発のためのIDE
-qt-design-studio	アプリケーション用のユーザーインターフェイス設計ツール
 qt3dstudio	合成ツール
 qth	APRSクライアントアプリケーション
 qtox	インスタントメッセージングおよびビデオ会議アプリ
@@ -3043,7 +3044,6 @@ seadrive	Seafileサーバーのマニュアル
 seafile-client	ファイル同期クライアント
 seaglass	Matrixクライアント
 seamonkey	SeaMonkeyインターネットアプリケーションパッケージの開発
-seashore	GIMPに似た画像編集アプリケーション
 second-life-viewer	Second Lifeオンライン仮想世界向けの3Dブラウジングソフトウェア
 secretive	SSHキーをセキュアエンクレーブに保存する
 secure-pipes	SSHトンネルを管理する
@@ -3372,7 +3372,6 @@ surge-xt	合成シンセサイザー
 suspicious-package	インストーラーパッケージを検査するためのアプリケーション
 suuntodm5	ダイビングプランを作成しダイビングを分析します
 svgcleaner	不要なデータを削除してSVGファイルをクリーンアップするツール
-svnx	svnX
 sweet-home3d	インテリアデザインアプリケーション
 swift	Swift XMPPクライアント
 swift-publisher	ページレイアウトとデスクトップ出版アプリケーション
@@ -3439,6 +3438,8 @@ tastyworks	tastyworks証券会社向けのデスクトップ取引プラット�
 tau	TAU
 td-agent	Fluentd配布パッケージ
 tdr-kotelnikov	範囲制御と柔軟性を組み合わせた広帯域ダイナミクスプロセッサ
+tdr-nova	パラレルダイナミックイコライザー
+tdr-vos-slickeq	音楽の柔軟性と非の打ちどころのないサウンドのために設計されたミキシングイコライザー
 teacode	開発者向けのテキスト拡張アプリ
 teambition	Teambition
 teamdrive	安全なクラウドストレージサービス
@@ -3702,7 +3703,6 @@ unpkg	パッケージ内のすべてのファイルを解凍する.pkgおよび.
 unshaky	Appleのバタフライキーボードでのダブルキー押下のソフトウェア修正
 upm	パスワードマネージャー
 upterm	21世紀のターミナルエミュレータ
-upwork	フリーランスのための電子市場
 usage	アプリケーションの使用状況を追跡します
 usb-overdrive	USBおよびBluetoothデバイスドライバー
 usbimager	ディスクイメージとUSBドライブへの書き込み/読み取りが可能な非常に最小限のGUIアプリ
@@ -3746,7 +3746,6 @@ videoduke	ビデオダウンローダー
 videofusion	動画編集
 videostream	パソコンからChromecastにメディアをストリーミングする
 vidl	youtube-dlのGUIフロントエンド
-vidrio	プレゼンテーションデザインツール
 vieb	Vieb
 vienna	RSSとAtomリーダー
 vimediamanager	ViMediaManager
@@ -3883,6 +3882,7 @@ wintertime	バッテリーを節約するためにバックグラウンドで実
 winx-hd-video-converter	HDビデオ変換器
 winzip	WinZip
 wire	セキュリティに焦点を当てた協調的プラットフォーム
+wirecast	ライブビデオストリーミング制作ツール
 wireframe-sketcher	WireframeSketcher
 wireshark	ネットワーク手続き分析
 wireshark-chmodbpf	ネットワーク手続き分析
@@ -3983,6 +3983,7 @@ youdaodict	Youdao 辞典
 youdaonote	マルチプラットフォームノートアプリケーション
 youku	中国のビデオストリーミングおよび共有プラットフォーム
 youll-never-take-me-alive	暗号化されたデータの保護を強化するユーティリティ
+yousician	楽器学習ツール
 youtrack-workflow	YouTrackのワークフローを作成および編集します
 youtube-downloader	YouTube映画をダウンロードするためのシンプルなメニューバーアプリ
 youtube-to-mp3	プレイリストまたはチャンネルから音楽をダウンロードします
