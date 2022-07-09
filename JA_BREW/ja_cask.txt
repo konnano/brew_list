@@ -357,6 +357,7 @@ bitrix24	Bitrix24
 bitwarden	デスクトップパスワードとログインVault
 bitwig-studio	デジタルオーディオワークステーション
 black-ink	ダウンロード/解答 クロスワードパズルを印刷します
+black-light	画面に特別な視覚効果を適用します
 blackhole-16ch	仮想オーディオドライバー
 blackhole-2ch	仮想オーディオドライバー
 blackhole-64ch	仮想オーディオドライバー
@@ -687,6 +688,7 @@ createuserpkg	CreateUserPkg
 creepy	Creepy
 crescendo	リアルタイムイベントビューア
 criptext	プライバシーを中心に構築されたメールサービス
+cro-mag-rally	Pangea Softwareの先史時代をテーマにした3Dレーシングゲーム
 cron	専門家やチームのための日程表
 cronnix	CronniX
 crossover	Windowsソフトウェアを実行するためのツール
@@ -1391,6 +1393,7 @@ hazeover	Windowsマネージャーとデスクトップオーガナイザー
 hbuilderx	HTMLエディター
 hdfview	HDFファイルを閲覧および編集するためのツール
 hdrmerge	拡張されたダイナミックレンジで生の画像を作成します
+headlamp	KubernetesのUI
 headset	YouTubeとRedditを搭載した音楽プレーヤー
 heaven	PCハードウェアのパフォーマンスと安定性のテスト
 hedgewars	ターン制戦略 砲兵/アクション/コメディーゲーム
@@ -1644,6 +1647,7 @@ jt-bridge	WSJT-Xとアマチュア無線ロギングアプリケーション間�
 jtool	逆エンジニアリングを支援するツール セキュリティ研究/tweak開発
 jtool2	逆エンジニアリングを支援するツール セキュリティ研究/tweak開発
 jubler	字幕エディター
+juice	バッテリー情報をもう少し面白くする
 julia	テクニカルコンピューティングのためのプログラミング言語
 jump	リモートデスクトップアプリケーション
 jump-desktop-connect	リモートデスクトップアプリ
@@ -3720,7 +3724,6 @@ v2rayx	v2rayコアのGUI
 vagrant	開発環境
 vagrant-manager	Vagrant Manager
 vagrant-vmware-utility	VagrantVMwareプラグインにさまざまなVMware機能へのアクセスを提供します
-vale-server	クロスプラットフォームのデスクトップアプリケーション
 valentina-studio	データ用のビジュアルエディター
 valkyrie	Fantasy Flightボードゲームのゲームマスター
 valley	PCハードウェアのパフォーマンスと安定性をテストするソフトウェア
