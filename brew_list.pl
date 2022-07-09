@@ -152,7 +152,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.09_7\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.09_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -195,14 +195,14 @@ my( $re,$list ) = @_;
   $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
    ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
      $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
-  @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"};
-  if( $re->{'MAC'} and $re->{'USE'} ){
-   my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
-   my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
-    @$list = ( @$list,@list1,@list2 );
-  }
+   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"};
+    $re->{'cask'} = [] if $re->{'USE'};
+   if( $re->{'MAC'} and $re->{'USE'} ){
+    my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
+    my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
+     @{$re->{'cask'}} = ( @list1,@list2 );
+   }
  }
-
  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) :
    $re->{'ANA'} ? Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : File_1( $re,$list );
@@ -415,7 +415,7 @@ my( $re,$list,%HA,@AN,$top ) = @_;
       Tap_2( $re,\$bui ) if $re->{'FOR'};
        $ls .= " : $bui" if $re->{'HASH'}{$build};
      }
-    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build]=> $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
+    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
    }
   @AN = %HA = ();
  }print $top if $top;
@@ -423,14 +423,18 @@ my( $re,$list,%HA,@AN,$top ) = @_;
 
 sub Brew_1{
 my( $re,$list,%HA,@AN ) = @_;
- return unless @$list;
+ return unless @$list or @{$re->{'cask'}};
   for(my $i=0;$i<@$list;$i++){ my $tap = $list->[$i];
    Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
     ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $list->[$i],$re,0 ) :
      ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'USE'} and not $re->{'USES'} ) ?
       Uses_1( $re,$tap,\%HA,\@AN ) : $re->{'USES'} ? push @AN,$tap : 0;
-  }
-  @AN = sort @AN;
+  } my @cask;
+    $re->{'KAI'} = 1 unless @AN = sort @AN;
+    @AN =( ' => Formula',@AN ) if @AN;
+   $re->{'DMG'}{$_} ? push @cask,$_ : 0 for( @{$re->{'cask'}} );
+  @AN = ( not $re->{'USES'} and @cask ) ? ( @AN,' => Cask',@cask ) :
+ ( $re->{'USES'} and @{$re->{'cask'}} ) ? ( @AN,' => Cask',@{$re->{'cask'}} ) : @AN;
  Mine_1( $_,$re,0 ) for(@AN);
 }
 
@@ -570,7 +574,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
   }
   Format_3( $file,$re ) if $re->{'DEP'};
    $re->{'AN'} = $re->{'IN'} = $re->{'BN'} = $re->{'CN'} = $re->{'DN'} = $re->{'DI'} = 0;
-  if( $re->{'TAP'} ){ my $i = 0; my $e = 0; 
+  if( $re->{'TAP'} ){ my $i = 0; my $e = 0;
    for(@tap){
     Search_1( $list,$_,0,$re );
      unless( $re->{'L_OPT'} ){
@@ -621,7 +625,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_;
- print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and 
+ print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and
 ($re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_Linux"} or $re->{'OS'}{"$re->{'INF'}un_cask"});
  print" \033[33mexists Formula and Cask...\033[00m\n" if not $file and $re->{'OS'}{"$re->{'INF'}so_name"};
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
@@ -990,19 +994,19 @@ my( $re,$brew_1,$i,$e ) = @_;
   if( $re->{'FOR'} ){
    ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ t k $i / : $re->{'OS'}{"${brew_1}un_xcode"} ?
-    $re->{'MEM'} =~ s/^.{9}/ t   $i / : 
+    $re->{'MEM'} =~ s/^.{9}/ t   $i / :
    ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ b k $i / : ( $e and $re->{'OS'}{"${brew_1}keg"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ e k $i / :  $re->{'OS'}{"$brew_1$OS_Version"} ?
     $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg"} ?
     $re->{'MEM'} =~ s/^.{9}/   k $i / : $e ? $re->{'MEM'} =~ s/^.{9}/ e   $i / :
-    $re->{'MEM'} =~ s/^.{9}/     $i /; 
+    $re->{'MEM'} =~ s/^.{9}/     $i /;
   }else{
    ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}so_name"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ t s $i / :
-   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}formula"} ) ? 
+   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}formula"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ t f $i / :
-   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}d_cask"} ) ? 
+   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}d_cask"} ) ?
     $re->{'MEM'} =~ s/^.{9}/ t c $i / : $re->{'OS'}{"${brew_1}un_cask"} ?
     $re->{'MEM'} =~ s/^.{9}/ t   $i / : $re->{'OS'}{"${brew_1}so_name"} ?
     $re->{'MEM'} =~ s/^.{9}/   s $i / : $re->{'OS'}{"${brew_1}formula"} ?
@@ -1013,7 +1017,7 @@ my( $re,$brew_1,$i,$e ) = @_;
   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
    $re->{'MEM'} =~ s/^.{9}/ b k $i / : $re->{'OS'}{"$brew_1$OS_Version"} ?
    $re->{'MEM'} =~ s/^.{9}/ b   $i / : $re->{'OS'}{"${brew_1}keg_Linux"} ?
-   $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /; 
+   $re->{'MEM'} =~ s/^.{9}/   k $i / : $re->{'MEM'} =~ s/^.{9}/     $i /;
  }
 }
 
@@ -1100,9 +1104,11 @@ sub Format_1{
    print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/|;
     print" ==> Formula\n" if $re->{'FOR'} and @{$re->{'ARR'}} and not $re->{'USE'};
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
-      if( $re->{'ARR'}[$e] =~ m|^ ==> homebrew/| ){
-       print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] !~ m|^ ==> homebrew/|;
-        $in = 1;
+      if( $re->{'ARR'}[$e] =~ m[^ ==> homebrew/|^ => Formula|^ => Cask]){
+       ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ => Cask/ ) ?
+        print"\n$re->{'ARR'}[$e]\n" :
+        print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] !~ m|^ ==> homebrew/|;
+         $in = 1;
       }else{
        if( $re->{'ARR'}[$e] =~ m|^homebrew/cask-fonts/| and not $ls ){
         print"\n" if $ze;
@@ -1119,15 +1125,17 @@ sub Format_1{
          print" ==> brew tap : homebrew/cask-versions\n";
           $leng = $re->{'LEN4'};
            $size = int $tput/($leng+2);  $in = $ss = 1;
-       } 
+       }
        for(my $i=$re->{'LEN'}{$re->{'ARR'}[$e]};$i<$leng+2;$i++){
         $re->{'ARR'}[$e] .= ' ';
        }
         print $re->{'ARR'}[$e];
         unless( $ze = eval "$in % $size" ){
-         print"\n";
+         $re->{'KAI'} = print"\n";
         }elsif( $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] =~ m|^ ==> homebrew/| ){
          print"\n"; $ze = 0;
+        }else{
+         $re->{'KAI'} = 0;
         }
        $in++;
       }
@@ -1135,7 +1143,7 @@ sub Format_1{
     print"\n" if $ze;
   }else{
    for(@{$re->{'ARR'}}){
-    next if m| ==> homebrew/.+|;
+    next if m[^ ==> homebrew/|^ => Formula|^ => Cask];
      print"$_\n";
    }
   }
@@ -1177,7 +1185,7 @@ my $re = shift;
      if( not $an[$i] and $TODO[$in] or
         $wap == $leng and $an[$i] and $an[$i] !~ /├──|\|--/ ){
        $TODO[++$in] = $leng;
-      $wap != $leng ? $in++ : last;	
+      $wap != $leng ? $in++ : last;
      }
     }
    }
@@ -1409,7 +1417,7 @@ perl<<"EOF"
       $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
-    for $hand1( readdir($dir1) ){ 
+    for $hand1( readdir($dir1) ){
      next if $hand1 =~ /^\./;
       $hand1 =~ s/(.+)\.rb$/$1/;
        if( $FDIR ){
@@ -1422,7 +1430,7 @@ perl<<"EOF"
     @file1 = sort @file1;
 
    opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-drivers-master/Casks" or die " DIR2 $!\n";
-    for $hand2( readdir($dir2) ){ 
+    for $hand2( readdir($dir2) ){
      next if $hand2 =~ /^\./;
       $hand2 =~ s/(.+)\.rb$/$1/;
        if( $DDIR ){
@@ -1435,7 +1443,7 @@ perl<<"EOF"
     @file2 = sort @file2;
 
    opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR3 $!\n";
-    for $hand3( readdir($dir3) ){ 
+    for $hand3( readdir($dir3) ){
      next if $hand3 =~ /^\./;
       $hand3 =~ s/(.+)\.rb$/$1/;
        if( $VERS ){
