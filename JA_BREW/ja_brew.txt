@@ -1185,6 +1185,7 @@ docbook-xsl	presentation-neutralなドキュメントを作成するためのXML
 docbook2x	DocBookをUNIXのマンページとGNUTeXinfoに変換する
 docfx	.NETプロジェクトのAPIドキュメントを作成および公開するためのツール
 docker	Pack/アプリケーションを軽量コンテナとして出荷および実行する
+docker-buildx	BuildKitを使用した拡張ビルド機能用のDocker CLIプラグイン
 docker-clean	Dockerコンテナをクリーンアップ イメージ/ネットワーク/ボリューム
 docker-completion	Dockerの Bash/Zsh/Fish の補完
 docker-compose	Dockerを使用した分離された開発環境
@@ -1219,6 +1220,7 @@ dog	コマンドラインDNSクライアント
 doggo	人々の為のコマンドラインDNSクライアント
 doitlive	ライブ発表用に保存されたシェルコマンドを再生する
 dolt	データのGit
+dooit	TUI todoマネージャー
 dopewars	もともとDrug WarをベースにしたゲームのFreeリライト
 dory	Dockerの開発プロキシ
 dos2unix	DOS/UNIX/Mac 形式間でテキストを変換する
@@ -4336,6 +4338,7 @@ pioneers	Catanの移植クローン
 pip-audit	既知の脆弱性についてPython環境と依存関係ツリーを監査します
 pip-completion	PIPのBash補完
 pip-tools	PIP要件ファイルのロックと同期
+pipe-rename	お気に入りのテキストエディタを使用してファイルの名前を変更します
 pipebench	STDIN/STDOUT の通信の速度を測定します
 pipemeter	入力から出力に移動するデータの速度を示します
 pipenv	Python依存関係管理ツール
@@ -4629,6 +4632,7 @@ radamsa	堅牢性テスト用のテストケース発生器(別名 fuzzer)
 radare2	逆エンジニアリングフレームワーク
 ragel	ステートマシンコンパイラ
 rails-completion	RailsのBash補完
+railway	ゼロ構成でコードを開発/配置する
 rain	AWSCloudFormationを操作するためのコマンドラインツール
 rainbarf	tmux(およびGNU画面)の統計チャートバー CPU/RAM/バッテリー
 rake-completion	RakeのBash補完
