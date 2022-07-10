@@ -739,6 +739,7 @@ cilium-cli	Ciliumを実行しているKubernetesクラスターを インスト�
 cimg	画像処理用のC++ツールキット
 ciphey	自動復号化および復号化ツール
 circleci	CircleCI環境をローカルで再現できます
+circumflex	ターミナルのハッカーニュース
 citus	PostgreSQLベースの分散型RDBMS
 cityhash	文字列のハッシュ関数
 civl	並行性中間検証言語
@@ -1042,6 +1043,7 @@ datafusion	Apache Arrow DataFusionおよびBallistaクエリエンジン
 datalad	科学データセットを対象としたデータ配信
 datamash	数値、テキスト、統計操作を実行するためのツール
 datasette	データを探索および公開するためのオープンソースmulti-tool
+datatype99	C99の代数的データ型
 datetime-fortran	Fortranの時刻と日付の操作ライブラリ
 dateutils	財務データに焦点を当てて日付を操作するためのツール
 datree	KubernetesマニフェストYAMLファイルまたはHelmチャートに対してポリシーを実行するCLIツール
@@ -2423,6 +2425,7 @@ install-peerdeps	peerDepsを自動的にインストールするCLI
 instalooter	Instagramのプロフィールから関連付けられている写真やビデオをダウンロードする
 instead	シンプルなテキストアドベンチャーの通訳
 intercal	難解なパロディープログラミング言語
+interface99	C99のフル機能のインターフェイス
 internetarchive	さまざまなインターネットアーカイブAPIのPythonラッパー
 intltool	ストリングツール
 inxi	フル機能のCLIシステム情報ツール
@@ -3534,6 +3537,7 @@ mesalib-glw	OpenGL仕様のオープンソース実装
 meson	高速でユーザーに親しいビルドシステム
 mesos	Apacheクラスターマネージャー
 metabase	ビジネス知性報告サーバー
+metalang99	C99プリプロセッサベースのメタプログラミング言語
 metaproxy	Yazツールキットを利用したZ39.50プロキシとルーター
 metashell	C++テンプレートのmetaプログラミングシェル
 metis	グラフと順序行列を分割するプログラム
@@ -4553,6 +4557,7 @@ pyqt@5	Qt v5のPython bindings
 pyright	Pythonの静的型チェッカー
 pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
+python-build	単純 正しいPEP517ビルドフロントエンド
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-markdown	MarkdownのPython実装
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
@@ -5987,6 +5992,7 @@ xcprojectlint	Xcodeプロジェクトの静的解析ツール
 xctool	いくつかの追加機能を備えたxcodebuildのDrop-in置換
 xcv	Cut Bashでファイルをコピーペースト 
 xdelta	バイナリdiff 差分圧縮ツール
+xdg-ninja	$HOMEで不要なファイルやディレクトリを確認してます
 xdot	Graphvizのdot言語で書かれたグラフ用の対話的Viewer
 xdotool	X用の偽のキーボード/マウス入力とウィンドウ管理
 xdpyinfo	X.Org：Xサーバーに関する情報を表示するためのユーティリティ
