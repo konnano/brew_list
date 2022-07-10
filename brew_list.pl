@@ -30,12 +30,14 @@ MAIN:{
  }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ct' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
- }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = 3;
- }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = 1; $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-in' ){ $name = $re;  $re->{'LIST'}  = 1; $re->{'LINK'} = 6; $re->{'INF'} = 1;
- }elsif( $AR[0] eq '-de' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1; $re->{'LINK'} = 7;
+ }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
+ }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = 3;
+ }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} =
+                            $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6;
+ }elsif( $AR[0] eq '-de' ){ $re->{'INF'} = $re->{'DEL'} = $re->{'LINK'} =
+                            $ref->{'INF'}= $ref->{'DEL'}= $ref->{'LINK'}= 7;
  }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
  }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'} = 1;
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
@@ -114,7 +116,7 @@ MAIN:{
   if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
       $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
        $re->{'NEW'}++; Init_1( $re );
-  }elsif( $re->{'INF'} ){ $re->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = $AR[1];
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and ( $name->{'LIST'} or $name->{'ANA'} ) ){
    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
@@ -133,10 +135,11 @@ sub Fork_1{
 my( $name,$re,$ref ) = @_;
  if( $re->{'LIN'} ){
   Init_1( $re ); Format_1( $re );
- }elsif( $re->{'S_OPT'} or $re->{'BL'} or $re->{'DAT'} or $re->{'TOP'} ){
+ }elsif( not $name or $re->{'S_OPT'} ){
   my $pid = fork;
   die " Not fork : $!\n" unless defined $pid;
    if($pid){
+    $ref->{'PID'} = $pid;
     Init_1( $ref );
    }else{
     Init_1( $re );
@@ -281,16 +284,17 @@ sub Size_1{ no warnings 'numeric';
      close $dir;
     }
    } $utime = $utime ? $utime : 0;
-    my $time = [localtime($utime)];
+     my $time = [localtime($utime)];
     my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
-   $size += $cou = sprintf "%.2f",$cou/=1024;
+   $size += $cou = sprintf "%.3f",$cou/=1024;
+  Tap_2( $re,\$name ) if $re->{'FOR'};
 format STDOUT =
-@||||||||||||||||||||||||||||||||||||||||@<<<<<<<<<<<<<<<<<<<<@>>>>>>>>>>>>>>>>>>>>
-$name,"size : ${cou}M","install : $timer"
+@||||||||||||||||||||||||||||||||||||||||@||||||||@|||||||||||||||@>>>>>>>>>>>>>>>>>>>>>
+$name,"size  : ","$cou MB","install  :  $timer"
 .
 write
   }
-  print" Totsl Size ${size}M  item $c\n" if -t STDOUT;
+  printf" Totsl Size  %.2f MB  item %d\n",$size,$c if -t STDOUT;
  Nohup_1( $re );
 }
 
@@ -468,7 +472,7 @@ my( $re,$tap,$HA,$AN ) = @_;
 
 sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
- exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
+ exit unless $re->{'PID'} or $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN );
    $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
     $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
@@ -476,8 +480,9 @@ my( $re,@AN,%HA,@an,$do ) = @_;
   Info_1( $re,0,0,\@AN,\%HA );
    my @list1 = sort @AN;
   for my $brew(@list1){
-   my @list2 = sort @{$re->{$brew}};
-   my $i = 0; my $e = 0;
+   exit unless ref $re->{$brew};
+    my @list2 = sort @{$re->{$brew}};
+    my $i = 0; my $e = 0;
     for(;$i<@list2;$i++){ my $flag;
      next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
       for(;$e<@list1;$e++){
@@ -490,15 +495,17 @@ my( $re,@AN,%HA,@an,$do ) = @_;
   }
   if( $re->{'LINK'} and $do ){
    $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
-   $re->{'LIST'} = 1;
-    Fork_1( $re );
+    $re->{'LIST'} = 1;
+     waitpid($re->{'PID'},0) if $re->{'PID'};
+      Fork_1( $re );
   }elsif( $do ){
    $re->{'COLOR'} = $re->{'TREE'} = 2;
     $re->{'DEL'} = 0;
      Fork_1( $re ) unless @an;
   }
  }
- Nohup_1( $re );
+ waitpid($re->{'PID'},0) if $re->{'PID'};
+  Nohup_1( $re );
 }
 
 sub File_1{
@@ -620,7 +627,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
     push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$$brew if $re->{'DEL'} and $re->{"deps$$brew"} < 2;
   $re->{"$re->{'INF'}deps"} .= "$$brew\t"
-   if $re->{"deps$$brew"} < 2 and $re->{'HASH'}{$$brew} and not $build;
+   if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 }
 
 sub Info_1{
@@ -641,8 +648,8 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
  }
  if( $re->{'OS'}{"${brew}deps_b"} ){
   for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){
-   if( ( not $bottle and not $re->{'HASH'}{$brew} or
-         not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
+   if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
+       not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
        ( not $re->{'HASH'}{$data} or $re->{'OS'}{"${data}ver"} gt $re->{'HASH'}{$data}) ){
       Unic_1( $re,\$data,$spa,$AN,1 );
      Info_1( $re,$data,$spa,$AN,$HA );
@@ -663,8 +670,10 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
  }
  if( $re->{'OS'}{"${brew}d_cask"} ){
   for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){
-   Unic_1( $re,\$data4,$spa,$AN );
-    Info_1( $re,$data4,$spa,$AN,$HA );
+   unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
+    Unic_1( $re,\$data4,$spa,$AN );
+     Info_1( $re,$data4,$spa,$AN,$HA ) unless $re->{'OS'}{"${data4}so_name"};
+   }
   }
  }
 }
