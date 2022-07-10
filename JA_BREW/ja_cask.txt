@@ -358,6 +358,7 @@ bitwarden	デスクトップパスワードとログインVault
 bitwig-studio	デジタルオーディオワークステーション
 black-ink	ダウンロード/解答 クロスワードパズルを印刷します
 black-light	画面に特別な視覚効果を適用します
+black-light-pro	スケジュールの色の効果
 blackhole-16ch	仮想オーディオドライバー
 blackhole-2ch	仮想オーディオドライバー
 blackhole-64ch	仮想オーディオドライバー
@@ -1745,7 +1746,6 @@ kryoflux	ホスト Software - DiskTool コンソール(dtc)およびUI
 ksdiff	KaleidoscopeのAppStoreバージョン用のコマンドラインツール
 ksnip	スクリーンショットと注釈ツール
 kstars	天文学ソフトウェア
-ktalk	Kontur Talk
 kube-cluster	kubeクラスター
 kube-forwarder	kubeフォワーダー
 kubecontext	Kubernetesコンテキストを管理するためのメニューバーアプリ
@@ -1789,6 +1789,7 @@ leech	軽量ダウンロードマネージャー
 leela	使いやすいグラフィカルインターフェイスでプログラムをプレイしてください
 lego-mindstorms-ev3	Lego Mindstorms EV3 ホーム版
 lehreroffice	LehrerOffice
+lemonlime	lemonlime
 lens	Kubernetes IDE
 leocad	仮想LEGOモデルを作成するためのCADプログラム
 lepton	Snippet管理アプリ
@@ -2339,7 +2340,6 @@ nova	ネイティブコードエディター
 novabench	コンピューターのパフォーマンスをすばやくテストして比較するためのベンチマークツール
 now-tv-player	ビデオストリーミングサービスプレーヤー
 noxappplayer	モバイルゲームをプレイするためのAndroidエミュレーター
-nozbe-personal	タスクマネージャー
 nrlquaker-winbox	MikroTik Winbox
 nslogger	最新の柔軟なロギングツール
 nsregextester	NSRegexTester
@@ -2615,7 +2615,6 @@ plasticscm-cloud-edition	PlasticSCMをLocalにインストールしCloud Edition
 platypus	コマンドラインスクリプトからネイティブアプリケーションを作成するためのツール
 play	Play
 playback	ビデオプレーヤー
-playcover	iOSアプリとゲームをサイドロードする
 playdate-simulator	ローカル開発用のドキュメントとシミュレータ PlaydateLua/CAPI
 playmemories-home	写真やビデオを管理および編集するフリーウェア
 playonmac	Windows用に設計されたソフトウェアのインストールと使用を許可します
@@ -2811,7 +2810,6 @@ qq	インスタントメッセージングツール
 qqlive	Tencentビデオストリーミングおよび共有プラットフォーム
 qqmacmgr	Tencent Computer Manager 
 qqmusic	中国の音楽ストリーミングアプリケーション
-qqplayer	メディアプレーヤー
 qr-journal	iSight(または互換性のある)カメラを使用しているユーザーがQRコードを読み取れるようにします
 qsync-client	自動ファイル同期
 qsyncthingtray	Syncthingのトレイアプリ
@@ -3446,7 +3444,6 @@ tdr-nova	パラレルダイナミックイコライザー
 tdr-vos-slickeq	音楽の柔軟性と非の打ちどころのないサウンドのために設計されたミキシングイコライザー
 teacode	開発者向けのテキスト拡張アプリ
 teambition	Teambition
-teamdrive	安全なクラウドストレージサービス
 teamspeak-client	音声通信クライアント
 teamviewer	セキュリティに重点を置いたリモートアクセスおよび接続ソフトウェア
 teamviewer-host	TeamViewerホスト
@@ -3827,7 +3824,6 @@ warp	Warp
 warsow	一人称シューティングゲーム
 warzone-2100	Freeのオープンソースリアルタイム戦略ゲーム
 wasabi-wallet	プライバシーに焦点を当てたビットコインウォレット オープンソース/非管理
-watchguard-mobile-vpn-with-ssl	SSLを使用したWatchGuard Mobile VPN
 waterfox	Webブラウザー
 waterfox-classic	Webブラウザー
 wavebox	Webブラウザー
