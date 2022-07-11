@@ -36,8 +36,8 @@ MAIN:{
  }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} =
                             $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6;
- }elsif( $AR[0] eq '-de' ){ $re->{'INF'} = $re->{'DEL'} = $re->{'LINK'} =
-                            $ref->{'INF'}= $ref->{'DEL'}= $ref->{'LINK'}= 7;
+ }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'DEL'} = $re->{'LINK'} =
+                            $ref->{'INF'} = $ref->{'DEL'}= $ref->{'LINK'}= 7;
  }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
  }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'} = 1;
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
@@ -155,7 +155,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.09_9\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.10_0\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -634,7 +634,8 @@ sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_;
  print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and
 ($re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_Linux"} or $re->{'OS'}{"$re->{'INF'}un_cask"});
- print" \033[33mexists Formula and Cask...\033[00m\n" if not $file and $re->{'OS'}{"$re->{'INF'}so_name"};
+ print" \033[33mexists Formula and Cask...\033[00m\n"
+  if not $file and $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
   ++$re->{'NEW'} and Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
