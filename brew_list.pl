@@ -472,6 +472,7 @@ my( $re,$tap,$HA,$AN ) = @_;
 
 sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
+ print" \033[33mexists Formula and Cask...\033[00m\n" if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
  exit unless $re->{'PID'} or $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
    $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
@@ -632,8 +633,9 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_;
- print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and
-($re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_Linux"} or $re->{'OS'}{"$re->{'INF'}un_cask"});
+ print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and $re->{'FOR'} and
+  ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
+    ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) );
  print" \033[33mexists Formula and Cask...\033[00m\n"
   if not $file and $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
