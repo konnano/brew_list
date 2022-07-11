@@ -287,12 +287,12 @@ sub Size_1{ no warnings 'numeric';
      my $time = [localtime($utime)];
     my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
    $size += $cou = sprintf "%.3f",$cou/=1024;
-  Tap_2( $re,\$name ) if $re->{'FOR'};
+  Tap_2( $re,\$name );
 format STDOUT =
-@||||||||||||||||||||||||||||||||||||||||@||||||||@|||||||||||||||@>>>>>>>>>>>>>>>>>>>>>
-$name,"size  : ","$cou MB","install  :  $timer"
+@||||||||||||||||||||||||||||||||||||||||@||||||||@>>>>>>>>>>>>@|||@>>>>>>>>>>>>>>>>>>>>>
+$name,"size  : ","$cou MB","   ","install  :  $timer"
 .
-write
+write;
   }
   printf" Totsl Size  %.2f MB  item %d\n",$size,$c if -t STDOUT;
  Nohup_1( $re );
@@ -473,7 +473,7 @@ my( $re,$tap,$HA,$AN ) = @_;
 sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
  exit unless $re->{'PID'} or $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
-  Uses_1( $re,$re->{'INF'},\%HA,\@AN );
+  Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
    $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
     $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
  unless( @an ){ @AN = %HA = ();
