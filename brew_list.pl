@@ -661,14 +661,18 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
  }
  if( $re->{'OS'}{"${brew}deps"} ){
   for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){
-   Unic_1( $re,\$data2,$spa,$AN );
-    Info_1( $re,$data2,$spa,$AN,$HA );
+   unless( $re->{'CAS'} and $re->{'OS'}{"${data2}so_name"} and not $re->{'TREE'} ){
+    Unic_1( $re,\$data2,$spa,$AN );
+     Info_1( $re,$data2,$spa,$AN,$HA );
+   }
   }
  }
  if( $re->{'OS'}{"${brew}formula"} ){
   for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){
-   Unic_1( $re,\$data3,$spa,$AN );
-    Info_1( $re,$data3,$spa,$AN,$HA );
+   unless( $re->{'CAS'} and $re->{'OS'}{"${data3}so_name"} and not $re->{'TREE'} ){
+    Unic_1( $re,\$data3,$spa,$AN );
+     Info_1( $re,$data3,$spa,$AN,$HA );
+   }
   }
  }
  if( $re->{'OS'}{"${brew}d_cask"} ){
