@@ -431,7 +431,7 @@ my( $re,$list,%HA,@AN ) = @_;
   for(my $i=0;$i<@$list;$i++){ my $tap = $list->[$i];
    Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
     ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $list->[$i],$re,0 ) :
-     ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'USE'} and not $re->{'USES'} ) ?
+    ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'USE'} and not $re->{'USES'} ) ?
       Uses_1( $re,$tap,\%HA,\@AN ) : $re->{'USES'} ? push @AN,$tap : 0;
   } my @cask;
     $re->{'KAI'} = 1 unless @AN = sort @AN;
@@ -473,7 +473,8 @@ my( $re,$tap,$HA,$AN ) = @_;
 sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
  print" \033[33mexists Formula and Cask...\033[00m\n" if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
- exit unless $re->{'PID'} or $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
+ waitpid($re->{'PID'},0) if $re->{'PID'} and not $re->{'DMG'}{$re->{'INF'}};
+ exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
    $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
     $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
@@ -505,8 +506,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
      Fork_1( $re ) unless @an;
   }
  }
- waitpid($re->{'PID'},0) if $re->{'PID'};
-  Nohup_1( $re );
+ Nohup_1( $re );
 }
 
 sub File_1{
@@ -659,20 +659,16 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
    }
   }
  }
- if( $re->{'OS'}{"${brew}deps"} ){
+ if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){
   for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){
-   unless( $re->{'CAS'} and $re->{'OS'}{"${data2}so_name"} and not $re->{'TREE'} ){
     Unic_1( $re,\$data2,$spa,$AN );
      Info_1( $re,$data2,$spa,$AN,$HA );
-   }
   }
  }
- if( $re->{'OS'}{"${brew}formula"} ){
+ if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
   for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){
-   unless( $re->{'CAS'} and $re->{'OS'}{"${data3}so_name"} and not $re->{'TREE'} ){
     Unic_1( $re,\$data3,$spa,$AN );
      Info_1( $re,$data3,$spa,$AN,$HA );
-   }
   }
  }
  if( $re->{'OS'}{"${brew}d_cask"} ){
