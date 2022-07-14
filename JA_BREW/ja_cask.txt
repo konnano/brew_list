@@ -482,6 +482,7 @@ caption	字幕を自動的に検索して設定します
 capto	スクリーン キャプチャ/レコーダー/ビデオエディター
 carbon-copy-cloner	ハードディスクのバックアップとクローン作成ユーティリティ
 cardhop	連絡先マネージャー
+cardinal	仮想モジュラーシンセサイザープラグイン
 cardpresso	プロのカード制作のためのカードソフトウェアツール
 caret	Caret
 cashnotify	メニューバーからStripeアカウントとPaypalアカウントを監視します
@@ -836,7 +837,6 @@ displays	モニターの解像度と設定マネージャー
 ditto	スクリーンミラーリングとデジタル信号
 divvy	シンプルさに焦点を当てたアプリケーションウィンドウマネージャー
 dixa	カスタマーサービスプラットフォーム
-djl-bench	ユニバーサル機械学習モデルベンチマークツール
 djv	DJVイメージング
 djview	DjView
 dmenu-mac	キーボードのみのアプリケーションランチャー
@@ -1688,7 +1688,6 @@ kextviewr	現在ロードされているすべてのkextを表示する
 key-codes	キーコードを表示する 任意のキーの組み合わせに対するUnicode値と修飾キーの状態
 keybase	End-to-end暗号化ソフトウェア
 keyboard-cleaner	デスクトップシールドとキーストロークインターセプター
-keyboard-lock	シンプルなキーボードロッカー
 keyboard-maestro	自動化ソフトウェア
 keyboardcleantool	すべてのキーボードとタッチバーの入力をブロックします
 keyboardholder	アプリケーションごとに入力方法を切り替える
@@ -3166,7 +3165,6 @@ skyfonts	フォントマネージャー
 skype	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype-for-business	Microsoftのインスタントメッセージングエンタープライズソフトウェア
 slack	チームコミュニケーションおよび協力的ソフトウェア
-slate	ウィンドウ管理アプリケーション
 sleek	todo.txtに基づくTodoアプリ
 sleipnir	Sleipnir
 slic3r	Slic3r
@@ -3666,6 +3664,7 @@ ui	コーポレートWi-Fi VPN/SSO/HR アプリケーション
 ui-browser	AppleのアクセシビリティとAppleScript GUIスクリプティングのアシスタント
 ujam	UJAM製品の管理ツール 
 ukelele	Unicodeキーボードレイアウトエディター
+ukrainian-typographic-keyboard	ウクライナ語のキーボードレイアウトと活版印刷の記号の組み合わせ
 ukrainian-unicode-layout	ウクライナのUnicodeレイアウト
 ultdata	iPhoneデータ回復ソフトウェア
 ultimaker-cura	3DプリンターとスライスGUI
