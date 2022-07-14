@@ -1279,6 +1279,7 @@ duktape	コンパクトな足跡を備えた埋め込み可能なJavascriptエ�
 dumb	プレーヤーライブラリ IT/XM/S3M/MOD
 dump1090-mutability	RTL-SDR用のADS-B地上局システム
 dumpling	MySQL互換データベースからのSQLダンプの作成
+dunamai	動的バージョン生成
 dune	OCaml用のコンポーザブルビルドシステム
 dungeon	古典的なテキストアドベンチャーゲーム
 duo_unix	SSHの二段階認証
@@ -3276,6 +3277,7 @@ libzdb	データベース接続プールライブラリ
 libzip	読むためのCライブラリ 作成/zipアーカイブの変更
 libzzip	ZIPアーカイブの読み取りアクセスを提供するライブラリ
 licensefinder	プロジェクトの依存関係のライセンスを検索する
+licensor	stdoutにライセンスを書き込む
 lifelines	テキストベースの系図ソフトウェア
 lightgbm	高速で分散型の高性能勾配boostingフレームワーク
 lighthouse	Rust Ethereum2.0クライアント
@@ -3438,6 +3440,7 @@ man-db	Unixドキュメンテーションシステム
 man2html	nroffのマニュアルページをHTMLに変換する
 mandoc	UNIX manpageコンパイラツールセット
 mandown	Manページに触発されたMarkdown Viewer
+manifest-tool	コンテナイメージマニフェス list/indexes作成およびクエリするためのコマンドラインツール
 manticoresearch	オープンソースのテキスト検索エンジン
 mapcidr	Subnet/CIDR 操作ユーティリティ
 mapcrafter	Minecraft map renderer
@@ -3517,6 +3520,7 @@ mecab-unidic-extended	MeCab用の拡張形態分析器
 media-info	オーディオ/ビデオ の技術データとtagデータの統合表示
 mediaconch	適合性チェッカーおよび技術metadataレポーター
 mednafen	Multi-systemエミュレータ
+meek	Tor用のブロッキング耐性のあるプラガブルトランスポート
 megacmd	mega.co.nz保管サービスのコマンドラインクライアント
 megatools	Mega.co.nzのコマンドラインクライアント
 meilisearch	非常に関連性が高く、瞬時でタイプミスに強い全文検索API
@@ -4352,6 +4356,7 @@ pipx	隔離された環境でPythonパッケージからバイナリを実行す
 pit	From hellプロジェクトマネージャー(Gitと統合)
 pius	PGP個別UID署名
 pixie	Kubernetesアプリケーション用の可観測性ツール
+pixiewps	オンラインWi-Fi Protected Setupブルートフォースユーティリティ
 pixman	ピクセル操作用の低レベルライブラリ
 pixz	並列/インデックス xz圧縮機
 pjproject	SIP/SDP/RTP などのマルチメディア手続きのCライブラリ
@@ -4599,6 +4604,7 @@ qrupdate	QRおよびCholesky分解の高速更新
 qscintilla2	Scintilla編集コンポーネントのQtへの移植
 qsoas	データ分析のための多用途のソフトウェア
 qstat	コマンドラインからQuakeサーバーをクエリする
+qsv	超高速 CSV data-wranglingツールキット
 qt	クロスプラットフォームアプリケーションとUIフレームワーク
 qt-libiodbc	QtSQLデータベースドライバー
 qt-mariadb	QtSQLデータベースドライバー
@@ -4983,6 +4989,7 @@ sfk	コマンドラインツールコレクション
 sfml	複数の言語のbindingsを備えたマルチメディアライブラリ
 sfst	形態素解析器およびその他のFSTベースのツール用のツールボックス
 sftpgo	オプションのHTTP/S,FTP/S,WebDAV をサポートするフル機能のSFTPサーバー
+sgn	Shikata ga nai(仕方がない)エンコーダーが移植され、いくつかの改良が加えられました
 sgrep	SGML/XML/HTML を検索する
 sha1dc	SHAtteredを含むファイル内のSHA-1衝突を検出するためのツール
 sha2	ハッシュアルゴリズムの実装 SHA-256/SHA-384/SHA-512
@@ -5397,12 +5404,13 @@ tctl	一時CLI(tctl)
 td	ターミナルのToDoリスト
 tdkjs	Tixte開発キット
 tdlib	Telegramクライアントを構築するためのクロスプラットフォームライブラリ
+tea	Giteaサーバーと対話するためのコマンドラインツール
 tealdeer	Rustでのtldrの非常に高速な実装
 teapot	テーブルエディターとプランナー
 tectonic	近代化され完全な自己完結型のTeX/LaTeXエンジン
-tee-clc	Microsoft Team ExplorerEverywhereコマンドラインクライアント
+tee-clc	Microsoft Team Explorer Everywhereコマンドラインクライアント
 teem	科学ラスターデータ用のライブラリ
-teensy_loader_cli	TeensyUSB開発ボードのコマンドライン統合
+teensy_loader_cli	Teensy USB開発ボードのコマンドライン統合
 tektoncd-cli	TektonCDと対話するためのCLI
 teku	イーサリアム2.0 Beacon ChainのJava実装
 teleconsole	ターミナルセッションを信頼できる人と共有するためのFreeサービス
