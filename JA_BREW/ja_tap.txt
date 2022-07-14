@@ -1993,10 +1993,12 @@ canon-ijscanner5	Canon E610/MX390/MX450/MX520/MX720/MX920シリーズ用のCanon
 canon-ijscanner6	CanoScan LiDE 120/LiDE220用のCanon Scanner ICAドライバー
 canon-imageformula-driver	Canon ImageFormula Twain Driver
 canon-mf-printer	Canon imageCLASSMFプリンター用のプリンタードライバーとユーティリティ
+canon-mf-ufr2-printer	Printer UFRII/UFRII LT driver & utilities for Canon imageCLASS MF printers
 canon-pixma25xx-printer	Canon PixmaMG25XXシリーズプリンター用プリンタードライバー
 canon-pixma72xx-printer	Canon Pixma iP72XXプリンター用のプリンタードライバーとユーティリティ
 canon-print-studio-pro	Canon Pixma Proプリンターで印刷するためのLightroomプラグイン
 canon-scangear-mf	Canon imageCLASS MFプリンター用のスキャナードライバーとユーティリティ
+cardo-update	Cardo通信システムを更新します
 clavia-nord-sound-manager	Nord機器のメモリを整理してバックアップします
 concept2-utility	Concept2パフォーマンスモニターのユーティリティ
 content-manager-assistant	PlayStation用コンテンツマネージャーアシスタントﾂ✓
@@ -2188,7 +2190,7 @@ affinity-photo-beta	Serif Affinity Photo
 affinity-publisher-beta	プロのデスクトップ出版ソフトウェア
 alfred2	Alfred
 alfred3	アプリケーションランチャーと生産性ソフトウェア
-alfred5	アプリケーションランチャーと生産性ソフトウェア
+alfred4	アプリケーションランチャーと生産性ソフトウェア
 anaconda2	Continuum Analytics Anaconda2
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
