@@ -398,6 +398,7 @@ berkeley-db@4	高性能 キー/値 データベース
 bettercap	ネットワーク攻撃と監視のための万能ナイフ
 betty	コマンドラインの英語のようなインターフェイス
 bfg	git-filter-branchなどのGit履歴から大きなファイルやパスワードを削除する
+bfgminer	Cで記述されたモジュラー CPU/GPU/ASIC/FPGAマイナー
 bgpdump	dumpファイルを分析するためのCライブラリ MRT/Zebra/Quagga
 bgpq3	CiscoのBGPフィルタリングの自動化 Juniper/BIRD/OpenBGPDルーター
 bgpq4	CiscoのBGPフィルタリングの自動化 Juniper/BIRD/OpenBGPDルーター
@@ -3609,6 +3610,7 @@ mkcue	CDからCUEシートを生成する
 mkdocs	マークダウンを使用したプロジェクトドキュメント
 mkfontscale	X用のスケーラブルフォントファイルのインデックスを作成します
 mkhexgrid	完全に構成可能な16進Grid発生器
+mkp224o	Tor onion v3(ed25519)隠しサービス用のバニティアドレスジェネレーター
 mksh	MirBSD Korn シェル
 mktorrent	BitTorrentメタ情報ファイルを作成する
 mkvalidator	MatroskaおよびWebMファイルの仕様適合性を検証するためのツール
@@ -4482,6 +4484,7 @@ proselint	散文のための静的解析ツール
 proteinortho	異なる種類のOrthologous Genesの検出
 protobuf	Buffer手続き(Googleのデータ交換形式)
 protobuf-c	Buffer手続きライブラリ
+protobuf@3	プロトコルバッファ(Googleのデータ交換形式)
 protobuf@3.6	Buffer手続き(Googleのデータ交換形式)
 protoc-gen-go	Goサポート、Google Bufferの手続き
 protoc-gen-go-grpc	gRPC-Goクライアントのコードを生成するProtocプラグイン
@@ -5111,6 +5114,7 @@ sniffglue	安全なマルチスレッドパケット探知
 snobol4	文字列指向のシンボリックプログラミング言語
 snort	柔軟なネットワーク侵入検知システム
 snow	ホワイトスペースステガノグラフィ：ホワイトスペースを使用してコード化されたメッセージ
+snowflake	Flashproxyに触発されたWebRTCを使用したプラガブルトランスポート
 snownews	テキストモードRSSニュースリーダー
 snowpack	最新のWeb用に設計されたフロントエンドビルドツール
 sntop	ホストをポーリングして接続を判別するCursesベースのユーティリティ
