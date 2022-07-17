@@ -108,7 +108,6 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die" nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
-
    $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.' and not $re->{'S_OPT'};
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
@@ -119,7 +118,7 @@ MAIN:{
        $re->{'NEW'}++; Init_1( $re );
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = $AR[1];
-  }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and ( $name->{'LIST'} or $name->{'ANA'} ) ){
+  }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and $name and ( $name->{'LIST'} or $name->{'ANA'} ) ){
    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
     $name->{'L_OPT'} = ( $name->{'KEN'} and $Locale ) ? decode 'utf-8',$re->{'STDI'} :
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
@@ -136,7 +135,7 @@ sub Fork_1{
 my( $name,$re,$ref ) = @_;
  if( $re->{'LIN'} ){
   Init_1( $re ); Format_1( $re );
- }elsif( $re->{'S_OPT'} or $re->{'BL'} or $re->{'DAT'} or $re->{'TOP'} or $re->{'LINK'} and $re->{'LINK'} > 5){
+ }elsif( not $name or $re->{'S_OPT'} ){
   my $pid = fork;
   die " Not fork : $!\n" unless defined $pid;
    if($pid){
