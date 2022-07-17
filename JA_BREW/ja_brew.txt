@@ -594,6 +594,7 @@ cargo-c	Cのようなライブラリを構築してインストールするた�
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-instruments	Rustの機器トレースを簡単に生成
 cargo-llvm-lines	包括的な関数ごとにLLVM IRの行をカウントします
+cargo-nextest	Rustの次世代テストランナー
 cargo-outdated	Rustの依存関係が古くなったときに表示するためのCargoサブコマンド
 cargo-watch	Cargoプロジェクトのソースを監視します
 carla	Audioプラグインホストサポート LADSPA、LV2、VST2/3、SF2など
@@ -5614,6 +5615,7 @@ tsduck	MPEG転送ストリームツールキット
 tssh	SSH軽量管理ツール
 tsung	負荷テスト HTTP/PostgreSQL/Jabberなど
 tta	損失の無いオーディオコーデック
+ttdl	ターミナルTodoリストマネージャー
 ttf2eot	TTFファイルをEOTに変換する
 ttf2pt1	TrueTypeフォントからPostScriptType1への変換器
 ttfautohint	TrueTypeフォントの自動ヒンター
