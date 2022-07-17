@@ -108,6 +108,7 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die" nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
+
    $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.' and not $re->{'S_OPT'};
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
@@ -135,7 +136,7 @@ sub Fork_1{
 my( $name,$re,$ref ) = @_;
  if( $re->{'LIN'} ){
   Init_1( $re ); Format_1( $re );
- }elsif( not $name or $re->{'S_OPT'} ){
+ }elsif( $re->{'S_OPT'} or $re->{'BL'} or $re->{'DAT'} or $re->{'TOP'} or $re->{'LINK'} and $re->{'LINK'} > 5){
   my $pid = fork;
   die " Not fork : $!\n" unless defined $pid;
    if($pid){
@@ -155,7 +156,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.10_0\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew_list : version 1.10_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -453,7 +454,7 @@ my( $re,@AN,%HA ) = @_;
   }
    Uses_1( $re,$_,\%HA,\@AN ) for(@an);
     my $le = int( (36-(length $key))/2 );
-   printf"%36s uses :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
+   printf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
   @AN = %HA = ();
  }
  Nohup_1( $re );
