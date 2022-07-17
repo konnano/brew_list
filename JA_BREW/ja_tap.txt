@@ -988,6 +988,7 @@ font-lxgw-wenkai	FontworksのKleeOneから派生したオープンソースの�
 font-lxgw-zhenkai	LXGW WenKaiのBolder-weightエディション
 font-m-plus-1	M PLUS 1
 font-m-plus-1-code	M PLUS 1 Code
+font-m-plus-1p	M PLUS 1p
 font-m-plus-2	M PLUS 2
 font-m-plus-code-latin	M PLUS Code Latin
 font-ma-shan-zheng	Ma Shan Zheng
