@@ -449,6 +449,7 @@ burp-suite	Webセキュリティテストツールキット
 burp-suite-professional	Webセキュリティテストツールキット
 busycal	柔軟性と信頼性に焦点を当てた予定表ソフトウェア
 busycontacts	効率性に焦点を当てたコンタクトマネージャー
+butler	カスタマイズ可能な構成でタスクを配置します
 butt	ShoutcastおよびIcecastストリーミングクライアント
 butter	Melted idobata.ioクライアント
 buttercup	Javascript Secrets Vault - Multi-Platformデスクトップアプリケーション
@@ -830,6 +831,7 @@ disk-inventory-x	ディスク使用ユーティリティ
 diskcatalogmaker	DiskCatalogMakerのToast-bundledバージョン
 diskmaker-x	システムインストールディスクを構築するためのツール
 diskwave	どのファイルとフォルダが最も多くのディスクスペースを消費しているかを判断するためのユーティリティ
+displaperture	ディスプレイの角を丸めます
 displaycal	DisplayCAL
 displays	モニターの解像度と設定マネージャー
 ditto	スクリーンミラーリングとデジタル信号
@@ -1682,6 +1684,7 @@ kern	パフォーマンスシンセサイザー
 kext-updater	'Hackintoshes'に必要なカーネル拡張の自動アップデータ
 kext-utility	Kext修復ツール
 kextviewr	現在ロードされているすべてのkextを表示する
+key-codes	任意のキーの組み合わせについて、キーコード、Unicode値、および修飾キーの状態を表示します
 keybase	End-to-end暗号化ソフトウェア
 keyboard-cleaner	デスクトップシールドとキーストロークインターセプター
 keyboard-maestro	自動化ソフトウェア
@@ -1780,6 +1783,7 @@ leanote	Leanote
 leap-motion	LeapMotion
 leapp	クラウド認証情報マネージャー
 ledger-live	複数の暗号通貨を維持するためのウォレットデスクトップアプリケーション
+leech	軽量ダウンロードマネージャー
 leela	使いやすいグラフィカルインターフェイスでプログラムをプレイしてください
 lego-mindstorms-ev3	Lego Mindstorms EV3 ホーム版
 lehreroffice	LehrerOffice
@@ -2036,6 +2040,7 @@ menubar-stats	温度とファンのプラグインを備えたシステムモニ
 menucalendarclock-ical	MenuCalendarClock
 menumeters	CPU/メモリ/ディスク/ネットワーク 監視ツールのセット
 menutube	YouTubeをメニューバーに取り込むためのツール
+menuwhere	どこからでもメニューにアクセス
 merlin-project	プロジェクト管理アプリケーション
 mesasqlite	作成 SQLite3データベースの設計と変更
 meshlab	メッシュ加工システム
@@ -2155,6 +2160,7 @@ mono-mdk	Microsoftの.NETFrameworkのオープンソース実装
 monodraw	テキストベースのアートを作成するためのツール
 monolingual	システムから不要な言語リソースを削除するユーティリティ
 monterey-cache-cleaner	汎用システム保守ツール
+moom	1つのディスプレイでウィンドウを移動およびズームするユーティリティ
 moonlight	GameStreamクライアント
 moose	moose
 moradownloader	日本市場向けのオンライン音楽およびビデオストア
@@ -2236,6 +2242,7 @@ n1ghtshade	32ビットiOSデバイスの ダウングレード/脱獄を許可�
 nagbar	Nagiosのステータスバーモニター Icinga/2とThruk
 nagstamon	Nagiosステータスモニター
 nally	Mandarin BBS用に最適化された美しい telnet/sshクライアント
+name-mangler	複数ファイルの名前変更ツール
 namebench	DNSサーバーファインダー
 namechanger	ファイルのリストの名前をすばやく変更する
 nano	Nano暗号通貨のローカルノード
@@ -2397,7 +2404,7 @@ openboard	双方向ホワイトボードアプリケーション
 openboardview	OpenBoardView
 openconnect-gui	GitLabミラー-グラフィカルOpenConnectクライアント(ベータフェーズ)
 opencore-configurator	OpenCoreEFIブートローダー構成ヘルパー
-opencore-legacy-patcher-gui	サポートされていないMacの現在の機能を挿入/パッチするブートローダー
+opencore-patcher	サポートされていないMacの現在の機能を挿入/パッチするブートローダー
 opencpn	フル機能で簡潔な ChartPlotter/Navigator
 opendnsupdater	動的IPアップデータクライアント
 openemu	レトロなビデオゲームエミュレーション
@@ -2924,6 +2931,7 @@ repoz	Zero-confgitリポジトリハブ
 rescuetime	時間最適化アプリケーション
 resilio-sync	ファイル同期および共有ソフトウェア
 resolume-arena	ビデオマッピングソフトウェア
+resolutionator	ディスプレイで利用可能な解像度のいずれかを使用します
 responsively	動的Web開発に役立つ変更されたブラウザー
 restream-chat	ストリーミングチャットを1か所に保管する
 retro-virtual-machine	ZX SpectrumおよびAmstrad CPCエミュレーター
@@ -3524,6 +3532,7 @@ tiles	ウィンドウマネージャー
 timche-gmail-desktop	非公式のGmailデスクトップアプリ
 time-lapse-assembler	一連の画像からムービーを作成するためのツール
 time-out	休憩のカスタマイズ可能なタイミング
+time-sink	コンピューターでの時間を追跡します
 time-to-leave	勤務時間を記録しオフィスを離れる時間になると通知を受け取ります
 time-tracker	時間追跡app
 timecamp	TimeCampソフトウェアのクライアントアプリケーション-時間の追跡とタスクの変更
@@ -3874,6 +3883,7 @@ wirecast	ライブビデオストリーミング制作ツール
 wireframe-sketcher	WireframeSketcher
 wireshark	ネットワーク手続き分析
 wireshark-chmodbpf	ネットワーク手続き分析
+witch	アプリ、ウィンドウ、またはタブを切り替える
 wiznote	WizNote
 wjoy	任天堂 wiimoteドライバー
 wkhtmltopdf	wkhtmltopdf
