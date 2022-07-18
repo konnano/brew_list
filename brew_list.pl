@@ -21,7 +21,7 @@ MAIN:{
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
-
+   chomp( my $MY_BREW = `which brew` || die " \033[31mNot installed HOME BREW\033[00m\n" );
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
  if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
@@ -56,7 +56,7 @@ MAIN:{
  }elsif( $AR[0] eq  '-'  ){ $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
- }else{  Died_1();
+ }else{ system "$MY_BREW @AR"; die" \033[33mNot brew argument\033[00m\n" if $?; exit;
  }
   my $UNAME = `uname -m`;
  if( $re->{'LIN'} ){
@@ -86,7 +86,7 @@ MAIN:{
    $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers/Casks';
     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
  }
-   die " Not installed HOME BREW\n" unless -d $re->{'CEL'};
+   die " \033[31mNot installed HOME BREW\033[00m\n" unless -d $re->{'CEL'};
    $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
   if( $re->{'JA'} ){
    die " \033[31mNot connected\033[00m\n"
@@ -155,7 +155,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew_list : version 1.10_1\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.10_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
