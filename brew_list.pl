@@ -21,7 +21,7 @@ MAIN:{
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
-   chomp( my $MY_BREW = `which brew` || die " \033[31mNot installed HOME BREW\033[00m\n" );
+   chomp( my $MY_BREW = `which brew` ) || die " \033[31mNot installed HOME BREW\033[00m\n";
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
  if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
