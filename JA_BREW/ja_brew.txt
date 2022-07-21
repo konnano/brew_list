@@ -306,6 +306,7 @@ aws-sdk-cpp	AWS SDK for C++
 aws-shell	AWS CLIを操作するための統合シェル
 aws-sso-util	AWS SSOの荒削りな部分を滑らかにします(一時的に、AWSが改善するまで)
 aws-vault	開発環境でAWSの認証情報を安全に保存してアクセスする
+aws2-wrap	現在のAWS SSOクレデンシャルをエクスポートする、またはそれらを使用してサブプロセスを実行するスクリプト
 awscli	公式のAmazon AWSコマンドラインインターフェース
 awscli@1	公式のAmazon AWSコマンドラインインターフェース
 awscurl	Curlの様にシンプルにAWSリソースにアクセス
@@ -2843,6 +2844,7 @@ libbitcoin-protocol	Bitcoinブロックチェーンクエリ手続き
 libbitcoin-server	Bitcoin Full Nodeとクエリサーバー
 libbladerf	USB3.0スーパースピードソフトウェア無線源
 libbluray	VLCなどのメディアプレーヤー用のBlu-Rayディスク再生ライブラリ
+libbpf	libbpfスタンドアロンビルド用の自動アップストリームミラー
 libbpg	JPEG品質とファイルサイズを改善することを目的とした画像形式
 libbs2b	Bauer stereophonic-to-binaural DSP
 libbsd	BSDシステムのユーティリティ関数
@@ -3900,6 +3902,7 @@ nlohmann-json	最新のC++のJSON
 nlopt	非線形最適化のためのライブラリ Free/オープンソース
 nmap	大規模ネットワーク用のポートスキャンユーティリティ
 nmh	MHメールハンドラーの新しいバージョン
+nmrpflash	Netgear Unbrickユーティリティ
 nng	Nanomsg 次世代軽量のbrokerlessメッセージング
 nnn	小型で超高速の機能満載のファイルマネージャー
 no-more-secrets	'Sneakers'からSETEC ASTRONOMYエフェクトを再現
@@ -3987,6 +3990,7 @@ ocaml-num	任意精度演算用のOCamlレガシーNumライブラリ
 ocaml-zarith	任意精度演算用のOCamlライブラリ
 ocamlbuild	OCamlの汎用ビルドツール
 oci-cli	Oracle Cloud Infrastructure CLI
+ocl-icd	OpenCL ICDローダー
 oclgrind	OpenCLデバイス模擬装置とデバッガー
 ocp	Open CubicPlayerのUNIXポート
 ocproxy	ユーザーレベルのSOCKSとポート転送プロキシ
@@ -4113,6 +4117,7 @@ opentracing-cpp	C++のOpenTracing API
 opentsdb	拡張性のある分散時系列データベース
 openttd	Transport Tycoon Deluxeをベースにしたシミュレーションゲーム
 openvdb	限られたボリュームデータ処理ツールキット
+openvi	UNIXシステム用のポータブルOpenBSD vi
 openvpn	OSIレイヤー2または3の安全なネットワーク拡張を実装する SSL/TLS VPN
 operator-sdk	Kubernetesアプリケーションを構築するためのSDK
 ophcrack	rainbow tablesを使用したMicrosoftWindowsパスワードクラッカー
@@ -4406,6 +4411,7 @@ pngquant	PNG画像最適化ユーティリティ
 pnpm	📦🚀 高速でディスクスペース効率の高いパッケージマネージャー
 po4a	ドキュメント翻訳メンテナンスツール
 poac	C++のパッケージマネージャー
+pocl	ポータブルコンピューティング言語
 poco	ネットワークおよびインターネットベースのアプリケーションを構築するためのC++クラスライブラリ
 pocsuite3	オープンソースのリモート脆弱性テストフレームワーク
 pod2man	Perlドキュメント発生器
@@ -5201,6 +5207,7 @@ spot	LTLおよび自動操作のためのプラットフォーム
 spotbugs	Java静的分析用ツール(FindBugsの後継)
 spotify-tui	Spotifyのターミナルベースのクライアント
 spotifyd	Spotifyデーモン
+spr	個別の修正可能でリベース可能なコミットのプルリクエストをGitHubに送信します
 spring-completion	SpringのBash補完
 spring-loaded	実行中のJVMでクラスのリロードを有効にするJavaエージェント
 spring-roo	Java開発者向けの迅速なアプリケーション開発ツール
@@ -5600,6 +5607,7 @@ trec_eval	テキスト検索会議で使用される評価ソフトウェア
 tree	ディレクトリをツリーとして表示(オプションのカラー/HTML出力付き)
 tree-sitter	パーサ発生器ツールとインクリメンタル解析ライブラリ
 treecc	コンパイラを書くためのアスペクト指向アプローチ
+treefmt	コードツリーをフォーマットするための1つのCLI
 treefrog	Webアプリケーション用の高速C++ MVCフレームワーク
 tremor-runtime	非構造化データの初期段階のイベント処理システム
 trezor-agent	ハードウェアSSH/GPGエージェント Trezor/Keepkey/Ledger
@@ -5788,6 +5796,7 @@ viddy	現代の監視コマンド
 viennacl	many-core基本設計およびmulti-core CPUの線形代数ライブラリ
 viewvc	CVSおよびSubversionリポジトリのブラウザインターフェイス
 vifm	Viのようなkeybindingsを備えたNcursesベースのファイルマネージャー
+vile	Viの様なEmacs Editor
 vilistextum	HTMLからテキストへの変換器
 vim	多くの追加機能を備えたVi'workalike'
 vimpager	PagerとしてViMを使用する
@@ -5849,6 +5858,7 @@ vtk@8.2	3Dコンピュータグラフィックス用のツールキット 画像
 vttest	VT100互換端末の互換性をテストします
 vue-cli	Vue.js開発のための標準ツール
 vulkan-headers	VulkanヘッダーファイルとAPIレジストリ
+vulkan-loader	Vulkan ICDローダー
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
 w-calc	非常に有能な計算機
