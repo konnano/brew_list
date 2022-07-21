@@ -208,6 +208,7 @@ assinador-serpro	デジタル証明書を使用してドキュメントを検証
 astah-professional	ソフトウェアモデリングツール
 astah-uml	マインドマッピングを備えたUML作図ツール
 astro-command-center	ASTROコマンドセンター
+astrofox	音楽の視覚化のためのモーショングラフィックスプログラム
 astropad	iPadを描画タブレットに変えるユーティリティ
 astropad-studio	iPadをプロの描画タブレットに変えましょう
 atemosc	OSCでBMDATEMビデオ切り替えを制御する
@@ -464,6 +465,7 @@ cakebrew	HomebrewのGUIアプリ
 cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
 calendar-366	イベントと通知の日程表メニューバー
+calhash	ファイルのチェックサムを計算して比較する
 calibre	電子書籍管理ソフトウェア
 calmly-writer	マークダウンフォーマットと選択したテーマを備えたワードプロセッサ
 camed	XMLエディター
@@ -868,6 +870,7 @@ doxygen	ソースコードからドキュメントを生成する
 dozer	ステータスバーアイコンを非表示にするツール
 drawbot	2次元グラフィックスを生成するPythonスクリプトを作成する
 drawio	Draw.ioはFreeのオンラインダイアグラムソフトウェアです
+drawpile	共同描画アプリ
 dremel-slicer	CADファイルを安全にスライスする
 drivedx	健康診断および監視ツールを駆動する
 drivethrurpg	DriveThruRPGライブラリを互換性のあるデバイスに同期する
@@ -3729,6 +3732,7 @@ vapor	視覚化および分析プラットフォーム
 vassal	ボードゲームエンジン
 vb-cable	あるアプリケーションから別のアプリケーションにオーディオをルーティングするための仮想オーディオケーブル
 vcv-rack	オープンソースの仮想モジュラーシンセサイザー
+ved	VVVVVVの外部レベルエディタ
 veepn	VPNクライアント
 vellum	電子ブック作成ソフトウェア
 veracrypt	TrueCryptに基づくセキュリティに焦点を当てたディスク暗号化ソフトウェア
