@@ -2945,6 +2945,7 @@ retrobatch	バッチ画像プロセッサ
 retroshare	Friend-2-Friendと安全な分散型通信プラットフォーム
 reunion	系図(家系図)アプリ
 reveal	iOS開発者向けの強力なランタイムビューデバッグ
+reverso	テキスト翻訳アプリケーション
 revolver-office	プロジェクト管理ツール
 rhino	3Dモデルクリエーター
 ricochet	匿名のピアツーピアインスタントメッセージング
