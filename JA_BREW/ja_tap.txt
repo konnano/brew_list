@@ -520,6 +520,7 @@ font-federo	Federo
 font-felipa	Felipa
 font-fenix	Fenix
 font-festive	Festive
+font-figtree	Webやモバイルアプリで使用するためのクリーンで親しい幾何学的なsans serif font
 font-finger-paint	Finger Paint
 font-finlandica	Finlandica
 font-fira-code	Fira Code
@@ -761,6 +762,7 @@ font-inria-sans	Inria Sans
 font-inria-serif	Inria Serif
 font-inspiration	Inspiration
 font-inter	Inter
+font-inter-tight	Inter Tight
 font-iosevka	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-aile	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-curly	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
