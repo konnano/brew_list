@@ -557,6 +557,7 @@ c-kermit	UNIXおよびVMSのスクリプト可能なネットワークの順番�
 c10t	Minecraftの地図作成ツール
 c14-cli	コマンドラインからオンラインC14アーカイブを管理する
 c2048	2048のコンソールバージョン
+c2rust	CコードをRustに移行する
 c7n	クラウドセキュリティのためのRuleエンジン コスト最適化/ガバナンス
 ca-certificates	Mozilla CA証明書store
 cabal-install	CabalおよびHackageのコマンドラインインターフェイス
@@ -1514,6 +1515,7 @@ fdroidserver	F-Droid用のAndroidアプリリポジトリを作成および管�
 fdupes	重複ファイルを特定または削除する
 feedgnuplot	コマンドラインからリアルタイムに保存されたデータを立案するツール
 feh	X11画像Viewer
+felinks	テキストモードブラウザとGemini、NNTP/FTP/Gopher/Finger/BitTorrentクライアント
 fennel	LuaLisp言語
 feroxbuster	Rustで書かれた高速かつシンプルな再帰的コンテンツ発見ツール
 fetch	コミットからアセットをダウンロードする ブランチもしくはGitHubリポジトリのタグ
@@ -2342,6 +2344,7 @@ hyperkit	アプリケーションにハイパーバイザー機能を埋め込�
 hyperscan	高性能正規表現マッチングライブラリ
 hyperspec	Common LispANSI標準のハイパースペック
 hypre	grid問題のための並列マルチgrid法を特徴とするライブラリ
+hyx	コンソール用の強力な16進エディタ
 i2c-tools	Linuxの異種のI2Cツールのセット
 i2p	匿名overlayネットワーク - a network within a network
 i2pd	I2Pクライアントのフル機能のC++実装
@@ -2609,6 +2612,7 @@ julius	Two-passの大量連続音声認識エンジン
 juman	日本の形態素解析システム
 jumanpp	RNNLMに基づく日本語形態素解析器
 jump	習慣を学ぶことでファイルシステムをより速くナビゲートするのに役立ちます
+jupp	プログラマーのためのプロのスクリーンエディター
 jupyterlab	コードを記述して実行するための対話的な環境
 just	プロジェクト固有のコマンドを保存して実行するための便利な方法
 jvgrep	Vimの日本人ユーザーのためのGrep
@@ -5442,6 +5446,7 @@ tendermint	任意のプログラミング言語のアプリケーション用の
 tengo	Goの高速スクリプト言語
 tenyr	32ビットコンピューティング環境(シミュレートされたCPUを含む)
 tepl	GNOMEテキストエディタの製品ライン
+tere	ターミナルファイルエクスプローラー
 term	指定されたディレクトリでターミナルを開きます(オプションでコマンドを実行します)
 termbox	テキストベースのユーザーインターフェイスを作成するためのライブラリ
 termcolor	色付きメッセージを印刷するためのヘッダーのみのC++ライブラリ
@@ -5643,6 +5648,7 @@ ttyrec	ターミナルインタラクションレコーダーとプレーヤー
 tuc	テキスト操作および切削工具
 tundra	インクリメンタルビルドを高速化しようとするコードビルドシステム
 tunnel	ローカルサーバーをインターネットに安全に公開する
+tuntox	Toxプロトコルを介したトンネルTCP接続
 tup	ファイルベースのビルドシステム
 tvnamer	thetvdb.comからのデータを使用する自動TVエピソードファイルの名前変更
 twarc	TwitterJSONをアーカイブするためのコマンドラインツールとPythonライブラリ
