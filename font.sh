@@ -10,11 +10,11 @@ if [[ $1 -eq 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS ]];then
   if [[ "$NAME" = Darwin ]];then
-   LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 )) &&\
-    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && math_rm; }
+   LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
+    [[ $LS && $LS -ne 60 && $TI -gt $LS ]] && math_rm
   else
-   LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 )) &&\
-    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && math_rm; }
+   LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 ))
+    [[ $LS && $LS -ne 60 && $TI -gt $LS ]] && math_rm
   fi
  fi
 fi
@@ -99,7 +99,7 @@ perl<<"EOF"
       $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
-    for $hand1( readdir($dir1) ){ 
+    for $hand1( readdir($dir1) ){
      next if $hand1 =~ /^\./;
       $hand1 =~ s/(.+)\.rb$/$1/;
        if( $FDIR ){
@@ -109,10 +109,10 @@ perl<<"EOF"
        }
    }
    closedir $dir1;
-    @file1 = sort{$a cmp $b}@file1;
+    @file1 = sort @file1;
 
    opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-drivers-master/Casks" or die " DIR2 $!\n";
-    for $hand2( readdir($dir2) ){ 
+    for $hand2( readdir($dir2) ){
      next if $hand2 =~ /^\./;
       $hand2 =~ s/(.+)\.rb$/$1/;
        if( $DDIR ){
@@ -122,10 +122,10 @@ perl<<"EOF"
        }
     }
    closedir $dir2;
-    @file2 = sort{$a cmp $b}@file2;
+    @file2 = sort @file2;
 
    opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR3 $!\n";
-    for $hand3( readdir($dir3) ){ 
+    for $hand3( readdir($dir3) ){
      next if $hand3 =~ /^\./;
       $hand3 =~ s/(.+)\.rb$/$1/;
        if( $VERS ){
@@ -135,7 +135,7 @@ perl<<"EOF"
        }
     }
    closedir $dir3;
-    @file3 = sort{$a cmp $b}@file3;
+    @file3 = sort @file3;
 
    ( $i1 and $i2 and $i3 ) ? push @file,"#\n",@file1,@file2,@file3 :
    ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,@file1,@file2 :
@@ -241,7 +241,7 @@ perl<<"EOF"
     $tap1 = $tap2 = $tap3 = '';
    }
   close $FILE1;
-  @file1 = sort{$a cmp $b}@file1;
+  @file1 = sort @file1;
    open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE7 $!\n";
     print $FILE2 @file1;
    close $FILE2;
