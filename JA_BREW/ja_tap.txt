@@ -339,6 +339,7 @@ font-coda	Coda
 font-coda-caption	Coda Caption
 font-code-new-roman-nerd-font	CodeNewRomanオタクフォント(Code New Roman)
 font-code2002	Code2002
+font-codicon	Visual Studio Code のアイコンフォント
 font-codystar	Codystar
 font-coelacanth	ブルース・ロジャースのCentaurに触発されたSerif書体
 font-coiny	Coiny
@@ -1978,6 +1979,7 @@ bragi-updater	Dashの新しいスキルを確認し言語を切り替えます
 brother-p-touch-update-software	ブラザーP-touchラベルプリンター用ソフトウェア
 caldigit-docking-utility	CalDigit Thunderboltドッキングステーションユーティリティ
 caldigit-thunderbolt-charging	Appleデバイスのサポートの改善
+calibrite-ccprofiler	Calibrite ColorChecker Display Pro & Plus のモニターキャリブレーション
 camengine	ライブストリーマーCAM用アプリ
 cameracontroller	アプリからUSBカメラを制御する
 canon-captureontouch-utility	CaptureOnTouch
@@ -2028,6 +2030,7 @@ elgato-stream-deck	キーを割り当ててから、装飾してラベルを付�
 elgato-thunderbolt-dock	ElgatoThunderboltドックのメニューバーユーティリティ
 elgato-video-capture	Elgatoビデオキャプチャ
 elgato-wave-link	コンテンツ作成用にカスタムビルドされたソフトウェア
+eobcanka	チェコ国民IDカードアプリ
 evoluent-vertical-mouse-device-controller	Evoluent垂直マウスデバイスコントローラー
 evolv-escribe-suite	DNAデバイスの動作を構成、監視、および変更する
 fitbit-connect	Fitbit Connect
