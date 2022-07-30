@@ -593,7 +593,7 @@ cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lock�
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
 cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
 cargo-c	Cのようなライブラリを構築してインストールするためのヘルパープログラム
-cargo-depgraph	貨物プロジェクトの依存関係グラフを作成します
+cargo-depgraph	cargoプロジェクトの依存関係グラフを作成します
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-instruments	Rustの機器トレースを簡単に生成
 cargo-llvm-lines	包括的な関数ごとにLLVM IRの行をカウントします
