@@ -593,6 +593,7 @@ cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lock�
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
 cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
 cargo-c	Cのようなライブラリを構築してインストールするためのヘルパープログラム
+cargo-depgraph	貨物プロジェクトの依存関係グラフを作成します
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-instruments	Rustの機器トレースを簡単に生成
 cargo-llvm-lines	包括的な関数ごとにLLVM IRの行をカウントします
@@ -689,6 +690,7 @@ cgrep	ソースコードのContext-aware grep
 cgvg	コマンドラインソース ブラウジングツール
 chadwick	RetrosheetMLBの実況ファイルを解析するためのツール
 chafa	用途が広く高速なグラフィックrenderer Unicode/ASCII/ANSI 
+chain-bench	CISベンチマークに基づくソフトウェアサプライチェーン監査ツール
 chaiscript	C++の使いやすい埋め込みスクリプト言語
 chakra	Microsoft Edgeを強化するJavaScriptエンジンのコア部分
 chalk-cli	ターミナルストリングのスタイリングは正しく行われます
@@ -1291,6 +1293,7 @@ duo_unix	SSHの二段階認証
 duplicity	処理能力効率の高い暗号化バックアップ
 duply	重複バックアップシステムのフロントエンド
 dupseek	重複ファイルを見つけて削除するための対話的なプログラム
+dura	Gitコミットを介して作業を自動的にバックアップします
 dust	Rustのduのより直感的なバージョン
 duti	MacOSのドキュメントとURL配置のデフォルトアプリを選択します
 dvanalyzer	テープからファイルへのDVストリームを検査するための品質管理ツール
@@ -2904,6 +2907,7 @@ libdvbpsi	MPEGTSおよびDVBPSIテーブルを デコード/生成 するため�
 libdvdcss	復号化せずにブロックデバイスとしてDVDにアクセスする
 libdvdnav	DVDナビゲーションライブラリ
 libdvdread	DVDビデオ画像を読み取るためのCライブラリ
+libeatmydata	fsyncと関連する呼び出しを透過的に無効にするLD_PRELOADライブラリとラッパー
 libebml	XMLのsbinaryバージョンのようなもの
 libebur128	EBUR 128ラウドネス標準を実装するライブラリ
 libedit	BSDスタイルのライセンスされたreadlineの代替品
@@ -3550,6 +3554,7 @@ mermaid-cli	mermaidのためのコマンドラインインターフェース(CLI
 mesa	グラフィックライブラリ
 mesa-glu	Mesa OpenGLユーティリティライブラリ
 mesalib-glw	OpenGL仕様のオープンソース実装
+mesheryctl	クラウドネイティブの管理プレーンであるMesheryのコマンドラインユーティリティ
 meson	高速でユーザーに親しいビルドシステム
 mesos	Apacheクラスターマネージャー
 metabase	ビジネス知性報告サーバー
@@ -4053,6 +4058,7 @@ open-scene-graph	3Dグラフィックツールキット
 open-sp	SGMLパーサー
 open-tyrian	Tyrianのオープンソースポート
 open-zwave	選択したZ-WavePCコントローラーと接続するライブラリ
+open62541	OPC UAのオープンソース実装
 openal-soft	OpenAL3DオーディオAPIの実装
 openalpr	自動ナンバープレート認識ライブラリ
 openapi-generator	クライアントを生成する OpenAPI仕様(v2/v3)のサーバーとドキュメント
@@ -4190,6 +4196,7 @@ pacman4console	コンソール用のパックマン
 pacmc	Minecraftパッケージマネージャーおよびランチャー
 pacparser	プロキシ自動設定(PAC)ファイルを解析するためのライブラリ
 pacvim	ゲームを介してVimコマンドを学ぶ
+page	Neovimをページャーとして使用する
 pagmo	並列最適化のための科学ライブラリ
 pakchois	PKCS#11ラッパーライブラリ
 paket	NuGetとGitリポジトリをサポートする.NETの依存関係マネージャー
@@ -4510,6 +4517,7 @@ prototool	Buffer手続きの万能ナイフ
 prover9	一次および等式論理の自動定理証明
 proxychains-ng	Hook先読み
 proxytunnel	HTTPSプロキシを介してTCPトンネルを作成する
+prql-compiler	シンプルで強力なパイプライン化されたSQL置換
 ps2eps	PostScriptをEPSファイルに変換する
 psalm	PHP静的分析ツール
 psc-package	パッケージセットに基づくPureScriptのパッケージマネージャー
@@ -5545,6 +5553,7 @@ titlecase	テキストをタイトルケースに変換するスクリプト
 tivodecode	.tivoを.mpegに変換します
 tkdiff	グラフィカルなサイドバイサイドdiffユーティリティ
 tldr	簡素化されたコミュニティ主導のマニュアルページ
+tlsx	TLSベースのデータ収集に重点を置いた高速で構成可能なTLSグラバー
 tlx	洗練されたC++データ構造のコレクション アルゴリズム/ヘルパー
 tm	knativeオブジェクトを操作するためのTriggerMeshCLI
 tmate	即時端末共有
