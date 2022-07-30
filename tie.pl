@@ -349,7 +349,7 @@ unless( $ARGV[0] ){
    }
   close $BREW;
  }
- if( $RPM and $RPM > $CAT ){
+ if( $RPM and $RPM gt $CAT ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
  }
