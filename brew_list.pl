@@ -21,7 +21,7 @@ MAIN:{
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
-   chomp( my $MY_BREW = `which brew` ) || die " \033[31mNot installed HOME BREW\033[00m\n";
+   chomp( my $MY_BREW = `which brew` ) or die " \033[31mNot installed HOME BREW\033[00m\n";
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
  if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
@@ -48,6 +48,7 @@ MAIN:{
  }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'}  = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = 1;
  }elsif( $AR[0] eq '-ul' ){ $name = $re;  $re->{'uses'} = 1;
+ }elsif( $AR[0] eq '-ud' ){ $name = $re;  $re->{'deps'} = 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
  }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'}  = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
@@ -56,7 +57,7 @@ MAIN:{
  }elsif( $AR[0] eq  '-'  ){ $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
- }else{ system "$MY_BREW @AR"; die" \033[33mNot brew argument\033[00m\n" if $?; exit;
+ }else{ system "$MY_BREW @AR"; die " \033[33mNot brew argument\033[00m\n" if $?; exit;
  }
   my $UNAME = `uname -m`;
  if( $re->{'LIN'} ){
@@ -103,15 +104,15 @@ MAIN:{
   }
 
   if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
-   $AR[1] !~ /.*\\Q.+\\E.*/ ? die" nothing in regex\n" :
-    $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
+   $AR[1] !~ /.*\\Q.+\\E.*/ ? die " nothing in regex\n" : $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
-   die" nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
+   die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
    $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.' and not $re->{'S_OPT'};
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
-      ( $re->{'FOR'} and $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} );
+      ( $re->{'FOR'} and $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or
+        $re->{'TREE'} or $re->{'uses'} or $re->{'deps'});
 
   if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
       $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
@@ -155,15 +156,16 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew list : version 1.10_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.10_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
   -co\t:  formula library display\n  -in\t:  formula require formula list
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
-  -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula, all
-  -ul\t:  formula depend on formula, item count\n  -g\t:  Independent Formula
-  -de\t:  uninstalled, not require formula\n  -d\t:  uninstalled, not require formula, display tree
+  -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula , all
+  -ul\t:  formula depend on formula , item count\n  -ud\t:  formula depend on formula , list
+  -g\t:  Independent Formula\n  -de\t:  uninstalled, not require formula
+  -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order\n  -ddd\t:  All deps uninstall
   -is\t:  Display in order of size  -g\t:  Independent formula
   -ai\t:  Analytics Data ( not argument or argument 1,2 )\n   Only mac : Cask
@@ -194,7 +196,7 @@ my( $re,$list ) = @_;
    Dele_1( $re ) if $re->{'DEL'};
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
- unless( $re->{'ANA'} or $re->{'COM'} ){
+ unless( $re->{'ANA'} or $re->{'COM'} or $re->{'uses'} or $re->{'deps'} ){
   $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
    ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
      $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
@@ -207,8 +209,8 @@ my( $re,$list ) = @_;
    }
  }
  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
-  $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) :
-   $re->{'ANA'} ? Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : File_1( $re,$list );
+  $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
+   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re ) : File_1( $re,$list );
 }
 
 sub Ana_1{
@@ -459,6 +461,23 @@ my( $re,@AN,%HA ) = @_;
  Nohup_1( $re );
 }
 
+sub Brew_3{
+my( $re,$ls,@AN,%HA ) = @_;
+ $ls ? print" => Cask\n" : print" => Formula\n";
+ my $brew = $ls ? 'DMG' : 'HASH';
+ for my $key(sort keys %{$re->{$brew}}){
+  $re->{'INF'} = $key;
+   Info_1( $re,0,0,\@AN,\%HA );
+    Tap_2( $re,\$key );
+     @AN = sort @AN unless $ls;
+    @AN ? print"$key : @AN\n" : print"$key\n";
+   $re->{"deps$_"} = 0 for(@AN);
+  @AN = %HA = ();
+ }
+ Brew_3( $re,1 ) unless $ls or $re->{'LIN'};
+ Nohup_1( $re );
+}
+
 sub Uses_1{
 my( $re,$tap,$HA,$AN ) = @_;
  for my $ls(split '\t',$tap){
@@ -491,6 +510,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
        last if $list1[$e] eq $list2[$i];
        ++$flag and last if $list1[$e] gt $list2[$i];
       }
+      ++$flag if $list1[$#list1] lt $list2[$i];
      last if $flag;
     }
    $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
@@ -626,7 +646,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
     push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
    ( $re->{'TREE'} and not $re->{'DD'} ) ?
     push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
- push @$AN,$$brew if $re->{'DEL'} and $re->{"deps$$brew"} < 2;
+ push @$AN,$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
   $re->{"$re->{'INF'}deps"} .= "$$brew\t"
    if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 }
@@ -1340,11 +1360,11 @@ if [[ $1 -eq 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS ]];then
   if [[ "$NAME" = Darwin ]];then
-   LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 )) &&\
-    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && math_rm; }
+   LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
+    [[ $LS && $LS -ne 60 && $TI -gt $LS ]] && math_rm
   else
-   LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 )) &&\
-    { [[ $LS -eq 60 ]] && exit || [[ $TI -gt $LS ]] && unset LS && math_rm; }
+   LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 ))
+    [[ $LS && $LS -ne 60 && $TI -gt $LS ]] && math_rm
   fi
  fi
 fi
@@ -1972,7 +1992,7 @@ unless( $ARGV[0] ){
    }
   close $BREW;
  }
- if( $RPM and $RPM > $CAT ){
+ if( $RPM and $RPM gt $CAT ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
  }
