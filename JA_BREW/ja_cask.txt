@@ -1332,7 +1332,6 @@ gpg-sync	GPG同期
 gplates	電極テクトニクスプログラム
 gpodder	ポッドキャストクライアント
 gpower	統計的検出力分析を計算するためのツール
-gps4cam	写真にGeotagを付ける
 gpxsee	GPSログファイルビューアおよび分析
 gqrx	GNURadioとQtを搭載したソフトウェア無線受信機
 grads	地球科学データを視覚化する アクセス/操作
@@ -1552,6 +1551,7 @@ ipsecuritas	IPSecクライアント
 iptvnator	オープンソース m3u/m3u8プレーヤー
 ipvanish-vpn	VPNクライアント
 ipynb-quicklook	ipynb-quicklook
+iqmol	Freeオープンソース分子エディターおよび可視化パッケージ
 irccloud	IRCクライアント
 ireadfast	速読プログラム
 iridium	セキュリティとプライバシーに焦点を当てたWebブラウザー
@@ -1568,7 +1568,6 @@ isolator	Isolator
 istat-menus	システム監視アプリ
 istat-server	コンピューターまたはサーバーの人口動態統計を送信します
 isteg	暗号化ツール
-istumbler	ワイヤレス検出ツール
 isubtitle	字幕トラックを挿入する メディアへのチャプターマーカーとメタデータ
 iswiff	iSwiff
 isyncer	AppleMusicプレイリストエクスポートツール
@@ -1831,6 +1830,7 @@ liteide	IDEに移行
 little-navmap	フライトプランニングとナビゲーション 空港検索と情報システム
 little-snitch	ホストベースのアプリケーションファイアウォール
 live-home-3d	Home&floorplan designer&renderer
+livebook	開発者向けのコードノートブック
 livetail	Sumologic livetail CLI
 lmms	音楽制作ソフトウェア
 loading	ネットワークアクティビティモニター
@@ -2654,6 +2654,7 @@ polycom-content	Polycomコンテンツアプリ
 polycom-realpresence	ビデオ協調アプリ
 polymail	Polymail
 polymc	マインクラフトランチャー
+polypad	開発者向けのスクリプト可能なテキストパッド
 polypane	野心的な開発者のためのブラウザー
 polyphone	Polyphone
 pomatez	Pomodoroタイマー
@@ -2699,7 +2700,6 @@ prefs-editor	'defaults'コマンドのグラフィカルユーザーインター
 prepros	Web開発コンパニオン
 presentation	PDFスライド用のツール
 pretzel	クリエイター向けのDMCA-safe音楽
-prey	盗難防止/データセキュリティ および管理プラットフォーム
 prezi-classic	PreziプレゼンテーションSaaS用のデスクトップクライアント
 prezi-next	プレゼンテーションソフトウェア
 prezi-video	ストリーミングまたは録画しながらコンテンツをライブで操作できます
@@ -2858,6 +2858,7 @@ quodlibet	音楽プレーヤーおよび音楽ライブラリマネージャー
 qutebrowser	PyQt5に基づくキーボード駆動のVimのようなブラウザー
 qv2ray	広範な手続きをサポートするV2Ray GUIクライアント
 qview	画像ビューア
+qwerty-fr	QWERTYベースのレイアウト タイプEU言語/ギリシャ語/算数/通貨など
 qxmledit	XMLエディター
 r	統計計算とグラフィックスのための環境
 r-name	R-Name
@@ -3105,6 +3106,7 @@ shimeike-formulatepro	PDFドキュメントにテキストとグラフィック�
 shimo	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
 shimonote	ドキュメントエディター
 shiori	しおり
+shop-different	Apple直営店の開店日の3D再構成
 shortcat	Sproutcube Shortcat
 shortcutdetective	どのアプリがキーボードショートカット(ホットキー)を受信するかを検出します
 shortcutor	iOSショートカットエディター
@@ -3236,7 +3238,6 @@ sound-control	アプリごとのオーディオコントロール
 sound-siphon	アプリのオーディオキャプチャ
 soundboosterlite	強化されたオーディオ体験のためのアプリ
 soundcleod	SoundCleod
-soundcloud-downloader	曲をsoundcloudからコンピューターにダウンロードする
 soundflower	サウンドフラワー
 soundflowerbed	Soundflowerチャネルを利用してオーディオデバイスにルーティングします
 soundsource	サウンドおよびオーディオコントローラー
@@ -3903,6 +3904,7 @@ wordpresscom	WordPressクライアント
 wordservice	選択したテキストを操作するためのコマンドを提供するツール
 workbench	シームレス iCloudに自動同期する "dotfile" 
 workflowy	メモを取るツール
+workman	代替英語キーボード レイアウト
 workplace-chat	組織のコミュニケーションポータル
 workspaces	ワークスペース整理アプリ
 wormhole	PCで電話を閲覧&制御 iOSおよびAndroid用のScreenFusion
