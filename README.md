@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.10_2　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.10_3　　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -50,7 +50,9 @@ brew install brew_list
 
 '-ua' オプションでFormulaに依存している全てのFormulaが表示されます
 
-'-ul' オプションでFormulaに依存しているFormulaの数が表示されます
+'-ud' オプションでFormulaに依存されてるFormulaが表示されます
+
+'-ul' オプションでFormulaに依存されてるFormulaの数が表示されます
 
 '-is' オプションでFormulaのサイズ順に表示されます
 
