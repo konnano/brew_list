@@ -1833,6 +1833,7 @@ git-cola	高度に高揚化されたgit GUI
 git-credential-libsecret	libsecretを介して認証情報にアクセスするためのGitヘルパー
 git-credential-manager	Visual Studio Team ServicesのGit認証情報を格納します
 git-crypt	gitリポジトリ内のファイルの透過的な 暗号化/復号化 を有効にする
+git-delete-merged-branches	マージされたGitブランチを削除するコマンドラインツール
 git-delta	構文-gitおよびdiff出力のページャーを強調表示
 git-extras	小さなgitユーティリティ
 git-filter-repo	gitリポジトリの履歴をすばやく書き換える
