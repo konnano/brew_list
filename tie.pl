@@ -63,7 +63,7 @@ sub Dirs_1{
 my( $dir,$ls,$cask ) = @_;
  for(glob "$dir/*"){
   next if $ls and m[/homebrew$|/homebrew-core$|/homebrew-cask$|/homebrew-bundle$|/homebrew-services$];
-   -d ? Dirs_1( $_,$ls,$cask ) : -l ? push @ALIA,$_ :
+   ( -d ) ? Dirs_1( $_,$ls,$cask ) : ( -l ) ? push @ALIA,$_ :
    ( /\.rb$/ and $cask ) ? push @CASK,$_ : ( /\.rb$/ ) ? push @BREW,$_ : 0;
  }
 }
