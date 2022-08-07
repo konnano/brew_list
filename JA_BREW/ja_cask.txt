@@ -886,6 +886,7 @@ dropshare	ファイル共有ソリューション
 dropzone	生産性アプリ
 drovio	リモートペアプログラミングおよびチーム協調ツール
 dteoh-devdocs	APIドキュメントビューア
+duckduckgo	プライバシー重視のブラウザ
 duckietv	semi-automagic torrent統合でテレビ番組を追跡するためのツール
 duefocus	時間追跡および生産性ソフトウェア
 duet	iPadをセカンドディスプレイとして使用するためのツール
@@ -1499,7 +1500,6 @@ imagex	画像コレクションを視覚的に探索して検索する
 imazing	iPhone管理アプリケーション
 imdone	プレーンテキストのマークダウンファイルまたはコードで動作するKanbanボード
 imgotv	MangoTVビデオアプリ
-immersed	VROffice用デスクトップエージェント
 imo	Imoメッセンジャー
 impactor	モバイルデバイスを操作するためのGUIツール
 inav-configurator	INAV飛行制御システムの構成ツール
@@ -3719,6 +3719,7 @@ utterly	音声会議またはビデオ会議アプリで通話中のバックグ
 uu-booster	ネットワーク加速器
 uvtools	MSLA/DLP/ファイル分析/キャリブレーション/修復/変換/操作
 uxprotect	UXProtect
+v2ray-unofficial	Shadowsocks(R)に対応したGUIクライアント V2Rayとトロイの木馬プロトコル
 v2rayu	専用の基本的な通信ネットワークを構築するためのツールのコレクション
 v2rayx	v2rayコアのGUI
 vagrant	開発環境
@@ -3994,6 +3995,7 @@ youtube-to-mp3	プレイリストまたはチャンネルから音楽をダウ�
 yt-music	music.youtube.comのアプリラッパー
 ytmdesktop-youtube-music	YouTubeミュージッククライアント
 yu-writer	マークダウンエディター
+yubihsm2-sdk	YubiHSM 2 SDK
 yuna	アニメプレイヤー兼リストマネージャー
 yuque	クラウド知識ベース
 zalo	メッセージングおよび通話アプリケーション
