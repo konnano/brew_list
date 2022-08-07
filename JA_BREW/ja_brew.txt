@@ -396,6 +396,7 @@ bento4	フル機能のMP4形式とMPEGDASHライブラリおよびツール
 berglas	Google Cloudで機密管理するためのツール
 berkeley-db	高性能 キー/値 データベース
 berkeley-db@4	高性能 キー/値 データベース
+berkeley-db@5	高性能　key/valueデータベース
 bettercap	ネットワーク攻撃と監視のための万能ナイフ
 betty	コマンドラインの英語のようなインターフェイス
 bfg	git-filter-branchなどのGit履歴から大きなファイルやパスワードを削除する
@@ -593,6 +594,7 @@ cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lock�
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
 cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
 cargo-c	Cのようなライブラリを構築してインストールするためのヘルパープログラム
+cargo-crev	cargoパッケージ マネージャーのコードレビューシステム
 cargo-depgraph	cargoプロジェクトの依存関係グラフを作成します
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-instruments	Rustの機器トレースを簡単に生成
@@ -918,6 +920,7 @@ cpl	天文データ削減タスクを開発するためのISO-Cライブラリ
 cpm	高速CPANモジュールインストーラー
 cpmtools	ファイルシステムにアクセスするためのツール CP/M
 cpp-gsl	MicrosoftのC++ガイドラインサポートライブラリ
+cpp-httplib	C++ヘッダーのみの HTTP/HTTPSサーバーおよびクライアントライブラリ
 cppad	C++アルゴリズムの差別化
 cppcheck	C/C++のコードの静的分析器
 cppcms	Free高性能Web開発フレームワーク
@@ -945,6 +948,7 @@ crane	リモート画像とレジストリを操作するためのツール
 crash	gdbのような構文を可能にするJavaのカーネルデバッグシェル
 crc32c	CPU固有の加速を使用したCRC32Cの実装
 crcany	任意のCRCを、一度に1ビットずつ、一度に1バイトずつ、一度に1ワードずつ計算します。
+create-api	OpenAPI仕様の快適なコード発生機
 create-dmg	派手なDMGを構築するためのシェルスクリプト
 credstash	クラウドで認証情報を管理するための小さなユーティリティ
 creduce	関心のある属性を維持しながらC/C++プログラムを削減します
@@ -1385,6 +1389,7 @@ enca	文字セット分析器と変換器
 encfs	暗号化されたパススルーFUSEファイルシステム
 enchant	スペルチェッカーラッピングライブラリ
 enet	UDPの上にネットワーク通信層を提供します
+enex2notion	Evernote ENEXファイルを Notionにインポートする
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
 enkits	並列プログラムを作成するためのCおよびC++タスクスケジューラ
 enscript	テキストを変換して Postscript/HTML/RTF 構文を強調表示します
@@ -1720,19 +1725,21 @@ gauche	便利なスクリプト解釈プログラムとして開発されたR7RS
 gauge	実行可能ドキュメントをサポートするテスト自動化ツール
 gaul	遺伝的アルゴリズムユーティリティライブラリ
 gawk	GNU awkユーティリティ
+gaze	コマンドを実行する
 gbdfed	ビットマップフォントエディタ
 gcab	Windowsインストーラー(.MSI)ツール
 gcal	カレンダーを計算して印刷するためのプログラム
 gcalcli	コマンドラインからGoogleカレンダーに簡単にアクセスできます
 gcc	GNUコンパイラコレクション
 gcc@10	GNUコンパイラコレクション
-gcc@12	GNUコンパイラコレクション
+gcc@11	GNUコンパイラコレクション
 gcc@4.9	GNUコンパイラコレクション
 gcc@5	GNUコンパイラコレクション
 gcc@6	GNUコンパイラコレクション
 gcc@7	GNUコンパイラコレクション
 gcc@8	GNUコンパイラコレクション
 gcc@9	GNUコンパイラコレクション
+gcem	C++コンパイル時数学ライブラリ
 gcovr	gcovテストcoverageプログラムからの報告
 gcsfuse	Google Cloudとやり取りするためのユーザースペースファイルシステム
 gcutil	Google ComputeEngineリソースを管理する
@@ -1874,6 +1881,7 @@ git-standup	スタンドアップミーティングの報告を生成するGit�
 git-subrepo	Gitサブモジュールの代替品
 git-svn	SubversionリポジトリとGit間の双方向操作
 git-svn-abandon	履歴を保持するsvnからgitへの移行
+git-sync	Gitリポジトリのクローンを作成しアップストリームとの同期を維持します
 git-test	revisionリスト内の個別のツリーごとにテストを実行します
 git-tf	TFSとgitの間で変更を共有する
 git-town	Gitの高レベルのコマンドラインインターフェイス
@@ -2003,6 +2011,7 @@ go@1.14	Goプログラミング環境(1.14)
 go@1.15	Goプログラミング環境(1.15)
 go@1.16	Goプログラミング環境(1.16)
 go@1.17	Goプログラミング環境(1.17)
+go@1.18	シンプル/信頼性/効率的なソフトウェアを構築するためのオープンソースプログラミング言語
 goaccess	Apache Webサーバーのログ分析と対話的Viewer
 goad	Goに組み込まれたAWS Lambdaを利用した、高度に分散された負荷テストツール
 goawk	Goで記述されたPOSIX準拠のAWK解釈プログラム
@@ -2186,6 +2195,7 @@ guichan	ゲーム用に設計された小さくて効率的なC++ GUIライブ�
 guile	機能拡張のためのGNU Ubiquitousの高度な言語
 guile@2	機能拡張のためのGNU Ubiquitousの高度な言語
 gulp-cli	Gulpのコマンドラインユーティリティ
+gum	魅力的なシェルスクリプト用のツー
 gumbo-parser	HTML5を解析するためのC99ライブラリ
 gupnp	UPnPデバイスとコントロールポイントを作成するためのフレームワーク
 gupnp-av	UPnP A/V プロファイルの実装に役立つライブラリ
@@ -2701,6 +2711,7 @@ krakend	Goに組み込まれた超高性能APIゲートウェイ
 krb5	ネットワーク認証手続き
 krew	kubectlプラグインのパッケージマネージャー
 ksh	Kornシェル、ksh93
+ksh93	KornShell, ksh93
 kstart	キータブを使用して認証できるkinitの修正バージョン
 ksync	ローカルシステムとkubernetesクラスター間でファイルを同期する
 kt-connect	kubernetes開発環境とより効率的に統合するためのツールキット
@@ -4042,6 +4053,7 @@ onefetch	ターミナルのGitリポジトリの概要
 onetime	one-time padsによる暗号化
 oniguruma	正規表現ライブラリ
 onioncat	TorまたはI2Pを使用してロケーションプライバシーを提供するVPNアダプター
+onlykey-agent	OnlyKeyをハードウェア SSH/GPGデバイスとして使用できるミドルウェア
 onnxruntime	MLモデルのクロスプラットフォームの高性能スコアリングエンジン
 onscripter	NScripter互換のvisual novel engine
 ooniprobe	ネットワーク干渉検出ツール
@@ -4365,6 +4377,7 @@ pinentry	Assuan手続きを利用したパスフレーズ入力ダイアログ
 pinentry-mac	MacでのGPGのPinentry
 pinfo	情報ドキュメント用のユーザーに親しいコンソールベースのViewer
 pinot	リアルタイム分散OLAPデータstore
+pint	Prometheus ルール リンター/バリデーター
 pioneer	孤独な宇宙冒険のゲーム
 pioneers	Catanの移植クローン
 pip-audit	既知の脆弱性についてPython環境と依存関係ツリーを監査します
@@ -4387,6 +4400,7 @@ pjproject	SIP/SDP/RTP などのマルチメディア手続きのCライブラリ
 pk	Field extractorコマンドラインユーティリティ
 pkcrack	PkZip暗号を解読するためのアルゴリズムの実装
 pkcs11-helper	PKCS#11との相互作用を簡素化するライブラリ
+pkcs11-tools	PKCS#11 暗号化トークン上のオブジェクトを管理するためのツール
 pkg-config	ライブラリのコンパイルとリンクのFlagを管理する
 pkg-config-wrapper	GoプログラムにCコードを含める簡単な方法
 pkgconf	パッケージコンパイラとLinkerメタデータのツールキット
@@ -4519,6 +4533,7 @@ prover9	一次および等式論理の自動定理証明
 proxychains-ng	Hook先読み
 proxytunnel	HTTPSプロキシを介してTCPトンネルを作成する
 prql-compiler	シンプルで強力なパイプライン化されたSQL置換
+prr	github のメーリングリスト/スタイルのコードレビュー
 ps2eps	PostScriptをEPSファイルに変換する
 psalm	PHP静的分析ツール
 psc-package	パッケージセットに基づくPureScriptのパッケージマネージャー
@@ -4580,6 +4595,7 @@ pyinstaller	Pythonアプリケーションとそのすべての依存関係を�
 pyinvoke	Pythonicタスク管理とコマンド実行
 pylint	あなたを悩ませるのは単なる静的解析ツールはありません！
 pympress	提示用に設計されたシンプルで強力なデュアルスクリーンPDFリーダー
+pymupdf	PDFツールキットとレンダラー MuPDFのPythonバインディング
 pyoxidizer	最新のPythonアプリケーションのパッケージ化および配布ツール
 pypy	PythonでのPython2の高性能実装
 pypy3	PythonでのPython3の実装
@@ -4659,7 +4675,6 @@ quran	ターミナルでコーランの章と詩を印刷する
 quvi	ビデオのダウンロードURLを解析する
 qwt	技術的アプリケーション用のQtウィジェット
 qwt-qt5	技術的アプリケーション用のQtウィジェット
-qwtpolar	極座標系で値を表示するためのライブラリ
 qxmpp	クロスプラットフォームのC++ XMPPクライアントおよびサーバーライブラリ
 r	統計計算のためのソフトウェア環境
 r3	高性能URLルーターライブラリ
@@ -5017,6 +5032,7 @@ sfml	複数の言語のbindingsを備えたマルチメディアライブラリ
 sfst	形態素解析器およびその他のFSTベースのツール用のツールボックス
 sftpgo	オプションのHTTP/S,FTP/S,WebDAV をサポートするフル機能のSFTPサーバー
 sgn	Shikata ga nai(仕方がない)エンコーダーが移植され、いくつかの改良が加えられました
+sgr	Splitgraph のコマンドラインクライアント、データのバージョン管理システム
 sgrep	SGML/XML/HTML を検索する
 sha1dc	SHAtteredを含むファイル内のSHA-1衝突を検出するためのツール
 sha2	ハッシュアルゴリズムの実装 SHA-256/SHA-384/SHA-512
@@ -5113,6 +5129,7 @@ slugify	ファイル名とディレクトリをWeb対応の形式に変換しま
 slurm	さらに別のネットワーク負荷モニター
 smake	自動作成機能を備えたポータブル作成プログラム
 smali	AndroidのJavaVM実装用のアセンブラー/逆アセンブラー
+smap	shodan.ioを利用した Nmapのドロップイン置換
 smartmontools	SMARTハードドライブの監視
 smartypants	印刷デザインの整形
 smimesign	Gitで使用する S/MIME署名ユーティリティ
@@ -5127,6 +5144,7 @@ snakemake	Pythonicワークフローシステム
 snap	.snapファイルを操作するためのツール
 snap-telemetry	Snapはオープンソースの遠隔測定フレームワークです
 snap7	Siemens S7PLCとネイティブに連携するイーサネット通信パッケージ
+snapcast	同期マルチルームオーディオプレーヤー
 snapcraft	すべてのLinuxデスクトップ用に任意のアプリをパッケージ化します サーバ/クラウド/デバイス
 snappy	高速を目指すライブラリ 圧縮/解凍
 snappystream	C++のsnappyストリームの実現(snappyと互換性があります)
@@ -5344,6 +5362,7 @@ svg2png	SVGからPNGへの変換器
 svgbob	アスキーダイアグラムの落書きを幸せな小さなSVGに変換します
 svgcleaner	不要なデータを削除してSVGファイルをクリーンアップします
 svgo	SVGベクターグラフィックファイルを最適化するためのNodejsベースのツール
+svt-av1	AV1エンコーダー
 svtplay-dl	https://www.svtplay.se/からビデオをダウンロードします
 swagger-codegen	クライアントを生成する サーバースタブとOpenAPI仕様のドキュメント
 swagger-codegen@2	クライアントを生成する サーバースタブとOpenAPI仕様のドキュメント
@@ -6009,6 +6028,7 @@ x3270	X WindowSystemおよびWindowsのIBM3270ターミナルエミュレータ�
 x86_64-elf-binutils	x86_64のGNUBinutils-elfクロス開発
 x86_64-elf-gcc	x86_64-elfのGNUコンパイラコレクション
 x86_64-elf-gdb	x86_64-elfの相互開発のためのGNUデバッガー
+x86_64-linux-gnu-binutils	x86_64-linux-gnu クロス開発用 GNU Binutils
 xa	6502クロスアセンブラー
 xalan-c	XSLT計算機
 xapian	C++検索エンジンライブラリ
@@ -6142,7 +6162,6 @@ youtube-dlc	YouTubeなどのさまざまなサイトをサポートするメデ�
 youtubedr	GolangでYoutubeビデオをダウンロード
 youtubeuploader	YouTubeへのスクリプトによるアップロード
 yq	CLIからYAMLドキュメントを処理する
-yq@3	CLIからYAMLドキュメントを処理する-バージョン3
 yt-dlp	追加機能と修正を加えたyoutube-dlのフォーク
 yubico-piv-tool	YubiKey PIVアプリケーション用のコマンドラインツール
 yubikey-agent	YubiKeysおよびその他のPIVトークン用のシームレスなssh-agent
