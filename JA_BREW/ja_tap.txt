@@ -1378,6 +1378,7 @@ font-noto-serif-lao	Noto Serif Lao
 font-noto-serif-malayalam	Noto Serif Malayalam
 font-noto-serif-myanmar	Noto Serif Myanmar
 font-noto-serif-nyiakeng-puachue-hmong	Noto Serif Nyiakeng Puachue Hmong
+font-noto-serif-oriya	インド語のオディア(oriya)スクリプトのテキストの変調(“serif”)デザイン
 font-noto-serif-sc	簡体字中国語の変調(“serif”)デザイン
 font-noto-serif-sinhala	Noto Serif Sinhala
 font-noto-serif-tamil	Noto Serif Tamil
@@ -1729,6 +1730,7 @@ font-sofia-sans	大きな文字セットを持つOpenTypeファミリ
 font-solway	Solway
 font-sometype-mono	Sometype Mono
 font-song-myung	Song Myung
+font-sono	固定幅(そして明らかに調整されてない)
 font-sonsie-one	Sonsie One
 font-sora	Sora
 font-sorts-mill-goudy	MillGoudyを並べ替えます
