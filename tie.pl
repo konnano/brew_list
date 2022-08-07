@@ -29,7 +29,8 @@ unless( $ARGV[0] ){
                  sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
 }
   %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
-             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10');
+             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10',
+             'mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
 
   if( $CPU eq 'intel\?' ){
    unless( $ARGV[0] ){
@@ -146,8 +147,9 @@ unless( $ARGV[0] ){
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
           next;
        }elsif( ( $CIN == 1 or $CIN == 3 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-          $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-           $tap{"${name}deps_b"} .= "$data\t"; next;
+         unless( $tap{"$name$OS_Version2"} ){
+          $tap{"${data}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$data\t";
+         } next;
        }elsif( ( $CIN == 1 or $CIN == 3 ) and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
           $tap{"${data}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$data\t"; next;
@@ -256,40 +258,40 @@ unless( $ARGV[0] ){
      }elsif( my( $ds1,$ds2,$ds3 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
         if( $re->{'MAC'} and $ds2 =~ /^[<=>]+$/ and $ds3 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds2 $ds3" ){
-         $tap{"${ds1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$ds1\t";
+         unless( $tap{"$name$OS_Version2"} ){
+          $tap{"${ds1}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$ds1\t";
+         }
         }
      }elsif( my( $ds4,$ds5 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+Hardware::CPU\.([^\s]+)/ ){
-        if( $ds5 =~ /$CPU/ ){
-         $tap{"${ds4}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$ds4\t";
+        if( $ds5 =~ /$CPU/ and not $tap{"$name$OS_Version2"} ){
+         $tap{"${ds4}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$ds4\t";
         }
      }elsif( my( $us1,$us2 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+unless\s+Hardware::CPU\.([^\s]+)/ ){
-        if( $us2 !~ /$CPU/ ){
-         $tap{"${us1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$us1\t";
+        if( $us2 !~ /$CPU/ and not $tap{"$name$OS_Version2"} ){
+         $tap{"${us1}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$us1\t";
         }
      }elsif( my( $ds6,$ds7,$ds8 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
         if( $re->{'MAC'} and $ds7 =~ /^[<=>]+$/ and eval "$OS_Version $ds7 $MAC_OS{$ds8}" ){
-         $tap{"${ds6}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$ds6\t";
+         unless( $tap{"$name$OS_Version2"} ){
+          $tap{"${ds6}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$ds6\t";
+         }
         }
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
-       $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-        $tap{"${name}deps_b"} .= "$data\t";
+       unless( $tap{"$name$OS_Version2"} ){
+        $tap{"${data}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$data\t";
+       }
      }elsif( my( $us3,$us4 ) =
        $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+)/ ){
-        if( $re->{'LIN'} or $OS_Version < $MAC_OS{$us4} ){
-         $tap{"${us3}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$us3\t";
+        if( ( $re->{'LIN'} or $OS_Version < $MAC_OS{$us4} ) and not $tap{"$name$OS_Version2"} ){
+         $tap{"${us3}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$us3\t";
         }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
-        $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-         $tap{"${name}deps_b"} .= "$data\t";
-
+       unless( $tap{"$name$OS_Version2"} ){
+        $tap{"${data}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$data\t";
+       }
      }elsif( my( $us5,$us6 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+)/ ){
        if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$us6} ){
         $tap{"${us5}uses"} .= "$name\t";
