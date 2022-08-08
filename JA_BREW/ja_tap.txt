@@ -272,6 +272,7 @@ font-cabin-sketch	Cabin Sketch
 font-caesar-dressing	Caesar Dressing
 font-cagliostro	Cagliostro
 font-cairo	Cairo
+font-cairo-play	カラーマークが特徴的なCairoのカラーフォントバージョン
 font-caladea	Caladea
 font-calistoga	Calistoga
 font-calligraffitti	Calligraffitti
@@ -2305,6 +2306,7 @@ morpheus-beta	多細胞システム生物学のモデリング環境
 mullvadvpn-beta	VPNクライアント
 mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
 netnewswire-beta	FreeのオープンソースRSSリーダー
+obs-beta	ライブストリーミングと画面録画用のオープンソースソフトウェア
 olympus	Everest(ビデオゲームCeleste用のModローダー) インストーラー/マネージャー
 omegat-latest	翻訳メモリツール
 omnifocus2	OmniFocus
