@@ -166,7 +166,7 @@ sub Died_1{
   -g\t:  Independent Formula\n  -de\t:  uninstalled, not require formula
   -d\t:  uninstalled, not require formula, display tree
   -dd\t:  uninstalled, only not require formula, display tree and order\n  -ddd\t:  All deps uninstall
-  -is\t:  Display in order of size  -g\t:  Independent formula
+  -is\t:  Display in order of size\n  -g\t:  Independent formula
   -ai\t:  Analytics Data ( not argument or argument 1,2 )\n   Only mac : Cask
   -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
   -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
@@ -1245,10 +1245,7 @@ my $re = shift;
    }
    push @{$AR2[$i]},0 unless @{$AR2[$i]}[0];
   } my $m = 0;
-  for( @AR2 ){
-   next unless $_->[0];
-    push @{$AR[$m++]},@{$_};
-  }
+   $_->[0] ? push @{$AR[$m++]},@{$_} : next for(@AR2);
   if( $re->{'DDD'} ){
    print STDERR "$re->{'INF'} : deps All delete [y/n]:";
    <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
