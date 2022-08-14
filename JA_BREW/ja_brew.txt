@@ -659,6 +659,7 @@ cdrdao	Disk-At-OnceモードでCDを録音する
 cdrtools	プリマスタリングおよびレコーディングソフトウェア CD/DVD/Blu-ray
 cedille	従属ラムダ除去の計算に基づく言語
 celero	C++オーサリング基準比較 Library/Framework
+censys	Censys API のコマンドライン インターフェイス(censys.io)
 center-im	テキストモードのmulti-protocol即時メッセージング クライアント
 cereal	C++11順番化用ライブラリ
 ceres-solver	大規模な最適化のためのC++ライブラリ
@@ -940,6 +941,7 @@ cpu_features	クロスプラットフォームのC99ライブラリで実行時�
 cpufetch	CPU基本設計fetchingツール
 cpulimit	CPU使用量リミッター
 cql	ブロックチェーン機能を備えた分散型SQLデータベース
+cql-proxy	DataStax cql-proxyにより Cassandraアプリはコードを変更せずに Astra DBを使用できるようになります
 cqlkit	CassandraクエリをCSVおよびJSON形式で書き出しするCLIツール
 cquery	C/C++言語サーバー
 cracklib	LibCrackパスワードチェックライブラリ
@@ -972,6 +974,7 @@ cryptol	暗号化アルゴリズムを指定するためのドメイン固有言
 cryptominisat	高度なSAT Solver
 crystal	Rubyのような構文を使用した、高速で静的に型指定されたコンパイル型言語
 crystal-icr	Crystalプログラミング言語の対話的なコンソール
+crytic-compile	スマートコントラクトビルドシステムの抽象化レイヤー
 cscope	ソースコードを閲覧するためのツール
 csfml	CのSMFL bindings
 csmith	C99標準に準拠したランダムなCプログラムを生成します
@@ -2142,7 +2145,6 @@ grsync	rsyncのGUI
 grt	リアルタイムの機械学習のためのジェスチャ認識ツールキット
 grunt-cli	JavaScriptタスクランナー
 grunt-completion	GruntのBashとZshの補完
-grv	gitリポジトリを表示するためのターミナルインターフェイス
 gsar	ファイルの一般的な検索と置換
 gsasl	SASLライブラリのコマンドラインインターフェイス
 gsettings-desktop-schemas	デスクトップコンポーネントのGSettingsスキーマ
@@ -3227,6 +3229,7 @@ libusrsctp	ポータブルSCTP userlandスタック
 libuv	非同期I/Oに焦点を当てたMulti-platformサポートライブラリ
 libuvc	USBビデオデバイス用のクロスプラットフォームライブラリ
 libva	ハードウェアの加速によるビデオ処理ライブラリ
+libvatek	VATek チップを制御するためのユーザーライブラリ
 libvdpau	オープンソースのビデオデコードおよび提示用APIライブラリ
 libvidstab	Transcodeビデオ安定化プラグイン
 libvirt	C仮想化API
@@ -4188,6 +4191,7 @@ otf2	Open Trace Format 2ファイル処理ライブラリ
 otf2bdf	OpenTypeからBDFフォントへの変換器
 ots	🔐 1回限りのURLを介してend-to-endの暗号化された秘密を他の人と共有する
 ott	プログラミング言語と計算の定義を書くためのツール
+ouch	端末用の簡単な圧縮と解凍
 overdrive	OverDriveオーディオブックサービスからmp3をダウンロードするためのBashスクリプト
 overmind	Procfileベースのアプリケーションとtmuxのプロセスマネージャー
 owamp	一方向アクティブ測定手続きの実装
@@ -4891,6 +4895,7 @@ rune	Rustに埋め込み可能な動的プログラミング言語
 runit	UNIXサービスを管理するためのツールのコレクション
 rure	RUstのREGexエンジンのC API
 rush	GNUの制限付きユーザーシェル
+rush-parallel	ジョブを並行して実行するためのクロスプラットフォームコマンドライン ツール
 rust	安全で並行した実用的な言語
 rust-analyzer	IDEの実験的なRustコンパイラフロントエンド
 rustc-completion	rustcのbash補完
@@ -5172,6 +5177,7 @@ softhsm	PKCS#11インターフェースを介してアクセス可能な暗号st
 solana	分散型アプリとマーケットプレイス向けのWebスケールブロックチェーン
 solargraph	Ruby言語サーバー
 solarus	アクションRPGゲームエンジン
+solc-select	複数の Solidityコンパイラバージョンを管理する
 solid	3D空間の幾何学的オブジェクトの衝突検出ライブラリ
 solidity	契約指向プログラミング言語
 sollya	安全な浮動小数点コード開発のためのライブラリ
