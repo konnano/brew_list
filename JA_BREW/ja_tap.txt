@@ -65,6 +65,7 @@ font-amatic-sc	Amatic SC
 font-amethysta	Amethysta
 font-amiko	Amiko
 font-amiri	Amiri
+font-amiri-quran	Amiri Quran
 font-amiri-quran-colored	Amiri Quran Colored
 font-amita	Amita
 font-amstelvar-alpha	Amstelvar Alpha
