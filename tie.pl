@@ -8,8 +8,7 @@ chomp( my $UNAME = `uname -m` );
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK,@ALIA );
 
-if( $^O eq 'darwin' ){
- $re->{'MAC'} = 1;
+if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
    $OS_Version =~ s/^10\.9.*\n/10.09/;
@@ -40,8 +39,8 @@ unless( $ARGV[0] ){
        Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
    }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-  }else{ $re->{'CEL'} = 'opt/homebrew/Cellar';
-   unless( $ARGV[0] ){
+  }else{
+   unless( $ARGV[0] ){ $re->{'CEL'} = 'opt/homebrew/Cellar';
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
@@ -50,8 +49,8 @@ unless( $ARGV[0] ){
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
   }
  rmdir "$ENV{'HOME'}/.BREW_LIST/13";
-}else{ $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
- $re->{'LIN'} = 1;
+}else{ $re->{'LIN'} = 1;
+ $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
    $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc\t/{print \$2}'` : 0;
     $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
@@ -364,7 +363,8 @@ unless( $ARGV[0] ){
      while(<$cel>){
       unless( /\n/ ){
        my @HE = /{"full_name":"([^"]+)","version":"[^"]+"},?/g;
-        for my $ls1(@HE){ my %HA;
+       for my $ls1(@HE){ my %HA;
+        if( $tap{"${ls1}uses"} ){
          for(split '\t',$tap{"${ls1}uses"}){ $HA{$_}++; }
          unless( $HA{$name} ){
           if( $loop ){ return 1 if $ls1 eq $mine;
@@ -374,8 +374,10 @@ unless( $ARGV[0] ){
           }
          }
         }
+       }
       }else{ my %HA;
-       my( $ls2 ) = $_ =~ /"full_name":\s*"([^"]+)".+/ ? $1 : next;
+       my( $ls2 ) = /"full_name":\s*"([^"]+)".+/ ? $1 : next;
+       if( $tap{"${ls2}uses"} ){
         for(split '\t',$tap{"${ls2}uses"}){ $HA{$_}++; }
         unless( $HA{$name} ){
          if( $loop ){ return 1 if $ls2 eq $mine;
@@ -384,13 +386,13 @@ unless( $ARGV[0] ){
           $tap{"${name}deps"} .= "$ls2\t";
          }
         }
+       }
       }
      }
     close $cel;
    }
-  }0;
- }
-Glob_1;
+  } 0;
+ } Glob_1;
 }
 
  if( $re->{'MAC'} ){
