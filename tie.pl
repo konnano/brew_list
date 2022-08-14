@@ -32,15 +32,15 @@ unless( $ARGV[0] ){
              'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10',
              'mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
 
-  if( $CPU eq 'intel\?' ){
-   unless( $ARGV[0] ){
+  if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){
+   unless( $ARGV[0] ){ $re->{'CEL'} = '/usr/local/Cellar';
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
        Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
    }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-  }else{
+  }else{ $re->{'CEL'} = 'opt/homebrew/Cellar';
    unless( $ARGV[0] ){
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
@@ -50,7 +50,7 @@ unless( $ARGV[0] ){
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
   }
  rmdir "$ENV{'HOME'}/.BREW_LIST/13";
-}else{
+}else{ $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
  $re->{'LIN'} = 1;
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
    $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc\t/{print \$2}'` : 0;
@@ -147,9 +147,8 @@ unless( $ARGV[0] ){
             $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
           next;
        }elsif( ( $CIN == 1 or $CIN == 3 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-         unless( $tap{"$name$OS_Version2"} ){
-          $tap{"${data}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$data\t";
-         } next;
+          $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+           $tap{"${name}deps_b"} .= "$data\t"; next;
        }elsif( ( $CIN == 1 or $CIN == 3 ) and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
           $tap{"${data}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$data\t"; next;
@@ -258,40 +257,40 @@ unless( $ARGV[0] ){
      }elsif( my( $ds1,$ds2,$ds3 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
         if( $re->{'MAC'} and $ds2 =~ /^[<=>]+$/ and $ds3 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds2 $ds3" ){
-         unless( $tap{"$name$OS_Version2"} ){
-          $tap{"${ds1}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$ds1\t";
-         }
+         $tap{"${ds1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$ds1\t";
         }
      }elsif( my( $ds4,$ds5 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+Hardware::CPU\.([^\s]+)/ ){
-        if( $ds5 =~ /$CPU/ and not $tap{"$name$OS_Version2"} ){
-         $tap{"${ds4}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$ds4\t";
+        if( $ds5 =~ /$CPU/ ){
+         $tap{"${ds4}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$ds4\t";
         }
      }elsif( my( $us1,$us2 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+unless\s+Hardware::CPU\.([^\s]+)/ ){
-        if( $us2 !~ /$CPU/ and not $tap{"$name$OS_Version2"} ){
-         $tap{"${us1}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$us1\t";
+        if( $us2 !~ /$CPU/ ){
+         $tap{"${us1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$us1\t";
         }
      }elsif( my( $ds6,$ds7,$ds8 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
         if( $re->{'MAC'} and $ds7 =~ /^[<=>]+$/ and eval "$OS_Version $ds7 $MAC_OS{$ds8}" ){
-         unless( $tap{"$name$OS_Version2"} ){
-          $tap{"${ds6}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$ds6\t";
-         }
+         $tap{"${ds6}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$ds6\t";
         }
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
-       unless( $tap{"$name$OS_Version2"} ){
-        $tap{"${data}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$data\t";
-       }
+       $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+        $tap{"${name}deps_b"} .= "$data\t";
      }elsif( my( $us3,$us4 ) =
        $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+)/ ){
-        if( ( $re->{'LIN'} or $OS_Version < $MAC_OS{$us4} ) and not $tap{"$name$OS_Version2"} ){
-         $tap{"${us3}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$us3\t";
+        if( $re->{'LIN'} or $OS_Version < $MAC_OS{$us4} ){
+         $tap{"${us3}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$us3\t";
         }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
-       unless( $tap{"$name$OS_Version2"} ){
-        $tap{"${data}build"} .= "$name\t"; $tap{"${name}deps_b"} .= "$data\t";
-       }
+        $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+         $tap{"${name}deps_b"} .= "$data\t";
+
      }elsif( my( $us5,$us6 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+)/ ){
        if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$us6} ){
         $tap{"${us5}uses"} .= "$name\t";
@@ -355,12 +354,50 @@ unless( $ARGV[0] ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
  }
-}
- if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+ sub Glob_1{
+ my( $brew,$mine,$loop ) = @_;
+  my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
+  for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
+   if( -f "$_/INSTALL_RECEIPT.json" ){
+    open my $cel,"$_/INSTALL_RECEIPT.json" or die " GLOB $!\n";
+     while(<$cel>){
+      unless( /\n/ ){
+       my @HE = /{"full_name":"([^"]+)","version":"[^"]+"},?/g;
+        for my $ls1(@HE){ my %HA;
+         for(split '\t',$tap{"${ls1}uses"}){ $HA{$_}++; }
+         unless( $HA{$name} ){
+          if( $loop ){ return 1 if $ls1 eq $mine;
+          }else{ next if Glob_1( $ls1,$name,1 );
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }
+         }
+        }
+      }else{ my %HA;
+       my( $ls2 ) = $_ =~ /"full_name":\s*"([^"]+)".+/ ? $1 : next;
+        for(split '\t',$tap{"${ls2}uses"}){ $HA{$_}++; }
+        unless( $HA{$name} ){
+         if( $loop ){ return 1 if $ls2 eq $mine;
+         }else{ next if Glob_1( $ls2,$name,1 );
+          $tap{"${ls2}uses"} .= "$name\t";
+          $tap{"${name}deps"} .= "$ls2\t";
+         }
+        }
+      }
+     }
+    close $cel;
+   }
+  }0;
+ }
+Glob_1;
+}
+
+ if( $re->{'MAC'} ){
+ rmdir "$ENV{'HOME'}/.BREW_LIST/18";
  my( $IN,$in,$e ) = ( 0,int @CASK/2,0 );
   for my $dir2(@CASK){
-   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
+   rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
