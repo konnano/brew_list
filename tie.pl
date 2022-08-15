@@ -355,33 +355,35 @@ unless( $ARGV[0] ){
  }
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  sub Glob_1{
- my( $brew,$mine,$loop ) = @_;
+ my( $brew,$mine,$loop,$in ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
    if( -f "$_/INSTALL_RECEIPT.json" ){
     open my $cel,"$_/INSTALL_RECEIPT.json" or die " GLOB $!\n";
      while(<$cel>){
       unless( /\n/ ){
-       my @HE = /{"full_name":"([^"]+)","version":"[^"]+"},?/g;
+       my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1(@HE){ my %HA;
         if( $tap{"${ls1}uses"} ){
          for(split '\t',$tap{"${ls1}uses"}){ $HA{$_}++; }
-         unless( $HA{$name} ){
-          if( $loop ){ return 1 if $ls1 eq $mine;
-          }else{ next if Glob_1( $ls1,$name,1 );
-           $tap{"${ls1}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls1\t";
-          }
+        }
+        unless( $HA{$name} ){
+         if( $loop ){ return if $ls1 eq $mine;
+         }else{ next unless Glob_1( $ls1,$name,1 );
+          $tap{"${ls1}uses"} .= "$name\t";
+          $tap{"${name}deps"} .= "$ls1\t";
          }
         }
        }
       }else{ my %HA;
-       my( $ls2 ) = /"full_name":\s*"([^"]+)".+/ ? $1 : next;
-       if( $tap{"${ls2}uses"} ){
-        for(split '\t',$tap{"${ls2}uses"}){ $HA{$_}++; }
+       if( /runtime_dependencies/ or $in ){ $in = /]/ ? 0 : 1;
+        my( $ls2 ) = /"full_name":\s*"([^"]+)".*/ ? $1 : next;
+        if( $tap{"${ls2}uses"} ){
+         for(split '\t',$tap{"${ls2}uses"}){ $HA{$_}++; }
+        }
         unless( $HA{$name} ){
-         if( $loop ){ return 1 if $ls2 eq $mine;
-         }else{ next if Glob_1( $ls2,$name,1 );
+         if( $loop ){ return if $ls2 eq $mine;
+         }else{ next unless Glob_1( $ls2,$name,1 );
           $tap{"${ls2}uses"} .= "$name\t";
           $tap{"${name}deps"} .= "$ls2\t";
          }
@@ -391,7 +393,7 @@ unless( $ARGV[0] ){
      }
     close $cel;
    }
-  } 0;
+  }1;
  } Glob_1;
 }
 
