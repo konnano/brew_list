@@ -96,6 +96,7 @@ alfred	アプリケーションランチャーと生産性ソフトウェア
 algodoo	物理システムを描画して操作する
 alinof-timer	タイマーアプリ
 alipay-development-assistant	Alipayのオープンプラットフォーム開発アシスタント
+aliwangwang	ショッピングコミュニケーションツール
 aliworkbench	Merchantワークベンチ
 all-in-one-messenger	さまざまなメッセージングプラットフォーム用の複合インターフェイス
 alloy	ソフトウェアモデリングのためのプログラミング言語
@@ -2070,6 +2071,7 @@ michaelvillar-timer	タイマーアプリケーション
 micro-sniff	マイクのアクティビティを監視する
 micro-snitch	マイクとカメラのアクティビティを監視および報告します
 microblog	マイクロブログとソーシャルネットワーキングサービス
+micromamba	Mambaクロスプラットフォームパッケージマネージャーの小さなバージョン
 microsoft-auto-update	さまざまなMicrosoft製品の更新を提供します
 microsoft-azure-storage-explorer	AzureStorageのエクスプローラー
 microsoft-edge	Webブラウザー
@@ -2089,7 +2091,7 @@ midikeys	MidiKeys
 midistroke	midiStroke
 miditrail	MIDIデータセットの3D視覚化を提供するMIDIプレーヤー
 midiview	MIDI入力と出力を監視する
-mightymike	Pangea Software(別名Power Pete)のトップダウンアクションゲーム
+mighty-mike	Pangea Software(別名 Power Pete)のトップダウンアクションゲーム
 mikogo	Mikogo
 miktex-console	TeXディストリビューション
 milanote	アイデアやプロジェクトをビジュアルボードに整理します
@@ -2143,6 +2145,7 @@ mockplus	moc
 mockuuups-studio	デザイナーやマーケターがビジュアルをscenesにドラッグアンドドロップできるようにします
 modelio	拡張可能なモデリング環境
 modern-csv	CSVエディター
+moderndeck	素材に触発されたテーマを使用したTweetDeckの修正版
 modmove	装飾キーとマウスを使用してウィンドウを 移動/サイズ変更するユーティリティ
 moebius	ANSIエディター
 moefe-google-translate	MoeFE Google翻訳
@@ -2251,6 +2254,7 @@ name-mangler	複数ファイルの名前変更ツール
 namebench	DNSサーバーファインダー
 namechanger	ファイルのリストの名前をすばやく変更する
 nano	Nano暗号通貨のローカルノード
+nanoem	クロスプラットフォームMMD(MikuMikuDance)対応実装
 nanosaur	PangeaSoftwareのサイエンスフィクションサードパーソンシューティングゲーム
 nanostudio	NanoStudio
 nasas-eyes	NASA's Eyes
@@ -2619,6 +2623,7 @@ plasticscm-cloud-edition	PlasticSCMをLocalにインストールしCloud Edition
 platypus	コマンドラインスクリプトからネイティブアプリケーションを作成するためのツール
 play	Play
 playback	ビデオプレーヤー
+playcover-community	Sideload iOSアプリとゲーム
 playdate-simulator	ローカル開発用のドキュメントとシミュレータ PlaydateLua/CAPI
 playmemories-home	写真やビデオを管理および編集するフリーウェア
 playonmac	Windows用に設計されたソフトウェアのインストールと使用を許可します
@@ -3763,6 +3768,7 @@ vipriser	印刷可能な任意のアプリケーションからPDFを作成し�
 virtual-ii	仮想 ][
 virtualbox	x86ハードウェア用のバーチャライザー
 virtualbox-extension-pack	VirtualBoxの機能を拡張する
+virtualbuddy	仮想化ツール
 virtualc64	サイクル精度の高いC64エミュレーター
 virtualgl	境界のない3D
 virtualhere	ネットワーク経由でリモートでUSBデバイスを使用する
