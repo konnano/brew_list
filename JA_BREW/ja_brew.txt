@@ -5127,6 +5127,7 @@ sleuthkit	科学調査ツールキット
 slides	ターミナルベースの提示ツール
 slimerjs	Web開発者向けのスクリプト可能なブラウザ
 slirp4netns	非特権ネットワーク名前空間のユーザーモードネットワーク
+slither-analyzer	Python3で書かれたSolidity静的解析フレームワーク
 sloc	コードのソース行をカウントするためのシンプルなツール
 sloccount	多くの言語でコードの行を数える
 slowhttptest	アプリケーション層のサービス拒否攻撃をシミュレートします
