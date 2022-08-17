@@ -97,7 +97,8 @@ MAIN:{
     print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW'; exit;
   }elsif( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name->{'EN'} = 1; $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
-  }elsif( not $Locale ){ $name->{'EN'} = 1; }
+  }elsif( not $Locale ){ $name ? $name->{'EN'} = 1 : (not $name) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
+  }
   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
     File_1( $ref );
@@ -163,7 +164,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.10_7\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.10_8\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1102,7 +1103,7 @@ sub Format_1{
  my $re = shift;
  if( $re->{'TREE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
-  waitpid $re->{'PID2'},0 if $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
+  waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
   $re->{'ZEN'} = $re->{'ALL'} ? $re->{'ALL'} : $re->{'EXC'} ? $re->{'EXC'} : $re->{'KXC'} ? $re->{'KXC'} : 0;
   if( $re->{'CAS'} ){
     $re->{'ZEN'} = $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? 0 :
@@ -1123,8 +1124,8 @@ sub Format_1{
   if( $re->{'ZEN'} ){
    system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-     print" ==> Formula$re->{'SPA'}\n" if $re->{'LINK'} > 5 and $re->{'FOR'};
-     print" ==> Cask$re->{'SPA'}\n" if $re->{'LINK'} > 5 and $re->{'CAS'};
+     print" ==> Formula$re->{'SPA'}\n" if $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'FOR'};
+     print" ==> Cask$re->{'SPA'}\n" if $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'CAS'};
      print $re->{'ZEN'};
      $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
      $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
