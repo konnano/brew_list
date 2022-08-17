@@ -529,6 +529,7 @@ chrome-devtools	Chrome DevTools
 chrome-remote-desktop-host	Google Chromeブラウザーを介して別のコンピュータにリモートアクセスする
 chromedriver	Google Chrome用のWebアプリの自動テスト
 chromium	FreeのオープンソースWebブラウザー
+chromium-gost	Chromium-Gost
 chronicle	パーソナルファイナンスマネージャー
 chronoagent	ChronoSyncのリモートファイル共有
 chronos	JIRAおよびTrello用のデスクトップクライアント
@@ -1119,7 +1120,6 @@ flock	ビジネスメッセージングおよびチーム協力的アプリ
 flomo	メモ取りと管理アプリ
 flotato	任意のWebページをデスクトップアプリに変えるツール
 flow	Flow
-flowdock	Flowdock
 flowsync	Polar Flow製品用の同期ソフトウェア
 flrig	アマチュア無線リグ制御
 fluent-reader	RSS/Atom ニュース収集
@@ -1437,6 +1437,7 @@ hp-eprint	モバイル印刷ソリューション
 hp-prime	グラフ電卓エミュレータ
 hstracker	Hearthstoneのデッキ監視およびデッキマネージャー
 http-toolkit	HTTP（S）デバッグプロキシ/分析/クライアント
+httpie	デスクトップ用HTTPie
 hubstaff	作業時間監視
 hue-topia	Philips Hue電球の手動制御
 hugin	パノラマ写真スティッチャー
@@ -2820,6 +2821,7 @@ qqlive	Tencentビデオストリーミングおよび共有プラットフォー
 qqmacmgr	Tencent Computer Manager 
 qqmusic	中国の音楽ストリーミングアプリケーション
 qr-journal	iSight(または互換性のある)カメラを使用しているユーザーがQRコードを読み取れるようにします
+qspace-pro	QSpaceプロ
 qsync-client	自動ファイル同期
 qsyncthingtray	Syncthingのトレイアプリ
 qt-creator	アプリケーション開発のためのIDE
@@ -3565,6 +3567,7 @@ tinymediamanager	メディア管理ツール
 tinypng4mac	TinyPNGクライアント
 tip	任意のアプリで使用できるプログラム可能なツールチップ
 tipp10	フリータッチタイピングチューター
+tl-legacy	TLレガシー
 tla-plus-toolbox	TLA+用のIDE
 tlv	Tableau Log Viewer
 tmpdisk	TmpDisk
@@ -3631,6 +3634,7 @@ trivial	多くのプロトコルをサポートするシンプルなファイル
 trojanx	グレートファイアウォールをバイパスするメカニズム
 trolcommander	muCommanderファイルマネージャーのフォーク
 tropy	研究写真管理
+trunk-io	Trunkランチャー
 ttscoff-mmd-quicklook	MMD-QuickLook
 tuck	ウィンドウマネージャー
 tunein	Freeのインターネットラジオ
