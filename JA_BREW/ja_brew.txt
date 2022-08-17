@@ -1269,6 +1269,7 @@ dropbear	POSIXベースのシステム用の小さなSSH サーバー/クライ�
 dropbox-uploader	Dropboxと対話するためのBashスクリプト
 druid	高性能で列指向の分散データstore
 dscanner	分析(例：Dコードのスタイルと構文)
+dsda-doom	スピードランニングに重点を置いたprboom+のフォーク
 dsh	Dancerのシェル、または分散シェル
 dsocks	*BSD/MacOS のSOCKSクライアントラッパー
 dspdfviewer	ラテックスビーマー用のデュアルスクリーンPDF Viewer
