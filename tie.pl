@@ -79,10 +79,9 @@ unless( $ARGV[0] ){
  } my( $in,$e ) = int @BREW/4;
  for my $dir1(@BREW){
   if( $re->{'MAC'} ){ $e++;
-   if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
-   }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
-   }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16";
-   }
+   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" :
+   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/16" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -359,9 +358,10 @@ unless( $ARGV[0] ){
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
    if( -f "$_/INSTALL_RECEIPT.json" ){
-    open my $cel,"$_/INSTALL_RECEIPT.json" or die " GLOB $!\n";
-     while(<$cel>){
-      unless( /\n/ ){
+    open my $CEL,'<',"$_/INSTALL_RECEIPT.json" or die " GLOB $!\n";
+     while(<$CEL>){
+      unless( /\n/ or /^}$/ ){
+       s/.+"runtime_dependencies":\[([^]]*)].+/$1/;
        my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1(@HE){ my %HA;
         if( $tap{"${ls1}uses"} ){
@@ -391,7 +391,7 @@ unless( $ARGV[0] ){
        }
       }
      }
-    close $cel;
+    close $CEL;
    }
   }1;
  } Glob_1;
