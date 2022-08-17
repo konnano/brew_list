@@ -88,7 +88,7 @@ MAIN:{
     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
  }
    die " \033[31mNot installed HOME BREW\033[00m\n" unless -d $re->{'CEL'};
-   $Locale = 1 if `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
+   $Locale = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
   if( $re->{'JA'} ){
    die " \033[31mNot connected\033[00m\n"
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -136,16 +136,15 @@ my( $name,$re,$ref ) = @_;
  if( $re->{'LIN'} ){
   Init_1( $re ); Format_1( $re );
  }elsif( not $name or $re->{'S_OPT'} ){
-  my $pid = fork;
-  die " Not fork : $!\n" unless defined $pid;
-   if($pid){
-    $ref->{'PID'} = $pid;
+  $ref->{'PID'} = fork;
+  die " Not fork : $!\n" unless defined $ref->{'PID'};
+   if( $ref->{'PID'} ){
     Init_1( $ref );
    }else{
     Init_1( $re );
    }
-   if($pid){
-    waitpid($pid,0);
+   if( $ref->{'PID'} ){
+    waitpid $ref->{'PID'},0;
     Format_1( $ref );
    }else{
     Format_1( $re ); exit;
@@ -155,7 +154,16 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
- die " Enhanced brew list : version 1.10_6\n   Option\n  -new\t:  creat new cache
+ my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_JP/;
+  my $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
+ "\n  # English display in Japanese version is argument EN
+  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
+  ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
+ "\n  # Japanese Language -JA option
+  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
+ "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
+
+ die " Enhanced brew list : version 1.10_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -172,10 +180,7 @@ sub Died_1{
   -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
   -ci\t:  instaled cask list\n  -cx\t:  can't install cask list\n  -cs\t:  some name cask and formula
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( not argument or argument 1,2 )
-
-  # Japanese Language -JA option
-  # English display in Japanese version is argument EN
-  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n\n";
+  $Lang";
 }
 
 sub Init_1{
@@ -253,7 +258,7 @@ sub Size_1{ no warnings 'numeric';
    $pid = fork;
     die " IS Not fork : $!\n" unless defined $pid;
   }
-  unless( $pid or @data ){ Wait_1( $re );
+  unless( $pid or @data ){ Wait_1( $re,1 );
   }else{
    my @AN = @data ? @data : @$list;
     @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@AN);
@@ -266,13 +271,13 @@ sub Size_1{ no warnings 'numeric';
      while(<$FH>){ chomp;
       $HA{$_} = 1;
      } close $FH;
-     if( $? ){ waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT"; die " can't open process\n"; }
+     if( $? ){ waitpid $pid,0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process\n"; }
    }else{
     for(my $i=$in;$i<@AN;$i++){
       chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
        print "$du\t$AN[$i]\n";
     } exit;
-   } waitpid($pid,0) if rmdir "$re->{'HOME'}/WAIT";
+   } waitpid $pid,0 if not @data and rmdir "$re->{'HOME'}/WAIT";
   }
   for(sort{$b <=> $a} keys %HA){ my $utime; $c++;
    my( $cou,$name ) = split '\t';
@@ -309,42 +314,40 @@ sub Doc_1{
 }
 
 sub Wait_1{
-my( $re,$pid ) = @_;
+my( $re,$loop,$pid ) = @_;
  mkdir $re->{'HOME'};
  mkdir "$re->{'HOME'}/WAIT";
   my( $not,$dok,@ten ) = Doc_1;
-  unless( $re->{'IS'} ){
+  unless( $loop ){
    $pid = fork;
     die " Wait Not fork : $!\n" unless defined $pid;
   }
-  if( $pid or $re->{'IS'} ){
-   if( $re->{'IS'} or $re->{'TEN'} or not -d "$re->{'HOME'}/LOCK" ){
-    if( -t STDOUT ){
-     print STDERR "\x1B[?25l";
-     if( $^O eq 'linux' or $re->{'TEN'} or $re->{'IS'} ){ my $i = 0;
-      my $name = $re->{'IS'} ? 'Please wait' : 'Makes new cache';
-       while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
-        -d "$re->{'HOME'}/WAIT" ?
-         print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : $name" : last;
-          $i++; system 'sleep 0.1';
-       }
-     }else{ my $i = 0; my $ma = '';
-       while(1){
-       printf STDERR "\r '\033[33m%-20s\033[00m' [%2d/20]",$ma,$i;
-        last unless -d "$re->{'HOME'}/WAIT";
-         if( -d "$re->{'HOME'}/$i" ){
-          while(1){
-           last unless -d "$re->{'HOME'}/$i";
-          } $i++; $ma .= '#';
-         }
-       }
-     }
-     unless( $re->{'IS'} ){
-      waitpid($pid,0);
-      ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
-        $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? (print "\x1B[?25h$dok" and exit) : die "\x1B[?25h$not";
-     }else{ print "\r\x1B[?25h"; }
+  if( $pid or $loop ){
+   if( ( $loop or not -d "$re->{'HOME'}/LOCK" ) and -t STDOUT ){
+    print STDERR "\x1B[?25l";
+    if( $^O eq 'linux' or $loop ){ my $i = 0;
+     my $name = $loop ? 'Please wait' : 'Makes new cache';
+      while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
+       -d "$re->{'HOME'}/WAIT" ?
+        print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : $name" : last;
+         $i++; system 'sleep 0.1';
+      }
+    }else{ my $i = 0; my $ma = '';
+      while(1){
+      printf STDERR "\r '\033[33m%-20s\033[00m' [%2d/20]",$ma,$i;
+       last unless -d "$re->{'HOME'}/WAIT";
+        if( -d "$re->{'HOME'}/$i" ){
+         while(1){
+          last unless -d "$re->{'HOME'}/$i";
+         } $i++; $ma .= '#';
+        }
+      }
     }
+    unless( $loop ){
+     waitpid $pid,0;
+     ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
+       $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? (print "\x1B[?25h$dok" and exit) : die "\x1B[?25h$not";
+    }else{ print "\r\x1B[?25h"; }
    } exit;
   }else{
    Tied_1( $re ) unless -d "$re->{'HOME'}/LOCK";
@@ -490,38 +493,46 @@ my( $re,$tap,$HA,$AN ) = @_;
 
 sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
+ $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
  print" \033[33mexists Formula and Cask...\033[00m\n" if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
- waitpid($re->{'PID'},0) if $re->{'PID'} and not $re->{'DMG'}{$re->{'INF'}};
- exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
+  waitpid $re->{'PID'},0 if $re->{'PID'} and not $re->{'DMG'}{$re->{'INF'}};
+   exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
    $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
     $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
+
  unless( @an ){ @AN = %HA = ();
-  Info_1( $re,0,'',\@AN,\%HA );
-   my @list1 = sort @AN;
-  for my $brew(@list1){
-   exit unless ref $re->{$brew};
-    my @list2 = sort @{$re->{$brew}};
-    my $i = 0; my $e = 0;
-    for(;$i<@list2;$i++){ my $flag;
-     next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
-      for(;$e<@list1;$e++){
-       last if $list1[$e] eq $list2[$i];
-       ++$flag and last if $list1[$e] gt $list2[$i];
-      }
-      ++$flag if $list1[$#list1] lt $list2[$i];
-     last if $flag;
-    }
-   $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
-  }
-  if( $re->{'LINK'} and $do ){
-   $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
-    $re->{'LIST'} = 1;
-     waitpid($re->{'PID'},0) if $re->{'PID'};
-      Fork_1( $re );
-  }elsif( $do ){
-   $re->{'COLOR'} = $re->{'TREE'} = $re->{'DEL'} = 2;
-    Fork_1( $re ) unless @an;
+ $re->{'PID2'} = fork;
+  die " Not fork : $!\n" unless defined $re->{'PID2'};
+  unless( $re->{'PID2'} ){ Wait_1( $re,1 );
+  }else{
+   Info_1( $re,0,'',\@AN,\%HA );
+    my @list1 = sort @AN;
+   for my $brew(@list1){
+    exit unless ref $re->{$brew};
+     my @list2 = sort @{$re->{$brew}};
+     my $i = 0; my $e = 0;
+     for(;$i<@list2;$i++){ my $flag;
+      next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
+       for(;$e<@list1;$e++){
+        last if $list1[$e] eq $list2[$i];
+        ++$flag and last if $list1[$e] gt $list2[$i];
+       }
+       ++$flag if $list1[$#list1] lt $list2[$i];
+      last if $flag;
+     }
+    $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
+   } sleep 1 unless @AN;
+    waitpid $re->{'PID2'},0 if not $do and rmdir "$re->{'HOME'}/WAIT";
+   if( $re->{'LINK'} and $do ){
+    $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
+     $re->{'LIST'} = 1;
+      waitpid $re->{'PID'},0 if $re->{'PID'};
+       Fork_1( $re );
+   }elsif( $do ){
+    $re->{'COLOR'} = $re->{'TREE'} = $re->{'DEL'} = 2;
+     Fork_1( $re ) unless @an;
+   }
   }
  }
  Nohup_1( $re );
@@ -638,10 +649,8 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
    if $re->{'COLOR'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
  $re->{"deps$$brew"} +=
-   ( $re->{'TREE'} and $build ) ?
-    push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
-   ( $re->{'TREE'} ) ?
-    push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
+  ( $re->{'TREE'} and $build ) ? push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
+  ( $re->{'TREE'} ) ? push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
   $re->{"$re->{'INF'}deps"} .= "$$brew\t"
    if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
@@ -758,11 +767,11 @@ my( $ls1,$ls2 ) = @_;
   for(;$i<@ls2;$i++){
    if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
      if( $ls1[$i] gt $ls2[$i] ){ return 1;
-     }elsif( $ls1[$i] lt $ls2[$i] ){ return 0;
+     }elsif( $ls1[$i] lt $ls2[$i] ){ return;
      }
    }else{
      if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
-     }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return 0;
+     }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
      }
    }
   }
@@ -1093,6 +1102,7 @@ sub Format_1{
  my $re = shift;
  if( $re->{'TREE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
+  waitpid $re->{'PID2'},0 if $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
   $re->{'ZEN'} = $re->{'ALL'} ? $re->{'ALL'} : $re->{'EXC'} ? $re->{'EXC'} : $re->{'KXC'} ? $re->{'KXC'} : 0;
   if( $re->{'CAS'} ){
     $re->{'ZEN'} = $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? 0 :
@@ -1113,6 +1123,8 @@ sub Format_1{
   if( $re->{'ZEN'} ){
    system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
+     print" ==> Formula$re->{'SPA'}\n" if $re->{'LINK'} > 5 and $re->{'FOR'};
+     print" ==> Cask$re->{'SPA'}\n" if $re->{'LINK'} > 5 and $re->{'CAS'};
      print $re->{'ZEN'};
      $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
      $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
@@ -1233,7 +1245,8 @@ my $re = shift;
     ${$re->{'UNI'}}[$p] = $plus;
    }
   }
-  print"$re->{'INF'}\n" if @{$re->{'UNI'}};
+  waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
+  print"$re->{'INF'}",$re->{'SPA'}x2,"\n" if @{$re->{'UNI'}};
   if( not $re->{'DD'} or -t STDOUT ){
    for(@{$re->{'UNI'}}){ s/#/ /g; print; }
   }
@@ -1720,10 +1733,9 @@ unless( $ARGV[0] ){
  } my( $in,$e ) = int @BREW/4;
  for my $dir1(@BREW){
   if( $re->{'MAC'} ){ $e++;
-   if( $e == $in ){ rmdir "$ENV{'HOME'}/.BREW_LIST/14";
-   }elsif( $e == $in*2 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/15";
-   }elsif( $e == $in*3 ){ rmdir "$ENV{'HOME'}/.BREW_LIST/16";
-   }
+   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" :
+   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/16" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -2000,9 +2012,10 @@ unless( $ARGV[0] ){
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
    if( -f "$_/INSTALL_RECEIPT.json" ){
-    open my $cel,"$_/INSTALL_RECEIPT.json" or die " GLOB $!\n";
-     while(<$cel>){
-      unless( /\n/ ){
+    open my $CEL,'<',"$_/INSTALL_RECEIPT.json" or die " GLOB $!\n";
+     while(<$CEL>){
+      unless( /\n/ or /^}$/ ){
+       s/.+"runtime_dependencies":\[([^]]*)].+/$1/;
        my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1(@HE){ my %HA;
         if( $tap{"${ls1}uses"} ){
@@ -2032,7 +2045,7 @@ unless( $ARGV[0] ){
        }
       }
      }
-    close $cel;
+    close $CEL;
    }
   }1;
  } Glob_1;
