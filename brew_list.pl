@@ -92,12 +92,14 @@ MAIN:{
   if( $re->{'JA'} ){
    die " \033[31mNot connected\033[00m\n"
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
-   die " Not Locale\n" unless $Locale;
+   die " Not UTF-8 Locale\n" unless $Locale;
     -d "$ENV{'HOME'}/.JA_BREW" ?
     print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW'; exit;
   }elsif( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
-   $name->{'EN'} = 1; $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
-  }elsif( not $Locale ){ $name ? $name->{'EN'} = 1 : (not $name) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
+   $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
+    $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
+  }elsif( not $Locale ){
+   $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
   }
   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
@@ -109,7 +111,7 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
-   $name->{'KEN'} = 1 if $AR[2] and $AR[2] eq '.' and not $re->{'S_OPT'};
+   $name->{'KEN'} = 1 if $name and $AR[2] and $AR[2] eq '.';
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
@@ -121,7 +123,7 @@ MAIN:{
   }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = $AR[1];
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and $name and ( $name->{'LIST'} or $name->{'ANA'} ) ){
    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
-    $name->{'L_OPT'} = ( $name->{'KEN'} and $Locale ) ? decode 'utf-8',$re->{'STDI'} :
+    $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
   }elsif( $re->{'USE'} ){
@@ -137,15 +139,16 @@ my( $name,$re,$ref ) = @_;
  if( $re->{'LIN'} ){
   Init_1( $re ); Format_1( $re );
  }elsif( not $name or $re->{'S_OPT'} ){
-  $ref->{'PID'} = fork;
-  die " Not fork : $!\n" unless defined $ref->{'PID'};
-   if( $ref->{'PID'} ){
+  my $pid = fork;
+  die " Not fork : $!\n" unless defined $pid;
+   if( $pid ){
+    $ref->{'PID'} = $pid;
     Init_1( $ref );
    }else{
     Init_1( $re );
    }
-   if( $ref->{'PID'} ){
-    waitpid $ref->{'PID'},0;
+   if( $pid ){
+    waitpid $pid,0;
     Format_1( $ref );
    }else{
     Format_1( $re ); exit;
@@ -164,7 +167,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.10_8\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.10_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -370,7 +373,7 @@ my $re = shift;
   closedir $dir;
  }
  if( $re->{'CAS'} or $re->{'CELS'} ){
-  my $mem = $re->{'CEL'} and $re->{'CEL'} = $re->{'CELS'} if $re->{'CELS'};
+  my $mem = $re->{'CEL'}, $re->{'CEL'} = $re->{'CELS'} if $re->{'CELS'};
   my $dirs = Dirs_1( $re->{'CEL'},3 );
   for(my $in=0;$in<@$dirs;$in++){
    if( $$dirs[$in] and -d "$re->{'CEL'}/$$dirs[$in]/.metadata" ){
@@ -503,9 +506,11 @@ my( $re,@AN,%HA,@an,$do ) = @_;
     $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
 
  unless( @an ){ @AN = %HA = ();
- $re->{'PID2'} = fork;
-  die " Not fork : $!\n" unless defined $re->{'PID2'};
-  unless( $re->{'PID2'} ){ Wait_1( $re,1 );
+  unless( $re->{'CAS'} and $re->{'LINK'} ){
+  $re->{'PID2'} = fork;
+   die " Not fork : $!\n" unless defined $re->{'PID2'};
+  }
+  unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
   }else{
    Info_1( $re,0,'',\@AN,\%HA );
     my @list1 = sort @AN;
@@ -517,9 +522,9 @@ my( $re,@AN,%HA,@an,$do ) = @_;
       next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
        for(;$e<@list1;$e++){
         last if $list1[$e] eq $list2[$i];
-        ++$flag and last if $list1[$e] gt $list2[$i];
+        $flag++, last if $list1[$e] gt $list2[$i];
        }
-       ++$flag if $list1[$#list1] lt $list2[$i];
+       $flag++ if $list1[$#list1] lt $list2[$i];
       last if $flag;
      }
     $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
@@ -651,7 +656,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 
  $re->{"deps$$brew"} +=
   ( $re->{'TREE'} and $build ) ? push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
-  ( $re->{'TREE'} ) ? push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
+    $re->{'TREE'} ? push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
  push @$AN,$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
   $re->{"$re->{'INF'}deps"} .= "$$brew\t"
    if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
@@ -747,7 +752,7 @@ my( $re,$mem,$dir ) = @_;
      if( $re->{'KEN'} and $re->{'L_OPT'} ){
       my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
       my( $brew ) = split '\t',$mee;
-      my $name = $Locale ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
+      my $name = -d "$ENV{'HOME'}/.JA_BREW" ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
        if( $mee =~ /^ ==>/ or $mee =~ s/(\Q$name\E)/\033[33m$1\033[00m/ig ){
            $mee =~ s/\033\[33m|\033\[00m//g unless -t STDOUT;
           $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
@@ -920,7 +925,7 @@ my( $list,$file,$in,$re ) = @_;
      push @{$tap[0]},$_ if s/^homebrew-cask-fonts\n(.+)/$1/;
   } my( $i,$flag1,$flag2 ); my $e = 0;
   for my $tap( @tap ){ $i++;
-   ++$flag2 and $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if @$tap and $re->{'ALL'} and not $flag2;
+   $flag2++, $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if @$tap and $re->{'ALL'} and not $flag2;
    $i++ unless @$tap;
    for(@$tap){
     if( $i == 1 ){ $i++;
@@ -1002,7 +1007,7 @@ my( $list,$re,$in ) = @_;
      if( $brew and not @{$re->{'ARY'}} ){
       Memo_1( $re,$mem );
        $re->{'AN'}++; $re->{'IN'}++;
-      ++$re->{'BN'} and ++$re->{'CN'} if $mem;
+      $re->{'BN'}++, $re->{'CN'}++ if $mem;
      }
   }else{
     Memo_1( $re,$mem,$tap );
@@ -1212,7 +1217,7 @@ my $re = shift;
      $bn[$#bn] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
       push @{$SC[$#bn-1]},$bn[$#bn] : push @{$SC[$#bn-1]},0;
    }
-   s/\|/│/g and s/│--/├──/g if $Locale;
+   s/\|/│/g, s/│--/├──/g if $Locale;
    my @an = split '\\s{3}';
   $cou = @an if $cou < @an;
  }
@@ -1348,7 +1353,7 @@ my $re = shift;
 sub Tied_1{
 my( $re,$i,@file1,@file2 ) = @_;
  while(my $tap = <DATA>){
-  ++$i and next if $tap =~ /^__TIE__$/;
+  $i++, next if $tap =~ /^__TIE__$/;
    $i ? push @file2,$tap : push @file1,$tap;
  }
  open my $file1,'>',"$re->{'HOME'}/font.sh" or die " Tied1 $!\n";
