@@ -167,7 +167,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_0\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1937,10 +1937,10 @@ unless( $ARGV[0] ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  for(@{$re->{'OS'}}){
   my( $name,$data,$ls ) = split ',';
-  if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
+  if( $re->{'MAC'} and not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
    $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
     $tap{"${name}deps_b"} .= "$data\t";
-  }elsif( $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
+  }elsif( $re->{'MAC'} and $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
    Uses_1( $name,\%HA );
   }
  }
