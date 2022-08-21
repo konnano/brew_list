@@ -3,10 +3,10 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my( $IN,$CIN,$KIN,$VER ) = ( 0,0,0,0 );
+my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 chomp( my $UNAME = `uname -m` );
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK,@ALIA );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -63,7 +63,7 @@ sub Dirs_1{
 my( $dir,$ls,$cask ) = @_;
  for(glob "$dir/*"){
   next if $ls and m[/homebrew$|/homebrew-core$|/homebrew-cask$|/homebrew-bundle$|/homebrew-services$];
-   ( -d ) ? Dirs_1( $_,$ls,$cask ) : ( -l ) ? push @ALIA,$_ :
+   ( -d ) ? Dirs_1( $_,$ls,$cask ) : ( -l ) ? push @{$re->{'ALIA'}},$_ :
    ( /\.rb$/ and $cask ) ? push @CASK,$_ : ( /\.rb$/ ) ? push @BREW,$_ : 0;
  }
 }
@@ -71,7 +71,7 @@ my( $dir,$ls,$cask ) = @_;
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
 tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
- for my $alias(@ALIA){
+ for my $alias(@{$re->{'ALIA'}}){
   my $hand = readlink $alias;
   $alias =~ s|.+/(.+)|$1|;
    $hand =~ s|.+/(.+)\.rb|$1|;
@@ -119,99 +119,29 @@ unless( $ARGV[0] ){
     if( $re->{'MAC'} ){
       if( $data =~ /^\s*on_linux\s*do/ ){ $IN = 1; next;
       }elsif( $data !~ /^\s*end/ and $IN == 1 ){ next;
-      }elsif( $data =~ /^\s*end/ and $IN == 1){ $IN = 0; next;
+      }elsif( $data =~ /^\s*end/ and $IN == 1 ){ $IN = 0; next;
       }
     }else{
-      if( $data =~ /^\s*on_macos\s+do/ ){ $IN = 1; next;
-      }elsif( $data !~ /^\s*end/ and $IN == 1  ){ next;
-      }elsif( $data =~ /^\s*end/ and $IN == 1){ $IN = 0; next;
-      }elsif( $data =~ /^\s*on_linux\s*do/ ){ $IN = 2; next;
-      }elsif( $data =~ /^\s*keg_only/ and $IN == 2 ){
-        $tap{"${name}keg_Linux"} = 1; next;
-      }elsif( $data =~ /^\s*end/ and $IN == 2){ $IN = 0; next;
+      if( $data =~ /^(\s*)on_macos\s+do/ ){
+       ( $SPA ) = $data =~ /(.+)on_macos\s+do/;
+        $IN = 2; next;
+      }elsif( $data !~ /^${SPA}end/ and $IN == 2 ){ next;
+      }elsif( $data =~ /^${SPA}end/ and $IN == 2 ){ $IN = 0; next;
       }
     }
      if( $data =~ /^\s*head do/ ){ $IN = 3; next;
      }elsif( $data !~ /^\s*end/ and $IN == 3 ){ next;
-     }elsif( $data =~ /^\s*end/ and $IN == 3){ $IN = 0; next;
+     }elsif( $data =~ /^\s*end/ and $IN == 3 ){ $IN = 0; next;
      }
-
-     if( $CIN or $data =~ /^\s*if\s+Hardware::CPU/ ){
-       $CIN = $data =~ /$CPU/ ? 1 : 2 unless $CIN;
-       if(($CIN == 1 or $CIN == 3) and $re->{'MAC'} and
-           $data =~ s/^\s*depends_on\s+xcode:\s*.*"([^"]+)".*\n/$1/ ){
-          $data =~ s/^(\d\.)/0$1/;
-           $tap{"${name}un_xcode"} = 1 if $data gt $Xcode;
-            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-          next;
-       }elsif( ( $CIN == 1 or $CIN == 3 ) and $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>.+:build.*\n/$1/ ){
-          $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-           $tap{"${name}deps_b"} .= "$data\t"; next;
-       }elsif( ( $CIN == 1 or $CIN == 3 ) and $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
-          $tap{"${data}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$data\t"; next;
-       }elsif( $CIN == 1 and $data =~ /^\s*else/ ){
-          $CIN = 4; next;
-       }elsif( $CIN == 2 and $data =~ /^\s*else/ ){
-          $CIN = 3; next;
-       }elsif( $data =~ /^\s*end/ ){
-          $CIN = 0; next;
-       }elsif( $data !~ /^\s*else/ ){
-          next;
-       }
+     if( $data =~ /^\s*on_intel\s+do/ and $UNAME =~ /arm64/ or
+          $data =~ /^\s*on_arm\s+do/ and $UNAME =~ /x86_64/ ){ $IN = 4; next;
+     }elsif( $data !~ /^\s*end/ and $IN == 4 ){ next;
+     }elsif( $data =~ /^\s*end/ and $IN == 4 ){ $IN = 0; next;
      }
-
-     if( $VER or my( $co1,$co2 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-      $VER = $re->{'LIN'} ? 2 : ( $co1 =~ /^[<=>]+$/ and eval "$OS_Version $co1 $MAC_OS{$co2}" ) ? 1 : 2 unless $VER;
-       if(($VER == 1 or $VER == 3) and $data =~ s/\s*depends_on\s+"([^"]+)".*\n/$1/ ){
-          $tap{"${data}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$data\t"; next;
-   #    }elsif(($VER==1 or $VER==3) and $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)".*\n/$1/){
-   #       $tap{"${data}uses"} .= "$name\t";
-   #        $tap{"${name}deps"} .= "$data\t"; next;
-       }elsif( $VER == 1 and $data =~ /^\s*else/ ){
-          $VER = 4; next;
-       }elsif( $VER == 2 and $data =~ /^\s*else/ ){
-          $VER = 3; next;
-       }elsif( $data =~ /^\s*end/ ){
-          $VER = 0; next;
-       }elsif( $data !~ /^\s*else/ ){
-          next;
-       }
-     }
-
       if( my( $ls1,$ls2 ) =
         $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([^"]+)"/ ){
          if( $re->{'MAC'} and
              not $Xcode and $ls1 =~ /^[<=>]+$/ and $ls2 =~ /^\d+\.\d+$/ and eval "$re->{'CLT'} $ls1 $ls2" ){
-          $tap{"${name}un_xcode"} = 1;
-           $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-         }elsif( $re->{'LIN'} ){
-          $tap{"${name}un_Linux"} = 1;
-           $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
-         } next;
-      }elsif( my( $ls3,$ls4 ) =
-        $data =~ /^\s*depends_on\s+xcode:.+:build.+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-         if( $re->{'MAC'} and $ls3 =~ /^[<=>]+$/ and eval "$OS_Version $ls3 $MAC_OS{$ls4}" and not $Xcode ){
-          $tap{"${name}un_xcode"} = 1;
-           $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-         }elsif( $re->{'LIN'} ){
-          $tap{"${name}un_Linux"} = 1;
-           $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
-         } next;
-      }elsif( my( $ls5,$ls6,$ls7 ) =
-        $data =~ /^\s*depends_on\s+xcode:\s*"([^"]+)"\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-         $data =~ s/^(\d\.)/0$1/;
-         if( $re->{'MAC'} and $ls6 =~ /^[<=>]+$/ and eval "$OS_Version $ls6 $MAC_OS{$ls7}" and $ls5 gt $Xcode ){
-         $ls5 =~ s/^(\d\.)/0$1/;
-          $tap{"${name}un_xcode"} = 1;
-           $tap{"$name$OS_Version2"} = 0;
-         }elsif( $re->{'LIN'} ){
-          $tap{"${name}un_Linux"} = 1;
-           $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
-         } next;
-      }elsif( $data =~ s/^\s*depends_on\s+xcode:\s+:build\s+if\s+Hardware::CPU\.([^\s]+).*\n/$1/ ){
-         if( $re->{'MAC'} and $data =~ /$CPU/ and not $Xcode ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          }elsif( $re->{'LIN'} ){
@@ -252,72 +182,62 @@ unless( $ARGV[0] ){
 
      if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
          next;
-     }elsif( my( $ds1,$ds2,$ds3 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
-        if( $re->{'MAC'} and $ds2 =~ /^[<=>]+$/ and $ds3 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds2 $ds3" ){
-         $tap{"${ds1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$ds1\t";
+     }elsif( $re->{'MAC'} and my( $ds,$ds1,$ds2,$ds3 ) =
+       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+).+CPU\.([^\s]+)/ ){
+        if( $ds1 =~ /^[<=>]+$/ and $ds2 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds1 $ds2" and $CPU eq $ds3 ){
+         $tap{"${ds}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$ds\t";
         }
-     }elsif( my( $ds4,$ds5 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+Hardware::CPU\.([^\s]+)/ ){
-        if( $ds5 =~ /$CPU/ ){
+     }elsif( $re->{'MAC'} and my( $ds4,$ds5,$ds6 ) =
+       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
+        if( $ds5 =~ /^[<=>]+$/ and $ds6 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds5 $ds6" ){
          $tap{"${ds4}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
           $tap{"${name}deps_b"} .= "$ds4\t";
         }
-     }elsif( my( $us1,$us2 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+unless\s+Hardware::CPU\.([^\s]+)/ ){
-        if( $us2 !~ /$CPU/ ){
-         $tap{"${us1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$us1\t";
+     }elsif( $re->{'MAC'} and my( $ds7,$ds8,$ds9 ) =
+       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
+        if( $ds8 =~ /^[<=>]+$/ and $ds9 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds8 $ds9" ){
+         $tap{"${ds7}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$ds7\t";
         }
-     }elsif( my( $ds6,$ds7,$ds8 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-        if( $re->{'MAC'} and $ds7 =~ /^[<=>]+$/ and eval "$OS_Version $ds7 $MAC_OS{$ds8}" ){
-         $tap{"${ds6}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$ds6\t";
-        }
+     }elsif( $re->{'MAC'} and $data =~ s/^\s*depends_on\s+"([^"]+)".+MacOS\.version\.outdated_release\?\n/$1/ ){
+       push @{$re->{'OS'}},"$name,$data";
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
        $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
         $tap{"${name}deps_b"} .= "$data\t";
-     }elsif( my( $us3,$us4 ) =
+     }elsif( my( $us1,$us2 ) =
        $data =~ /^\s*uses_from_macos\s+"([^"]+)"\s+=>.+:build,\s+since:\s+:([^\s]+)/ ){
-        if( $re->{'LIN'} or $OS_Version < $MAC_OS{$us4} ){
-         $tap{"${us3}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$us3\t";
+        if( $re->{'LIN'} or $OS_Version < $MAC_OS{$us2} ){
+         $tap{"${us1}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+          $tap{"${name}deps_b"} .= "$us1\t";
         }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
         $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
          $tap{"${name}deps_b"} .= "$data\t";
-
-     }elsif( my( $us5,$us6 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+)/ ){
-       if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$us6} ){
-        $tap{"${us5}uses"} .= "$name\t";
-         $tap{"${name}deps"} .= "$us5\t";
+     }elsif( my( $us3,$us4 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+)/ ){
+       if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$us4} ){
+        $tap{"${us3}uses"} .= "$name\t";
+         $tap{"${name}deps"} .= "$us3\t";
        }
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"(?!.+:test).*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
-     }elsif( my( $ls1,$ls2,$ls3 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
-        if( $re->{'MAC'} and $ls2 =~ /^[<=>]+$/ and eval "$OS_Version $ls2 $MAC_OS{$ls3}" ){
-         $tap{"${ls1}uses"} .= "$name\t";
-          $tap{"${name}deps"} .= "$ls1\t";
-        }
-     }elsif( my($ls4,$ls5,$ls6) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+DevelopmentTools.+\s+([^\s]+)\s+([^\s]+)/ ){
-        if( $re->{'MAC'} and $ls5 =~ /^[<=>]+$/ and $ls6 =~ /^\d+$/ and eval "$re->{'CLANG'} $ls5 $ls6" ){
-         $tap{"${ls4}uses"} .= "$name\t";
-          $tap{"${name}deps"} .= "$ls4\t";
-        }
-     }elsif( my( $ls7,$ls8 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Hardware::CPU\.([^\s]+)/ ){
-        if( $ls8 =~ /$CPU/ ){
-         $tap{"${ls7}uses"} .= "$name\t";
-          $tap{"${name}deps"} .= "$ls7\t";
-        }
+     }elsif( $re->{'LIN'} and
+             my( $us5,$us6 ) = $data =~ /^\s*depends_on\s+"([^"]+)".+OS::Linux[^\s]+\s+([^\s]+).+/ ){
+      if( $us6 =~ /^[<=>]$/ and eval "$RPM $us6 $CAT" ){
+       $tap{"${data}uses"} .= "$name\t";
+        $tap{"${name}deps"} .= "$data\t";
+      }
+     }elsif( $re->{'LIN'} and
+             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
+      if( `which /home/linuxbrew/.linuxbrew/bin/glibc 2>/dev/null` ){
+       $tap{"${us7}uses"} .= "$name\t";
+        $tap{"${name}deps"} .= "$us7\t";
+      }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
+         push @{$re->{'OS'}},"$name,$data,1";
      }
 
       if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
@@ -338,21 +258,43 @@ unless( $ARGV[0] ){
       $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0;
     }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
       $tap{"${name}un_xcode"} = 1;
+    }elsif( my( $cs1,$cs2,$cs3 ) =
+           $data =~ /^\s*depends_on\s+macos:\s+:([^\s]*)\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
+     $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and
+      $cs2 =~ /^[<=>]$/ and $cs3 =~ /^\d+$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $MAC_OS{$cs1} > $OS_Version;
+       $tap{"${name}USE_OS"} = $cs1;
     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
-      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} > $OS_Version;
+      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} > $OS_Version;
+       $tap{"${name}USE_OS"} = $data;
     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[:([^\s]+),\s+:build].*\n/$1/ ){
-      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} < $OS_Version;
+      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} < $OS_Version;
     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+:([^\s]+).*\n/$1/ ){
-      $tap{"${name}un_xcode"} = 1 if $OS_Version and $MAC_OS{$data} < $OS_Version;
+      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} < $OS_Version;
     }
    }
   close $BREW;
- }
- if( $RPM and $RPM gt $CAT ){
-  $tap{'glibcun_Linux'} = 1;
-   $tap{'glibcLinux'} = 0;
- }
+ } my %HA;
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+ for(@{$re->{'OS'}}){
+  my( $name,$data,$ls ) = split ',';
+  if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
+   $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+    $tap{"${name}deps_b"} .= "$data\t";
+  }elsif( $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
+   Uses_1( $name,\%HA );
+  }
+ }
+ sub Uses_1{
+ my( $name,$HA ) = @_;
+  for my $ls(split '\t',$name){
+   $HA->{$ls}++;
+   if( $HA->{$ls} < 2 ){
+    $tap{"$ls$OS_Version2"} = 0 if $tap{"$ls$OS_Version2"};
+     $tap{"${ls}un_xcode"} = 1;
+   }
+   Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"}
+  }
+ }
  sub Glob_1{
  my( $brew,$mine,$loop,$in ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
@@ -395,6 +337,10 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
+ if( $RPM and $RPM gt $CAT ){
+  $tap{'glibcun_Linux'} = 1;
+   $tap{'glibcLinux'} = 0;
+ }
 }
 
  if( $re->{'MAC'} ){
@@ -413,9 +359,6 @@ unless( $ARGV[0] ){
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}formula"} .= "$data\t";
         $tap{"${data}u_form"} .= "$name\t";
-       if( my( $ls3 ) = $data =~ /^\s*depends_on\s+formula:.+if\s+Hardware::CPU\.([^\s]+)/ ){
-        $tap{"${name}formula"} = $tap{"${name}u_form"} = 0 if $CPU ne $ls3;
-       }
      }elsif( $data =~ /^\s*depends_on\s+cask:\s+/ or $IN ){
       if( $data =~ /^\s*depends_on\s+cask:\s+\[/ ){ $IN = 1; next; }
        if( $data =~ /^\s*\]/ ){ $IN = 0; next; }
