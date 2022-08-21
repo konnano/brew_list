@@ -277,10 +277,10 @@ unless( $ARGV[0] ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  for(@{$re->{'OS'}}){
   my( $name,$data,$ls ) = split ',';
-  if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
+  if( $re->{'MAC'} and not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
    $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
     $tap{"${name}deps_b"} .= "$data\t";
-  }elsif( $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
+  }elsif( $re->{'MAC'} and $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
    Uses_1( $name,\%HA );
   }
  }
