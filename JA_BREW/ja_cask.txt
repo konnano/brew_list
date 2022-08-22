@@ -770,6 +770,7 @@ ddnet	DDRaceのTeeworldsバージョン
 deadbolt	Deadbolt
 deathtodsstore	DeathToDSStore
 debookee	ネットワークトラフィック分析
+decentr	Web3 ブロックチェーン/メタバース ブラウザ
 deckset	Deckset
 decloner	高速で信頼性の高い重複ファイルファインダー
 deco	React Nativeアプリケーションを構築するためのIDE
@@ -1079,6 +1080,7 @@ file-juicer	PDFから画像を抽出する パワーポイント/Word/Excel/そ�
 filebot	映画を整理して名前を変更するためのツール テレビ番組/アニメ/音楽
 filemaker-pro	リレーショナルデータベースと迅速なアプリケーション開発プラットフォーム
 filemon	ファイルモニター
+filen	Filen.ioのデスクトップクライアント
 filepane	ファイル管理マルチツール
 final-cut-library-manager	Arctic Whiteness FinalCutライブラリマネージャー
 final-fantasy-xiv-online	ストーリー主導の大規模マルチプレイヤーオンラインロールプレイングゲーム
@@ -1193,6 +1195,7 @@ freetube	プライバシーに焦点を当てたYouTubeプレーヤー
 freeyourmusic	プレイリストを移動する トラック/音楽プラットフォーム間のアルバム
 freeze	Amazon Glacierファイル転送クライアント
 frescobaldi	LilyPondエディター
+fresh	最近変更したファイルを最新の状態に保ちます
 frhelper	French-Chinese 辞書および学習ツール
 fromscratch	スクラッチパッドの自動保存。シンプルだがスマートなメモ取りアプリ
 front	顧客コミュニケーションプラットフォーム
@@ -1328,6 +1331,7 @@ gopass-ui	チームのパスワードマネージャー
 gosign	デジタル署名とタイムスタンプアプリ
 gotiengviet	GoTiengViet
 gotomeeting	オンライン会議 デスクトップ共有 およびビデオ会議
+goxel	オープンソース Voxelエディタ
 gpg-suite	メールやファイルを保護するためのツール
 gpg-suite-no-mail	ファイルを保護するためのツール
 gpg-suite-pinentry	GPGSuite用のPinentryGUI
