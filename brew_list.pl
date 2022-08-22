@@ -1267,6 +1267,7 @@ my $re = shift;
   } my $m = 0;
    $_->[0] ? push @{$AR[$m++]},@{$_} : next for(@AR2);
   if( $re->{'DDD'} ){
+   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
    print STDERR "$re->{'INF'} : deps All delete [y/n]:";
    <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
   }
