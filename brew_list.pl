@@ -223,7 +223,7 @@ my( $re,$list ) = @_;
 
 sub Ana_1{
  my( $re,@an ) = @_;
- ++$re->{'NEW'} and Init_1( $re ) unless -f $re->{'CAN'};
+ $re->{'NEW'}++, Init_1( $re ) unless -f $re->{'CAN'};
  $re->{'L_OPT'} = 0 if not $re->{'L_OPT'} or $re->{'L_OPT'} and $re->{'L_OPT'} !~ /^[12]$/;
  open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
   while(<$dir>){ chomp;
@@ -264,22 +264,22 @@ sub Size_1{ no warnings 'numeric';
   }
   unless( $pid or @data ){ Wait_1( $re,1 );
   }else{
-   my @AN = @data ? @data : @$list;
-    @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@AN);
-   my $in = int @AN/2;
+   my @an = @data ? @data : @$list;
+    @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@an);
+   my $in = int @an/2;
    if( open my $FH,'-|' ){
     for(my $i=0;$i<$in;$i++){
-      chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
-       $HA{"$du\t$AN[$i]"} = 1;
+      chomp( my $du = `du -ks $re->{'CEL'}/$an[$i]|awk '{print \$1}'` );
+       $HA{"$du\t$an[$i]"} = 1;
     }
      while(<$FH>){ chomp;
       $HA{$_} = 1;
      } close $FH;
      if( $? ){ waitpid $pid,0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process\n"; }
    }else{
-    for(my $i=$in;$i<@AN;$i++){
-      chomp( my $du = `du -ks $re->{'CEL'}/$AN[$i]|awk '{print \$1}'` );
-       print "$du\t$AN[$i]\n";
+    for(my $i=$in;$i<@an;$i++){
+      chomp( my $du = `du -ks $re->{'CEL'}/$an[$i]|awk '{print \$1}'` );
+       print "$du\t$an[$i]\n";
     } exit;
    } waitpid $pid,0 if not @data and rmdir "$re->{'HOME'}/WAIT";
   }
@@ -537,7 +537,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
        Fork_1( $re );
    }elsif( $do ){
     $re->{'COLOR'} = $re->{'TREE'} = $re->{'DEL'} = 2;
-     Fork_1( $re ) unless @an;
+     Fork_1( $re );
    }
   }
  }
@@ -673,11 +673,11 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
   ++$re->{'NEW'} and Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|';
- if( $re->{'DEL'} ){ my( %ha,@an );
+ if( $re->{'DEL'} ){ my( %HA_1,@AN_1 );
   $HA->{$brew}++;
    if( $HA->{$brew} < 2 ){
-    Uses_1( $re,$brew,\%ha,\@an );
-     push @{$re->{$brew}},@an;
+    Uses_1( $re,$brew,\%HA_1,\@AN_1 );
+     push @{$re->{$brew}},@AN_1;
    }
  }
  if( $re->{'OS'}{"${brew}deps_b"} ){
@@ -1926,22 +1926,22 @@ unless( $ARGV[0] ){
     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} > $OS_Version;
        $tap{"${name}USE_OS"} = $data;
-    }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[:([^\s]+),\s+:build].*\n/$1/ ){
-      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} < $OS_Version;
-    }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+:([^\s]+).*\n/$1/ ){
+    }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[?:([^,\s]+).*\n/$1/ ){
       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} < $OS_Version;
     }
    }
   close $BREW;
- } my %HA;
- rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- for(@{$re->{'OS'}}){
-  my( $name,$data,$ls ) = split ',';
-  if( $re->{'MAC'} and not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
-   $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-    $tap{"${name}deps_b"} .= "$data\t";
-  }elsif( $re->{'MAC'} and $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
-   Uses_1( $name,\%HA );
+ }
+ if( $re->{'MAC'} ){ my %HA;
+  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+  for(@{$re->{'OS'}}){
+   my( $name,$data,$ls ) = split ',';
+   if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
+    $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+     $tap{"${name}deps_b"} .= "$data\t";
+   }elsif( $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
+    Uses_1( $name,\%HA );
+   }
   }
  }
  sub Uses_1{
