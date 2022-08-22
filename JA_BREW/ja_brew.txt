@@ -532,6 +532,7 @@ bup	バックアップツール
 bupstash	簡単で効率的な暗号化されたバックアップ
 burl	curl(1)の便利なショートカットを提供するシェルスクリプトラッパー
 burp	ネットワークのバックアップと復元
+burst	基数ソート 遅延範囲と反復子など Boost のようなヘッダーのみのライブラリ
 butane	人間が読めるButane構成を機械が読める点火構成に変換します
 bvi	Viのようなバイナリファイル(16進)エディタ
 bvm	すべてのバイナリのバージョンマネージャー
@@ -4569,6 +4570,7 @@ pup	コマンドラインでHTMLを解析する
 pure	綺麗で最低限で速いZSHプロンプト
 pure-ftpd	安全で効率的なFTPサーバー
 purescript	JavaScriptにコンパイルされる強く紐付けされたプログラミング言語
+purescript-language-server	PureScript用言語サーバー プロトコル サーバー
 pushpin	リアルタイムWebサービスの逆プロキシ
 putmail	sendmailコマンドを置き換えるように設計されたMTAまたはSMTPクライアント
 putmail-queue	putmailのキューパッケージ
@@ -4735,6 +4737,7 @@ rclone	クラウドストレージ用のRsync
 rcm	RCファイル(dotfile)管理
 rcs	GNUリビジョン管理システム
 rdate	リモートホストからシステムの日付を設定する
+rdb	Redis RDB パーサー
 rdesktop	Windowsリモートデスクトップサービスに接続するためのUNIXクライアント
 rdfind	コンテンツに基づいて重複ファイルを検索します(ファイル名ではありません)
 rdiff-backup	ネットワーク経由またはローカルでの逆差分バックアップツール
@@ -4819,6 +4822,7 @@ ringojs	CommonJSベースのJavaScriptランタイム
 ripgrep	grepやThe Silver Searcherの様な検索ツール
 ripgrep-all	複数のリッチファイルタイプを追加するripgrepのラッパー
 ripmime	MIMEエンコードされた電子メールパッケージから添付ファイルを抽出します
+ripsecrets	秘密鍵をソース コードにコミットしないようにする
 rizin	UNIXライクな逆エンジニアリングフレームワークとコマンドラインツールセット
 rke	Rancher Kubernetes Engine どこでも機能するKubernetesインストーラー 
 rkflashtool	Rockchipデバイスをフラッシュするためのツール
@@ -5384,6 +5388,7 @@ swift	高性能システムプログラミング言語
 swift-format	Swiftソースコードのフォーマット技術
 swift-protobuf	Swiftでprotobufを使用するためのプラグインとランタイムライブラリ
 swift-sh	簡単なzero-conf依存関係のインポートによるスクリプト
+swiftdraw	SVGを PDF/PNG/JPEG/SFシンボルに変換
 swiftformat	Swiftコードを再フォーマットするためのフォーマットツール
 swiftgen	アセット用のSwiftコードジェネレーター ストーリーボード Localizable.strings...
 swiftlint	Swiftのスタイルと規則を適用するためのツール
