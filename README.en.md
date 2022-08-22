@@ -1,4 +1,4 @@
-brew list command extended version: version 1.10_6
+brew list command extended version: version 1.11_2
 
 : how to use
 ```
