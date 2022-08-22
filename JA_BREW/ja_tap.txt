@@ -1138,6 +1138,7 @@ font-myrica	Myrica
 font-myricam	MyricaM
 font-mystery-quest	Mystery Quest
 font-n-gage	N-Gage
+font-nabla	Nabla
 font-nanum-brush-script	Nanum Brush Script
 font-nanum-gothic	Nanum Gothic
 font-nanum-gothic-coding	Nanum Gothic Coding
@@ -2331,8 +2332,8 @@ pgadmin3	pgAdmin
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
 powershell-preview	コマンドラインシェルとスクリプト言語
 powershell6	コマンドラインシェルとスクリプト言語
-processing-beta	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶための言語
 processing2	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶための言語
+processing3	コーディング方法を学習するための柔軟なソフトウェア スケッチブックと言語
 propresenter-beta	ライブイベントのプレゼンテーションおよび制作アプリケーション
 propresenter6	ライブイベントのプレゼンテーションおよび制作アプリケーション
 qgis-ltr	地理情報システム
