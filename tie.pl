@@ -266,22 +266,22 @@ unless( $ARGV[0] ){
     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} > $OS_Version;
        $tap{"${name}USE_OS"} = $data;
-    }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[:([^\s]+),\s+:build].*\n/$1/ ){
-      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} < $OS_Version;
-    }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+:([^\s]+).*\n/$1/ ){
+    }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[?:([^,\s]+).*\n/$1/ ){
       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} < $OS_Version;
     }
    }
   close $BREW;
- } my %HA;
- rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- for(@{$re->{'OS'}}){
-  my( $name,$data,$ls ) = split ',';
-  if( $re->{'MAC'} and not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
-   $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-    $tap{"${name}deps_b"} .= "$data\t";
-  }elsif( $re->{'MAC'} and $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
-   Uses_1( $name,\%HA );
+ }
+ if( $re->{'MAC'} ){ my %HA;
+  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+  for(@{$re->{'OS'}}){
+   my( $name,$data,$ls ) = split ',';
+   if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
+    $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+     $tap{"${name}deps_b"} .= "$data\t";
+   }elsif( $ls and $tap{"${data}USE_OS"} and $MAC_OS{$tap{"${data}USE_OS"}} > $OS_Version ){
+    Uses_1( $name,\%HA );
+   }
   }
  }
  sub Uses_1{
