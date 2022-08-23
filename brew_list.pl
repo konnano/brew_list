@@ -167,7 +167,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -350,7 +350,7 @@ my( $re,$loop,$pid ) = @_;
     unless( $loop ){
      waitpid $pid,0;
      ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
-       $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? (print "\x1B[?25h$dok" and exit) : die "\x1B[?25h$not";
+       $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? ( print "\x1B[?25h$dok" and exit ) : die "\x1B[?25h$not";
     }else{ print "\r\x1B[?25h"; }
    } exit;
   }else{
@@ -1210,12 +1210,15 @@ my $re = shift;
    }
   } @{$re->{'UNI'}} = reverse @tt;
  }
- my( $wap,$leng,@TODO,@SC ); my $cou = 0;
+ my( $wap,$leng,@TODO,@SC,%ha,@cn ); my $cou = 0;
+  $cn[0] = $re->{'INF'};
  for(@{$re->{'UNI'}}){ $wap++;
    if( $re->{'DD'} ){
     my @bn = split '\|';
      $bn[$#bn] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
       push @{$SC[$#bn-1]},$bn[$#bn] : push @{$SC[$#bn-1]},0;
+       $ha{$bn[$#bn]}++;
+        push @cn,$bn[$#bn] if $ha{$bn[$#bn]} < 2;
    }
    s/\|/│/g, s/│--/├──/g if $Locale;
    my @an = split '\\s{3}';
@@ -1266,10 +1269,14 @@ my $re = shift;
    push @{$AR2[$i]},0 unless @{$AR2[$i]}[0];
   } my $m = 0;
    $_->[0] ? push @{$AR[$m++]},@{$_} : next for(@AR2);
-  if( $re->{'DDD'} ){
+  if( $re->{'DDD'} ){ my $i;
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-   print STDERR "$re->{'INF'} : deps All delete [y/n]:";
-   <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
+   for(@cn){
+    my $file = Dirs_1( "$re->{'CEL'}/$_",2 );
+     $i++, print" check $re->{'CEL'}/$_  \033[33mbrew cleanup...\033[00m\n" if @$file > 1;
+   } exit if $i;
+    print STDERR "$re->{'INF'} : deps All delete [y/n]:";
+    <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
   }
   for(my $e=0;$e<@AR;$e++){ $flag++;
    if( $re->{'DDD'} ){
@@ -1522,7 +1529,7 @@ EOF
 
   if [[ $2 -eq 1 ]];then
 perl<<"EOF"
-   open $FILE2,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
+   open $FILE2,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
     while($brew=<$FILE2>){
      if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
       $tap1 = $brew; next;
@@ -1589,7 +1596,7 @@ EOF
 
  if [[ $2 -eq 1 ]];then
 perl<<"EOF"
-  open $FILE1,'<', "$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
+  open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
    while($brew=<$FILE1>){
     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
      $tap1 = $brew; next;
