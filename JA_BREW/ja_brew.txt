@@ -3327,6 +3327,7 @@ links	テーブルやメニューなどをサポートするLynxのようなWWW�
 linode-cli	LinodeAPIのCLI
 linux-headers@4.15	Linuxカーネルのヘッダーファイル
 linux-headers@4.4	Linuxカーネルのヘッダーファイル
+linux-headers@5.15	Linuxカーネルのヘッダーファイル
 linux-headers@5.16	Linuxカーネルのヘッダーファイル
 linux-pam	Linuxのプラグ可能な認証モジュール
 liqoctl	Liqo対応クラスターをインストールおよび管理するためのCLIツールです
