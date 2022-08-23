@@ -154,7 +154,7 @@ EOF
 
   if [[ $2 -eq 1 ]];then
 perl<<"EOF"
-   open $FILE2,'<', "$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
+   open $FILE2,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
     while($brew=<$FILE2>){
      if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
       $tap1 = $brew; next;
@@ -221,7 +221,7 @@ EOF
 
  if [[ $2 -eq 1 ]];then
 perl<<"EOF"
-  open $FILE1,'<', "$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
+  open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
    while($brew=<$FILE1>){
     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
      $tap1 = $brew; next;
