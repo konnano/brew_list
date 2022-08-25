@@ -167,7 +167,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_3\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -396,7 +396,7 @@ my( $url,$ls,$re,$bn ) = @_;
  opendir my $dir_1,$url or die " Dirs_1 $!\n";
   for my $hand(readdir $dir_1){
    next if $hand =~ /^\./;
-   $re->{'FILE'} .= " File exists $url/$hand\n" if( -f "$url/$hand" or -l "$url/$hand" ) and not $ls;
+   $re->{'FILE'} .= " File exists $url/$hand\n" if -f "$url/$hand" and not $ls;
     if( $ls != 2 ){ next unless -d "$url/$hand"; }
    $ls == 1 ? push @$an," $hand\n" : push @$an,$hand;
   }
@@ -1674,7 +1674,7 @@ use Fcntl ':DEFAULT';
 my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 chomp( my $UNAME = `uname -m` );
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,$Xcode,$RPM,$CAT,@BREW,@CASK );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -1698,6 +1698,7 @@ unless( $ARGV[0] ){
   %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
              'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10',
              'mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
+     %HAN = ('newer'=>'>','older'=>'<');
 
   if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){
    unless( $ARGV[0] ){ $re->{'CEL'} = '/usr/local/Cellar';
@@ -1783,29 +1784,24 @@ unless( $ARGV[0] ){
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
       $KIN = 0; next;
      }
-
+   if( $data !~ /^\s*end/ and $IN ){ $SPA++ if $data =~ /\s+do$/; next;
+   }elsif( $data =~ /^\s*end/ and $SPA > 1 and $IN ){ $SPA--; next;
+   }elsif( $data =~ /^\s*end/ and $IN ){ $SPA = $IN = 0; next;
+   }
     if( $re->{'MAC'} ){
-      if( $data =~ /^\s*on_linux\s*do/ ){ $IN = 1; next;
-      }elsif( $data !~ /^\s*end/ and $IN == 1 ){ next;
-      }elsif( $data =~ /^\s*end/ and $IN == 1 ){ $IN = 0; next;
-      }
+      $SPA = $IN = 1, next if $data =~ /^\s*on_linux\s+do/;
     }else{
-      if( $data =~ /^(\s*)on_macos\s+do/ ){
-       ( $SPA ) = $data =~ /(.+)on_macos\s+do/;
-        $IN = 2; next;
-      }elsif( $data !~ /^${SPA}end/ and $IN == 2 ){ next;
-      }elsif( $data =~ /^${SPA}end/ and $IN == 2 ){ $IN = 0; next;
-      }
+      $SPA = $IN = 1, next if $data =~ /^\s*on_macos\s+do/;
     }
-     if( $data =~ /^\s*head do/ ){ $IN = 3; next;
-     }elsif( $data !~ /^\s*end/ and $IN == 3 ){ next;
-     }elsif( $data =~ /^\s*end/ and $IN == 3 ){ $IN = 0; next;
+     if( $data =~ /^\s*head\s+do/ ){ $SPA = $IN = 1; next;
+     }elsif( $data =~ /^\s*on_intel\s+do/ and $UNAME =~ /arm64/ or
+             $data =~ /^\s*on_arm\s+do/ and $UNAME =~ /x86_64/ ){ $SPA = $IN = 1; next;
+     }elsif( my( $ha1,$ha2 ) = $data =~ /^\s*on_([^\s]+)\s+:or_([^\s]+)\s+do/ ){
+         $SPA = $IN = 1 if $re->{'LIN'} or eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version"; next;
+     }elsif( my( $ha3,$ha4 ) = $data =~ /^\s+on_system\s+:linux,\s+macos:\s+:(.+)_or_([^\s]+)\s+do/ ){
+         $SPA = $IN = 1 if $re->{'MAC'} and eval "$MAC_OS{$ha3} $HAN{$ha4} $OS_Version"; next;
      }
-     if( $data =~ /^\s*on_intel\s+do/ and $UNAME =~ /arm64/ or
-          $data =~ /^\s*on_arm\s+do/ and $UNAME =~ /x86_64/ ){ $IN = 4; next;
-     }elsif( $data !~ /^\s*end/ and $IN == 4 ){ next;
-     }elsif( $data =~ /^\s*end/ and $IN == 4 ){ $IN = 0; next;
-     }
+
       if( my( $ls1,$ls2 ) =
         $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([^"]+)"/ ){
          if( $re->{'MAC'} and
