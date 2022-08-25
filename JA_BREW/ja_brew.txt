@@ -1808,6 +1808,7 @@ ghc@9	Glorious Glasgow Haskellコンパイルシステム
 ghcup	汎用言語Haskellのインストーラー
 ghex	GNOME16進エディター
 ghi	コマンドラインでGitHubの問題に取り組む
+ghorg	組織またはユーザーのリポジトリ全体を1つのディレクトリにすばやく複製します
 ghostscript	PostScriptとPDFのインタプリタ
 ghostunnel	相互認証を備えたシンプルなプロキシ SSL/TLS
 ghq	リモートリポジトリ管理が簡単に
@@ -1935,7 +1936,6 @@ glfw	OpenGLアプリケーション用のMulti-platformライブラリ
 glib	C用のコアアプリケーションライブラリ
 glib-networking	glibのネットワーク関連モジュール
 glib-openssl	glib用のOpenSSLGIOモジュール
-glib-utils	GLib用のPythonユーティリティ
 glibc	GNUCライブラリ
 glibc@2.13	GNU Cライブラリ
 glibmm	glibへのC++インターフェース
