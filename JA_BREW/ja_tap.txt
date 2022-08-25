@@ -1014,6 +1014,7 @@ font-manjari	Manjari
 font-manrope	Manrope
 font-mansalva	Mansalva
 font-manuale	Manuale
+font-maple	角が丸いNerd Fontフォント
 font-marcellus	Marcellus
 font-marcellus-sc	Marcellus SC
 font-marck-script	Marck Script
@@ -2171,6 +2172,7 @@ ubiquiti-unifi-controller-lts	Ubiquiti UniFi SDNコントローラーLTS
 uhk-agent	究極のハッキングキーボードの構成アプリケーション
 wacom-tablet	Wacomタブレットのリソース
 wch-ch34x-usb-serial-driver	USBシリアルドライバー
+wd-drive-utilities	WDドライブの管理
 wd-firmware-updater	WDファームウェアアップデータ
 wd-security	WDドライブ用の暗号化ソフトウェア
 xbox360-controller-driver-unofficial	Microsoft Xboxシリーズコントローラーのドライバー
