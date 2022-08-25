@@ -400,6 +400,7 @@ bonjeff	ネットワーク上で公開されているBonjourサービスのラ�
 bonjour-browser	Bonjourブラウザー
 bookends	参照管理および参考文献ソフトウェア
 bookmacster	ブックマークマネージャー
+bookwright	このツールとBlurbプリントサービスで本を作る
 boom	オーディオ入力を変換します
 boom-3d	ボリュームブースターおよびイコライザーソフトウェア
 boop	開発者向けのスクリプト可能なスクラッチパッド
@@ -536,6 +537,7 @@ chronos	JIRAおよびTrello用のデスクトップクライアント
 chronosync	同期およびバックアップツール
 chronycontrol	chronydをインストールして構成します
 chrysalis	万華鏡を搭載したキーボード用のグラフィカルなconfigurator
+cider	オープンソースでコミュニティ指向のApple Musicクライアント
 cinc-workstation	Chefインフラストラクチャ管理ツール用のFree-as-in-Beer all-in-oneインストーラー
 cinch	ウィンドウ管理ツール
 cinco	ドメイン固有のグラフィカルモデリングツール用の駆動型生成器Eclipse IDE
@@ -1058,7 +1060,6 @@ fastscripts	時間を節約するスクリプトを実行するためのツー�
 fauxpas	Faux Pas
 favro	コラボレーティブ共同プランニングアプリ
 fawkes	顔認識を回避するために画像ファイルをマントします
-faxbot	FRITZ!Box経由でFAXを送信
 fbreader	FBReader
 fedora-media-writer	Fedoraイメージをポータブルメディアファイルに書き込むためのツール
 feed-the-beast	Minecraft modダウンローダーおよびマネージャー
@@ -1287,6 +1288,7 @@ gittyup	グラフィカルGitクライアント
 gitup	視覚的な相互作用に焦点を当てたGitインターフェース
 gitx	GitX
 glance	ネイティブでサポートされていないファイルのQuicklookプレビューを提供するユーティリティ
+glance-chamburr	ネイティブでサポートされていないファイルのクイックルックプレビューを提供するユーティリティ
 glimmerblocker	GlimmerBlocker
 gltfquicklook	glTFファイル用のQuickLookプラグイン
 gluemotion	タイムラプス動画を作成して修正する
