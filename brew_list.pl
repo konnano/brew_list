@@ -167,7 +167,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_4\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1176,7 +1176,7 @@ sub Format_1{
         $re->{'ARR'}[$e] .= ' ';
        }
         print $re->{'ARR'}[$e];
-        unless( $ze = eval "$in % $size" ){
+        unless( $ze = eval{$in % $size} ){
          $re->{'KAI'} = print"\n";
         }elsif( $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] =~ m|^ ==> homebrew/| ){
          print"\n"; $ze = 0;
@@ -1803,9 +1803,8 @@ unless( $ARGV[0] ){
      }
 
       if( my( $ls1,$ls2 ) =
-        $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([^"]+)"/ ){
-         if( $re->{'MAC'} and
-             not $Xcode and $ls1 =~ /^[<=>]+$/ and $ls2 =~ /^\d+\.\d+$/ and eval "$re->{'CLT'} $ls1 $ls2" ){
+        $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([\d.]+)"/ ){
+         if( $re->{'MAC'} and not $Xcode and $ls1 =~ /^[<=>]+$/ and eval "$re->{'CLT'} $ls1 $ls2" ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
          }elsif( $re->{'LIN'} ){
@@ -1848,19 +1847,19 @@ unless( $ARGV[0] ){
          next;
      }elsif( $re->{'MAC'} and my( $ds,$ds1,$ds2,$ds3 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+).+CPU\.([^\s]+)/ ){
-        if( $ds1 =~ /^[<=>]+$/ and $ds2 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds1 $ds2" and $CPU eq $ds3 ){
+        if( $ds1 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds1 $ds2" and $CPU eq $ds3 ){
          $tap{"${ds}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
           $tap{"${name}deps_b"} .= "$ds\t";
         }
      }elsif( $re->{'MAC'} and my( $ds4,$ds5,$ds6 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
-        if( $ds5 =~ /^[<=>]+$/ and $ds6 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds5 $ds6" ){
+        if( $ds5 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds5 $ds6" ){
          $tap{"${ds4}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
           $tap{"${name}deps_b"} .= "$ds4\t";
         }
      }elsif( $re->{'MAC'} and my( $ds7,$ds8,$ds9 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
-        if( $ds8 =~ /^[<=>]+$/ and $ds9 =~ /^\d+$/ and eval "$re->{'CLANG'} $ds8 $ds9" ){
+        if( $ds8 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds8 $ds9" ){
          $tap{"${ds7}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
           $tap{"${name}deps_b"} .= "$ds7\t";
         }
@@ -1887,10 +1886,10 @@ unless( $ARGV[0] ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
      }elsif( $re->{'LIN'} and
-             my( $us5,$us6 ) = $data =~ /^\s*depends_on\s+"([^"]+)".+OS::Linux[^\s]+\s+([^\s]+).+/ ){
-      if( $us6 =~ /^[<=>]$/ and eval "$RPM $us6 $CAT" ){
-       $tap{"${data}uses"} .= "$name\t";
-        $tap{"${name}deps"} .= "$data\t";
+             my( $us5,$us6 ) = $data =~ /^\s*depends_on\s+"([^"]+)".+OS::Linux[^\s]+\s+([^\s]+)/ ){
+      if( $us6 =~ /^[<=>]+$/ and eval "$RPM $us6 $CAT" ){
+       $tap{"${us5}uses"} .= "$name\t";
+        $tap{"${name}deps"} .= "$us5\t";
       }
      }elsif( $re->{'LIN'} and
              my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
@@ -1925,7 +1924,7 @@ unless( $ARGV[0] ){
     }elsif( my( $cs1,$cs2,$cs3 ) =
            $data =~ /^\s*depends_on\s+macos:\s+:([^\s]*)\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and
-      $cs2 =~ /^[<=>]$/ and $cs3 =~ /^\d+$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $MAC_OS{$cs1} > $OS_Version;
+      $cs2 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $MAC_OS{$cs1} > $OS_Version;
        $tap{"${name}USE_OS"} = $cs1;
     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} > $OS_Version;
