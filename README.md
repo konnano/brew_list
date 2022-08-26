@@ -8,7 +8,7 @@ brew install brew_list
 ```
 もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
-キャッシュファイル作成に少し時間がかかります、コマンドは__brew_list__です
+キャッシュファイル作成に少し時間がかかります、コマンドは**brew_list**です
 
 アンインストールはbrew_list-mainフォルダー内で ./init.sh unlink
 
