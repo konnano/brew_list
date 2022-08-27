@@ -2124,6 +2124,7 @@ minitimer	miniTimer
 minitube	YouTubeアプリケーション
 miniwol	miniWOL
 minizincide	オープンソースの制約モデリング言語とIDE
+mints	ロギングツールセット
 mipony	Mipony
 miro	オンラインコラボレーティブ共同ホワイトボードプラットフォーム
 mirrordisplays	ミラーディスプレイ
@@ -3487,9 +3488,9 @@ termius	SSHクライアント
 tetrio	Freeでプレイできるテトリスクローン
 tev	OpenEXR画像に重点を置いたHDR画像比較ツール
 tex-live-utility	TeX Live管理のグラフィカルユーザーインターフェイス
+texifier	LaTeXエディタ
 texmacs	科学編集プラットフォーム
 texmaker	LaTeXエディター
-texpad	LaTeXエディター
 texshop	TeXプレビューア
 texstudio	LaTeXエディター
 textadept	テキストエディター
