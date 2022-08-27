@@ -4603,6 +4603,7 @@ pygobject3	GNOME Python bindings(GObjectイントロスペクションに基づ�
 pyinstaller	Pythonアプリケーションとそのすべての依存関係をバンドルする
 pyinvoke	Pythonicタスク管理とコマンド実行
 pylint	あなたを悩ませるのは単なる静的解析ツールはありません！
+pymol	分子可視化システム
 pympress	提示用に設計されたシンプルで強力なデュアルスクリーンPDFリーダー
 pymupdf	PDFツールキットとレンダラー MuPDFのPythonバインディング
 pyoxidizer	最新のPythonアプリケーションのパッケージ化および配布ツール
