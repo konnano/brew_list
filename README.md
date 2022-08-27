@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.11_4 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.11_6 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -80,6 +80,8 @@ Only 　Mac : Cask
 
 '-ac' オプションで解析データ( 引数なし 365d,引数 1 30d,引数 2 90d )ソート
 
+'-p' オプションでFontをQuickLookプレビューできます ( 不安定 )
+
 : 表示マーク
 
 b マークはボトルインストールFormula
@@ -103,3 +105,5 @@ s マークは同名のFormulaとCask : インストールには --caskオプシ
 f マークはFormulaを必要とするCask
 
 c マークはCaskaを必要とするCask
+
+p マークはQuickLookでプレビューできるFont
