@@ -341,7 +341,7 @@ unless( $ARGV[0] ){
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
  my( $IN,$in,$e ) = ( 0,int @CASK/2,0 );
-  for my $dir2(@CASK){
+  for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
@@ -349,6 +349,11 @@ unless( $ARGV[0] ){
     $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
+     if( $name =~ /^font-/ ){
+      $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
+       $tap{"${name}font"} = $1 if $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
+        $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g if $tap{"${name}font"};
+     }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
