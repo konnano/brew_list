@@ -1,4 +1,4 @@
-brew list command extended version: version 1.11_4
+brew list command extended version: version 1.11_6
 
 : how to use
 ```
@@ -74,6 +74,8 @@ Please check -dd or -de option
 
 '-ac' Analytics Data ( not argument 365d or argument 1 30d,2 90d )sort
 
+-p option QuickLook preview the Font (unstable)
+
  : Display mark
 
 b mark is bottle installation Formula
@@ -97,3 +99,5 @@ s mark is Formula and Cask same name: --cask option for installation
 f mark is Cask requires Formula
 
 c mark is Cask requires Cask
+
+p mark is Fonts can be previewed in QuickLook
