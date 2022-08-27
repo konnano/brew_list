@@ -52,6 +52,7 @@ MAIN:{
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
  }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'}  = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
+ }elsif( $AR[0] eq '-p'  ){ $name = $re;  $re->{'PRE'}  = 1;
  }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'} = 1;
  }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'} = 1;
  }elsif( $AR[0] eq  '-'  ){ $re->{'BL'} = $ref->{'BL'}  = 1;
@@ -111,7 +112,7 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
-   $name->{'KEN'} = 1 if $name and $AR[2] and $AR[2] eq '.';
+   $name->{'KEN'} = 1 if $name and $AR[2] and $AR[2] eq '.' and not $re->{'COM'};
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
@@ -126,6 +127,9 @@ MAIN:{
     $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
+  }elsif( $re->{'PRE'} ){
+   $re->{'PRE'} = $AR[1] ? lc $AR[1] : Died_1();
+    Died_1() if $re->{'LIN'};
   }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'USES'} ){
@@ -167,7 +171,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_5\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -184,6 +188,7 @@ sub Died_1{
   -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
   -ci\t:  instaled cask list\n  -cx\t:  can't install cask list\n  -cs\t:  some name cask and formula
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( not argument or argument 1,2 )
+  -p\t:  Font quickLook preview : p mark only ( unstable )
   $Lang";
 }
 
@@ -198,13 +203,13 @@ my( $re,$list ) = @_;
    Wait_1( $re );
  }
   if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} ){
-   DB_1( $re );
+   DB_1( $re ) unless $re->{'PRE'};
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
- unless( $re->{'ANA'} or $re->{'COM'} or $re->{'uses'} or $re->{'deps'} ){
+ unless( $re->{'ANA'} or $re->{'COM'} or $re->{'uses'} or $re->{'deps'} or $re->{'PRE'} ){
   $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
    ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
      $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
@@ -218,7 +223,7 @@ my( $re,$list ) = @_;
  }
  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
-   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re ) : File_1( $re,$list );
+   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re ) : $re->{'PRE'} ? Prew_1( $re ) : File_1( $re,$list );
 }
 
 sub Ana_1{
@@ -481,6 +486,20 @@ my( $re,$ls,@AN,%HA ) = @_;
   @AN = %HA = ();
  }
  Brew_3( $re,1 ) unless $ls or $re->{'LIN'} or not $re->{'DMG'};
+ Nohup_1( $re );
+}
+
+sub Prew_1{
+my $re = shift;
+ exit unless $re->{'OS'}{"$re->{'PRE'}font"};
+  my( $file ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
+   my $type = $file eq 'ttf' ? 'ttf' : $file eq 'otf' ? 'otf' : $file eq 'dfont' ? 'dfont' : 'ttf';
+    exit if -f "$re->{'HOME'}/mas.$type";
+ die " \033[31mNot connected\033[00m\n"
+  if system "curl -sLo ~/.BREW_LIST/mas.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
+     system "sleep 0.1; qlmanage -p ~/.BREW_LIST/mas.$type >/dev/null 2>&1
+      ps x|grep [q]uicklookd|awk 'END {print \$1}'|xargs kill -KILL";
+  unlink "$re->{'HOME'}/mas.$type";
  Nohup_1( $re );
 }
 
@@ -871,8 +890,9 @@ my( $list,$file,$in,$re ) = @_;
         " x c     $brew_1\t" : ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}formula"} ) ?
         " x f     $brew_1\t" : $re->{'OS'}{"${brew_1}un_cask"} ? " x       $brew_1\t" :
        $re->{'OS'}{"${brew_1}so_name"} ? "   s     $brew_1\t" : $re->{'OS'}{"${brew_1}d_cask"} ?
-        "   c     $brew_1\t" :  $re->{'OS'}{"${brew_1}formula"} ?
-        "   f     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
+        "   c     $brew_1\t" : $re->{'OS'}{"${brew_1}formula"} ?
+        "   f     $brew_1\t" : $re->{'OS'}{"${brew_1}font"} ?
+        "   p     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
       }
      }else{
        $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
@@ -1054,7 +1074,8 @@ my( $re,$brew_1,$i,$e ) = @_;
     $re->{'MEM'} =~ s/^.{9}/ t   $i / : $re->{'OS'}{"${brew_1}so_name"} ?
     $re->{'MEM'} =~ s/^.{9}/   s $i / : $re->{'OS'}{"${brew_1}formula"} ?
     $re->{'MEM'} =~ s/^.{9}/   f $i / : $re->{'OS'}{"${brew_1}d_cask"} ?
-    $re->{'MEM'} =~ s/^.{9}/   c $i / : $re->{'MEM'} =~ s/^.{9}/     $i /;
+    $re->{'MEM'} =~ s/^.{9}/   c $i / : $re->{'OS'}{"${brew_1}font"} ?
+    $re->{'MEM'} =~ s/^.{9}/   p $i / : $re->{'MEM'} =~ s/^.{9}/     $i /;
   }
  }else{
   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
@@ -2009,7 +2030,7 @@ unless( $ARGV[0] ){
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
  my( $IN,$in,$e ) = ( 0,int @CASK/2,0 );
-  for my $dir2(@CASK){
+  for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
@@ -2017,6 +2038,11 @@ unless( $ARGV[0] ){
     $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
+     if( $name =~ /^font-/ ){
+      $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
+       $tap{"${name}font"} = $1 if $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
+        $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g if $tap{"${name}font"};
+     }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
