@@ -30,6 +30,8 @@ MAIN:{
  }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ct' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ctp'){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = $ref->{'LINK'} = 8;
+                            Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = 3;
  }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
@@ -52,7 +54,7 @@ MAIN:{
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
  }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'}  = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
- }elsif( $AR[0] eq '-p'  ){ $name = $re;  $re->{'PRE'}  = 1;
+ }elsif( $AR[0] eq '-p'  ){ $name = $re;  $re->{'PRE'}  = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'} = 1;
  }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'} = 1;
  }elsif( $AR[0] eq  '-'  ){ $re->{'BL'} = $ref->{'BL'}  = 1;
@@ -129,7 +131,6 @@ MAIN:{
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
   }elsif( $re->{'PRE'} ){
    $re->{'PRE'} = $AR[1] ? lc $AR[1] : Died_1();
-    Died_1() if $re->{'LIN'};
   }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'USES'} ){
@@ -171,7 +172,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_6\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -188,7 +189,7 @@ sub Died_1{
   -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
   -ci\t:  instaled cask list\n  -cx\t:  can't install cask list\n  -cs\t:  some name cask and formula
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( not argument or argument 1,2 )
-  -p\t:  Font quickLook preview : p mark only ( unstable )
+  -ctp\t:  quickLook preview list\n  -p\t:  Font quickLook preview : p mark only ( unstable )
   $Lang";
 }
 
@@ -492,14 +493,13 @@ my( $re,$ls,@AN,%HA ) = @_;
 sub Prew_1{
 my $re = shift;
  exit unless $re->{'OS'}{"$re->{'PRE'}font"};
+ exit if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
   my( $file ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
    my $type = $file eq 'ttf' ? 'ttf' : $file eq 'otf' ? 'otf' : $file eq 'dfont' ? 'dfont' : 'ttf';
-    exit if -f "$re->{'HOME'}/mas.$type";
  die " \033[31mNot connected\033[00m\n"
-  if system "curl -sLo ~/.BREW_LIST/mas.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
-     system "sleep 0.1; qlmanage -p ~/.BREW_LIST/mas.$type >/dev/null 2>&1
-      ps x|grep [q]uicklookd|awk 'END {print \$1}'|xargs kill -KILL";
-  unlink "$re->{'HOME'}/mas.$type";
+  if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
+     system "sleep 0.1; qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1";
+  unlink "$re->{'HOME'}/master.$type";
  Nohup_1( $re );
 }
 
@@ -856,7 +856,8 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'LINK'} == 4 and $re->{'OS'}{"${brew_1}un_cask"} or
       $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
       $re->{'LINK'} == 6 and $re->{"deps$brew_1"} or
-      $re->{'LINK'} == 7 and $re->{"${brew_1}delet"} ){
+      $re->{'LINK'} == 7 and $re->{"${brew_1}delet"} or
+      $re->{'LINK'} == 8 and $re->{'OS'}{"${brew_1}font"} ){
 
     if( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
@@ -996,7 +997,8 @@ my( $list,$re,$in ) = @_;
        $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
        $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} or
        $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{"deps$tap"} or
-       $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} ){
+       $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} or
+       $re->{'LINK'} and $re->{'LINK'} == 8 and not $re->{'OS'}{"${tap}font"} ){
       $brew = 0;
    }
   if( $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and $re->{'DMG'}{$tap} or
