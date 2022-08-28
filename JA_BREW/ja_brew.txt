@@ -4472,11 +4472,11 @@ posh	ポリシーに準拠した通常のシェル
 poster	PostScriptページから大きなポスターを作成する
 postgis	地理オブジェクトのサポートをPostgreSQLに追加します
 postgraphile	PostgreSQLスキーマのリフレクションによって作成されたGraphQLスキーマ🐘
-postgresql	オブジェクトリレーショナルデータベースシステム
 postgresql@10	オブジェクトリレーショナルデータベースシステム
 postgresql@11	オブジェクトリレーショナルデータベースシステム
 postgresql@12	オブジェクトリレーショナルデータベースシステム
 postgresql@13	オブジェクトリレーショナルデータベースシステム
+postgresql@14	オブジェクトリレーショナルデータベースシステム
 postgresql@9.4	オブジェクトリレーショナルデータベースシステム
 postgresql@9.5	オブジェクトリレーショナルデータベースシステム
 postgresql@9.6	オブジェクトリレーショナルデータベースシステム
