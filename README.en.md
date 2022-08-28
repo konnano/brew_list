@@ -1,4 +1,4 @@
-brew list command extended version: version 1.11_6
+brew list command extended version: version 1.11_7
 
 : how to use
 ```
@@ -74,7 +74,9 @@ Please check -dd or -de option
 
 '-ac' Analytics Data ( not argument 365d or argument 1 30d,2 90d )sort
 
--p option QuickLook preview the Font (unstable)
+'-p' option QuickLook preview the Font (unstable)
+
+'-ctp' option QuickLook preview Font list is displayed
 
  : Display mark
 
