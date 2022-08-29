@@ -10,12 +10,13 @@ elif [[ "$NAME" = Darwin ]];then
 fi
  LINK="$1"
 if [[ "$NAME" = Darwin && "$LINK" = unlink ]];then
- [[ "$CPU" = x86_64 ]] && rm -f /usr/local/bin/brew_list || rm -f /opt/homebrew/bin/brew_list
+ [[ "$CPU" = x86_64 ]] && rm -f /usr/local/bin/bl /usr/local/bin/brew_list ||\
+  rm -f /opt/homebrew/bin/brew_list /opt/homebrew/bin/bl
   rm -rf ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
     exit
 elif [[ "$NAME" = Linux && "$LINK" = unlink ]];then
-  rm -rf /home/linuxbrew/.linuxbrew/bin/brew_list ~/.BREW_LIST ~/.JA_BREW
+  rm -rf /home/linuxbrew/.linuxbrew/bin/bl /home/linuxbrew/.linuxbrew/bin/brew_list ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
     exit
 fi
@@ -24,18 +25,18 @@ if [[ ! "$LINK" || "$LINK" = JA ]];then
  if [[ "$NAME" = Darwin ]];then
   if [[ "$CPU" = x86_64 ]];then
    [[ ! -d /usr/local/Cellar ]] && echo " Not installed HOME BREW" && exit
-   [[ -e /usr/local/bin/brew_list ]] && echo " exist /usr/local/bin/brew_list" && exit
-    BREW="/usr/local/bin/brew_list"
+   [[ -e /usr/local/bin/bl ]] && echo " exist /usr/local/bin/bl" && exit
+    BREW="/usr/local/bin/bl"
   else
    [[ ! -d /opt/homebrew/Cellar ]] && echo " Not installed HOME BREW" && exit
-   [[ -e /opt/homebrew/bin/brew_list ]] && echo " exist /opt/homebrew/bin/brew_list" && exit
-    BREW="/opt/homebrew/bin/brew_list"
+   [[ -e /opt/homebrew/bin/bl ]] && echo " exist /opt/homebrew/bin/bl" && exit
+    BREW="/opt/homebrew/bin/bl"
   fi
  else
   [[ ! -d /home/linuxbrew/.linuxbrew/Cellar ]] && echo " Not installed HOME BREW" && exit
-  [[ -e /home/linuxbrew/.linuxbrew/bin/brew_list ]] && \
-   echo " exist /home/linuxbrew/.linuxbrew/bin/brew_list" && exit
-    BREW="/home/linuxbrew/.linuxbrew/bin/brew_list"
+  [[ -e /home/linuxbrew/.linuxbrew/bin/bl ]] && \
+   echo " exist /home/linuxbrew/.linuxbrew/bin/bl" && exit
+    BREW="/home/linuxbrew/.linuxbrew/bin/bl"
  fi
 
  curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 || \
@@ -45,12 +46,12 @@ if [[ ! "$LINK" || "$LINK" = JA ]];then
  Lang=$(printf $LC_ALL $LC_CTYPE $LANG 2>/dev/null)
 
  if [[ "$NAME" = Darwin ]];then
-  [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/brew_list || ${die:?copy 1 error}; } ||\
-   { cp $DIR/brew_list.pl /opt/homebrew/bin/brew_list || ${die:?copy 2 error}; }
+  [[ "$CPU" = x86_64 ]] && { cp $DIR/brew_list.pl /usr/local/bin/bl || ${die:?copy 1 error}; } ||\
+   { cp $DIR/brew_list.pl /opt/homebrew/bin/bl || ${die:?copy 2 error}; }
    [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
  else
-  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/brew_list || ${die:?copy 3 error}
+  cp $DIR/brew_list.pl /home/linuxbrew/.linuxbrew/bin/bl || ${die:?copy 3 error}
    [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && mkdir -p ~/.JA_BREW && cp $DIR/JA_BREW/ja_brew.txt ~/.JA_BREW
  fi
- brew_list -new
+ bl -new
 fi
