@@ -1,4 +1,4 @@
-brew list command extended version: version 1.11_7
+brew list command extended version: version 1.11_8
 
 : how to use
 ```
@@ -8,7 +8,7 @@ brew install brew_list
 ```
 OR After downloading, run ./init.sh in the brew_list-main folder
 
-It takes a little time to create the cache file, the command name is `brew_list`
+It takes a little time to create the cache file, the command name is ~~brew_list~~ `bl`
 
 Uninstall ./init.sh unlink in the brew_list-main folder
 
