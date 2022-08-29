@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.11_7 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.11_8 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -8,7 +8,7 @@ brew install brew_list
 ```
 もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
-キャッシュファイル作成に少し時間がかかります、コマンドは`brew_lis`です
+キャッシュファイル作成に少し時間がかかります、コマンドは~~brew_lis~~ `bl`です
 
 アンインストールはbrew_list-mainフォルダー内で ./init.sh unlink
 
@@ -38,13 +38,21 @@ brew install brew_list
 
 '-de' オプションでアンインストール後に必要ないFormulaが表示されます
 
+  アンインストールしないフォーミュラは２番目の引数に記入して下さい
+            
 '-d' オプションでアンインストール後に必要ないFormulaがtree表示されます
+
+  アンインストールしないフォーミュラは２番目の引数に記入して下さい
 
 '-dd' オプションでアンインストール後に必要ないFormulaのみがtree表示されます
 
+  アンインストールしないフォーミュラは２番目の引数に記入して下さい
+
 '-ddd' オプションでアンインストールで必要ないFormulaを順番にアンインストール出来ます
 
-　削除は　-ddや　-deでよく確認して下さい
+　２番目の引数にアンインストールしないフォーミュラ
+
+　#### 削除は　-ddや　-deでよく確認して下さい ####
 
 '-u' オプションでFormulaに依存しているインストール済みFormulaが表示されます
 
