@@ -32,6 +32,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ct' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ctp'){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = $ref->{'LINK'} = 8;
                             Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-p'  ){ $name = $ref;  $ref->{'PRE'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = 3;
  }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
@@ -54,13 +55,13 @@ MAIN:{
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
  }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'}  = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
- }elsif( $AR[0] eq '-p'  ){ $name = $re;  $re->{'PRE'}  = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'} = 1;
  }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'} = 1;
  }elsif( $AR[0] eq  '-'  ){ $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
- }else{ system "$MY_BREW @AR"; die " \033[33mNot brew argument\033[00m\n" if $?; exit;
+ }else{  @AR = map{ $_ =~ s/\W/\$1/g;$_ }@AR;
+  system "$MY_BREW @AR"; die " \033[33mNot brew argument\033[00m\n" if $?; exit;
  }
   my $UNAME = `uname -m`;
  if( $re->{'LIN'} ){
@@ -107,6 +108,9 @@ MAIN:{
   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'DDIR'} or $ref->{'VERS'} ){
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-drivers\n homebrew/cask-versions\n";
     File_1( $ref );
+  }elsif( $ref->{'PRE'} and not $ref->{'FDIR'} ){
+   print " not exists cask tap homebrew/cask-fonts\n";
+    File_1( $ref );
   }
 
   if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
@@ -129,12 +133,19 @@ MAIN:{
     $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
-  }elsif( $re->{'PRE'} ){
-   $re->{'PRE'} = $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $ref->{'PRE'} ){
+   $ref->{'PRE'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'USES'} ){
    $re->{'USE'} = $re->{'USES'} = $AR[1] ? lc $AR[1] : Died_1();
+  }
+  if( ( $re->{'DEL'} or $ref->{'DEL'} ) and $AR[2] ){
+   DB_1( $re );
+   for(my $i=2;$i<@AR;$i++){
+    die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
+     $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
+   }
   }
  Fork_1( $name,$re,$ref );
 }
@@ -172,7 +183,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_7\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_8\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -180,16 +191,17 @@ sub Died_1{
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula , all
   -ul\t:  formula depend on formula , item count\n  -ud\t:  formula depend on formula , list
-  -g\t:  Independent Formula\n  -de\t:  uninstalled, not require formula
-  -d\t:  uninstalled, not require formula, display tree
-  -dd\t:  uninstalled, only not require formula, display tree and order\n  -ddd\t:  All deps uninstall
+  -g\t:  Independent Formula\n  -de\t:  uninstalled, not require formula, second argument not uninstall Formula
+  -d\t:  uninstalled, not require formula, display tree, second argument not uninstall Formula
+  -dd\t:  uninstalled, not require formula, display tree and order, second argument not uninstall Formula
+  -ddd\t:  All deps uninstall, second argument not uninstall Formula
   -is\t:  Display in order of size\n  -g\t:  Independent formula
   -ai\t:  Analytics Data ( not argument or argument 1,2 )\n   Only mac : Cask
   -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
   -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
   -ci\t:  instaled cask list\n  -cx\t:  can't install cask list\n  -cs\t:  some name cask and formula
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( not argument or argument 1,2 )
-  -ctp\t:  quickLook preview list\n  -p\t:  Font quickLook preview : p mark only ( unstable )
+  -ctp\t:  tap Font quickLook preview list\n  -p\t:  tap Font quickLook preview : p mark only ( unstable )
   $Lang";
 }
 
@@ -204,7 +216,7 @@ my( $re,$list ) = @_;
    Wait_1( $re );
  }
   if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} ){
-   DB_1( $re ) unless $re->{'PRE'};
+   DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
@@ -494,8 +506,7 @@ sub Prew_1{
 my $re = shift;
  exit unless $re->{'OS'}{"$re->{'PRE'}font"};
  exit if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
-  my( $file ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
-   my $type = $file eq 'ttf' ? 'ttf' : $file eq 'otf' ? 'otf' : $file eq 'dfont' ? 'dfont' : 'ttf';
+  my( $type ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
  die " \033[31mNot connected\033[00m\n"
   if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
      system "sleep 0.1; qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1";
@@ -589,6 +600,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
        }
         last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
        exit unless not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
+       exit unless not $re->{'PRE'} or $re->{'FDIR'};
       next;
      }
       if( $re->{'TAP'} ){
@@ -673,12 +685,14 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
  $name = -t STDOUT ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
    if $re->{'COLOR'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
- $re->{"deps$$brew"} +=
-  ( $re->{'TREE'} and $build ) ? push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
-    $re->{'TREE'} ? push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
- push @$AN,$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
-  $re->{"$re->{'INF'}deps"} .= "$$brew\t"
-   if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
+ unless( $re->{"$${brew}undel"} ){
+  $re->{"deps$$brew"} +=
+   ( $re->{'TREE'} and $build ) ? push @{$re->{'UNI'}},"${spa}-- $name [build]\n" :
+     $re->{'TREE'} ? push @{$re->{'UNI'}},"${spa}-- $name\n" : 1;
+  push @$AN,$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
+   $re->{"$re->{'INF'}deps"} .= "$$brew\t"
+    if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
+ }
 }
 
 sub Info_1{
@@ -699,33 +713,35 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
      push @{$re->{$brew}},@AN_1;
    }
  }
- if( $re->{'OS'}{"${brew}deps_b"} ){
-  for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){
-   if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
-       not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
-     ( not $re->{'HASH'}{$data} or $re->{'OS'}{"${data}ver"} gt $re->{'HASH'}{$data} ) ){
-       Unic_1( $re,\$data,$spa,$AN,1 );
-        Info_1( $re,$data,$spa,$AN,$HA );
+ unless( $re->{"${brew}undel"} ){
+  if( $re->{'OS'}{"${brew}deps_b"} ){
+   for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){
+    if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
+        not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
+      ( not $re->{'HASH'}{$data} or $re->{'OS'}{"${data}ver"} gt $re->{'HASH'}{$data} ) ){
+        Unic_1( $re,\$data,$spa,$AN,1 );
+         Info_1( $re,$data,$spa,$AN,$HA );
+    }
    }
   }
- }
- if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){
-  for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){
-    Unic_1( $re,\$data2,$spa,$AN );
-     Info_1( $re,$data2,$spa,$AN,$HA );
+  if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){
+   for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){
+     Unic_1( $re,\$data2,$spa,$AN );
+      Info_1( $re,$data2,$spa,$AN,$HA );
+   }
   }
- }
- if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
-  for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){
-    Unic_1( $re,\$data3,$spa,$AN );
-     Info_1( $re,$data3,$spa,$AN,$HA );
+  if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
+   for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){
+     Unic_1( $re,\$data3,$spa,$AN );
+      Info_1( $re,$data3,$spa,$AN,$HA );
+   }
   }
- }
- if( $re->{'OS'}{"${brew}d_cask"} ){
-  for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){
-   unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
-    Unic_1( $re,\$data4,$spa,$AN );
-     Info_1( $re,$data4,$spa,$AN,$HA ) unless $re->{'OS'}{"${data4}so_name"};
+  if( $re->{'OS'}{"${brew}d_cask"} ){
+   for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){
+    unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
+     Unic_1( $re,\$data4,$spa,$AN );
+      Info_1( $re,$data4,$spa,$AN,$HA ) unless $re->{'OS'}{"${data4}so_name"};
+    }
    }
   }
  }
@@ -1554,16 +1570,16 @@ EOF
 perl<<"EOF"
    open $FILE2,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
     while($brew=<$FILE2>){
-     if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
+     if( $brew =~ s|^\s*<td><a href[^>]+>(.+)</a></td>\n|$1| ){
       $tap1 = $brew; next;
-     }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+     }elsif( not $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
       $tap2 = $brew;
       $tap2 =~ s/&quot;/"/g;
       $tap2 =~ s/&amp;/&/g;
       $tap2 =~ s/&lt;/</g;
       $tap2 =~ s/&gt;/>/g;
       $test = 1; next;
-     }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+     }elsif( $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
       $tap3 = $brew;
       $test = 0;
      }
@@ -1575,22 +1591,23 @@ perl<<"EOF"
    open $FILE3,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE5 $!\n";
     print $FILE3 @file4;
    close $FILE3;
+
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n"; $i1 = 1;
    while( $an1=<$dir1> ){
     next if $an1 =~ /\s--HEAD|\s--with/;
-     $HA1{$an1} = $i1++ if $an1 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA1{$an1} = $i1++ if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/cna2.html" or die " cna2 $!\n"; $i2 = 1;
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     $HA2{$an2} = $i2++ if $an2 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA2{$an2} = $i2++ if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/cna3.html" or die " cna3 $!\n"; $i3 = 1;
    while( $an3=<$dir3> ){
     next if $an3 =~ /\s--HEAD|\s--with/;
-     $HA3{$an3} = $i3++ if $an3 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA3{$an3} = $i3++ if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir3;
   for($in1=0;$in1<@ANA;$in1++){
@@ -1621,12 +1638,12 @@ EOF
 perl<<"EOF"
   open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
    while($brew=<$FILE1>){
-    if( $brew =~ s|^\s+<td><a href[^>]+>(.+)</a></td>\n|$1| ){
+    if( $brew =~ s|^\s*<td><a href[^>]+>(.+)</a></td>\n|$1| ){
      $tap1 = $brew; next;
-    }elsif( not $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+    }elsif( not $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
      $tap2 = $brew;
      $test = 1; next;
-    }elsif( $test and $brew =~ s|^\s+<td>(.+)</td>\n|$1| ){
+    }elsif( $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
      $tap3 = $brew;
      $tap3 =~ s/&quot;/"/g;
      $tap3 =~ s/&amp;/&/g;
@@ -1643,22 +1660,23 @@ perl<<"EOF"
    open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE7 $!\n";
     print $FILE2 @file1;
    close $FILE2;
+
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/ana1.html" or die " ana1 $!\n"; $i1 = 1;
    while( $an1=<$dir1> ){
     next if $an1 =~ /\s--HEAD|\s--with/;
-     $HA1{$an1} = $i1++ if $an1 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA1{$an1} = $i1++ if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/ana2.html" or die " ana2 $!\n"; $i2 = 1;
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     $HA2{$an2} = $i2++ if $an2 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA2{$an2} = $i2++ if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/ana3.html" or die " ana3 $!\n"; $i3 = 1;
    while( $an3=<$dir3> ){
     next if $an3 =~ /\s--HEAD|\s--with/;
-     $HA3{$an3} = $i3++ if $an3 =~ s|^\s+<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA3{$an3} = $i3++ if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
    }
   close $dir3;
   for($in1=0;$in1<@ANA;$in1++){
