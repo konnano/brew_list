@@ -407,7 +407,7 @@ font-darker-grotesque	Darker Grotesque
 font-darumadrop-one	Darumadrop One
 font-dashicons	Dashicons
 font-david-clm	David CLM
-font-david-libre	meir sadanが率いる テルアビブを拠点とする書体デザイナー イスラエル 
+font-david-libre	meir sadanが率いる テルアビブを拠点とする書体デザイナー イスラエル
 font-dawning-of-a-new-day	新しい日の夜明け
 font-days-one	Days One
 font-decovar-alpha	Decovar Alpha
@@ -2084,7 +2084,7 @@ lg-dual-controller	デュアルコントローラーにより、システム間�
 lg-onscreen-control	接続されているすべてのLGモニター情報を表示します
 linn-konfig	Linn Konfig
 lmsclients-squeezeplay	メディアサーバークライアント
-logi-options-plus	Logitechデバイス用のソフトウェア 
+logi-options-plus	Logitechデバイス用のソフトウェア
 logitech-camera-settings	カメラコントロールへのアクセスを提供します
 logitech-control-center	マウスとキーボードをカスタマイズする
 logitech-firmwareupdatetool	Logitechワイヤレスレシーバーと選択したキーボードを更新します
@@ -2261,7 +2261,7 @@ firefox-nightly	Webブラウザー
 fork-dev	GITクライアント
 forklift2	ForkLift
 freecad-pre	3D parametricモデラー
-geogebra5	解決 数学の問題を保存して共有する グラフ関数等 
+geogebra5	解決 数学の問題を保存して共有する グラフ関数等
 github-beta	GitHubリポジトリ用のデスクトップクライアント
 google-chrome-beta	Webブラウザー
 google-chrome-canary	Webブラウザー
