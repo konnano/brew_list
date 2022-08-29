@@ -55,7 +55,7 @@ adobe-creative-cloud-cleaner-tool	アドビソフトウェアの破損したイ�
 adobe-digital-editions	電子書籍リーダー
 adobe-dng-converter	DNGファイル変換器
 adoptopenjdk	Javaユーザーグループ(JUG)のJDK
-adrive	Alibaba Cloud Disk 
+adrive	Alibaba Cloud Disk
 advancedrestclient	APIテストツール
 aegisub	字幕の作成と変更
 aerial	Apple TV Aerialスクリーンセーバー
@@ -115,7 +115,7 @@ amazon-chime	通信サービス
 amazon-luna	Amazon Luna
 amazon-music	Amazon Music用のデスクトップクライアント
 amazon-photos	写真の保存と共有サービス
-amazon-workdocs	完全に管理 安全なコンテンツの作成/保管所/コラボレーション 
+amazon-workdocs	完全に管理 安全なコンテンツの作成/保管所/コラボレーション
 amazon-workdocs-drive	完全に管理 安全なエンタープライズストレージ/共有サービス
 amazon-workspaces	クラウドネイティブの永続デスクトップ仮想化
 amd-power-gadget	パワー管理 AMDプロセッサ用のモニタリング/VirtualSMCプラグイン
@@ -274,7 +274,7 @@ background-music	バックグラウンドミュージック
 backlog	Backlog
 backuploupe	TimeMachineの代替GUI
 badlion-client	マインクラフトランチャー
-baiduinput	Baidu入力方式をインストールします 
+baiduinput	Baidu入力方式をインストールします
 baidunetdisk	クラウドストレージサービス
 balance-lock	オーディオバランスが左右にドリフトするのを防ぎます
 balenaetcher	OSイメージをSDカードとUSBドライブにフラッシュするツール
@@ -563,7 +563,7 @@ clashx	クラッシュに基づくGUIを備えたルールベースのカスタ�
 classicftp	FTPファイル転送ソフトウェア
 classroom-assistant	学生リポジトリを一括で複製するためのツール
 classroom-mode-for-minecraft	Minecraft Education Editionの教室管理アプリ
-clay	人々をよりよく覚えるためのプライベートrolodex 
+clay	人々をよりよく覚えるためのプライベートrolodex
 clean-me	ログ用のシステムクリーナー キャッシュなど
 cleanapp	SyniumソフトウェアCleanApp
 cleaneronepro	cleaneronepro
@@ -1150,7 +1150,7 @@ folding-at-home	折りたたみ用のグラフィカルインターフェイス�
 foldingtext	FoldingText
 foldit	Foldit
 folx	トレントクライアントでマネージャーをダウンロード
-font-smoothing-adjuster	フォント平滑コントロールを再度有効にする 
+font-smoothing-adjuster	フォント平滑コントロールを再度有効にする
 fontbase	フォントマネージャー
 fontexplorer-x-pro	フォントファインダーおよびオーガナイザー
 fontforge	アウトラインおよびビットマップフォント用のフォントエディターと変換器
@@ -1272,7 +1272,6 @@ gitahead	GitAhead
 gitblade	Gitのグラフィカルクライアント
 gitdock	すべてのGitLabアクティビティを1か所に表示します
 gitee	GitHubのステータスバーアプリケーション
-giteye	Gitクライアント
 gitfiend	Gitクライアント
 gitfinder	Finderと統合されたGitクライアント
 gitfox	Gitクライアント
@@ -1374,7 +1373,7 @@ guilded	グループチャットプラットフォーム
 guitar-pro	ギター用楽譜エディタソフトウェア ベース/キーボード/ドラムなど
 gulp	gulp-app
 guppy	React.jsのフレンドリーなアプリケーションマネージャーとタスクランナー
-gureumkim	クラウド入力 
+gureumkim	クラウド入力
 gyazmail	メールクライアント
 gyazo	スクリーンショットと画面記録ツール
 gyroflow	ジャイロスコープデータを使用したビデオ手ぶれ補正
@@ -2149,7 +2148,7 @@ mobirise	No-code Webサイトクリエーター
 mobster	Pair and mobプログラミングタイマー
 mochi	間隔反復を使用した研究ノートとフラッシュカード
 mockoon	数秒でモックAPIを作成する
-mockplus	moc 
+mockplus	moc
 mockuuups-studio	デザイナーやマーケターがビジュアルをscenesにドラッグアンドドロップできるようにします
 modelio	拡張可能なモデリング環境
 modern-csv	CSVエディター
@@ -2825,7 +2824,7 @@ qobuz	ストリーミングおよびダウンロード用の高解像度音楽�
 qownnotes	プレーンテキストファイルのメモ帳とToDoリストマネージャー
 qq	インスタントメッセージングツール
 qqlive	Tencentビデオストリーミングおよび共有プラットフォーム
-qqmacmgr	Tencent Computer Manager 
+qqmacmgr	Tencent Computer Manager
 qqmusic	中国の音楽ストリーミングアプリケーション
 qr-journal	iSight(または互換性のある)カメラを使用しているユーザーがQRコードを読み取れるようにします
 qspace-pro	QSpaceプロ
@@ -2880,7 +2879,7 @@ r	統計計算とグラフィックスのための環境
 r-name	R-Name
 racket	Lisp/Scheme ファミリーの最新のプログラミング言語
 radar	メニューバーから重要な指標を確認する
-radarr	Couchpotatoの映画で作業するSonarrのフォーク 
+radarr	Couchpotatoの映画で作業するSonarrのフォーク
 radiant-player	Google Playミュージックのアプリラッパー
 radicle-upstream	コード協調用のp2pスタックであるRadicle用のデスクトップクライアント
 radio-silence	ネットワークモニターとファイアウォール
@@ -3684,7 +3683,7 @@ udig	uDig
 ueli	キーストロークランチャー
 ui	コーポレートWi-Fi VPN/SSO/HR アプリケーション
 ui-browser	AppleのアクセシビリティとAppleScript GUIスクリプティングのアシスタント
-ujam	UJAM製品の管理ツール 
+ujam	UJAM製品の管理ツール
 ukelele	Unicodeキーボードレイアウトエディター
 ukrainian-typographic-keyboard	ウクライナ語のキーボードレイアウトと活版印刷の記号の組み合わせ
 ukrainian-unicode-layout	ウクライナのUnicodeレイアウト
@@ -3922,7 +3921,7 @@ wondershare-filmora	動画編集
 wondershare-uniconverter	ビデオ編集ソフトウェア
 wordpresscom	WordPressクライアント
 wordservice	選択したテキストを操作するためのコマンドを提供するツール
-workbench	シームレス iCloudに自動同期する "dotfile" 
+workbench	シームレス iCloudに自動同期する "dotfile"
 workflowy	メモを取るツール
 workman	代替英語キーボード レイアウト
 workplace-chat	組織のコミュニケーションポータル
