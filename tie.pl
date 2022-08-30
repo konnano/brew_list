@@ -290,6 +290,7 @@ unless( $ARGV[0] ){
    Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"}
   }
  }
+ if( $re->{'MAC'} ){
  sub Glob_1{
  my( $brew,$mine,$loop,$in ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
@@ -332,6 +333,7 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
+ }
  if( $RPM and $RPM gt $CAT ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
