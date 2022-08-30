@@ -140,7 +140,7 @@ MAIN:{
   }elsif( $re->{'USES'} ){
    $re->{'USE'} = $re->{'USES'} = $AR[1] ? lc $AR[1] : Died_1();
   }
-  if( ( $re->{'DEL'} or $ref->{'DEL'} ) and $AR[2] ){
+  if( $re->{'DEL'} and $AR[2] ){
    DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
@@ -183,7 +183,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_8\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.11_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -677,8 +677,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
  my $name = $$brew;
-  $$brew =~ s|.+/([^/]+)|$1|;
-   $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
+  $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
  $name = -t STDOUT ? "$name \033[33m(require)\033[00m" : "$name (require)"
    if not $re->{'COLOR'} and ( not $re->{'HASH'}{$$brew} and not $re->{'DMG'}{$$brew} or
           $re->{'HASH'}{$$brew} and $re->{'OS'}{"$${brew}ver"} gt $re->{'HASH'}{$$brew} );
@@ -1999,6 +1998,7 @@ unless( $ARGV[0] ){
    Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"}
   }
  }
+ if( $re->{'MAC'} ){
  sub Glob_1{
  my( $brew,$mine,$loop,$in ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
@@ -2041,6 +2041,7 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
+ }
  if( $RPM and $RPM gt $CAT ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
