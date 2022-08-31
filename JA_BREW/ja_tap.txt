@@ -989,7 +989,9 @@ font-luxurious-roman	一貫性のないserifを含む半手書きフォント
 font-luxurious-script	豪華なスクリプト
 font-lxgw-bright	Ysabeau OfficeとLXGW WenKaiのフォントを統合
 font-lxgw-new-clear-gothic	IPAexゴシックから派生した簡体字中国語のsans-serifフォント
-font-lxgw-wenkai	FontworksのKleeOneから派生したオープンソースの中国語フォント
+font-lxgw-wenkai	FontworksのKlee Oneから派生したオープンソースの中国語フォント
+font-lxgw-wenkai-lite	FontworksのKlee Oneから派生したオープンソースの中国語フォント
+font-lxgw-wenkai-tc	FontworksのKlee Oneから派生したオープンソースの繁体字中国語フォント
 font-lxgw-zhenkai	LXGW WenKaiのBolder-weightエディション
 font-m-plus-1	M PLUS 1
 font-m-plus-1-code	M PLUS 1 Code
@@ -2396,6 +2398,7 @@ vmware-fusion11	再起動せずに他のオペレーティングシステムを�
 vmware-fusion7	VMware Fusion
 vmware-fusion8	VMware Fusion
 vox2	VOX
+vscodium-insiders	コードエディタ
 whatsapp-beta	WhatsApp用のデスクトップクライアント
 whoozle-android-file-transfer-nightly	Androidファイル転送
 wine-devel	Windowsアプリケーションを実行するための互換性レイヤー
