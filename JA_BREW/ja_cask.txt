@@ -1220,6 +1220,7 @@ g-desktop-suite	Gデスクトップパッケージ
 gactions	Google Actions SDK用のCLIツール
 gama	空間的に明示的なエージェントベースのシミュレーションを構築するためのIDE
 gama-jdk	空間的に明示的なエージェントベースのシミュレーションを構築するためのIDE
+gamemaker	2Dゲームを作成するための完全な開発ツール
 gameranger	GameRanger
 gamma-control	画面ごとの色調整
 ganache	イーサリアム開発のためのパーソナルブロックチェーン
