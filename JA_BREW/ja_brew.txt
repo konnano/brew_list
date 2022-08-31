@@ -55,6 +55,7 @@ agda	依存型関数型プログラミング言語
 age	シンプルでモダンに安全なファイル暗号化
 age-plugin-yubikey	YubiKeysなどの年齢およびPIVトークンを使用してファイルを暗号化するためのプラグイ
 agedu	無駄なディスクスペースを追跡するためのUnixユーティリティ
+agg	AsciicastからGIFへのコンバーター
 aggregate	プレフィックスのリストを最適化してリストの長さを短縮します
 aha	ANSIHTMLアダプター
 ahcpd	IPv6とIPv6/IPv4 ネットワークの自動構成手続き
