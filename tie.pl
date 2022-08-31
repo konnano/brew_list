@@ -290,7 +290,6 @@ unless( $ARGV[0] ){
    Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"}
   }
  }
- if( $re->{'MAC'} ){
  sub Glob_1{
  my( $brew,$mine,$loop,$in ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
@@ -333,7 +332,6 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
- }
  if( $RPM and $RPM gt $CAT ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
@@ -353,8 +351,11 @@ unless( $ARGV[0] ){
     while(my $data=<$BREW>){
      if( $name =~ /^font-/ ){
       $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
-       $tap{"${name}font"} = $1 if $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
-        $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g if $tap{"${name}font"};
+      ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
+       if( $tap{"${name}font"} ){
+        $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
+         $tap{'fontlist'} .= "$name\t"; last;
+       }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
