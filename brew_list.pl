@@ -61,7 +61,7 @@ MAIN:{
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }else{  @AR = map{ $_ =~ s/\W/\$1/g;$_ }@AR;
-  system "$MY_BREW @AR"; die " \033[33mNot brew argument\033[00m\n" if $?; exit;
+  system "$MY_BREW @AR"; $? ? die " \033[33mNot brew argument\033[00m\n" : exit;
  }
   my $UNAME = `uname -m`;
  if( $re->{'LIN'} ){
@@ -98,7 +98,8 @@ MAIN:{
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
    die " Not UTF-8 Locale\n" unless $Locale;
     -d "$ENV{'HOME'}/.JA_BREW" ?
-    print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW'; exit;
+     print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW';
+      $? ? die " can not git clone ~/.JA_BREW\n" : exit;
   }elsif( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
     $AR[1] = $AR[2] ? $AR[2] : 0; $AR[2] = $AR[3] ? $AR[3] : 0;
@@ -183,7 +184,7 @@ sub Died_1{
   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
  "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
 
- die " Enhanced brew list : version 1.11_9\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.12_0\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -337,6 +338,10 @@ sub Doc_1{
 
 sub Wait_1{
 my( $re,$loop,$pid ) = @_;
+ if( -d $re->{'HOME'} and not -f $re->{'TXT'} ){
+  die " exists ~/Buck_BREW_LIST_UP\n"
+   if system '[[ ! -d ~/Buck_BREW_LIST_UP ]] && mv ~/.BREW_LIST ~/Buck_BREW_LIST_UP';
+ }
  mkdir $re->{'HOME'};
  mkdir "$re->{'HOME'}/WAIT";
   my( $not,$dok,@ten ) = Doc_1;
@@ -504,7 +509,18 @@ my( $re,$ls,@AN,%HA ) = @_;
 
 sub Prew_1{
 my $re = shift;
- exit unless $re->{'OS'}{"$re->{'PRE'}font"};
+ unless( $re->{'OS'}{"$re->{'PRE'}font"} ){
+  if( $re->{'OS'}{'fontlist'} ){
+   for my $font(split '\t',$re->{'OS'}{'fontlist'}){
+    $re->{'LEN'}{$font} = length $font;
+     $re->{'LEN1'} = $re->{'LEN'}{$font} if $re->{'LEN1'} < $re->{'LEN'}{$font};
+     push @{$re->{'ARR'}},$font if $font =~ /\Q$re->{'PRE'}\E/;
+   }
+  }
+  exit unless @{$re->{'ARR'}};
+   @{$re->{'ARR'}} < 2 ? $re->{'PRE'} = ${$re->{'ARR'}}[0] : Format_1( $re );
+    print" $re->{'PRE'}\n";
+ }
  exit if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
   my( $type ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
  die " \033[31mNot connected\033[00m\n"
@@ -1149,17 +1165,17 @@ sub Format_1{
   waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
   $re->{'ZEN'} = $re->{'ALL'} ? $re->{'ALL'} : $re->{'EXC'} ? $re->{'EXC'} : $re->{'KXC'} ? $re->{'KXC'} : 0;
   if( $re->{'CAS'} ){
-    $re->{'ZEN'} = $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$| ? 0 :
-    $re->{'ZEN'} =~ m|^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2$3$4" :
-    $re->{'ZEN'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
-    $re->{'ZEN'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)(\s{10}==> .*\n)([^=]+)$| ? "$1$2$3$4" :
-    $re->{'ZEN'} =~ m|^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n\s{10}==> .*\n$| ? "$1$2" :
-    $re->{'ZEN'} =~ m|^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$| ? "$1$2" :
-    $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
-    $re->{'ZEN'} =~ m|^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$| ? "$1$2" :
-    $re->{'ZEN'} =~ m|^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$| ? "$1$2" :
-    $re->{'ZEN'} =~ m|^\s{10}==>.*\n\s{10}==>.*\n$| ? 0 :
-    $re->{'ZEN'} =~ m|^\s{10}==>.*\n$| ? 0 :
+    $re->{'ZEN'} = $re->{'ZEN'} =~ /^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$/ ? 0 :
+    $re->{'ZEN'} =~ /^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$/ ? "$1$2$3$4" :
+    $re->{'ZEN'} =~ /^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$/ ? "$1$2$3$4" :
+    $re->{'ZEN'} =~ /^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)(\s{10}==> .*\n)([^=]+)$/ ? "$1$2$3$4" :
+    $re->{'ZEN'} =~ /^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n\s{10}==> .*\n$/ ? "$1$2" :
+    $re->{'ZEN'} =~ /^\s{10}==>.*\n(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$/ ? "$1$2" :
+    $re->{'ZEN'} =~ /^\s{10}==>.*\n\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$/ ? "$1$2" :
+    $re->{'ZEN'} =~ /^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$/ ? "$1$2" :
+    $re->{'ZEN'} =~ /^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$/ ? "$1$2" :
+    $re->{'ZEN'} =~ /^\s{10}==>.*\n\s{10}==>.*\n$/ ? 0 :
+    $re->{'ZEN'} =~ /^\s{10}==>.*\n$/ ? 0 :
     $re->{'ZEN'} if $re->{'TAP'} and ( $re->{'EXC'} or $re->{'KXC'} );
    $re->{'ZEN'} =~ s/(.+)\n\s{10}item.+:.+/$1/
     if $re->{'ZEN'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
@@ -1185,8 +1201,9 @@ sub Format_1{
     my $tput = `tput cols`;
      my $size = int $tput/($leng+2);
       my $in = 1;
-   print" ==> Casks\n" if $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/|;
-    print" ==> Formula\n" if $re->{'FOR'} and @{$re->{'ARR'}} and not $re->{'USE'};
+      $re->{'PRE'} ? print" ==> Fonts\n" :
+    ( $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks\n" :
+    ( $re->{'FOR'} and @{$re->{'ARR'}} and not $re->{'USE'} ) ? print" ==> Formula\n" : 0;
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
       if( $re->{'ARR'}[$e] =~ m[^ ==> homebrew/|^ => Formula|^ => Cask]){
        ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ => Cask/ ) ?
@@ -1351,7 +1368,7 @@ sub Format_3{
        my $in = $re->{'DMG'}{$tap} ? ' (I)' : '';
      my $desc2 = $JA{$tap} ? $JA{$tap} : $re->{'OS'}{"${tap}c_desc"} ?
       $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
-     $ca .= ( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n\n" :
+     $ca .= #( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n\n" :
             ( $flag1 and $flag1 eq $name and $i == $#cas ) ? "$line2 c $cas[$i]$in\t$desc2\n\n" :
             ( $#cas > 0 or @fom ) ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
                                     "$name$dn\t$desc1\n$line2 c $cas[$i]$in\t$desc2\n\n";
@@ -2059,8 +2076,11 @@ unless( $ARGV[0] ){
     while(my $data=<$BREW>){
      if( $name =~ /^font-/ ){
       $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
-       $tap{"${name}font"} = $1 if $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
-        $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g if $tap{"${name}font"};
+      ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
+       if( $tap{"${name}font"} ){
+        $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
+         $tap{'fontlist'} .= "$name\t"; last;
+       }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
