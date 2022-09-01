@@ -33,7 +33,10 @@ unless( $ARGV[0] ){
      %HAN = ('newer'=>'>','older'=>'<');
 
   if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){
-   unless( $ARGV[0] ){ $re->{'CEL'} = '/usr/local/Cellar';
+   unless( $ARGV[0] ){
+ $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  $re->{'COM'} = '/usr/local/share/zsh-completions';
+   $re->{'CEL'} = '/usr/local/Cellar';
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
@@ -41,7 +44,10 @@ unless( $ARGV[0] ){
    }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
   }else{
-   unless( $ARGV[0] ){ $re->{'CEL'} = 'opt/homebrew/Cellar';
+   unless( $ARGV[0] ){
+ $re->{'FON'} = '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  $re->{'COM'} = '/opt/homebrew/share/zsh-completions';
+   $re->{'CEL'} = '/opt/homebrew/Cellar';
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
@@ -340,7 +346,8 @@ unless( $ARGV[0] ){
 
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
- my( $IN,$in,$e ) = ( 0,int @CASK/2,0 );
+ my( $IN,$in,$e,@COM ) = ( 0,int @CASK/2,0 );
+  $COM[0] = "#compdef bl\n_bl(){\n_arguments '::' \\\n'-p:Fonts:( \\\n" if -d $re->{'FON'} and -d $re->{'COM'};
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
@@ -354,7 +361,8 @@ unless( $ARGV[0] ){
       ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
        if( $tap{"${name}font"} ){
         $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
-         $tap{'fontlist'} .= "$name\t"; last;
+         $tap{'fontlist'} .= "$name\t";
+          push @COM,"$name \\\n"; last;
        }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
@@ -392,6 +400,12 @@ unless( $ARGV[0] ){
      }
     }
    close $BREW;
+  }
+  if( -d $re->{'FON'} and -d $re->{'COM'} ){ no warnings 'closed';
+   $COM[$#COM] =~ s/\\$/)'\n}/;
+   open my $dir,'>',"$re->{'COM'}/_bl";
+    print $dir @COM;
+   close $dir;
   }
  }
 unless( $ARGV[0] ){
