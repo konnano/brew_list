@@ -60,8 +60,7 @@ MAIN:{
  }elsif( $AR[0] eq  '-'  ){ $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
- }else{  @AR = map{ $_ =~ s/\W/\$1/g;$_ }@AR;
-  system "$MY_BREW @AR"; $? ? die " \033[33mNot brew argument\033[00m\n" : exit;
+ }else{  Died_1();
  }
   my $UNAME = `uname -m`;
  if( $re->{'LIN'} ){
@@ -77,9 +76,9 @@ MAIN:{
       $OS_Version =~ s/^12.+\n/12.0/;
   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
    $OS_Version = "${OS_Version}M1" if $UNAME =~ /arm64/;
-  $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions/Casks';
-   $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers/Casks';
-    $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
+  $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+   $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+    $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
 
  if( $re->{'MAC'} and ( $UNAME =~ /arm64/ or not -d $re->{'CEL'} ) ){
@@ -87,9 +86,9 @@ MAIN:{
    $re->{'BIN'} = '/opt/homebrew/opt';
     $ref->{'CEL'} = '/opt/homebrew/Caskroom';
      $re->{'TAP_S'} = '/opt/homebrew/Library/Taps';
-  $ref->{'VERS'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions/Casks';
-   $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers/Casks';
-    $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts/Casks';
+  $ref->{'VERS'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
+   $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
+    $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
    die " \033[31mNot installed HOME BREW\033[00m\n" unless -d $re->{'CEL'};
    $Locale = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
@@ -174,17 +173,43 @@ my( $name,$re,$ref ) = @_;
  }
 }
 
-sub Died_1{
+sub Died_1{ my $Lang;
  my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_JP/;
-  my $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
- "\n  # English display in Japanese version is argument EN
-  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
-  ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
- "\n  # Japanese Language -JA option
-  # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
- "\n  # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
+ if( $^O eq 'darwin' ){
+  if( `uname -m` =~ /x86_64/ ){
+    $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
+   "\n   # English display in Japanese version is argument EN
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /usr/local/share/zsh-completions/_bl
+   # Then brew uninstall brew_list\n" :
+    ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
+   "\n   # Japanese Language -JA option
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /usr/local/share/zsh-completions/_bl
+   # Then brew uninstall brew_list\n" :
+   "\n   # Uninstall rm -rf ~/.BREW_LIST /usr/local/share/zsh-completions/_bl
+   # Then brew uninstall brew_list\n";
+  }else{
+    $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
+   "\n   # English display in Japanese version is argument EN
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /opt/homebrew/share/zsh-completions/_bl
+   # Then brew uninstall brew_list\n" :
+   ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
+   "\n   # Japanese Language -JA option
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /opt/homebrew/share/zsh-completions/_bl
+   # Then brew uninstall brew_list\n" :
+   "\n   # Uninstall rm -rf ~/.BREW_LIST /opt/homebrew/share/zsh-completions/_bl
+   # Then brew uninstall brew_list\n";
+  }
+ }else{
+    $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
+   "\n   # English display in Japanese version is argument EN
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
+   ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
+   "\n   # Japanese Language -JA option
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
+   "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
+ }
 
- die " Enhanced brew list : version 1.12_0\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.12_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1758,7 +1783,10 @@ unless( $ARGV[0] ){
      %HAN = ('newer'=>'>','older'=>'<');
 
   if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){
-   unless( $ARGV[0] ){ $re->{'CEL'} = '/usr/local/Cellar';
+   unless( $ARGV[0] ){
+ $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  $re->{'COM'} = '/usr/local/share/zsh-completions';
+   $re->{'CEL'} = '/usr/local/Cellar';
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
@@ -1766,7 +1794,10 @@ unless( $ARGV[0] ){
    }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
   }else{
-   unless( $ARGV[0] ){ $re->{'CEL'} = 'opt/homebrew/Cellar';
+   unless( $ARGV[0] ){
+ $re->{'FON'} = '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  $re->{'COM'} = '/opt/homebrew/share/zsh-completions';
+   $re->{'CEL'} = '/opt/homebrew/Cellar';
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
@@ -2065,7 +2096,8 @@ unless( $ARGV[0] ){
 
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
- my( $IN,$in,$e ) = ( 0,int @CASK/2,0 );
+ my( $IN,$in,$e,@COM ) = ( 0,int @CASK/2,0 );
+  $COM[0] = "#compdef bl\n_bl(){\n_arguments '::' \\\n'-p:Fonts:( \\\n" if -d $re->{'FON'} and -d $re->{'COM'};
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
@@ -2079,7 +2111,8 @@ unless( $ARGV[0] ){
       ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
        if( $tap{"${name}font"} ){
         $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
-         $tap{'fontlist'} .= "$name\t"; last;
+         $tap{'fontlist'} .= "$name\t";
+          push @COM,"$name \\\n"; last;
        }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
@@ -2117,6 +2150,12 @@ unless( $ARGV[0] ){
      }
     }
    close $BREW;
+  }
+  if( -d $re->{'FON'} and -d $re->{'COM'} ){ no warnings 'closed';
+   $COM[$#COM] =~ s/\\$/)'\n}/;
+   open my $dir,'>',"$re->{'COM'}/_bl";
+    print $dir @COM;
+   close $dir;
   }
  }
 unless( $ARGV[0] ){
