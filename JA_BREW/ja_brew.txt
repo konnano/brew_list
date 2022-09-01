@@ -1344,6 +1344,7 @@ ec2-api-tools	Amazon EC2 Webサービスへのクライアントインターフ�
 ecasound	マルチトラック対応のオーディオレコーダーとエフェクト計算機
 eccodes	GRIB 1/2 とBUFR 3/4 形式のメッセージをデコードおよびエンコードします
 ecflow-ui	client/serverワークフローパッケージのユーザーインターフェイス
+echidna	イーサリアム スマートコントラクトファザー
 echoprint-codegen	EchoprintのCodegen
 ecl	埋め込み可能なCommon Lisp
 ecm	CDイメージファイルを作成して圧縮率を高めます
@@ -2942,6 +2943,7 @@ libexosip	eXosip2用ツールキット
 libextractor	ファイルからメタデータを抽出するためのライブラリ
 libfabric	OpenFabrics libfabric
 libfaketime	偽のシステム時間をプログラムに報告する
+libff	有限体と楕円曲線のC++ライブラリ
 libffcall	GNU外部関数インターフェイスライブラリ
 libffi	ポータブルForeign Functionインターフェイスライブラリ
 libfido2	USBを含むFIDO U2FおよびFIDO 2.0のライブラリ機能を提供します
@@ -3110,6 +3112,7 @@ libpgm	PGM高信頼マルチキャスト手続きを実装します
 libphonenumber	GoogleによるC++電話番号ライブラリ
 libpinyin	音節を扱うライブラリ
 libpipeline	サブプロセスのパイプラインを操作するためのCライブラリ
+libplacebo	GPUで高速化された 画像/ビデオ処理プリミティブの再利用可能なライブラリ
 libplctag	イーサネット経由でAB PLCデータにアクセスするためのポータブルでシンプルなAPI
 libplist	AppleのバイナリとXML属性リスト用のライブラリ
 libpng	PNG画像を操作するためのライブラリ
@@ -4464,6 +4467,7 @@ polynote	First-classのScalaをサポートするPolyglotノートブック
 pony-stable	Pony言語の依存関係マネージャー
 ponyc	オブジェクト指向 Actor-model 機能的で安全なプログラミング言語
 ponysay	Cowsay しかしponiesと
+popeye	Kubernetes クラスターリソースサニタイザー
 poppler	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
 poppler-qt5	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
 popt	いくつかの機能拡張を備えたgetopt(3)のようなライブラリ
