@@ -10,13 +10,13 @@ elif [[ "$NAME" = Darwin ]];then
 fi
  LINK="$1"
 if [[ "$NAME" = Darwin && "$LINK" = unlink ]];then
- [[ "$CPU" = x86_64 ]] && rm -f /usr/local/bin/bl /usr/local/bin/brew_list /usr/local/share/zsh-completions/_bl ||\
-  rm -f /opt/homebrew/bin/brew_list /opt/homebrew/bin/bl /opt/homebrew/share/zsh-completions/_bl
+ [[ "$CPU" = x86_64 ]] && rm -f /usr/local/bin/bl /usr/local/share/zsh/site-functions/_bl ||\
+  rm -f /opt/homebrew/bin/bl /opt/homebrew/share/zsh/site-functions/_bl
   rm -rf ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
     exit
 elif [[ "$NAME" = Linux && "$LINK" = unlink ]];then
-  rm -rf /home/linuxbrew/.linuxbrew/bin/bl /home/linuxbrew/.linuxbrew/bin/brew_list ~/.BREW_LIST ~/.JA_BREW
+  rm -rf /home/linuxbrew/.linuxbrew/bin/bl ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
     exit
 fi
