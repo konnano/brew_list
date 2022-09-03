@@ -1166,6 +1166,7 @@ diskus	'du-sh'の最低限の高速代替品
 dislocker	WindowsのBitLocker-edボリュームを 読み取り/書き込み するためのFUSEドライバー
 distcc	分散コンパイラクライアントおよびサーバー
 distribution	ターミナルでASCIIグラフィカルヒストグラムを作成する
+distrobox	ターミナル内で任意の Linuxディストリビューションを使用する
 dita-ot	DITA Open Toolkitは、OASISDITA仕様の実装です。
 ditaa	ASCII図を適切なビットマップグラフィックに変換する
 dive	Dockerイメージの各レイヤーを探索するためのツール
@@ -2743,6 +2744,7 @@ kubernetes-cli@1.22	Kubernetesコマンドラインインターフェース
 kubernetes-service-catalog-client	OSBAPIを使用してk8sでサービスを利用する
 kubescape	NSAおよびCISAによる硬化ガイダンスに従ったKubernetesテスト
 kubeseal	一方向に暗号化された機密Kubernetesコントローラーとツール
+kubesess	複数の kubernetesクラスターを同時に管理する
 kubespy	Kubernetesリソースをリアルタイムで監視するためのツール
 kubeval	Kubernetes構成ファイルを検証し複数のKubernetesバージョンをサポートします
 kubevela	Kubernetesとオープンアプリケーションモデルに基づくアプリケーションプラットフォーム
