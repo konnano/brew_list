@@ -1391,7 +1391,6 @@ hancom-word	ワードプロセッサ
 handbrake	オープンソースのビデオトランスコーダー
 handbrakebatch	HandBrakeBatch
 handshaker	Androidデバイスを管理するためのアプリ
-handyprintpro	AirPrintサーバー
 happygrep	happygrep
 happymac	見守る システムの速度を低下させるバックグラウンドプロセスを一時停止および再開します
 haptic-touch-bar	触覚タッチバー
@@ -2474,6 +2473,7 @@ origami-studio	Facebookのプロトタイプデザインツール デザイン/�
 origin	PCゲームをプレイし友達とつながる
 orion	Orionブラウザ
 orka	AppleでのKubernetesとのオーケストレーション
+orka-vm-tools	Apple上の Kubernetesによるオーケストレーション
 oryoki	薄いインターフェースを備えた実験的なWebブラウザー
 osbuddy	OSBuddy
 oscar	CPAP分析レポーター
@@ -2924,6 +2924,7 @@ redeclipse	Red Eclipse
 redis-pro	Redisデスクトップ
 redisinsight	合理化されたRedisアプリケーション開発のためのGUI
 redream	ドリームキャストエミュレータ
+reflect	会議用メモアプリ アイデア/ジャーナリング/研究
 reflector	ワイヤレス画面ミラーリングアプリケーション
 regexhibit	Perl正規表現アシスタント
 reggy	会話型な正規表現バリデーターおよびテスター
@@ -3888,7 +3889,6 @@ whatsize	ディスクスペースの表示と再利用に使用されるファ�
 whatsyoursign	ファイルの暗号署名情報を表示します
 whichspace	アクティブスペースメニューバーアイコン
 whoozle-android-file-transfer	Linux用のAndroidファイル転送
-wickrme	WickrMeのデスクトップクライアント
 widelands	Settlers IIのようなFreeのリアルタイム戦略ゲーム
 wifi-explorer	ワイヤレスネットワークのトラブルシューティング スキャン/画面
 wifi-explorer-pro	ワイヤレスネットワークのトラブルシューティング スキャン/画面
