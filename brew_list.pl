@@ -21,7 +21,7 @@ MAIN:{
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
   $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
-   chomp( my $MY_BREW = `which brew` ) or die " \033[31mNot installed HOME BREW\033[00m\n";
+
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
  if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
@@ -175,31 +175,19 @@ my( $name,$re,$ref ) = @_;
 
 sub Died_1{ my $Lang;
  my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_JP/;
- if( $^O eq 'darwin' ){
-  if( `uname -m` =~ /x86_64/ ){
+ chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` ) or die " \033[31mNot installed HOME BREW\033[00m\n";
+  if( $^O eq 'darwin' ){
     $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /usr/local/share/zsh-completions/_bl
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n" :
     ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # Japanese Language -JA option
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /usr/local/share/zsh-completions/_bl
+   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n" :
-   "\n   # Uninstall rm -rf ~/.BREW_LIST /usr/local/share/zsh-completions/_bl
+   "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
   }else{
-    $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
-   "\n   # English display in Japanese version is argument EN
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /opt/homebrew/share/zsh-completions/_bl
-   # Then brew uninstall brew_list\n" :
-   ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
-   "\n   # Japanese Language -JA option
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW /opt/homebrew/share/zsh-completions/_bl
-   # Then brew uninstall brew_list\n" :
-   "\n   # Uninstall rm -rf ~/.BREW_LIST /opt/homebrew/share/zsh-completions/_bl
-   # Then brew uninstall brew_list\n";
-  }
- }else{
     $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
@@ -207,8 +195,7 @@ sub Died_1{ my $Lang;
    "\n   # Japanese Language -JA option
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
- }
-
+  }
  die " Enhanced brew list : version 1.12_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
@@ -262,7 +249,7 @@ my( $re,$list ) = @_;
  }
  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
-   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re ) : $re->{'PRE'} ? Prew_1( $re ) : File_1( $re,$list );
+   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re ) : File_1( $re,$list );
 }
 
 sub Ana_1{
@@ -537,9 +524,11 @@ my $re = shift;
  unless( $re->{'OS'}{"$re->{'PRE'}font"} ){
   if( $re->{'OS'}{'fontlist'} ){
    for my $font(split '\t',$re->{'OS'}{'fontlist'}){
-    $re->{'LEN'}{$font} = length $font;
-     $re->{'LEN1'} = $re->{'LEN'}{$font} if $re->{'LEN1'} < $re->{'LEN'}{$font};
-     push @{$re->{'ARR'}},$font if $font =~ /\Q$re->{'PRE'}\E/;
+    if( $font =~ /\Q$re->{'PRE'}\E/ ){
+     $re->{'LEN'}{$font} = length $font;
+      $re->{'LEN1'} = $re->{'LEN'}{$font} if $re->{'LEN1'} < $re->{'LEN'}{$font};
+     push @{$re->{'ARR'}},$font;
+    }
    }
   }
   exit unless @{$re->{'ARR'}};
@@ -634,14 +623,15 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
            $re->{'FDIR'} and not $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '5' or
            $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
            $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
-           not $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '#' ){
+           not( $re->{'VERS'} or $re->{'FDIR'} or $re->{'DDIR'} ) and $tap ne '#' ){
             die " exist \033[31mLOCK\033[00m\n" if -d "$re->{'HOME'}/LOCK";
              $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
-              $re->{'TEN'} = 1;  Wait_1( $re );
+              $re->{'TEN'} = 1; Wait_1( $re );
        }
         last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
        exit unless not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
        exit unless not $re->{'PRE'} or $re->{'FDIR'};
+       Prew_1( $re ) if $re->{'PRE'};
       next;
      }
       if( $re->{'TAP'} ){
@@ -975,7 +965,7 @@ my( $list,$file,$in,$re ) = @_;
              $in++; $i--; next;
      }else{
       if( $re->{'FOR'} and $brew_2 ne $re->{'HASH'}{$brew_1} and
-        ( not $re->{'OS'}{"${brew_1}un_xcode"} or not $re->{'OS'}{"${brew_1}un_Linux"} ) or
+         not( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}un_Linux"} ) or
           $re->{'CAS'} and not $re->{'OS'}{"${brew_1}un_cask"} and $brew_2 ne $re->{'DMG'}{$brew_1} ){
          Version_2( $re,$brew_1,$brew_2 );
       }else{
@@ -1073,7 +1063,7 @@ my( $list,$re,$in ) = @_;
         $re->{'MEM'} = "      X  $tap\tNot Formula\n";
          Memo_1( $re,$mem ) unless $re->{'FOR'};
     }elsif( $re->{'FOR'} and $ver ne $re->{'HASH'}{$tap} and
-          ( not $re->{'OS'}{"${tap}un_xcode"} or not $re->{'OS'}{"${tap}un_Linux"} ) or
+           not( $re->{'OS'}{"${tap}un_xcode"} and $re->{'OS'}{"${tap}un_Linux"} ) or
             $re->{'CAS'} and not $re->{'OS'}{"${tap}un_cask"} and $ver ne $re->{'DMG'}{$tap} ){
         $re->{'MEM'} = "$re->{'SPA'}$tap\t$ver\t$com\n";
          Version_2( $re,$tap,$ver );
@@ -1782,22 +1772,20 @@ unless( $ARGV[0] ){
              'mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
      %HAN = ('newer'=>'>','older'=>'<');
 
-  if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){
+  if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){ $re->{'CEL'} = '/usr/local/Cellar';
+    $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+     $re->{'COM'} = '/usr/local/share/zsh/site-functions';
    unless( $ARGV[0] ){
- $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-  $re->{'COM'} = '/usr/local/share/zsh-completions';
-   $re->{'CEL'} = '/usr/local/Cellar';
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
        Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
    }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-  }else{
+  }else{ $re->{'CEL'} = '/opt/homebrew/Cellar';
+    $re->{'FON'} = '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+     $re->{'COM'} = '/opt/homebrew/share/zsh/site-functions';
    unless( $ARGV[0] ){
- $re->{'FON'} = '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-  $re->{'COM'} = '/opt/homebrew/share/zsh-completions';
-   $re->{'CEL'} = '/opt/homebrew/Cellar';
     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
@@ -2096,8 +2084,9 @@ unless( $ARGV[0] ){
 
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
- my( $IN,$in,$e,@COM ) = ( 0,int @CASK/2,0 );
-  $COM[0] = "#compdef bl\n_bl(){\n_arguments '::' \\\n'-p:Fonts:( \\\n" if -d $re->{'FON'} and -d $re->{'COM'};
+ unlink "$re->{'COM'}/_bl" unless -d $re->{'FON'};
+ my( $IN,$in,$e,$COM ) = ( 0,int @CASK/2,0 ); $tap{'fontlist'} = '';
+  $COM = "#compdef bl\n_bl(){\n_arguments '*::' \\\n'-p:Fonts:( \\\n" if -d $re->{'FON'} and -d $re->{'COM'};
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
@@ -2112,7 +2101,7 @@ unless( $ARGV[0] ){
        if( $tap{"${name}font"} ){
         $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
          $tap{'fontlist'} .= "$name\t";
-          push @COM,"$name \\\n"; last;
+          $COM .= "$name \\\n" if -d $re->{'FON'} and -d $re->{'COM'}; last;
        }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
@@ -2152,9 +2141,9 @@ unless( $ARGV[0] ){
    close $BREW;
   }
   if( -d $re->{'FON'} and -d $re->{'COM'} ){ no warnings 'closed';
-   $COM[$#COM] =~ s/\\$/)'\n}/;
+   $COM =~ s/\\$/)'\n}/;
    open my $dir,'>',"$re->{'COM'}/_bl";
-    print $dir @COM;
+    print $dir $COM;
    close $dir;
   }
  }
