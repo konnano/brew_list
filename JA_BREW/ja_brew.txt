@@ -5442,6 +5442,7 @@ tal	一致する場合は行末を揃えます
 talisman	機密にチェックインされるのを検出して防止するツール
 talloc	デストラクタを含む階層的な参照カウントメモリプール
 tanka	Jsonnetを使用したKubernetesの柔軟で再利用可能な簡潔な構成
+taplo	Rustで書かれたTOMLツールキット
 tarantool	インメモリデータベースとLuaアプリケーションサーバー
 tarlz	データ圧縮機
 tarsnap	本当に妄想的な人のためのオンラインバックアップ
