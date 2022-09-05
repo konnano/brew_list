@@ -2300,6 +2300,7 @@ hledger	コマンドラインによる簡単なプレーンテキストアカウ
 hlint	Haskellのソースコードの提案
 hmmer	プロファイルHMMを構築しデータベース順序に対してスキャンします
 hoedown	安全なMarkdown処理(Sundownの復活したフォーク)
+hof	柔軟なデータ モデリングとコード生成システム
 homeassistant-cli	Home Assistantのコマンドラインユーティリティ
 homebank	自宅で個人アカウントを管理する
 homeshick	bashで記述されたGit dotfile同期装置
