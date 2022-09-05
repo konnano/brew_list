@@ -381,6 +381,7 @@ bloodhound	ドメイン管理者のSix Degrees
 bloomrpc	GRPCサービス用のGUIクライアント
 blu-ray-player	Blu-rayコンテンツ用のプレーヤー
 blu-ray-player-pro	Blu-rayプレーヤーソフトウェア
+bluebubbles	BlueBubblesアプリエコシステム内のクライアントにiMessageを転送するためのサーバー
 bluefish	オープンソースコードエディター
 bluegriffon	WebおよびEPUBエディター
 blueharvest	外付けドライブからメタデータファイルを削除する
@@ -869,6 +870,7 @@ dotnet-sdk	開発者向けプラットフォーム
 double-commander	ファイルマネージャー
 doubletwist	doubleTwist
 doughnut	ポッドキャストクライアント
+douyin	音楽ショートビデオを作成するためのソーシャル ソフトウェア
 downie	さまざまなWebサイトからビデオをダウンロードします
 doxie	スキャナーハードウェア用のコンパニオンアプリ
 doxygen	ソースコードからドキュメントを生成する
@@ -1793,6 +1795,7 @@ league-of-legends	マルチプレイヤーオンラインバトルアリーナ�
 leanote	Leanote
 leap-motion	LeapMotion
 leapp	クラウド認証情報マネージャー
+lectrote	Electronシェルのインタラクティブフィクションインタプリタ
 ledger-live	複数の暗号通貨を維持するためのウォレットデスクトップアプリケーション
 leech	軽量ダウンロードマネージャー
 leela	使いやすいグラフィカルインターフェイスでプログラムをプレイしてください
@@ -2344,6 +2347,7 @@ notational-velocity	表記速度
 notch-simulator	MacBookProのノッチをシミュレートする
 notebooks	ワードプロセッサ
 notedup	NoteDup
+notesnook	プライバシー重視のメモ作成アプリ
 noti	Androidデバイスからの通知を表示するユーティリティ
 notion	書くアプリ 予定/協調/整理
 notion-enhanced	オールインワンの生産性ワークスペースnotion.soのエンハンサー/カスタマイザー
