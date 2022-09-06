@@ -155,6 +155,7 @@ anypointstudio	Muleアプリケーションを設計およびテストするた�
 ao	エレガントなMicrosoft To-Doデスクトップアプリ
 apache-couchdb	マルチマスター同期データベース
 apache-directory-studio	EclipseベースのLDAPブラウザーとディレクトリクライアント
+apifox	APIドキュメントのプラットフォーム デバッグ モック/テスト
 apk-icon-editor	APKアイコンを変更するためのエディター 名前/バージョン/その他のデータ
 app-cleaner	アンインストーラーとクリーニングアシスタント
 app-fair	Freeと商用のネイティブデスクトップアプリケーションのカタログ
@@ -860,6 +861,7 @@ dockmate	ウィンドウのプレビューとコントロール
 dockstation	ドックステーション
 dockview	ドックでアプリケーションウィンドウをプレビューするユーティリティ
 dogecoin	暗号通貨
+doll	メニューバーのドックからアプリのバッジを表示するユーティリティ
 dolphin	ゲームキューブとWiiのゲームをプレイするエミュレーター
 doomsday-engine	Doomの拡張ソースポート Heretic/Hexen
 dosbox	DOSを使用したx86用エミュレーター
@@ -1690,6 +1692,7 @@ keepassx	セキュリティに焦点を当てたパーソナルデータマネ�
 keepassxc	パスワードマネージャーアプリ
 keeper-password-manager	パスワードマネージャーアプリケーションとデジタルVault
 keepingyouawake	システムがスリープモードになるのを防ぐためのツール
+keet	ピアツーピアのビデオおよびテキストチャット
 keeweb	KeePassと互換性のあるパスワードマネージャー
 keka	ファイルアーカイバ
 kekaexternalhelper	Kekaファイルアーカイバのヘルパーアプリケーション
@@ -1906,6 +1909,7 @@ macdjview	MacDjView
 macdown	オープンソースのMarkdownエディター
 macdroid	Androidデバイスに接続します
 macdropany	ローカルフォルダをクラウドと同期します
+macforge	プラグイン インジェクションを含むプラグイン、アプリ/テーマ ストア
 macfuse	ファイルシステム統合
 macfusion-ng	Macfusion
 macgamestore	ゲームを購入/ダウンロード/ゲームプレイ
@@ -2700,6 +2704,7 @@ postgrespreferencepane	PostgresPrefs
 postico	PostgreSQLデータベース用のGUIクライアント
 postman	API開発のための協力的プラットフォーム
 postman-agent	Postman on theWebのデスクトップエージェント
+postman-cli	PostmanでのコマンドラインAPI管理用のCLI
 powder	物理サンドボックスゲーム
 powder-player	パウダープレーヤー
 power-manager	タスクを自動化し電力管理を改善するユーティリティ
@@ -3982,6 +3987,7 @@ xnviewmp	フォトビューアー 画面管理/画像リサイザーなど
 xonotic	アリーナスタイルの一人称シューティングゲーム
 xournal-plus-plus	手書きのメモ取りソフトウェア
 xpra	画面とアプリケーションの転送システム
+xprocheck	マルウェア対策スキャンロギングツール
 xquartz	X.OrgXウィンドウシステムのオープンソースバージョン
 xrg	システムモニター
 xscope	画面上のグラフィックスとレイアウトを測定/検査/テスト するためのツール
