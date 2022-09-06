@@ -554,6 +554,7 @@ bzr-upload	dumbサーバーの変更を段階的にアップロードするBazaa
 bzr-xmloutput	XML出力を生成するオプションを提供するBazaarプラグイン
 bzrtools	便利な追加ユーティリティを提供するBazaarプラグイン
 bzt	BlazeMeter Taurus
+c	C "スクリプト"を一度にコンパイルして実行する
 c-ares	非同期DNSライブラリ
 c-blosc	Blocking、shufflingと損失の無い圧縮ライブラリ
 c-kermit	UNIXおよびVMSのスクリプト可能なネットワークの順番通信
@@ -1727,6 +1728,7 @@ gandi.cli	パブリックAPIを使用したGandi.net製品へのコマンドラ�
 ganglia	拡張性のある分散監視システム
 garmintools	Garmin Forerunner GPS単体へのインターフェース
 gateway-go	OpenIoTHub用のGateWayクライアント
+gator	Open Policy Agent Gatekeeperの CLIユーティリティ
 gatsby-cli	Gatsbyコマンドラインインターフェイス
 gau	Open Threat Exchange ウェイバックマシン コモンクロールURLフェッチャー
 gauche	便利なスクリプト解釈プログラムとして開発されたR7RSスキームの実装
