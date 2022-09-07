@@ -196,7 +196,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
- die " Enhanced brew list : version 1.12_2\n   Option\n  -new\t:  creat new cache
+ die " Enhanced brew list : version 1.12_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -530,12 +530,13 @@ my $re = shift;
      push @{$re->{'ARR'}},$font;
     }
    }
-  }
-  exit unless @{$re->{'ARR'}};
+  } exit unless @{$re->{'ARR'}};
    @{$re->{'ARR'}} < 2 ? $re->{'PRE'} = ${$re->{'ARR'}}[0] : Format_1( $re );
-    print" $re->{'PRE'}\n";
+  print" $re->{'PRE'}\n"
+  unless -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
  }
- exit if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
+ die " exist mater.font please type : bl -new\n"
+ if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
   my( $type ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
  die " \033[31mNot connected\033[00m\n"
   if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
