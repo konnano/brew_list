@@ -3319,6 +3319,7 @@ libzdb	データベース接続プールライブラリ
 libzip	読むためのCライブラリ 作成/zipアーカイブの変更
 libzzip	ZIPアーカイブの読み取りアクセスを提供するライブラリ
 licensefinder	プロジェクトの依存関係のライセンスを検索する
+licenseplist	iOSアプリケーションのすべての依存関係のライセンスリストジェネレーター
 licensor	stdoutにライセンスを書き込む
 lifelines	テキストベースの系図ソフトウェア
 lightgbm	高速で分散型の高性能勾配boostingフレームワーク
