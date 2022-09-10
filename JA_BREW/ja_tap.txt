@@ -318,6 +318,7 @@ font-chau-philomene-one	Chau Philomene One
 font-chela-one	Chela One
 font-chelsea-market	Chelsea Market
 font-chenla	Chenla
+font-chenyuluoyan	オープンソースの繁体字中国語手書きフォント
 font-cherish	表現力と洗練さをプラスしたドライブラシスタイル
 font-cherry-bomb-one	Cherry Bomb One
 font-cherry-cream-soda	Cherry Cream Soda
@@ -1094,6 +1095,7 @@ font-mohave	Mohave
 font-molengo	Molengo
 font-molle	Molle
 font-monda	Monda
+font-monocraft	Minecraftで使用される書体に基づくプログラミング フォント
 font-monofett	Monofett
 font-monofur-for-powerline	monofur for Powerline
 font-monofur-nerd-font	Monofur オタクフォント(Monofur)
