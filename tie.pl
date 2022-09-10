@@ -351,17 +351,17 @@ unless( $ARGV[0] ){
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
-     my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
+     my( $IF1,$IF2,$ELIF,$ELS,$FI ) = ( 1,0,0,0,1 );
     $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
-     if( $name =~ /^font-/ ){
+     if( $name =~ /^font-/ and $FI ){
       $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
       ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
        if( $tap{"${name}font"} ){
         $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
          $tap{'fontlist'} .= "$name\t";
-          $COM .= "$name \\\n" if -d $re->{'FON'} and -d $re->{'COM'}; last;
+          $COM .= "$name \\\n" if -d $re->{'FON'} and -d $re->{'COM'}; $FI = 0;
        }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
