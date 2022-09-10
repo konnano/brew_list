@@ -3027,6 +3027,7 @@ libkeccak	Keccak-ファミリハッシュライブラリ
 libkml	KMLを解析、生成、操作するためのライブラリ
 libksba	X.509およびCMSライブラリ
 liblas	LASLiDAR形式の読み取りおよび書き込み用のC/C++ライブラリ
+liblbfgs	限られたメモリのBFGS最適化アルゴリズムのCライブラリ
 liblcf	RPGツクール 2000/2003 ゲームデータ用ライブラリ
 liblinear	大規模な線形分類のためのライブラリ
 liblo	軽量のオープンサウンドコントロールの実装
