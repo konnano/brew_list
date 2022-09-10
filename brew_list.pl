@@ -535,9 +535,9 @@ my $re = shift;
   print" $re->{'PRE'}\n"
   unless -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
  }
- die " exist mater.font please type : bl -new\n"
- if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
   my( $type ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
+ die " exist mater.$type please type : bl -new\n"
+  if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
  die " \033[31mNot connected\033[00m\n"
   if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
      system "sleep 0.1; qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1";
@@ -734,7 +734,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
  print" \033[33mexists Formula and Cask...\033[00m\n"
   if not $file and $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
-  ++$re->{'NEW'} and Init_1( $re ) unless $brew;
+  $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|';
  if( $re->{'DEL'} ){ my( %HA_1,@AN_1 );
@@ -1418,7 +1418,7 @@ sub Format_3{
 
 sub Nohup_1{
 my $re = shift;
- ++$re->{'NEW'} and Init_1( $re )
+ $re->{'NEW'}++, Init_1( $re )
   unless -f "$re->{'HOME'}/font.sh" and -f "$re->{'HOME'}/tie.pl";
  my( $time1,$time2 ) = -f $re->{'TXT'} ?
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] ) : ([0,0,0,0,0,1],[0,0,0,0,0,0]);
@@ -1431,9 +1431,9 @@ my $re = shift;
 
 sub Tied_1{
 my( $re,$i,@file1,@file2 ) = @_;
- while(my $tap = <DATA>){
-  $i++, next if $tap =~ /^__TIE__$/;
-   $i ? push @file2,$tap : push @file1,$tap;
+ while(<DATA>){
+  $i++, next if /^__TIE__$/;
+   $i ? push @file2,$_ : push @file1,$_;
  }
  open my $file1,'>',"$re->{'HOME'}/font.sh" or die " Tied1 $!\n";
   print $file1 @file1;
@@ -2092,17 +2092,17 @@ unless( $ARGV[0] ){
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
-     my( $IF1,$IF2,$ELIF,$ELS ) = ( 1,0,0,0 );
+     my( $IF1,$IF2,$ELIF,$ELS,$FI ) = ( 1,0,0,0,1 );
     $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
-     if( $name =~ /^font-/ ){
+     if( $name =~ /^font-/ and $FI ){
       $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
       ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
        if( $tap{"${name}font"} ){
         $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
          $tap{'fontlist'} .= "$name\t";
-          $COM .= "$name \\\n" if -d $re->{'FON'} and -d $re->{'COM'}; last;
+          $COM .= "$name \\\n" if -d $re->{'FON'} and -d $re->{'COM'}; $FI = 0;
        }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
