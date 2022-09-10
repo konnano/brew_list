@@ -313,6 +313,7 @@ beaker-browser	実験的なピアツーピアWebブラウザー
 beamer	Apple TVおよびChromecast用のデスクトップキャスト/ストリーミングアプリ
 bean	ワードプロセッサ
 beardedspice	BeardedSpice
+beast2	ツリーのサンプリングによるベイジアン進化分析
 beatunes	曲の 分析/検査/再生
 bee	Bee
 beekeeper-studio	クロスプラットフォームのSQLエディターとデータベース管理アプリ
@@ -434,6 +435,7 @@ bria	ソフトフォンアプリケーション
 bricklink-partdesigner	独自のLEGOパーツをデザインする
 bricklink-studio	LEGOの指示を作成します 建てる/表現する
 bricksmith	Bricksmith
+bridge	メガスキャンとメタヒューマンへのゲートウェイ
 brightness	ディスプレイとバックライトキーボードの明るさを調整するためのメニューバー項目
 brightness-sync	LG UltraFineディスプレイの明るさを同期するユーティリティ
 brisk	レーダーを提示するアプリ
@@ -1872,6 +1874,8 @@ logmein-hamachi	LogMeIn Hamachi
 logos	聖書研究ソフトウェア
 logseq	知識の共有と管理のためのプライバシー第一のオープンソースプラットフォーム
 lookin	Lookin
+lookingglassbridge	Looking Glassアプリケーションと開発ツールに必要
+lookingglassstudio	Looking Glassで3D画像およびビデオ形式を表示および編集する
 loom	画面およびビデオ録画ソフトウェア
 loopback	ケーブルFreeオーディオルーター
 losslesscut	ビデオファイルとオーディオファイルを劣化無しでトリミング
@@ -3300,6 +3304,7 @@ splashtop-personal	デスクトップおよびモバイルデバイスからコ�
 splashtop-streamer	デスクトップおよびモバイルデバイスからコンピューターに接続して制御する
 splayer	メディアプレーヤー
 splice	クラウドベースの音楽作成および協力的プラットフォーム
+spline	3Dでの設計とコラボレーション
 splitshow	SplitShow
 spotifree	Spotifyの広告を自動的にミュートします(サポートされていません)
 spotify	音楽ストリーミングサービス
