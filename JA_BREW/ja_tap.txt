@@ -989,6 +989,8 @@ font-lustria	Lustria
 font-luxurious-roman	一貫性のないserifを含む半手書きフォント
 font-luxurious-script	豪華なスクリプト
 font-lxgw-bright	Ysabeau OfficeとLXGW WenKaiのフォントを統合
+font-lxgw-bright-gb	Ysabeau Officeと LXGW WenKai GBのフォントを統合
+font-lxgw-bright-tc	Ysabeau Officeと LXGW WenKai TCのフォントを統合
 font-lxgw-new-clear-gothic	IPAexゴシックから派生した簡体字中国語のsans-serifフォント
 font-lxgw-wenkai	FontworksのKlee Oneから派生したオープンソースの中国語フォント
 font-lxgw-wenkai-lite	FontworksのKlee Oneから派生したオープンソースの中国語フォント
@@ -2333,6 +2335,7 @@ parallels13	デスクトップ仮想化ソフトウェア
 parallels14	デスクトップ仮想化ソフトウェア
 parallels15	デスクトップ仮想化ソフトウェア
 parallels16	デスクトップ仮想化ソフトウェア
+parallels17	デスクトップ仮想化ソフトウェア
 pdf-expert-beta	PDFリーダー エディター/注釈
 pgadmin3	pgAdmin
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
