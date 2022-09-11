@@ -4642,6 +4642,7 @@ pythran	数値カーネル用のAheadofTimeコンパイラ
 pytouhou	Touhou6エンジンのLibre実装
 pyvim	純粋なPython Vimクローン
 pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
+pyyaml	PythonのYAMLフレームワーク
 q	CSVまたはTSVファイルでSQLを直接実行する
 qalculate-gtk	多目的デスクトップ計算機
 qbe	バッグエンドコンパイラ
@@ -4976,6 +4977,7 @@ sccache	コンパイララッパーとして使用され可能な場合はコン
 scdoc	小さなマニュアルページ発生器
 sceptre	より良いAWS基礎構造を構築する
 schema-evolution-manager	postgresqlデータベーススキーマの移行を管理する
+schemathesis	仕様を備えたWebアプリケーションのテストツール
 scheme48	Schemeバイトコードインタプリタ
 schroedinger	Diracコーデックの高速実装
 scipy	数学のためのソフトウェア 理科/エンジニアリング
