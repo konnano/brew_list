@@ -231,7 +231,6 @@ audiogridder-server	VST2/VST3/AUDSP サーバー
 audiorelay	AudioRelay
 audioscrobbler	最小限の堅牢なiTunesのscrobbling
 audioslicer	オーディオファイル内のすべての無音を検索します
-audiostellar	オープンソースのデータ駆動型実験サンプラー
 audirvana	オーディオ再生ソフトウェア
 audius	音楽ストリーミングおよび共有プラットフォーム
 augur	Augur UIとugur Nodeをバンドルしローカルに展開するアプリ
@@ -342,7 +341,6 @@ biglybt	Azureusオープンソースプロジェクトに基づくBittorrentク�
 bike	アイデアを記録して処理する
 bili-downloader	BiliBiliメディアダウンローダー
 bilibili	非公式のbilibiliクライアント
-bilibili-official	公式のbilibiliビデオストリーミングおよび共有プラットフォーム
 bilimini	小さなウィンドウのbilibiliクライアント
 billings-pro	Invoices/推定 引用と時間追跡
 binance	暗号通貨交換
@@ -1347,7 +1345,6 @@ gpg-suite-pinentry	GPGSuite用のPinentryGUI
 gpg-sync	GPG同期
 gplates	電極テクトニクスプログラム
 gpodder	ポッドキャストクライアント
-gpower	統計的検出力分析を計算するためのツール
 gpxsee	GPSログファイルビューアおよび分析
 gqrx	GNURadioとQtを搭載したソフトウェア無線受信機
 grads	地球科学データを視覚化する アクセス/操作
@@ -1777,6 +1774,7 @@ lacona	Lacona
 lagrange	Geminispaceを閲覧するためのデスクトップGUIクライアント
 lando	Docker上に構築されたローカル開発環境とDevOpsツール
 landrop	LAN上の任意のデバイスに任意のファイルをドロップします
+languagetool	文法 すべての筆記アプリでのスペルとスタイルの提案
 lantern	Lantern
 lapce	Rustで書かれたオープンソースコードエディタ
 laravel-kit	デスクトップLaravel管理パネルアプリ
@@ -3687,6 +3685,7 @@ twobird	共同メモをクライアントにメールで送信
 twonkyserver	DLNA/UPnP メディアサーバー
 tyke	Tyke
 tyme	時間追跡アプリ
+typcn-bilibili	非公式bilibiliクライアント
 typeface	フォントマネージャーアプリケーション
 typeit4me	テキストエキスパンダー
 typinator	頻繁に使用するテキストやグラフィックの挿入を自動化するツール
