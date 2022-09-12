@@ -118,6 +118,7 @@ ant	Javaビルドツール
 ant-contrib	Apache Antのタスクのコレクション
 ant@1.9	Javaビルドツール
 antibody	シェルプラグインマネージャー
+antidote	zshのプラグインマネージャー 抗原と抗体に刺激を受けた
 antigen	oh-my-zshとvundleに触発されたzshのプラグインマネージャー
 antiword	Word(.doc)ファイルを読み取るためのユーティリティ
 antlr	言語認識のための別のツール
@@ -152,6 +153,7 @@ apng2gif	APNGアニメーションをアニメーションGIF形式に変換し�
 apngasm	apngasmの次世代、APNGアセンブラー
 apollo	ActiveMQに基づくMulti-protocolメッセージングブローカー
 apollo-cli	Apollo GraphQLのコマンドラインツール
+apophenia	統計および科学計算用の Cライブラリ
 app-engine-java	Java Google App Engine
 app-engine-python	Google App Engine
 apparix	ブックマークディレクトリを介したファイルシステムナビゲーション
@@ -4021,6 +4023,7 @@ oauth2l	GoogleのOAuthトークンを操作するためのシンプルなCLI
 obfs4proxy	Tor用のプラグ可能な転送プロキシ、obfs4の実装
 objc-codegenutils	XCodeの操作に役立つ3つの小さなツール
 objc-run	シェルスクリプトのようなタスクにObjective-Cファイルを使用する
+objconv	オブジェクトファイルコンバーター
 objfw	Objective-C言語用のポータブルで軽量なフレームワーク
 observerward	クロスプラットフォームコミュニティのWeb指紋識別ツール
 ocaml	MLファミリーの汎用プログラミング言語
@@ -6086,6 +6089,7 @@ xcode-kotlin	KotlinネイティブXcodeプラグイン
 xcodegen	スペックファイルとフォルダ構造からXcodeプロジェクトを生成します
 xcproj	Xcodeプロジェクトファイルを操作する
 xcprojectlint	Xcodeプロジェクトの静的解析ツール
+xctesthtmlreport	ユニットおよび UIテスト用のXcode-like HTMLレポート
 xctool	いくつかの追加機能を備えたxcodebuildのDrop-in置換
 xcv	Cut Bashでファイルをコピーペースト
 xdelta	バイナリdiff 差分圧縮ツール
@@ -6147,6 +6151,7 @@ xterm	X WindowSystem用のターミナルエミュレータ
 xtitle	X端末のウィンドウタイトルとアイコンを設定する
 xtrans	X.Org：Xネットワークトランスポート層の共有コード
 xvid	高性能で高品質のMPEG-4ビデオライブラリ
+xwin	Microsoft CRT/Windows SDK ヘッダー/ライブラリ ローダー
 xxh	sshを通過する場所ならどこでもお気に入りのシェルを持ってきてください
 xxhash	非常に高速な非暗号化ハッシュアルゴリズム
 xz	圧縮率の高い汎用データ圧縮
