@@ -4,7 +4,7 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my( $IN,$KIN,$SPA ) = ( 0,0,0 );
-chomp( my $UNAME = `uname -m` );
+my $UNAME = `uname -m` =~ /^(?!arm64)/ ? 'x86_64' : 'arm64';
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
@@ -58,7 +58,7 @@ unless( $ARGV[0] ){
  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
    $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc\t/{print \$2}'` : 0;
-    $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : $UNAME =~ /arm64/ ? 'LinuxM1' : 'Linux32';
+    $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
    Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
