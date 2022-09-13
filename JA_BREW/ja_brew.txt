@@ -608,6 +608,7 @@ cargo-nextest	Rustの次世代テストランナー
 cargo-outdated	Rustの依存関係が古くなったときに表示するためのCargoサブコマンド
 cargo-udeps	Cargo.tomlで未使用の依存関係を検索する
 cargo-watch	Cargoプロジェクトのソースを監視します
+cargo-zigbuild	zigをリンカーとしてCargoプロジェクトをコンパイルする
 carla	Audioプラグインホストサポート LADSPA、LV2、VST2/3、SF2など
 carrot2	検索結果クラスタリングエンジン
 carthage	Cocoaの分散型依存関係マネージャー
@@ -871,6 +872,7 @@ colortail	tail(1)と同様ですが指定された出力に対してさまざま
 comby	多くの言語間でコードを変更するためのツール
 commandbox	CFML組み込みサーバー/パッケージマネージャー/およびアプリスキャフォールディングツール
 commitizen	ルールをコミットして伝達する標準的な方法を定義します
+commitlint	コミット規則に従ってコミットメッセージをリントする
 compface	X-Face形式との間で変換
 compiledb	Make-baseのビルドシステム用のClangコンパイルデータベースを生成する
 composer	PHPの依存関係マネージャー
@@ -1809,9 +1811,9 @@ gflags	command-lineフラグを処理するためのライブラリ
 gforth	ANS Forth言語の実装
 gh	GitHubコマンドラインツール
 ghc	Glorious Glasgow Haskellコンパイルシステム
+ghc@8.10	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.6	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.8	Glorious Glasgow Haskellコンパイルシステム
-ghc@9	Glorious Glasgow Haskellコンパイルシステム
 ghcup	汎用言語Haskellのインストーラー
 ghex	GNOME16進エディター
 ghi	コマンドラインでGitHubの問題に取り組む
