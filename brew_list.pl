@@ -1451,8 +1451,8 @@ __END__
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
                        rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK} ~/.JA_BREWG; }
-if [[ $1 -eq 1 ]];then
  TI=$(date +%s)
+if [[ $1 -eq 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS ]];then
   if [[ "$NAME" = Darwin ]];then
