@@ -3,7 +3,8 @@ brew list コマンド拡張版 : version 1.12_4 　[English README is here ](ht
 : 使用方法
 ```
 brew tap konnano/brew_list
-
+```
+```
 brew install brew_list
 ```
 もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
