@@ -2241,6 +2241,7 @@ harbour	ポータブルでxBase互換のプログラミング言語
 hardlink	ハードリンクを使用してファイルコピーを置き換える
 harfbuzz	OpenTypeテキスト成形エンジン
 haruhi-dl	youtube-dlのフォーク、更新の高速で安定したストリームをもたらすことに焦点を当てています
+has	パス上のさまざまなコマンドラインツールとそのバージョンの存在を確認します
 hashcash	denial-of-service(DoS)攻撃に対抗するためのProof-of-workアルゴリズム
 hashcat	世界最速かつ最先端のパスワード回復ユーティリティ
 hashlink	Haxeの仮想マシン
