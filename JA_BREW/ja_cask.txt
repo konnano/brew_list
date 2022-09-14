@@ -805,6 +805,7 @@ detail	ビデオ通話用のプロカメラ
 detectx-swift	検索およびトラブルシューティングツール
 detexify	Detexify
 devbook	開発者向けの検索エンジン
+devcleaner	さまざまなXcodeキャッシュに使用されている数十ギガバイトのストレージを再利用します
 devdocs	DevDocs.io用のフル機能のデスクトップアプリ
 developerexcuses	開発者はスクリーンセーバーを許します
 deviceinfo	デバイス情報を表示する
