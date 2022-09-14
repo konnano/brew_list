@@ -20,7 +20,7 @@ MAIN:{
              'Q_TAP'=>"$HOME/Q_TAP.txt",'SPA'=>' 'x9 };
 
  $^O eq 'darwin' ? $re->{'MAC'} = $ref->{'MAC'}= 1 :
-  $^O eq 'linux' ? $re->{'LIN'} = 1 : exit;
+  $^O eq 'linux' ? $re->{'LIN'} = 1 : die " Not support OS\n";
 
  my @AR = @ARGV; my $name;
   Died_1() unless $AR[0];
@@ -218,8 +218,7 @@ sub Died_1{ my $Lang;
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( not argument or argument 1,2 )
   -ctp\t:  tap Font quickLook preview list\n  -p\t:  tap Font quickLook preview : p mark only ( unstable )\n";
  }
- print"$Lang";
-exit;
+ die"$Lang";
 }
 
 sub Init_1{
