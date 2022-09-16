@@ -481,10 +481,10 @@ my( $re,$list,%HA,@AN ) = @_;
       Uses_1( $re,$tap,\%HA,\@AN ) : $re->{'USES'} ? push @AN,$tap : 0;
   } my @cask;
     $re->{'KAI'} = 1 unless @AN = sort @AN;
-    @AN =( ' => Formula',@AN ) if @AN;
+    @AN =( ' ==> Formula',@AN ) if @AN;
    $re->{'DMG'}{$_} ? push @cask,$_ : 0 for( @{$re->{'cask'}} );
-  @AN = ( not $re->{'USES'} and @cask ) ? ( @AN,' => Cask',@cask ) :
- ( $re->{'USES'} and @{$re->{'cask'}} ) ? ( @AN,' => Cask',@{$re->{'cask'}} ) : @AN;
+  @AN = ( not $re->{'USES'} and @cask ) ? ( @AN,' ==> Cask',@cask ) :
+ ( $re->{'USES'} and @{$re->{'cask'}} ) ? ( @AN,' ==> Cask',@{$re->{'cask'}} ) : @AN;
  Mine_1( $_,$re,0 ) for(@AN);
 }
 
@@ -507,16 +507,23 @@ my( $re,@AN,%HA ) = @_;
 
 sub Brew_3{
 my( $re,$ls,@AN,%HA ) = @_;
- $ls ? print" => Cask\n" : print" => Formula\n";
+ $ls ? print" ==> Cask\n" : print" ==> Formula\n" if -t STDOUT;
  my $brew = $ls ? 'DMG' : 'HASH';
  for my $key(sort keys %{$re->{$brew}}){
   $re->{'INF'} = $key;
    Info_1( $re,0,0,\@AN,\%HA );
     Tap_2( $re,\$key );
      @AN = sort @AN unless $ls;
-    @AN ? print"$key : @AN\n" : print"$key\n";
-   $re->{"deps$_"} = 0 for(@AN);
-  @AN = %HA = ();
+      for my $len( @AN ){
+       $re->{'LEN'}{$len} = length $len;
+        $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
+         push @{$re->{'ARR'}},$len;
+      }
+     ( @AN and -t STDOUT ) ? print"\033[36m$key\033[00m\t: depends\n" :
+       @AN ?  print"$key\t: depends\n" : print"  $key\t: Not depends...\n";
+    Format_1( $re,1 ) if @AN;
+   $re->{"deps$_"} = $re->{'LEN1'} = 0 for(@AN);
+  @AN = %HA = @{$re->{'ARR'}} = ();
  }
  Brew_3( $re,1 ) unless $ls or $re->{'LIN'} or not $re->{'DMG'};
  Nohup_1( $re );
@@ -562,7 +569,8 @@ my( $re,$tap,$HA,$AN ) = @_;
 sub Dele_1{
 my( $re,@AN,%HA,@an,$do ) = @_;
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
- print" \033[33mexists Formula and Cask...\033[00m\n" if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
+  print" \033[33mexists Formula and Cask...\033[00m\n"
+   if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"} and -t STDOUT;
   waitpid $re->{'PID'},0 if $re->{'PID'} and not $re->{'DMG'}{$re->{'INF'}};
    exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
@@ -731,11 +739,11 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_;
- print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and $re->{'FOR'} and
+  print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
     ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) );
- print" \033[33mexists Formula and Cask...\033[00m\n"
-  if not $file and $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"};
+  print" \033[33mexists Formula and Cask...\033[00m\n" if not $file and $re->{'FOR'} and -t STDOUT and
+   $re->{'OS'}{"$re->{'INF'}so_name"} and not $re->{'DEL'};
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
@@ -1178,7 +1186,7 @@ my( $an,$re ) = @_;
 }
 
 sub Format_1{
- my $re = shift;
+ my( $re,$ls ) = @_;
  if( $re->{'TREE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
   waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
@@ -1222,10 +1230,10 @@ sub Format_1{
       my $in = 1;
       $re->{'PRE'} ? print" ==> Fonts\n" :
     ( $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks\n" :
-    ( $re->{'FOR'} and @{$re->{'ARR'}} and not $re->{'USE'} ) ? print" ==> Formula\n" : 0;
+    ( $re->{'FOR'} and @{$re->{'ARR'}} and ( $re->{'BL'} or $re->{'S_OPT'} ) ) ? print" ==> Formula\n" : 0;
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
-      if( $re->{'ARR'}[$e] =~ m[^ ==> homebrew/|^ => Formula|^ => Cask]){
-       ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ => Cask/ ) ?
+      if( $re->{'ARR'}[$e] =~ m[^ ==> homebrew/|^ ==> Formula|^ ==> Cask] ){
+       ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ ==> Cask/ ) ?
         print"\n$re->{'ARR'}[$e]\n" :
         print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] !~ m|^ ==> homebrew/|;
          $in = 1;
@@ -1263,10 +1271,11 @@ sub Format_1{
     print"\n" if $ze;
   }else{
    for(@{$re->{'ARR'}}){
-    next if m[^ ==> homebrew/|^ => Formula|^ => Cask];
+    next if m[^ ==> homebrew/|^ ==> Formula|^ ==> Cask];
      print"$_\n";
    }
   }
+  return if $ls;
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
@@ -1379,7 +1388,8 @@ sub Format_3{
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
       $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} : '';
-       $name = " \033[33mCan't install $name...\033[00m\n".$name if $re->{'OS'}{"${name}un_cask"};
+       $name = -t STDOUT ? " \033[33mCan't install $name...\033[00m\n".$name :
+                           " Can't install $name....\n".$name if $re->{'OS'}{"${name}un_cask"};
         my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
 
     for(my $i=0;$i<@cas;$i++){ my $tap = $cas[$i];
