@@ -190,6 +190,7 @@ archiver	アーカイブを開く ファイルを圧縮する ファイルを分
 archy	YAMLプロセッサ
 arctype	SQLクライアントおよびデータベース管理ツール
 arduino	電子工学プロトタイピングプラットフォーム
+arduino-ide	電子プロトタイピングプラットフォーム
 aria-maestosa	MIDIシーケンサーとエディター
 aria2d	Aria2 GUI
 aria2gui	Aria2のグラフィカルユーザーインターフェイス
