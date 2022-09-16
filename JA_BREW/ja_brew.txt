@@ -381,6 +381,7 @@ bcoin	node.jsおよびブラウザのJavascriptビットコインライブラリ
 bcpp	C(++)美化器
 bcrypt	blowfishを使用したクロスプラットフォームファイル暗号化ユーティリティ
 bde	基本的な開発環境：Bloombergで使用される基本的なC++ライブラリ
+bdftopcf	XフォントをBitmap Distribution FormatからPortable Compiled Formatに変換
 bdw-gc	CおよびC++のガベージコレクター
 beagle	木の進化順序を評価する
 beancount	プレーンテキストファイルで機能する複式簿記ツール
@@ -1635,6 +1636,7 @@ fon-flash-cli	Flash LaFoneraおよびAtherosチップセット互換デバイス
 font-util	X.Org：フォントパッケージユーティリティ 作成/インストール
 fontconfig	XWindows用のXMLベースのフォント構成API
 fontforge	コマンドラインアウトラインとビットマップフォント エディタ/変換
+fonts-encodings	libfontencのフォントエンコーディングテーブル
 fonttools	フォントを操作するためのライブラリ
 fop	PDFまたはPSドキュメントを作成するためのXSL-FO印刷整形ツール
 forcecli	Force.comへのコマンドラインインターフェイス
@@ -2190,10 +2192,10 @@ gtkglext	GTK+へのOpenGL拡張
 gtkmm	GTK+およびGNOMEのC++インターフェース
 gtkmm3	GTK+およびGNOMEのC++インターフェース
 gtkmm4	GTK+およびGNOMEのC++インターフェース
-gtksourceview	構文とテキストビュー 元に戻る/やり直し/キストマーク
-gtksourceview3	構文とテキストビュー 元に戻る/やり直し/キストマーク
-gtksourceview4	構文とテキストビュー 元に戻る/やり直し/キストマーク
-gtksourceview5	構文とテキストビュー 元に戻る/やり直し/キストマーク
+gtksourceview	構文とテキストビュー 元に戻る/やり直し、およびテキストマーク
+gtksourceview3	構文とテキストビュー 元に戻る/やり直し、およびテキストマーク
+gtksourceview4	構文とテキストビュー 元に戻る/やり直し、およびテキストマーク
+gtksourceview5	構文とテキストビュー 元に戻る/やり直し、およびテキストマーク
 gtksourceviewmm	gtksourceviewのC++ bindings
 gtksourceviewmm3	gtksourceview3のC++ bindings
 gtkspell3	スペルミスのある単語を強調表示して置き換えるためのGtkウィジェット
@@ -3239,6 +3241,7 @@ libunistring	Unicode文字列を操作するためのC文字列ライブラリ
 libunwind	プログラムのcall-chainを決定するためのC API
 libunwind-headers	プログラムのcall-chainを決定するためのC API
 libupnp	ポータブルUPnP開発キット
+liburing	io_uring インスタンスをセットアップおよびティアダウンするためのヘルパー
 libusb	USBデバイスアクセス用のライブラリ
 libusb-compat	USBデバイスアクセス用のライブラリ
 libusbmuxd	iOSデバイス用のUSB multiplexor
@@ -3375,6 +3378,7 @@ llvm@9	次世代基礎構造コンパイラ
 lm-sensors	温度を監視するためのツール 電圧/ファン
 lm4tools	TI StellarisLaunchpadボード用のツール
 lmdb	Lightningメモリマップデータベース：Key-Valueデータstore
+lmfit	Levenberg-Marquardtの最小化と最小二乗近似のためのCライブラリ
 lmod	PATH変数を変更するLuaベースの環境モジュールシステム
 lnav	ログファイルを表示および分析するためのCursesベースのツール
 lndir	別のディレクトリツリーへのシンボリックリンクのシャドウディレクトリを作成します
@@ -5971,6 +5975,7 @@ wcslib	FITS世界座標系のライブラリとユーティリティ
 wdc	WebDAVクライアントは簡単でWebDAVサーバーでの作業に便利
 wdfs	WebDAVファイルシステム
 wdiff	テキストファイル間の単語の違いを表示する
+weasyprint	HTML を PDF に変換する
 weaver	Weaverのコマンドラインツール
 web100clt	NDT診断クライアントのコマンドラインバージョン
 webalizer	Webサーバーのログファイル分析器
