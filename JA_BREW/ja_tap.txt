@@ -1492,6 +1492,7 @@ font-play	Play
 font-playball	Playball
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
+font-plemol-jp	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plus-jakarta-sans	用途が広い modern type family
 font-podkova	Podkova
 font-podkova-vf-beta	Podkova VF Beta
@@ -2067,7 +2068,6 @@ garmin-virb-edit	ガーミンVIRB編集
 genki-softwave	ウェーブリングソフトウェア
 genki-wave-for-work	ウェーブリングソフトウェア
 gk6-plus	GK6シリーズPCB/キーボード用のキーボードユーティリティ
-gopro-webcam	GoProをWebカメラとして使用するためのGoProユーティリティ
 gutenprint	CUPSおよびGIMPで使用するためのさまざまなプリンター用のドライバー
 hdhomerun	見守る 地上波HDTVのスケジュールと録画
 hhkb-keymap-tool	Happy Hacking Keyboard Professional用のキーマップツール(ハイブリッドモデルのみ)
@@ -2215,7 +2215,6 @@ android-studio-preview-beta	Androidアプリケーションを構築するため
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
 anki-beta	記憶力トレーニングアプリケーション
 appcode-eap	Swift/Objective-C/C/C++ 開発用のIDE
-arduino-ide-beta	電子工学プロトタイピングプラットフォーム
 arduino-ide-nightly	電子工学プロトタイピングプラットフォーム
 arduino-nightly	Arduino
 arq5	マルチクラウドバックアップアプリケーション
