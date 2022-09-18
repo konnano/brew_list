@@ -2077,6 +2077,7 @@ gosec	Golangセキュリティチェッカー
 gost	GO Simple Tunnel-golangで書かれた単純なtunnel
 gostatic	高速静的サイト発生器
 gosu	JVM語用論言語
+got	バージョン管理システム
 gotags	Goのタグ発生器、ctagsと互換性があります
 gotests	ソースコードからGoテストboilerplateを自動的に生成する
 gotify	メッセージを gotify/server にプッシュするためのコマンドラインインターフェイス
@@ -3479,6 +3480,7 @@ mahout	拡張性のある機械学習ライブラリの構築に役立つライ�
 mailcatcher	メールをキャッチし、夢を通して提供します
 mailcheck	多用なメールを確認してください メールボックス/maildir
 mailhog	WebおよびAPIベースのSMTPテストツール
+mailsy	一時的な電子メールアドレスをすばやく生成する
 mailutils	メール処理の万能ナイフ
 mairix	メールインデックスと検索ツール
 make	コンパイルを指示するためのユーティリティ
