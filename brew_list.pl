@@ -118,7 +118,8 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
-   $name->{'KEN'} = 1 if $name and $AR[2] and $AR[2] eq '.' and not $re->{'COM'};
+   $name->{'KEN'} = 1 if $name and $AR[2] and $AR[2] eq '.' and not $re->{'COM'} or
+                         $re->{'deps'} and $AR[1] and $AR[1] eq '.';
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
@@ -196,14 +197,15 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.12_5\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.12_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
   -co\t:  formula library display\n  -in\t:  formula require formula list
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula , all
-  -ul\t:  formula depend on formula , item count\n  -ud\t:  formula depend on formula , list
+  -ul\t:  formula depend on formula , item count
+  -ud\t:  formula depend on formula , list : Second argument '.' not require dependencies Formula
   -g\t:  Independent Formula\n  -de\t:  uninstalled, not require formula, second argument not uninstall Formula
   -d\t:  uninstalled, not require formula, display tree, second argument not uninstall Formula
   -dd\t:  uninstalled, not require formula, display tree and order, second argument not uninstall Formula
@@ -252,7 +254,7 @@ my( $re,$list ) = @_;
  }
  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
-   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re ) : File_1( $re,$list );
+   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
 }
 
 sub Ana_1{
@@ -506,26 +508,34 @@ my( $re,@AN,%HA ) = @_;
 }
 
 sub Brew_3{
-my( $re,$ls,@AN,%HA ) = @_;
- $ls ? print" ==> Cask\n" : print" ==> Formula\n" if -t STDOUT;
+my( $re,$ls,@AN,%HA,$mine ) = @_;
+ $ls ? print"\n ==> Cask\n" : print" ==> Formula\n" if -t STDOUT;
  my $brew = $ls ? 'DMG' : 'HASH';
  for my $key(sort keys %{$re->{$brew}}){
+  $re->{'LENG'} = 0;
   $re->{'INF'} = $key;
    Info_1( $re,0,0,\@AN,\%HA );
     Tap_2( $re,\$key );
      @AN = sort @AN unless $ls;
-      for my $len( @AN ){
-       $re->{'LEN'}{$len} = length $len;
-        $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
-         push @{$re->{'ARR'}},$len;
-      }
-     ( @AN and -t STDOUT ) ? print"\033[36m$key\033[00m\t: depends\n" :
-       @AN ?  print"$key\t: depends\n" : print"  $key\t: Not depends...\n";
-    Format_1( $re,1 ) if @AN;
-   $re->{"deps$_"} = $re->{'LEN1'} = 0 for(@AN);
-  @AN = %HA = @{$re->{'ARR'}} = ();
+      print"$re->{'NOT'}" if $re->{'NOT'} and @AN and not $re->{'KEN'};
+       for my $len( @AN ){
+        $re->{'LEN'}{$len} = length $len;
+         $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
+          push @{$re->{'ARR'}},$len;
+       }
+     ( not @AN and $re->{'NOT'} ) ? $mine .= "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
+       not( @AN or $re->{'NOT'} ) ? $mine .= "$ls   Not require dependencies...\t: $key\n" :
+     ( not $re->{'KEN'} ) ? print" $key : depends\n" : 0;
+     unless( $re->{'KEN'} ){
+      Format_1( $re ) if @AN;
+       print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN;
+     }
+    $re->{"deps$_"} = $re->{'LEN1'} = 0 for(@AN);
+   @AN = %HA = @{$re->{'ARR'}} = ();
+  $re->{'NOT'} = '';
  }
- Brew_3( $re,1 ) unless $ls or $re->{'LIN'} or not $re->{'DMG'};
+ print $mine if $re->{'KEN'};
+ Brew_3( $re,' ' ) unless $ls or $re->{'LIN'} or not $re->{'DMG'};
  Nohup_1( $re );
 }
 
@@ -739,11 +749,16 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$HA ) = @_;
-  print " \033[33mCan't install $re->{'INF'}...\033[00m\n" if not $file and $re->{'FOR'} and -t STDOUT and
+  if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
-    ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) );
-  print" \033[33mexists Formula and Cask...\033[00m\n" if not $file and $re->{'FOR'} and -t STDOUT and
-   $re->{'OS'}{"$re->{'INF'}so_name"} and not $re->{'DEL'};
+    ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) ) ){
+   $re->{'deps'} ? $re->{'NOT'} = " \033[33mCan't install $re->{'INF'}...\033[00m\n":
+    print " \033[33mCan't install $re->{'INF'}...\033[00m\n";
+  }
+ if( not $file and $re->{'FOR'} and -t STDOUT and $re->{'OS'}{"$re->{'INF'}so_name"} and not $re->{'DEL'} ){
+   $re->{'deps'} ? $re->{'NOT'} = " \033[33mexists Formula and Cask...\033[00m\n" :
+    print " \033[33mexists Formula and Cask...\033[00m\n";
+ }
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
@@ -1186,7 +1201,7 @@ my( $an,$re ) = @_;
 }
 
 sub Format_1{
- my( $re,$ls ) = @_;
+ my $re = shift;
  if( $re->{'TREE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
   waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
@@ -1225,8 +1240,8 @@ sub Format_1{
  }else{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
    my $leng = $re->{'LEN1'};
-    my $tput = `tput cols`;
-     my $size = int $tput/($leng+2);
+    $re->{'TPUT'} = `tput cols` unless $re->{'TPUT'};
+     my $size = int $re->{'TPUT'}/($leng+2);
       my $in = 1;
       $re->{'PRE'} ? print" ==> Fonts\n" :
     ( $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks\n" :
@@ -1242,23 +1257,27 @@ sub Format_1{
         print"\n" if $ze;
          print" ==> brew tap : homebrew/cask-fonts\n";
           $leng = $re->{'LEN2'};
-           $size = int $tput/($leng+2);  $in = $ls = 1;
+           $size = int $re->{'TPUT'}/($leng+2);  $in = $ls = 1;
        }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-drivers/| and not $sl ){
         print"\n" if $ze;
          print" ==> brew tap : homebrew/cask-drivers\n";
           $leng = $re->{'LEN3'};
-           $size = int $tput/($leng+2);  $in = $sl = 1;
+           $size = int $re->{'TPUT'}/($leng+2);  $in = $sl = 1;
        }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-versions/| and not $ss ){
         print"\n" if $ze;
          print" ==> brew tap : homebrew/cask-versions\n";
           $leng = $re->{'LEN4'};
-           $size = int $tput/($leng+2);  $in = $ss = 1;
+           $size = int $re->{'TPUT'}/($leng+2);  $in = $ss = 1;
        }
        for(my $i=$re->{'LEN'}{$re->{'ARR'}[$e]};$i<$leng+2;$i++){
         $re->{'ARR'}[$e] .= ' ';
        }
         print $re->{'ARR'}[$e];
-        unless( $ze = eval{$in % $size} ){
+         if( $re->{'deps'} ){
+          my $leng1 = $leng * ( eval{ $in % $size } ? $in % $size + 1 : 1 );
+           $re->{'LENG'} = $leng1 if $re->{'LENG'} < $leng1;
+         }
+        unless( $ze = eval{ $in % $size } ){
          $re->{'KAI'} = print"\n";
         }elsif( $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] =~ m|^ ==> homebrew/| ){
          print"\n"; $ze = 0;
@@ -1275,7 +1294,7 @@ sub Format_1{
      print"$_\n";
    }
   }
-  return if $ls;
+  return if $re->{'deps'};
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
