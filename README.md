@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.12_5 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.12_6 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -47,8 +47,7 @@ brew install brew_list
   アンインストールしないフォーミュラは２番目の引数に記入して下さい
 
 '-ddd' オプションでアンインストールで必要ないFormulaを順番にアンインストール出来ます
-
-　２番目の引数にアンインストールしないフォーミュラ
+<br>  アンインストールしないフォーミュラは２番目の引数に記入して下さい
 
 　#### 削除は　-ddや　-deでよく確認して下さい ####
 
@@ -56,7 +55,7 @@ brew install brew_list
 
 '-ua' オプションでFormulaに依存している全てのFormulaが表示されます
 
-'-ud' オプションでFormulaに依存されてるFormulaが表示されます
+'-ud' オプションでFormulaに依存されてるFormulaが表示されます、2番目の引数'.'で依存を必要としないFormula
 
 '-ul' オプションでFormulaに依存されてるFormulaの数が表示されます
 
