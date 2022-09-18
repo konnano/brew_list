@@ -1,4 +1,4 @@
-brew list command extended version: version 1.12_5
+brew list command extended version: version 1.12_6
 
 : how to use
 ```
@@ -46,6 +46,8 @@ Please check -dd or -de option
 '-u' option　Installed Formula depend on Formula is displayed
 
 '-ua' option　Formula depend on All Formula is displayed
+
+'-ud' option Formula depend on Formula , list : Second argument '.' not require dependencies Formula
 
 '-ul' option　Formula depend on Formula, item count is displayed
 
