@@ -1703,6 +1703,7 @@ fswatch	ディレクトリの変更を監視し、シェルコマンドを実行
 ftgl	Freetype/OpenGL ブリッジ
 ftjam	Makeの代わりに使用できるビルドツール
 fuego	囲碁のゲーム用のC++ライブラリのコレクション
+fuego-firestore	Firestoreデータベースのコマンドラインクライアント
 func-e	Envoyを簡単に実行
 funcoeszz	数十のコマンドラインミニアプリケーション(ポルトガル語)
 functionalplus	C++用の関数型プログラミングライブラリ
@@ -1771,6 +1772,7 @@ gdl	GNOMEドッキングライブラリはGTK+3のドッキング機能を提供
 gdm	Go Dependency Manager(gdm)
 gdmap	フォルダの使用スペースを検査するツール
 gdrive	GoogleドライブCLIクライアント
+gdrive-downloader	gdriveフォルダーまたはファイルを簡単にダウンロードする シェルftw
 gdu	Goで記述されたコンソールインターフェイスを備えたディスク使用量分析器
 gdub	Gradlew/gradle ラッパー
 gearman	他のマシンまたはプロセスに作業をファームアウトするためのアプリケーションフレームワーク
@@ -3373,6 +3375,7 @@ llvm	次世代基礎構造コンパイラ
 llvm@11	次世代基礎構造コンパイラ
 llvm@12	次世代基礎構造コンパイラ
 llvm@13	次世代基礎構造コンパイラ
+llvm@14	次世代コンパイラ インフラストラクチャ
 llvm@7	次世代基礎構造コンパイラ
 llvm@8	次世代基礎構造コンパイラ
 llvm@9	次世代基礎構造コンパイラ
@@ -4705,6 +4708,7 @@ quickjs	小さくて埋め込み可能なJavaScriptエンジン
 quicktype	JSON、Schema、GraphQLからタイプと変換器を生成する
 quill	C++14非同期低遅延Loggingライブラリ
 quilt	一連のパッチを操作する
+quilt-installer	バニラ ランチャーの Quilt のインストーラー
 quotatool	コマンドラインからディスク割り当てを編集する
 quran	ターミナルでコーランの章と詩を印刷する
 quvi	ビデオのダウンロードURLを解析する
@@ -5649,6 +5653,7 @@ tomcat@9	JavaサーブレットとJavaServerPagesの実装
 tomee-plume	Apache TomEEプルーム
 tomee-plus	TomEE WebプロファイルとJAX-RSのすべてに加えて、
 tomee-webprofile	All-Apache Java EE 7Webプロファイルスタック
+toml-test	TOML パーサー用の言語に依存しないテストセット
 toml11	最新のC++用のTOML
 toot	Mastodon CLI＆TUI
 topgit	Gitパッチキューマネージャー
