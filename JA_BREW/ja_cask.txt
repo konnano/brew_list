@@ -1888,6 +1888,7 @@ ludwig	あなたがより良い英語を書くのを助ける文検索エンジ�
 lulu	未知の発信接続をブロックするオープンソースファイアウォール
 lumen	画面の内容に基づく魔法の自動明るさ
 luminance-hdr	HDRイメージングのワークフローを提供します
+lunacy	グラフィックデザインソフトウェア
 lunar	外部ディスプレイの適応輝度
 lunar-client	Minecraft 1.7.10/1.8.9 用のModpack
 lunasea	メディアソフトウェア用のオープンソースのself-hostedリモコン
@@ -2620,6 +2621,7 @@ pibar	メニューバーのPi-hole(s)管理
 picgo	画像をアップロードするためのツール
 pichon	アイコン8の検索ユーティリティ
 pictogram	アプリのアイコンをカスタマイズして維持する
+pictureview	画像ビューア
 piezo	オーディオレコーディングアプリケーション
 pika	画面上の色のカラーピッカー
 pikopixel	ピクセルアートエディター
@@ -2660,6 +2662,7 @@ plistedit-pro	プロパティリストとJSONエディター
 plotdigitizer	機能データのスキャンされた立案をデジタル化する
 plover	Stenotypeエンジン
 plug	The Hype Machineの音楽プレーヤー
+plugdata	PureDataのプラグインラッパー
 pluginval	クロスプラットフォームプラグインvalidatorおよびテスターアプリケーション
 plus42-binary	Plus42 バイナリ
 plus42-decimal	Plus42 10進数
@@ -3041,6 +3044,7 @@ safeincloud-password-manager	SafeInCloudパスワードマネージャー
 sage	数学ソフトウェアシステム
 sameboy	Cで書かれたゲームボーイとゲームボーイカラーエミュレーター
 samsung-dex	一部のSamsungデバイスをデスクトップのようなエクスペリエンスに拡張します
+sanesidebuttons	サイドボタンのシステム全体のナビゲーション機能を有効にします
 santa	バイナリ認証システム
 saoimageds9	SAOImage DS9
 sapmachine-jdk	SAPからのOpenJDKディストリビューション
@@ -3907,6 +3911,7 @@ whatsapp	WhatsApp用のデスクトップクライアント
 whatsize	ディスクスペースの表示と再利用に使用されるファイルシステムユーティリティ
 whatsyoursign	ファイルの暗号署名情報を表示します
 whichspace	アクティブスペースメニューバーアイコン
+whist-browser	ストリーミング可能なクラウドタブを備えたWebブラウザー
 whoozle-android-file-transfer	Linux用のAndroidファイル転送
 widelands	Settlers IIのようなFreeのリアルタイム戦略ゲーム
 wifi-explorer	ワイヤレスネットワークのトラブルシューティング スキャン/画面
