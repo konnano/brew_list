@@ -591,6 +591,7 @@ calceph	バイナリ惑星天体暦ファイルにアクセスするためのC�
 calcurse	テキストベースの手帳
 calicoctl	CalicoCLIツール
 camellia	Cで書かれた画像処理と画像認識ライブラリ
+camlp-streams	Camlp4とCamlp5で使用するストリームとGenlexライブラリ
 camlp5	OCaml 前処理プログラムとpretty-printer
 canfigger	単純な構成ファイルパーサーライブラリ
 cap-completion	CapistranoのBash補完
@@ -3013,7 +3014,6 @@ libhdhomerun	SiliconDust HDHomeRun TVチューナーを制御するためのCラ
 libheif	ISO/IEC 23008-12：2017 HEIFファイル形式 デコーダー/エンコーダー
 libhid	USB HIDデバイスにアクセスして操作するためのライブラリ
 libhttpserver	組み込みREST HTTPサーバーのC++ライブラリ
-libhttpseverywhere	HTTPSEverywhereをデスクトップアプリに導入
 libical	iCalendar手続きとデータ形式の実装
 libice	X.Org：クライアント間交換ライブラリ
 libicns	MacOS.icnsリソース形式を操作するためのライブラリ
@@ -4113,6 +4113,7 @@ opencascade	3Dモデル化および数値シミュレーションソフトウェ
 opencbm	さまざまなフロッピードライブ形式へのアクセスを提供します
 opencc	簡体字-繁体字中国語変換ツール
 opencl-headers	OpenCL APIのC言語ヘッダーファイル
+opencl-icd-loader	OpenCLインストール可能クライアントドライバー{ICD}ローダー
 openclonk	マルチプレイヤーアクションゲーム
 opencoarrays	オープンソースのcoarray Fortran ABI/API/コンパイララッパー
 opencolorio	映画制作を対象としたカラーマネジメントソリューション
@@ -4981,6 +4982,7 @@ sc68	AtariSTおよびAmigaコンピューター用に設計された音楽を再
 scala	JVMベースのプログラミング言語
 scala@2.11	JVMベースのプログラミング言語
 scala@2.12	JVMベースのプログラミング言語
+scala@2.13	JVMベースのプログラミング言語
 scalaenv	Scala環境を管理するためのコマンドラインツール
 scalapack	分散メモリマシン用の高性能線形代数
 scalariform	Scalaソースコード整形ツール
@@ -5023,7 +5025,6 @@ sdcc	Intel8051用のANSICコンパイラ マキシム80DS390/ZilogZ80
 sdcv	StarDictコンソールバージョン
 sdedit	連続図表を非常に高速に生成するためのツール
 sdf	構文定義形式：文法の高レベルの説明
-sdl	オーディオへの低レベルのアクセス キーボード/マウス/ジョイスティック/グラフィックス
 sdl12-compat	舞台裏でSDL2.0を使用するSDL1.2互換性レイヤー
 sdl2	オーディオへの低レベルのアクセス キーボード/マウス/ジョイスティック/グラフィックス
 sdl2_gfx	SDL2グラフィックス描画プリミティブおよびその他のサポート機能
