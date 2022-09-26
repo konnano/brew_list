@@ -1649,6 +1649,7 @@ forge	高性能の視覚化
 fork-cleaner	GitHubアカウントの古くて非アクティブなフォークをクリーンアップします
 format-udf	ブロックデバイスをUDFにフォーマットするためのBashスクリプト
 fortio	HTTPおよびgRPC負荷テストおよび視覚化ツールとサーバー
+fortls	Fortran言語サーバー
 fortran-language-server	Fortran用言語サーバー
 fortune	悪名高い電子フォーチュンクッキー発生器
 fossil	分散ソフトウェア構成管理
@@ -2327,6 +2328,7 @@ howard-hinnant-date	<chrono>に基づく日付と時刻の操作のためのC++�
 howdoi	コマンドラインを介した即時コーディングの回答
 hpack	Haskellパッケージの最新フォーマット
 hping	コマンドライン指向の TCP/IP パケット アセンブラ/分析
+hpp-fcl	柔軟な衝突ライブラリの拡張
 hqx	ピクセルアートに設計された倍率フィルター
 hr	<hr />、ターミナルウィンドウ用
 hsd	応答確認デーモン & Full Node
@@ -3776,6 +3778,7 @@ mps-youtube	ターミナルベースのYouTubeプレーヤーとダウンロー�
 mpssh	Mass並列ssh
 mpv	MPlayerとmplayer2に基づくメディアプレーヤー
 mpw	Stateless/deterministic パスワードおよびIDマネージャー
+mqttui	MQTT トピックにサブスクライブするかターミナルからすばやく何かを公開します
 mr	複数リポジトリ管理ツール
 mrbayes	系統発生と進化モデルのベイズ推定
 mrboom	8人のボンバーマンクローン
@@ -4649,6 +4652,7 @@ python-markdown	MarkdownのPython実装
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
 python-tk@3.9	Tcl/Tk へのPythonインターフェース
+python-typing-extensions	Pythonのバックポートおよび実験的な型ヒント
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.7	オブジェクト指向プログラミング言語 インタプリタ/対話的
@@ -5296,6 +5300,7 @@ sqlancer	DBMSでの論理バグの検出
 sqlbench	1つ以上のSQLクエリの実行時間を測定して比較します
 sqlc	SQLから安全なGo型を生成する
 sqlcipher	256ビットのAES暗号化を提供するSQLite機能拡張
+sqlcmd	Microsoft SQL Serverコマンドラインインターフェイス
 sqldiff	SQLiteデータベース間の違いを表示します
 sqlfluff	人々のためのSQL静的解析ツールと自動整形ツール
 sqlite	SQLiteのコマンドラインインターフェイス
@@ -5963,6 +5968,7 @@ wangle	基本単位 構成可能な抽象化フレームワーク クライア�
 waon	Wave-to-notesトランスクライバー
 wapm	WebAssemblyパッケージマネージャー(CLI)
 wartremover	柔軟なScalaコードlintingツール
+wasm-micro-runtime	WebAssemblyマイクロ ランタイム(WAMR)
 wasm-pack	お気に入りのrust-> wasmワークフローツール！
 wasm-tools	RustのWebAssembly用の低レベルツール
 wasm3	高性能WebAssembly解釈プログラム
