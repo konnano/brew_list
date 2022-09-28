@@ -368,6 +368,7 @@ batik	SVG画像のJavaベースのツールキット
 bats	BashスクリプトのTAP準拠のテストフレームワーク
 bats-core	Bash自動テストシステム
 bazaar	親しく強力な分散バージョン管理システム
+bazarr	字幕を管理およびダウンロードするための Sonarrおよび Radarrのコンパニオン
 bazel	Google独自のビルドツール
 bazelisk	Bazelのユーザーに親しいランチャー
 bbe	バイナリファイルのsedのようなエディタ
@@ -2304,6 +2305,7 @@ hicolor-icon-theme	FreeDesktop.orgアイコンテーマの代替品テーマ
 hidapi	USBおよびBluetoothHIDデバイスと通信するためのライブラリ
 highlight	ソースコードを構文の強調表示を使用してフォーマットされたテキストに変換します
 highs	線形最適化ソフトウェア
+highway	パフォーマンスポータブル ランタイム ディスパッチによる長さにとらわれない SIMD
 hilite	コマンドを実行し、STDERR出力を強調表示するCLIツール
 himalaya	Rustで書かれたCLIメールクライアント
 hiredis	Redisの最低限のクライアント
@@ -2627,6 +2629,7 @@ json-fortran	Fortran 2008 JSON API
 json-glib	GLibに基づくJSONのライブラリ
 json-table	ネストされたJSONデータをシェルで表形式のデータに変換します
 json11	C++11の小さなJSONライブラリ
+json2tsv	JSONからTSVへのコンバーター
 json5	使いやすさ機能で強化されたJSON
 json_spirit	C++ JSON パーサー/発生器
 jsoncpp	JSONと対話するためのライブラリ
@@ -4014,6 +4017,7 @@ numcpp	Python NumpyライブラリのC++実装
 numdiff	推定ファイル比較ツール
 numpy	Pythonを使用した科学計算用パッケージ
 numpy@1.16	Pythonを使用した科学計算用パッケージ
+nuraft	レプリケーションライブラリとしての Raftコアロジックの C++実装
 nushell	GitHub時代のモダンなシェル
 nut	ネットワークUPSツール：さまざまなパワーデバイスのサポート
 nutcracker	memcachedとredisのプロキシ
