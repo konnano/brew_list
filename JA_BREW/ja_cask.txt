@@ -86,6 +86,7 @@ airtrash	AppleのAirdropのクローン - 簡単なP2Pファイル転送
 airunlock	Bluetooth経由でAndroid携帯を使用してMacBookをロックまたはロック解除するツール
 airy	YouTubeビデオとMP3ダウンローダー
 ajour	World of Warcraftアドオンマネージャー
+akiflow	毎日2時間を節約する時間ブロックプラットフォーム
 alacritty	GPUで高速化されたターミナルエミュレータ
 aladin	双方向sky atlas
 alchemy	図面プロジェクトを開く
@@ -178,6 +179,7 @@ appstore-quickview	Quickview App...Store
 apptivate	Apptivate
 apptrap	AppTrap
 appzapper	不要なアプリケーションとそのサポートファイルをアンインストールするツール
+aptakube	モダン 軽量でマルチクラスターのKubernetesデスクトップクライアント
 aptanastudio	Aptana Studio
 aptible	Aptible Deployのコマンドラインツール 監査対応のアプリ導入プラットフォーム
 aqua-data-studio	データ管理と視覚分析を備えたデータベースIDE
@@ -554,6 +556,7 @@ cisco-jabber	CiscoのJabberクライアント
 cisco-proximity	Cisco Proximity
 cisdem-data-recovery	Cisdemデータリカバリ
 cisdem-document-reader	Windowsベースのファイルを開いて表示するためのドキュメントリーダー
+cisdem-duplicate-finder	重複ファインダー
 cisdem-pdf-converter-ocr	OCR機能を備えたPDF変換器
 cisdem-pdfmanagerultimate	Cisdem PDFManagerUltimate
 citra	ニンテンドー3DSエミュレーター
@@ -3233,6 +3236,7 @@ smooze	スクロールホイールマウスを再発見する
 smplayer	コーデックが組み込まれたメディアプレーヤー
 smultron	汎用テキストエディター
 snagit	スクリーンキャプチャソフトウェア
+snapmaker-luban	3Dプリントソフトウェア
 snapmotion	ビデオから画像を抽出する
 snapndrag	スクリーンキャプチャアプリケーション
 snappy	Snappy
