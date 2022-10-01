@@ -268,6 +268,7 @@ autoconf	自動構成スクリプトビルダー
 autoconf-archive	500以上の再利用可能なautoconfマクロのコレクション
 autoconf@2.13	自動構成スクリプトビルダー
 autoconf@2.69	自動構成スクリプトビルダー
+autocorrect	コピーライティングを改善するためのリンターとフォーマッター 正しいスペース CJK間の単語
 autodiff	自動微分がC++で容易になりました
 autoenv	プロジェクトごと、ディレクトリごとのシェル環境
 autogen	自動テキストファイル発生器
@@ -1276,6 +1277,7 @@ driftctl	基礎構造の流れを検出、追跡、警告する
 drill	Rustで記述されたHTTP負荷テストアプリケーション
 dromeaudio	小さなC++オーディオ操作および再生ライブラリ
 drone-cli	ドローン継続的インテグレーションサーバーのコマンドラインクライアント
+dronedb	航空データストレージ用の無料のオープンソースソフトウェア
 dropbear	POSIXベースのシステム用の小さなSSH サーバー/クライアント
 dropbox-uploader	Dropboxと対話するためのBashスクリプト
 druid	高性能で列指向の分散データstore
@@ -1881,6 +1883,7 @@ git-imerge	gitのインクリメンタルマージ
 git-integration	git統合ブランチを管理する
 git-interactive-rebase-tool	Gitの対話的な基準のネイティブに続くエディター
 git-lfs	大きなファイルをバージョン管理するためのGit機能拡張
+git-machete	Gitリポジトリ オーガナイザー&リベース ワークフロー自動化ツール
 git-multipush	1つのコマンドで複数のリモートにブランチをプッシュする
 git-now	gitの軽量で一時的なコミット
 git-number	gitでファイルを処理するために数字を使用する
@@ -2022,6 +2025,7 @@ gnutls	GNUトランスポート層セキュリティ(TLS)ライブラリ
 go	シンプルで信頼性が高く効率的なソフトウェアを構築するためのオープンソースプログラミング言語
 go-bindata	任意のファイルからGoコードを生成する小さなユーティリティ
 go-boring	BoringCryptoでGoプログラミング言語に移行する
+go-camo	セキュアイメージプロキシサーバー
 go-critic	独断的なGoソースコードlinter
 go-jira	Goのシンプルなjiraコマンドラインクライアント
 go-jsonnet	JSONデータを定義するための構成言語の実装に移動します
@@ -5210,6 +5214,7 @@ sniffglue	安全なマルチスレッドパケット探知
 snobol4	文字列指向のシンボリックプログラミング言語
 snort	柔軟なネットワーク侵入検知システム
 snow	ホワイトスペースステガノグラフィ：ホワイトスペースを使用してコード化されたメッセージ
+snowball	ステミングアルゴリズム
 snowflake	Flashproxyに触発されたWebRTCを使用したプラガブルトランスポート
 snownews	テキストモードRSSニュースリーダー
 snowpack	最新のWeb用に設計されたフロントエンドビルドツール
@@ -5576,6 +5581,7 @@ texlive	TeX植字システムのFreeソフトウェア配布
 texmath	LaTeX数学をMathMLに変換するためのHaskellライブラリ
 textidote	つづり LaTeXドキュメントの文法とスタイルのチェック
 textql	テキストファイル全体でSQLを実行します
+tfel	数値力学の材料知識に特化したコード生成ツール
 tfenv	rbenvに触発されたTerraformバージョンマネージャー
 tfk8s	KubernetesYAMLマニフェストからTerraformHCLへの変換器
 tflint	Terraformファイルの静的解析ツール
