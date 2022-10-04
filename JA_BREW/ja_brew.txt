@@ -2589,6 +2589,7 @@ jimtcl	Tclの小さな足跡の実装
 jing-trang	RELAX NGに基づくスキーマの検証と変換
 jinja2-cli	Jinja2テンプレート言語のCLI
 jinx	リアルタイムアプリケーションの埋め込み可能なスクリプト言語
+jj	Git互換の分散バージョン管理システム
 jless	JSONデータのコマンドラインページャー
 jlog	ログの購読と出版を含む純粋なCメッセージキュー
 jmeter	負荷テストおよび性能測定アプリケーション
@@ -3828,6 +3829,7 @@ mvnvm	Mavenバージョンマネージャー
 mvtools	動作の評価と補正用のフィルター
 mx	Graalプロジェクトの開発に使用されるコマンドラインツール
 mycli	自動補完と構文の強調表示を備えたMySQLのCLI
+mycorrhiza	階層をサポートする軽量のwikiエンジン
 mydumper	MySQLDBAとサポートエンジニアが'mysqldump'」をどのように想像するか;-)
 myman	NamcoのPac-Manに触発されたテキストモードのビデオゲーム
 mypaint-brushes	MyPaintやlibmypaintを使用する他のソフトウェアで使用されるBrushes
@@ -3917,6 +3919,8 @@ net-tools	Linuxネットワーキングベースツール
 netcat	ネットワーク接続を管理するためのユーティリティ
 netcat6	IPv6をサポートするnetcatの書き直し、およびその他の改善
 netcdf	配列指向の科学データ用のライブラリとデータ形式
+netcdf-cxx	NetCDF用のC++ライブラリとユーティリティ
+netcdf-fortran	NetCDF用のFortranライブラリとユーティリティ
 netdata	metricsを使用してインフラストラクチャの問題を診断する 視覚化/アラーム
 nethack	Single-playerのroguelikeビデオゲーム
 nethacked	バグ修正されインターフェースにパッチが適用されたNethack
@@ -4890,6 +4894,7 @@ roll	サイコロを振るためのCLIプログラム
 rolldice	ある量の仮想サイコロを振る
 rollup	次世代ESモジュールバンドラー
 rom-tools	マルチアーケードマシンエミュレータ用のツール
+rome	S3/Minio/Ceph/Google Storage/Artifactory などのCarthageキャッシュ
 ronn	マニュアルを作成します roffの反対です
 root	大規模データ分析のためのオブジェクト指向フレームワーク
 rosa-cli	RedHat OpenShift Service on AWS(ROSA)コマンドラインインターフェース
@@ -4973,6 +4978,7 @@ salt	動的基礎構造通信バス
 salt-lint	SaltStackのベストプラクティスを確認してください
 saltwater	良いエラーメッセージに焦点を当てたRustで書かれたCコンパイラ
 samba	SMB/CIFSファイル 印刷/UNIX用のログインサーバー
+sambamba	SAM/BAM データを操作するためのツール
 saml2aws	ログインしてSAML IDPを使用してAWSの一時的な認証情報を取得します
 sampler	シェルコマンド実行用ツール 視覚化/アラート
 samtools	次世代シーケンシングデータを操作するためのツール
@@ -5495,6 +5501,7 @@ taskwarrior-tui	taskwarriorのターミナルユーザーインターフェイ�
 tass64	65xxシリーズ計算機のMulti Pass最適化Macro Assembler
 tbb	C++での並列処理への豊富で完全なアプローチ
 tbb@2020	C++での並列処理への豊富で完全なアプローチ
+tbls	データベースを文書化するためのCIに親しいツール
 tbox	GlibのようなマルチプラットフォームCライブラリ
 tcc	小さなCコンパイラ
 tccutil	MacOS近接性データベース(TCC.db)を変更するユーティリティ
