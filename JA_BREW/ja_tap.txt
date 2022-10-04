@@ -1802,6 +1802,7 @@ font-suranna	Suranna
 font-suravaram	Suravaram
 font-suwannaphum	Suwannaphum
 font-swanky-and-moo-moo	Swanky and Moo Moo
+font-symbols-only-nerd-font	オタクフォントアイコンだけ、シンボルフォントのみ
 font-syncopate	Syncopate
 font-syne	もともとアートセンター'Synesthésie'のために設計された書体
 font-syne-mono	コントロールを手放す別の見方
@@ -2316,6 +2317,7 @@ mono-mdk-for-visual-studio	Microsoftの.NETFrameworkのオープンソース実�
 morpheus-beta	多細胞システム生物学のモデリング環境
 mullvadvpn-beta	VPNクライアント
 mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
+navicat-premium15	データベース管理および開発ツール
 netnewswire-beta	FreeのオープンソースRSSリーダー
 obs-beta	ライブストリーミングと画面録画用のオープンソースソフトウェア
 olympus	Everest(ビデオゲームCeleste用のModローダー) インストーラー/マネージャー
@@ -2381,6 +2383,7 @@ synergy-beta	Synergy
 telegram-desktop-beta	Telegramメッセンジャー用のデスクトップクライアント
 temurin11	Eclipse Foundation(Adoptium)のJDK
 temurin17	Eclipse Foundation(Adoptium)のJDK
+temurin18	Eclipse Foundation(Adoptium)のJDK
 temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
 textmate-preview	汎用テキストエディター
