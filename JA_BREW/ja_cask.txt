@@ -2910,6 +2910,7 @@ raindropio	オールインワンのブックマークマネージャー
 rambox	Freeのオープンソースメッセージングおよび電子メールアプリ
 ramme	非公式のInstagramデスクトップアプリ
 rancher	デスクトップでのKubernetesとコンテナ管理
+random-mouse-clicker	左に自動化 マウスの右ボタンと中ボタンのクリック
 ransomwhere	個人ファイルを保護する
 rapidminer-studio	データサイエンスプラットフォーム
 rapidweaver	Webデザインソフトウェア
