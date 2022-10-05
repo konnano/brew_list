@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.12_6\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.12_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -733,7 +733,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
   $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
  $name = -t STDOUT ? "$name \033[33m(require)\033[00m" : "$name (require)"
    if not $re->{'COLOR'} and ( not $re->{'HASH'}{$$brew} and not $re->{'DMG'}{$$brew} or
-          $re->{'HASH'}{$$brew} and $re->{'OS'}{"$${brew}ver"} gt $re->{'HASH'}{$$brew} );
+          $re->{'HASH'}{$$brew} and Version_1( $re->{'OS'}{"$${brew}ver"},$re->{'HASH'}{$$brew} ) );
  $name = -t STDOUT ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
    if $re->{'COLOR'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
@@ -774,8 +774,8 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
   if( $re->{'OS'}{"${brew}deps_b"} ){
    for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){
     if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
-        not $bottle and $re->{'OS'}{"${brew}ver"} gt $re->{'HASH'}{$brew} ) and
-      ( not $re->{'HASH'}{$data} or $re->{'OS'}{"${data}ver"} gt $re->{'HASH'}{$data} ) ){
+        not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
+      ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
         Unic_1( $re,\$data,$spa,$AN,1 );
          Info_1( $re,$data,$spa,$AN,$HA );
     }
