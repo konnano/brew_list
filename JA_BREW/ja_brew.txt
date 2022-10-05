@@ -1019,6 +1019,7 @@ cunit	Cの軽量単体テストフレームワーク
 cups	一般的なUNIX印刷システム
 curaengine	C++ 3D印刷GCode発生器
 curl	HTTP、HTTPS、またはFTPサーバーからファイルを取得します
+curlcpp	CURL用のオブジェクト指向C++ラッパー(libcurl)
 curlftpfs	FUSEとlibcurlに基づいてFTPホストにアクセスするためのファイルシステム
 curlie	カールのPower、httpieの使いやすさ
 curlpp	libcURLのC++ラッパー
@@ -1360,6 +1361,7 @@ echoprint-codegen	EchoprintのCodegen
 ecl	埋め込み可能なCommon Lisp
 ecm	CDイメージファイルを作成して圧縮率を高めます
 ed	従来のUNIXラインエディタ
+edencommon	WatchmanおよびEden プロジェクトの共有ライブラリ
 editorconfig	複数のエディター間で一貫したコーディングスタイルを維持する
 editorconfig-checker	ファイルが.editorconfigと調和していることを確認するためのツール
 efl	Enlightenment Foundationライブラリ
@@ -3617,6 +3619,7 @@ metaproxy	Yazツールキットを利用したZ39.50プロキシとルーター
 metashell	C++テンプレートのmetaプログラミングシェル
 metis	グラフと順序行列を分割するプログラム
 metricbeat	システムとサービスからmetricsを収集する
+metview	気象ワークステーションソフトウェア
 mfcuk	MiFareクラシックで一般的なツールキット
 mfoc	Nethembaによる'offline nested'攻撃の実装
 mfterm	Mifare Classic1-4kタグを操作するためのターミナル
