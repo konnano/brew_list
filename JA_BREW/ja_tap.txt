@@ -2305,6 +2305,7 @@ local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
 macfuse-dev	ファイルシステム統合
 macloggerdx-beta	アマチュア無線ロギングおよびリグ制御ソフトウェア
 macpass-dev	KeePass-clientおよびパスワードマネージャー
+mailmate-beta	IMAPメールクライアント
 mi-beta	テキストエディター
 microsoft-edge-beta	マルチプラットフォームのWebブラウザー
 microsoft-edge-dev	マルチプラットフォームのWebブラウザー
