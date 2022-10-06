@@ -832,6 +832,7 @@ dictionaries	辞書を開かずに単語を翻訳する
 dictunifier	辞書変換ツール
 difffork	DiffFork
 diffmerge	ファイルを視覚的に比較してマージする
+diffusionbee	Stable Diffusionをローカルで実行する
 digikam	デジタルフォトマネージャー
 digital	論理設計および回路模擬装置
 dingtalk	Alibabaグループによるチームワークアプリ
@@ -2928,6 +2929,7 @@ react-native-debugger	ReactNativeアプリをデバッグするための独立�
 react-proto	開発と設計のためのReactアプリケーションプロトタイピングツール
 react-studio	ReactStudio
 reactotron	React JSおよびReact Nativeプロジェクトを検査するためのデスクトップアプリ
+readdle-spark	メールクライアント
 readyapi	自動APIテストプラットフォーム
 realforce	Realforceキーボードおよびマウス用のソフトウェア
 reamp	SwiftUIで記述されたWinAMPクローン
