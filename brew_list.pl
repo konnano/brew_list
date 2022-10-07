@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.12_7\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.12_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -858,9 +858,8 @@ my( $re,$mem,$dir ) = @_;
 }
 
 sub Version_1{
-my( $ls1,$ls2 ) = @_;
- my @ls1 = split '\.|-|_',$ls1;
- my @ls2 = split '\.|-|_',$ls2;
+ my @ls1 = split '\.|-|_',$_[0];
+ my @ls2 = split '\.|-|_',$_[1];
  my $i = 0;
   for(;$i<@ls2;$i++){
    if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
@@ -991,7 +990,7 @@ my( $list,$file,$in,$re ) = @_;
             Memo_1( $re,$mem );
              $in++; $i--; next;
      }else{
-      if( $re->{'FOR'} and $brew_2 ne $re->{'HASH'}{$brew_1} and
+      if( $re->{'FOR'} and Version_1( $brew_2,$re->{'HASH'}{$brew_1} ) and
          not( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}un_Linux"} ) or
           $re->{'CAS'} and not $re->{'OS'}{"${brew_1}un_cask"} and $brew_2 ne $re->{'DMG'}{$brew_1} ){
          Version_2( $re,$brew_1,$brew_2 );
@@ -1089,7 +1088,7 @@ my( $list,$re,$in ) = @_;
         $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
         $re->{'MEM'} = "      X  $tap\tNot Formula\n";
          Memo_1( $re,$mem ) unless $re->{'FOR'};
-    }elsif( $re->{'FOR'} and $ver ne $re->{'HASH'}{$tap} and
+    }elsif( $re->{'FOR'} and Version_1( $ver,$re->{'HASH'}{$tap} ) and
            not( $re->{'OS'}{"${tap}un_xcode"} and $re->{'OS'}{"${tap}un_Linux"} ) or
             $re->{'CAS'} and not $re->{'OS'}{"${tap}un_cask"} and $ver ne $re->{'DMG'}{$tap} ){
         $re->{'MEM'} = "$re->{'SPA'}$tap\t$ver\t$com\n";
@@ -1163,9 +1162,9 @@ my( $re,$brew_1,$i,$e ) = @_;
 sub Command_1{
 my( $re,$ls1,$ls2,%HA,%OP ) = @_;
  exit unless my $num = $re->{'HASH'}{$re->{'STDI'}};
- Dirs_2( "$re->{'CEL'}/$re->{'STDI'}/$num",$re );
+ my @an = `find "$re->{'CEL'}/$re->{'STDI'}/$num"`;
  $re->{'CEL'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
-  for $ls1(@{$re->{'ARR'}}){
+  for $ls1(@an){ chomp $ls1;
    next if $ls1 =~ m[^$re->{'CEL'}/[^.][^/]+$|^$re->{'CEL'}/\.brew]o;
    if( $ls1 =~ m[^$re->{'CEL'}/\.|^$re->{'CEL'}/s?bin/]o ){
            print"$ls1\n";
@@ -1187,17 +1186,6 @@ my( $re,$ls1,$ls2,%HA,%OP ) = @_;
    }
   }
  Nohup_1( $re );
-}
-
-sub Dirs_2{
-my( $an,$re ) = @_;
- opendir my $dir,$an or die " N_Dirs $!\n";
-  for my $bn(sort readdir($dir)){
-   next if $bn =~ /^\.{1,2}$/;
-    ( -d "$an/$bn" and not -l "$an/$bn" ) ?
-   Dirs_2( "$an/$bn",$re ) : push @{$re->{'ARR'}},"$an/$bn";
-  }
- closedir $dir;
 }
 
 sub Format_1{
@@ -1855,7 +1843,7 @@ unless( $ARGV[0] ){
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
  } my( $in,$e ) = int @BREW/4;
- for my $dir1(@BREW){
+ for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
    $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" :
@@ -1866,7 +1854,7 @@ unless( $ARGV[0] ){
   open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
      if( $data =~ /^\s*bottle\s+do/ ){
-      $KIN = 1; next;
+      $KIN = $bot = 1; next;
      }elsif( $data =~ /^\s*rebuild/ and $KIN == 1 ){
        next;
      }elsif( $data !~ /^\s*end/ and $KIN == 1 ){
@@ -2012,13 +2000,13 @@ unless( $ARGV[0] ){
          push @{$re->{'OS'}},"$name,$data,1";
      }
 
-      if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
+      if( not $bot and $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}f_version"} = $data;
-      }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
+      }elsif( not $bot and $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}f_desc"} = $data;
-      }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
+      }elsif( not $bot and $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}f_name"} = $data;
-      }elsif( $data =~ s/^\s*revision\s+(\d+).*\n/$1/ ){
+      }elsif( not $bot and $data =~ s/^\s*revision\s+(\d+).*\n/$1/ ){
         $tap{"${name}revision"} = "_$data";
       }
 
@@ -2109,10 +2097,28 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
- if( $RPM and $RPM gt $CAT ){
+ if( $RPM and Version_1( $RPM,$CAT ) ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
  }
+}
+
+sub Version_1{
+ my @ls1 = split '\.|-|_',$_[0];
+ $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
+ my $i = 0;
+  for(;$i<@ls2;$i++){
+   if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
+     if( $ls1[$i] gt $ls2[$i] ){ return 1;
+     }elsif( $ls1[$i] lt $ls2[$i] ){ return;
+     }
+   }else{
+     if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
+     }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
+     }
+   }
+  }
+ $ls1[$i] ? 1 : 0;
 }
 
  if( $re->{'MAC'} ){
@@ -2192,16 +2198,12 @@ unless( $ARGV[0] ){
  for(my $i=0;$i<@BREW;$i++){
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
-     last if $BREW[$i] lt $ls1;
+     $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}f_version"}, last if $BREW[$i] lt $ls1;
       if( $BREW[$i] eq $ls1 ){
-       $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}revision"} ? $ls2.$tap{"${BREW[$i]}revision"} : $ls2;
+       $tap{"${BREW[$i]}ver"} = Version_1( $ls2,$tap{"${BREW[$i]}f_version"} ) ? $ls2 : $tap{"${BREW[$i]}f_version"};
+       $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}ver"}.$tap{"${BREW[$i]}revision"} if $tap{"${BREW[$i]}revision"};
        $COU++; last;
       }
-   }
-   unless( $tap{"${BREW[$i]}ver"} ){
-    $tap{"${BREW[$i]}ver"} = ( $tap{"${BREW[$i]}f_version"} and $tap{"${BREW[$i]}revision"} ) ?
-     $tap{"${BREW[$i]}f_version"}.$tap{"${BREW[$i]}revision"} : $tap{"${BREW[$i]}f_version"} ?
-      $tap{"${BREW[$i]}f_version"} : 0;
    }
    if( $re->{'MAC'} ){
      for(;$IN<@CASK;$IN++){
