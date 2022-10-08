@@ -698,7 +698,7 @@ my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
      close $JA;
     }
    }
-  }	print"koko\n";
+  }
   Format_3( $file,$re ) if $re->{'DEP'};
    $re->{'AN'} = $re->{'IN'} = $re->{'BN'} = $re->{'CN'} = $re->{'DN'} = $re->{'DI'} = 0;
   if( $re->{'TAP'} ){ my $i = 0; my $e = 0;
