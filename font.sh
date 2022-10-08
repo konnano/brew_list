@@ -33,7 +33,7 @@ if [[ $2 ]];then
    LS1=$(( $(date +%s --date "$LS1" 2>/dev/null)+60*60*24 ))
   fi
   if [[ $TI -gt $LS1 ]];then
-   git clone https://github.com/konnano/JA_BREW ~/.JA_BREWG || { math_rm; ${die:?git clone error}; }
+   git clone https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
     [[ "$NAME" = Linux ]] && rm ~/.JA_BREW/ja_cask.txt ~/.JA_BREW/ja_tap.txt
