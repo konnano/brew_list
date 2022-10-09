@@ -62,7 +62,7 @@ MAIN:{
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }else{  Died_1();
  }
-  my $UNAME = `uname -m` =~ /^(?!arm64)/ ? 'x86_64' : 'arm64';
+  my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
  if( $re->{'LIN'} ){
   $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
    $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.12_8\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.12_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1162,26 +1162,25 @@ my( $re,$brew_1,$i,$e ) = @_;
 sub Command_1{
 my( $re,$ls1,$ls2,%HA,%OP ) = @_;
  exit unless my $num = $re->{'HASH'}{$re->{'STDI'}};
- my @an = `find "$re->{'CEL'}/$re->{'STDI'}/$num"`;
- $re->{'CEL'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
-  for $ls1(@an){ chomp $ls1;
-   next if $ls1 =~ m[^$re->{'CEL'}/[^.][^/]+$|^$re->{'CEL'}/\.brew]o;
-   if( $ls1 =~ m[^$re->{'CEL'}/\.|^$re->{'CEL'}/s?bin/]o ){
+ $re->{'CELD'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
+  for $ls1(`find "$re->{'CEL'}/$re->{'STDI'}/$num" -type f`){ chomp $ls1;
+   next if $ls1 =~ m[^$re->{'CELD'}/[^.][^/]+$|^$re->{'CELD'}/\.brew]o;
+   if( $ls1 =~ m[^$re->{'CELD'}/\.|^$re->{'CELD'}/s?bin/]o ){
            print"$ls1\n";
-   }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CEL'}/lib/[^/]+dylib$|o){
+   }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CELD'}/lib/[^/]+dylib$|o){
            print"$ls1\n"; $re->{'INN'} = 1;
    }else{ $ls2 = $ls1;
-     $ls1 =~ s|^($re->{'CEL'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
+     $ls1 =~ s|^($re->{'CELD'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
        $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
-     $ls2 =~ s|^$re->{'CEL'}/[^/]+/[^/]+/(.+)|$1|o;
+     $ls2 =~ s|^$re->{'CELD'}/[^/]+/[^/]+/(.+)|$1|o;
        $OP{$ls1} = $ls2;
    }
   }
   for my $key(sort keys %HA){
    if( $HA{$key} == 1 ){
-     $OP{$key} =~ /^$re->{'CEL'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
+     $OP{$key} =~ /^$re->{'CELD'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
    }else{
-     ( $re->{'INN'} and  $key =~ m|^$re->{'CEL'}/lib$|o ) ?
+     ( $re->{'INN'} and  $key =~ m|^$re->{'CELD'}/lib$|o ) ?
      print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
    }
   }
@@ -1765,7 +1764,7 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my( $IN,$KIN,$SPA ) = ( 0,0,0 );
-my $UNAME = `uname -m` =~ /^(?!arm64)/ ? 'x86_64' : 'arm64';
+my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
 
