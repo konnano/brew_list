@@ -1507,6 +1507,7 @@ fasd	ファイルとディレクトリにすばやくアクセスするための
 fastbit	NoSQL精神のオープンソースデータ処理ライブラリ
 fastd	高速で安全なトンネリングデーモン
 fastfec	Cで書かれた非常に高速なFECファイリングパーサー
+fastfetch	neofetchと似ていますが、Cで書かれているためはるかに高速です
 fastjar	Sunのjarツールの実装
 fastlane	モバイルアプリを構築してリリースする最も簡単な方法
 fastme	正確で高速な距離ベースの系統発生推論プログラム
@@ -2431,6 +2432,7 @@ ifuse	iOSデバイスのFUSEモジュール
 igraph	ネットワーク分析パッケージ
 igv	対話的な解析Viewer
 ii	必要最低限のIRCクライアント
+iir1	C++で記述されたDSP IIRリアルタイムフィルターライブラリ
 ijq	対話型 jq
 ike-scan	指紋を見い出す IKE hosts
 ilmbase	OpenEXR ILMベースライブラリ(high dynamic-range画像ファイル形式)
@@ -3831,6 +3833,7 @@ mutt	メールユーザーエージェントの雑種(part elm、pine、mush、m
 mvnvm	Mavenバージョンマネージャー
 mvtools	動作の評価と補正用のフィルター
 mx	Graalプロジェクトの開発に使用されるコマンドラインツール
+mxnet	ディープラーニング用の柔軟で効率的なライブラリ
 mycli	自動補完と構文の強調表示を備えたMySQLのCLI
 mycorrhiza	階層をサポートする軽量のwikiエンジン
 mydumper	MySQLDBAとサポートエンジニアが'mysqldump'」をどのように想像するか;-)
