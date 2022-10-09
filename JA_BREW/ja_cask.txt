@@ -301,6 +301,7 @@ basictex	完全な TeXLive/MacTeXの代替としてのコンパクトなTeXデ�
 batchmod	ファイルとフォルダの権限を操作するためのユーティリティ
 bathyscaphe	2チャンネルブラウザー
 batteries	すべてのデバイスのバッテリーを追跡する
+battery	バッテリーの充電状態を管理するためのCLI
 battery-buddy	メニューバーのデフォルトのバッテリーインジケーターの交換
 battery-report	電源装置の技術概要を作成します
 battle-net	オンラインゲームプラットフォーム
