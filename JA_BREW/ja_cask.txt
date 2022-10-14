@@ -187,6 +187,7 @@ aquamacs	GNU Emacsに基づくテキストエディター
 aquaskk	AquaSKK
 aquaterm	Grahicsレンダラー
 araxis-merge	2方向および3方向のファイル比較 マージ/フォルダー同期
+arc	Chromiumベースのブラウザ
 archipelago	Webテクノロジに基づいて構築されたターミナルエミュレータ
 archiver	アーカイブを開く ファイルを圧縮する ファイルを分割して結合するだけでなく
 archy	YAMLプロセッサ
@@ -512,7 +513,6 @@ cemu	CEmu
 centered	生産性のためのフロー状態アプリ
 cerebro	知性を備えたオープンソースの生産性ブースター
 cernbox	CERNユーザー向けのクラウドストレージ
-cevelop	C++ IDE
 chai	システムがスリープ状態になるのを防ぐユーティリティ
 chalk	電卓ソフトウェア
 charles	Webデバッグプロキシアプリケーション
@@ -531,6 +531,7 @@ chemdoodle	2D化学描画/出版/情報学
 chessx	チェスデータベース
 chia	ChiaブロックチェーンのGUI Python実装
 chiaki	PlayStationリモートプレイクライアント
+chipmunk	ログ分析ツール
 chirp	アマチュア無線をプログラミングするためのツール
 choosy	任意のブラウザーでリンクを開く
 chrome-devtools	Chrome DevTools
@@ -3505,6 +3506,7 @@ teensy	Teensy
 teeworlds	Teeworlds
 telegram	速度とセキュリティに重点を置いたメッセージングアプリ
 telegram-desktop	Telegramメッセンジャー用のデスクトップクライアント
+tempbox	使い捨てメールクライアント
 tempo	すべての電子メールをバッチで配信する電子メールクライアント
 temurin	Eclipse Foundation(Adoptium)のJDK
 tenable-nessus-agent	Nessus脆弱性スキャナーのエージェント
