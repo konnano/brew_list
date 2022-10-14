@@ -58,7 +58,8 @@ unless( $ARGV[0] ){
  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
    $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc\t/{print \$2}'` : 0;
-    $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
+    $re->{'COM'} = '/home/linuxbrew/.linuxbrew/share/zsh/site-functions';
+     $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
    Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
@@ -359,12 +360,10 @@ sub Version_1{
   }
  $ls1[$i] ? 1 : 0;
 }
-
+  my( $FON,$TIN,$UAA );
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
- unlink "$re->{'COM'}/_bl" unless -d $re->{'FON'};
- my( $IN,$in,$e,$COM ) = ( 0,int @CASK/2,0 ); $tap{'fontlist'} = '';
-  $COM = "#compdef bl\n_bl(){\n_arguments '*::' \\\n'-p:Fonts:( \\\n" if -d $re->{'FON'} and -d $re->{'COM'};
+ my( $IN,$in,$e ) = ( 0,int @CASK/2,0 ); $tap{'fontlist'} = '';
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
@@ -379,7 +378,7 @@ sub Version_1{
        if( $tap{"${name}font"} ){
         $tap{"${name}font"} =~ s/\Q#{version}\E/$ver/g;
          $tap{'fontlist'} .= "$name\t";
-          $COM .= "$name \\\n" if -d $re->{'FON'} and -d $re->{'COM'}; $FI = 0;
+          $FON .= "$name \\\n" if -d $re->{'FON'}; $FI = 0;
        }
      }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
@@ -418,12 +417,6 @@ sub Version_1{
     }
    close $BREW;
   }
-  if( -d $re->{'FON'} and -d $re->{'COM'} ){ no warnings 'closed';
-   $COM =~ s/\\$/)'\n}/;
-   open my $dir,'>',"$re->{'COM'}/_bl";
-    print $dir $COM;
-   close $dir;
-  }
  }
 unless( $ARGV[0] ){
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
@@ -435,6 +428,8 @@ unless( $ARGV[0] ){
 
   my $COU = $IN = 0;
  for(my $i=0;$i<@BREW;$i++){
+  $TIN .= "$BREW[$i] \\\n" if $tap{"${BREW[$i]}deps"};
+  $UAA .= "$BREW[$i] \\\n" if $tap{"${BREW[$i]}uses"};
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
      $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}f_version"}, last if $BREW[$i] lt $ls1;
@@ -446,6 +441,8 @@ unless( $ARGV[0] ){
    }
    if( $re->{'MAC'} ){
      for(;$IN<@CASK;$IN++){
+     $TIN .= "$CASK[$IN] \\\n" if $tap{"${CASK[$IN]}formula"} or $tap{"${CASK[$IN]}d_cask"};
+     $UAA .= "$CASK[$IN] \\\n" if $tap{"${CASK[$IN]}u_cask"} or  $tap{"${CASK[$IN]}u_form"};
       last if $BREW[$i] lt $CASK[$IN];
        if($BREW[$i] eq $CASK[$IN]){
         $tap{"${CASK[$IN]}so_name"} = 1;
@@ -453,6 +450,40 @@ unless( $ARGV[0] ){
        }
      }
    }
- }
+ } my( $COM,@TRE,%HAU );
+  for my $br(glob "$re->{'CEL'}/*"){
+   $br =~ s|.+/(.+)|$1|;
+   push @TRE,$br if $tap{"${br}deps"};
+   if( $tap{"${br}deps"} ){
+    $HAU{$_}++ for(split '\t',$tap{"${br}deps"});
+   } $COM .= "$br \\\n";
+  }
+ if( $re->{'MAC'} ){
+   my $glob = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
+  for my $gs(glob "$glob/*"){
+   $gs =~ s|.+/(.+)|$1|;
+   push @TRE,$gs if $tap{"${gs}d_cask"} or $tap{"${gs}formula"};
+   if( $tap{"${gs}d_cask"} ){
+     $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
+   }
+   if( $tap{"${gs}formula"} ){
+     $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
+   }
+  }
+ } my( $UCC,$TRE );
+ $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
+ $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}':Delete:( \\\n$1 )' \\\n/;
+  $UCC .= "$_ \\\n" for(sort keys %HAU);
+   $UCC =~ s/([^?]+)\\\n$/'-u:uses:( \\\n$1 )' \\\n/;
+ $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}':Depends:( \\\n$1 )' \\\n/;
+  $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
+   $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
+    $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
+ my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$FON}" :
+                  "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM}";
+  no warnings 'closed';
+ open my $dir,'>',"$re->{'COM'}/_bl";
+  print $dir $TOP;
+ close $dir;
 }
 untie %tap;
