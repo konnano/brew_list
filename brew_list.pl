@@ -139,7 +139,7 @@ MAIN:{
   }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
   }
-  if( $re->{'DEL'} and $AR[2] and $AR[2] ne '.' ){
+  if( $re->{'DEL'} and $AR[2] ){
    DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
@@ -549,12 +549,12 @@ my( $re,$name,$name1,$cat,%HA,%HAN,@ARR ) = @_;
   $HA{$_}++ for(split '\t',$re->{'OS'}{'fontlist'});
  }else{
   if( $re->{'USE'} and not $re->{'USES'} or $re->{'DEL'} and not $re->{'DDD'} ){
-   for my $key(sort keys %{$re->{'HASH'}}){
+   for my $key(keys %{$re->{'HASH'}}){
     if( $re->{'OS'}{"${key}deps"} ){
      $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for(split '\t',$re->{'OS'}{"${key}deps"});
     }
    }
-   for my $key(sort keys %{$re->{'DMG'}}){
+   for my $key(keys %{$re->{'DMG'}}){
     if( $re->{'OS'}{"${key}d_cask"} ){
      $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for(split '\t',$re->{'OS'}{"${key}d_cask"});
     }
@@ -570,10 +570,10 @@ my( $re,$name,$name1,$cat,%HA,%HAN,@ARR ) = @_;
     $HA{$_}++ if $re->{'OS'}{"${_}u_form"};
    }
   }elsif( $re->{'DEL'} and not $re->{'DDD'} ){
-   for(sort keys %{$re->{'HASH'}}){
+   for(keys %{$re->{'HASH'}}){
     push @ARR,$_ if $re->{'OS'}{"${_}deps"};
    }
-   for(sort keys %{$re->{'DMG'}}){
+   for(keys %{$re->{'DMG'}}){
     push @ARR,$_ if $re->{'OS'}{"${_}d_cask"};
    }
   }elsif( $re->{'COM'} ){
@@ -1445,9 +1445,11 @@ sub Format_3{
 
   for(my $m=0;$m<@$file;$m++){
    if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
-    $fo .= "  == homebrew/cask-drivers ==\n"; $ca .= "  == homebrew/cask-drivers ==\n";
+    $fo .= "  \033[33m== homebrew/cask-drivers ==\033[00m\n";
+    $ca .= "  \033[33m== homebrew/cask-drivers ==\033[00m\n";
    }elsif( $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/| ){
-    $fo .= "  == homebrew/cask-versions ==\n"; $ca .= "  == homebrew/cask-versions ==\n";
+    $fo .= "  \033[33m== homebrew/cask-versions ==\033[00m\n";
+    $ca .= "  \033[33m== homebrew/cask-versions ==\033[00m\n";
    }  next if $$file[$m] =~ m[^[012]$|^homebrew/];
 
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
@@ -1492,7 +1494,7 @@ sub Format_3{
    }
   }
    system " printf '\033[?7l' " if -t STDOUT;
-  print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo";
+  print"  \033[33m### require Cask and Formula ###\033[00m\n$ca  \033[33m### require Formula ###\033[00m\n$fo";
    system " printf '\033[?7h' " if -t STDOUT;
  Nohup_1( $re );
 }
