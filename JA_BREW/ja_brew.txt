@@ -636,6 +636,7 @@ cattle	Brainfuck言語ツールキット
 cava	ALSAのコンソールベースのオーディオvisualizer
 cayley	FreebaseとKnowledgeGraphに触発されたグラフデータベース
 cbc	混合整数線形計画Solver
+cbindgen	RustコードからCバインディングを生成するためのプロジェクト
 cbmbasic	スクリプト言語としてのコモドールBASIC V2
 cbmc	Cの有界モデルチェッカー
 cc65	6502Cコンパイラ
@@ -1545,7 +1546,9 @@ fdupes	重複ファイルを特定または削除する
 feedgnuplot	コマンドラインからリアルタイムに保存されたデータを立案するツール
 feh	X11画像Viewer
 felinks	テキストモードブラウザとGemini、NNTP/FTP/Gopher/Finger/BitTorrentクライアント
+fend	任意精度の単位認識計算機
 fennel	LuaLisp言語
+ferium	Minecraft modsおよびmodpacksを管理するための高速でマルチソースのCLIプログラム
 feroxbuster	Rustで書かれた高速かつシンプルな再帰的コンテンツ発見ツール
 fetch	コミットからアセットをダウンロードする ブランチもしくはGitHubリポジトリのタグ
 fetch-crl	証明書失効リスト(CRL)を取得する
@@ -1672,6 +1675,7 @@ fprettify	最新のFortranソースコード用のAuto-formatter
 fprobe	LibpcapベースのNetFlow調査
 fq	性能に最適化された仲介メッセージキュー
 fragroute	指定されたホストの出力転送を 傍受/変更/書き換 出来ます
+fred	フル機能のFREDコマンドラインインターフェイス & Python APIラッパー
 freealut	OpenALのALUT標準の実装
 freebayes	ベイズハプロタイプベースの遺伝多型の発見と遺伝型決定
 freeciv	Freeでオープンソースの帝国建設戦略ゲーム
@@ -1784,6 +1788,7 @@ gdrive-downloader	gdriveフォルダーまたはファイルを簡単にダウ�
 gdu	Goで記述されたコンソールインターフェイスを備えたディスク使用量分析器
 gdub	Gradlew/gradle ラッパー
 gearman	他のマシンまたはプロセスに作業をファームアウトするためのアプリケーションフレームワーク
+gebug	Dockerized Goアプリケーションをより適切にデバッグする
 geckodriver	WebDriver <-> Marionetteプロキシ
 gecode	制約ベースのシステムとアプリケーションを開発するためのツールキット
 gedit	GNOMEテキストエディタ
@@ -3243,7 +3248,6 @@ libtirpc	Sunの転送に依存しないLinuxへのRPCライブラリの移植
 libtomcrypt	包括的でモジュール式のポータブル暗号化ツールキット
 libtommath	数論的多倍長整数用のCライブラリ
 libtool	包括的ライブラリサポートスクリプト
-libtorch	Tensorsと動的神経ネットワーク
 libtorrent-rakshasa	高性能に焦点を当てたBitTorrentライブラリ
 libtorrent-rasterbar	Python bindingsを備えたC++ビットトレントライブラリ
 libtpms	Trusted Platform Moduleのソフトウェアエミュレーション用のライブラリ
@@ -3372,7 +3376,7 @@ liquid-dsp	ソフトウェア無線用のデジタル信号処理ライブラリ
 liquidctl	liquid coolersとその他のデバイス用のクロスプラットフォームツールとドライバー
 liquidprompt	bashおよびzshシェルの適応プロンプト
 liquigraph	Neo4jの移行ランナー
-lit	LLVMおよびClang-styleの組テストのポータブルツール
+lit	LLVMおよびClang-styleのテストセットのポータブルツール
 litani	Metabuildシステム
 litecli	自動補完と構文の強調表示を備えたSQLiteデータベースのCLI
 literate-git	階層的なgitリポジトリをHTMLに表現する
@@ -4386,6 +4390,7 @@ pgpdump	PGPパケットvisualizer
 pgpool-ii	PostgreSQL接続プールサーバー
 pgroonga	Groongaをインデックスとして使用するPostgreSQLプラグイン
 pgrouting	PostGIS/PostgreSQL データベースの地理空間設定を提供します
+pgsync	データベース間でPostgresデータを同期する
 pgtoolkit	PostgreSQLメンテナンス用のツール
 pgtune	postgresql.confのチューニングウィザード
 pgweb	WebベースのPostgreSQLデータベースブラウザ
@@ -4677,6 +4682,7 @@ python@3.7	オブジェクト指向プログラミング言語 インタプリ�
 python@3.8	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.9	オブジェクト指向プログラミング言語 インタプリタ/対話的
 pythran	数値カーネル用のAheadofTimeコンパイラ
+pytorch	Tensorsと動的ニューラルネットワーク
 pytouhou	Touhou6エンジンのLibre実装
 pyvim	純粋なPython Vimクローン
 pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
@@ -5594,6 +5600,7 @@ texlive	TeX植字システムのFreeソフトウェア配布
 texmath	LaTeX数学をMathMLに変換するためのHaskellライブラリ
 textidote	つづり LaTeXドキュメントの文法とスタイルのチェック
 textql	テキストファイル全体でSQLを実行します
+textract	さまざまな種類のファイルからテキストを抽出する
 tfel	数値力学の材料知識に特化したコード生成ツール
 tfenv	rbenvに触発されたTerraformバージョンマネージャー
 tfk8s	KubernetesYAMLマニフェストからTerraformHCLへの変換器
@@ -5723,6 +5730,7 @@ treefmt	コードツリーをフォーマットするための1つのCLI
 treefrog	Webアプリケーション用の高速C++ MVCフレームワーク
 tremor-runtime	非構造化データの初期段階のイベント処理システム
 trezor-agent	ハードウェアSSH/GPGエージェント Trezor/Keepkey/Ledger
+trezor-bridge	Trezor通信デーモン
 triangle	Delaunay三角形分割を使用して、画像をコンピューターで生成されたアートに変換します
 trimage	PNGおよびJPGファイルを最適化するためのクロスプラットフォームツール
 trino	ビッグデータ用の分散SQLクエリエンジン
@@ -5772,6 +5780,7 @@ tygo	GolangソースコードからTypescriptタイプを生成する
 typedb	知識工学のための分散型ハイパーリレーショナルデータベース
 typescript	アプリケーション規模のJavaScript開発用言語
 typespeed	正しく入力して画面上を飛んでいる単語をZapする
+typewritten	最小限のzshプロンプト
 tz	CLIタイムゾーンvisualizer
 u-boot-tools	汎用ブートローダー
 uade	アラブ首長国連邦のエミュレーションを通じてAmigaの曲を再生する
@@ -5897,6 +5906,7 @@ verapdf	業界でサポートされているオープンソースのPDF/A検証
 vercel-cli	Vercelのコマンドラインインターフェイス
 verilator	Verilog模擬装置
 vermin	コードの実行に必要なPythonの最低バージョンを同時に検出する
+verovio	コマンドラインMEI楽譜エングレーバー
 vert	コマンドラインバージョンのテスト
 vert.x	JVMでリアクティブアプリケーションを構築するためのツールキット
 vespa-cli	Vespa.aiのコマンドラインツール
