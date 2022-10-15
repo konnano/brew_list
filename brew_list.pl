@@ -598,7 +598,7 @@ my( $re,$name,$name1,$cat,%HA,%HAN,@ARR ) = @_;
  }
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
-   print" $$name...\n" if $cat;
+   print" $$name...$re->{'SPA'}\n" if $cat;
  }else{
   if( @ARR ){
    $re->{'LIKE'} = print"\033[33m much...\033[00m\n";
@@ -2267,8 +2267,6 @@ unless( $ARGV[0] ){
    }
    if( $re->{'MAC'} ){
      for(;$IN<@CASK;$IN++){
-     $TIN .= "$CASK[$IN] \\\n" if $tap{"${CASK[$IN]}formula"} or $tap{"${CASK[$IN]}d_cask"};
-     $UAA .= "$CASK[$IN] \\\n" if $tap{"${CASK[$IN]}u_cask"} or  $tap{"${CASK[$IN]}u_form"};
       last if $BREW[$i] lt $CASK[$IN];
        if($BREW[$i] eq $CASK[$IN]){
         $tap{"${CASK[$IN]}so_name"} = 1;
@@ -2276,23 +2274,25 @@ unless( $ARGV[0] ){
        }
      }
    }
- } my( $COM,@TRE,%HAU );
+ } my( $COM,@TRE,%HAU,$ls );
   for my $br(glob "$re->{'CEL'}/*"){
    $br =~ s|.+/(.+)|$1|;
-   push @TRE,$br if $tap{"${br}deps"};
-   if( $tap{"${br}deps"} ){
+   if( $tap{"${br}deps"} ){ push @TRE,$br;
     $HAU{$_}++ for(split '\t',$tap{"${br}deps"});
    } $COM .= "$br \\\n";
   }
  if( $re->{'MAC'} ){
+  for(@CASK){
+   $TIN .= "$_ \\\n" if $tap{"${_}formula"} or $tap{"${_}d_cask"};
+   $UAA .= "$_ \\\n" if $tap{"${_}u_cask"} or  $tap{"${_}u_form"};
+  }
    my $glob = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
   for my $gs(glob "$glob/*"){
    $gs =~ s|.+/(.+)|$1|;
-   push @TRE,$gs if $tap{"${gs}d_cask"} or $tap{"${gs}formula"};
-   if( $tap{"${gs}d_cask"} ){
+   if( $tap{"${gs}d_cask"} ){ $ls = push @TRE,$gs;
      $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
    }
-   if( $tap{"${gs}formula"} ){
+   if( $tap{"${gs}formula"} ){ push @TRE,$gs unless $ls;
      $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
    }
   }
