@@ -2628,6 +2628,7 @@ picgo	画像をアップロードするためのツール
 pichon	アイコン8の検索ユーティリティ
 pictogram	アプリのアイコンをカスタマイズして維持する
 pictureview	画像ビューア
+pieces-cli	Pieces.appのコマンドライン ツール
 piezo	オーディオレコーディングアプリケーション
 pika	画面上の色のカラーピッカー
 pikopixel	ピクセルアートエディター
@@ -3948,6 +3949,7 @@ wiznote	WizNote
 wjoy	任天堂 wiimoteドライバー
 wkhtmltopdf	wkhtmltopdf
 wolai	クラウドノート
+wolfram-engine	Wolfram言語の評価器
 wombat	クロスプラットフォームgRPCクライアント
 wonderfultools-screensaver	素晴らしいツールのスクリーンセーバー
 wondershare-edrawmax	ダイアグラムソフトウェア
