@@ -195,7 +195,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_0\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -235,10 +235,12 @@ my( $re,$list ) = @_;
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
-  my @cat = $re->{'MAC'} ? `cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'
-                            cat ~/.BREW_LIST/cask.txt|awk '{print \$1}'` :
-                           `cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'`;
-  Like_1( $re,\$re->{'INF'},\$re->{'USE'},\@cat ) if $re->{'INF'} or $re->{'USE'};
+  if( $re->{'INF'} or $re->{'USE'} ){
+   my @cat = $re->{'MAC'} ? `cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'
+                             cat ~/.BREW_LIST/cask.txt|awk '{print \$1}'` :
+                            `cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'`;
+   Like_1( $re,\$re->{'INF'},\$re->{'USE'},\@cat );
+  }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
     Info_1( $re ) if $re->{'INF'};
      return if $re->{'TREE'};
@@ -2295,19 +2297,19 @@ unless( $ARGV[0] ){
    }
   }
  } my( $UCC,$TRE );
- $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
- $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}':Delete:( \\\n$1 )' \\\n/;
-  $UCC .= "$_ \\\n" for(sort keys %HAU);
-   $UCC =~ s/([^?]+)\\\n$/'-u:uses:( \\\n$1 )' \\\n/;
- $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}':Depends:( \\\n$1 )' \\\n/;
-  $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
-   $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
-    $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
- my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$FON}" :
-                  "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM}";
-  no warnings 'closed';
- open my $dir,'>',"$re->{'COM'}/_bl";
-  print $dir $TOP;
- close $dir;
+  $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
+  $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}':Delete:( \\\n$1 )' \\\n/;
+   $UCC .= "$_ \\\n" for(sort keys %HAU);
+    $UCC =~ s/([^?]+)\\\n$/'-u:uses:( \\\n$1 )' \\\n/;
+  $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}':Depends:( \\\n$1 )' \\\n/;
+   $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
+    $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
+     $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
+  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$FON}" :
+                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM}";
+   no warnings 'closed';
+  open my $dir,'>',"$re->{'COM'}/_bl";
+   print $dir $TOP;
+  close $dir;
 }
 untie %tap;
