@@ -441,8 +441,6 @@ unless( $ARGV[0] ){
    }
    if( $re->{'MAC'} ){
      for(;$IN<@CASK;$IN++){
-     $TIN .= "$CASK[$IN] \\\n" if $tap{"${CASK[$IN]}formula"} or $tap{"${CASK[$IN]}d_cask"};
-     $UAA .= "$CASK[$IN] \\\n" if $tap{"${CASK[$IN]}u_cask"} or  $tap{"${CASK[$IN]}u_form"};
       last if $BREW[$i] lt $CASK[$IN];
        if($BREW[$i] eq $CASK[$IN]){
         $tap{"${CASK[$IN]}so_name"} = 1;
@@ -450,40 +448,42 @@ unless( $ARGV[0] ){
        }
      }
    }
- } my( $COM,@TRE,%HAU );
+ } my( $COM,@TRE,%HAU,$ls );
   for my $br(glob "$re->{'CEL'}/*"){
    $br =~ s|.+/(.+)|$1|;
-   push @TRE,$br if $tap{"${br}deps"};
-   if( $tap{"${br}deps"} ){
+   if( $tap{"${br}deps"} ){ push @TRE,$br;
     $HAU{$_}++ for(split '\t',$tap{"${br}deps"});
    } $COM .= "$br \\\n";
   }
  if( $re->{'MAC'} ){
+  for(@CASK){
+   $TIN .= "$_ \\\n" if $tap{"${_}formula"} or $tap{"${_}d_cask"};
+   $UAA .= "$_ \\\n" if $tap{"${_}u_cask"} or  $tap{"${_}u_form"};
+  }
    my $glob = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
   for my $gs(glob "$glob/*"){
    $gs =~ s|.+/(.+)|$1|;
-   push @TRE,$gs if $tap{"${gs}d_cask"} or $tap{"${gs}formula"};
-   if( $tap{"${gs}d_cask"} ){
+   if( $tap{"${gs}d_cask"} ){ $ls = push @TRE,$gs;
      $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
    }
-   if( $tap{"${gs}formula"} ){
+   if( $tap{"${gs}formula"} ){ push @TRE,$gs unless $ls;
      $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
    }
   }
  } my( $UCC,$TRE );
- $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
- $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}':Delete:( \\\n$1 )' \\\n/;
-  $UCC .= "$_ \\\n" for(sort keys %HAU);
-   $UCC =~ s/([^?]+)\\\n$/'-u:uses:( \\\n$1 )' \\\n/;
- $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}':Depends:( \\\n$1 )' \\\n/;
-  $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
-   $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
-    $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
- my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$FON}" :
-                  "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM}";
-  no warnings 'closed';
- open my $dir,'>',"$re->{'COM'}/_bl";
-  print $dir $TOP;
- close $dir;
+  $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
+  $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}':Delete:( \\\n$1 )' \\\n/;
+   $UCC .= "$_ \\\n" for(sort keys %HAU);
+    $UCC =~ s/([^?]+)\\\n$/'-u:uses:( \\\n$1 )' \\\n/;
+  $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}':Depends:( \\\n$1 )' \\\n/;
+   $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
+    $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
+     $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
+  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$FON}" :
+                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM}";
+   no warnings 'closed';
+  open my $dir,'>',"$re->{'COM'}/_bl";
+   print $dir $TOP;
+  close $dir;
 }
 untie %tap;
