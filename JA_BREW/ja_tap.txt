@@ -151,6 +151,7 @@ font-averia-sans-libre	Averia Sans Libre
 font-averia-serif-libre	Averia Serif Libre
 font-awesome-terminal-fonts	素晴らしいターミナルフォント
 font-azeret-mono	martinváchaとdanielquisekによるデザイン
+font-azonix	モダンなsans-serif書体
 font-b612	B612
 font-b612-mono	B612 Mono
 font-babylonica	直立または逆傾斜のフォームによってさえぎられ強調が発生します
@@ -2415,6 +2416,7 @@ wine-devel	Windowsアプリケーションを実行するための互換性レ�
 wine-staging	Windowsアプリケーションを実行するための互換性レイヤー
 xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 xmind8	マインドマッピングとブレーンストーミングツール
+yubico-authenticator-beta	TOTPおよびHOTPコードを生成するためのアプリケーション
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
