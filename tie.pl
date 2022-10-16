@@ -448,11 +448,12 @@ unless( $ARGV[0] ){
        }
      }
    }
- } my( $COM,@TRE,%HAU,$ls );
+ } my( $COM,$DEP,@TRE,%HAU );
   for my $br(glob "$re->{'CEL'}/*"){
    $br =~ s|.+/(.+)|$1|;
    if( $tap{"${br}deps"} ){ push @TRE,$br;
     $HAU{$_}++ for(split '\t',$tap{"${br}deps"});
+     $DEP .= "$br \\\n";
    } $COM .= "$br \\\n";
   }
  if( $re->{'MAC'} ){
@@ -460,14 +461,18 @@ unless( $ARGV[0] ){
    $TIN .= "$_ \\\n" if $tap{"${_}formula"} or $tap{"${_}d_cask"};
    $UAA .= "$_ \\\n" if $tap{"${_}u_cask"} or  $tap{"${_}u_form"};
   }
-   my $glob = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
-  for my $gs(glob "$glob/*"){
+   my $glo = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
+  for my $gs(glob "$glo/*"){ my $ls;
    $gs =~ s|.+/(.+)|$1|;
-   if( $tap{"${gs}d_cask"} ){ $ls = push @TRE,$gs;
-     $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
+   if( $tap{"${gs}d_cask"} ){
+    $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
+     $ls = push @TRE,$gs;
+      $DEP .= "$gs \\\n";
    }
-   if( $tap{"${gs}formula"} ){ push @TRE,$gs unless $ls;
-     $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
+   if( $tap{"${gs}formula"} ){
+    $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
+     push @TRE,$gs unless $ls;
+      $DEP .= "$gs \\\n";
    }
   }
  } my( $UCC,$TRE );
@@ -479,8 +484,9 @@ unless( $ARGV[0] ){
    $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
     $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
      $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
-  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$FON}" :
-                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM}";
+      $DEP =~ s/([^?]+)\\\n$/'-ud:DEPS:( \\\n$1 )' \\\n/;
+  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
+                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
