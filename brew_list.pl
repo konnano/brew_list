@@ -196,7 +196,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_2\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -621,7 +621,7 @@ my( $re,$name,$cat,%HA,%HAN,@ARR ) = @_;
 sub Prew_1{
 my $re = shift;
  unless( $re->{'OS'}{"$re->{'PRE'}font"} ){
-  Like_1( $re,\$re->{'PRE'} ) if $re->{'OS'}{'fontlist'};
+  Like_1( $re,[\$re->{'PRE'}] ) if $re->{'OS'}{'fontlist'};
    exit unless $re->{'OS'}{"$re->{'PRE'}font"};
   print" $re->{'PRE'}...\n"
  unless -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
@@ -2312,14 +2312,14 @@ unless( $ARGV[0] ){
   }
  } my( $UCC,$TRE );
   $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
-  $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}':Delete:( \\\n$1 )' \\\n/;
+  $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/;
    $UCC .= "$_ \\\n" for(sort keys %HAU);
-    $UCC =~ s/([^?]+)\\\n$/'-u:uses:( \\\n$1 )' \\\n/;
-  $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}':Depends:( \\\n$1 )' \\\n/;
-   $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
-    $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
-     $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
-      $DEP =~ s/([^?]+)\\\n$/'-ud:DEPS:( \\\n$1 )' \\\n/;
+    $UCC =~ s/([^?]+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/;
+  $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/;
+   $FON =~ s/([^?]+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/ if $FON;
+    $COM =~ s/([^?]+)\\\n$/'-co[Library list]:Library:( \\\n$1 )' \\\n/;
+     $UAA =~ s/([^?]+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/;
+      $DEP =~ s/([^?]+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/;
   my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
                    "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP}";
    no warnings 'closed';
