@@ -2651,6 +2651,7 @@ pixelstick	距離を測定するためのツール 画面上の角度と色
 pktriot	ホストサーバーアプリケーションと静的Webサイト
 plain-clip	コピーしたテキストから書式を削除します
 plan	Plan
+planet	PFSとイーサリアムネームシステムを利用した分散型のブログとウェブサイト
 plasticscm-cloud-edition	PlasticSCMをLocalにインストールしCloud Editionサブスクリプションに参加します
 platypus	コマンドラインスクリプトからネイティブアプリケーションを作成するためのツール
 play	Play
