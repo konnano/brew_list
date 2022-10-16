@@ -477,14 +477,14 @@ unless( $ARGV[0] ){
   }
  } my( $UCC,$TRE );
   $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
-  $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}':Delete:( \\\n$1 )' \\\n/;
+  $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/;
    $UCC .= "$_ \\\n" for(sort keys %HAU);
-    $UCC =~ s/([^?]+)\\\n$/'-u:uses:( \\\n$1 )' \\\n/;
-  $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}':Depends:( \\\n$1 )' \\\n/;
-   $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
-    $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
-     $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
-      $DEP =~ s/([^?]+)\\\n$/'-ud:DEPS:( \\\n$1 )' \\\n/;
+    $UCC =~ s/([^?]+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/;
+  $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/;
+   $FON =~ s/([^?]+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/ if $FON;
+    $COM =~ s/([^?]+)\\\n$/'-co[Library list]:Library:( \\\n$1 )' \\\n/;
+     $UAA =~ s/([^?]+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/;
+      $DEP =~ s/([^?]+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/;
   my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
                    "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP}";
    no warnings 'closed';
