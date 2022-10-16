@@ -138,9 +138,10 @@ MAIN:{
    $ref->{'PRE'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'deps'} and $AR[1] and $AR[1] ne '.' ){
+   $re->{'dep_s'} = lc $AR[1];
   }
-  if( $re->{'DEL'} and $AR[2] ){
-   DB_1( $re );
+  if( $re->{'DEL'} and $AR[2] ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
@@ -195,7 +196,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_1\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -235,11 +236,12 @@ my( $re,$list ) = @_;
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
-  if( $re->{'INF'} or $re->{'USE'} ){
-   my @cat = $re->{'MAC'} ? `cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'
-                             cat ~/.BREW_LIST/cask.txt|awk '{print \$1}'` :
-                            `cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'`;
-   Like_1( $re,\$re->{'INF'},\$re->{'USE'},\@cat );
+  if( $re->{'INF'} or $re->{'USE'} or $re->{'dep_s'} ){
+   my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'
+                              cat ~/.BREW_LIST/cask.txt|awk '{print \$1}'`]:
+                            [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'`];
+   my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
+   Like_1( $re,$in,$cat );
   }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
     Info_1( $re ) if $re->{'INF'};
@@ -512,15 +514,18 @@ my( $re,@AN,%HA ) = @_;
 }
 
 sub Brew_3{
-my( $re,$ls,@AN,%HA,$mine ) = @_;
- $ls ? print"\n ==> Cask\n" : print" ==> Formula\n" if -t STDOUT;
+my( $re,$ls,@AN,%HA,$mine,$in ) = @_;
  my $brew = $ls ? 'DMG' : 'HASH';
  for my $key(sort keys %{$re->{$brew}}){
+  next if $re->{'dep_s'} and $re->{'dep_s'} ne $key;
   $re->{'LENG'} = 0;
   $re->{'INF'} = $key;
    Info_1( $re,0,0,\@AN,\%HA );
     Tap_2( $re,\$key );
      @AN = sort @AN unless $ls;
+     if( -t STDOUT and @AN and not $in ){ $in++;
+      ( $re->{'dep_s'} and $ls ) ? print" ==> Cask\n" : $ls ? print"\n ==> Cask\n" : print" ==> Formula\n";
+     }
       print"$re->{'NOT'}" if $re->{'NOT'} and @AN and not $re->{'KEN'};
        for my $len( @AN ){
         $re->{'LEN'}{$len} = length $len;
@@ -532,7 +537,7 @@ my( $re,$ls,@AN,%HA,$mine ) = @_;
      ( not $re->{'KEN'} ) ? print" $key : depends\n" : 0;
      unless( $re->{'KEN'} ){
       Format_1( $re ) if @AN;
-       print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN;
+       print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN and not $re->{'dep_s'};
      }
     $re->{"deps$_"} = $re->{'LEN1'} = 0 for(@AN);
    @AN = %HA = @{$re->{'ARR'}} = ();
@@ -544,9 +549,9 @@ my( $re,$ls,@AN,%HA,$mine ) = @_;
 }
 
 sub Like_1{
-my( $re,$name,$name1,$cat,%HA,%HAN,@ARR ) = @_;
+my( $re,$name,$cat,%HA,%HAN,@ARR ) = @_;
  waitpid( $re->{'PID'},0 ) if $re->{'PID'};
- $name = $$name ? $name : $name1;
+  $name = $$_ ? $_ : next for(@$name);
  unless( $cat ){
   $HA{$_}++ for(split '\t',$re->{'OS'}{'fontlist'});
  }else{
@@ -575,9 +580,13 @@ my( $re,$name,$name1,$cat,%HA,%HAN,@ARR ) = @_;
    for(keys %{$re->{'HASH'}}){
     push @ARR,$_ if $re->{'OS'}{"${_}deps"};
    }
-   for(keys %{$re->{'DMG'}}){
-    push @ARR,$_ if $re->{'OS'}{"${_}d_cask"};
+   for(keys %{$re->{'DMG'}}){ my $ls;
+    $ls = push @ARR,$_ if $re->{'OS'}{"${_}d_cask"};
+    push @ARR,$_ if $re->{'OS'}{"${_}formula"} and not $ls;
    }
+  }elsif( $re->{'dep_s'} ){
+   $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for(keys %{$re->{'HASH'}});
+   $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for(keys %{$re->{'DMG'}});
   }elsif( $re->{'COM'} ){
     $HA{$_}++ for(keys %{$re->{'HASH'}});
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
@@ -598,7 +607,7 @@ my( $re,$name,$name1,$cat,%HA,%HAN,@ARR ) = @_;
  }
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
-   print" $$name...$re->{'SPA'}\n" if $cat;
+   print" $$name...$re->{'SPA'}\n" if $cat and not $re->{'dep_s'};
  }else{
   if( @ARR ){
    $re->{'LIKE'} = print"\033[33m much...\033[00m\n";
@@ -1223,7 +1232,7 @@ my( $re,$brew_1,$i,$e ) = @_;
 
 sub Command_1{
 my( $re,$ls1,$ls2,%HA,%OP ) = @_;
- Like_1( $re,\$re->{'STDI'},0,1 );
+ Like_1( $re,[\$re->{'STDI'}],1 );
  exit unless my $num = $re->{'HASH'}{$re->{'STDI'}};
  $re->{'CELD'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
   for $ls1(`find "$re->{'CEL'}/$re->{'STDI'}/$num" -type f`){ chomp $ls1;
@@ -1323,7 +1332,7 @@ sub Format_1{
         $re->{'ARR'}[$e] .= ' ';
        }
         print $re->{'ARR'}[$e];
-         if( $re->{'deps'} ){
+         if( $re->{'deps'} and not $re->{'dep_s'} ){
           my $leng1 = $leng * ( eval{ $in % $size } ? $in % $size + 1 : 1 );
            $re->{'LENG'} = $leng1 if $re->{'LENG'} < $leng1;
          }
@@ -2274,11 +2283,12 @@ unless( $ARGV[0] ){
        }
      }
    }
- } my( $COM,@TRE,%HAU,$ls );
+ } my( $COM,$DEP,@TRE,%HAU );
   for my $br(glob "$re->{'CEL'}/*"){
    $br =~ s|.+/(.+)|$1|;
    if( $tap{"${br}deps"} ){ push @TRE,$br;
     $HAU{$_}++ for(split '\t',$tap{"${br}deps"});
+     $DEP .= "$br \\\n";
    } $COM .= "$br \\\n";
   }
  if( $re->{'MAC'} ){
@@ -2286,14 +2296,18 @@ unless( $ARGV[0] ){
    $TIN .= "$_ \\\n" if $tap{"${_}formula"} or $tap{"${_}d_cask"};
    $UAA .= "$_ \\\n" if $tap{"${_}u_cask"} or  $tap{"${_}u_form"};
   }
-   my $glob = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
-  for my $gs(glob "$glob/*"){
+   my $glo = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
+  for my $gs(glob "$glo/*"){ my $ls;
    $gs =~ s|.+/(.+)|$1|;
-   if( $tap{"${gs}d_cask"} ){ $ls = push @TRE,$gs;
-     $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
+   if( $tap{"${gs}d_cask"} ){
+    $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
+     $ls = push @TRE,$gs;
+      $DEP .= "$gs \\\n";
    }
-   if( $tap{"${gs}formula"} ){ push @TRE,$gs unless $ls;
-     $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
+   if( $tap{"${gs}formula"} ){
+    $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
+     push @TRE,$gs unless $ls;
+      $DEP .= "$gs \\\n";
    }
   }
  } my( $UCC,$TRE );
@@ -2305,8 +2319,9 @@ unless( $ARGV[0] ){
    $FON =~ s/([^?]+)\\\n$/'-p:Fonts:( \\\n$1 )' \\\n/ if $FON;
     $COM =~ s/([^?]+)\\\n$/'-co:Library:( \\\n$1 )' \\\n/;
      $UAA =~ s/([^?]+)\\\n$/'-ua:USES:( \\\n$1 )' \\\n/;
-  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$FON}" :
-                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM}";
+      $DEP =~ s/([^?]+)\\\n$/'-ud:DEPS:( \\\n$1 )' \\\n/;
+  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
+                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
