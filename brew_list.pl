@@ -1580,7 +1580,7 @@ if [[ $2 ]];then
   fi
  fi
 
-
+ if [[ "$NAME" = Darwin ]];then
   if [[ $2 -eq 1 ]];then
     mkdir -p ~/.BREW_LIST/{0..19}
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
