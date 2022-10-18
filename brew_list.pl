@@ -196,7 +196,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_3\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1580,7 +1580,7 @@ if [[ $2 ]];then
   fi
  fi
 
- if [[ "$NAME" = Darwin ]];then
+
   if [[ $2 -eq 1 ]];then
     mkdir -p ~/.BREW_LIST/{0..19}
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
@@ -2171,7 +2171,7 @@ unless( $ARGV[0] ){
     close $CEL;
    }
   }1;
- } Glob_1;
+ } Glob_1 if $re->{'MAC'};
  if( $RPM and Version_1( $RPM,$CAT ) ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
