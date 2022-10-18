@@ -336,7 +336,7 @@ unless( $ARGV[0] ){
     close $CEL;
    }
   }1;
- } Glob_1;
+ } Glob_1 if $re->{'MAC'};
  if( $RPM and Version_1( $RPM,$CAT ) ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
