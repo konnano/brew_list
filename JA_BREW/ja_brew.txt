@@ -6190,6 +6190,7 @@ xpdf	PDF Viewer
 xpipe	入力を分割し指定されたユーティリティにフィードします
 xplanet	地球のHQ壁紙を作成する
 xplr	ハッキング可能で最低限の高速のTUIファイルエクスプローラー
+xq	コマンドラインXML美化ツールおよびコンテンツエクストラクタ
 xqilla	XQueryおよびXPath2コマンドライン解釈プログラム
 xray	ネットワーク制限をバイパスするプロキシを構築するためのプラットフォーム
 xrick	Rick Dangerousのクローン
