@@ -2426,6 +2426,7 @@ ondesoft-audiobook-converter	オーディオブック変換器
 one-switch	すべてのシステムスイッチとユーティリティスイッチを1か所に
 onecast	OneCast
 onedrive	クラウドストレージクライアント
+onekey	クリプトウォレット
 onenote-importer-preview	OneNoteインポーター(プレビュー)
 onepile	OnePile
 onionshare	安全かつ匿名でファイルを共有 Webサイトをホスト 友人とチャットします
@@ -2694,7 +2695,6 @@ polkadot-js	PolkadotおよびSubstrateネットワークへのポータル
 polycom-content	Polycomコンテンツアプリ
 polycom-realpresence	ビデオ協調アプリ
 polymail	Polymail
-polymc	マインクラフトランチャー
 polypad	開発者向けのスクリプト可能なテキストパッド
 polypane	野心的な開発者のためのブラウザー
 polyphone	Polyphone
@@ -2934,6 +2934,7 @@ react-proto	開発と設計のためのReactアプリケーションプロトタ
 react-studio	ReactStudio
 reactotron	React JSおよびReact Nativeプロジェクトを検査するためのデスクトップアプリ
 readdle-spark	メールクライアント
+readmoreading	繁体字中国語電子書籍サービス
 readyapi	自動APIテストプラットフォーム
 realforce	Realforceキーボードおよびマウス用のソフトウェア
 reamp	SwiftUIで記述されたWinAMPクローン
