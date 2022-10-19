@@ -196,7 +196,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_4\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1418,7 +1418,7 @@ my $re = shift;
   waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
   print"$re->{'INF'}",$re->{'SPA'}x2,"\n" if @{$re->{'UNI'}};
   if( not $re->{'DD'} or -t STDOUT ){
-   for(@{$re->{'UNI'}}){ s/#/ /g; print; }
+   for(@{$re->{'UNI'}}){ tr/#/ /; print; }
   }
  }
  if( $re->{'DD'} ){ my( %HA,@AR,@AR2,$flag );
@@ -2147,8 +2147,13 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
-          $tap{"${ls1}uses"} .= "$name\t";
-          $tap{"${name}deps"} .= "$ls1\t";
+          if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }
          }
         }
        }
@@ -2161,8 +2166,13 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
-          $tap{"${ls2}uses"} .= "$name\t";
-          $tap{"${name}deps"} .= "$ls2\t";
+          if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }
          }
         }
        }
@@ -2171,7 +2181,7 @@ unless( $ARGV[0] ){
     close $CEL;
    }
   }1;
- } Glob_1 if $re->{'MAC'};
+ } Glob_1;
  if( $RPM and Version_1( $RPM,$CAT ) ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
