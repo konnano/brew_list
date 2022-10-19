@@ -74,7 +74,6 @@ font-andada-pro	Organic-slab serifハイブリッドスタイルとテキスト�
 font-andagii	Andagii
 font-andale-mono	Andale Mono
 font-andika	Andika
-font-andika-new-basic	andikaの限定文字セットバージョン
 font-andron-scriptor-web	Andron Scriptor Web
 font-anek-bangla	Anek Bangla
 font-anek-devanagari	Anek Devanagari
@@ -185,7 +184,6 @@ font-baskervville	Baskervville
 font-battambang	Battambang
 font-baumans	Baumans
 font-bayon	Bayon
-font-be-vietnam	Be Vietnam
 font-be-vietnam-pro	ハイテク企業やスタートアップに最適
 font-beau-rivage	太いストロークと細いストロークのコントラストが強い古典的な書体
 font-bebas-neue	Bebas Neue
@@ -866,7 +864,6 @@ font-kaushan-script	Kaushan Script
 font-kavivanar	Kavivanar
 font-kavoon	Kavoon
 font-kawkab-mono	Kawkab Mono
-font-kdam-thmor	Kdam Thmor
 font-kdam-thmor-pro	プロジェクトでラテン語対応として使用されます
 font-keania-one	Keania One
 font-kelly-slab	Kelly Slab
@@ -1758,7 +1755,6 @@ font-source-serif-pro	ソース Serif Pro
 font-space-grotesk	Space Grotesk
 font-space-mono	Space Mono
 font-space-mono-nerd-font	SpaceMonoオタクフォント(Space Mono)
-font-spartan	Spartan
 font-special-elite	Special Elite
 font-spectral	Spectral
 font-spectral-sc	Spectral SC
@@ -2399,7 +2395,8 @@ transmit4	Transmit
 tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
 utm-beta	QEMUを使用した仮想マシンUI
 virtualbox-beta	Oracle VirtualBox
-virtualbox-extension-pack-beta	Oracle VirtualBox Extension Pack
+virtualbox-extension-pack-beta	Oracle VirtualBox拡張パック
+virtualbox6	x86ハードウェアのバーチャライザー
 visual-studio-code-insiders	コードエディター
 vivaldi-snapshot	カスタマイズと制御に焦点を当てたWebブラウザー
 vlc-nightly	オープンソースのクロスプラットフォームマルチメディアプレーヤー
