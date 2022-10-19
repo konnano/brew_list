@@ -312,8 +312,13 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
-          $tap{"${ls1}uses"} .= "$name\t";
-          $tap{"${name}deps"} .= "$ls1\t";
+          if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }
          }
         }
        }
@@ -326,8 +331,13 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
-          $tap{"${ls2}uses"} .= "$name\t";
-          $tap{"${name}deps"} .= "$ls2\t";
+          if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }
          }
         }
        }
@@ -336,7 +346,7 @@ unless( $ARGV[0] ){
     close $CEL;
    }
   }1;
- } Glob_1 if $re->{'MAC'};
+ } Glob_1;
  if( $RPM and Version_1( $RPM,$CAT ) ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
