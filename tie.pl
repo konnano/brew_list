@@ -82,6 +82,7 @@ unless( $ARGV[0] ){
   $alias =~ s|.+/(.+)|$1|;
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
+  $tap{"${hand}alias"} .= "$alias\t";
  } my( $in,$e ) = int @BREW/4;
  for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
@@ -305,13 +306,17 @@ unless( $ARGV[0] ){
       unless( /\n/ or /^}$/ ){
        s/.+"runtime_dependencies":\[([^]]*)].+/$1/;
        my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
-       for my $ls1(@HE){ my %HA;
+       for my $ls1(@HE){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){
-         for(split '\t',$tap{"${ls1}uses"}){ $HA{$_}++; }
+         $HA{$_}++ for(split '\t',$tap{"${ls1}uses"});
         }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
+           if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
+            $AL{$_}++ for(split '\t',$tap{"${ls1}alias"});
+            $AL{$_} ? $ne++ : 0 for(split '\t',$tap{"${name}deps"});
+           } next if $ne;
           if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
@@ -322,15 +327,19 @@ unless( $ARGV[0] ){
          }
         }
        }
-      }else{ my %HA;
+      }else{ my( %HA,%AL,$ne );
        if( /runtime_dependencies/ or $in ){ $in = /]/ ? 0 : 1;
         my( $ls2 ) = /"full_name":\s*"([^"]+)".*/ ? $1 : next;
         if( $tap{"${ls2}uses"} ){
-         for(split '\t',$tap{"${ls2}uses"}){ $HA{$_}++; }
+         $HA{$_}++ for(split '\t',$tap{"${ls2}uses"});
         }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
+           if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
+            $AL{$_}++ for(split '\t',$tap{"${ls2}alias"});
+            $AL{$_} ? $ne++ : 0 for (split '\t',$tap{"${name}deps"});
+           } next if $ne;
           if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
