@@ -1261,6 +1261,7 @@ geekbench	コンピュータシステムのパフォーマンスを測定する�
 geektool	デスクトップカスタマイズツール
 gemini	重複した類似のファイルを見つけて削除するディスクスペースクリーナー
 geneious-prime	生物情報科学ソフトウェアプラットフォーム
+genesis-plus	セガ ジェネシス/メガドライブ エミュレータ
 genymotion	Androidエミュレータ
 geogebra	数学の問題を 解決し/保存し/共有する グラフ関数等
 geomap	ブラウズ 地球科学データセットの視覚化と分析
@@ -2748,6 +2749,7 @@ prezi-video	ストリーミングまたは録画しながらコンテンツを�
 prince	HTMLをPDFに変換する
 principle	アニメーション化された双方向なユーザーインターフェイスを設計する
 printopia	任意のプリンターへのAirPrint
+prism	マインクラフトランチャー
 prisma-studio	Prismaプロジェクト用のビジュアルデータベースエディター
 prismatik	Prismatik
 pritunl	OpenVPNクライアント
@@ -3631,6 +3633,10 @@ tomighty	Pomodoroデスクトップタイマー
 tongbu	携帯電話管理ツール
 toolreleases	最新のAppleツールリリース(ベータリリースを含む)について通知するユーティリティ
 toontown-rewritten	ディズニーのToontownオンラインのファンによる再生
+topaz-denoise-ai	画像のノイズを除去
+topaz-gigapixel-ai	AI画像アップスケーラー
+topaz-sharpen-ai	自然な結果を生み出すAI搭載の画像シャープナー
+topaz-video-ai	ビデオアップスケーラーと品質エンハンサー
 topcat	表形式データ用の双方向グラフィカルビューアおよびエディター
 topnotch	notchを隠すユーティリティ
 toptracker	時間追跡とインボイス処理
