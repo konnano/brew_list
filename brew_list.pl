@@ -196,7 +196,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_5\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1362,7 +1362,7 @@ sub Format_1{
 
 sub Format_2{
 my $re = shift;
- if( $re->{'TT'} or $re->{'DD'} ){ my( $mm,@tt ); my $e = 0;
+ if( $re->{'TT'} or $re->{'DD'} ){ my( $e,$mm,@tt ) = 0;
   for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
    $mm = () = ${$re->{'UNI'}}[$i] =~ /\|/g;
    if( $mm == $e or ${$re->{'UNI'}}[$i] =~ /require/ or ${$re->{'UNI'}}[$i] =~ /can delete/ ){
@@ -1371,9 +1371,9 @@ my $re = shift;
    }
   } @{$re->{'UNI'}} = reverse @tt;
  }
- my( $wap,$leng,@TODO,@SC,%ha,@cn ); my $cou = 0;
+ my( $cou,$AU,@AUA,@COU,@COU2,@SC,%ha,@cn ) = 0;
   $cn[0] = $re->{'INF'};
- for(@{$re->{'UNI'}}){ $wap++;
+ for(@{$re->{'UNI'}}){
    if( $re->{'DD'} ){
     my @bn = split '\|';
      $bn[$#bn] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
@@ -1386,40 +1386,26 @@ my $re = shift;
   $cou = $an if $cou < $an;
  }
  unless( $re->{'DDD'} ){
-  for(my $i=0;$i<$cou;$i++){
-   my $in = $leng = 0;
-   for(@{$re->{'UNI'}}){ $leng++;
-    my @an = split '\\s{3}';
-    for(@an){
-     $TODO[$in] = $leng if $an[$i] and $an[$i] =~ /├──|\|--/;
-     if( not $an[$i] and $TODO[$in] or
-        $wap == $leng and $an[$i] and $an[$i] !~ /├──|\|--/ ){
-       $TODO[++$in] = $leng;
-      $wap != $leng ? $in++ : last;
-     }
-    }
+  $COU2[$_] = 0 for(0..$cou);
+  for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
+   my @AN = split '\s{3}',${$re->{'UNI'}}[$i];
+   for(my $i=0;$i<=$cou;$i++){
+    if( $COU[$i] and $AN[$i] and $AN[$i] =~ /│|\|/ ){ $COU[$i] = 1;
+    }elsif( $AN[$i] and $AN[$i] =~ /──|--/ ){ $COU[$i] = 1;
+    }else{ $COU[$i] = 0; }
+    $AN[$i] =~ s/├──(.+)/└──$1/ or $AN[$i] =~ s/\|--(.+)/`--$1/ if ($COU[$i] - $COU2[$i]) == 1;
+     $AU .= $COU[$i] ? "$AN[$i]   " : "    ";
+      $COU2[$i] = $COU[$i];
    }
-    $wap = $leng = 0;
-   for(my $p=0;$p<@{$re->{'UNI'}};$p++){
-    $wap++; my $plus;
-    my @an = split '\\s{3}',${$re->{'UNI'}}[$p];
-     for(my $e=0;$e<@an;$e++){
-       if( $TODO[$leng] and $TODO[$leng] < $wap and $TODO[$leng+1] >= $wap ){
-        $an[$i] =~ s/│$|\|$/#/ if $an[$i];
-       }
-      $an[$e] =~ s/\|--/`--/ or $an[$e] =~ s/├──/└──/ if $TODO[$leng] and $TODO[$leng] == $wap;
-       $leng += 2 if $TODO[$leng+1] and $TODO[$leng+1] == $wap;
-      $plus .= "   $an[$e]";
-     }
-     $plus =~ s/^\s{3}//;
-    ${$re->{'UNI'}}[$p] = $plus;
+   $AU =~ s/([^\n]+\n).*/$1/s;
+    push @AUA,$AU;
+     $AU = '';
+  }
+   waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
+   print"$re->{'INF'}",$re->{'SPA'}x2,"\n" if @AUA;
+   if( not $re->{'DD'} or -t STDOUT ){
+    for(my $i=$#AUA;$i>=0;$i--){ print $AUA[$i]; }
    }
-  }
-  waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
-  print"$re->{'INF'}",$re->{'SPA'}x2,"\n" if @{$re->{'UNI'}};
-  if( not $re->{'DD'} or -t STDOUT ){
-   for(@{$re->{'UNI'}}){ tr/#/ /; print; }
-  }
  }
  if( $re->{'DD'} ){ my( %HA,@AR,@AR2,$flag );
   for(my $i=$#SC;$i>=0;$i--){
@@ -2331,14 +2317,14 @@ unless( $ARGV[0] ){
   }
  } my( $UCC,$TRE );
   $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
-  $TRE =~ s/([^?]+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/;
+  $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s;
    $UCC .= "$_ \\\n" for(sort keys %HAU);
-    $UCC =~ s/([^?]+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/;
-  $TIN =~ s/([^?]+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/;
-   $FON =~ s/([^?]+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/ if $FON;
-    $COM =~ s/([^?]+)\\\n$/'-co[Library list]:Library:( \\\n$1 )' \\\n/;
-     $UAA =~ s/([^?]+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/;
-      $DEP =~ s/([^?]+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/;
+    $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s;
+  $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s;
+   $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s if $FON;
+    $COM =~ s/(.+)\\\n$/'-co[Library list]:Library:( \\\n$1 )' \\\n/s;
+     $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s;
+      $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s;
   my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
                    "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP}";
    no warnings 'closed';
