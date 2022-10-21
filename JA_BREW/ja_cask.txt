@@ -981,6 +981,7 @@ element	Matrix協調クライアント
 elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
 eliot	オープンソースのスクラブルゲーム
 elmedia-player	ビデオおよびオーディオプレーヤー
+eloquent	SWORD Projectに基づく Free/オープンソースの聖書研究アプリケーション
 eloston-chromium	Google Chromium Googleとの統合はありません
 elpass	パスワードマネージャー
 emacs	テキストエディター
@@ -2749,9 +2750,9 @@ prezi-video	ストリーミングまたは録画しながらコンテンツを�
 prince	HTMLをPDFに変換する
 principle	アニメーション化された双方向なユーザーインターフェイスを設計する
 printopia	任意のプリンターへのAirPrint
-prism	マインクラフトランチャー
 prisma-studio	Prismaプロジェクト用のビジュアルデータベースエディター
 prismatik	Prismatik
+prismlauncher	マインクラフトランチャー
 pritunl	OpenVPNクライアント
 privadovpn	VPNクライアント
 private-eye	Private Eye
@@ -3244,6 +3245,7 @@ smlnj	Standard ML'97プログラミング言語用のコンパイラ
 smoothscroll	スムーズなマウススクロールユーティリティ
 smooze	スクロールホイールマウスを再発見する
 smplayer	コーデックが組み込まれたメディアプレーヤー
+sms-plus	セガマスターシステムとゲームギアエミュレーター
 smultron	汎用テキストエディター
 snagit	スクリーンキャプチャソフトウェア
 snapmaker-luban	3Dプリントソフトウェア
