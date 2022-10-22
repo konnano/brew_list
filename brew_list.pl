@@ -196,7 +196,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_6\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -236,12 +236,12 @@ my( $re,$list ) = @_;
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
-  if( $re->{'INF'} or $re->{'USE'} or $re->{'dep_s'} ){
+  if( $re->{'DEL'} and $re->{'DEL'} < 2 or $re->{'INF'} or $re->{'USE'} or $re->{'dep_s'} ){
    my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'
-                              cat ~/.BREW_LIST/cask.txt|awk '{print \$1}'`]:
-                            [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'`];
+                              cat ~/.BREW_LIST/cask.txt|awk '{print \$1}' 2>/dev/null`]:
+                            [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null`];
    my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
-   Like_1( $re,$in,$cat );
+   @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
     Info_1( $re ) if $re->{'INF'};
@@ -514,13 +514,13 @@ my( $re,@AN,%HA ) = @_;
 }
 
 sub Brew_3{
-my( $re,$ls,@AN,%HA,$mine,$in ) = @_;
+my( $re,$ls,@AN,$mine,$in ) = @_;
  my $brew = $ls ? 'DMG' : 'HASH';
  for my $key(sort keys %{$re->{$brew}}){
   next if $re->{'dep_s'} and $re->{'dep_s'} ne $key;
   $re->{'LENG'} = 0;
   $re->{'INF'} = $key;
-   Info_1( $re,0,0,\@AN,\%HA );
+   Info_1( $re,0,0,\@AN );
     Tap_2( $re,\$key );
      @AN = sort @AN unless $ls;
      if( -t STDOUT and @AN and not $in ){ $in++;
@@ -540,7 +540,7 @@ my( $re,$ls,@AN,%HA,$mine,$in ) = @_;
        print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN and not $re->{'dep_s'};
      }
     $re->{"deps$_"} = $re->{'LEN1'} = 0 for(@AN);
-   @AN = %HA = @{$re->{'ARR'}} = ();
+   @AN = @{$re->{'ARR'}} = ();
   $re->{'NOT'} = '';
  }
  print $mine if $re->{'KEN'};
@@ -690,7 +690,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
        Fork_1( $re );
    }elsif( $do ){
     $re->{'COLOR'} = $re->{'TREE'} = $re->{'DEL'} = 2;
-     Fork_1( $re );
+      Fork_1( $re );
    }
   }
  }
@@ -834,7 +834,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|';
- if( $re->{'DEL'} ){ my( %HA_1,@AN_1 );
+ if( $re->{'DEL'} and $re->{'DEL'} < 2 ){ my( %HA_1,@AN_1 );
   $HA->{$brew}++;
    if( $HA->{$brew} < 2 ){
     Uses_1( $re,$brew,\%HA_1,\@AN_1 );
