@@ -74,6 +74,7 @@ MAIN:{
     $OS_Version =~ s/^10\.9.*\n/10.09/;
      $OS_Version =~ s/^11.+\n/11.0/;
       $OS_Version =~ s/^12.+\n/12.0/;
+       $OS_Version =~ s/^13.+\n/13.0/;
   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
    $OS_Version = "${OS_Version}M1" if $UNAME =~ /arm64/;
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
@@ -1922,15 +1923,15 @@ unless( $ARGV[0] ){
        next;
      }elsif( $data !~ /^\s*end/ and $KIN == 1 ){
        if( $data =~ /.*,\s+all:/ ){
-        $tap{"${name}13.0M1"} = $tap{"${name}13.0"} =$tap{"${name}12.0M1"} =
-        $tap{"${name}12.0"}  = $tap{"${name}11.0M1"} = $tap{"${name}11.0"} =
+        $tap{"${name}13.0M1"}= $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}=
+        $tap{"${name}12.0"}  = $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  =
         $tap{"${name}10.15"} = $tap{"${name}10.14"} = $tap{"${name}10.13"} =
         $tap{"${name}10.12"} = $tap{"${name}10.11"} = $tap{"${name}10.10"} =
         $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
        }
         $tap{"$name$data"} =
-        $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ?  1 :
-        $data =~ s/.*ventura:.*\n/13.0/ ?          1 :
+        $data =~ s/.*arm64_ventura:.*\n/13.0M1/  ? 1 :
+        $data =~ s/.*ventura:.*\n/13.0/          ? 1 :
         $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
         $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
         $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
