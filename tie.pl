@@ -101,15 +101,15 @@ unless( $ARGV[0] ){
        next;
      }elsif( $data !~ /^\s*end/ and $KIN == 1 ){
        if( $data =~ /.*,\s+all:/ ){
-        $tap{"${name}13.0M1"} = $tap{"${name}13.0"} =$tap{"${name}12.0M1"} =
-        $tap{"${name}12.0"}  = $tap{"${name}11.0M1"} = $tap{"${name}11.0"} =
+        $tap{"${name}13.0M1"}= $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}=
+        $tap{"${name}12.0"}  = $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  =
         $tap{"${name}10.15"} = $tap{"${name}10.14"} = $tap{"${name}10.13"} =
         $tap{"${name}10.12"} = $tap{"${name}10.11"} = $tap{"${name}10.10"} =
         $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
        }
         $tap{"$name$data"} =
-        $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ?  1 :
-        $data =~ s/.*ventura:.*\n/13.0/ ?          1 :
+        $data =~ s/.*arm64_ventura:.*\n/13.0M1/  ? 1 :
+        $data =~ s/.*ventura:.*\n/13.0/          ? 1 :
         $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
         $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
         $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
