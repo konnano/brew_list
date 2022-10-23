@@ -2750,7 +2750,6 @@ kqwait	MacOSのファイルまたはディレクトリでイベントを待つ
 krakend	Goに組み込まれた超高性能APIゲートウェイ
 krb5	ネットワーク認証手続き
 krew	kubectlプラグインのパッケージマネージャー
-ksh	Kornシェル、ksh93
 ksh93	KornShell, ksh93
 kstart	キータブを使用して認証できるkinitの修正バージョン
 ksync	ローカルシステムとkubernetesクラスター間でファイルを同期する
@@ -4531,6 +4530,7 @@ postgresql@11	オブジェクトリレーショナルデータベースシステ
 postgresql@12	オブジェクトリレーショナルデータベースシステム
 postgresql@13	オブジェクトリレーショナルデータベースシステム
 postgresql@14	オブジェクトリレーショナルデータベースシステム
+postgresql@15	オブジェクトリレーショナルデータベースシステム
 postgresql@9.4	オブジェクトリレーショナルデータベースシステム
 postgresql@9.5	オブジェクトリレーショナルデータベースシステム
 postgresql@9.6	オブジェクトリレーショナルデータベースシステム
