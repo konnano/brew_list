@@ -14,6 +14,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    $OS_Version =~ s/^10\.9.*\n/10.09/;
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
+      $OS_Version =~ s/^13.+\n/13.0/;
  $OS_Version2 = $OS_Version;
   $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
 
@@ -27,9 +28,9 @@ unless( $ARGV[0] ){
                 `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
                  sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
 }
-  %MAC_OS = ('monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14',
-             'high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11','yosemite'=>'10.10',
-             'mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
+  %MAC_OS = ('ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
+             'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11',
+             'yosemite'=>'10.10','mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
      %HAN = ('newer'=>'>','older'=>'<');
 
   if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){ $re->{'CEL'} = '/usr/local/Cellar';
@@ -100,13 +101,15 @@ unless( $ARGV[0] ){
        next;
      }elsif( $data !~ /^\s*end/ and $KIN == 1 ){
        if( $data =~ /.*,\s+all:/ ){
-        $tap{"${name}12.0M1"} = $tap{"${name}12.0"} =
-        $tap{"${name}11.0M1"} = $tap{"${name}11.0"} = $tap{"${name}10.15"} =
-        $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-        $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} =
-        $tap{"${name}Linux"} = 1;
+        $tap{"${name}13.0M1"} = $tap{"${name}13.0"} =$tap{"${name}12.0M1"} =
+        $tap{"${name}12.0"}  = $tap{"${name}11.0M1"} = $tap{"${name}11.0"} =
+        $tap{"${name}10.15"} = $tap{"${name}10.14"} = $tap{"${name}10.13"} =
+        $tap{"${name}10.12"} = $tap{"${name}10.11"} = $tap{"${name}10.10"} =
+        $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
        }
         $tap{"$name$data"} =
+        $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ?  1 :
+        $data =~ s/.*ventura:.*\n/13.0/ ?          1 :
         $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
         $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
         $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
