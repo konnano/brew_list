@@ -157,7 +157,7 @@ my( $name,$re,$ref ) = @_;
   Init_1( $re ); Format_1( $re );
  }elsif( not $name or $re->{'S_OPT'} ){
   my $pid = fork;
-  die " Not fork : $!\n" unless defined $pid;
+  die " Not fork 1 : $!\n" unless defined $pid;
    if( $pid ){
     $ref->{'PID'} = $pid;
     Init_1( $ref );
@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_8\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.13_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -318,7 +318,7 @@ sub Size_1{ no warnings 'numeric';
      while(<$FH>){ chomp;
       $HA{$_} = 1;
      } close $FH;
-     if( $? ){ waitpid $pid,0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process\n"; }
+     if( $? ){ waitpid $pid,0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{
     for(my $i=$in;$i<@an;$i++){
       chomp( my $du = `du -ks $re->{'CEL'}/$an[$i]|awk '{print \$1}'` );
@@ -649,24 +649,39 @@ my( $re,$tap,$HA,$AN ) = @_;
 }
 
 sub Dele_1{
-my( $re,@AN,%HA,@an,$do ) = @_;
+my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
   print" \033[33mexists Formula and Cask...\033[00m\n"
    if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"} and -t STDOUT;
-  waitpid $re->{'PID'},0 if $re->{'PID'} and not $re->{'DMG'}{$re->{'INF'}};
    exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
    $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
     $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
 
- unless( @an ){ @AN = %HA = ();
+ unless( @an ){ @AN = ();
   unless( $re->{'CAS'} and $re->{'LINK'} ){
   $re->{'PID2'} = fork;
-   die " Not fork : $!\n" unless defined $re->{'PID2'};
+   die " Dele Not fork : $!\n" unless defined $re->{'PID2'};
   }
   unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
   }else{
-   Info_1( $re,0,'',\@AN,\%HA );
+   Info_1( $re,0,'',\@AN );
+    for(my $i=0;$i<@AN;$i++){ $i % 2 ? push @an2,$AN[$i] : push @an1,$AN[$i]; }
+   if( open my $FH,'-|' ){
+    for(my $i=0;$i<@an1;$i++){ my( %ha,@an );
+     Uses_1( $re,$an1[$i],\%ha,\@an );
+      push @{$re->{$an1[$i]}},@an;
+    }
+     while(<$FH>){ my( $name,$list ) = /([^\t]+)\t(.+)\n/;
+      push @{$re->{$name}},split '\s',$list;
+     } close $FH;
+     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n"; }
+   }else{
+    for(my $i=0;$i<@an2;$i++){ my( %ha,@an );
+     Uses_1( $re,$an2[$i],\%ha,\@an );
+      print"$an2[$i]\t@an\n";
+    } exit;
+   }
     my @list1 = sort @AN;
    for my $brew(@list1){
     exit unless ref $re->{$brew};
@@ -687,8 +702,7 @@ my( $re,@AN,%HA,@an,$do ) = @_;
    if( $re->{'LINK'} and $do ){
     $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
      $re->{'LIST'} = 1;
-      waitpid $re->{'PID'},0 if $re->{'PID'};
-       Fork_1( $re );
+      Fork_1( $re );
    }elsif( $do ){
     $re->{'COLOR'} = $re->{'TREE'} = $re->{'DEL'} = 2;
      Fork_1( $re );
@@ -820,7 +834,7 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 }
 
 sub Info_1{
-my( $re,$file,$spa,$AN,$HA ) = @_;
+my( $re,$file,$spa,$AN ) = @_;
   if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
     ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) ) ){
@@ -835,13 +849,7 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|';
- if( $re->{'DEL'} and $re->{'DEL'} < 2 ){ my( %HA_1,@AN_1 );
-  $HA->{$brew}++;
-   if( $HA->{$brew} < 2 ){
-    Uses_1( $re,$brew,\%HA_1,\@AN_1 );
-     push @{$re->{$brew}},@AN_1;
-   }
- }
+
  unless( $re->{"${brew}undel"} ){
   if( $re->{'OS'}{"${brew}deps_b"} ){
    for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){
@@ -849,27 +857,27 @@ my( $re,$file,$spa,$AN,$HA ) = @_;
         not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
         Unic_1( $re,\$data,$spa,$AN,1 );
-         Info_1( $re,$data,$spa,$AN,$HA );
+         Info_1( $re,$data,$spa,$AN );
     }
    }
   }
   if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){
    for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){
      Unic_1( $re,\$data2,$spa,$AN );
-      Info_1( $re,$data2,$spa,$AN,$HA );
+      Info_1( $re,$data2,$spa,$AN );
    }
   }
   if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
    for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){
      Unic_1( $re,\$data3,$spa,$AN );
-      Info_1( $re,$data3,$spa,$AN,$HA );
+      Info_1( $re,$data3,$spa,$AN );
    }
   }
   if( $re->{'OS'}{"${brew}d_cask"} ){
    for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){
     unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
      Unic_1( $re,\$data4,$spa,$AN );
-      Info_1( $re,$data4,$spa,$AN,$HA ) unless $re->{'OS'}{"${data4}so_name"};
+      Info_1( $re,$data4,$spa,$AN ) unless $re->{'OS'}{"${data4}so_name"};
     }
    }
   }
