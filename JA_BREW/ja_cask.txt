@@ -194,6 +194,7 @@ archy	YAMLプロセッサ
 arctype	SQLクライアントおよびデータベース管理ツール
 arduino	電子工学プロトタイピングプラットフォーム
 arduino-ide	電子プロトタイピングプラットフォーム
+ares	精度と保存に重点を置いたクロスプラットフォームマルチシステムエミュレーター
 aria-maestosa	MIDIシーケンサーとエディター
 aria2d	Aria2 GUI
 aria2gui	Aria2のグラフィカルユーザーインターフェイス
@@ -475,7 +476,6 @@ cakebrew	HomebrewのGUIアプリ
 cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
 calendar-366	イベントと通知の日程表メニューバー
-calhash	ファイルのチェックサムを計算して比較する
 calibre	電子書籍管理ソフトウェア
 calmly-writer	マークダウンフォーマットと選択したテーマを備えたワードプロセッサ
 camed	XMLエディター
@@ -1126,7 +1126,7 @@ flame	iPhone/iPodtouch 用のランデブーサービスブラウザー
 flameshot	スクリーンショットソフトウェア
 flash-decompiler-trillix	Flash Decompiler Trillix
 fldigi	アマチュア無線デジタルモデムアプリケーション
-flexiglass	Flexiglass
+fleet	ハイブリッドIDEとテキストエディター
 flic	FlicBluetoothボタンのドライバー
 flickr-uploadr	Flickrアップローダー
 flightgear	フライト模擬装置
@@ -1315,6 +1315,7 @@ gns3	Dynamips CiscoルーターエミュレーターのGUI
 gnucash	複式簿記プログラム
 go-agent	Go継続的デリバリープラットフォームのエージェント
 go-server	Go継続的デリバリープラットフォーム用のサーバー
+go-shiori	ShioriはGo言語で書かれたシンプルなブックマークマネージャーです
 go2shell	Go2Shell
 go64	32ビットアプリケーションのコンピューターディスクをスキャンする
 gobdokumente	文書管理システム
@@ -1443,7 +1444,7 @@ home-assistant	Home Assistantホームオートメーションソフトウェア
 home-inventory	家や持ち物のドキュメンテーションアプリケーション
 honer	フォーカスされたウィンドウの周囲に境界線を描画するユーティリティ
 honto	honto storeの電子書籍リーダー
-hook	重要な情報をリンクして取得する
+hookmark	重要な情報をリンクして取得する
 hookshot	ウィンドウスナップツール
 hopper-debugger-server	Hopperデバッガサーバー
 horndis	Android USBテザリングドライバー
@@ -1732,6 +1733,7 @@ keystore-explorer	Javaコマンドラインユーティリティkeytoolおよび
 kicad	電子工学設計自動化パッケージ
 kid3	効率を重視したオーディオタグ付け
 kieler	グラフィカルモデルベースの設計ツール
+kigb	任天堂ゲームボーイ/ゲームボーイカラーエミュレータ
 kindavim	入力フィールドと非入力フィールドでVimを使用する
 kindle	電子書籍を読んだり同期したりするためのインターフェース
 kindle-comic-converter	電子ブックリーダー用のコミックとマンガの変換
@@ -3223,6 +3225,7 @@ skyfonts	フォントマネージャー
 skype	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype-for-business	Microsoftのインスタントメッセージングエンタープライズソフトウェア
 slack	チームコミュニケーションおよび協力的ソフトウェア
+slack-cli	Slackアプリを作成/実行/デプロイするCLI
 sleek	todo.txtに基づくTodoアプリ
 sleipnir	Sleipnir
 slic3r	Slic3r
