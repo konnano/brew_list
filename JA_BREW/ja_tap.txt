@@ -2263,7 +2263,6 @@ firefox-beta	Webブラウザー
 firefox-developer-edition	Webブラウザー
 firefox-esr	Webブラウザー
 firefox-nightly	Webブラウザー
-fork-dev	GITクライアント
 forklift2	ForkLift
 freecad-pre	3D parametricモデラー
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等
@@ -2274,6 +2273,7 @@ google-chrome-dev	Webブラウザー
 google-japanese-ime-dev	Google日本語入力方式エディター
 gpg-suite-nightly	メールやファイルを保護するためのツール
 hamsket-nightly	Freeのオープンソースメッセージングおよび電子メールアプリ
+hancom-word-2014	ワードプロセッサ
 hyper-canary	Webテクノロジーに基づいて構築されたターミナル
 inso-beta	CLI HTTPおよびGraphQLクライアント
 insomnia-alpha	HTTPおよびGraphQLクライアント
