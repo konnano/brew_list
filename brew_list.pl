@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.13_9\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_0\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -293,7 +293,7 @@ sub Ana_1{
  Nohup_1( $re );
 }
 
-sub Size_1{ no warnings 'numeric';
+sub Size_1{
  my( $re,$list,%HA,%AR,$size,@data,$pid,$c ) = @_;
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\r\x1B[?25h\n"; };
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
@@ -313,21 +313,22 @@ sub Size_1{ no warnings 'numeric';
    if( open my $FH,'-|' ){
     for(my $i=0;$i<$in;$i++){
       chomp( my $du = `du -ks $re->{'CEL'}/$an[$i]|awk '{print \$1}'` );
-       $HA{"$du\t$an[$i]"} = 1;
+       $HA{$an[$i]} = $du;
     }
-     while(<$FH>){ chomp;
-      $HA{$_} = 1;
+     while(<$FH>){
+      my( $name,$du ) = /([^\t]+)\t(.+)\n/;
+       $HA{$name} = $du;
      } close $FH;
      if( $? ){ waitpid $pid,0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{
     for(my $i=$in;$i<@an;$i++){
       chomp( my $du = `du -ks $re->{'CEL'}/$an[$i]|awk '{print \$1}'` );
-       print "$du\t$an[$i]\n";
+       print "$an[$i]\t$du\n";
     } exit;
    } waitpid $pid,0 if not @data and rmdir "$re->{'HOME'}/WAIT";
   }
-  for(sort{$b <=> $a} keys %HA){ my $utime; $c++;
-   my( $cou,$name ) = split '\t';
+  for my $name(sort{$HA{$b} <=> $HA{$a}} keys %HA){ my $utime; $c++;
+   my $cou =  $HA{$name};
    for my $json(@{$AR{$name}}){
     if( -f "$json/INSTALL_RECEIPT.json" ){
      open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
@@ -337,10 +338,10 @@ sub Size_1{ no warnings 'numeric';
      close $dir;
     }
    } $utime = $utime ? $utime : 0;
-     my $time = [localtime($utime)];
-    my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
-   $size += $cou = sprintf "%.3f",$cou/=1024;
-  Tap_2( $re,\$name );
+    my $time = [localtime($utime)];
+   my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
+  $size += $cou = sprintf "%.3f",$cou/=1024;
+ Tap_2( $re,\$name );
 format STDOUT =
 @||||||||||||||||||||||||||||||||||||||||@||||||||@>>>>>>>>>>>>@|||@>>>>>>>>>>>>>>>>>>>>>
 $name,"size  : ","$cou MB","   ","install  :  $timer"
@@ -665,8 +666,11 @@ my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
   }
   unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
   }else{
-   Info_1( $re,0,'',\@AN );
-    for(my $i=0;$i<@AN;$i++){ $i % 2 ? push @an2,$AN[$i] : push @an1,$AN[$i]; }
+   Info_1( $re,0,'',\@AN ); my $e = 0;
+    for(my $i=0;$i<@AN;$i++){ 
+     next if $AN[$i] eq 'glibc' or $AN[$i] eq 'linux-headers@5.15';
+      $e % 2 ? push @an2,$AN[$i] : push @an1,$AN[$i]; $e++;
+   }
    if( open my $FH,'-|' ){
     for(my $i=0;$i<@an1;$i++){ my( %ha,@an );
      Uses_1( $re,$an1[$i],\%ha,\@an );
@@ -684,6 +688,7 @@ my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
    }
     my @list1 = sort @AN;
    for my $brew(@list1){
+    next if $brew eq 'glibc' or $brew eq 'linux-headers@5.15';
     exit unless ref $re->{$brew};
      my @list2 = sort @{$re->{$brew}};
      my $i = 0; my $e = 0;
