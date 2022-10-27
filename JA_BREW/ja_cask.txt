@@ -14,6 +14,7 @@
 4peaks	DNA配列トレースファイルの視覚化と編集
 5kplayer	4K/1080p/360°ビデオを再生する 品質を損なうことなくMP3/AAC/APEFLAC音楽
 7777	ローカルポート7777のリモートAWSデータベース
+86box	PCemに基づくx86ベースマシンのエミュレーター
 8bitdo-ultimate-software	コントローラーのすべての部分を制御する
 8x8-meet	ビデオ会議プラットフォーム
 8x8-work	音声によるコミュニケーションアプリケーション ビデオ/チャット/Web会議
@@ -642,6 +643,7 @@ coin-wallet	デジタル通貨ウォレット
 coinomi-wallet	安全に保管 多くのブロックチェーン資産を管理および交換する
 cold-turkey-blocker	Webサイトをブロックする ゲーム/アプリケーション
 color-oracle	カラーOracle
+color-studio	首尾一貫した配色クリエーター
 colorchecker-camera-calibration	カスタムカメラプロファイルを構築するためのソフトウェア
 colorpicker-developer	開発用Color Picker
 colorpicker-materialdesign	Materialデザイン
@@ -2199,7 +2201,6 @@ monity-helper	Monity Helper
 mono-mdk	Microsoftの.NETFrameworkのオープンソース実装
 monodraw	テキストベースのアートを作成するためのツール
 monolingual	システムから不要な言語リソースを削除するユーティリティ
-monterey-cache-cleaner	汎用システム保守ツール
 moom	1つのディスプレイでウィンドウを移動およびズームするユーティリティ
 moonlight	GameStreamクライアント
 moose	moose
@@ -2357,6 +2358,7 @@ nordlayer	ビジネス向けセキュリティソフトウェア
 nordlocker	ファイルを安全に保存および同期する
 nordpass	認証情報を1つの場所に保存し任意のデバイスにログインします オフラインでも
 nordvpn	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
+northern-softworks-cache-cleaner	汎用システム保守ツール
 northernspysoftware-colorpicker	どこでもAppleカラーピッカーを使用するユーティリティ
 nosleep	ふたを閉めたときに眠りを防ぐカーネル拡張
 nosql-workbench	最新のデータベース開発および運用のためのクライアント側GUIアプリケーション
@@ -2629,6 +2631,7 @@ phpwebstudy	PHPおよびWeb開発環境マネージャー
 physics-101	物理学の分野全体にわたるシミュレーション、ツール、および方程式のコレクション
 physicseditor	PhysicsEditor
 pibar	メニューバーのPi-hole(s)管理
+picfindr	Freeストック画像の検索エンジンとマネージャー
 picgo	画像をアップロードするためのツール
 pichon	アイコン8の検索ユーティリティ
 pictogram	アプリのアイコンをカスタマイズして維持する
@@ -2961,6 +2964,7 @@ redisinsight	合理化されたRedisアプリケーション開発のためのGU
 redream	ドリームキャストエミュレータ
 reflect	会議用メモアプリ アイデア/ジャーナリング/研究
 reflector	ワイヤレス画面ミラーリングアプリケーション
+reflex	音楽(iTunes)およびSpotify用のメディアキーフォワーダー
 regexhibit	Perl正規表現アシスタント
 reggy	会話型な正規表現バリデーターおよびテスター
 reikey	キーボードタップを監視します スキャン/検出
