@@ -4671,14 +4671,17 @@ pyright	Pythonの静的型チェッカー
 pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
 python-build	単純 正しいPEP517ビルドフロントエンド
+python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-markdown	MarkdownのPython実装
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
+python-tk@3.11	Tcl/TkへのPythonインターフェイス
 python-tk@3.9	Tcl/Tk へのPythonインターフェース
 python-typing-extensions	Pythonのバックポートおよび実験的な型ヒント
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
+python@3.11	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.7	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.8	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.9	オブジェクト指向プログラミング言語 インタプリタ/対話的
