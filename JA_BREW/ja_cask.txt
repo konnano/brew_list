@@ -104,7 +104,6 @@ all-in-one-messenger	さまざまなメッセージングプラットフォー�
 alloy	ソフトウェアモデリングのためのプログラミング言語
 almighty	設定と微調整Configurator
 alpha	AppleのCocoaフレームワークに基づくテキストエディタ
-alt-c	双方向のテキストコピー
 alt-tab	Windowsのようなalt-tabを有効にする
 altair-graphql-client	GraphQLクライアント
 altdeploy	AltDeploy
@@ -154,6 +153,7 @@ anydesk	コンピュータへのリモート接続を許可します
 anydo	通知 計画/日程表
 anylist	食料品の買い物リスト
 anypointstudio	Muleアプリケーションを設計およびテストするためのEclipse-based IDE
+anytype	ローカル優先でエンドツーエンドの暗号化メモアプリ
 ao	エレガントなMicrosoft To-Doデスクトップアプリ
 apache-couchdb	マルチマスター同期データベース
 apache-directory-studio	EclipseベースのLDAPブラウザーとディレクトリクライアント
