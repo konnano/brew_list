@@ -819,6 +819,7 @@ cloudflared	Cloudflareトンネルクライアント(以前のArgoトンネル)
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
 cloudformation-guard	宣言型構文を使用してCloudFormationテンプレートの整合性をチェックします
 cloudiscovery	クラウド環境でリソースを発見するのに役立ちます
+cloudprober	顧客よりも先に障害を検出するアクティブ監視ソフトウェア
 clozure-cl	長い歴史を持つCommonLispの実装
 clp	線形計画法Solver
 clpbar	コマンドラインプログレスバー
@@ -2380,6 +2381,7 @@ hub	コマンドラインでgitにGitHubサポートを追加する
 hubble	ネットワーク eBPFを使用したKubernetesのサービスとセキュリティの可観測性解析
 hubflow	GitHubのGitFlow
 huexpress	PCエンジンエミュレータ
+huggingface-cli	huggingface.coハブのクライアントライブラリ
 hugo	構成可能な静的サイト発生器
 hunspell	スペルチェッカーと形態素解析器
 hurl	プレーンテキストとcurlを使用してHTTPリクエストを実行およびテストする
@@ -4482,6 +4484,7 @@ plow	HTTP基準比較ツールを表示する高性能でリアルタイムのme
 plowshare	人気のあるファイル共有ウェブサイトの ダウンロード/アップロードツール
 plplot	科学的な立案を作成するためのクロスプラットフォームソフトウェアパッケージ
 plustache	MustacheテンプレートシステムのC++ポート
+pluto	Kubernetesで非推奨のapiVersionを検出するのに役立つCLIツール
 plzip	データ圧縮機
 pmccabe	C/C++コードのMcCabe-styleの循環的複雑度を計算します
 pmd	Java/JavaScript などのソースコード分析器
