@@ -504,7 +504,7 @@ unless( $ARGV[0] ){
     $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s;
   $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s;
    $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s if $FON;
-    $COM =~ s/(.+)\\\n$/'-co[Library list]:Library:( \\\n$1 )' \\\n/s;
+    $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s;
      $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s;
       $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s;
   my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
