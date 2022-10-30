@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.14_0\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -224,7 +224,7 @@ sub Died_1{ my $Lang;
 }
 
 sub Init_1{
-my( $re,$list ) = @_;
+my( $re,$list,$pid ) = @_;
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -244,13 +244,19 @@ my( $re,$list ) = @_;
    my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
    @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
-   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
-    Info_1( $re ) if $re->{'INF'};
-     return if $re->{'TREE'};
- unless( $re->{'ANA'} or $re->{'COM'} or $re->{'uses'} or $re->{'deps'} or $re->{'PRE'} ){
-  $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
-   ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
-     $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
+ if( $re->{'IS'} and not $re->{'INF'} or
+     $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){ $re->{'PID3'} = fork;
+   die " IS Not fork : $!\n" unless defined $re->{'PID3'}; $pid = 1;
+ }
+ if( $re->{'IS'} and $pid and not $re->{'PID3'} ){ Wait_1( $re,1 );
+ }else{
+  Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
+   Info_1( $re ) if $re->{'INF'};
+    return if $re->{'TREE'};
+  unless( $re->{'ANA'} or $re->{'COM'} or $re->{'uses'} or $re->{'deps'} or $re->{'PRE'} ){
+    $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
+     ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+       $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
    @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"};
     $re->{'cask'} = [] if $re->{'USE'};
    if( $re->{'MAC'} and $re->{'USE'} ){
@@ -258,10 +264,11 @@ my( $re,$list ) = @_;
     my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
      @{$re->{'cask'}} = ( @list1,@list2 );
    }
+  }
+  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
+   $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
+    $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
  }
- $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
-  $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
-   $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
 }
 
 sub Ana_1{
@@ -294,39 +301,23 @@ sub Ana_1{
 }
 
 sub Size_1{
- my( $re,$list,%HA,%AR,$size,@data,$pid,$c ) = @_;
+ my( $re,$list,%HA,%AR,$size,@data,$c,$ls ) = @_;
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\r\x1B[?25h\n"; };
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
+     $ls .= "$re->{'CEL'}/$_ " for(@data);
   }
-  unless(@data){
-   $pid = fork;
-    die " IS Not fork : $!\n" unless defined $pid;
-  }
-  unless( $pid or @data ){ Wait_1( $re,1 );
-  }else{
-   my @an = @data ? @data : @$list;
-    @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@an);
-   my $in = int @an/2;
-   if( open my $FH,'-|' ){
-    for(my $i=0;$i<$in;$i++){
-      chomp( my $du = `du -ks $re->{'CEL'}/$an[$i]|awk '{print \$1}'` );
-       $HA{$an[$i]} = $du;
+   my $an = @data ? \@data : $list;
+    @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@$an);
+   $ls = $ls ? $ls : "$re->{'CEL'}/*";
+   my @du = `du -sk $ls|awk '{print \$2,\$1}'`;
+    for(@du){
+     my($name,$size) = m|.+/(.+)\s(\d+)|;
+     $HA{$name} = $size;
     }
-     while(<$FH>){
-      my( $name,$du ) = /([^\t]+)\t(.+)\n/;
-       $HA{$name} = $du;
-     } close $FH;
-     if( $? ){ waitpid $pid,0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
-   }else{
-    for(my $i=$in;$i<@an;$i++){
-      chomp( my $du = `du -ks $re->{'CEL'}/$an[$i]|awk '{print \$1}'` );
-       print "$an[$i]\t$du\n";
-    } exit;
-   } waitpid $pid,0 if not @data and rmdir "$re->{'HOME'}/WAIT";
-  }
+   waitpid $re->{'PID3'},0 if rmdir "$re->{'HOME'}/WAIT";
   for my $name(sort{$HA{$b} <=> $HA{$a}} keys %HA){ my $utime; $c++;
    my $cou =  $HA{$name};
    for my $json(@{$AR{$name}}){
@@ -589,7 +580,7 @@ my( $re,$name,$cat,%HA,%HAN,@ARR ) = @_;
   }elsif( $re->{'dep_s'} ){
    $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for(keys %{$re->{'HASH'}});
    $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for(keys %{$re->{'DMG'}});
-  }elsif( $re->{'COM'} ){
+  }elsif( $re->{'COM'} or $re->{'IS'} ){
     $HA{$_}++ for(keys %{$re->{'HASH'}});
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
    for(@$cat){ chomp;
@@ -667,7 +658,7 @@ my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
   unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
   }else{
    Info_1( $re,0,'',\@AN ); my $e = 0;
-    for(my $i=0;$i<@AN;$i++){ 
+    for(my $i=0;$i<@AN;$i++){
      next if $AN[$i] eq 'glibc' or $AN[$i] eq 'linux-headers@5.15';
       $e % 2 ? push @an2,$AN[$i] : push @an1,$AN[$i]; $e++;
    }
@@ -1249,7 +1240,7 @@ my( $re,$ls1,$ls2,%HA,%OP ) = @_;
  Like_1( $re,[\$re->{'STDI'}],1 );
  exit unless my $num = $re->{'HASH'}{$re->{'STDI'}};
  $re->{'CELD'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
-  for $ls1(`find "$re->{'CEL'}/$re->{'STDI'}/$num" -type f`){ chomp $ls1;
+  for $ls1(`find $re->{'CEL'}/$re->{'STDI'}/$num -type f`){ chomp $ls1;
    next if $ls1 =~ m[^$re->{'CELD'}/[^.][^/]+$|^$re->{'CELD'}/\.brew]o;
    if( $ls1 =~ m[^$re->{'CELD'}/\.|^$re->{'CELD'}/s?bin/]o ){
            print"$ls1\n";
@@ -2339,7 +2330,7 @@ unless( $ARGV[0] ){
     $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s;
   $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s;
    $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s if $FON;
-    $COM =~ s/(.+)\\\n$/'-co[Library list]:Library:( \\\n$1 )' \\\n/s;
+    $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s;
      $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s;
       $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s;
   my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
