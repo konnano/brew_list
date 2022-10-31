@@ -58,7 +58,7 @@ unless( $ARGV[0] ){
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
-   $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc\t/{print \$2}'` : 0;
+   $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
     $re->{'COM'} = '/home/linuxbrew/.linuxbrew/share/zsh/site-functions';
      $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
