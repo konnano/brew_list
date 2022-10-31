@@ -3827,6 +3827,7 @@ multi-git-status	コミットされていない表示 複数Gitリポジトリ�
 multimarkdown	マークアップされたプレーンテキストを適切な形式のドキュメントに変換する
 multitail	1つの端末で同時に複数のファイルをTailする
 multitime	複数の実行にわたる時間コマンド実行
+muon	Meson互換ビルドシステム
 muparser	C++数式パーサーライブラリ
 mupdf	軽量PDFとXPS Viewer
 mupdf-tools	軽量PDFとXPS Viewer
