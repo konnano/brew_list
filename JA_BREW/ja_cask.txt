@@ -153,7 +153,7 @@ anydesk	コンピュータへのリモート接続を許可します
 anydo	通知 計画/日程表
 anylist	食料品の買い物リスト
 anypointstudio	Muleアプリケーションを設計およびテストするためのEclipse-based IDE
-anytype	ローカル優先でエンドツーエンドの暗号化メモアプリ
+anytype	ローカル優先でエンドツーエンドの暗号化メモ アプリ
 ao	エレガントなMicrosoft To-Doデスクトップアプリ
 apache-couchdb	マルチマスター同期データベース
 apache-directory-studio	EclipseベースのLDAPブラウザーとディレクトリクライアント
@@ -762,6 +762,8 @@ day-o	Day-O
 db-browser-for-sqlite	SQLiteデータベース用のブラウザー
 dbeaver-community	ユニバーサルデータベースツールとSQLクライアント
 dbeaver-enterprise	ユニバーサルデータベースツールとSQLクライアント
+dbeaverlite	ユニバーサルデータベースツールとSQLクライアント
+dbeaverultimate	ユニバーサルデータベースツールとSQLクライアント
 dbgate	MySQLのデータベースマネージャー PostgreSQL/SQLサーバー/MongoDB/SQLiteなど
 dbglass	Electronで構築されたPostgreSQLクライアント
 dbkoda	dbKoda
@@ -2552,6 +2554,7 @@ panic-unison	Usenetニュースグループにアクセスするためのアプ�
 panoply	NetCDFから地理参照データをプロットします HDF/GRIB
 panwriter	Pandoc統合とページ化されたプレビューを備えたMarkdownエディター
 paparazzi	Webページのスクリーンショットを撮るユーティリティ
+paper	4K 5K HD壁紙アプリ
 paperpile	Microsoft Wordの引用プラグイン
 papers	研究者のための参照管理ソフトウェア
 paperspace	Paperspaceクラウドコンピューティングプラットフォーム用のデスクトップアプリ
@@ -3978,6 +3981,7 @@ workbench	シームレス iCloudに自動同期する "dotfile"
 workflowy	メモを取るツール
 workman	代替英語キーボード レイアウト
 workplace-chat	組織のコミュニケーションポータル
+workspace-one-intelligent-hub	VMwareワークスペース
 workspaces	ワークスペース整理アプリ
 wormhole	PCで電話を閲覧&制御 iOSおよびAndroid用のScreenFusion
 wow	Wow TVコンテンツのストリーミング(formerly Sky Ticket)
