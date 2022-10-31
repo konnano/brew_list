@@ -238,9 +238,9 @@ my( $re,$list,$pid ) = @_;
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
   if( $re->{'DEL'} and $re->{'DEL'} < 2 or $re->{'INF'} or $re->{'USE'} or $re->{'dep_s'} ){
-   my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}'
-                              cat ~/.BREW_LIST/cask.txt|awk '{print \$1}' 2>/dev/null`]:
-                            [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null`];
+   my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|cut -f1
+                              cat ~/.BREW_LIST/cask.txt|cut -f1 2>/dev/null`]:
+                            [`cat ~/.BREW_LIST/brew.txt|cut -f1 2>/dev/null`];
    my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
    @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
@@ -301,18 +301,27 @@ sub Ana_1{
 }
 
 sub Size_1{
- my( $re,$list,%HA,%AR,$size,@data,$c,$ls ) = @_;
+ my( $re,$list,%HA,%AR,$size,@data,$ls1,$ls2,@du,$c ) = @_;
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\r\x1B[?25h\n"; };
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
-     $ls .= "$re->{'CEL'}/$_ " for(@data);
+   for(my $i=0;$i<@data;$i++){
+    $i % 2 ? $ls2 .= "$re->{'CEL'}/$data[$i] " : $ls1 .= "$re->{'CEL'}/$data[$i] "; }
+  }else{
+   for(my $i=0;$i<@$list;$i++){
+    $i % 2 ? $ls2 .= "$re->{'CEL'}/$$list[$i] " : $ls1 .= "$re->{'CEL'}/$$list[$i] "; }
   }
    my $an = @data ? \@data : $list;
-    @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@$an);
-   $ls = $ls ? $ls : "$re->{'CEL'}/*";
-   my @du = `du -sk $ls|awk '{print \$2,\$1}'`;
+  @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@$an);
+   if( open my $FH,'-|' ){
+    @du = `du -sk $ls1|awk '{print \$2,\$1}'`;
+     while(<$FH>){ chomp;
+      push @du,$_;
+     } close $FH;
+    if( $? ){ waitpid $re->{'PID3'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
+   }else{ print`du -sk $ls2|awk '{print \$2,\$1}'`; exit; }
     for(@du){
      my($name,$size) = m|.+/(.+)\s(\d+)|;
      $HA{$name} = $size;
@@ -1884,7 +1893,7 @@ unless( $ARGV[0] ){
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
-   $CAT = `cat ~/.BREW_LIST/brew.txt 2>/dev/null` ? `cat ~/.BREW_LIST/brew.txt|awk '/glibc\t/{print \$2}'` : 0;
+   $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
     $re->{'COM'} = '/home/linuxbrew/.linuxbrew/share/zsh/site-functions';
      $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
