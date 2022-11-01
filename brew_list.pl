@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.14_1\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -245,7 +245,9 @@ my( $re,$list,$pid ) = @_;
    @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
  if( $re->{'IS'} and not $re->{'INF'} or
-     $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){ $re->{'PID3'} = fork;
+     $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
+ $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+  $re->{'PID3'} = fork;
    die " IS Not fork : $!\n" unless defined $re->{'PID3'}; $pid = 1;
  }
  if( $re->{'IS'} and $pid and not $re->{'PID3'} ){ Wait_1( $re,1 );
@@ -302,7 +304,6 @@ sub Ana_1{
 
 sub Size_1{
  my( $re,$list,%HA,%AR,$size,@data,$ls1,$ls2,@du,$c ) = @_;
- $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\r\x1B[?25h\n"; };
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
@@ -317,9 +318,8 @@ sub Size_1{
   @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@$an);
    if( open my $FH,'-|' ){
     @du = `du -sk $ls1|awk '{print \$2,\$1}'`;
-     while(<$FH>){ chomp;
-      push @du,$_;
-     } close $FH;
+     push @du,<$FH>;
+      close $FH;
     if( $? ){ waitpid $re->{'PID3'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{ print`du -sk $ls2|awk '{print \$2,\$1}'`; exit; }
     for(@du){
