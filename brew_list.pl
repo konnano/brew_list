@@ -309,10 +309,14 @@ sub Size_1{
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
    for(my $i=0;$i<@data;$i++){
-    $i % 2 ? $ls2 .= "$re->{'CEL'}/$data[$i] " : $ls1 .= "$re->{'CEL'}/$data[$i] "; }
+    if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$data[$i] ";
+    }else{ $ls1 .= "$re->{'CEL'}/$data[$i] "; }
+   }
   }else{
    for(my $i=0;$i<@$list;$i++){
-    $i % 2 ? $ls2 .= "$re->{'CEL'}/$$list[$i] " : $ls1 .= "$re->{'CEL'}/$$list[$i] "; }
+    if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$list[$i] ";
+    }else{ $ls1 .= "$re->{'CEL'}/$$list[$i] "; }
+   }
   }
    my $an = @data ? \@data : $list;
   @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@$an);
