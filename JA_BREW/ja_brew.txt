@@ -2949,6 +2949,7 @@ libdeflate	大幅に最適化された圧縮と解凍 DEFLATE/zlib/gzip
 libdill	Cでの構造化同時実行
 libdiscid	MusicBrainzおよびfreedbディスクIDを作成するためのCライブラリ
 libdivecomputer	さまざまなdiveコンピューターと通信するためのライブラリ
+libdivide	最適化された整数除算
 libdmtx	Data Matrixライブラリ
 libdmx	X.Org：X Window System DMX(Distributed Multihead X)拡張ライブラリ
 libdnet	ポータブル低レベルネットワークライブラリ
@@ -3827,7 +3828,7 @@ multi-git-status	コミットされていない表示 複数Gitリポジトリ�
 multimarkdown	マークアップされたプレーンテキストを適切な形式のドキュメントに変換する
 multitail	1つの端末で同時に複数のファイルをTailする
 multitime	複数の実行にわたる時間コマンド実行
-muon	Meson互換ビルドシステム
+muon	Meson互換のビルドシステム
 muparser	C++数式パーサーライブラリ
 mupdf	軽量PDFとXPS Viewer
 mupdf-tools	軽量PDFとXPS Viewer
@@ -3992,6 +3993,7 @@ node@10	ネットワークアプリケーションを構築するためにV8上�
 node@12	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node@14	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node@16	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
+node@18	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node_exporter	マシンmetrics用のPrometheusエクスポーター
 nodebrew	Node.jsバージョンマネージャー
 nodeenv	Node.js仮想環境ビルダー
