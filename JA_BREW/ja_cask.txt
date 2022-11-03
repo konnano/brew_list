@@ -355,6 +355,7 @@ binary-ninja	逆エンジニアリングプラットフォーム
 bing-wallpaper	Bingの毎日の画像を壁紙として使用します
 bingpaper	Bingの毎日の写真を壁紙として使用します
 bino	ビデオプレーヤー
+binocs	ウェブサイト/アプリ/API 向けのCLIファーストのアップタイムおよびパフォーマンス監視ツール
 birdfont	フォントエディター
 biscuit	アプリを整理するためのブラウザー
 bisq	分散型ビットコイン交換ネットワーク
@@ -3826,7 +3827,7 @@ videostream	パソコンからChromecastにメディアをストリーミング�
 vidl	youtube-dlのGUIフロントエンド
 vieb	Vieb
 vienna	RSSとAtomリーダー
-vimediamanager	ViMediaManager
+vimediamanager	ムービーのデジタルアーティファクトを管理する/テレビとアニメのコレクション
 vimr	NeovimテキストエディターのGUI
 vine-server	VNCサーバー
 vip-access	2段階認証ソフトウェア
