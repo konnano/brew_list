@@ -320,7 +320,7 @@ sub Size_1{
      push @du,<$FH>;
       close $FH;
     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
-   }else{ print`du -sk $ls2|awk '{print \$2,\$1}'`; exit; }
+   }else{ $ls2 ? print`du -sk $ls2|awk '{print \$2,\$1}'` : exit; }
     for(@du){
      my($name,$size) = m|.+/(.+)\s(\d+)|;
       $HA{$name} = $size;
@@ -478,7 +478,7 @@ my( $re,$list ) = @_; my( $e,@an1,@an2 ) = 0;
    push @{$re->{$name}},split '\s',$data;
   } close $FH;
  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n";}
- }else{
+ }else{ exit unless @an2;
   for my $ls(@an2){ my( @AN,%HA );
    Uses_1( $re,$ls,\%HA,\@AN );
     print"$ls\t@AN\n";
@@ -523,15 +523,16 @@ my( $re,$list,%HA,@AN ) = @_;
 }
 
 sub Brew_2{
-my( $re,%ha1,%ha2,$ls ) = @_;
- for my $key(sort keys %{$re->{'HASH'}}){
+my( $re,%ha1,%ha2,$ls ) = @_; my $e = 0;
+my $in = int((keys %{$re->{'HASH'}})/2);
+ for my $key(sort keys %{$re->{'HASH'}}){ $e++;
   my @an = $re->{'OS'}{"${key}uses"} ? split '\t',$re->{'OS'}{"${key}uses"} : '';
   if( $re->{'MAC'} ){
    my @an1 = split '\t',$re->{'OS'}{"${key}u_form"} if $re->{'OS'}{"${key}u_form"};
    my @an2 = split '\t',$re->{'OS'}{"${key}u_cask"} if $re->{'OS'}{"${key}u_cask"};
     @an = ( @an,@an1,@an2 );
   }
-  if( 'libs' gt $key ){ $ha1{$key} = \@an;
+  if( $in > $e ){ $ha1{$key} = \@an;
   }else{ $ha2{$key} = \@an; }
  }
  if( open my $FH,'-|' ){
@@ -546,7 +547,7 @@ my( $re,%ha1,%ha2,$ls ) = @_;
    $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
    } close $FH;
   if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 3\n"; }
- }else{
+ }else{ exit unless %ha2;
   for my $key(sort keys %ha2){ my( %HA,@AN );
    Uses_1( $re,$_,\%HA,\@AN ) for(@{$ha2{$key}}); $AN[0] ||= 0;
     print"$key\t@AN\n";
