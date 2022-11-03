@@ -244,13 +244,13 @@ my( $re,$list,$pid ) = @_;
    my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
    @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
- if( $re->{'IS'} and not $re->{'INF'} or
+ if( $re->{'IS'} and not $re->{'INF'} or ( $re->{'TOP'} or $re->{'uses'} ) and not $re->{'PID'} or
      $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
-  $re->{'PID3'} = fork;
-   die " IS Not fork : $!\n" unless defined $re->{'PID3'}; $pid = 1;
+  $re->{'PID2'} = fork;
+   die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
  }
- if( $re->{'IS'} and $pid and not $re->{'PID3'} ){ Wait_1( $re,1 );
+ if( ( $re->{'IS'} or $re->{'TOP'} or $re->{'uses'} ) and $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
  }else{
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
    Info_1( $re ) if $re->{'INF'};
@@ -308,29 +308,24 @@ sub Size_1{
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
-   for(my $i=0;$i<@data;$i++){
-    if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$data[$i] ";
-    }else{ $ls1 .= "$re->{'CEL'}/$data[$i] "; }
-   }
-  }else{
-   for(my $i=0;$i<@$list;$i++){
-    if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$list[$i] ";
-    }else{ $ls1 .= "$re->{'CEL'}/$$list[$i] "; }
-   }
   }
    my $an = @data ? \@data : $list;
+   for(my $i=0;$i<@$an;$i++){
+    if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
+    }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
+   }
   @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@$an);
    if( open my $FH,'-|' ){
     @du = `du -sk $ls1|awk '{print \$2,\$1}'`;
      push @du,<$FH>;
       close $FH;
-    if( $? ){ waitpid $re->{'PID3'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
+    if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{ print`du -sk $ls2|awk '{print \$2,\$1}'`; exit; }
     for(@du){
      my($name,$size) = m|.+/(.+)\s(\d+)|;
-     $HA{$name} = $size;
+      $HA{$name} = $size;
     }
-   waitpid $re->{'PID3'},0 if rmdir "$re->{'HOME'}/WAIT";
+   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
   for my $name(sort{$HA{$b} <=> $HA{$a}} keys %HA){ my $utime; $c++;
    my $cou =  $HA{$name};
    for my $json(@{$AR{$name}}){
@@ -468,21 +463,46 @@ my( $url,$ls,$re,$bn ) = @_;
  $bn;
 }
 
+sub Proc_1{
+my( $re,$list ) = @_; my( $e,@an1,@an2 ) = 0;
+ for(my $i=0;$i<@$list;$i++){
+  next if $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15';
+   $e % 2 ? push @an2,$$list[$i] : push @an1,$$list[$i]; $e++;
+ }
+ if( open my $FH,'-|' ){
+  for my $ls(@an1){ my( @AN,%HA );
+   Uses_1( $re,$ls,\%HA,\@AN );
+    push @{$re->{$ls}},@AN;
+  }
+  while(<$FH>){ my($name,$data) = /([^\t]+)\t(.+)/;
+   push @{$re->{$name}},split '\s',$data;
+  } close $FH;
+ if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n";}
+ }else{
+  for my $ls(@an2){ my( @AN,%HA );
+   Uses_1( $re,$ls,\%HA,\@AN );
+    print"$ls\t@AN\n";
+  } exit;
+ }
+}
+
 sub Top_1{
 my( $re,$list,%HA,@AN,$top ) = @_;
+ Proc_1( $re,$list );
  for my $ls(@$list){
-  Uses_1( $re,$ls,\%HA,\@AN );
-   if( @AN and @AN < 2 ){
-    my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
-    Tap_2( $re,\$ls ) if $re->{'FOR'};
-     for my $bui(@BUI){ my $build = $bui;
-      Tap_2( $re,\$bui ) if $re->{'FOR'};
-       $ls .= " : $bui" if $re->{'HASH'}{$build};
-     }
-    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
-   }
-  @AN = %HA = ();
- }print $top if $top;
+  next if $ls eq 'glibc' or $ls eq 'linux-headers@5.15';
+  if( @{$re->{$ls}} and @{$re->{$ls}} < 2 ){
+   my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
+   Tap_2( $re,\$ls ) if $re->{'FOR'};
+    for my $bui(@BUI){ my $build = $bui;
+     Tap_2( $re,\$bui ) if $re->{'FOR'};
+      $ls .= " : $bui" if $re->{'HASH'}{$build};
+    }
+   $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
+  }
+ } $top ||= '';
+  print "\r$top";
+ waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT";
 }
 
 sub Brew_1{
@@ -503,19 +523,37 @@ my( $re,$list,%HA,@AN ) = @_;
 }
 
 sub Brew_2{
-my( $re,@AN,%HA ) = @_;
+my( $re,%ha1,%ha2,$ls ) = @_;
  for my $key(sort keys %{$re->{'HASH'}}){
-  my @an = split '\t',$re->{'OS'}{"${key}uses"} if $re->{'OS'}{"${key}uses"};
+  my @an = $re->{'OS'}{"${key}uses"} ? split '\t',$re->{'OS'}{"${key}uses"} : '';
   if( $re->{'MAC'} ){
    my @an1 = split '\t',$re->{'OS'}{"${key}u_form"} if $re->{'OS'}{"${key}u_form"};
    my @an2 = split '\t',$re->{'OS'}{"${key}u_cask"} if $re->{'OS'}{"${key}u_cask"};
     @an = ( @an,@an1,@an2 );
   }
-   Uses_1( $re,$_,\%HA,\@AN ) for(@an);
-    my $le = int( (36-(length $key))/2 );
-   printf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
-  @AN = %HA = ();
+  if( 'libs' gt $key ){ $ha1{$key} = \@an;
+  }else{ $ha2{$key} = \@an; }
  }
+ if( open my $FH,'-|' ){
+  for my $key(sort keys %ha1){ my( %HA,@AN );
+   Uses_1( $re,$_,\%HA,\@AN ) for(@{$ha1{$key}});
+    my $le = int( (36-(length $key))/2 );
+   $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
+  }
+   while(<$FH>){ my($key,$data) = /([^\t]+)\t(.+)/;
+    my @AN = $data ? split '\s',$data : ();
+     my $le = int( (36-(length $key))/2 );
+   $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
+   } close $FH;
+  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 3\n"; }
+ }else{
+  for my $key(sort keys %ha2){ my( %HA,@AN );
+   Uses_1( $re,$_,\%HA,\@AN ) for(@{$ha2{$key}}); $AN[0] ||= 0;
+    print"$key\t@AN\n";
+  } exit;
+ }
+ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+  print"\r$ls";
  Nohup_1( $re );
 }
 
@@ -670,27 +708,9 @@ my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
   }
   unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
   }else{
-   Info_1( $re,0,'',\@AN ); my $e = 0;
-    for(my $i=0;$i<@AN;$i++){
-     next if $AN[$i] eq 'glibc' or $AN[$i] eq 'linux-headers@5.15';
-      $e % 2 ? push @an2,$AN[$i] : push @an1,$AN[$i]; $e++;
-   }
-   if( open my $FH,'-|' ){
-    for(my $i=0;$i<@an1;$i++){ my( %ha,@an );
-     Uses_1( $re,$an1[$i],\%ha,\@an );
-      push @{$re->{$an1[$i]}},@an;
-    }
-     while(<$FH>){ my( $name,$list ) = /([^\t]+)\t(.+)\n/;
-      push @{$re->{$name}},split '\s',$list;
-     } close $FH;
-     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n"; }
-   }else{
-    for(my $i=0;$i<@an2;$i++){ my( %ha,@an );
-     Uses_1( $re,$an2[$i],\%ha,\@an );
-      print"$an2[$i]\t@an\n";
-    } exit;
-   }
-    my @list1 = sort @AN;
+   Info_1( $re,0,'',\@AN );
+    Proc_1( $re,\@AN );
+     my @list1 = sort @AN;
    for my $brew(@list1){
     next if $brew eq 'glibc' or $brew eq 'linux-headers@5.15';
     exit unless ref $re->{$brew};
