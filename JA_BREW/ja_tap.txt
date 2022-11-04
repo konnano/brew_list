@@ -2299,7 +2299,6 @@ kitty-nightly	GPU-basedターミナルエミュレータ
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
 lando-edge	Docker上に構築されたローカル開発環境とDevOpsツール
 libreoffice-still	Freeのクロスプラットフォームオフィススイート
-lilypond-dev	音楽彫刻プログラム
 little-snitch4	ホストベースのアプリケーションファイアウォール
 local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
 macfuse-dev	ファイルシステム統合
@@ -2309,7 +2308,6 @@ mailmate-beta	IMAPメールクライアント
 mi-beta	テキストエディター
 microsoft-edge-beta	マルチプラットフォームのWebブラウザー
 microsoft-edge-dev	マルチプラットフォームのWebブラウザー
-microsoft-office-2011	Microsoft Office 2011
 microsoft-office-2016	オフィススイート
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
 miniconda2	Continuum Analytics Miniconda
