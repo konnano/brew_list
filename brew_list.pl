@@ -320,7 +320,7 @@ sub Size_1{
      push @du,<$FH>;
       close $FH;
     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
-   }else{ $ls2 ? print`du -sk $ls2|awk '{print \$2,\$1}'` : exit; }
+   }else{ print`du -sk $ls2|awk '{print \$2,\$1}'` if $ls2; exit; }
     for(@du){
      my($name,$size) = m|.+/(.+)\s(\d+)|;
       $HA{$name} = $size;
@@ -636,7 +636,11 @@ my( $re,$name,$cat,%HA,%HAN,@ARR ) = @_;
     $HA{$_}++ for(keys %{$re->{'HASH'}});
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
    for(@$cat){ chomp;
-    $HA{$_}++ if $re->{'OS'}{"${_}deps"} and $re->{'FOR'};
+    if( $re->{'FOR'} ){
+     $HA{$_}++ if $re->{'OS'}{"${_}deps"} and $re->{'FOR'};
+     $HA{$_}++ if $re->{'OS'}{"${_}deps"};
+     $HA{$_}++ if $re->{'OS'}{"${_}deps_b"} and not $re->{'OS'}{"${_}$OS_Version"};
+    }
     $HA{$_}++ if $re->{'OS'}{"${_}d_cask"};
    }
   }
@@ -2078,6 +2082,7 @@ unless( $ARGV[0] ){
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
         $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
          $tap{"${name}deps_b"} .= "$data\t";
+          push @{$re->{'OS'}},"$name,$data,1" unless $tap{"$name$OS_Version2"};
      }elsif( my( $us3,$us4 ) = $data =~ /^\s*uses_from_macos\s+"([^"]+)",\s+since:\s+:([^\s]+)/ ){
        if( $re->{'LIN'} or $re->{'MAC'} and $OS_Version < $MAC_OS{$us4} ){
         $tap{"${us3}uses"} .= "$name\t";
@@ -2310,14 +2315,14 @@ unless( $ARGV[0] ){
 
   my $COU = $IN = 0;
  for(my $i=0;$i<@BREW;$i++){
-  $TIN .= "$BREW[$i] \\\n" if $tap{"${BREW[$i]}deps"};
-  $UAA .= "$BREW[$i] \\\n" if $tap{"${BREW[$i]}uses"};
+  $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
+  $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
-     $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}f_version"}, last if $BREW[$i] lt $ls1;
+     $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]f_version"}, last if $BREW[$i] lt $ls1;
       if( $BREW[$i] eq $ls1 ){
-       $tap{"${BREW[$i]}ver"} = Version_1( $ls2,$tap{"${BREW[$i]}f_version"} ) ? $ls2 : $tap{"${BREW[$i]}f_version"};
-       $tap{"${BREW[$i]}ver"} = $tap{"${BREW[$i]}ver"}.$tap{"${BREW[$i]}revision"} if $tap{"${BREW[$i]}revision"};
+       $tap{"$BREW[$i]ver"} = Version_1( $ls2,$tap{"$BREW[$i]f_version"} ) ? $ls2 : $tap{"$BREW[$i]f_version"};
+       $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]ver"}.$tap{"$BREW[$i]revision"} if $tap{"$BREW[$i]revision"};
        $COU++; last;
       }
    }
@@ -2325,7 +2330,7 @@ unless( $ARGV[0] ){
      for(;$IN<@CASK;$IN++){
       last if $BREW[$i] lt $CASK[$IN];
        if($BREW[$i] eq $CASK[$IN]){
-        $tap{"${CASK[$IN]}so_name"} = 1;
+        $tap{"$CASK[$IN]so_name"} = 1;
         $IN++; last;
        }
      }
