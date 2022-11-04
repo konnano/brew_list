@@ -637,7 +637,6 @@ my( $re,$name,$cat,%HA,%HAN,@ARR ) = @_;
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
    for(@$cat){ chomp;
     if( $re->{'FOR'} ){
-     $HA{$_}++ if $re->{'OS'}{"${_}deps"} and $re->{'FOR'};
      $HA{$_}++ if $re->{'OS'}{"${_}deps"};
      $HA{$_}++ if $re->{'OS'}{"${_}deps_b"} and not $re->{'OS'}{"${_}$OS_Version"};
     }
