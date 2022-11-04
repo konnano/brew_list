@@ -2339,6 +2339,7 @@ honcho	Procfileベースのアプリケーションを管理するためのForem
 hopenpgp-tools	OpenPGP関連の操作用のコマンドラインツール
 hostdb	hostlist.txtからDNSゾーンとDHCP構成を生成します
 hostess	/etc/hostsのファイルを管理するコマンドラインユーティリティ
+hotbuild	Go用のクロスプラットフォームホットコンパイルツール
 howard-hinnant-date	<chrono>に基づく日付と時刻の操作のためのC++ライブラリ
 howdoi	コマンドラインを介した即時コーディングの回答
 hpack	Haskellパッケージの最新フォーマット
@@ -3541,6 +3542,7 @@ mariadb@10.7	MySQLのドロップイン置換
 markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
+markdownlint-cli2	Markdown/CommonMark ファイルをリンティングするための高速で柔軟な構成ベースのCLI
 marked	速さのために構築されたマークダウンパーサーとコンパイラ
 marp-cli	マープマークダウンファイルを静的に画像を変換、HTML/CSS、PDF、PPT
 mas	Mac AppStoreのcommand-lineインターフェイス
@@ -4519,6 +4521,7 @@ polipo	Web Cachingプロキシ
 polyglot	XBoardでUCIエンジンを実行するための手続きアダプタ
 polyml	標準ML実装
 polynote	First-classのScalaをサポートするPolyglotノートブック
+pomsky	正規表現言語
 pony-stable	Pony言語の依存関係マネージャー
 ponyc	オブジェクト指向 Actor-model 機能的で安全なプログラミング言語
 ponysay	Cowsay しかしponiesと
