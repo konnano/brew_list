@@ -586,6 +586,7 @@ clementine	音楽プレーヤーとライブラリーのまとめ
 clickcharts	ClickCharts
 clicker-for-netflix	最高の独立型Netflixプレーヤー
 clicker-for-youtube	独立型のYouTubeアプリ
+clickshare	ワイヤレス電話会議クライアント
 clickup	タスクの生産性プラットフォーム ドキュメント/目標/チャット
 clion	CおよびC++ IDE
 clip-studio-paint	描画とペイントのためのソフトウェア
@@ -2462,6 +2463,7 @@ openineditor-lite	Finderで現在のディレクトリを開くためのFinder�
 openinterminal	ターミナルまたはエディターで現在のディレクトリを開くためのFinderツールバーアプリ
 openinterminal-lite	ターミナルで現在のディレクトリを開くためのFinderツールバーアプリ
 openkey	ベトナム語入力システム
+openlens	Lens Kubernetes IDEのオープンソースビルド
 openloco	Chris SawyerのLocomotionのオープンソースによる再実装
 openlp	礼拝プレゼンテーションソフトウェア
 openmsx	MSXエミュレータ
