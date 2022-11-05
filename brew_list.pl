@@ -244,13 +244,13 @@ my( $re,$list,$pid ) = @_;
    my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
    @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
- if( $re->{'IS'} and not $re->{'INF'} or ( $re->{'TOP'} or $re->{'uses'} ) and not $re->{'PID'} or
+ if( $re->{'IS'} and not $re->{'INF'} or $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} or
      $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
   $re->{'PID2'} = fork;
    die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
  }
- if( ( $re->{'IS'} or $re->{'TOP'} or $re->{'uses'} ) and $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
+ if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
  }else{
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
    Info_1( $re ) if $re->{'INF'};
