@@ -3023,6 +3023,7 @@ libgpg-error	すべてのGnuPGコンポーネントに共通のエラー値
 libgphoto2	Gphoto2デジタルカメラライブラリ
 libgr	GRフレームワーク：視覚化アプリケーション用のグラフィックライブラリ
 libgrape-lite	並列グラフ処理用のC++ライブラリ
+libgrapheme	Unicode文字列ライブラリ
 libgraphqlparser	CおよびC++ APIを使用したC++のGraphQLクエリパーサー
 libgsf	構造化ファイル形式を処理するためのI/O抽象化ライブラリ
 libgsm	非可逆音声圧縮ライブラリ
@@ -5886,6 +5887,7 @@ vala-language-server	Vala＆Genieの高度なコード
 valabind	レーダー用のVala bindings、逆エンジニアリングフレームワーク
 vale	散文用の構文対応静的解析ツール
 valgrind	動的分析ツール(メモリ、デバッグ、プロファイリング)
+valijson	JSONスキーマ検証用のヘッダーのみのC++ライブラリ
 vamp-plugin-sdk	オーディオ処理プラグインシステムSDK
 vapor	Vaporのコマンドラインツール(サーバー側のSwift Webフレームワーク)
 vapoursynth	シンプルさを念頭に置いたビデオ処理フレームワーク
