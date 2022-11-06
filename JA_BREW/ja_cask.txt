@@ -58,6 +58,7 @@ adobe-dng-converter	DNGファイル変換器
 adoptopenjdk	Javaユーザーグループ(JUG)のJDK
 adrive	Alibaba Cloud Disk
 advancedrestclient	APIテストツール
+adze	GPXドキュメントの編集
 aegisub	字幕の作成と変更
 aerial	Apple TV Aerialスクリーンセーバー
 aether	ピアツーピアの一時的な公開コミュニティー
@@ -2164,6 +2165,7 @@ missive	チームの受信トレイとチャットツール
 mit-app-inventor	MIT App Inventor
 mixed-in-key	DJと音楽プロデューサーのための調和的ミキシング
 mixed-in-key-live	キーライブでミックス
+mixin	暗号通貨ウォレット
 mixxx	オープンソースのDJソフトウェア
 mjml	MJML用デスクトップアプリ
 mjolnir	軽量の自動化と生産性のアプリ
