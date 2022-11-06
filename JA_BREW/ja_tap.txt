@@ -1496,6 +1496,7 @@ font-playfair-display-sc	Playfair Display SC
 font-plemol-jp	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-hs	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-nf	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
+font-plemol-jp-nfj	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plus-jakarta-sans	用途が広いmodern type family
 font-podkova	Podkova
 font-podkova-vf-beta	Podkova VF Beta
