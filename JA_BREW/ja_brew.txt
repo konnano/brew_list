@@ -522,6 +522,7 @@ btfs	FUSEに基づくBitTorrentファイルシステム
 btop	リソースモニター。C++バージョンとbashtopおよびbpytopの続き
 btparse	BibTeXユーティリティライブラリ
 btpd	Bit Torrent手続きデーモン
+btrfs-progs	btrfsファイルシステムを管理するためのユーザー空間ユーティリティ
 bubblewrap	Linuxの非特権サンドボックスツール
 buildapp	SBCLで実行可能ファイルを作成します
 buildifier	標準的な規則でbazel BUILDファイルをフォーマットします
@@ -834,6 +835,7 @@ cmake-docs	CMakeのドキュメント
 cmark	強く指定された、互換性の高いMarkdownの実装
 cmark-gfm	GitHubフレーバーマークダウンのC実装
 cmatrix	コンソールMatrix
+cmctl	cert-managerを管理するコマンドラインツール
 cmdshelf	cmdshelfを使用したスクリプトライフの向上
 cmigemo	Migemoはローマ字による日本語のインクリメンタルサーチをサポートするツールです。
 cminpack	非線形方程式と非線形最小二乗問題を解きます
@@ -2397,6 +2399,7 @@ hyperkit	アプリケーションにハイパーバイザー機能を埋め込�
 hyperscan	高性能正規表現マッチングライブラリ
 hyperspec	Common LispANSI標準のハイパースペック
 hypre	grid問題のための並列マルチgrid法を特徴とするライブラリ
+hysteria	損失の多い不安定な接続用に最適化された機能満載のプロキシおよびリレーツール
 hyx	コンソール用の強力な16進エディタ
 i2c-tools	Linuxの異種のI2Cツールのセット
 i2p	匿名overlayネットワーク - a network within a network
@@ -3538,8 +3541,9 @@ mariadb@10.2	MySQLのDrop-in代替品
 mariadb@10.3	MySQLのDrop-in代替品
 mariadb@10.4	MySQLのDrop-in代替品
 mariadb@10.5	MySQLのDrop-in代替品
-mariadb@10.6	MySQLのドロップイン置換
-mariadb@10.7	MySQLのドロップイン置換
+mariadb@10.6	MySQLのDrop-in代替品
+mariadb@10.7	MySQLのDrop-in代替品
+mariadb@10.8	MySQLのDrop-in代替品
 markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
