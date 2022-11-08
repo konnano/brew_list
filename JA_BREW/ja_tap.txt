@@ -41,6 +41,7 @@ font-alegreya-sans-sc	Alegreya Sans SC
 font-alegreya-sc	Alegreya SC
 font-aleo	Aleo
 font-alex-brush	Alex Brush
+font-alexandria	ラテン文字のMontserratに合わせて作られた9ウェイトのフォントファミリー
 font-alfa-slab-one	Alfa Slab One
 font-alice	Alice
 font-alike	Alike
@@ -330,6 +331,7 @@ font-chiayi-city	ChiaYi-cityのカリスマ性を反映したフォント
 font-chicle	Chicle
 font-chilanka	Chilanka
 font-chivo	Chivo
+font-chivo-mono	細いフォントから黒のフォントまでイタリック体が一致するバリアブルフォン
 font-chokokutai	文字が面白い外観の日本語表示フォント
 font-chomsky	New York Timesのマストヘッド フルフォントとして再考
 font-chonburi	Chonburi
@@ -339,6 +341,7 @@ font-cinzel	Cinzel
 font-cinzel-decorative	Cinzel Decorative
 font-clear-sans	Clear Sans
 font-clicker-script	Clicker Script
+font-climate-crisis	Climate Crisis
 font-cochineal	Cochineal
 font-coda	Coda
 font-coda-caption	Coda Caption
@@ -546,12 +549,14 @@ font-fleur-de-leah	フローラルフレーバーのフォーマルスクリプ�
 font-flow-block	Flow Block
 font-flow-circular	Flow Circular
 font-flow-rounded	Flow Rounded
+font-foldit	グラデーションを使用して次元と空間感覚で楽しむフォント
 font-fondamento	Fondamento
 font-fontawesome	アイコンセットとツールキット
 font-fontdiner-swanky	Fontdiner Swanky
 font-forum	Forum
 font-foundation-icons	Foundation Icons
 font-foundry-sterling	Foundry Sterling
+font-fragment-mono	Helveticaに影響を受けた等幅コーディングフォント
 font-francois-one	Francois One
 font-frank-ruhl-libre	Frank Ruhl Libre
 font-fraunces	ディスプレイ 古いスタイルのsoft-serif書体
@@ -723,6 +728,7 @@ font-ibm-plex-sans-arabic	IBM PlexSans アラビア
 font-ibm-plex-sans-condensed	IBM Plex Sans Condensed
 font-ibm-plex-sans-devanagari	IBM Plex Sans Devanagari
 font-ibm-plex-sans-hebrew	IBM PlexSans ヘブライ
+font-ibm-plex-sans-jp	IBM Plex Sans JP
 font-ibm-plex-sans-kr	IBM Plex Sans KR
 font-ibm-plex-sans-thai	IBM Plex Sans Thai
 font-ibm-plex-sans-thai-looped	IBM Plex Sans Thai Looped
@@ -1025,6 +1031,7 @@ font-marcellus	Marcellus
 font-marcellus-sc	Marcellus SC
 font-marck-script	Marck Script
 font-margarine	Margarine
+font-marhey	楽しい表示書体コントラストストロークのカスタムハンドレタリング
 font-markazi-text	Markazi Text
 font-marko-one	Marko One
 font-marmelad	Marmelad
@@ -1261,6 +1268,7 @@ font-noto-sans-khojki	Noto Sans Khojki
 font-noto-sans-khudawadi	Noto Sans Khudawadi
 font-noto-sans-kr	韓国語の変調されてい(“sans serif”)デザイン
 font-noto-sans-lao	Noto Sans Lao
+font-noto-sans-lao-looped	東南アジアのラオス文字のループバリアント
 font-noto-sans-lao-ui	Noto Sans Lao UI
 font-noto-sans-lepcha	Noto Sans Lepcha
 font-noto-sans-limbu	Noto Sans Limbu
@@ -1384,6 +1392,7 @@ font-noto-serif-hk	ウェイト軸がエクストラライトからエクスト�
 font-noto-serif-jp	日本語用の変調(“serif”)デザイン
 font-noto-serif-kannada	Noto Serif Kannada
 font-noto-serif-khmer	Noto Serif Khmer
+font-noto-serif-khojki	インド語ホーキ文字のテキストの変調(“serif”)デザイン
 font-noto-serif-kr	韓国語の変調(“serif”)デザイン
 font-noto-serif-lao	Noto Serif Lao
 font-noto-serif-malayalam	Noto Serif Malayalam
