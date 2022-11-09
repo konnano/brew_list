@@ -311,10 +311,10 @@ sub Size_1{
   }
    my $an = @data ? \@data : $list;
    for(my $i=0;$i<@$an;$i++){
-    if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
-    }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
+    @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
+     if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
+     }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
    }
-  @{$AR{$_}} = glob "$re->{'CEL'}/$_/*" for (@$an);
    if( open my $FH,'-|' ){
     @du = `du -sk $ls1|awk '{print \$2,\$1}'`;
      push @du,<$FH>;
@@ -501,8 +501,8 @@ my( $re,$list,%HA,@AN,$top ) = @_;
    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
   }
  } $top ||= '';
-  print "\r$top";
- waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT";
+  waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT";
+ print "\r$top";
 }
 
 sub Brew_1{
