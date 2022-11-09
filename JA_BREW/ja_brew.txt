@@ -3190,6 +3190,7 @@ libresample	オーディオ再サンプリングCライブラリ
 librespot	オープンソースのSpotifyクライアントライブラリ
 libressl	OpenSSLからフォークされた SSL/TLS 手続きのバージョン
 librest	RESTful Webサービスにアクセスするためのライブラリ
+libretls	OpenSSLのlibtls
 librevenge	ドキュメントインポートフィルターを作成するためのBaseライブラリ
 librist	信頼性の高いインターネットストリームTransport(RIST)
 librsvg	Cairoを使用してSVGファイルを解釈するライブラリ
@@ -4687,6 +4688,7 @@ pyside@2	Qtの公式Python bindings
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
+python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-markdown	MarkdownのPython実装
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
@@ -5799,6 +5801,7 @@ typedb	知識工学のための分散型ハイパーリレーショナルデー�
 typescript	アプリケーション規模のJavaScript開発用言語
 typespeed	正しく入力して画面上を飛んでいる単語をZapする
 typewritten	最小限のzshプロンプト
+typos-cli	ソースコードスペルチェッカー
 tz	CLIタイムゾーンvisualizer
 u-boot-tools	汎用ブートローダー
 uade	アラブ首長国連邦のエミュレーションを通じてAmigaの曲を再生する
