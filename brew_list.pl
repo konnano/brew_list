@@ -197,7 +197,7 @@ sub Died_1{ my $Lang;
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
   }
-  print"  Enhanced brew list : version 1.14_2\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -464,10 +464,18 @@ my( $url,$ls,$re,$bn ) = @_;
 }
 
 sub Proc_1{
-my( $re,$list ) = @_; my( $e,@an1,@an2 ) = 0;
+my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
  for(my $i=0;$i<@$list;$i++){
-  next if $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15';
-   $e % 2 ? push @an2,$$list[$i] : push @an1,$$list[$i]; $e++;
+  next if not $cou and ( $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15' );
+   if( $re->{'OS'}{"$$list[$i]uses"} and $re->{'OS'}{"$$list[$i]uses_proc"} ){
+           my $proc = split '\t',$re->{'OS'}{"$$list[$i]uses_proc"};
+              $deps = split '\t',$re->{'OS'}{"$$list[$i]uses"};
+              $deps = $proc if $deps < $proc;
+   }elsif( $re->{'OS'}{"$$list[$i]uses"} ){ $deps = split '\t',$re->{'OS'}{"$$list[$i]uses"};
+   }elsif( $re->{'OS'}{"$$list[$i]uses_proc"} ){ $deps = split '\t',$re->{'OS'}{"$$list[$i]uses_proc"};
+   }else{ $deps = 0; }
+    if( $e > $m ){ push @an2,$$list[$i]; $m += $deps;
+            }else{ push @an1,$$list[$i]; $e += $deps; }
  }
  if( open my $FH,'-|' ){
   for my $ls(@an1){ my( @AN,%HA );
@@ -523,36 +531,13 @@ my( $re,$list,%HA,@AN ) = @_;
 }
 
 sub Brew_2{
-my( $re,%ha1,%ha2,$ls ) = @_; my $e = 0;
-my $in = int((keys %{$re->{'HASH'}})/2);
- for my $key(sort keys %{$re->{'HASH'}}){ $e++;
-  my @an = $re->{'OS'}{"${key}uses"} ? split '\t',$re->{'OS'}{"${key}uses"} : '';
-  if( $re->{'MAC'} ){
-   my @an1 = split '\t',$re->{'OS'}{"${key}u_form"} if $re->{'OS'}{"${key}u_form"};
-   my @an2 = split '\t',$re->{'OS'}{"${key}u_cask"} if $re->{'OS'}{"${key}u_cask"};
-    @an = ( @an,@an1,@an2 );
-  }
-  if( $in > $e ){ $ha1{$key} = \@an;
-  }else{ $ha2{$key} = \@an; }
- }
- if( open my $FH,'-|' ){
-  for my $key(sort keys %ha1){ my( %HA,@AN );
-   Uses_1( $re,$_,\%HA,\@AN ) for(@{$ha1{$key}});
+my( $re,$ls,@an ) = @_;
+ push @an,$_ for (sort keys %{$re->{'HASH'}});
+  Proc_1( $re,\@an,1 );
+  for my $key(sort keys %{$re->{'HASH'}}){
     my $le = int( (36-(length $key))/2 );
-   $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
+   $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@{$re->{$key}}-1;
   }
-   while(<$FH>){ my($key,$data) = /([^\t]+)\t(.+)/;
-    my @AN = $data ? split '\s',$data : ();
-     my $le = int( (36-(length $key))/2 );
-   $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@AN+0;
-   } close $FH;
-  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 3\n"; }
- }else{ exit unless %ha2;
-  for my $key(sort keys %ha2){ my( %HA,@AN );
-   Uses_1( $re,$_,\%HA,\@AN ) for(@{$ha2{$key}}); $AN[0] ||= 0;
-    print"$key\t@AN\n";
-  } exit;
- }
  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
   print"\r$ls";
  Nohup_1( $re );
@@ -2187,6 +2172,8 @@ unless( $ARGV[0] ){
           if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls1}uses_proc"} .= "$name\t";
           }elsif( $re->{'MAC'} ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
@@ -2210,6 +2197,8 @@ unless( $ARGV[0] ){
           if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls2}uses_proc"} .= "$name\t";
           }elsif( $re->{'MAC'} ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
