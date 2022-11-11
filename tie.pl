@@ -324,6 +324,8 @@ unless( $ARGV[0] ){
           if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls1}uses_proc"} .= "$name\t";
           }elsif( $re->{'MAC'} ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
@@ -347,6 +349,8 @@ unless( $ARGV[0] ){
           if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls2}uses_proc"} .= "$name\t";
           }elsif( $re->{'MAC'} ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
