@@ -473,7 +473,6 @@ font-edu-sa-beginner	Edu SAビギナー
 font-edu-tas-beginner	Edu TASビギナー
 font-edu-vic-wa-nt-beginner	Edu VIC WA NTビギナー
 font-edwin	楽譜のテキストフォント
-font-ek-mukta	Ek Mukta
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
 font-elice-digital-baeum	Elice Digital Baeum
@@ -711,6 +710,7 @@ font-holtwood-one-sc	Holtwood One SC
 font-homemade-apple	Homemade Apple
 font-homenaje	Homenaje
 font-hubballi	非公式で親しみやすい外観のMonolinear書体
+font-hubot-sans	GitHubのバリアブルフォントHubot Sans
 font-humor-sans	Humor Sans
 font-hurmit-nerd-font	Hurmit Nerd Font(Hermit)
 font-hurricane	Hurricane
@@ -1104,6 +1104,7 @@ font-mogra	Mogra
 font-mohave	Mohave
 font-molengo	Molengo
 font-molle	Molle
+font-mona-sans	GitHubの可変フォントMona Sans
 font-monda	Monda
 font-monocraft	Minecraftで使用される書体に基づくプログラミング フォント
 font-monofett	Monofett
@@ -1900,6 +1901,7 @@ font-uchen	Uchen
 font-udev-gothic	BIZ UD GothicとJetBrains Monoのフォントを統合する
 font-udev-gothic-nf	BIZ UD GothicとJetBrains Monoのフォントを統合す
 font-ultra	Ultra
+font-unbounded	おそらく世界初のon-chain資金援助によるフォント
 font-uncial-antiqua	Uncial Antiqua
 font-underdog	Underdog
 font-unica-one	Unica One
