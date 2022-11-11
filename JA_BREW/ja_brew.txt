@@ -3356,6 +3356,7 @@ libyubikey	Yubicoワンタイムパスワードを操作するためのCライ�
 libzdb	データベース接続プールライブラリ
 libzip	読むためのCライブラリ 作成/zipアーカイブの変更
 libzzip	ZIPアーカイブの読み取りアクセスを提供するライブラリ
+license-eye	ライセンスヘッダーを確認して修正し依存ライセンスを解決するためのツール
 licensefinder	プロジェクトの依存関係のライセンスを検索する
 licenseplist	iOSアプリケーションのすべての依存関係のライセンスリストジェネレーター
 licensor	stdoutにライセンスを書き込む
@@ -5524,6 +5525,7 @@ tarlz	データ圧縮機
 tarsnap	本当に妄想的な人のためのオンラインバックアップ
 tarsnap-gui	TarsnapコマンドラインクライアントのクロスプラットフォームGUI
 tarsnapper	gfs-schemeを使用してバックアップを期限切れにするTarsnapラッパー
+tart	CIやその他の自動化で使用するApple Silicon上のmacOSおよびLinux VM
 task	機能豊富なコンソールベースのtodoリストマネージャー
 task-spooler	タスクを次々に実行するバッチシステム
 taskd	ToDoリストのクライアントサーバー同期
@@ -5936,6 +5938,7 @@ vf	`cd`コマンドの拡張バージョン
 vfuse	VMwareFusionで使用するために起動可能なDMGイメージを変換する
 vgmstream	ビデオゲームからストリーミングされたオーディオ形式を再生するためのライブラリ
 vgrep	grepのユーザーに親しいPager
+vhs	貴方のCLIホームビデオレコーダー
 vice	用途の広いCommodoreエミュレータ
 viddy	現代の監視コマンド
 viennacl	many-core基本設計およびmulti-core CPUの線形代数ライブラリ
@@ -6164,6 +6167,7 @@ xclip	コマンドラインからX11クリップボードにアクセスする
 xclogparser	Xcodeで使用されるSLF連続化形式を解析するためのツール
 xcode-kotlin	KotlinネイティブXcodeプラグイン
 xcodegen	スペックファイルとフォルダ構造からXcodeプロジェクトを生成します
+xcodes	Xcodeの複数のバージョンをインストールして切り替えるための最適なコマンドラインツール
 xcproj	Xcodeプロジェクトファイルを操作する
 xcprojectlint	Xcodeプロジェクトの静的解析ツール
 xctesthtmlreport	ユニットおよび UIテスト用のXcode-like HTMLレポート
