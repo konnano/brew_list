@@ -142,6 +142,7 @@ angry-ip-scanner	ネットワークスキャナー
 anka-build-cloud-controller-and-registry	仮想マシン管理 GUI/API/レジストリ
 anka-virtualization	仮想マシンを管理および作成するためのCLIツール
 ankama	AnkamaのPCゲームをダウンロードするためのPortal
+ankerslicer	AnkerMake 3Dプリンター用スライサー
 anki	記憶力トレーニングアプリケーション
 ankiapp-anki	暗記App
 anonym	ネットワークアクセスAnonymizer
@@ -1496,6 +1497,7 @@ icefloor	ファイアウォールツール
 icestudio	オープンFPGAボード用のビジュアルエディター
 icloud-control	iCloudドライブのユーザー制御の選択的同期
 icollections	デスクトップを整理するのに役立つアプリ
+icon-shelf	Web開発者向けのアイコン マネージャー
 iconizer	Iconizer
 iconjar	アイコンオーガナイザー
 icons	アプリのアイコンを生成するツール
@@ -3001,6 +3003,7 @@ resilio-sync	ファイル同期および共有ソフトウェア
 resolume-arena	ビデオマッピングソフトウェア
 resolutionator	ディスプレイで利用可能な解像度のいずれかを使用します
 responsively	動的Web開発に役立つ変更されたブラウザー
+restfox	オフライン優先のWeb HTTPクライアン
 restream-chat	ストリーミングチャットを1か所に保管する
 retro-virtual-machine	ZX SpectrumおよびAmstrad CPCエミュレーター
 retroactive	互換性のないOSバージョンでAppleアプリを実行する
@@ -3769,6 +3772,7 @@ uninstallpkg	PKGソフトウェアパッケージアンインストールツー�
 unipro-ugene	Freeのオープンソースクロスプラットフォーム生物情報科学ソフトウェア
 unison	ファイルシンクロナイザー
 unite	Webサイトをアプリに変える
+unite-phone	ビデオおよび音声通話アプリケーション
 unity	3Dコンテンツ用のプラットフォーム
 unity-android-support-for-editor	UnityのAndroidターゲットサポート
 unity-hub	Unityの管理ツール
