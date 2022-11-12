@@ -1863,8 +1863,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
     $OS_Version =~ s/^11.+\n/11.0/;
      $OS_Version =~ s/^12.+\n/12.0/;
       $OS_Version =~ s/^13.+\n/13.0/;
- $OS_Version2 = $OS_Version;
-  $OS_Version2 = "${OS_Version}M1" if $CPU eq 'arm\?';
+ $OS_Version2 = $CPU eq 'arm\?' ? "${OS_Version}M1" : $OS_Version;
 
 unless( $ARGV[0] ){
  $Xcode = `xcodebuild -version 2>/dev/null` ?
@@ -1957,7 +1956,6 @@ unless( $ARGV[0] ){
        }
         $tap{"$name$data"} =
         $data =~ s/.*arm64_ventura:.*\n/13.0M1/  ? 1 :
-        $data =~ s/.*ventura:.*\n/13.0/          ? 1 :
         $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
         $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
         $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
@@ -1971,6 +1969,7 @@ unless( $ARGV[0] ){
         $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
+      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0';
       $KIN = 0; next;
      }
    if( $data !~ /^\s*end/ and $IN ){ $SPA++ if $data =~ /\s+do$/; next;
