@@ -72,9 +72,7 @@ MAIN:{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
     $OS_Version =~ s/^10\.9.*\n/10.09/;
-     $OS_Version =~ s/^11.+\n/11.0/;
-      $OS_Version =~ s/^12.+\n/12.0/;
-       $OS_Version =~ s/^13.+\n/13.0/;
+     $OS_Version =~ s/^(1[1-3]).+\n/$1.0/;
   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
    $OS_Version = "${OS_Version}M1" if $UNAME =~ /arm64/;
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
@@ -1860,9 +1858,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
    $OS_Version =~ s/^10\.9.*\n/10.09/;
-    $OS_Version =~ s/^11.+\n/11.0/;
-     $OS_Version =~ s/^12.+\n/12.0/;
-      $OS_Version =~ s/^13.+\n/13.0/;
+    $OS_Version =~ s/^(1[1-3]).+\n/$1.0/;
  $OS_Version2 = $CPU eq 'arm\?' ? "${OS_Version}M1" : $OS_Version;
 
 unless( $ARGV[0] ){
