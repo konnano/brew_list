@@ -3265,8 +3265,9 @@ libu2f-host	汎用二段階認証(U2F)手続きのホスト側
 libu2f-server	汎用二段階認証(U2F)手続きのサーバー側
 libucl	汎用構成ライブラリパーサー
 libuecc	非常に小さな楕円曲線暗号ライブラリ
-libuninameslist	Unicode名と注釈データのライブラリ
-libunistring	Unicode文字列を操作するためのC文字列ライブラリ
+libunibreak	Unicode 改行および単語分割アルゴリズムの実装
+libuninameslist	Unicode 名前と注釈データのライブラリ
+libunistring	Unicode 文字列を操作するためのC文字列ライブラリ
 libunwind	プログラムのcall-chainを決定するためのC API
 libunwind-headers	プログラムのcall-chainを決定するためのC API
 libupnp	ポータブルUPnP開発キット
@@ -4550,7 +4551,6 @@ postgresql@14	オブジェクトリレーショナルデータベースシステ
 postgresql@15	オブジェクトリレーショナルデータベースシステム
 postgresql@9.4	オブジェクトリレーショナルデータベースシステム
 postgresql@9.5	オブジェクトリレーショナルデータベースシステム
-postgresql@9.6	オブジェクトリレーショナルデータベースシステム
 postgrest	既存のPostgreSQLデータベースから完全にRESTfulなAPIを提供します
 potrace	ビットマップをベクターグラフィックに変換する
 povray	Persistence Of Vision RAYtracer(POVRAY)
