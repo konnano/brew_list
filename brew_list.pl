@@ -90,7 +90,7 @@ MAIN:{
     $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
    die " \033[31mNot installed HOME BREW\033[00m\n" unless -d $re->{'CEL'};
-   $Locale = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf8$|utf-8$/i;
+   $Locale = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf-?8$/i;
   if( $re->{'JA'} ){
    die " \033[31mNot connected\033[00m\n"
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -173,29 +173,20 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{ my $Lang;
- my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_JP/;
+ my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_jp.utf-?8$/i;
  chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` ) or die " \033[31mNot installed HOME BREW\033[00m\n";
-  if( $^O eq 'darwin' ){
-    $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
+   $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n" :
     ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # Japanese Language -JA option
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl
+   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n" :
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
-  }else{
-    $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
-   "\n   # English display in Japanese version is argument EN
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
-   ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
-   "\n   # Japanese Language -JA option
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW ; Then brew uninstall brew_list\n" :
-   "\n   # Uninstall rm -rf ~/.BREW_LIST ; Then brew uninstall brew_list\n";
-  }
-  print"  Enhanced brew list : version 1.14_3\n   Option\n  -new\t:  creat new cache
+
+  print"  Enhanced brew list : version 1.14_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -236,9 +227,9 @@ my( $re,$list,$pid ) = @_;
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
   if( $re->{'DEL'} and $re->{'DEL'} < 2 or $re->{'INF'} or $re->{'USE'} or $re->{'dep_s'} ){
-   my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|cut -f1
-                              cat ~/.BREW_LIST/cask.txt|cut -f1 2>/dev/null`]:
-                            [`cat ~/.BREW_LIST/brew.txt|cut -f1 2>/dev/null`];
+   my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null
+                              cat ~/.BREW_LIST/cask.txt|awk '{print \$1}' 2>/dev/null`]:
+                            [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null`];
    my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
    @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
@@ -337,7 +328,7 @@ sub Size_1{
    } $utime = $utime ? $utime : 0;
     my $time = [localtime($utime)];
    my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
-  $size += $cou = sprintf "%.3f",$cou/=1024;
+  $size += $cou = sprintf "%.3f",$cou /= 1024;
  Tap_2( $re,\$name );
 format STDOUT =
 @||||||||||||||||||||||||||||||||||||||||@||||||||@>>>>>>>>>>>>@|||@>>>>>>>>>>>>>>>>>>>>>
