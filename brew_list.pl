@@ -455,7 +455,7 @@ my( $url,$ls,$re,$bn ) = @_;
 sub Proc_1{
 my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
  for(my $i=0;$i<@$list;$i++){
-  next if not $cou and ( $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15' );
+  next if $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15';
    if( $re->{'OS'}{"$$list[$i]uses"} and $re->{'OS'}{"$$list[$i]uses_proc"} ){
            my $proc = split '\t',$re->{'OS'}{"$$list[$i]uses_proc"};
               $deps = split '\t',$re->{'OS'}{"$$list[$i]uses"};
@@ -466,18 +466,19 @@ my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
     if( $e > $m ){ push @an2,$$list[$i]; $m += $deps;
             }else{ push @an1,$$list[$i]; $e += $deps; }
  }
+  if( $cou and $re->{'LIN'} ){ push @an1,'glibc'; push @an2,'linux-headers@5.15'; }
  if( open my $FH,'-|' ){
   for my $ls(@an1){ my( @AN,%HA );
    Uses_1( $re,$ls,\%HA,\@AN );
     push @{$re->{$ls}},@AN;
   }
   while(<$FH>){ my($name,$data) = /([^\t]+)\t(.+)/;
-   push @{$re->{$name}},split '\s',$data;
+   @{$re->{$name}} = $data ? split '\s',$data : ();
   } close $FH;
  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n";}
  }else{ exit unless @an2;
   for my $ls(@an2){ my( @AN,%HA );
-   Uses_1( $re,$ls,\%HA,\@AN );
+   Uses_1( $re,$ls,\%HA,\@AN ); $AN[0] ||= 0;
     print"$ls\t@AN\n";
   } exit;
  }
