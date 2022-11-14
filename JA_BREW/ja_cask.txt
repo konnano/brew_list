@@ -303,7 +303,6 @@ bartender	メニューバーアイコンオーガナイザー
 base	作成するアプリ デザイン/SQLite3データベースファイルを編集および参照する
 basecamp	リモートで作業するためのオールインワンツールキット
 basictex	完全な TeXLive/MacTeXの代替としてのコンパクトなTeXディストリビューション
-batchmod	ファイルとフォルダの権限を操作するためのユーティリティ
 bathyscaphe	2チャンネルブラウザー
 batteries	すべてのデバイスのバッテリーを追跡する
 battery	バッテリーの充電状態を管理するためのCLI
@@ -2486,6 +2485,7 @@ openshift-client	Openshiftクライアント
 openshot-video-editor	クロスプラットフォームのビデオエディター
 opensim	Swiftで書かれたSimPholdersのオープンソース代替
 opensong	プレゼンテーションソフトウェア
+opensoundmeter	オーディオシステムをリアルタイムでチューニングするためのサウンド測定アプリケーション
 opentoonz	オープンソースのフル機能の2Dアニメーション作成ソフトウェア
 openttd	オープンソースの輸送シミュレーションゲーム
 openvanilla	一般的な入力方法を提供します
@@ -2750,7 +2750,6 @@ ppduck	いくつかの画像圧縮アルゴリズムを統合します
 pppc-utility	PPPCペイロードを含む構成プロファイルを作成します
 ppsspp	PSPエミュレーター
 praat	コンピューターで音声学をする
-pragli	リモートチーム用のバーチャルオフィス
 pref-setter	Pref Setter
 preference-manager	ビデオエディタの設定をロックして復元する ごみ/バックアップ
 preferencecleaner	設定ファイルを削除するタスクを簡素化するユーティリティ
@@ -3249,7 +3248,6 @@ slidepilot	PDFプレゼンテーションツール
 slik	Slik
 slimbatterymonitor	SlimBatteryMonitor
 slimhud	ボリュームの交換 明るさとキーボードのバックライトHUD
-slingplayer	Sling製品のデスクトップアプリケーション
 slippi-dolphin	Slippiを介したネットプレイをサポートするDolphinGameCubeとWiiエミュレーターのフォーク
 slite	チームコミュニケーションおよび協力的ソフトウェア
 sloth	実行中のすべてのプロセスで使用されているすべての開いているファイルとソケットを表示します
