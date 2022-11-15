@@ -423,6 +423,7 @@ bigloo	オブジェクトシステム、C、およびJavaインターフェイ�
 binaryen	WebAssemblyの基礎構造コンパイラとtoolchainライブラリ
 bind	DNS手続きの実装
 bindfs	別の場所にマウントするためのFUSEファイルシステム
+bindgen	C (および一部のC++)ライブラリへのRust FFIバインディングを自動的に生成します。
 bingrep	さまざまなOSおよび基本設計のバイナリを調べます
 binkd	TCP/IP FTN メーラー
 binutils	ネイティブ開発のためのGNUバイナリツール
@@ -916,6 +917,7 @@ corepack	Nodeプロジェクトとそのパッケージマネージャー間の�
 coreutils	GNUファイル、シェル、およびテキストユーティリティ
 corkscrew	HTTPプロキシを介してSSHをトンネリングする
 corral	Pony言語の依存関係マネージャー
+corrosion	簡単なRustとC/C++の統合
 corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
 cosi	拡張可能な集合署名の実装
