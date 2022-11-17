@@ -473,6 +473,7 @@ bzflag	3Dマルチプレイヤー戦車バトルゲーム
 c0re100-qbittorrent	BitTorrentクライアント
 cabal	チャットプラットフォームCabal用のデスクトップクライアント
 cacher	コードスニペットオーガナイザー
+cad-assistant	CADアシスタント
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
 cajviewer	CAJクラウドリーディング
 cakebrew	HomebrewのGUIアプリ
@@ -856,7 +857,6 @@ disk-expert	ディスクスペース分析
 disk-inventory-x	ディスク使用ユーティリティ
 diskcatalogmaker	DiskCatalogMakerのToast-bundledバージョン
 diskmaker-x	システムインストールディスクを構築するためのツール
-diskwave	どのファイルとフォルダが最も多くのディスクスペースを消費しているかを判断するためのユーティリティ
 displaperture	ディスプレイの角を丸めます
 displaycal	DisplayCAL
 displays	モニターの解像度と設定マネージャー
@@ -1791,7 +1791,6 @@ kui	クラウドネイティブ開発のための合成コマンドライン/UI�
 kvirc	IRCクライアント
 kyokan-bob	名前オークションとDNSレコード管理のためのハンドシェイクウォレットGUI
 lab	ReactUIコンポーネント設計ツール
-lacona	Lacona
 laconvolver	LAConvolver
 lagrange	Geminispaceを閲覧するためのデスクトップGUIクライアント
 lando	Docker上に構築されたローカル開発環境とDevOpsツール
@@ -2909,6 +2908,7 @@ quicknfo	QuickNFO
 quicksilver	生産性アプリケーション
 quicksync	Gigaset製品用の同期ソフトウェア
 quickwords	quickワード
+quiet-reader	気を散らさずに記事やテキストのハイライトを読む
 quik	GoProの写真とビデオにアクセスして編集する
 quip	チームが生きたドキュメントを作成するためのツール
 quit-all	1つ、またはすべてのアプリをすばやく終了する
@@ -2934,6 +2934,7 @@ ramme	非公式のInstagramデスクトップアプリ
 rancher	デスクトップでのKubernetesとコンテナ管理
 random-mouse-clicker	左に自動化 マウスの右ボタンと中ボタンのクリック
 ransomwhere	個人ファイルを保護する
+rapidapi	APIのテストと記述に役立つHTTPクライアント
 rapidminer-studio	データサイエンスプラットフォーム
 rapidweaver	Webデザインソフトウェア
 rar	データ圧縮とバックアップのためのアーカイブマネージャー
@@ -3420,7 +3421,6 @@ subler	Muxとタグのmp4ファイル
 sublercli	Sublerのコマンドラインバージョン
 sublime-merge	Gitクライアント
 sublime-text	コード用のテキストエディタ マークアップ/プロセス
-subnetcalc	IPサブネットを計算するためのツール
 subsurface	オープンソースのダイブログプログラム
 subsync	字幕音声シンクロナイザー
 subtitle-master	字幕マスター
