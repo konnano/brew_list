@@ -851,6 +851,7 @@ cmuclmtk	言語モデルツール(CMU Sphinxから)
 cmus	ncursesベースのインターフェースを備えた音楽プレーヤー
 cmusfm	cmusミュージックプレーヤーのLast.fm 単独で動作するscrobbler
 cnats	NATSメッセージングシステムのCクライアント
+cntb	Contaboコマンドラインインターフェイス(CLI)
 cntlm	トンネリングを使用したNTLM認証プロキシ
 cobalt	Rustで書かれた静的サイト発生器
 coccinelle	Cコードのプログラムマッチングおよび変換エンジン
@@ -4917,6 +4918,7 @@ rmate	TextMateでSSHセッションからファイルを編集する
 rmcast	IPマルチキャストライブラリ
 rmlint	ファイルシステムから高速に削除するのツール dupes/other lint
 rmw	コマンドラインのユーティリティ Safe-remove
+rnr	ファイルとディレクトリの名前をバッチで変更するコマンドラインツール
 rnv	Relax NGCompact構文確認の実装
 roapi	コードを1行も記述しない静的データセット用の本格的なAPI
 robodoc	ソースコードドキュメントツール
@@ -5160,7 +5162,6 @@ shmcat	共有メモリセグメントをダンプするツール(System Vおよ�
 shml	ターミナルのスタイルフレームワーク
 shmux	多くのホストで同じコマンドを並行して実行します
 shntool	WAVファイルを操作および分析するための多目的ツール
-shogun	大規模な機械学習ツールボックス
 showkey	シンプルなキーストロークvisualizer
 shpotify	MacでのSpotifyのコマンドラインインターフェイス
 shtool	GNUのポータブルシェルツール
@@ -6040,6 +6041,7 @@ watchexec	監視対象ファイルが変更されたときにコマンドを実�
 watchman	ファイルを監視しファイルが変更されたときにアクションを実行します
 watson	(あなたの)時間を追跡するためのコマンドラインツール
 wavpack	合成で損失の無いオーディオ圧縮
+waybackpy	Wayback Machine APIインターフェイスとコマンドラインツール
 wayland	植字工がクライアントと通信するための手続き
 wayland-protocols	Wayland手続きの追加
 waypoint	構築するツール 配備 任意のプラットフォームで任意のアプリケーションをリリースします
