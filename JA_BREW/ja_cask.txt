@@ -2315,6 +2315,7 @@ navicat-premium	データベース管理および開発ツール
 navicat-premium-essentials	データベース管理および開発ツール
 ncar-ncl	科学データの分析と視覚化のための通訳言語
 ndm	Node.jsパッケージマネージャー(NPM)のデスクトップマネージャー
+neat	デスクトップとメニューバーでのGitHubとリニアの通知
 neat-reader	読む ePubブックに注釈を付けて管理する
 neo4j	Neo4jインスタンス用の開発者IDEまたは管理環境
 neofinder	デジタルメディアアセットマネージャー
@@ -3560,6 +3561,7 @@ textual	インターネットリレーチャット(IRC)チャットルームと�
 texturepacker	ゲームsprite sheetパッカー
 texworks	メインコードベース
 tg-pro	温度監視、ファン制御および診断
+thangs-sync	クラウドでの安全な3Dネイティブのリビジョン管理
 the-archive	メモを取る：Nimble、Calm、Plain.txt
 the-archive-browser	アーカイブの内容を閲覧する
 the-battle-for-wesnoth	ファンタジーをテーマにしたターン制戦略ゲーム
