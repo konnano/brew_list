@@ -670,6 +670,7 @@ cdparanoia	CDをサンプリングするためのオーディオ抽出ツール
 cdpr	Cisco Discovery Protocol Reporter
 cdrdao	Disk-At-OnceモードでCDを録音する
 cdrtools	プリマスタリングおよびレコーディングソフトウェア CD/DVD/Blu-ray
+cdsclient	CDSデータベースを照会するためのツール
 cedille	従属ラムダ除去の計算に基づく言語
 celero	C++オーサリング基準比較 Library/Framework
 censys	Censys API のコマンドライン インターフェイス(censys.io)
@@ -2974,6 +2975,7 @@ libebml	XMLのsbinaryバージョンのようなもの
 libebur128	EBUR 128ラウドネス標準を実装するライブラリ
 libedit	BSDスタイルのライセンスされたreadlineの代替品
 libelf	ELFオブジェクトファイルアクセスライブラリ
+libemf2svg	Microsoft(MS)EMFからSVGへの変換ライブラリ
 libepoxy	OpenGL関数ポインタ管理を処理するためのライブラリ
 libestr	文字列処理用のCライブラリ(それともう少し)
 libetonyek	Apple Keynote提示の解釈とインポート
@@ -3400,6 +3402,7 @@ livekit-cli	LiveKitへのコマンドラインインターフェイス
 livestreamer	ストリーミングサービスからVLCなどのプレーヤーにビデオをパイプします
 lizard	非常に高速な減圧を備えた効率的な圧縮機
 lizard-analyzer	Extensible Cyclomatic Complexity Analyzer
+llama	端末ファイルマネージャー
 lldpd	IEEE 802.1ab(LLDP)の実装
 llnode	node.jsアプリのデバッグ用LLDBプラグイン live/post-mortem
 llvm	次世代基礎構造コンパイラ
