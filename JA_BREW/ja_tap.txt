@@ -2059,6 +2059,9 @@ elgato-thunderbolt-dock	ElgatoThunderboltドックのメニューバーユーテ
 elgato-video-capture	Elgatoビデオキャプチャ
 elgato-wave-link	コンテンツ作成用にカスタムビルドされたソフトウェア
 eobcanka	チェコ国民IDカードアプリ
+epson-photo-plus	ディスクへの直接印刷を含む写真の整理と印刷
+epson-print-layout	すばやく簡単にカラー管理された印刷
+epson-surecolor-p900	プリンタードライバー/メディアインストーラー/ソフトウェアアップデーター
 evoluent-vertical-mouse-device-controller	Evoluent垂直マウスデバイスコントローラー
 evolv-escribe-suite	DNAデバイスの動作を構成、監視、および変更する
 fitbit-connect	Fitbit Connect
@@ -2270,6 +2273,7 @@ dolphin-dev	ゲームキューブとWiiのゲームをプレイするエミュ�
 dotnet-preview	開発者プラットフォーム
 dotnet-sdk-preview	開発者プラットフォーム
 dropbox-beta	Dropboxクラウドストレージサービスのクライアント
+element-nightly	マトリックスコラボレーションクライアント
 emacs-nightly	GNU Emacsテキストエディター
 emacs-pretest	テキストエディター
 ferdi-beta	複数のサービスを組み合わせたメッセージングブラウザー
@@ -2281,6 +2285,7 @@ firefox-nightly	Webブラウザー
 forklift2	ForkLift
 freecad-pre	3D parametricモデラー
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等
+gimp-dev	Freeでオープンソースの画像エディター
 github-beta	GitHubリポジトリ用のデスクトップクライアント
 google-chrome-beta	Webブラウザー
 google-chrome-canary	Webブラウザー
@@ -2416,6 +2421,7 @@ vlc-nightly	オープンソースのクロスプラットフォームマルチ�
 vmware-fusion-tech-preview	仮想マシンを実行します 作成/管理
 vmware-fusion10	VMware Fusion
 vmware-fusion11	再起動せずに他のオペレーティングシステムを実行するアプリ
+vmware-fusion12	仮想マシンの作成/管理/実行
 vmware-fusion7	VMware Fusion
 vmware-fusion8	VMware Fusion
 vox2	VOX
