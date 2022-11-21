@@ -7,6 +7,7 @@ my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
+chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -40,16 +41,16 @@ unless( $ARGV[0] ){
        Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
    }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-  }else{ $re->{'CEL'} = '/opt/homebrew/Cellar';
-    $re->{'FON'} = '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-     $re->{'COM'} = '/opt/homebrew/share/zsh/site-functions';
+  }else{ $re->{'CEL'} = "$MY_BREW/Cellar";
+     $re->{'FON'} = "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
+      $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
    unless( $ARGV[0] ){
-    Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
-     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
-       Dirs_1( '/opt/homebrew/Library/Taps',1,0 );
+    Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks",0,1 );
+     Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
+      Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+       Dirs_1( "$MY_BREW/Library/Taps",1,0 );
    }
-    Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
+    Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
   }
  rmdir "$ENV{'HOME'}/.BREW_LIST/13";
 }else{ $re->{'LIN'} = 1;
@@ -58,9 +59,9 @@ unless( $ARGV[0] ){
    $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
     $re->{'COM'} = '/home/linuxbrew/.linuxbrew/share/zsh/site-functions';
      $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
- Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
-   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
+ Dirs_1( "$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
+  Dirs_1( "$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+   Dirs_1( "$MY_BREW/Homebrew/Library/Taps",1,0 );
 }
 
 sub Dirs_1{
@@ -298,7 +299,7 @@ unless( $ARGV[0] ){
   }
  }
  sub Glob_1{
- my( $brew,$mine,$loop,$in ) = @_;
+ my( $brew,$mine,$loop ) = @_; my $in;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
    if( -f "$_/INSTALL_RECEIPT.json" ){
