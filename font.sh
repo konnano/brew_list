@@ -89,14 +89,15 @@ if [[ $2 ]];then
     rm -rf ~/.BREW_LIST/10
 
 perl<<"EOF"
-   if( `uname -m` =~ /arm64/ ){
-    $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
-     $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-      $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-   }else{
+   if( `uname -m` =~ /x86_64/ and -d '/usr/local/Cellar' ){
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
       $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+   }else{
+    chomp( $MY_BREW = `dirname \$(dirname \$(which brew))` );
+    $VERS = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
+     $DDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-drivers";
+      $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
    }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){
