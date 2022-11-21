@@ -5,6 +5,7 @@ use Encode;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$Locale,%JA );
+chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` ) or die " \033[31mNot installed HOME BREW\033[00m\n";
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -64,9 +65,9 @@ MAIN:{
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
  if( $re->{'LIN'} ){
-  $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
-   $re->{'BIN'} = '/home/linuxbrew/.linuxbrew/opt';
-    $re->{'TAP_S'} = '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps';
+  $re->{'CEL'} = "$MY_BREW/Cellar";
+   $re->{'BIN'} = "$MY_BREW/opt";
+    $re->{'TAP_S'} = "$MY_BREW/Homebrew/Library/Taps";
      $OS_Version = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
  }else{
   $OS_Version =  `sw_vers -productVersion`;
@@ -81,13 +82,13 @@ MAIN:{
  }
 
  if( $re->{'MAC'} and ( $UNAME =~ /arm64/ or not -d $re->{'CEL'} ) ){
-  $re->{'CEL'} = '/opt/homebrew/Cellar';
-   $re->{'BIN'} = '/opt/homebrew/opt';
-    $ref->{'CEL'} = '/opt/homebrew/Caskroom';
-     $re->{'TAP_S'} = '/opt/homebrew/Library/Taps';
-  $ref->{'VERS'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
-   $ref->{'DDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-    $ref->{'FDIR'} = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+  $re->{'CEL'} = "$MY_BREW/Cellar";
+   $re->{'BIN'} = "$MY_BREW/opt";
+    $ref->{'CEL'} = "$MY_BREW/Caskroom";
+     $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
+  $ref->{'VERS'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
+   $ref->{'DDIR'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-drivers";
+    $ref->{'FDIR'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
  }
    die " \033[31mNot installed HOME BREW\033[00m\n" unless -d $re->{'CEL'};
    $Locale = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf-?8$/i;
@@ -173,8 +174,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{ my $Lang;
- my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_jp.utf-?8$/i;
- chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` ) or die " \033[31mNot installed HOME BREW\033[00m\n";
+  my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_jp.utf-?8$/i;
    $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl
@@ -186,7 +186,7 @@ sub Died_1{ my $Lang;
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.14_4\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -213,7 +213,7 @@ sub Died_1{ my $Lang;
 }
 
 sub Init_1{
-my( $re,$list,$pid ) = @_;
+my $re = shift; my( $list,$pid ) = [];
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[00m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -233,29 +233,29 @@ my( $re,$list,$pid ) = @_;
    my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
    @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
- if( $re->{'IS'} and not $re->{'INF'} or $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} or
-     $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
- $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
-  $re->{'PID2'} = fork;
-   die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
- }
- if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
- }else{
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
    Info_1( $re ) if $re->{'INF'};
     return if $re->{'TREE'};
-  unless( $re->{'ANA'} or $re->{'COM'} or $re->{'uses'} or $re->{'deps'} or $re->{'PRE'} ){
+  unless( $re->{'ANA'} or $re->{'COM'} or $re->{'deps'} or $re->{'PRE'} ){
     $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
-     ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
-       $re->{'USE'} ? [] : Dirs_1( $re->{'CEL'},0,$re );
+     ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+       Dirs_1( $re->{'CEL'},0,$re );
    @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"};
-    $re->{'cask'} = [] if $re->{'USE'};
+    $re->{'cask'} = [] if $re->{'USE'} or $re->{'BL'};
    if( $re->{'MAC'} and $re->{'USE'} ){
     my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
     my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
      @{$re->{'cask'}} = ( @list1,@list2 );
    }
   }
+ if( @$list and ( $re->{'IS'} and not $re->{'INF'} or $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} or
+     $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ) ){
+  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+   $re->{'PID2'} = fork;
+    die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
+ }
+ if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
+ }else{
   $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
    $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
     $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
@@ -263,7 +263,7 @@ my( $re,$list,$pid ) = @_;
 }
 
 sub Ana_1{
- my( $re,@an ) = @_;
+ my $re = shift; my @an;
  $re->{'NEW'}++, Init_1( $re ) unless -f $re->{'CAN'};
  $re->{'L_OPT'} = 0 if not $re->{'L_OPT'} or $re->{'L_OPT'} and $re->{'L_OPT'} !~ /^[12]$/;
  open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
@@ -292,25 +292,26 @@ sub Ana_1{
 }
 
 sub Size_1{
- my( $re,$list,%HA,%AR,$size,@data,$ls1,$ls2,@du,$c ) = @_;
+ my( $re,$list ) = @_; my( %HA,%AR,@data,$size,$ls1,$ls2,$c );
   if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
   }
    my $an = @data ? \@data : $list;
+    exit unless @$an;
    for(my $i=0;$i<@$an;$i++){
     @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
      if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
      }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
    }
    if( open my $FH,'-|' ){
-    @du = `du -sk $ls1|awk '{print \$2,\$1}'`;
-     push @du,<$FH>;
+    @data = `du -sk $ls1|awk '{print \$2,\$1}'`;
+     push @data,<$FH>;
       close $FH;
     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{ print`du -sk $ls2|awk '{print \$2,\$1}'` if $ls2; exit; }
-    for(@du){
+    for(@data){
      my($name,$size) = m|.+/(.+)\s(\d+)|;
       $HA{$name} = $size;
     }
@@ -350,7 +351,7 @@ sub Doc_1{
 }
 
 sub Wait_1{
-my( $re,$loop,$pid ) = @_;
+my( $re,$loop ) = @_; my $pid;
  if( -d $re->{'HOME'} and not -f $re->{'TXT'} ){
   die " exists ~/Buck_BREW_LIST_UP\n"
    if system '[[ ! -d ~/Buck_BREW_LIST_UP ]] && mv ~/.BREW_LIST ~/Buck_BREW_LIST_UP';
@@ -427,8 +428,8 @@ sub DB_2{
 }
 
 sub Dirs_1{
-my( $url,$ls,$re,$bn ) = @_;
- my $an = [];
+my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
+ return $an unless -d $url;
  opendir my $dir_1,$url or die " Dirs_1 $!\n";
   for my $hand(readdir $dir_1){
    next if $hand =~ /^\./;
@@ -485,7 +486,7 @@ my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
 }
 
 sub Top_1{
-my( $re,$list,%HA,@AN,$top ) = @_;
+my( $re,$list ) = @_; my( %HA,@AN,$top );
  Proc_1( $re,$list );
  for my $ls(@$list){
   next if $ls eq 'glibc' or $ls eq 'linux-headers@5.15';
@@ -504,7 +505,7 @@ my( $re,$list,%HA,@AN,$top ) = @_;
 }
 
 sub Brew_1{
-my( $re,$list,%HA,@AN ) = @_;
+my( $re,$list ) = @_; my( %HA,@AN );
  return unless @$list or @{$re->{'cask'}};
   for(my $i=0;$i<@$list;$i++){ my $tap = $list->[$i];
    Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
@@ -521,7 +522,7 @@ my( $re,$list,%HA,@AN ) = @_;
 }
 
 sub Brew_2{
-my( $re,$ls,@an ) = @_;
+my $re = shift; my( $ls,@an );
  push @an,$_ for (sort keys %{$re->{'HASH'}});
   Proc_1( $re,\@an,1 );
   for my $key(sort keys %{$re->{'HASH'}}){
@@ -529,12 +530,12 @@ my( $re,$ls,@an ) = @_;
    $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@{$re->{$key}}-1;
   }
  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-  print"\r$ls";
+  print"\r$ls" if $ls;
  Nohup_1( $re );
 }
 
 sub Brew_3{
-my( $re,$ls,@AN,$mine,$in ) = @_;
+my( $re,$ls ) = @_; my( @AN,$mine,$in );
  my $brew = $ls ? 'DMG' : 'HASH';
  for my $key(sort keys %{$re->{$brew}}){
   next if $re->{'dep_s'} and $re->{'dep_s'} ne $key;
@@ -569,7 +570,7 @@ my( $re,$ls,@AN,$mine,$in ) = @_;
 }
 
 sub Like_1{
-my( $re,$name,$cat,%HA,%HAN,@ARR ) = @_;
+my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
  waitpid( $re->{'PID'},0 ) if $re->{'PID'};
   $name = $$_ ? $_ : next for(@$name);
  unless( $cat ){
@@ -671,7 +672,7 @@ my( $re,$tap,$HA,$AN ) = @_;
 }
 
 sub Dele_1{
-my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
+my $re = shift; my( @AN,%HA,@an,$do );
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
   print" \033[33mexists Formula and Cask...\033[00m\n"
    if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"} and -t STDOUT;
@@ -682,8 +683,8 @@ my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
 
  unless( @an ){ @AN = ();
   unless( $re->{'CAS'} and $re->{'LINK'} ){
-  $re->{'PID2'} = fork;
-   die " Dele Not fork : $!\n" unless defined $re->{'PID2'};
+   $re->{'PID2'} = fork;
+    die " Dele Not fork : $!\n" unless defined $re->{'PID2'};
   }
   unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
   }else{
@@ -705,7 +706,7 @@ my( $re,@AN,%HA,@an,@an1,@an2,$do ) = @_;
       last if $flag;
      }
     $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
-   } sleep 1 unless @AN;
+   }
     waitpid $re->{'PID2'},0 if not $do and rmdir "$re->{'HOME'}/WAIT";
    if( $re->{'LINK'} and $do ){
     $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
@@ -1248,7 +1249,7 @@ my( $re,$brew_1,$i,$e ) = @_;
 }
 
 sub Command_1{
-my( $re,$ls1,$ls2,%HA,%OP ) = @_;
+my $re = shift; my( $ls1,$ls2,%HA,%OP );
  Like_1( $re,[\$re->{'STDI'}],1 );
  exit unless my $num = $re->{'HASH'}{$re->{'STDI'}};
  $re->{'CELD'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
@@ -1320,8 +1321,9 @@ sub Format_1{
      my $size = int $re->{'TPUT'}/($leng+2);
       my $in = 1;
     ( $re->{'PRE'} and @{$re->{'ARR'}} ) ? print" ==> Fonts\n" :
-    ( $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks\n" :
-    ( $re->{'FOR'} and @{$re->{'ARR'}} and ( $re->{'BL'} or $re->{'S_OPT'} ) ) ? print" ==> Formula\n" : 0;
+    ( $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks$re->{'SPA'}\n" :
+    ( $re->{'FOR'} and @{$re->{'ARR'}} and ( $re->{'BL'} or $re->{'S_OPT'} or $re->{'TOP'} ) ) ?
+      print" ==> Formula$re->{'SPA'}\n" : 0;
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
       if( $re->{'ARR'}[$e] =~ m[^ ==> homebrew/|^ ==> Formula|^ ==> Cask] ){
        ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ ==> Cask/ ) ?
@@ -1453,7 +1455,7 @@ my $re = shift;
 }
 
 sub Format_3{
- my( $file,$re,$line1,$line2,$flag1,$flag2,$ca,$fo ) = @_;
+ my( $file,$re ) = @_; my( $line1,$line2,$flag1,$flag2,$ca,$fo );
   if( $Locale ){ $line1 = '├──'; $line2 = '└──';
   }else{ $line1 = '|--'; $line2 = '`--'; }
 
@@ -1527,7 +1529,7 @@ my $re = shift;
 }
 
 sub Tied_1{
-my( $re,$i,@file1,@file2 ) = @_;
+my $re = shift; my( $i,@file1,@file2 );
  while(<DATA>){
   $i++, next if /^__TIE__$/;
    $i ? push @file2,$_ : push @file1,$_;
@@ -1632,14 +1634,15 @@ if [[ $2 ]];then
     rm -rf ~/.BREW_LIST/10
 
 perl<<"EOF"
-   if( `uname -m` =~ /arm64/ ){
-    $VERS = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-versions';
-     $DDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-      $FDIR = 1 if -d '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-   }else{
+   if( `uname -m` =~ /x86_64/ and -d '/usr/local/Cellar' ){
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
       $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+   }else{
+    chomp( $MY_BREW = `dirname \$(dirname \$(which brew))` );
+    $VERS = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
+     $DDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-drivers";
+      $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
    }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){
@@ -1845,6 +1848,7 @@ my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
+chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -1878,16 +1882,16 @@ unless( $ARGV[0] ){
        Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
    }
     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-  }else{ $re->{'CEL'} = '/opt/homebrew/Cellar';
-    $re->{'FON'} = '/opt/homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-     $re->{'COM'} = '/opt/homebrew/share/zsh/site-functions';
+  }else{ $re->{'CEL'} = "$MY_BREW/Cellar";
+     $re->{'FON'} = "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
+      $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
    unless( $ARGV[0] ){
-    Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
-     Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-      Dirs_1( '/opt/homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
-       Dirs_1( '/opt/homebrew/Library/Taps',1,0 );
+    Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks",0,1 );
+     Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
+      Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+       Dirs_1( "$MY_BREW/Library/Taps",1,0 );
    }
-    Dirs_1( '/opt/homebrew/Library/Taps/homebrew',1,1 );
+    Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
   }
  rmdir "$ENV{'HOME'}/.BREW_LIST/13";
 }else{ $re->{'LIN'} = 1;
@@ -1896,9 +1900,9 @@ unless( $ARGV[0] ){
    $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
     $re->{'COM'} = '/home/linuxbrew/.linuxbrew/share/zsh/site-functions';
      $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
- Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-  Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
-   Dirs_1( '/home/linuxbrew/.linuxbrew/Homebrew/Library/Taps',1,0 );
+ Dirs_1( "$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
+  Dirs_1( "$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+   Dirs_1( "$MY_BREW/Homebrew/Library/Taps",1,0 );
 }
 
 sub Dirs_1{
@@ -2136,7 +2140,7 @@ unless( $ARGV[0] ){
   }
  }
  sub Glob_1{
- my( $brew,$mine,$loop,$in ) = @_;
+ my( $brew,$mine,$loop ) = @_; my $in;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
    if( -f "$_/INSTALL_RECEIPT.json" ){
