@@ -82,7 +82,7 @@ MAIN:{
     $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
 
- if( $re->{'MAC'} and ( $UNAME =~ /arm64/ or not -d '/usr/local/Homebre' ) ){
+ if( $re->{'MAC'} and ( $UNAME =~ /arm64/ or not -d '/usr/local/Homebrew' ) ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
     $ref->{'CEL'} = "$MY_BREW/Caskroom";
