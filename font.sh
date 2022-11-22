@@ -89,7 +89,7 @@ if [[ $2 ]];then
     rm -rf ~/.BREW_LIST/10
 
 perl<<"EOF"
-   if( `uname -m` =~ /x86_64/ and -d '/usr/local/Cellar' ){
+   if( `uname -m` =~ /x86_64/ and -d '/usr/local/Homebrew' ){
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
       $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
