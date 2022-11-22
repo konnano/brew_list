@@ -16,22 +16,22 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
     $OS_Version =~ s/^(1[1-3]).+\n/$1.0/;
  $OS_Version2 = $CPU eq 'arm\?' ? "${OS_Version}M1" : $OS_Version;
 
-unless( $ARGV[0] ){
- $Xcode = `xcodebuild -version 2>/dev/null` ?
-  `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
-    $Xcode =~ s/^(\d\.)/0$1/;
- $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
-                  `/usr/bin/clang --version|sed '/Apple/!d;s/.*clang-\\([^.]*\\).*/\\1/'` : 0;
- $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null` ?
-                `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
-                 sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
-}
+ unless( $ARGV[0] ){
+  $Xcode = `xcodebuild -version 2>/dev/null` ?
+   `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
+     $Xcode =~ s/^(\d\.)/0$1/;
+  $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
+                   `/usr/bin/clang --version|sed '/Apple/!d;s/.*clang-\\([^.]*\\).*/\\1/'` : 0;
+  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null` ?
+                 `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
+                  sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
+ }
   %MAC_OS = ('ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
              'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11',
              'yosemite'=>'10.10','mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
      %HAN = ('newer'=>'>','older'=>'<');
 
-  if( $CPU eq 'intel\?' and -d '/usr/local/Cellar' ){ $re->{'CEL'} = '/usr/local/Cellar';
+  if( $CPU eq 'intel\?' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
     $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
      $re->{'COM'} = '/usr/local/share/zsh/site-functions';
    unless( $ARGV[0] ){
@@ -54,14 +54,15 @@ unless( $ARGV[0] ){
   }
  rmdir "$ENV{'HOME'}/.BREW_LIST/13";
 }else{ $re->{'LIN'} = 1;
- $re->{'CEL'} = '/home/linuxbrew/.linuxbrew/Cellar';
+ $re->{'CEL'} = "$MY_BREW/Cellar";
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
    $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
-    $re->{'COM'} = '/home/linuxbrew/.linuxbrew/share/zsh/site-functions';
+    $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
      $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
- Dirs_1( "$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
-  Dirs_1( "$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
-   Dirs_1( "$MY_BREW/Homebrew/Library/Taps",1,0 );
+   $MY_BREW = -d '/home/linuxbrew/.linuxbrew/Homebrew' ? '/home/linuxbrew/.linuxbrew/Homebrew' : $MY_BREW;
+ Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
+  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+   Dirs_1( "$MY_BREW/Library/Taps",1,0 );
 }
 
 sub Dirs_1{
@@ -486,7 +487,7 @@ unless( $ARGV[0] ){
    $TIN .= "$_ \\\n" if $tap{"${_}formula"} or $tap{"${_}d_cask"};
    $UAA .= "$_ \\\n" if $tap{"${_}u_cask"} or  $tap{"${_}u_form"};
   }
-   my $glo = $UNAME eq 'x86_64' ? '/usr/local/Caskroom' : '/opt/homebrew/Caskroom';
+   my $glo = -d '/usr/local/Caskroom' ? '/usr/local/Caskroom' : "$MY_BREW/Caskroom";
   for my $gs(glob "$glo/*"){ my $ls;
    $gs =~ s|.+/(.+)|$1|;
    if( $tap{"${gs}d_cask"} ){
