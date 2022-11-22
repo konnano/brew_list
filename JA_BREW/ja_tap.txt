@@ -1492,6 +1492,7 @@ font-petit-formal-script	Petit Formal スクリプト
 font-petrona	Petrona
 font-phetsarath	Phetsarath
 font-philosopher	Philosopher
+font-photonico-code	Free/モノスペース コーティング用のslab-serifスタイルフォント
 font-piazzolla	メディア用のSerifフォントファミリー
 font-piedra	Piedra
 font-pigmo00	かわいい描画スタイルの日本語フォント
@@ -1853,6 +1854,7 @@ font-tharlon	Tharlon
 font-thasadith	Thasadith
 font-the-girl-next-door	The Girl Next Door
 font-the-nautigal	流動的でありながらフォーマルで美しいコネクタ
+font-tiejili-sc	Reggae Oneを中国語にフォントワークス拡張したオープンソースのフォント
 font-tienne	Tienne
 font-tillana	Tillana
 font-times-new-roman	Times New Roman
