@@ -2794,6 +2794,7 @@ kubie	kubectxとkubensのはるかに強力な代替手段
 kumactl	Kumaコントロールplaneコマンドラインユーティリティ
 kumo	Javaのワードクラウド
 kustomize	Kubernetes YAMLマニフェストのテンプレートFreeカスタマイズ
+kustomizer	Kubernetes 構成をOCIアーティファクトとして配布するためのパッケージマネージャー
 kvazaar	Ultravideo HEVCエンコーダー
 kyma-cli	Kymaコマンドラインインターフェース
 kyoto-cabinet	データベースを管理するためのルーチンのライブラリ
