@@ -108,6 +108,7 @@ unless( $ARGV[0] ){
        }
         $tap{"$name$data"} =
         $data =~ s/.*arm64_ventura:.*\n/13.0M1/  ? 1 :
+        $data =~ s/.*ventura:.*\n/13.0/          ? 1 :
         $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
         $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
         $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
@@ -121,7 +122,7 @@ unless( $ARGV[0] ){
         $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
-      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0';
+      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0'; ###
       $KIN = 0; next;
      }
    if( $data !~ /^\s*end/ and $IN ){ $SPA++ if $data =~ /\s+do$/; next;
