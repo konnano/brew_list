@@ -174,9 +174,9 @@ my( $name,$re,$ref ) = @_;
  }
 }
 
-sub Died_1{ my $Lang;
+sub Died_1{
   my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_jp.utf-?8$/i;
-   $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
+  my $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
    # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n" :
@@ -187,7 +187,7 @@ sub Died_1{ my $Lang;
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.14_5\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -307,11 +307,11 @@ sub Size_1{
      }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
    }
    if( open my $FH,'-|' ){
-    @data = `du -sk $ls1`;
+    @data = `du -ks $ls1`;
      push @data,<$FH>;
       close $FH;
     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
-   }else{ print`du -sk $ls2` if $ls2; exit; }
+   }else{ print`du -ks $ls2` if $ls2; exit; }
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
     sub _cmp{ $_[0] =~ /(\d+)\s/; $1; }
   for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
@@ -484,7 +484,7 @@ my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
 }
 
 sub Top_1{
-my( $re,$list ) = @_; my( %HA,@AN,$top );
+my( $re,$list ) = @_; my $top;
  Proc_1( $re,$list );
  for my $ls(@$list){
   next if $ls eq 'glibc' or $ls eq 'linux-headers@5.15';
@@ -562,7 +562,7 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
    @AN = @{$re->{'ARR'}} = ();
   $re->{'NOT'} = '';
  }
- print $mine if $re->{'KEN'};
+ print $mine if $re->{'KEN'} and $mine;
  Brew_3( $re,' ' ) unless $ls or $re->{'LIN'} or not $re->{'DMG'};
  Nohup_1( $re );
 }
