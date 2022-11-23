@@ -15,15 +15,19 @@ To uninstall, type ./init.sh unlink inside the brew_list-main folder
 
 : option
 
-'-l' option shows formula list, first argument is formula search, second argument '.' is full text search
+'-l' option shows formula list, first argument is formula search</br>
+&ensp;the second argument '.' is full text search
 
-'-lb' option shows bottle install formula, // allows regular expression
+'-lb' option shows bottle install formula</br>
+&ensp;// allows you to use regular expressions
 
-'-lx' option shows formulas that can't be installed, // allows you to use regular expressions
+'-lx' option shows formulas that can't be installed</br>
+&ensp;// allows you to use regular expressions
 
 '-i' option shows installed formula list
 
-'-s' option allows you to search formulas, // allows you to use regular expressions
+'-s' option allows you to search formulas</br>
+&ensp;// allows you to use regular expressions
 
 '-co' option shows formula library
 
@@ -34,16 +38,16 @@ To uninstall, type ./init.sh unlink inside the brew_list-main folder
 '-tt' option shows only the formulas required for installation as a tree
 
 '-de' option shows formulas that are not needed after uninstall</br>
-Enter the non-uninstall formula in the second argument
+&ensp;Enter the non-uninstall formula in the second argument
 
 '-d' option shows unnecessary formula tree after uninstallation</br>
-Enter the non-uninstall formula in the second argument
+&ensp;Enter the non-uninstall formula in the second argument
 
 '-dd' option shows only formulas that are not needed after uninstalling.</br>
-Enter the non-uninstall formula in the second argument
+&ensp;Enter the non-uninstall formula in the second argument
 
 '-ddd' option can be used to uninstall formulas that are not needed for uninstallation.</br>
-Enter the non-uninstall formula in the second argument
+&ensp;Enter the non-uninstall formula in the second argument
 
 #### Please confirm deletion with -dd or -de ####
 
@@ -51,7 +55,8 @@ Enter the non-uninstall formula in the second argument
 
 '-ua' option shows all formulas that depend on formulas
 
-The '-ud' option shows the formulas that are dependent on the formula, the second argument '.' the formulas that don't need the dependency
+'-ud' option shows the formulas that are dependent on the formula</br>
+&ensp;the second argument '.' the formulas that don't need the dependency
 
 '-ul' option shows the number of formulas dependent on the formula
 
@@ -67,15 +72,19 @@ The '-ud' option shows the formulas that are dependent on the formula, the secon
 
 Only Mac: Cask
 
-'-c' option shows Cask list, first argument is formula search, second argument '.' is full text search
+'-c' option shows Cask list, first argument is formula search</br>
+&ensp;the second argument '.' is full text search
 
-'-ct' option shows Cask's Tap list, the first argument is Formula search, the second argument '.' is full text search.
+'-ct' option shows Cask's Tap list, the first argument is Formula search</br>
+&ensp;the second argument '.' is full text search.
 
 '-ci' option shows the Cask installed list
 
-'-cx' option displays Cask that cannot be installed, // allows regular expression
+'-cx' option displays Cask that cannot be installed</br>
+&ensp;// allows you to use regular expressions
 
-'-cs' option displays Formula and Cask with the same name, // allows regular expression
+'-cs' option displays Formula and Cask with the same name</br>
+&ensp;// allows you to use regular expressions
 
 '-cd' option lists Casks and Formulas required by Cask
 
