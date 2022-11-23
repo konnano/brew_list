@@ -7,7 +7,7 @@ my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
-chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` );
+chomp(my $MY_BREW = `dirname \$(dirname \$(which brew))`);
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -59,7 +59,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
     $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
      $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
-   $MY_BREW = -d '/home/linuxbrew/.linuxbrew/Homebrew' ? '/home/linuxbrew/.linuxbrew/Homebrew' : $MY_BREW;
+   $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
    Dirs_1( "$MY_BREW/Library/Taps",1,0 );
