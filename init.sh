@@ -1,6 +1,7 @@
 #!/bin/bash
  NAME=$(uname)
- MY_BREW=$(dirname $(dirname $(which brew))) || ${die:?Not installed HOME BREW}
+ MY_BREW=$(dirname $(dirname $(which brew) 2>/dev/null) 2>/dev/null) ||\
+  ${die:?Not installed HOME BREW}
 if [[ ! "$NAME" = Darwin && ! "$NAME" = Linux ]];then
  echo Not support OS; exit 1
 elif [[ "$NAME" = Darwin ]];then
