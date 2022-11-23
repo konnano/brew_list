@@ -5,7 +5,7 @@ use Encode;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$Locale,%JA );
-chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` ) or die " \033[31mNot installed HOME BREW\033[00m\n";
+chomp(my $MY_BREW = `dirname \$(dirname \$(which brew) 2>/dev/null) 2>/dev/null`);
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -67,7 +67,7 @@ MAIN:{
  if( $re->{'LIN'} ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
-    $MY_BREW = -d '/home/linuxbrew/.linuxbrew/Homebrew' ? '/home/linuxbrew/.linuxbrew/Homebrew' : $MY_BREW;
+    $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
     $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
      $OS_Version = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
  }else{
@@ -1898,7 +1898,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
     $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
      $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
-   $MY_BREW = -d '/home/linuxbrew/.linuxbrew/Homebrew' ? '/home/linuxbrew/.linuxbrew/Homebrew' : $MY_BREW;
+   $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
    Dirs_1( "$MY_BREW/Library/Taps",1,0 );
