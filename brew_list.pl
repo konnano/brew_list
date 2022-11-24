@@ -720,7 +720,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
 }
 
 sub File_1{
-my( $re,$list,$file ) = @_; my( $i,$e,@tap ) = ( -1,0 );
+my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   unless( $re->{'TAP'} ){
    open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
     chomp( @$file=<$BREW> );
@@ -1481,7 +1481,7 @@ sub Format_3{
      my $desc2 = $JA{$tap} ? $JA{$tap} : $re->{'OS'}{"${tap}c_desc"} ?
       $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
 
-     $ca .= #( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n\n" :
+     $ca .= ( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n" :
             ( $flag1 and $flag1 eq $name and $i == $#cas ) ? "$line2 c $cas[$i]$in\t$desc2\n\n" :
             ( $#cas > 0 or @fom ) ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
                                     "$name$dn\t$desc1\n$line2 c $cas[$i]$in\t$desc2\n\n";
@@ -1500,6 +1500,7 @@ sub Format_3{
       my $in = $re->{'HASH'}{$mem} ? ' (I)' : '';
      my $desc4 = $JA{$mem} ? $JA{$mem} : $re->{'OS'}{"${mem}f_desc"} ?
       $re->{'OS'}{"${mem}f_desc"} : $re->{'OS'}{"${mem}f_name"} ? $re->{'OS'}{"${mem}f_name"} : '';
+
      $fo .= ( $flag2 and $flag2 eq $name and $d == $#fom ) ? "$line2 f $fom[$d]$in\t$desc4\n\n" :
               $#fom > 0 ? "$name$dn\t$desc1\n$line1 f $fom[$d]$in\t$desc4\n" :
                           "$name$dn\t$desc1\n$line2 f $fom[$d]$in\t$desc4\n\n";
@@ -1961,7 +1962,7 @@ unless( $ARGV[0] ){
         $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
-      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0'; ###
+      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0'; ####
       $KIN = 0; next;
      }
    if( $data !~ /^\s*end/ and $IN ){ $SPA++ if $data =~ /\s+do$/; next;
