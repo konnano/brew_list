@@ -1082,6 +1082,7 @@ fastscripts	時間を節約するスクリプトを実行するためのツー�
 fauxpas	Faux Pas
 favro	コラボレーティブ共同プランニングアプリ
 fawkes	顔認識を回避するために画像ファイルをマントします
+faxbot	FRITZ!BoxでFAX送信
 fbreader	FBReader
 fedora-media-writer	Fedoraイメージをポータブルメディアファイルに書き込むためのツール
 feed-the-beast	Minecraft modダウンローダーおよびマネージャー
@@ -3240,6 +3241,7 @@ skychart	星図を描く
 skyfonts	フォントマネージャー
 skype	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype-for-business	Microsoftのインスタントメッセージングエンタープライズソフトウェア
+slab	組織の知識管理
 slack	チームコミュニケーションおよび協力的ソフトウェア
 slack-cli	Slackアプリを作成/実行/デプロイするCLI
 sleek	todo.txtに基づくTodoアプリ
