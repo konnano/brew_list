@@ -1000,8 +1000,9 @@ my( $list,$file,$in,$re ) = @_;
   if( ( $re->{'BL'} or $re->{'S_OPT'} ) and $brew_1 =~ m|^ ==> homebrew/| ){
        Mine_1($brew_1,$re,0); next; }
 
-  $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"};
-   $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
+  $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"} and
+                                                 length $re->{'OS'}{"${brew_1}c_version"} < length $brew_2;
+  $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'TAP'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3 ? $brew_3 : 0;
@@ -1454,44 +1455,42 @@ my $re = shift;
 
 sub Format_3{
  my( $file,$re ) = @_; my( $line1,$line2,$flag1,$flag2,$ca,$fo );
-  if( $Locale ){ $line1 = '├──'; $line2 = '└──';
-  }else{ $line1 = '|--'; $line2 = '`--'; }
-
+   if( $Locale ){ $line1 = '├──'; $line2 = '└──';
+   }else{ $line1 = '|--'; $line2 = '`--';
+   }
   for(my $m=0;$m<@$file;$m++){
    if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
-    $fo .= "  \033[33m== homebrew/cask-drivers ==\033[00m\n";
-    $ca .= "  \033[33m== homebrew/cask-drivers ==\033[00m\n";
+    $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[00m\n" : "  == homebrew/cask-drivers ==\n";
+    $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[00m\n" : "  == homebrew/cask-drivers ==\n";
    }elsif( $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/| ){
-    $fo .= "  \033[33m== homebrew/cask-versions ==\033[00m\n";
-    $ca .= "  \033[33m== homebrew/cask-versions ==\033[00m\n";
+    $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[00m\n" : "  == homebrew/cask-versions ==\n";
+    $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[00m\n" : "  == homebrew/cask-versions ==\n";
    }  next if $$file[$m] =~ m[^[012]$|^homebrew/];
 
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
     my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
-      $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} : '';
-       $name = -t STDOUT ? " \033[33mCan't install $name...\033[00m\n".$name :
-                           " Can't install $name....\n".$name if $re->{'OS'}{"${name}un_cask"};
-        my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
+        $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} : '';
+      $name = -t STDOUT ? " \033[33mCan't install $name...\033[00m\n".$name :
+                          " Can't install $name....\n".$name if $re->{'OS'}{"${name}un_cask"};
+      my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
 
     for(my $i=0;$i<@cas;$i++){ my $tap = $cas[$i];
-      $tap =~ s|.+/(.+)|$1|;
-       my $in = $re->{'DMG'}{$tap} ? ' (I)' : '';
+     $tap =~ s|.+/(.+)|$1|;
+      my $in = $re->{'DMG'}{$tap} ? ' (I)' : '';
      my $desc2 = $JA{$tap} ? $JA{$tap} : $re->{'OS'}{"${tap}c_desc"} ?
-      $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
-
-     $ca .= ( $flag1 and $flag1 eq $name and $i == $#cas and @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n" :
-            ( $flag1 and $flag1 eq $name and $i == $#cas ) ? "$line2 c $cas[$i]$in\t$desc2\n\n" :
-            ( $#cas > 0 or @fom ) ? "$name$dn\t$desc1\n$line1 c $cas[$i]$in\t$desc2\n" :
-                                    "$name$dn\t$desc1\n$line2 c $cas[$i]$in\t$desc2\n\n";
-        $flag1 = $name;
+        $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
+     $ca .= "$name$dn\t$desc1\n" if not $flag1 or $flag1 and $flag1 ne $name;
+     $ca .= ( $#cas > 0 and $i != $#cas or @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n" :
+                                                     "$line2 c $cas[$i]$in\t$desc2\n\n";
+     $flag1 = $name;
     }
    if( $re->{'OS'}{"${name}d_cask"} and $re->{'OS'}{"${name}formula"} ){
     for(my $e=0;$e<@fom;$e++){  my $in = $re->{'HASH'}{$fom[$e]} ? ' (I)' : '';
      my $desc3 = $JA{$fom[$e]} ? $JA{$fom[$e]} : $re->{'OS'}{"${fom[$e]}f_desc"} ?
-      $re->{'OS'}{"${fom[$e]}f_desc"} : $re->{'OS'}{"${fom[$e]}f_name"} ? $re->{'OS'}{"${fom[$e]}f_name"} : '';
-     $ca .= $e == $#fom ? "$line2 f $fom[$e]$in\t$desc3\n\n" : "$line1 f $fom[$e]$in\t$desc3\n";
+        $re->{'OS'}{"${fom[$e]}f_desc"} : $re->{'OS'}{"${fom[$e]}f_name"} ? $re->{'OS'}{"${fom[$e]}f_name"} : '';
+     $ca .= $e != $#fom ? "$line1 f $fom[$e]$in\t$desc3\n" : "$line2 f $fom[$e]$in\t$desc3\n\n";
     }
    }
    unless( $re->{'OS'}{"${name}d_cask"} ){
@@ -1499,17 +1498,18 @@ sub Format_3{
      my $mem = $re->{'OS'}{"${fom[$d]}alia"} ? $re->{'OS'}{"${fom[$d]}alia"} : $fom[$d];
       my $in = $re->{'HASH'}{$mem} ? ' (I)' : '';
      my $desc4 = $JA{$mem} ? $JA{$mem} : $re->{'OS'}{"${mem}f_desc"} ?
-      $re->{'OS'}{"${mem}f_desc"} : $re->{'OS'}{"${mem}f_name"} ? $re->{'OS'}{"${mem}f_name"} : '';
-
-     $fo .= ( $flag2 and $flag2 eq $name and $d == $#fom ) ? "$line2 f $fom[$d]$in\t$desc4\n\n" :
-              $#fom > 0 ? "$name$dn\t$desc1\n$line1 f $fom[$d]$in\t$desc4\n" :
-                          "$name$dn\t$desc1\n$line2 f $fom[$d]$in\t$desc4\n\n";
-        $flag2 = $name;
+        $re->{'OS'}{"${mem}f_desc"} : $re->{'OS'}{"${mem}f_name"} ? $re->{'OS'}{"${mem}f_name"} : '';
+     $fo .= "$name$dn\t$desc1\n" if not $flag2 or $flag2 and $flag2 ne $name;
+     $fo .= ( $#fom > 0 and $d != $#fom ) ? "$line1 f $fom[$d]$in\t$desc4\n" :
+                                            "$line2 f $fom[$d]$in\t$desc4\n\n";
+     $flag2 = $name;
     }
    }
   }
    system " printf '\033[?7l' " if -t STDOUT;
-  print"  \033[33m### require Cask and Formula ###\033[00m\n$ca  \033[33m### require Formula ###\033[00m\n$fo";
+  if( -t STDOUT ){
+   print"  \033[33m### require Cask and Formula ###\033[00m\n$ca  \033[33m### require Formula ###\033[00m\n$fo";
+  }else{ print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo"; }
    system " printf '\033[?7h' " if -t STDOUT;
  Nohup_1( $re );
 }
