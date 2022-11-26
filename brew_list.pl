@@ -997,11 +997,10 @@ my( $list,$file,$in,$re ) = @_;
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
-  if( ( $re->{'BL'} or $re->{'S_OPT'} ) and $brew_1 =~ m|^ ==> homebrew/| ){
-       Mine_1($brew_1,$re,0); next; }
+  Mine_1($brew_1,$re,0), next if ( $re->{'BL'} or $re->{'S_OPT'} ) and $brew_1 =~ m|^ ==> homebrew/|;
 
-  $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"} and
-                                                 length $re->{'OS'}{"${brew_1}c_version"} < length $brew_2;
+  $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'TAP'} or $re->{'CAS'} and
+            $re->{'OS'}{"${brew_1}c_version"} and length $re->{'OS'}{"${brew_1}c_version"} < length $brew_2;
   $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
@@ -1455,9 +1454,8 @@ my $re = shift;
 
 sub Format_3{
  my( $file,$re ) = @_; my( $line1,$line2,$flag1,$flag2,$ca,$fo );
-   if( $Locale ){ $line1 = '├──'; $line2 = '└──';
-   }else{ $line1 = '|--'; $line2 = '`--';
-   }
+   $line1 = $Locale ? '├──' : '|--';
+   $line2 = $Locale ? '└──' : '`--';
   for(my $m=0;$m<@$file;$m++){
    if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
     $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[00m\n" : "  == homebrew/cask-drivers ==\n";
@@ -1483,7 +1481,7 @@ sub Format_3{
         $re->{'OS'}{"${tap}c_desc"} : $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
      $ca .= "$name$dn\t$desc1\n" if not $flag1 or $flag1 and $flag1 ne $name;
      $ca .= ( $#cas > 0 and $i != $#cas or @fom ) ? "$line1 c $cas[$i]$in\t$desc2\n" :
-                                                     "$line2 c $cas[$i]$in\t$desc2\n\n";
+                                                    "$line2 c $cas[$i]$in\t$desc2\n\n";
      $flag1 = $name;
     }
    if( $re->{'OS'}{"${name}d_cask"} and $re->{'OS'}{"${name}formula"} ){
