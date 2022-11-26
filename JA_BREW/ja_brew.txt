@@ -2324,7 +2324,7 @@ hicolor-icon-theme	FreeDesktop.orgアイコンテーマの代替品テーマ
 hidapi	USBおよびBluetoothHIDデバイスと通信するためのライブラリ
 highlight	ソースコードを構文の強調表示を使用してフォーマットされたテキストに変換します
 highs	線形最適化ソフトウェア
-highway	パフォーマンスポータブル ランタイム ディスパッチによる長さにとらわれない SIMD
+highway	パフォーマンスポータブル ランタイムディスパッチによる長さにとらわれないSIMD
 hilite	コマンドを実行し、STDERR出力を強調表示するCLIツール
 himalaya	Rustで書かれたCLIメールクライアント
 hiredis	Redisの最低限のクライアント
@@ -4984,6 +4984,7 @@ ruby@2.6	強力で綺麗なオブジェクト指向のスクリプト言語
 ruby@2.7	強力で綺麗なオブジェクト指向のスクリプト言語
 ruby@3.0	強力で綺麗なオブジェクト指向のスクリプト言語
 rubyfmt	Rubyオート整形ツール
+ruff	Rustで書かれた非常に高速なPythonリンター
 run	小さなスクリプトとラッパーを簡単に管理および呼び出す
 runcocoa	コマンドラインから実行するためのツール Cocoa/Objective-C/C
 rune	Rustに埋め込み可能な動的プログラミング言語
