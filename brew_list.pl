@@ -40,13 +40,13 @@ MAIN:{
  }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} =
                             $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6;
- }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'} = $ref->{'INF'} = $ref->{'LINK'}= 7;
+ }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
                             $ref->{'DEL'} = $re->{'DEL'} = 1;
  }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
- }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'} = 1;
- }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
- }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'DD'} = 1;
- }elsif( $AR[0] eq '-ddd'){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'DD'} = $re->{'DDD'} = 1;
+ }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'}= 1;
+ }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = 1;
+ }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = 1;
+ }elsif( $AR[0] eq '-ddd'){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = $re->{'DDD'} = 1;
  }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'}  = 1;
  }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'}  = 1;
@@ -119,8 +119,10 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
-   $name->{'KEN'} = 1 if $name and $AR[2] and $AR[2] eq '.' and not $re->{'COM'} or
-                         $re->{'deps'} and $AR[1] and $AR[1] eq '.';
+   if( $name and $AR[2] and $AR[2] eq '.' and not $re->{'deps'} and not $re->{'INF'}){ $name->{'KEN'} = 1;
+   }elsif( $re->{'deps'} and $AR[1] and $AR[1] eq '.' ){ $name->{'KEN'} = 1;
+   }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2];
+   }
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
@@ -142,7 +144,7 @@ MAIN:{
   }elsif( $re->{'deps'} and $AR[1] and $AR[1] ne '.' ){
    $re->{'dep_s'} = lc $AR[1];
   }
-  if( $re->{'DEL'} and $AR[2] ){ DB_1( $re );
+  if( $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
@@ -1388,10 +1390,11 @@ my $re = shift;
    }
   } @{$re->{'UNI'}} = reverse @tt;
  }
- my( $cou,$AU,@AUA,@COU,@COU2,@SC,%ha,@cn ) = 0;
+  my( $cou,@COU2,@COU3,@AR2,@SC,@cn,%ha ) = 0;
+ $re->{'KEN'} = 0 if not $re->{'KEN'} or $re->{'KEN'} and $re->{'KEN'} !~ /^\d+$/;
   $cn[0] = $re->{'INF'};
  for(@{$re->{'UNI'}}){
-   if( $re->{'DD'} ){
+   if( $re->{'D'} ){
     my @bn = split '\|';
      $bn[$#bn] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
       push @{$SC[$#bn-1]},$bn[$#bn] : push @{$SC[$#bn-1]},0;
@@ -1400,9 +1403,33 @@ my $re = shift;
    }
     my $an = () = /\|/g;
    s/\|/│/g, s/│--/├──/g if $Locale;
+  push @COU2,$_ if $an < $re->{'KEN'} + 1;
   $cou = $an if $cou < $an;
- }
- unless( $re->{'DDD'} ){
+ } @{$re->{'UNI'}} = @COU2 if @COU2 and not $re->{'D'};
+
+ if( $re->{'D'} ){ my %HA;
+  for(my $i=$#SC;$i>=0;$i--){
+   for my $key(sort @{$SC[$i]}){
+     $HA{$key}++;
+    push @{$AR2[$i]},"$key\t" if $key and $HA{$key} < 2;
+   }
+   push @{$AR2[$i]},0 unless @{$AR2[$i]}[0];
+  }
+  for my $name1(@COU2){ my $flag;
+   push @COU3,$name1 if $name1 !~ /\Q(can delete)\E/;
+    my( $eq1 ) = $name1 =~ /.*(?:├──|\|--)\s([^\s]+)\s/;
+   for(my $i=0;$i<$re->{'KEN'};$i++){ last if $flag;
+    for my $name2(@{$AR2[$i]}){
+     my( $eq2 ) = $name2 =~ /([^\t\s]+)/;
+     if( $eq1 eq $eq2 ){ $flag = 1;
+      push @COU3,$name1; last;
+     }
+    }
+   } push @COU3,$name1 if $name1 =~ s/\(can delete\)// and not( $flag or $re->{'DD'} );
+  }
+ } $re->{'UNI'} = \@COU3 if @COU3;
+
+ unless( $re->{'DDD'} ){ my( $AU,@AUA,@COU );
   $COU2[$_] = 0 for(0..$cou);
   for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
    my @AN = split '\s{3}',${$re->{'UNI'}}[$i];
@@ -1414,24 +1441,17 @@ my $re = shift;
      $AU .= $COU[$i] ? "$AN[$i]   " : "    ";
       $COU2[$i] = $COU[$i];
    }
-   $AU =~ s/([^\n]+\n).*/$1/s;
+   $AU =~ s/([^\n]+\n).*/$1/;
     push @AUA,$AU;
      $AU = '';
   }
    waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
-   print"$re->{'INF'}",$re->{'SPA'}x2,"\n" if @AUA;
+   print $re->{'INF'},$re->{'SPA'}x2,"\n" if @AUA;
    if( not $re->{'DD'} or -t STDOUT ){
     for(my $i=$#AUA;$i>=0;$i--){ print $AUA[$i]; }
    }
  }
- if( $re->{'DD'} ){ my( %HA,@AR,@AR2,$flag );
-  for(my $i=$#SC;$i>=0;$i--){
-   for my $key(sort @{$SC[$i]}){
-     $HA{$key}++;
-    push @{$AR2[$i]},"$key\t" if $key and $HA{$key} < 2;
-   }
-   push @{$AR2[$i]},0 unless @{$AR2[$i]}[0];
-  } my $m = 0;
+ if( $re->{'DD'} ){ my( $m,@AR,$flag ) = 0;
    $_->[0] ? push @{$AR[$m++]},@{$_} : next for(@AR2);
   if( $re->{'DDD'} ){ my $i;
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
@@ -1441,8 +1461,8 @@ my $re = shift;
    } exit if $i;
     print STDERR "$re->{'INF'} : deps All delete [y/n]:";
     <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
-  }
-  for(my $e=0;$e<@AR;$e++){ $flag++;
+  } my $in = ( $re->{'KEN'} and $re->{'KEN'} < @AR ) ? $re->{'KEN'} : @AR;
+  for(my $e=0;$e<$in;$e++){ $flag++;
    if( $re->{'DDD'} ){
     system "brew uninstall @{$AR[$e]}";
    }else{
