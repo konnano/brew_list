@@ -2621,6 +2621,7 @@ jobber	cronの代替品 より優れたステータスレポートとエラー�
 joe	フル機能の端末ベースのスクリーンエディタ
 john	特徴的なUNIXパスワードクラッカー
 john-jumbo	UNIXパスワードクラッカーであるjohnの拡張バージョン
+joker	小さなクロージャーインタープリター リンター/フォーマッター
 jolie	サービス指向プログラミング言語
 jooby-bootstrap	joobyアプリの作成を簡素化するスクリプト
 joplin-cli	同期機能を備えたメモ取りとToDoアプリケーション
