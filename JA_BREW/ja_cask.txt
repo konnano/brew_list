@@ -3914,6 +3914,7 @@ warp	Warp
 warsow	一人称シューティングゲーム
 warzone-2100	Freeのオープンソースリアルタイム戦略ゲーム
 wasabi-wallet	プライバシーに焦点を当てたビットコインウォレット オープンソース/非管理
+watchfacestudio	Wear OSのウォッチフェイスを作成するためのグラフィックオーサリングツール
 waterfox	Webブラウザー
 waterfox-classic	Webブラウザー
 wavebox	Webブラウザー
