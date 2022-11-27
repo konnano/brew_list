@@ -2793,6 +2793,7 @@ protege	Protect
 protoio-overflow	双方向なユーザーフロー図を作成する
 protokol	MIDI/OSC モニター
 protonmail-bridge	ProtonMailをIMAPおよびSMTP手続きをサポートする電子メールクライアントにブリッジします
+protonmail-import-export	電子メールを安全なProtonMail受信トレイにインポートするかオフラインバックアップを作成します
 protonvpn	セキュリティに重点を置いたVPNクライアント
 protopie	双方向なプロトタイプを作成する
 provisioning	Provisioning
@@ -3354,7 +3355,6 @@ spotify	音楽ストリーミングサービス
 spotify-now-playing	Spotify - now playing
 spotmenu	メニューバーのSpotifyとiTunes
 spotspot	Spotifyミニプレーヤー
-spotter	すべてを立ち上げる生産性ツール
 springtoolsuite	Spring Boot用の次世代ツール
 spyder	科学的なPython IDE
 sql-tabs	SQLタブ
