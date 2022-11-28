@@ -2152,6 +2152,7 @@ graphicsmagick	画像処理ツールコレクション
 graphite2	non-Romanスクリプトのスマートフォントrenderer
 graphql-cli	一般的なGraphQL開発ワークフローのコマンドラインツール
 graphqurl	自動補完を使用したGraphQL用のCurl サブスクリプション/GraphiQL
+graphqxl	大規模でスケーラブルなGraphQLサーバーサイドスキーマを作成するための言語
 graphviz	AT＆Tおよびベル研究所のdotグラフ視覚化ソフトウェア
 gravity	埋め込み可能なプログラミング言語
 grc	ログファイルとコマンド出力の色付け
@@ -3555,6 +3556,7 @@ mariadb@10.5	MySQLのDrop-in代替品
 mariadb@10.6	MySQLのDrop-in代替品
 mariadb@10.7	MySQLのDrop-in代替品
 mariadb@10.8	MySQLのDrop-in代替品
+mariadb@10.9	MySQLのDrop-in代替品
 markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
@@ -5796,6 +5798,7 @@ tundra	インクリメンタルビルドを高速化しようとするコード�
 tunnel	ローカルサーバーをインターネットに安全に公開する
 tuntox	Toxプロトコルを介したトンネルTCP接続
 tup	ファイルベースのビルドシステム
+tut	Vimに影響されたキーを使用したMastodonのTUI
 tvnamer	thetvdb.comからのデータを使用する自動TVエピソードファイルの名前変更
 twarc	TwitterJSONをアーカイブするためのコマンドラインツールとPythonライブラリ
 tweak	コマンドライン ncursesライブラリベースの16進エディタ
