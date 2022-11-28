@@ -1445,7 +1445,7 @@ my $re = shift;
      $AU = '';
   }
    waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
-   print" $re->{'INF'}\n" if @AUA;
+   print"$re->{'INF'}\n" if @AUA;
    if( not $re->{'DD'} or -t STDOUT ){
     for(my $i=$#AUA;$i>=0;$i--){ print $AUA[$i]; }
    }
