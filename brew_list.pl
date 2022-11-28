@@ -189,7 +189,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.14_6\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -233,8 +233,8 @@ my $re = shift; my( $list,$pid ) = [];
    my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null
                               cat ~/.BREW_LIST/cask.txt|awk '{print \$1}' 2>/dev/null`]:
                             [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null`];
-   my $in = [ \$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'} ];
-   @$cat ? Like_1( $re,$in,$cat ) : die " \033[33mNo file...\033[00m tyep bl -new\n";
+   @$cat ? Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'}],$cat ) :
+    die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
    Info_1( $re ) if $re->{'INF'};
@@ -388,7 +388,7 @@ my( $re,$loop ) = @_; my $pid;
      waitpid $pid,0;
      ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
        $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? ( print "\x1B[?25h$dok" and exit ) : die "\x1B[?25h$not";
-    }else{ print "\r\x1B[?25h"; }
+    }else{ print "\r",$re->{'SPA'}x2,"\r\x1B[?25h"; }
    } exit;
   }else{
    Tied_1( $re ) unless -d "$re->{'HOME'}/LOCK";
@@ -499,9 +499,9 @@ my( $re,$list ) = @_; my $top;
     }
    $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
   }
- } $top ||= '';
+ }
   waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT";
- print "\r$top";
+ print "$top" if $top;
 }
 
 sub Brew_1{
@@ -530,7 +530,7 @@ my $re = shift; my( $ls,@an );
    $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@{$re->{$key}}-1;
   }
  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-  print"\r$ls" if $ls;
+  print"$ls" if $ls;
  Nohup_1( $re );
 }
 
@@ -631,7 +631,7 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
  }
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
-   print" $$name...$re->{'SPA'}\n" if $cat and not $re->{'dep_s'};
+   print" $$name...\n" if $cat and not $re->{'dep_s'};
  }else{
   if( @ARR ){
    $re->{'LIKE'} = print"\033[33m much...\033[00m\n";
@@ -1302,8 +1302,8 @@ sub Format_1{
   if( $re->{'ZEN'} ){
    system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-     print" ==> Formula$re->{'SPA'}\n" if $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'FOR'};
-     print" ==> Cask$re->{'SPA'}\n" if $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'CAS'};
+     ( $re->{'LINK'}  > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
+     ( 5 < $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
      print $re->{'ZEN'};
      $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
      $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
@@ -1320,10 +1320,9 @@ sub Format_1{
     $re->{'TPUT'} = `tput cols` unless $re->{'TPUT'};
      my $size = int $re->{'TPUT'}/($leng+2);
       my $in = 1;
-    ( $re->{'PRE'} and @{$re->{'ARR'}} ) ? print" ==> Fonts\n" :
-    ( $re->{'CAS'} and @{$re->{'ARR'}} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks$re->{'SPA'}\n" :
-    ( $re->{'FOR'} and @{$re->{'ARR'}} and ( $re->{'BL'} or $re->{'S_OPT'} or $re->{'TOP'} ) ) ?
-      print" ==> Formula$re->{'SPA'}\n" : 0;
+      $re->{'PRE'} ? print" ==> Fonts\n" :
+    ( $re->{'FOR'} and ( $re->{'BL'} or $re->{'S_OPT'} or $re->{'TOP'} ) ) ? print" ==> Formula\n" :
+    ( $re->{'CAS'} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks\n" : 0 if @{$re->{'ARR'}};
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
       if( $re->{'ARR'}[$e] =~ m[^ ==> homebrew/|^ ==> Formula|^ ==> Cask] ){
        ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ ==> Cask/ ) ?
@@ -1416,7 +1415,7 @@ my $re = shift;
    push @{$AR2[$i]},0 unless @{$AR2[$i]}[0];
   }
   for my $name1(@COU2){ my $flag;
-   push @COU3,$name1 if $name1 !~ /\Q(can delete)\E/;
+   push @COU3,$name1 if $name1 !~ /\(can delete\)/;
     my( $eq1 ) = $name1 =~ /.*(?:├──|\|--)\s([^\s]+)\s/;
    for(my $i=0;$i<$re->{'KEN'};$i++){ last if $flag;
     for my $name2(@{$AR2[$i]}){
@@ -1425,7 +1424,7 @@ my $re = shift;
       push @COU3,$name1; last;
      }
     }
-   } push @COU3,$name1 if $name1 =~ s/\(can delete\)// and not( $flag or $re->{'DD'} );
+   } push @COU3,$name1 if not $re->{'DD'} and not $flag and $name1 =~ s/\(can delete\)//;
   }
  } $re->{'UNI'} = \@COU3 if @COU3;
 
@@ -1446,7 +1445,7 @@ my $re = shift;
      $AU = '';
   }
    waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
-   print $re->{'INF'},$re->{'SPA'}x2,"\n" if @AUA;
+   print" $re->{'INF'}\n" if @AUA;
    if( not $re->{'DD'} or -t STDOUT ){
     for(my $i=$#AUA;$i>=0;$i--){ print $AUA[$i]; }
    }
