@@ -2005,6 +2005,7 @@ blocks-code	LittleFoot言語を使用してROLIBLOCKSのアプリケーション
 blue-sherpa	Blue USBマイク用コンパニオンアプリ
 bose-soundtouch	コンピューターからBose SoundTouchシステムを制御する
 bose-updater	Bose製品のソフトウェアアップデート
+bose-usb-link-updater	Bose USB Linkにアップデートを提供します
 bragi-updater	Dashの新しいスキルを確認し言語を切り替えます
 brother-p-touch-update-software	ブラザーP-touchラベルプリンター用ソフトウェア
 caldigit-docking-utility	CalDigit Thunderboltドッキングステーションユーティリティ
@@ -2160,6 +2161,8 @@ reolink-client	Reolinkクライアント
 ricoh-ps-printers-vol3-exp-driver	PSドライバーが印刷デバイスを制御し、全機能を有効にすることを許可する
 ricoh-ps-printers-vol4-exp-driver	Ricoh PSプリンターVol4 EXPドライバー
 ricoh-theta	RICOH THETA
+rjm-megxeditor	RJMミニエフェクトギズモ X MIDIオーディオループスイッチャーを設定するエディターソフトウェア
+rjm-mmgteditor	RJM Mastermind GT MIDIペダルボードを構成するためのエディターソフトウェア
 rode-central	RØDEデバイス設定を構成する 特徴/関数/ファームウェア
 roland-quad-capture-usb-driver	Roland Quad-CaptureUSBドライバー
 roli-connect	ROLI製品のツールマネージャー
@@ -2330,6 +2333,7 @@ microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2016	オフィススイート
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
 miniconda2	Continuum Analytics Miniconda
+monal-beta	チャットサーバーに安全に接続するためのツール
 mongodb-compass-beta	MongoDBのGUI
 mono-mdk-for-visual-studio	Microsoftの.NETFrameworkのオープンソース実装
 morpheus-beta	多細胞システム生物学のモデリング環境
