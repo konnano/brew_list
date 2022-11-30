@@ -7,7 +7,7 @@ my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
-chomp(my $MY_BREW = `dirname \$(dirname \$(which brew))`);
+chomp( my $MY_BREW = `dirname \$(dirname \$(which brew))` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -122,7 +122,7 @@ unless( $ARGV[0] ){
         $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
-      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0'; ###
+      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0'; ####
       $KIN = 0; next;
      }
    if( $data !~ /^\s*end/ and $IN ){ $SPA++ if $data =~ /\s+do$/; next;
@@ -412,7 +412,8 @@ sub Version_1{
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}formula"} .= "$data\t";
-        $tap{"${data}u_form"} .= "$name\t";
+        $tap{"${data}u_form"} .= "$name\t"
+         if not $tap{"${data}u_form"} or $tap{"${data}u_form"} !~ /$name\t/;
      }elsif( $data =~ /^\s*depends_on\s+cask:\s+/ or $IN ){
       if( $data =~ /^\s*depends_on\s+cask:\s+\[/ ){ $IN = 1; next; }
        if( $data =~ /^\s*\]/ ){ $IN = 0; next; }
@@ -420,7 +421,8 @@ sub Version_1{
        $data =~ s/^\s*depends_on\s+cask:\s+"([^"]+)".*\n/$1/;
         $tap{"${name}d_cask"} .= "$data\t";
          $data =~ s|.+/([^/]+)|$1|;
-          $tap{"${data}u_cask"} .= "$name\t";
+          $tap{"${data}u_cask"} .= "$name\t"
+           if not $tap{"${data}u_cask"} or $tap{"${data}u_cask"} !~ /$name\t/;
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        $IF1 = 0; $ELIF = $ELS = 1;
        if( $ls4 =~ /^[<=>]+$/ and eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
@@ -445,6 +447,7 @@ sub Version_1{
    close $BREW;
   }
  }
+
 unless( $ARGV[0] ){
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
   my @LIST = <$FILE>;
