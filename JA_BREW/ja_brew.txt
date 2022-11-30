@@ -3178,7 +3178,6 @@ libpsl	公開SuffixリストのCライブラリ
 libpst	PSTファイル形式のユーティリティ
 libpthread-stubs	X.Org：pthread-stubs.pc
 libpulsar	Apache Pulsar C++ライブラリ
-libpython-tabulate	Pythonで表形式のデータをきれいに印刷する
 libqalculate	Qalculateのライブラリ！プログラム
 libquantum	量子力学のシミュレーションのためのCライブラリ
 libquicktime	QuickTimeファイルを読み書きするためのライブラリ
@@ -3509,6 +3508,7 @@ maclaunch	macOSスタートアップアイテムを管理する
 macos-term-size	MacOSでターミナルウィンドウサイズを取得する
 macos-trash	ファイルとフォルダをゴミ箱に移動します
 macosvpn	プログラムでMacOS VPNを作成する
+macpine	MacOS上の軽量 Linux VM
 macvim	MacOS用に作られたVimのGUI
 mad	MPEGオーディオデコーダー
 madplay	MPEGオーディオデコーダー
