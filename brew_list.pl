@@ -243,7 +243,7 @@ my $re = shift; my( $list,$pid ) = [];
     $list = ( $re->{'S_OPT'} or $re->{'BL'} and $re->{'CAS'} ) ? Dirs_1( $re->{'CEL'},1 ) :
      ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
        Dirs_1( $re->{'CEL'},0,$re );
-   @$list = split '\t',$re->{'OS'}{"$re->{'USE'}uses"} if $re->{'USE'} and $re->{'OS'}{"$re->{'USE'}uses"};
+   @$list = $re->{'OS'}{"$re->{'USE'}uses"} ? split '\t',$re->{'OS'}{"$re->{'USE'}uses"} : () if $re->{'USE'};
     $re->{'cask'} = [] if $re->{'USE'} or $re->{'BL'};
    if( $re->{'MAC'} and $re->{'USE'} ){
     my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
@@ -2269,7 +2269,8 @@ sub Version_1{
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}formula"} .= "$data\t";
-        $tap{"${data}u_form"} .= "$name\t";
+        $tap{"${data}u_form"} .= "$name\t"
+         if not $tap{"${data}u_form"} or $tap{"${data}u_form"} !~ /$name\t/;
      }elsif( $data =~ /^\s*depends_on\s+cask:\s+/ or $IN ){
       if( $data =~ /^\s*depends_on\s+cask:\s+\[/ ){ $IN = 1; next; }
        if( $data =~ /^\s*\]/ ){ $IN = 0; next; }
@@ -2277,7 +2278,8 @@ sub Version_1{
        $data =~ s/^\s*depends_on\s+cask:\s+"([^"]+)".*\n/$1/;
         $tap{"${name}d_cask"} .= "$data\t";
          $data =~ s|.+/([^/]+)|$1|;
-          $tap{"${data}u_cask"} .= "$name\t";
+          $tap{"${data}u_cask"} .= "$name\t"
+           if not $tap{"${data}u_cask"} or $tap{"${data}u_cask"} !~ /$name\t/;
      }elsif( my( $ls4,$ls5 ) = $data =~ /^\s*if\s+MacOS\.version\s+([^\s]+)\s+:([^\s]+)/ ){
        $IF1 = 0; $ELIF = $ELS = 1;
        if( $ls4 =~ /^[<=>]+$/ and eval "$OS_Version $ls4 $MAC_OS{$ls5}" ){
@@ -2302,6 +2304,7 @@ sub Version_1{
    close $BREW;
   }
  }
+
 unless( $ARGV[0] ){
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
   my @LIST = <$FILE>;
