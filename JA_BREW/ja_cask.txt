@@ -403,6 +403,7 @@ bluestacks	モバイルゲームプラットフォーム
 bluetility	Bluetooth Low Energyブラウザー
 bluewallet	Bitcoinウォレットとライトニングウォレット
 blurred	暗くするユーティリティ画面のコンテンツ 背景/非アクティブ
+blurscreen	画面の任意の部分をぼかす
 bob	テキストの翻訳アプリケーション ピクチャー/手動入力
 boinc	科学計算ジョブをダウンロードしバックグラウンドで目に見えない形で実行します
 bome-network	コンピューター間のMIDI接続を作成する
@@ -1109,6 +1110,7 @@ filepane	ファイル管理マルチツール
 final-cut-library-manager	Arctic Whiteness FinalCutライブラリマネージャー
 final-fantasy-xiv-online	ストーリー主導の大規模マルチプレイヤーオンラインロールプレイングゲーム
 finalshell	SSHツール サーバー管理およびリモートデスクトップアクセラレーションソフトウェア
+finch	オープンソースのコンテナ開発ツール
 find-any-file	ファイルファインダー
 find-empty-folders	空のフォルダを検索します
 findergo	Finderからターミナルをすばやく開く
@@ -3502,6 +3504,7 @@ tabtopus	WebブラウザータブURLエクスポータ
 tabula	PDFファイル内に閉じ込められたデータテーブルを解放するためのツール
 tad	表形式のデータを表示および分析するためのデスクトップアプリケーション
 tag	音楽タグエディター
+tageditor	オーディオファイル用のスプレッドシートスタイルのタグエディタ
 tagger	バッチ編集とVGMdbデータのインポートをサポートする音楽メタデータエディター
 tagspaces	タグ付けをサポートするオフラインのオープンソースのドキュメントマネージャー
 tailscale	Wireguardに基づくMesh VPN
