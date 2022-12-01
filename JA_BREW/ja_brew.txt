@@ -4344,6 +4344,7 @@ pazpar2	ミドルウェアWebサービスのメタ検索
 pbc	Pairing-basedの暗号化
 pbc-sig	署名ライブラリ
 pbzip2	並列bzip2
+pbzx	pbzxストリームのパーサー
 pc6001vx	PC-6001エミュレータ
 pcal	XなしでPostscriptカレンダーを生成する
 pcalc	複数の拠点で作業するのための電卓 サイズ/ビットに近い
@@ -4426,7 +4427,6 @@ php	汎用スクリプト言語
 php-code-sniffer	コーディング標準を確認してください PHP/JavaScript/CSS
 php-cs-fixer	PHPコーディング標準の問題を自動的に修正するツール
 php-cs-fixer@2	PHPコーディング標準の問題を自動的に修正するツール
-php@7.2	汎用スクリプト言語
 php@7.3	汎用スクリプト言語
 php@7.4	汎用スクリプト言語
 php@8.0	汎用スクリプト言語
@@ -5275,6 +5275,7 @@ soapyrtlsdr	SoapySDR RTL-SDRサポートモジュール
 soapysdr	ベンダーおよびプラットフォームに依存しないSDRサポートライブラリ
 socat	ソケットCAT：ステロイドのnetcat
 soci	C++のデータベースアクセスライブラリ
+socket_vmnet	ルートレスQEMUの vmnet.frameworkサポートを提供するデーモン
 sofia-sip	SIPユーザー仲介ライブラリ
 softhsm	PKCS#11インターフェースを介してアクセス可能な暗号store
 solana	分散型アプリとマーケットプレイス向けのWebスケールブロックチェーン
