@@ -122,7 +122,6 @@ unless( $ARGV[0] ){
         $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
-      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0'; ####
       $KIN = 0; next;
      }
    if( $data !~ /^\s*end/ and $IN ){ $SPA++ if $data =~ /\s+do$/; next;
