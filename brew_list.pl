@@ -189,7 +189,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.14_7\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_8\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1404,7 +1404,7 @@ my $re = shift;
    s/\|/│/g, s/│--/├──/g if $Locale;
   push @COU2,$_ if $an < $re->{'KEN'} + 1;
   $cou = $an if $cou < $an;
- } @{$re->{'UNI'}} = @COU2 if @COU2 and not $re->{'D'};
+ } $re->{'UNI'} = \@COU2 if @COU2 and not $re->{'D'};
 
  if( $re->{'D'} ){ my %HA;
   for(my $i=$#SC;$i>=0;$i--){
@@ -1428,7 +1428,7 @@ my $re = shift;
   }
  } $re->{'UNI'} = \@COU3 if @COU3;
 
- unless( $re->{'DDD'} ){ my( $AU,@AUA,@COU );
+ unless( $re->{'DDD'} ){ my( $AU,@AUA,@COU,@COU2 );
   $COU2[$_] = 0 for(0..$cou);
   for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
    my @AN = split '\s{3}',${$re->{'UNI'}}[$i];
@@ -1979,7 +1979,6 @@ unless( $ARGV[0] ){
         $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
-      $tap{"${name}13.0"} = 1 if $tap{"${name}12.0"} and $OS_Version2 eq '13.0'; ####
       $KIN = 0; next;
      }
    if( $data !~ /^\s*end/ and $IN ){ $SPA++ if $data =~ /\s+do$/; next;
