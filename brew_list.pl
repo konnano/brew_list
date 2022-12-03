@@ -1301,8 +1301,8 @@ sub Format_1{
   if( $re->{'ZEN'} ){
    system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-     ( $re->{'LINK'}  > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
-     ( 5 < $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
+     ( $re->{'LINK'} > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
+     ( $re->{'LINK'} > 5 and $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
      print $re->{'ZEN'};
      $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
      $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
