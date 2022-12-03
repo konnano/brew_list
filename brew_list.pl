@@ -131,7 +131,7 @@ MAIN:{
       $re->{'LIN'} and not -f "$re->{'HOME'}/DBM.pag" or not -d $re->{'HOME'} ){
        $re->{'NEW'}++; Init_1( $re );
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
-  }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = $AR[1];
+  }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = lc $AR[1];
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and $name and ( $name->{'LIST'} or $name->{'ANA'} ) ){
    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
     $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
@@ -141,8 +141,7 @@ MAIN:{
    $ref->{'PRE'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
-  }elsif( $re->{'deps'} and $AR[1] and $AR[1] ne '.' ){
-   $re->{'dep_s'} = lc $AR[1];
+  }elsif( $re->{'deps'} and $AR[1] and $AR[1] ne '.' ){ $re->{'dep_s'} = lc $AR[1];
   }
   if( $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
@@ -1002,7 +1001,7 @@ my( $list,$file,$in,$re ) = @_;
   Mine_1($brew_1,$re,0), next if ( $re->{'BL'} or $re->{'S_OPT'} ) and $brew_1 =~ m|^ ==> homebrew/|;
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'TAP'} or $re->{'CAS'} and
-            $re->{'OS'}{"${brew_1}c_version"} and length $re->{'OS'}{"${brew_1}c_version"} < length $brew_2;
+            $re->{'OS'}{"${brew_1}c_version"} and length $re->{'OS'}{"${brew_1}c_version"} <= length $brew_2;
   $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
 
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
