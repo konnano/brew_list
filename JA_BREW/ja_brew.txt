@@ -889,6 +889,7 @@ compiledb	Make-baseのビルドシステム用のClangコンパイルデータ�
 composer	PHPの依存関係マネージャー
 conan	C/C++の分散型オープンソースパッケージマネージャー
 concurrencykit	並行システムの設計と実装を支援する
+conda-zsh-completion	condaのZsh補完
 condure	接続マネージャー HTTP/WebSocket
 confd	テンプレートを使用してローカルアプリケーション構成ファイルを管理する
 configen	Xcodeプロジェクトで使用するための構成ファイルコード発生器
@@ -4302,6 +4303,7 @@ paket	NuGetとGitリポジトリをサポートする.NETの依存関係マネ�
 pam-reattach	ユーザーのGUI(Aqua)セッションに再接続するためのPAMモジュール
 pam-u2f	PAMでU2F準拠のオーセンティケータを使用する簡単な方法を提供します
 pam_yubico	Yubico接続認証モジュール
+pandemics	簡略化されたフレームワークでマークダウンドキュメントを変換します
 pandoc	マークアップ形式変換の万能ナイフ
 pandoc-crossref	番号付けと相互参照のためのPandocフィルター
 pandoc-include-code	ソースファイルからのコードを含めるためのPandocフィルター
