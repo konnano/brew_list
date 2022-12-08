@@ -52,7 +52,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    }
     Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
   }
- rmdir "$ENV{'HOME'}/.BREW_LIST/13";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
@@ -83,12 +83,13 @@ unless( $ARGV[0] ){
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
- } my( $in,$e ) = int @BREW/4;
+ } my( $in,$e ) = int @BREW/5;
  for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
-   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
-   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" :
-   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/16" : 0;
+   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
+   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
+   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in*4 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -276,8 +277,9 @@ unless( $ARGV[0] ){
    }
   close $BREW;
  }
+
  if( $re->{'MAC'} ){ my %HA;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
   for(@{$re->{'OS'}}){
    my( $name,$data,$ls ) = split ',';
    if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
@@ -288,6 +290,7 @@ unless( $ARGV[0] ){
    }
   }
  }
+
  sub Uses_1{
  my( $name,$HA ) = @_;
   for my $ls(split '\t',$name){
@@ -299,6 +302,7 @@ unless( $ARGV[0] ){
    Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"}
   }
  }
+
  sub Glob_1{
  my( $brew,$mine,$loop ) = @_; my $in;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
@@ -363,11 +367,13 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
+
  if( $RPM and Version_1( $RPM,$CAT ) ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
  }
 }
+rmdir "$ENV{'HOME'}/.BREW_LIST/16";
 
 sub Version_1{
  my @ls1 = split '\.|-|_',$_[0];
@@ -386,12 +392,12 @@ sub Version_1{
   }
  $ls1[$i] ? 1 : 0;
 }
-  my( $FON,$TIN,$UAA );
+  my $FON;
  if( $re->{'MAC'} ){
- rmdir "$ENV{'HOME'}/.BREW_LIST/18";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  my( $IN,$in,$e ) = ( 0,int @CASK/2,0 ); $tap{'fontlist'} = '';
   for my $dir2(@CASK){ my $ver;
-   rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
+   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS,$FI ) = ( 1,0,0,0,1 );
@@ -452,13 +458,23 @@ unless( $ARGV[0] ){
   my @LIST = <$FILE>;
  close $FILE;
 
+   my( $TIN,$UAA,$AIA,$ACA );
  @BREW = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
- @CASK = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK if $re->{'MAC'};
+ if( $re->{'MAC'} ){
+  for(@CASK){
+   last unless m[$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/|
+                 $MY_BREW/Library/Taps/homebrew/homebrew-cask/]x;
+   my( $name ) = m|.+/(.+)\.rb|;
+    $ACA .= "$name \\\n";
+  }
+  @CASK = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
+ }
 
   my $COU = $IN = 0;
  for(my $i=0;$i<@BREW;$i++){
   $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
   $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
+  $AIA .= "$BREW[$i] \\\n";
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
      $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]f_version"}, last if $BREW[$i] lt $ls1;
@@ -509,13 +525,16 @@ unless( $ARGV[0] ){
   $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s;
    $UCC .= "$_ \\\n" for(sort keys %HAU);
     $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s;
-  $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s;
+     $AIA =~ s/(.+)\\\n$/'-ai[Formula list]:Formula:( \\\n$1 )' \\\n/s;
+      $ACA =~ s/(.+)\\\n$/'-ac[Cask list]:Casks:( \\\n$1 )' \\\n/s if $ACA;
+  $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/;
    $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s if $FON;
     $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s;
      $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s;
       $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s;
-  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
-                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP}";
+  my $TOP = ( $ACA and $FON ) ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}" :
+              $ACA ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA}" :
+                     "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
