@@ -68,6 +68,7 @@ airspy	ソフトウェア無線用のドライバーとツール
 airspyhf	ソフトウェア無線用のドライバーとツール
 akamai	AkamaiのAPIを操作するためのCLIツールキット
 akka	並行構築するためのツールキット、分散およびfault tolerantアプリ
+akku	Schemeのパッケージ マネージャー
 alac	Apple Lossless Audio Codecファイル(ALAC)の基本的なデコーダー
 alda	ミュージシャンのための音楽プログラミング言語
 aldo	GPLの下でリリースされたモールス信号学習ツール
@@ -188,6 +189,7 @@ argus	監査記録の生成と利用システムサーバー
 argus-clients	監査記録の生成と利用システムのクライアント
 argyll-cms	ICC互換のカラーマネジメントシステム
 aria2	セグメント化されたダウンロードで再度ダウンロードする
+aribb24	ARIB STD-B24用ライブラリ JIS 8ビット文字のデコードとMPEG-TSの解析
 arkade	オープンソースのKubernetesマーケットプレイス
 arm-linux-gnueabihf-binutils	arm-linuxにクロスコンパイルするための FSF/GNU binutils
 armadillo	C++線形代数ライブラリ
@@ -514,6 +516,7 @@ brook	クロスプラットフォームの強力な暗号化と検出できな�
 broot	ディレクトリツリーを表示およびナビゲートする新しい方法
 brotli	Googleによる汎用で損失の無い圧縮アルゴリズム
 browser	HTMLをブラウザにパイプする
+brpc	より良いRPCフレームワーク
 bsdconv	文字セット/エンコーディング 変換ライブラリ
 bsdiff	パッチを生成してバイナリファイルに適用します
 bsdmake	MakeビルドツールのBSDバージョン
@@ -857,6 +860,7 @@ cntlm	トンネリングを使用したNTLM認証プロキシ
 cobalt	Rustで書かれた静的サイト発生器
 coccinelle	Cコードのプログラムマッチングおよび変換エンジン
 cocoapods	Cocoaプロジェクトの依存関係マネージャー
+cocogitto	従来のコミットツールボックス
 coconut	シンプルでエレガントなPythonic関数型プログラミング
 cocot	ttyのコード変換器
 coda-cli	Panic's Codaのためのシェル統合
@@ -929,6 +933,7 @@ coturn	TURNおよびSTUNサーバーのFreeオープンソース実装
 couchdb	Apache CouchDBデータベースサーバー
 couchdb-lucene	Luceneを使用したCouchDBドキュメントの全文検索
 couchpotatoserver	映画を自動的にダウンロードする
+countdown	ターミナルカウントダウンタイマー
 counterfeiter	自己完結型のタイプセーフテストダブルを生成するためのツール
 coursier	純粋なScalaアーティファクトフェッチ
 cowsay	ASCIIアートで構成可能な話す文字
@@ -1422,6 +1427,7 @@ enet	UDPの上にネットワーク通信層を提供します
 enex2notion	Evernote ENEXファイルを Notionにインポートする
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
 enkits	並列プログラムを作成するためのCおよびC++タスクスケジューラ
+enpass-cli	Enpassコマンドラインクライアント
 enscript	テキストを変換して Postscript/HTML/RTF 構文を強調表示します
 ensmallen	効率的な数学的最適化のための柔軟なC++ライブラリ
 ent	疑似乱数連続テストプログラム
@@ -1833,6 +1839,7 @@ getmail	POP3/IMAP4/SSL をサポートする拡張可能なメール検索シス
 gettext	GNU国際化(i18n)およびローカリゼーション(l10n)ライブラリ
 getxbook	さまざまなソースから電子書籍をダウンロードするためのツール
 gexiv2	Exiv2写真メタデータライブラリのGObjectラッパー
+gf	Golangのアプリ開発フレームワーク
 gflags	command-lineフラグを処理するためのライブラリ
 gforth	ANS Forth言語の実装
 gh	GitHubコマンドラインツール
@@ -1930,7 +1937,6 @@ git-town	Gitの高レベルのコマンドラインインターフェイス
 git-tracker	Pivotal TrackerをGitワークフローに統合する
 git-trim	マージまたは削除されたgitリモートトラッキングブランチをトリミングします
 git-url-sub	複数のリポジトリの代わりにリモートURLを再帰的に使用する
-git-utils	さまざまなGitヘルパーユーティリティ
 git-vendor	gitベンダーの依存関係を管理するためのコマンド
 git-when-merged	コミットがgitでマージされた場所を見つける
 git-workspace	複数のプロバイダーからの個人リポジトリと仕事用Gitリポジトリを同期する
@@ -2147,6 +2153,7 @@ gradle@6	GroovyおよびKotlinDSLに基づくオープンソースのビルド�
 grafana	時系列データベースの豪華なmetricの視覚化とダッシュボード
 grafana-agent	Prometheus Metricsのエクスポーター ロキログ/テンポトレース
 grails	Groovy言語用のWebアプリケーションフレームワーク
+grantlee	Qtでテキストテンプレートを作成するためのライブラリ
 grap	グラフを植字するための言語
 graph-tool	Python3の効率的なネットワーク分析
 graphene	グラフィックデータ型の薄層
@@ -4431,7 +4438,6 @@ php	汎用スクリプト言語
 php-code-sniffer	コーディング標準を確認してください PHP/JavaScript/CSS
 php-cs-fixer	PHPコーディング標準の問題を自動的に修正するツール
 php-cs-fixer@2	PHPコーディング標準の問題を自動的に修正するツール
-php@7.3	汎用スクリプト言語
 php@7.4	汎用スクリプト言語
 php@8.0	汎用スクリプト言語
 phpbrew	HOMEで純粋なPHPでPHPバージョンを作成および管理する
@@ -5736,6 +5742,7 @@ topgrade	すべてのものをアップグレードする
 tor	TCPの匿名化overlayネットワーク
 torchvision	コンピュータービジョンのデータセット、変換、モデル
 torsocks	TorでSOCKSに適したアプリケーションを使用する
+totp-cli	Goで書かれたTOTP CLIツールのような　Authy/Google Authenticator
 tox	汎用Python virtualenv管理およびテストコマンドラインツール
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
 tpl	バイナリデータをCで保存および取得する
@@ -5873,6 +5880,7 @@ unpaper	スキャン/コピーされた本の後処理
 unrtf	RTFから他のフォーマットへの変換器
 unshield	InstallShieldキャビネットファイルからファイルを抽出する
 unum	数値の相互変換 Unicode/HTML/XHTMLエンティティ
+unxip	高速Xcodeアンアーカイバー
 unyaffs	YAFFS2ファイルシステムイメージからファイルを抽出します
 unzip	.zip圧縮アーカイブの抽出ユーティリティ
 up	即時ライブプレビューでコマンドラインパイプを作成するためのツール
@@ -6219,7 +6227,6 @@ xmlcatmgr	SGMLおよびXMLカタログを操作する
 xmlformat	XMLドキュメントをフォーマットする
 xmlrpc-c	軽量RPCライブラリ(XMLおよびHTTPに基づく)
 xmlsectool	XMLドキュメントのスキーマの有効性と署名を確認します
-xmlsh	XMLシェル
 xmlstarlet	XMLコマンドラインユーティリティ
 xmlto	XMLを別の形式に変換する(XSLまたは他のツールに基づく)
 xmltoman	XMLからmanページへの変換
