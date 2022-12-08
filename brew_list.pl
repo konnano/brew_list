@@ -132,7 +132,7 @@ MAIN:{
        $re->{'NEW'}++; Init_1( $re );
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = lc $AR[1];
-  }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and $name and ( $name->{'LIST'} or $name->{'ANA'} ) ){
+  }elsif( $re->{'COM'} or $re->{'S_OPT'} or $AR[1] and $name and $name->{'LIST'} ){
    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : $AR[1] ? lc $AR[1] : Died_1();
     $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
@@ -142,6 +142,7 @@ MAIN:{
   }elsif( $re->{'USE'} ){
    $re->{'USE'} = $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'deps'} and $AR[1] and $AR[1] ne '.' ){ $re->{'dep_s'} = lc $AR[1];
+  }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
   }
   if( $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
@@ -188,7 +189,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.14_8\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.14_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -224,15 +225,15 @@ my $re = shift; my( $list,$pid ) = [];
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
    Wait_1( $re );
  }
-  if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} ){
+  if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} and not $re->{'COL'} ){
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
-  if( $re->{'DEL'} and $re->{'DEL'} < 2 or $re->{'INF'} or $re->{'USE'} or $re->{'dep_s'} ){
+  if( $re->{'INF'} and not $re->{'COL'} or $re->{'USE'} or $re->{'dep_s'} or $re->{'ANA'} ){
    my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null
                               cat ~/.BREW_LIST/cask.txt|awk '{print \$1}' 2>/dev/null`]:
                             [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null`];
-   @$cat ? Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'}],$cat ) :
+   @$cat ? Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'}],$cat ) :
     die " \033[33mNo file...\033[00m tyep bl -new\n";
   }
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
@@ -264,82 +265,6 @@ my $re = shift; my( $list,$pid ) = [];
  }
 }
 
-sub Ana_1{
- my $re = shift; my @an;
- $re->{'NEW'}++, Init_1( $re ) unless -f $re->{'CAN'};
- $re->{'L_OPT'} = 0 if not $re->{'L_OPT'} or $re->{'L_OPT'} and $re->{'L_OPT'} !~ /^[12]$/;
- open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
-  while(<$dir>){ chomp;
-   my( $ls1,$ls2,$ls3,$ls4 ) = split '\t';
-   my $co = $re->{'L_OPT'} == 1 ? $ls2 : $re->{'L_OPT'} == 2 ? $ls3 : $ls4;
-   if( $co ){
-    $an[$co]  = $ls1;
-    $an[$co] .= $ls2 ? "\t$ls2" : "\t";
-    $an[$co] .= $ls3 ? "\t$ls3" : "\t";
-    $an[$co] .= $ls4 ? "\t$ls4" : "\t";
-   }
-  }
- close $dir;
-  my $ana = (' 'x44)."|     30d  |     90d  |    365d  |\n".('-'x78)."\n";
- for(@an){
-  next unless $_;
-  my( $ls1,$ls2,$ls3,$ls4 ) = split '\t';
-   my $le = int( (44-(length $ls1))/2 );
-   $ana .= sprintf "%44s|%7s   |%7s   |%7s   |\n",' 'x$le.$ls1.' 'x$le,$ls2,$ls3,$ls4;
- }
-  open my $pipe,'|-','more' or die " can't exec command\n";
-   print $pipe $ana;
-  close $pipe;
- Nohup_1( $re );
-}
-
-sub Size_1{
- my( $re,$list ) = @_; my( %AR,@data,$size,$ls1,$ls2,$c );
-  if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
-  }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
-   @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
-    push @data,$re->{'INF'};
-  }
-   my $an = @data ? \@data : $list;
-    exit unless @$an;
-   for(my $i=0;$i<@$an;$i++){
-    @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
-     if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
-     }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
-   }
-   if( open my $FH,'-|' ){
-    @data = `du -ks $ls1`;
-     push @data,<$FH>;
-      close $FH;
-    if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
-   }else{ print`du -ks $ls2` if $ls2; exit; }
-   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-    sub _cmp{ $_[0] =~ /(\d+)\s/; $1; }
-  for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
-   my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
-   for my $json(@{$AR{$name}}){
-    if( -f "$json/INSTALL_RECEIPT.json" ){
-     open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
-      while(<$dir>){
-       last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/;
-      }
-     close $dir;
-    }
-   } $utime = $utime ? $utime : 0;
-    my $time = [localtime($utime)];
-   my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
-  $size += $cou = sprintf "%.3f",$cou /= 1024;
- Tap_2( $re,\$name );
-format STDOUT =
-@||||||||||||||||||||||||||||||||||||||||@||||||||@>>>>>>>>>>>>@|||@>>>>>>>>>>>>>>>>>>>>>
-$name,"size  : ","$cou MB","   ","install  :  $timer"
-.
-write;
-  }
-  printf" Totsl Size  %.2f MB  item %d\n",$size,$c if -t STDOUT;
- Nohup_1( $re );
-}
-
 sub Doc_1{
  my( $dok,$not,@ten ) = $Locale ?
   ( "\r  \033[36m✔︎\033[00m : Creat new cache          \n",
@@ -351,12 +276,9 @@ sub Doc_1{
 
 sub Wait_1{
 my( $re,$loop ) = @_; my $pid;
- if( -d $re->{'HOME'} and not -f $re->{'TXT'} ){
-  die " exists ~/Buck_BREW_LIST_UP\n"
-   if system '[[ ! -d ~/Buck_BREW_LIST_UP ]] && mv ~/.BREW_LIST ~/Buck_BREW_LIST_UP';
- }
- mkdir $re->{'HOME'};
- mkdir "$re->{'HOME'}/WAIT";
+ system 'mv ~/.BREW_LIST ~/BREW_LIST$$' if -d $re->{'HOME'} and not -f $re->{'TXT'};
+  mkdir $re->{'HOME'};
+   mkdir "$re->{'HOME'}/WAIT";
   my( $not,$dok,@ten ) = Doc_1;
   unless( $loop ){
    $pid = fork;
@@ -475,13 +397,121 @@ my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
   while(<$FH>){ my($name,$data) = /([^\t]+)\t(.+)/;
    @{$re->{$name}} = $data ? split '\s',$data : ();
   } close $FH;
- if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n";}
+ if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n"; }
  }else{ exit unless @an2;
   for my $ls(@an2){ my( @AN,%HA );
    Uses_1( $re,$ls,\%HA,\@AN ); $AN[0] ||= 0;
     print"$ls\t@AN\n";
   } exit;
  }
+}
+
+sub Leng_1{
+my( $spa,$name ) = @_;
+ if( $spa < length $$name ){
+  my $ti = $spa - 4;
+   $$name =~ s/^(.{$ti}).*/$1.../;
+ }
+ $spa = int( ( $spa -length $$name )/2 );
+ $$name = ' 'x$spa.$$name.' 'x$spa;
+}
+
+sub Ana_1{
+ my $re = shift; my( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3,@an );
+ $re->{'NEW'}++, Init_1( $re ) unless -f $re->{'CAN'};
+  my $mem = $re->{'ana'} if $re->{'ana'} and $re->{'ana'} !~ /^[12]$/;
+ $re->{'ana'} = 0 if not $re->{'ana'} or $re->{'ana'} and $re->{'ana'} !~ /^[12]$/;
+  my $tput = `tput cols`;
+   my $line = $tput >= 84 ? 83 : $tput - 1;
+    my $spa = $tput >= 84 ? 44 : ($tput - 40) > 0 ? $tput - 40 : 0;
+     my $spr = "%${spa}s| %10s | %10s | %10s |";
+ open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
+  while(<$dir>){ chomp;
+   ( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3 ) = split '\t' if $re->{'FOR'};
+   ( $ls1,$ls2,$co1,$ls3,$co2,$ls4,$co3 ) = split '\t' if $re->{'CAS'};
+   my $co = $re->{'ana'} == 1 ? $ls2 : $re->{'ana'} == 2 ? $ls3 : $ls4;
+   if( $co ){
+    $an[$co]  = $ls1;
+    $an[$co] .= $ls2 ? "\t$ls2" : "\t";
+    $an[$co] .= $co1 ? "\t$co1" : "\t";
+    $an[$co] .= $er1 ? "\t$er1" : "\t" if $re->{'FOR'};
+    $an[$co] .= $ls3 ? "\t$ls3" : "\t";
+    $an[$co] .= $co2 ? "\t$co2" : "\t";
+    $an[$co] .= $er2 ? "\t$er2" : "\t" if $re->{'FOR'};
+    $an[$co] .= $ls4 ? "\t$ls4" : "\t";
+    $an[$co] .= $co3 ? "\t$co3" : "\t";
+    $an[$co] .= $er3 ? "\t$er3" : "\t" if $re->{'FOR'};
+   }
+  }
+ close $dir;
+  my $ana = (' 'x$spa)."|      30d   |      90d   |     365d   |\n".('-'x$line)."\n";
+ for(@an){ my( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3 );
+  next unless $_;
+   ( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3 ) = split '\t' if $re->{'FOR'};
+    ( $ls1,$ls2,$co1,$ls3,$co2,$ls4,$co3 ) = split '\t' if $re->{'CAS'};
+   if( not $mem or $re->{'ana'} or $mem and $mem eq $ls1 ){
+    Leng_1( $spa,\$ls1 ) if $spa >= 12;
+     $ana .= $re->{'FOR'} ?
+      sprintf "%${spa}s|%9s   |%9s   |%9s   |\n$spr\n$spr\n%${line}s\n",
+               $ls1,$ls2,$ls3,$ls4,'install ',$co1,$co2,$co3,'build-error ',$er1,$er2,$er3,'-'x$line :
+      sprintf "%${spa}s|%9s   |%9s   |%9s   |\n$spr\n%${line}s\n",
+               $ls1,$ls2,$ls3,$ls4,'install ',$co1,$co2,$co3,'-'x$line;
+   }
+ }
+ if( $mem and $ana =~ /install / ){
+  print $ana;
+ }elsif( $ana =~ /install / ){
+  open my $pipe,'|-','more' or die " can't exec command\n";
+   print $pipe $ana;
+  close $pipe;
+ }
+ Nohup_1( $re );
+}
+
+sub Size_1{
+ my( $re,$list ) = @_; my( %AR,@data,$size,$ls1,$ls2,$c );
+  if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
+  }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
+   @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
+    push @data,$re->{'INF'};
+  }
+   my $an = @data ? \@data : $list;
+    exit unless @$an;
+     my $tput = `tput cols`;
+      my $spa = $tput >= 92 ? 44 : ($tput - 48) > 0 ? $tput - 48 : 0;
+   for(my $i=0;$i<@$an;$i++){
+    @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
+     if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
+     }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
+   }
+   if( open my $FH,'-|' ){
+    @data = `du -ks $ls1`;
+     push @data,<$FH>;
+      close $FH;
+    if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
+   }else{ print`du -ks $ls2` if $ls2; exit; }
+   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+    sub _cmp{ $_[0] =~ /(\d+)\s/; $1; }
+  for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
+   my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
+   for my $json(@{$AR{$name}}){
+    if( -f "$json/INSTALL_RECEIPT.json" ){
+     open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
+      while(<$dir>){
+       last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/;
+      }
+     close $dir;
+    }
+   } $utime = $utime ? $utime : 0;
+    my $time = [localtime($utime)];
+     my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
+      $size += $cou = sprintf "%.3f",$cou /= 1024;
+       Tap_2( $re,\$name );
+        Leng_1( $spa,\$name ) if $spa >= 5;
+     printf"%-${spa}s %8s%12s%3s%22s\n",$name,"size  : ","$cou MB","   ","install  :  $timer"
+  }
+  printf" Totsl Size  %.2f MB  item %d\n",$size,$c if -t STDOUT;
+ Nohup_1( $re );
 }
 
 sub Top_1{
@@ -523,10 +553,12 @@ my( $re,$list ) = @_; my( %HA,@AN );
 sub Brew_2{
 my $re = shift; my( $ls,@an );
  push @an,$_ for (sort keys %{$re->{'HASH'}});
-  Proc_1( $re,\@an,1 );
-  for my $key(sort keys %{$re->{'HASH'}}){
-    my $le = int( (36-(length $key))/2 );
-   $ls .= sprintf"%36s uses  :%4s formula\n",' 'x$le.$key.' 'x$le,@{$re->{$key}}-1;
+  my $tput = `tput cols`;
+   my $spa = $tput >= 66 ? 44 : ($tput - 22) > 0 ? $tput - 22 : 0;
+    Proc_1( $re,\@an,1 );
+  for my $key(sort keys %{$re->{'HASH'}}){ my $keys = $key;
+   Leng_1( $spa,\$keys ) if $spa >= 5;
+    $ls .= sprintf"%${spa}s uses  :%4s formula\n",$keys,@{$re->{$key}}-1;
   }
  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
   print"$ls" if $ls;
@@ -572,6 +604,7 @@ sub Like_1{
 my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
  waitpid( $re->{'PID'},0 ) if $re->{'PID'};
   $name = $$_ ? $_ : next for(@$name);
+   return if ref $name eq 'ARRAY';
  unless( $cat ){
   $HA{$_}++ for(split '\t',$re->{'OS'}{'fontlist'});
  }else{
@@ -616,6 +649,20 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
      $HA{$_}++ if $re->{'OS'}{"${_}deps_b"} and not $re->{'OS'}{"${_}$OS_Version"};
     }
     $HA{$_}++ if $re->{'OS'}{"${_}d_cask"};
+   }
+  }elsif( $re->{'ANA'} ){ return if $$name =~ /^[12]$/;
+   if( $re->{'FOR'} ){ my $min;
+    for(@$cat){ chomp;
+      last if $min and $min gt $_;
+       $min = $_;
+        $HA{$_}++;
+    }
+   }else{ my $min;
+    for(my $i=0;$i<@$cat;$i++){
+     $$cat[$i] lt $$cat[$i+1] ? next : $i++,$min++ unless $min;
+      chomp $$cat[$i];
+       $HA{$$cat[$i]}++;
+    }
    }
   }
  }
@@ -709,10 +756,10 @@ my $re = shift; my( @AN,%HA,@an,$do );
     waitpid $re->{'PID2'},0 if not $do and rmdir "$re->{'HOME'}/WAIT";
    if( $re->{'LINK'} and $do ){
     $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
-     $re->{'LIST'} = 1;
+     $re->{'LIST'} = $re->{'COL'} = 1;
       Fork_1( $re );
    }elsif( $do ){
-    $re->{'COLOR'} = $re->{'TREE'} = $re->{'DEL'} = 2;
+    $re->{'COL'} = $re->{'TREE'} = $re->{'DEL'} = 2;
      Fork_1( $re );
    }
   }
@@ -826,10 +873,10 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
  my $name = $$brew;
   $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
  $name = -t STDOUT ? "$name \033[33m(require)\033[00m" : "$name (require)"
-   if not $re->{'COLOR'} and ( not $re->{'HASH'}{$$brew} and not $re->{'DMG'}{$$brew} or
+   if not $re->{'COL'} and ( not $re->{'HASH'}{$$brew} and not $re->{'DMG'}{$$brew} or
           $re->{'HASH'}{$$brew} and Version_1( $re->{'OS'}{"$${brew}ver"},$re->{'HASH'}{$$brew} ) );
  $name = -t STDOUT ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
-   if $re->{'COLOR'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
+   if $re->{'COL'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
  unless( $re->{"$${brew}undel"} ){
   $re->{"deps$$brew"} +=
@@ -1593,7 +1640,7 @@ if [[ $2 ]];then
    LS1=$(( $(date +%s --date "$LS1" 2>/dev/null)+60*60*24 ))
   fi
   if [[ $TI -gt $LS1 ]];then
-   git clone https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
+   git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
     [[ "$NAME" = Linux ]] && rm ~/.JA_BREW/ja_cask.txt ~/.JA_BREW/ja_tap.txt
@@ -1605,38 +1652,42 @@ if [[ $2 ]];then
     mkdir -p ~/.BREW_LIST/{0..19}
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl 1 error}; }
-     rmdir ~/.BREW_LIST/0
    curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
     { math_rm; ${die:?curl 2 error}; }
-     rmdir ~/.BREW_LIST/1
+     rmdir ~/.BREW_LIST/0
    curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
     { math_rm; ${die:?curl 3 error}; }
-     rmdir ~/.BREW_LIST/2
+     rmdir ~/.BREW_LIST/1
    curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip ||\
     { math_rm; ${die:?curl 4 error}; }
-     rmdir ~/.BREW_LIST/3
+     rmdir ~/.BREW_LIST/2
    curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip ||\
     { math_rm; ${die:?curl 5 error}; }
    zip -q ~/.BREW_LIST/keepme.zip ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/master3.zip ||\
     { rm -f keepme.zip; math_rm; ${die:?zip error}; }
+     rmdir ~/.BREW_LIST/3
    curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
     { math_rm; ${die:?curl 6 error}; }
-     rmdir ~/.BREW_LIST/4
    curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
     { math_rm; ${die:?curl 7 error}; }
-     rmdir ~/.BREW_LIST/5
+     rmdir ~/.BREW_LIST/4
    curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
     { math_rm; ${die:?curl 8 error}; }
-     rmdir ~/.BREW_LIST/6
    curl -sko ~/.BREW_LIST/cna1.html https://formulae.brew.sh/analytics/cask-install/30d/index.html ||\
     { math_rm; ${die:?curl 9 error}; }
-     rmdir ~/.BREW_LIST/7
+     rmdir ~/.BREW_LIST/5
    curl -sko ~/.BREW_LIST/cna2.html https://formulae.brew.sh/analytics/cask-install/90d/index.html ||\
     { math_rm; ${die:?curl a error}; }
-     rmdir ~/.BREW_LIST/8
    curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
     { math_rm; ${die:?curl b error}; }
-     rmdir ~/.BREW_LIST/9
+     rmdir ~/.BREW_LIST/6
+   curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
+    { math_rm; ${die:?curl c error}; }
+   curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
+    { math_rm; ${die:?curl d error}; }
+   curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
+    { math_rm; ${die:?curl e error}; }
+     rmdir ~/.BREW_LIST/7
   fi
 
   if [[ $2 -eq 2 ]];then
@@ -1646,7 +1697,6 @@ if [[ $2 ]];then
    unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
    unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
-    rm -rf ~/.BREW_LIST/10
 
 perl<<"EOF"
    if( `uname -m` =~ /x86_64/ and -d '/usr/local/Homebrew' ){
@@ -1710,6 +1760,7 @@ perl<<"EOF"
    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
     print $FILE1 @file;
    close $FILE1;
+  rmdir "$ENV{'HOME'}/.BREW_LIST/8"
 EOF
   [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 1 error};
 
@@ -1742,43 +1793,55 @@ perl<<"EOF"
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n"; $i1 = 1;
    while( $an1=<$dir1> ){
     next if $an1 =~ /\s--HEAD|\s--with/;
-     $HA1{$an1} = $i1++ if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA1{$an1} = $i1++,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $IN1{$AN1} = $an1,$AN1 = 0 if $AN1 and $an1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/cna2.html" or die " cna2 $!\n"; $i2 = 1;
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     $HA2{$an2} = $i2++ if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA2{$an2} = $i2++,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $IN2{$AN2} = $an2,$AN2 = 0 if $AN2 and $an2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/cna3.html" or die " cna3 $!\n"; $i3 = 1;
    while( $an3=<$dir3> ){
     next if $an3 =~ /\s--HEAD|\s--with/;
-     $HA3{$an3} = $i3++ if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA3{$an3} = $i3++,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir3;
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
    $fom[$in1] .= $HA1{$ANA[$in1]} ? "\t$HA1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA2{$ANA[$in1]} ? "\t$HA2{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $HA3{$ANA[$in1]} ? "\t$HA3{$ANA[$in1]}\n" : "\t\n";
+   $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA3{$ANA[$in1]} ? "\t$HA3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN3{$ANA[$in1]} ? "\t$IN3{$ANA[$in1]}\n" : "\t\n";
   }
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/cna.txt" or die " ana4 $!\n";
    print $dir4 @fom;
   close $dir4;
- rmdir "$ENV{'HOME'}/.BREW_LIST/11"
+ rmdir "$ENV{'HOME'}/.BREW_LIST/9"
 EOF
   [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 2 error};
   fi
  else
   curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
-   { math_rm; ${die:?curl c error}; }
- curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics-linux/install/30d/index.html ||\
-   { math_rm; ${die:?curl d error}; }
- curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics-linux/install/90d/index.html ||\
-   { math_rm; ${die:?curl e error}; }
- curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics-linux/install/365d/index.html ||\
    { math_rm; ${die:?curl f error}; }
+ curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics-linux/install/30d/index.html ||\
+   { math_rm; ${die:?curl g error}; }
+ curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics-linux/install/90d/index.html ||\
+   { math_rm; ${die:?curl h error}; }
+ curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics-linux/install/365d/index.html ||\
+   { math_rm; ${die:?curl i error}; }
+ curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics-linux/build-error/30d/index.html ||\
+   { math_rm; ${die:?curl j error}; }
+ curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics-linux/build-error/90d/index.html ||\
+   { math_rm; ${die:?curl k error}; }
+ curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics-linux/build-error/365d/index.html ||\
+   { math_rm; ${die:?curl l error}; }
  fi
 
  if [[ $2 -eq 1 ]];then
@@ -1811,26 +1874,58 @@ perl<<"EOF"
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/ana1.html" or die " ana1 $!\n"; $i1 = 1;
    while( $an1=<$dir1> ){
     next if $an1 =~ /\s--HEAD|\s--with/;
-     $HA1{$an1} = $i1++ if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA1{$an1} = $i1++,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $IN1{$AN1} = $an1,$AN1 = 0 if $AN1 and $an1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/ana2.html" or die " ana2 $!\n"; $i2 = 1;
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     $HA2{$an2} = $i2++ if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA2{$an2} = $i2++,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $IN2{$AN2} = $an2,$AN2 = 0 if $AN2 and $an2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/ana3.html" or die " ana3 $!\n"; $i3 = 1;
    while( $an3=<$dir3> ){
     next if $an3 =~ /\s--HEAD|\s--with/;
-     $HA3{$an3} = $i3++ if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA3{$an3} = $i3++,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir3;
+
+  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " ana1 $!\n"; $i1 = 1;
+   while( $en1=<$dir4> ){
+    next if $en1 =~ /\s--HEAD|\s--with/;
+     $EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER1{$EN1} = $en1,$EN1 = 0 if $EN1 and $en1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir4;
+  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " ana2 $!\n"; $i2 = 1;
+   while( $en2=<$dir5> ){
+    next if $en2 =~ /\s--HEAD|\s--with/;
+     $EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER2{$EN2} = $en2,$EN2 = 0 if $EN2 and $en2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir5;
+  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " ana3 $!\n"; $i3 = 1;
+   while( $en3=<$dir6> ){
+    next if $en3 =~ /\s--HEAD|\s--with/;
+     $EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER3{$EN3} = $en3,$EN3 = 0 if $EN3 and $en3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir6;
+
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
    $fom[$in1] .= $HA1{$ANA[$in1]} ? "\t$HA1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $ER1{$ANA[$in1]} ? "\t$ER1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA2{$ANA[$in1]} ? "\t$HA2{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $HA3{$ANA[$in1]} ? "\t$HA3{$ANA[$in1]}\n" : "\t\n";
+   $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $ER2{$ANA[$in1]} ? "\t$ER2{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA3{$ANA[$in1]} ? "\t$HA3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN3{$ANA[$in1]} ? "\t$IN3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $ER3{$ANA[$in1]} ? "\t$ER3{$ANA[$in1]}\n" : "\t\n";
   }
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/ana.txt" or die " ana4 $!\n";
    print $dir4 @fom;
@@ -1838,7 +1933,7 @@ perl<<"EOF"
 EOF
  [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 3 error};
 
-  rm -rf  ~/.BREW_LIST/12
+  rm -rf  ~/.BREW_LIST/10
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
   if [[ "$NAME" = Darwin ]];then
@@ -1851,6 +1946,7 @@ EOF
   if [[ $2 -eq 2 ]];then
    perl ~/.BREW_LIST/tie.pl 1 || { math_rm 1 && ${die:?perl tie2 error}; }
   fi
+rm -rf ~/.BREW_LIST/19
  math_rm
 fi
 __TIE__
@@ -1908,7 +2004,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    }
     Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
   }
- rmdir "$ENV{'HOME'}/.BREW_LIST/13";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
@@ -1939,12 +2035,13 @@ unless( $ARGV[0] ){
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
- } my( $in,$e ) = int @BREW/4;
+ } my( $in,$e ) = int @BREW/5;
  for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
-   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
-   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" :
-   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/16" : 0;
+   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
+   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
+   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in*4 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -2132,8 +2229,9 @@ unless( $ARGV[0] ){
    }
   close $BREW;
  }
+
  if( $re->{'MAC'} ){ my %HA;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
   for(@{$re->{'OS'}}){
    my( $name,$data,$ls ) = split ',';
    if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
@@ -2144,6 +2242,7 @@ unless( $ARGV[0] ){
    }
   }
  }
+
  sub Uses_1{
  my( $name,$HA ) = @_;
   for my $ls(split '\t',$name){
@@ -2155,6 +2254,7 @@ unless( $ARGV[0] ){
    Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"}
   }
  }
+
  sub Glob_1{
  my( $brew,$mine,$loop ) = @_; my $in;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
@@ -2219,11 +2319,13 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
+
  if( $RPM and Version_1( $RPM,$CAT ) ){
   $tap{'glibcun_Linux'} = 1;
    $tap{'glibcLinux'} = 0;
  }
 }
+rmdir "$ENV{'HOME'}/.BREW_LIST/16";
 
 sub Version_1{
  my @ls1 = split '\.|-|_',$_[0];
@@ -2242,12 +2344,12 @@ sub Version_1{
   }
  $ls1[$i] ? 1 : 0;
 }
-  my( $FON,$TIN,$UAA );
+  my $FON;
  if( $re->{'MAC'} ){
- rmdir "$ENV{'HOME'}/.BREW_LIST/18";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  my( $IN,$in,$e ) = ( 0,int @CASK/2,0 ); $tap{'fontlist'} = '';
   for my $dir2(@CASK){ my $ver;
-   rmdir "$ENV{'HOME'}/.BREW_LIST/19" if $in == $e++;
+   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS,$FI ) = ( 1,0,0,0,1 );
@@ -2308,13 +2410,23 @@ unless( $ARGV[0] ){
   my @LIST = <$FILE>;
  close $FILE;
 
+   my( $TIN,$UAA,$AIA,$ACA );
  @BREW = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
- @CASK = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK if $re->{'MAC'};
+ if( $re->{'MAC'} ){
+  for(@CASK){
+   last unless m[$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/|
+                 $MY_BREW/Library/Taps/homebrew/homebrew-cask/]x;
+   my( $name ) = m|.+/(.+)\.rb|;
+    $ACA .= "$name \\\n";
+  }
+  @CASK = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
+ }
 
   my $COU = $IN = 0;
  for(my $i=0;$i<@BREW;$i++){
   $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
   $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
+  $AIA .= "$BREW[$i] \\\n";
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
      $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]f_version"}, last if $BREW[$i] lt $ls1;
@@ -2365,13 +2477,16 @@ unless( $ARGV[0] ){
   $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s;
    $UCC .= "$_ \\\n" for(sort keys %HAU);
     $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s;
-  $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s;
+     $AIA =~ s/(.+)\\\n$/'-ai[Formula list]:Formula:( \\\n$1 )' \\\n/s;
+      $ACA =~ s/(.+)\\\n$/'-ac[Cask list]:Casks:( \\\n$1 )' \\\n/s if $ACA;
+  $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/;
    $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s if $FON;
     $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s;
      $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s;
       $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s;
-  my $TOP = $FON ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$FON}" :
-                   "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP}";
+  my $TOP = ( $ACA and $FON ) ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}" :
+              $ACA ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA}" :
+                     "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
