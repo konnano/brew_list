@@ -30,10 +30,10 @@ if [[ ! $LINK || "$LINK" = JA ]];then
 
    [[ "$LINK" = JA && ! $Lang =~ [uU][tT][fF]-?8$ ]] && echo Not Lang
    if [[ "$NAME" = Darwin ]];then
-    cp $DIR/brew_list.pl "$MY_BREW/bin/bl" || ${die:?copy error};
+    cp $DIR/bl "$MY_BREW/bin/bl" || ${die:?copy error};
      [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && cp -r $DIR/JA_BREW ~/.JA_BREW
    else
-    cp $DIR/brew_list.pl "$MY_BREW/bin/bl" || ${die:?copy error}
+    cp $DIR/bl "$MY_BREW/bin/bl" || ${die:?copy error}
      [[ "$LINK" = JA && $Lang =~ [uU][tT][fF]-?8$ ]] && mkdir -p ~/.JA_BREW &&\
       cp $DIR/JA_BREW/ja_brew.txt ~/.JA_BREW
    fi
