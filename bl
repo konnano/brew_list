@@ -91,10 +91,10 @@ MAIN:{
    $ref->{'DDIR'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-drivers";
     $ref->{'FDIR'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
  }
-   die " \033[31mNot installed HOME BREW\033[00m\n" unless -d $re->{'CEL'};
+   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    $Locale = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /utf-?8$/i;
   if( $re->{'JA'} ){
-   die " \033[31mNot connected\033[00m\n"
+   die " \033[31mNot connected\033[0m\n"
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
    die " Not UTF-8 Locale\n" unless $Locale;
     -d "$ENV{'HOME'}/.JA_BREW" ?
@@ -189,7 +189,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.14_9\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.15_0\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -218,10 +218,10 @@ sub Died_1{
 sub Init_1{
 my $re = shift; my( $list,$pid ) = [];
  if( $re->{'NEW'} ){
-  die " \033[31mNot connected\033[00m\n"
+  die " \033[31mNot connected\033[0m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
     system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
-     print STDERR " exist \033[31mLOCK\033[00m\n" if -d "$re->{'HOME'}/LOCK";
+     print STDERR " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
    Wait_1( $re );
  }
@@ -230,11 +230,11 @@ my $re = shift; my( $list,$pid ) = [];
     DB_2( $re ) unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'COM'};
   }
   if( $re->{'INF'} and not $re->{'COL'} or $re->{'USE'} or $re->{'dep_s'} or $re->{'ANA'} ){
-   my $cat = $re->{'MAC'} ? [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null
-                              cat ~/.BREW_LIST/cask.txt|awk '{print \$1}' 2>/dev/null`]:
-                            [`cat ~/.BREW_LIST/brew.txt|awk '{print \$1}' 2>/dev/null`];
+   my $cat = $re->{'MAC'} ? [`awk '{print \$1}' ~/.BREW_LIST/brew.txt 2>/dev/null
+                              awk '{print \$1}' ~/.BREW_LIST/cask.txt 2>/dev/null`]:
+                            [`awk '{print \$1}' ~/.BREW_LIST/brew.txt 2>/dev/null`];
    @$cat ? Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'}],$cat ) :
-    die " \033[33mNo file...\033[00m tyep bl -new\n";
+    die " \033[33mNo file...\033[0m tyep bl -new\n";
   }
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
    Info_1( $re ) if $re->{'INF'};
@@ -267,10 +267,10 @@ my $re = shift; my( $list,$pid ) = [];
 
 sub Doc_1{
  my( $dok,$not,@ten ) = $Locale ?
-  ( "\r  \033[36m✔︎\033[00m : Creat new cache          \n",
-    "\r  \033[31m✖︎\033[00m : Can not Create           \n",('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
-  ( "\r  \033[36mo\033[00m : Creat new cache          \n",
-    "\r  \033[31mx\033[00m : Can not Create           \n",('|','/','-','\\','|','/','-','\\') );
+  ( "\r  \033[36m✔︎\033[0m : Creat new cache          \n",
+    "\r  \033[31m✖︎\033[0m : Can not Create           \n",('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
+  ( "\r  \033[36mo\033[0m : Creat new cache          \n",
+    "\r  \033[31mx\033[0m : Can not Create           \n",('|','/','-','\\','|','/','-','\\') );
  $not,$dok,@ten;
 }
 
@@ -291,12 +291,12 @@ my( $re,$loop ) = @_; my $pid;
      my $name = $loop ? 'Please wait' : 'Makes new cache';
       while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
        -d "$re->{'HOME'}/WAIT" ?
-        print STDERR "\r  \033[3${c}m$ten[$i]\033[00m : $name" : last;
+        print STDERR "\r  \033[3${c}m$ten[$i]\033[0m : $name" : last;
          $i++; system 'sleep 0.1';
       }
     }else{ my $i = 0; my $ma = '';
       while(1){
-      printf STDERR "\r '\033[33m%-20s\033[00m' [%2d/20]",$ma,$i;
+      printf STDERR "\r '\033[33m%-20s\033[0m' [%2d/20]",$ma,$i;
        last unless -d "$re->{'HOME'}/WAIT";
         if( -d "$re->{'HOME'}/$i" ){
          while(1){
@@ -412,12 +412,13 @@ my( $spa,$name ) = @_;
   my $ti = $spa - 4;
    $$name =~ s/^(.{$ti}).*/$1.../;
  }
- $spa = int( ( $spa -length $$name )/2 );
- $$name = ' 'x$spa.$$name.' 'x$spa;
+ my $spa1 = int( ( $spa -length $$name )/2 );
+ $$name = ' 'x$spa1.$$name.' 'x$spa1;
+ $$name = ' '.$$name if length $$name < $spa;
 }
 
 sub Ana_1{
- my $re = shift; my( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3,@an );
+ my $re = shift; my @an;
  $re->{'NEW'}++, Init_1( $re ) unless -f $re->{'CAN'};
   my $mem = $re->{'ana'} if $re->{'ana'} and $re->{'ana'} !~ /^[12]$/;
  $re->{'ana'} = 0 if not $re->{'ana'} or $re->{'ana'} and $re->{'ana'} !~ /^[12]$/;
@@ -427,30 +428,31 @@ sub Ana_1{
      my $spr = "%${spa}s| %10s | %10s | %10s |";
  open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
   while(<$dir>){ chomp;
-   ( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3 ) = split '\t' if $re->{'FOR'};
-   ( $ls1,$ls2,$co1,$ls3,$co2,$ls4,$co3 ) = split '\t' if $re->{'CAS'};
+   my( $ls1,$ls2,$ls3,$ls4,$co1,$co2,$co3,$er1,$er2,$er3 ) = split '\t';
    my $co = $re->{'ana'} == 1 ? $ls2 : $re->{'ana'} == 2 ? $ls3 : $ls4;
    if( $co ){
     $an[$co]  = $ls1;
     $an[$co] .= $ls2 ? "\t$ls2" : "\t";
-    $an[$co] .= $co1 ? "\t$co1" : "\t";
-    $an[$co] .= $er1 ? "\t$er1" : "\t" if $re->{'FOR'};
     $an[$co] .= $ls3 ? "\t$ls3" : "\t";
-    $an[$co] .= $co2 ? "\t$co2" : "\t";
-    $an[$co] .= $er2 ? "\t$er2" : "\t" if $re->{'FOR'};
     $an[$co] .= $ls4 ? "\t$ls4" : "\t";
+    $an[$co] .= $co1 ? "\t$co1" : "\t";
+    $an[$co] .= $co2 ? "\t$co2" : "\t";
     $an[$co] .= $co3 ? "\t$co3" : "\t";
-    $an[$co] .= $er3 ? "\t$er3" : "\t" if $re->{'FOR'};
+    if( $re->{'FOR'} ){
+     $an[$co] .= $er1 ? "\t$er1" : "\t";
+     $an[$co] .= $er2 ? "\t$er2" : "\t";
+     $an[$co] .= $er3 ? "\t$er3" : "\t";
+    }
    }
   }
  close $dir;
   my $ana = (' 'x$spa)."|      30d   |      90d   |     365d   |\n".('-'x$line)."\n";
- for(@an){ my( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3 );
+ for(@an){
   next unless $_;
-   ( $ls1,$ls2,$co1,$er1,$ls3,$co2,$er2,$ls4,$co3,$er3 ) = split '\t' if $re->{'FOR'};
-    ( $ls1,$ls2,$co1,$ls3,$co2,$ls4,$co3 ) = split '\t' if $re->{'CAS'};
+   my( $ls1,$ls2,$ls3,$ls4,$co1,$co2,$co3,$er1,$er2,$er3 ) = split '\t';
    if( not $mem or $re->{'ana'} or $mem and $mem eq $ls1 ){
-    Leng_1( $spa,\$ls1 ) if $spa >= 12;
+    Leng_1( $spa,\$ls1,1 ) if $spa >= 12;
+    $ls1 = "\033[36m$ls1\033[0m" if -t STDOUT;
      $ana .= $re->{'FOR'} ?
       sprintf "%${spa}s|%9s   |%9s   |%9s   |\n$spr\n$spr\n%${line}s\n",
                $ls1,$ls2,$ls3,$ls4,'install ',$co1,$co2,$co3,'build-error ',$er1,$er2,$er3,'-'x$line :
@@ -461,7 +463,7 @@ sub Ana_1{
  if( $mem and $ana =~ /install / ){
   print $ana;
  }elsif( $ana =~ /install / ){
-  open my $pipe,'|-','more' or die " can't exec command\n";
+  open my $pipe,'|-','less -R' or die " can't exec command\n";
    print $pipe $ana;
   close $pipe;
  }
@@ -478,7 +480,7 @@ sub Size_1{
    my $an = @data ? \@data : $list;
     exit unless @$an;
      my $tput = `tput cols`;
-      my $spa = $tput >= 92 ? 44 : ($tput - 48) > 0 ? $tput - 48 : 0;
+      my $spa = $tput >= 88 ? 40 : ($tput - 48) > 0 ? $tput - 48 : 0;
    for(my $i=0;$i<@$an;$i++){
     @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
      if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
@@ -585,11 +587,11 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
           push @{$re->{'ARR'}},$len;
        }
      ( not @AN and $re->{'NOT'} ) ? $mine .= "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
-       not( @AN or $re->{'NOT'} ) ? $mine .= "$ls   Not require dependencies...\t: $key\n" :
-     ( not $re->{'KEN'} ) ? print" $key : depends\n" : 0;
+       not( @AN or $re->{'NOT'} ) ? $mine .= "$ls   Not require dependencies...\t: $key\n" : 0;
      unless( $re->{'KEN'} ){
-      Format_1( $re ) if @AN;
-       print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN and not $re->{'dep_s'};
+      -t STDOUT ? print" \033[36m$key\033[0m : depends\n" : print" $key : depends\n" if @AN;
+       Format_1( $re ) if @AN;
+        print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN and not $re->{'dep_s'};
      }
     $re->{"deps$_"} = $re->{'LEN1'} = 0 for(@AN);
    @AN = @{$re->{'ARR'}} = ();
@@ -680,7 +682,7 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
    print" $$name...\n" if $cat and not $re->{'dep_s'};
  }else{
   if( @ARR ){
-   $re->{'LIKE'} = print"\033[33m much...\033[00m\n";
+   $re->{'LIKE'} = print"\033[33m much...\033[0m\n";
     $re->{'ARR'} = \@ARR;
      $re->{'LIST'} = 0;
       Format_1( $re );
@@ -699,7 +701,7 @@ my $re = shift;
   my( $type ) = $re->{'OS'}{"$re->{'PRE'}font"} =~ /.+\.(.+)$/;
  die " exist mater.$type please type : bl -new\n"
   if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
- die " \033[31mNot connected\033[00m\n"
+ die " \033[31mNot connected\033[0m\n"
   if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
      system "sleep 0.1; qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1";
   unlink "$re->{'HOME'}/master.$type";
@@ -720,7 +722,7 @@ my( $re,$tap,$HA,$AN ) = @_;
 sub Dele_1{
 my $re = shift; my( @AN,%HA,@an,$do );
  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
-  print" \033[33mexists Formula and Cask...\033[00m\n"
+  print" \033[33mexists Formula and Cask...\033[0m\n"
    if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"} and -t STDOUT;
    exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
@@ -787,7 +789,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
            $re->{'DDIR'} and not $re->{'FDIR'} and not $re->{'VERS'} and $tap ne '4' or
            $re->{'VERS'} and not $re->{'FDIR'} and not $re->{'DDIR'} and $tap ne '3' or
            not( $re->{'VERS'} or $re->{'FDIR'} or $re->{'DDIR'} ) and $tap ne '#' ){
-            die " exist \033[31mLOCK\033[00m\n" if -d "$re->{'HOME'}/LOCK";
+            die " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
              $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
               $re->{'TEN'} = 1; Wait_1( $re );
        }
@@ -872,10 +874,10 @@ sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
  my $name = $$brew;
   $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
- $name = -t STDOUT ? "$name \033[33m(require)\033[00m" : "$name (require)"
+ $name = -t STDOUT ? "$name \033[33m(require)\033[0m" : "$name (require)"
    if not $re->{'COL'} and ( not $re->{'HASH'}{$$brew} and not $re->{'DMG'}{$$brew} or
           $re->{'HASH'}{$$brew} and Version_1( $re->{'OS'}{"$${brew}ver"},$re->{'HASH'}{$$brew} ) );
- $name = -t STDOUT ? "$name \033[33m(can delete)\033[00m" : "$name (can delete)"
+ $name = -t STDOUT ? "$name \033[33m(can delete)\033[0m" : "$name (can delete)"
    if $re->{'COL'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
  unless( $re->{"$${brew}undel"} ){
@@ -893,12 +895,12 @@ my( $re,$file,$spa,$AN ) = @_;
   if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
     ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) ) ){
-   $re->{'deps'} ? $re->{'NOT'} = " \033[33mCan't install $re->{'INF'}...\033[00m\n":
-    print " \033[33mCan't install $re->{'INF'}...\033[00m\n";
+   $re->{'deps'} ? $re->{'NOT'} = " \033[33mCan't install $re->{'INF'}...\033[0m\n":
+    print " \033[33mCan't install $re->{'INF'}...\033[0m\n";
   }
  if( not $file and $re->{'FOR'} and -t STDOUT and $re->{'OS'}{"$re->{'INF'}so_name"} and not $re->{'DEL'} ){
-   $re->{'deps'} ? $re->{'NOT'} = " \033[33mexists Formula and Cask $re->{'INF'}...\033[00m\n" :
-    print " \033[33mexists Formula and Cask $re->{'INF'}...\033[00m\n";
+   $re->{'deps'} ? $re->{'NOT'} = " \033[33mexists Formula and Cask $re->{'INF'}...\033[0m\n" :
+    print " \033[33mexists Formula and Cask $re->{'INF'}...\033[0m\n";
  }
  my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
@@ -980,7 +982,7 @@ my( $re,$mem,$dir ) = @_;
       my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
       my( $brew ) = split '\t',$mee;
       my $name = -d "$ENV{'HOME'}/.JA_BREW" ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
-       if( $mee =~ /^ ==>/ or $mee =~ s/(\Q$name\E)/\033[33m$1\033[00m/ig ){
+       if( $mee =~ /^ ==>/ or $mee =~ s/(\Q$name\E)/\033[33m$1\033[0m/ig ){
            $mee =~ s/\033\[33m|\033\[00m//g unless -t STDOUT;
           $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
          $re->{'DN'}++ if $mee !~ /^ ==>/;
@@ -1420,7 +1422,7 @@ sub Format_1{
   return if $re->{'deps'} or $re->{'LIKE'};
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
- print "\033[33m$re->{'FILE'}\033[00m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
+ print "\033[33m$re->{'FILE'}\033[0m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
   Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
@@ -1502,7 +1504,7 @@ my $re = shift;
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
    for(@cn){
     my $file = Dirs_1( "$re->{'CEL'}/$_",2 );
-     $i++, print" check $re->{'CEL'}/$_  \033[33mbrew cleanup...\033[00m\n" if @$file > 1;
+     $i++, print" check $re->{'CEL'}/$_  \033[33mbrew cleanup...\033[0m\n" if @$file > 1;
    } exit if $i;
     print STDERR "$re->{'INF'} : deps All delete [y/n]:";
     <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
@@ -1523,11 +1525,11 @@ sub Format_3{
    $line2 = $Locale ? '└──' : '`--';
   for(my $m=0;$m<@$file;$m++){
    if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
-    $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[00m\n" : "  == homebrew/cask-drivers ==\n";
-    $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[00m\n" : "  == homebrew/cask-drivers ==\n";
+    $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[0m\n" : "  == homebrew/cask-drivers ==\n";
+    $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[0m\n" : "  == homebrew/cask-drivers ==\n";
    }elsif( $$file[$m] eq 2 and $$file[$m+1] !~ m|^homebrew/| ){
-    $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[00m\n" : "  == homebrew/cask-versions ==\n";
-    $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[00m\n" : "  == homebrew/cask-versions ==\n";
+    $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[0m\n" : "  == homebrew/cask-versions ==\n";
+    $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[0m\n" : "  == homebrew/cask-versions ==\n";
    }  next if $$file[$m] =~ m[^[012]$|^homebrew/];
 
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
@@ -1535,7 +1537,7 @@ sub Format_3{
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
         $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} : '';
-      $name = -t STDOUT ? " \033[33mCan't install $name...\033[00m\n".$name :
+      $name = -t STDOUT ? " \033[33mCan't install $name...\033[0m\n".$name :
                           " Can't install $name....\n".$name if $re->{'OS'}{"${name}un_cask"};
       my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
 
@@ -1569,11 +1571,13 @@ sub Format_3{
     }
    }
   }
-   system " printf '\033[?7l' " if -t STDOUT;
-  if( -t STDOUT ){
-   print"  \033[33m### require Cask and Formula ###\033[00m\n$ca  \033[33m### require Formula ###\033[00m\n$fo";
-  }else{ print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo"; }
-   system " printf '\033[?7h' " if -t STDOUT;
+  if( $ca and $fo ){
+   if( -t STDOUT ){
+    system " printf '\033[?7l' ";
+    print"  \033[33m### require Cask and Formula ###\033[0m\n$ca  \033[33m### require Formula ###\033[0m\n$fo";
+    system " printf '\033[?7h' ";
+   }else{ print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo"; }
+  }
  Nohup_1( $re );
 }
 
@@ -1581,7 +1585,7 @@ sub Nohup_1{
 my $re = shift;
  $re->{'NEW'}++, Init_1( $re )
   unless -f "$re->{'HOME'}/font.sh" and -f "$re->{'HOME'}/tie.pl";
- chomp( my $dir = `cd \$(dirname \$0); pwd` );
+ chomp( my $dir = `cd \$(dirname \$0); pwd` ); # back #
  $re->{'NEW'}++, Init_1( $re )
   if system"cat $dir/bl|sed '1,/^__END__\$/d;/^__TIE__\$/,\$d' > ~/.BREW_LIST/font2.sh
             diff ~/.BREW_LIST/font.sh ~/.BREW_LIST/font2.sh >/dev/null 2>&1" or
@@ -1820,10 +1824,10 @@ perl<<"EOF"
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
    $fom[$in1] .= $HA1{$ANA[$in1]} ? "\t$HA1{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA2{$ANA[$in1]} ? "\t$HA2{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA3{$ANA[$in1]} ? "\t$HA3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $IN3{$ANA[$in1]} ? "\t$IN3{$ANA[$in1]}\n" : "\t\n";
   }
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/cna.txt" or die " ana4 $!\n";
@@ -1924,13 +1928,13 @@ perl<<"EOF"
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
    $fom[$in1] .= $HA1{$ANA[$in1]} ? "\t$HA1{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $ER1{$ANA[$in1]} ? "\t$ER1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA2{$ANA[$in1]} ? "\t$HA2{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
-   $fom[$in1] .= $ER2{$ANA[$in1]} ? "\t$ER2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA3{$ANA[$in1]} ? "\t$HA3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $IN3{$ANA[$in1]} ? "\t$IN3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $ER1{$ANA[$in1]} ? "\t$ER1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $ER2{$ANA[$in1]} ? "\t$ER2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER3{$ANA[$in1]} ? "\t$ER3{$ANA[$in1]}\n" : "\t\n";
   }
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/ana.txt" or die " ana4 $!\n";
@@ -2078,7 +2082,7 @@ unless( $ARGV[0] ){
         $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
         $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
         $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
-        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
+        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64 #
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
       $KIN = 0; next;
@@ -2134,7 +2138,7 @@ unless( $ARGV[0] ){
             $tap{"$name$OS_Version2"} = 0;
          }elsif( $re->{'LIN'} ){
            $tap{"${name}un_Linux"} = 1;
-            $tap{"${name}Linux"} = 0; # bottle
+            $tap{"${name}Linux"} = 0; # bottle #
          } next;
       }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
           $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
@@ -2480,19 +2484,17 @@ unless( $ARGV[0] ){
   }
  } my( $UCC,$TRE );
   $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
-  $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s;
+  $TRE = ( $TRE and $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s ) ? $TRE : '';
    $UCC .= "$_ \\\n" for(sort keys %HAU);
-    $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s;
-     $AIA =~ s/(.+)\\\n$/'-ai[Formula list]:Formula:( \\\n$1 )' \\\n/s;
-      $ACA =~ s/(.+)\\\n$/'-ac[Cask list]:Casks:( \\\n$1 )' \\\n/s if $ACA;
-  $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s;
-   $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s if $FON;
-    $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s;
-     $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s;
-      $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s;
-  my $TOP = ( $ACA and $FON ) ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}" :
-              $ACA ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA}" :
-                     "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA}";
+    $UCC = ( $UCC and $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s ) ? $UCC : '';
+     $AIA = ( $AIA and $AIA =~ s/(.+)\\\n$/'-ai[Formula list]:Formula:( \\\n$1 )' \\\n/s ) ? $AIA : '';
+      $ACA = ( $ACA and $ACA =~ s/(.+)\\\n$/'-ac[Cask list]:Casks:( \\\n$1 )' \\\n/s ) ? $ACA : '';
+  $TIN = ( $TIN and $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s ) ? $TIN : '';
+   $FON = ( $FON and $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s ) ? $FON : '';
+    $COM = ( $COM and $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s ) ? $COM : '';
+     $UAA = ( $UAA and $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s ) ? $UAA : '';
+      $DEP = ( $DEP and $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s ) ? $DEP : '';
+  my $TOP = "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
