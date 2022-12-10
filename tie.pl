@@ -120,7 +120,7 @@ unless( $ARGV[0] ){
         $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
         $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
         $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
-        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64
+        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64 #
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
       $KIN = 0; next;
@@ -176,7 +176,7 @@ unless( $ARGV[0] ){
             $tap{"$name$OS_Version2"} = 0;
          }elsif( $re->{'LIN'} ){
            $tap{"${name}un_Linux"} = 1;
-            $tap{"${name}Linux"} = 0; # bottle
+            $tap{"${name}Linux"} = 0; # bottle #
          } next;
       }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
           $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
@@ -522,19 +522,17 @@ unless( $ARGV[0] ){
   }
  } my( $UCC,$TRE );
   $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
-  $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s;
+  $TRE = ( $TRE and $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s ) ? $TRE : '';
    $UCC .= "$_ \\\n" for(sort keys %HAU);
-    $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s;
-     $AIA =~ s/(.+)\\\n$/'-ai[Formula list]:Formula:( \\\n$1 )' \\\n/s;
-      $ACA =~ s/(.+)\\\n$/'-ac[Cask list]:Casks:( \\\n$1 )' \\\n/s if $ACA;
-  $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/;
-   $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s if $FON;
-    $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s;
-     $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s;
-      $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s;
-  my $TOP = ( $ACA and $FON ) ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}" :
-              $ACA ? "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA}" :
-                     "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA}";
+    $UCC = ( $UCC and $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s ) ? $UCC : '';
+     $AIA = ( $AIA and $AIA =~ s/(.+)\\\n$/'-ai[Formula list]:Formula:( \\\n$1 )' \\\n/s ) ? $AIA : '';
+      $ACA = ( $ACA and $ACA =~ s/(.+)\\\n$/'-ac[Cask list]:Casks:( \\\n$1 )' \\\n/s ) ? $ACA : '';
+  $TIN = ( $TIN and $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s ) ? $TIN : '';
+   $FON = ( $FON and $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s ) ? $FON : '';
+    $COM = ( $COM and $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s ) ? $COM : '';
+     $UAA = ( $UAA and $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s ) ? $UAA : '';
+      $DEP = ( $DEP and $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s ) ? $DEP : '';
+  my $TOP = "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
