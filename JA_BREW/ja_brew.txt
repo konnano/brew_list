@@ -807,6 +807,7 @@ clip	コマンドラインから高品質のグラフを作成する
 clipper	MacOSクリップボードをtmuxやその他のローカルおよびリモートアプリと共有する
 clipsafe	パスワードセーフへのコマンドラインインターフェイス
 clisp	GNU CLISP、CommonLispの実装
+clitest	コマンドラインテスター
 cln	数字のクラスライブラリ
 cloc	コードの行をカウントする統計ユーティリティ
 clockywock	Ncursesアナログ時計
@@ -830,6 +831,7 @@ clozure-cl	長い歴史を持つCommonLispの実装
 clp	線形計画法Solver
 clpbar	コマンドラインプログレスバー
 clucene	LuceneのC++ポート：高性能でフル機能のテキスト検索エンジン
+clusterawsadm	Cluster API Provider AWS clusterawsadmのブートストラップ AMI/EKS/およびその他のヘルパーのホーム
 clusterctl	sig-cluster-lifecycleのサブプロジェクトであるクラスター管理API作業のホーム
 clutter	一般的で高レベルのキャンバスライブラリ
 clutter-gst	ビデオとオーディオにGStreamerを使用したClutterMediaインターフェース
@@ -1276,6 +1278,7 @@ dotbot	dotbotをブートストラップするツール
 dotdrop	ドットファイルを一度保存して、どこにでも展開します
 dotenv-linter	Rustで記述された.envファイル用の高速静的解析ツール
 dotnet	.NET Core
+dotnet@6	.NET Core
 double-conversion	IEEE doublesの2進化10進および10進2進ルーチン
 doublecpp	C++でのダブルディスパッチ
 doubledown	ローカルの変更をリモートディレクトリに同期する
@@ -1354,6 +1357,7 @@ dylibbundler	ライブラリをMacOSの実行可能ファイルにバンドル�
 dynaconf	Pythonの構成管理
 dynamips	Cisco 7200/3600/3725/3745/2600/1700 ルータエミュレータ
 dynare	経済モデル、特にDSGEおよびOLGモデルのプラットフォーム
+dynein	DynamoDB CLI
 dynet	動的神経ネットワークツールキット
 dynomite	さまざまなkv記憶装置エンジン用の汎用ダイナモ実装
 e2fsprogs	ext2/ext3/ext4 ファイルシステムのユーティリティ
@@ -1847,6 +1851,7 @@ ghc	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.10	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.6	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.8	Glorious Glasgow Haskellコンパイルシステム
+ghc@9.2	Glorious Glasgow Haskellコンパイルシステム
 ghcup	汎用言語Haskellのインストーラー
 ghex	GNOME16進エディター
 ghi	コマンドラインでGitHubの問題に取り組む
@@ -2063,6 +2068,7 @@ go@1.18	シンプル/信頼性/効率的なソフトウェアを構築するた�
 goaccess	Apache Webサーバーのログ分析と対話的Viewer
 goad	Goに組み込まれたAWS Lambdaを利用した、高度に分散された負荷テストツール
 goawk	Goで記述されたPOSIX準拠のAWK解釈プログラム
+gobackup	データベースやファイルをクラウドストレージにバックアップするためのCLIツール
 gobject-introspection	GObjectライブラリの内観的データを生成する
 gobo	FreeでポータブルなEiffelツールとライブラリ
 gobuster	Goで書かれたDNS bustingツール ディレクトリ/ファイル
@@ -2425,6 +2431,7 @@ i686-elf-gcc	i686-elf用のGNUコンパイラコレクション
 iam-policy-json-to-terraform	JSONIAMポリシーをテラフォームに変換する
 iamy	AWSIAMインポートおよび転送ツール
 iat	多くのCD-ROM画像フォーマットをISO9660に変換します
+ibazel	ソースファイルの変更時にBazelターゲットをビルドするためのツール
 ibex	実数に対する制約処理用のC++ライブラリ
 iblinter	InterfaceBuilderのLinterツール
 ical-buddy	MacOSカレンダーデータベースからイベントとタスクを取得します
@@ -2655,6 +2662,7 @@ jrsonnet	Jsonnet言語のRust実装
 jrtplib	RTP(Real-time Transport Protocol)用のフル機能のC++ライブラリ
 jruby	純粋なJavaでのRubyの実装
 jsawk	awkと同様ですがJSONの場合、JavaScriptオブジェクトと配列を使用します
+jscpd	ソースコードをプログラミングするための コピー/ペースト 検出器
 jsdoc3	JavaScriptのAPIドキュメント発生器
 jshon	シェルからJSONを 解析/読み取り/作成 します
 jslint4java	JavaScript Lint(jsl)のJavaラッパー
@@ -4411,6 +4419,7 @@ petsc	科学計算のためのポータブルで拡張可能なツールキッ�
 petsc-complex	科学計算のためのポータブルで拡張可能なツールキット(複合)
 pev	PE分析ツールキット
 pex	PostgreSQLのパッケージマネージャー
+pferd	ファイルをすばやく簡単にダウンロードするためのプログラム
 pfetch	POSIX shで書かれたかなりのシステム情報ツール
 pg_cron	PostgreSQLで定期的なジョブを実行す
 pg_partman	PostgreSQLのパーティション管理拡張機能
@@ -4440,6 +4449,7 @@ php-cs-fixer	PHPコーディング標準の問題を自動的に修正するツ�
 php-cs-fixer@2	PHPコーディング標準の問題を自動的に修正するツール
 php@7.4	汎用スクリプト言語
 php@8.0	汎用スクリプト言語
+php@8.1	汎用スクリプト言語
 phpbrew	HOMEで純粋なPHPでPHPバージョンを作成および管理する
 phplint	PHP5および7プログラムの確認およびドキュメンター
 phpmd	PHP Mess Detector
@@ -4629,6 +4639,7 @@ protoc-gen-gogofaster	Buffer手続き Go with Gadgets
 protoc-gen-grpc-web	gRPC-Webクライアントのコードを生成するProtocプラグイン
 prototool	Buffer手続きの万能ナイフ
 prover9	一次および等式論理の自動定理証明
+proxsuite	高度な近位最適化ツールボックス
 proxychains-ng	Hook先読み
 proxytunnel	HTTPSプロキシを介してTCPトンネルを作成する
 prql-compiler	シンプルで強力なパイプライン化されたSQL置換
@@ -5140,6 +5151,7 @@ serveit	静的コンテンツの同期サーバーと再構築
 serverless	サーバーレス基本設計でアプリケーションを構築する
 servus	zeroconfネットワーキング用のライブラリとユーティリティ
 setweblocthumb	カスタムアイコンをweblocファイルに割り当てます
+seven-kingdoms	Enlight SoftwareのTrevor Chanが開発したリアルタイム戦略ゲーム
 sevenzip	7-Zipは圧縮率の高いファイルアーカイバです。
 sextractor	天体画像からソースのカタログを抽出します
 sf-pwgen	SecurityFoundationフレームワークを使用してパスワードを生成する
@@ -5258,6 +5270,7 @@ smu	マークダウンのような構文を持つ単純なマークアップ
 smug	tmuxワークフローを自動化する
 sn0int	半自動OSINTフレームワークとパッケージマネージャー
 snag	すべてのニーズに対応する自動ビルドツール
+snakefmt	Snakemakeコードフォーマッター
 snakemake	Pythonicワークフローシステム
 snap	.snapファイルを操作するためのツール
 snap-telemetry	Snapはオープンソースの遠隔測定フレームワークです
@@ -5364,6 +5377,7 @@ spring-completion	SpringのBash補完
 spring-loaded	実行中のJVMでクラスのリロードを有効にするJavaエージェント
 spring-roo	Java開発者向けの迅速なアプリケーション開発ツール
 sproxy	'siege-friendly'作法でURLを収集するHTTPプロキシサーバー
+sql-language-server	SQL用言語サーバー
 sql-lint	クエリでエラーをDBから戻し健全性チェックを行うSQL静的解析
 sql-translator	構造化データ定義の操作(SQLなど)
 sqlancer	DBMSでの論理バグの検出
@@ -5462,6 +5476,7 @@ stubby	getdnsに基づくDNSプライバシー対応スタブリゾルバーサ�
 stunnel	SSLトンネリングプログラム
 stuntman	STUN手続きの実装
 style-check	禁止されているフレーズを検索するためにラテックス形式のテキストを解析します
+stylelint	最新のCSSリンター
 stylish-haskell	Haskellコードの整形
 stylua	意見のあるLuaコード整形ツール
 sub2srt	字幕を.subからsubviewer.srt形式に変換します
