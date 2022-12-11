@@ -216,8 +216,8 @@ font-bigelow-rules	Bigelow Rules
 font-bigshot-one	Bigshot One
 font-bilbo	Bilbo
 font-bilbo-swash-caps	Bilbo Swash Caps
-font-bio-rhyme	Bio Rhyme
-font-bio-rhyme-expanded	Bio Rhyme 拡張
+font-biorhyme	ラテン書体ファミリー
+font-biorhyme-expanded	BioRhyme拡張
 font-birthstone	キャップとエンディングのスワッシュフォームを含む弾むbirthstone兄弟
 font-birthstone-bounce	より光沢と遊び心を加えるbirthstoneの兄弟ファミリー
 font-biryani	Biryani
@@ -558,7 +558,6 @@ font-foundry-sterling	Foundry Sterling
 font-fragment-mono	Helveticaに影響を受けた等幅コーディングフォント
 font-francois-one	Francois One
 font-frank-ruhl-libre	Frank Ruhl Libre
-font-fraunces	ディスプレイ 古いスタイルのsoft-serif書体
 font-freckle-face	Freckle Face
 font-fredericka-the-great	Fredericka the Great
 font-fredoka	ben nathanが率いる イスラエルを拠点とするタイパーデザイン製造所
@@ -662,7 +661,6 @@ font-griffy	Griffy
 font-gruppo	Gruppo
 font-gudea	Gudea
 font-gugi	Gugi
-font-gulzar	現代のウルドゥー nasta'liqフォント
 font-gupter	Gupter
 font-gurajada	Gurajada
 font-gwendolyn	Gwendolyn
@@ -681,6 +679,7 @@ font-hanalei-fill	Hanalei Fill
 font-hanamina	HanaMinA
 font-handjet	ハンドジェットプリンターでうまく機能するように調整されたフォント
 font-handlee	Handlee
+font-hanken-grotesk	アルフレド・マルコ・プラディル率いる
 font-hannari	Hannari
 font-hanuman	Hanuman
 font-happy-monkey	Happy Monkey
@@ -1303,6 +1302,7 @@ font-noto-sans-n-ko	Noto Sans NKo
 font-noto-sans-nabataean	Noto Sans Nabataean
 font-noto-sans-new-tai-lue	Noto Sans New Tai Lue
 font-noto-sans-newa	Noto Sans Newa
+font-noto-sans-nko	Noto Sans NKo
 font-noto-sans-nushu	Noto Sans Nushu
 font-noto-sans-ogham	Noto Sans Ogham
 font-noto-sans-ol-chiki	Noto Sans Ol Chiki
@@ -1332,6 +1332,7 @@ font-noto-sans-sc	漢民族表意文字の簡体字中国語版Sans-serifデザ�
 font-noto-sans-sharada	Noto Sans Sharada
 font-noto-sans-shavian	Noto Sans Shavian
 font-noto-sans-siddham	Noto Sans Siddham
+font-noto-sans-signwriting	手話サイン台本のデザイン
 font-noto-sans-sinhala	Noto Sans Sinhala
 font-noto-sans-sinhala-ui	Noto Sans Sinhala UI
 font-noto-sans-sogdian	Noto Sans Sogdian
@@ -1354,6 +1355,7 @@ font-noto-sans-takri	Noto Sans Takri
 font-noto-sans-tamil	Noto Sans Tamil
 font-noto-sans-tamil-supplement	Noto Sans Tamil Supplement
 font-noto-sans-tamil-ui	Noto Sans Tamil UI
+font-noto-sans-tangsa	インド語tangsa文字のデザイン
 font-noto-sans-tc	台湾とマカオの言語の変調されていない(“sans serif”)デザイン
 font-noto-sans-telugu	Noto Sans Telugu
 font-noto-sans-telugu-ui	Noto Sans Telugu UI
@@ -1398,6 +1400,7 @@ font-noto-serif-kr	韓国語の変調(“serif”)デザイン
 font-noto-serif-lao	Noto Serif Lao
 font-noto-serif-malayalam	Noto Serif Malayalam
 font-noto-serif-myanmar	Noto Serif Myanmar
+font-noto-serif-np-hmong	Noto Serif NP Hmong
 font-noto-serif-nyiakeng-puachue-hmong	Noto Serif Nyiakeng Puachue Hmong
 font-noto-serif-oriya	インド語のオディア(oriya)スクリプトのテキストの変調(“serif”)デザイン
 font-noto-serif-sc	簡体字中国語の変調(“serif”)デザイン
@@ -1408,6 +1411,7 @@ font-noto-serif-tc	台湾、香港、マカオの言語の変調(“serif”)デ
 font-noto-serif-telugu	Noto Serif Telugu
 font-noto-serif-thai	Noto Serif Thai
 font-noto-serif-tibetan	Noto Serif Tibetan
+font-noto-serif-toto	Noto Serif Toto
 font-noto-serif-yezidi	Noto Serif Yezidi
 font-noto-traditional-nushu	Noto Traditional Nushu
 font-nova-cut	Nova Cut
@@ -1440,7 +1444,6 @@ font-open-dyslexic	OpenDyslexic
 font-open-dyslexic-nerd-font	OpenDyslexicオタクフォントファミリ(OpenDyslexic)
 font-open-iconic	Open Iconic
 font-open-sans	Open Sans
-font-open-sans-condensed	Open Sans Condensed
 font-open-sans-hebrew	Open Sans Hebrew
 font-open-sans-hebrew-condensed	Open Sans Hebrew Condensed
 font-oppo-sans	OPPO Sans
@@ -1467,6 +1470,7 @@ font-oxygen	Oxygen
 font-oxygen-mono	Oxygen Mono
 font-pacifico	Pacifico
 font-padauk	Padauk
+font-padyakke-expanded-one	Padyakke Expanded One
 font-palanquin	Palanquin
 font-palanquin-dark	Palanquin Dark
 font-palette-mosaic	Palette Mosaic
@@ -1585,7 +1589,6 @@ font-rasa	Rasa
 font-rationale	Rationale
 font-ravi-prakash	Ravi Prakash
 font-readex-pro	可変フォントのファミリー
-font-recursive	Recursive
 font-recursive-code	Recursiveのビルド済みのテキストエディターに適したファイル powerline glyphsを含む
 font-red-hat-display	Red Hat Display
 font-red-hat-mono	Red Hat Mono
@@ -1633,11 +1636,13 @@ font-rowdies	Rowdies
 font-rozha-one	Rozha One
 font-ru-serius	RU Serius
 font-rubik	Rubik
+font-rubik-80s-fade	Rubik 80s Fade
 font-rubik-beastly	グーグルフォントに基づくrubik by hubert and fischer, meir sadan and cyreal
 font-rubik-bubbles	Rubik Bubbles
 font-rubik-burned	Rubik Burned
 font-rubik-dirt	Rubik Dirt
 font-rubik-distressed	Rubik Distressed
+font-rubik-gemstones	Rubik Gemstones
 font-rubik-glitch	Rubik Glitch
 font-rubik-iso	Rubik Iso
 font-rubik-marker-hatch	Rubik Marker Hatch
@@ -1647,6 +1652,9 @@ font-rubik-mono-one	Rubik Mono One
 font-rubik-moonrocks	Rubik Moonrocks
 font-rubik-one	Rubik One
 font-rubik-puddles	Rubik Puddles
+font-rubik-spray-paint	Rubik Spray Paint
+font-rubik-storm	Rubik Storm
+font-rubik-vinyl	Rubik Vinyl
 font-rubik-wet-paint	Rubik Wet Paint
 font-ruda	Ruda
 font-rufina	Rufina
@@ -1753,6 +1761,9 @@ font-snowburst-one	Snowburst One
 font-sofadi-one	Sofadi One
 font-sofia	Sofia
 font-sofia-sans	大きな文字セットを持つOpenTypeファミリ
+font-sofia-sans-condensed	Sofia Sansコンデンス
+font-sofia-sans-extra-condensed	Sofia Sansエクストラコンデンス
+font-sofia-sans-semi-condensed	Sofia Sansセミコンデンス
 font-solway	Solway
 font-sometype-mono	Sometype Mono
 font-song-myung	Song Myung
@@ -1857,6 +1868,9 @@ font-the-nautigal	流動的でありながらフォーマルで美しいコネ�
 font-tiejili-sc	Reggae Oneを中国語にフォントワークス拡張したオープンソースのフォント
 font-tienne	Tienne
 font-tillana	Tillana
+font-tilt-neon	Tilt Neon
+font-tilt-prism	Tilt Prism
+font-tilt-warp	Tilt Warp
 font-times-new-roman	Times New Roman
 font-times-newer-roman	Times New Romanと同じように見えますが、文字の幅が5〜10％広くなっています
 font-timmana	Timmana
@@ -2279,6 +2293,7 @@ dotnet-preview	開発者プラットフォーム
 dotnet-sdk-preview	開発者プラットフォーム
 dropbox-beta	Dropboxクラウドストレージサービスのクライアント
 element-nightly	マトリックスコラボレーションクライアント
+elephas-beta	パーソナルAIライティングアシスタント
 emacs-nightly	GNU Emacsテキストエディター
 emacs-pretest	テキストエディター
 ferdi-beta	複数のサービスを組み合わせたメッセージングブラウザー
@@ -2380,7 +2395,6 @@ rstudio-daily	RStudio
 rstudio-preview	RとPythonに焦点を当てたデータサイエンスソフトウェア
 rstudio-preview-electron	RとPythonに焦点を当てたデータサイエンスソフトウェア
 safari-technology-preview	Webブラウザー
-screenflow5	ScreenFlow
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
@@ -2393,7 +2407,6 @@ skype7	Skype
 slack-beta	チームコミュニケーションおよび協力ソフトウェア
 slicer-preview	医用画像処理および視覚化システム
 smcfancontrol-beta	内蔵ファンの最低速度を設定します
-snagit4	Snagit
 sonarr-beta	sonarr-beta
 sonos-s1-controller	Gen 1 Sonos製品のコントローラー
 soulver2	テキストエディタと電卓
@@ -2408,7 +2421,6 @@ temurin17	Eclipse Foundation(Adoptium)のJDK
 temurin18	Eclipse Foundation(Adoptium)のJDK
 temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
-textmate-preview	汎用テキストエディター
 thunderbird-beta	Mozilla Thunderbird
 thunderbird-daily	カスタマイズ可能なメールクライアント
 tinymediamanager3	メディア管理ツール V3バージョンライセンスは不要
@@ -2420,7 +2432,6 @@ transmit4	Transmit
 tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
 utm-beta	QEMUを使用した仮想マシンUI
 virtualbox-beta	Oracle VirtualBox
-virtualbox-extension-pack-beta	Oracle VirtualBox拡張パック
 virtualbox6	x86ハードウェアのバーチャライザー
 visual-studio-code-insiders	コードエディター
 vivaldi-snapshot	カスタマイズと制御に焦点を当てたWebブラウザー
