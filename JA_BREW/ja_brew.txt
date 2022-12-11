@@ -544,6 +544,7 @@ bupstash	簡単で効率的な暗号化されたバックアップ
 burl	curl(1)の便利なショートカットを提供するシェルスクリプトラッパー
 burp	ネットワークのバックアップと復元
 burst	基数ソート 遅延範囲と反復子など Boost のようなヘッダーのみのライブラリ
+busted	エレガントなLua単体テスト
 butane	人間が読めるButane構成を機械が読める点火構成に変換します
 bvi	Viのようなバイナリファイル(16進)エディタ
 bvm	すべてのバイナリのバージョンマネージャー
@@ -866,6 +867,7 @@ cocogitto	従来のコミットツールボックス
 coconut	シンプルでエレガントなPythonic関数型プログラミング
 cocot	ttyのコード変換器
 coda-cli	Panic's Codaのためのシェル統合
+code-cli	コマンドラインインターフェイスビルトインVisual Studio Code
 code-minimap	高性能コードミニマップ発生器
 code-server	ブラウザからVSCodeにアクセスする
 codec2	オープンソースの音声コーデック
@@ -2796,6 +2798,7 @@ kubecfg	複雑なエンタープライズKubernetes環境をコードとして�
 kubecm	KubeConfigマネージャー
 kubeconform	FAST Kubernetesマニフェストの確認、Custom Resourcesのサポート！
 kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成できるツール
+kubefirst	Kubernetes向けのGitOpsインフラストラクチャとアプリケーション配信プラットフォーム
 kubekey	Kubernetes and/or KubeSphereのインストーラー...詳しくはENで
 kubeless	Kubernetesネイティブ Serverlessフレームワーク
 kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
@@ -3484,6 +3487,7 @@ lua-language-server	Lua言語のLanguage Server
 lua@5.1	強力で軽量なプログラミング言語(v5.1.5)
 lua@5.3	強力で軽量なプログラミング言語
 luabind	C++とLua間のbindings用のライブラリ
+luacheck	Luaプログラミング言語のパッケージ マネージャー
 luajit	Luaプログラミング言語のJust-In-Timeコンパイラ(JIT)
 luajit-openresty	LuaJIT2のOpenRestyのブランチ
 luaradio	SDRの軽量で埋め込み可能なフローグラフ信号処理フレームワーク
@@ -3661,6 +3665,7 @@ meson	高速でユーザーに親しいビルドシステム
 mesos	Apacheクラスターマネージャー
 metabase	ビジネス知性報告サーバー
 metalang99	C99プリプロセッサベースのメタプログラミング言語
+metals	Scala言語サーバー
 metaproxy	Yazツールキットを利用したZ39.50プロキシとルーター
 metashell	C++テンプレートのmetaプログラミングシェル
 metis	グラフと順序行列を分割するプログラム
@@ -4098,6 +4103,7 @@ oak	表現力豊かで単純な動的計画法言語
 oakc	コンパクトな中間表現を備えたポータブルプログラミング言語
 oath-toolkit	ワンタイムパスワード認証システム用のツール
 oauth2_proxy	OAuth2プロバイダーを介してユーザーを認証するための逆プロキシ
+oauth2c	OAuth2の使いやすいCLI
 oauth2l	GoogleのOAuthトークンを操作するためのシンプルなCLI
 obfs4proxy	Tor用のプラグ可能な転送プロキシ、obfs4の実装
 objc-codegenutils	XCodeの操作に役立つ3つの小さなツール
@@ -5321,6 +5327,7 @@ sonobuoy	クラスタの適合性に関する報告を生成するKubernetesコ�
 sophus	Eigenを使用したLie GroupのC++実装
 sops	暗号化されたファイルの編集
 sord	RDFデータをメモリに格納するためのCライブラリ
+souffle	ロジック定義の静的解析
 sound-touch	オーディオ処理ライブラリ
 source-highlight	ソースコード構文ハイライト
 source-to-image	ソースを構築しDockerイメージに挿入するためのツール
@@ -5346,6 +5353,7 @@ spdlog	高速C++ロギングライブラリ
 spdx-sbom-generator	golangツールを介したSBOMのCI生成をサポートします
 spdylay	SPDY手続きバージョン2、3、および3.1の実験的実装
 spectra	大規模な固有値問題のためのヘッダーのみのC++ライブラリ
+spectral-cli	JSON/YAMLリンターとサポート OpenAPI v3.1/v3.0/v2.0/AsyncAPI v2.x
 speech-tools	エディンバラ大学のC++音声ソフトウェアライブラリ
 speedread	シンプルな端末ベースの高速連続ビジュアル提示(RSVP)リーダー
 speedtest-cli	https://speedtest.net処理能力テストのコマンドラインインターフェイス
@@ -5432,6 +5440,7 @@ ssss	Shamirの秘密共有schemeの実装
 sstp-client	SSTP(PPP over SSLのMicrosoftリモートアクセスソリューション)クライアント
 st	コマンドラインからの統計
 stanc3	Stan変換器
+standard	JavaScriptスタイルガイド リンターと自動コード修正機能付き
 standardese	C++の次世代ドキュメント発生器
 stanford-corenlp	コアNLPツールのJavaパッケージ
 stanford-ner	スタンフォードNLPグループによる固有表現抽出の実装
@@ -5757,7 +5766,7 @@ topgrade	すべてのものをアップグレードする
 tor	TCPの匿名化overlayネットワーク
 torchvision	コンピュータービジョンのデータセット、変換、モデル
 torsocks	TorでSOCKSに適したアプリケーションを使用する
-totp-cli	Goで書かれたTOTP CLIツールのような　Authy/Google Authenticator
+totp-cli	Goで書かれたTOTP CLIツールのような Authy/Google Authenticator
 tox	汎用Python virtualenv管理およびテストコマンドラインツール
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
 tpl	バイナリデータをCで保存および取得する
@@ -6349,6 +6358,7 @@ zenity	コマンドライン用のGTK+ダイアログボックス
 zero-install	分散型クロスプラットフォームソフトウェアインストールシステム
 zeromq	高性能の非同期メッセージングライブラリ
 zet	和集合を見つけるためのCLIユーティリティ 交差とファイルの違いを設定します
+zf	ファイル名の一致を優先するコマンドラインファジーファインダー
 zig	堅牢性のために設計されたプログラミング言語 最適性/明快
 zile	テキストエディタ開発キット
 zim	Wikiページのコレクションを維持するために使用されるグラフィカルテキストエディタ
