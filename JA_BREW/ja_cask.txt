@@ -69,6 +69,7 @@ affinity-photo	プロの画像編集ソフトウェア
 affinity-publisher	プロのデスクトップ出版ソフトウェア
 after-dark-classic	Afterダーククラシックセット
 agenda	日付に焦点を当てたメモ取りアプリケーション
+agi	Android GPUインスペクター
 aimersoft-video-converter-ultimate	ビデオ変換アプリ
 air-video-server-hd	Appleデバイスにビデオをストリーミングするためのツール
 airbuddy	AirPodsコンパニオンアプリ
@@ -736,6 +737,7 @@ curiosity	SwiftUI Redditクライアント
 curseforge	アドオンとMODをダウンロードして管理します
 cursorcerer	Cursorcerer
 cursorsense	カーソルの加速と感度を調整します
+cursr	複数のディスプレイ間でのマウスの動きをカスタマイズする
 customshortcuts	メニュー項目のキーボードショートカットをカスタマイズする
 cutesdr	復調およびスペクトル表示プログラム
 cutter	Rizinを搭載した逆エンジニアリングプラットフォーム
@@ -985,6 +987,7 @@ electrum-grs	Electrum-GRS
 electrum-ltc	ライトコインウォレット
 electrumsv	ビットコインSV用のデスクトップウォレット
 element	Matrix協調クライアント
+elephas	パーソナルAIライティングアシスタント
 elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
 eliot	オープンソースのスクラブルゲーム
 elmedia-player	ビデオおよびオーディオプレーヤー
@@ -1074,6 +1077,7 @@ fantastical	予定表ソフトウェア
 fantasy-grounds	ファンタジーグラウンド
 fantasy-map-generator	双方向で高度にカスタマイズ可能なマップを生成する
 far2l	FAR Manager v2のUnixフォーク
+farcaster	分散型ソーシャルネットワーク
 farrago	オーディオ再生
 fastclicker	自動クリッカーとマウス自動化ユーティリティ
 fastmarks	Webブラウザーのブックマークを検索して開きます
@@ -2539,6 +2543,7 @@ overdrive-media-console	電子書籍を入手 オーディオブックとあな�
 overflow	ビジュアルアプリケーションランチャー
 overkill	iPhoneを接続するときにiTunesが開かないようにする
 oversight	コンピューターのマイクとWebカメラを監視します
+overt	アプリストアを開く
 owasp-zap	FreeのオープンソースWebアプリスキャナー
 owncloud	ownCloud用のデスクトップ同期クライアント
 oxwu	OX ウェイクアップ
@@ -3863,7 +3868,6 @@ visual-studio-code	オープンソースコードエディター
 visualboyadvance-m	Visual Boy Advance-M
 visualvm	オールインワンJavaトラブルシューティングツール
 vitals	小さなプロセスモニター
-vitalsigns	温度およびメモリモニター
 vitalsource-bookshelf	eTextbooksにアクセスする
 vitamin-r	生産性ツールと技術のコレクション
 vivaldi	カスタマイズと制御に焦点を当てたWebブラウザー
@@ -3956,7 +3960,6 @@ whatsapp	WhatsApp用のデスクトップクライアント
 whatsize	ディスクスペースの表示と再利用に使用されるファイルシステムユーティリティ
 whatsyoursign	ファイルの暗号署名情報を表示します
 whichspace	アクティブスペースメニューバーアイコン
-whist-browser	ストリーミング可能なクラウドタブを備えたWebブラウザー
 whoozle-android-file-transfer	Linux用のAndroidファイル転送
 widelands	Settlers IIのようなFreeのリアルタイム戦略ゲーム
 wifi-explorer	ワイヤレスネットワークのトラブルシューティング スキャン/画面
