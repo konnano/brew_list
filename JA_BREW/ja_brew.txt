@@ -528,6 +528,7 @@ btparse	BibTeXユーティリティライブラリ
 btpd	Bit Torrent手続きデーモン
 btrfs-progs	btrfsファイルシステムを管理するためのユーザー空間ユーティリティ
 bubblewrap	Linuxの非特権サンドボックスツール
+buf	Protocol Buffersを使用する新しい方法
 buildapp	SBCLで実行可能ファイルを作成します
 buildifier	標準的な規則でbazel BUILDファイルをフォーマットします
 buildkit	Сoncurrent,キャッシュ効率の良い、Dockerfileに依存しないビルダーツールキット
@@ -1456,6 +1457,7 @@ epsilon	強力なwavelet画像圧縮機
 epstool	プレビュー画像を編集しEPSファイルのバウンディングボックスを修正します
 epubcheck	EPUBファイルを検証する バージョン2.0以降
 eralchemy	単純実体関連(ER)図の生成
+erigon	効率性最前線でのイーサリアム(実行クライアント)の実装
 erlang	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@21	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@22	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
@@ -2061,6 +2063,7 @@ go-jira	Goのシンプルなjiraコマンドラインクライアント
 go-jsonnet	JSONデータを定義するための構成言語の実装に移動します
 go-md2man	マークダウンをroffに変換します(manページ)
 go-statik	Go実行可能ファイルにファイルを埋め込む
+go-task	Taskはよりシンプルで使いやすいことを目的としたタスク ランナー/ビルド ツールです
 go@1.13	Goプログラミング環境(1.13)
 go@1.14	Goプログラミング環境(1.14)
 go@1.15	Goプログラミング環境(1.15)
@@ -2326,6 +2329,7 @@ helmsman	コードツールとしてのHelmチャート
 help2man	簡単なマニュアルページを自動的に生成する
 heppdt2	さまざまなMC発生器およびPDG標準との間の細かいIDの変換
 hercules	System/370、ESA/390、z/Architecture Emulator
+hermit	ソフトウェア プロジェクト内の分離されたセルフ ブートストラップ ツール セットを管理します。
 herrie	Ncursesに基づいて構築された最小なオーディオプレーヤー
 hesiod	DNS上に構築された単純な文字列検索サービスのライブラリ
 hevea	LaTeXからHTMLへの翻訳
@@ -3085,6 +3089,7 @@ libiodbc	ODBCに基づくデータベース接続レイヤー(unixodbcの代替�
 libiptcdata	libiptcdata0によって提供される仮想パッケージ
 libirecovery	USB経由で iBoot/iBSS と通信するためのライブラリとユーティリティ
 libiscsi	iscsiのクライアントライブラリとユーティリティ
+libisofs	さまざまな拡張子を持つISO-9660ファイルシステムを作成するためのライブラリ
 libjson-rpc-cpp	json-rpcのC++フレームワーク
 libjwt	JSON Web TokenCライブラリ
 libkate	Oggの多重化された オーディオ/ビデオ のoverlayコーデック
@@ -3386,6 +3391,7 @@ libzdb	データベース接続プールライブラリ
 libzip	読むためのCライブラリ 作成/zipアーカイブの変更
 libzzip	ZIPアーカイブの読み取りアクセスを提供するライブラリ
 license-eye	ライセンスヘッダーを確認して修正し依存ライセンスを解決するためのツール
+licensed	依存関係のライセンスをキャッシュして検証する
 licensefinder	プロジェクトの依存関係のライセンスを検索する
 licenseplist	iOSアプリケーションのすべての依存関係のライセンスリストジェネレーター
 licensor	stdoutにライセンスを書き込む
@@ -3905,6 +3911,7 @@ n	Nodeバージョン管理
 naabu	高速portスキャナー
 nacl	署名ライブラリ ネットワーク通信/暗号化/復号化
 naga	snakeゲームのターミナル実装
+naga-cli	シェーダー変換コマンドラインツール
 nagios	ネットワーク監視および管理システム
 nagios-plugins	nagiosネットワーク監視システム用のプラグイン
 nailgun	コマンドラインクライアント Javaプログラムのプロトコルとサーバー
@@ -5056,6 +5063,7 @@ sampler	シェルコマンド実行用ツール 視覚化/アラート
 samtools	次世代シーケンシングデータを操作するためのツール
 samurai	Cで書かれたninja互換のビルドツール
 sane-backends	スキャナーアクセス用のバックエンド
+sapling	ソース管理クライアント
 sassc	コマンドラインアプリの作成に役立つlibsassのラッパー
 savana	SVNの処理ワークスペース
 saxon	XSLT/XQuery 計算機
