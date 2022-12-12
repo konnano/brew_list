@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.14_5 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.15_2 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -9,7 +9,7 @@ brew install brew_list
 ```
 もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
-キャッシュファイル作成に少し時間がかかります、コマンドは~~brew_lis~~ <strong>`bl`</strong>です
+キャッシュファイル作成に少し時間がかかります、コマンドは<strong>`bl`</strong>です
 
 アンインストールはbrew_list-mainフォルダー内で ./init.sh unlink
 
