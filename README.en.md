@@ -9,7 +9,7 @@ brew install brew_list
 ```
 Or after downloading, run ./init.sh inside the brew_list-main folder
 
-It will take some time to create the cache file, the command is bl
+It will take some time to create the cache file, the command is <strong>`bl`</strong>
 
 To uninstall, type ./init.sh unlink inside the brew_list-main folder
 
