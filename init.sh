@@ -20,14 +20,14 @@ fi
 
 if [[ ! $LINK || "$LINK" = JA ]];then
    [[ ! -d $MY_BREW/Cellar ]] && echo Not installed HOME BREW && exit 1
-  if [[ -e $MY_BREW/bin/bl ]];then
-   echo -n "exist $MY_BREW/bin/bl bl upgrade [y/n] : "
-    read i
-    case $i in
-     y)   :  ;;
-     *) exit ;;
-    esac
-  fi 
+   if [[ -f $MY_BREW/bin/bl ]];then
+    echo -n "exist $MY_BREW/bin/bl bl upgrade [y/n] : "
+     read i
+     case $i in
+      y)  :   ;;
+      *) exit ;;
+     esac
+   fi
    curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 ||\
     { echo -e "\033[31m Not connected\033[00m"; exit 1; }
    trap 'rm -rf $MY_BREW/bin/bl ~/.BREW_LIST ~/.JA_BREW; exit 1' 1 2 3 15
