@@ -144,6 +144,7 @@ anka-build-cloud-controller-and-registry	仮想マシン管理 GUI/API/レジス
 anka-virtualization	仮想マシンを管理および作成するためのCLIツール
 ankama	AnkamaのPCゲームをダウンロードするためのPortal
 ankerslicer	AnkerMake 3Dプリンター用スライサー
+ankerwork	ウェブカメラ&オーディオ デバイスソフトウェア
 anki	記憶力トレーニングアプリケーション
 ankiapp-anki	暗記App
 anonym	ネットワークアクセスAnonymizer
@@ -226,7 +227,6 @@ astropad-studio	iPadをプロの描画タブレットに変えましょう
 atemosc	OSCでBMDATEMビデオ切り替えを制御する
 atext	入力中に略語を置き換えるツール
 athens	自己ホスト型知識グラフ
-atlantis	MUD(マルチユーザーダンジョン)クライアント
 atlauncher	マインクラフトランチャー
 atok	JustSystemsが作成した日本語入力方式エディター(IME)
 atom	テキストエディター
@@ -3715,6 +3715,7 @@ trojanx	グレートファイアウォールをバイパスするメカニズム
 trolcommander	muCommanderファイルマネージャーのフォーク
 tropy	研究写真管理
 trunk-io	Trunkランチャー
+tsh	分散インフラストラクチャを管理するチーム向けのSSHサーバー
 ttscoff-mmd-quicklook	MMD-QuickLook
 tuck	ウィンドウマネージャー
 tunein	Freeのインターネットラジオ
