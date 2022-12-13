@@ -1483,6 +1483,7 @@ eventql	大規模なイベント分析のためのデータベース
 evernote-backup	Backup & export すべてのEvernoteノートとノートブック
 evernote2md	Evernote.enexファイルをMarkdownに変換します
 evince	GNOMEドキュメントViewer
+evtx	Windows XMLイベントログパーサー
 ex-vi	UTF8対応バージョンの伝統VI
 exa	'ls'の最新の代替品
 exact-image	画像処理ライブラリ
@@ -2164,6 +2165,7 @@ gradle@6	GroovyおよびKotlinDSLに基づくオープンソースのビルド�
 grafana	時系列データベースの豪華なmetricの視覚化とダッシュボード
 grafana-agent	Prometheus Metricsのエクスポーター ロキログ/テンポトレース
 grails	Groovy言語用のWebアプリケーションフレームワーク
+grammarly-languageserver	Grammarlyの言語サーバー
 grantlee	Qtでテキストテンプレートを作成するためのライブラリ
 grap	グラフを植字するための言語
 graph-tool	Python3の効率的なネットワーク分析
@@ -3964,6 +3966,7 @@ needle	コンパイル時の安全なSwift依存性注入フレームワーク�
 nef	💊 Xcode活動用のステロイド
 negfix8	スキャンしたネガ画像をポジに変える
 neko	高レベルの動的型付けプログラミング言語
+nemu	Ncurses UI for QEMU
 neo4j	堅牢な(完全にACID)処理属性グラフデータベース
 neofetch	高速で高度にカスタマイズ可能なシステム情報スクリプト
 neomutt	Notmuch、NNTPなどをサポートする電子メールリーダー
@@ -4580,6 +4583,7 @@ popeye	Kubernetes クラスターリソースサニタイザー
 poppler	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
 poppler-qt5	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
 popt	いくつかの機能拡張を備えたgetopt(3)のようなライブラリ
+portablegl	Clean CでのOpenGL 3.x-ishの実装
 portaudio	オーディオ I/O用のクロスプラットフォームライブラリ
 portmidi	リアルタイムMIDI I/O用のクロスプラットフォームライブラリ
 posh	ポリシーに準拠した通常のシェル
