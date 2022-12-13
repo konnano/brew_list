@@ -97,7 +97,7 @@ perl<<"EOF"
      $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
       $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }else{
-    chomp( $MY_BREW = `dirname \$(dirname \$(which brew) 2>/dev/null) 2>/dev/null` );
+    chomp( $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
     $VERS = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
      $DDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-drivers";
       $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
