@@ -7,7 +7,7 @@ my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
-chomp( my $MY_BREW = `dirname \$(dirname \$(which brew) 2>/dev/null) 2>/dev/null` );
+chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -235,7 +235,7 @@ unless( $ARGV[0] ){
       }
      }elsif( $re->{'LIN'} and
              my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
-      if( `which /home/linuxbrew/.linuxbrew/bin/glibc` ){
+      if( `which /home/linuxbrew/.linuxbrew/bin/glibc 2>/dev/null` ){
        $tap{"${us7}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$us7\t";
       }
@@ -395,7 +395,7 @@ sub Version_1{
   my $FON;
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- my( $IN,$in,$e ) = ( 0,int @CASK/2,0 ); $tap{'fontlist'} = '';
+ my( $IN,$in,$e ) = ( 0,@CASK >> 1,0 ); $tap{'fontlist'} = '';
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
