@@ -234,11 +234,9 @@ unless( $ARGV[0] ){
         $tap{"${name}deps"} .= "$us5\t";
       }
      }elsif( $re->{'LIN'} and
-             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
-      if( `which /home/linuxbrew/.linuxbrew/bin/glibc 2>/dev/null` ){
+             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){ # <=> #
        $tap{"${us7}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$us7\t";
-      }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
