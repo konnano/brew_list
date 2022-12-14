@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use Encode;
+use FindBin;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$Locale,%JA );
@@ -1606,12 +1607,12 @@ sub Nohup_1{
 my $re = shift;
  $re->{'NEW'}++, Init_1( $re )
   unless -f "$re->{'HOME'}/font.sh" and -f "$re->{'HOME'}/tie.pl";
- chomp( my $dir = `which bl 2>/dev/null` ); # back #
  $re->{'NEW'}++, Init_1( $re )
-  if -f $dir and ( system "cat $dir|sed '1,/^__END__\$/d;/^__TIE__\$/,\$d' > ~/.BREW_LIST/font2.sh
-                           diff ~/.BREW_LIST/font.sh ~/.BREW_LIST/font2.sh >/dev/null 2>&1" or
-                   system "cat $dir|sed '1,/^__TIE__\$/d' > ~/.BREW_LIST/tie2.pl
-                           diff ~/.BREW_LIST/tie.pl ~/.BREW_LIST/tie2.pl >/dev/null 2>&1" );
+  if system "cat $FindBin::Bin/bl|sed '1,/^__END__\$/d;/^__TIE__\$/,\$d' > ~/.BREW_LIST/font2.sh
+             diff ~/.BREW_LIST/font.sh ~/.BREW_LIST/font2.sh >/dev/null 2>&1" or
+     system "cat $FindBin::Bin/bl|sed '1,/^__TIE__\$/d' > ~/.BREW_LIST/tie2.pl
+             diff ~/.BREW_LIST/tie.pl ~/.BREW_LIST/tie2.pl >/dev/null 2>&1";
+  unlink "$ENV{'HOME'}/.BREW_LIST/font2.sh","$ENV{'HOME'}/.BREW_LIST/tie2.pl";
  my( $time1,$time2 ) = -f $re->{'TXT'} ?
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] ) : ([0,0,0,0,0,1],[0,0,0,0,0,0]);
    if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
@@ -2045,7 +2046,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
-   Dirs_1( "$MY_BREW/Library/Taps",1,0 );
+   Dirs_1( "$MY_BREW/Library/Taps",1,0 ); 
+    $MY_BREW =~ s|/Homebrew$||;
 }
 
 sub Dirs_1{
@@ -2217,9 +2219,11 @@ unless( $ARGV[0] ){
         $tap{"${name}deps"} .= "$us5\t";
       }
      }elsif( $re->{'LIN'} and
-             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){ # <=> #
+             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
+      if( -d "$MY_BREW/Cellar/glibc" ){
        $tap{"${us7}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$us7\t";
+      }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
