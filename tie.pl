@@ -63,6 +63,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
    Dirs_1( "$MY_BREW/Library/Taps",1,0 );
+    $MY_BREW =~ s|/Homebrew$||;
 }
 
 sub Dirs_1{
@@ -234,9 +235,11 @@ unless( $ARGV[0] ){
         $tap{"${name}deps"} .= "$us5\t";
       }
      }elsif( $re->{'LIN'} and
-             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){ # <=> #
+             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
+      if( -d "$MY_BREW/Cellar/glibc" ){
        $tap{"${us7}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$us7\t";
+      }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
