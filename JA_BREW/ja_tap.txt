@@ -143,6 +143,7 @@ font-atma	Atma
 font-atomic-age	Atomic Age
 font-aubrey	Aubrey
 font-audiowide	Audiowide
+font-aurulent-nerd-font	多数のグリフを含む開発者向けのフォント
 font-aurulent-sans-mono-nerd-font	AurulentSansMonoオタクフォント(Aurulent Sans Mono)
 font-autour-one	Autour One
 font-average	Average
@@ -964,6 +965,7 @@ font-licorice	完璧なスクラップブッキングカード/招待状/楽し�
 font-life-savers	ライフセーバー
 font-ligature-symbols	合字記号
 font-lilex	Lilex
+font-lilex-nerd-font	多数のグリフを含む開発者向けのフォント
 font-lilita-one	Lilita One
 font-lily-script-one	Lily Script One
 font-limelight	Limelight
