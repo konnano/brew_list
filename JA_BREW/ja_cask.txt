@@ -290,6 +290,7 @@ balance-lock	オーディオバランスが左右にドリフトするのを防�
 balenaetcher	OSイメージをSDカードとUSBドライブにフラッシュするツール
 ballast	オーディオバランスがずれないようにするステータスバーアプリ
 balsamiq-wireframes	UIワイヤーフレーミングツール
+bambu-studio	3Dプリンター用の3Dモデルスライスソフトウェア Bambu Labによって管理されています
 banana-cake-pop	GraphQLサーバーと対話するためのIDE
 bandage	Denovoアセンブリグラフをナビゲートするための生物情報科学アプリケーション
 bankid	電子個人識別システム
@@ -1437,6 +1438,7 @@ headlamp	KubernetesのUI
 headset	YouTubeとRedditを搭載した音楽プレーヤー
 heaven	PCハードウェアのパフォーマンスと安定性のテスト
 hedgewars	ターン制戦略 砲兵/アクション/コメディーゲーム
+height	オールインワンのプロジェクト管理ツール
 heimdall-suite	Samsungモバイルデバイスへのフラッシュファームウェア
 helium	Helium
 helo	メールテスターとデバッガー
@@ -3347,6 +3349,7 @@ specter	ハードウェアウォレットで動作するように最適化され
 speedcrunch	SpeedCrunch
 speedify	VPNクライアント
 spideroakone	クラウドのバックアップとストレージ
+spike	LEGO SpikeセットをScratchとPythonで開発する
 spillo	Spillo
 spires	inspire-hepとarxivのフロントエンド
 spitfire-audio	Spitfireオーディオライブラリのダウンロードマネージャー
