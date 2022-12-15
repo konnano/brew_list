@@ -876,6 +876,7 @@ codemod	大規模なコードベース リファクタリング アシスタン�
 codequery	コード理解/コードブラウジング/コード検索ツール
 codespell	ソースコードとテキストファイルの一般的なスペルミスを修正
 coffeescript	派手でないJavaScript
+cog	機械学習用のコンテナ
 cogl	Clutterに開発された低レベルのOpenGL抽象化ライブラリ
 coin3d	Python bindings(Pivy)を使用してInventor2.1API実装(Coin)を開きます
 cointop	暗号通貨を追跡するための対話的な端末ベースのUIアプリケーション
@@ -969,6 +970,7 @@ cpr	C++リクエスト、Python Requestsのスピリチュアルポート
 cproto	入力ファイル内の関数の関数プロトタイプを生成します
 cpu_features	クロスプラットフォームのC99ライブラリで実行時にCPU機能を取得します
 cpufetch	CPU基本設計fetchingツール
+cpuid	GoのCPU機能の識別
 cpulimit	CPU使用量リミッター
 cql	ブロックチェーン機能を備えた分散型SQLデータベース
 cql-proxy	DataStax cql-proxyにより Cassandraアプリはコードを変更せずに Astra DBを使用できるようになります
@@ -3703,6 +3705,7 @@ mill	Scalaビルドツール
 miller	sed/awk/cut/join/sort のようなCSVとして名前インデックスデータの並べ替え
 mimalloc	コンパクトな汎用メモリ割り当て
 mimic	CMUFliteに基づく軽量のテキスト読み上げエンジン
+mimirtool	Grafana Mimirとやり取りするためのCLI
 minbif	Pidginライブラリを使用したIRC-to-other-IM-networksゲートウェイ
 minetest	Freeのオープンソースvoxelゲームエンジンとゲーム
 mingw-w64	必要最低限のGNU for WindowsおよびGCCクロスコンパイラー
@@ -4394,6 +4397,7 @@ pcre++	Perl互換正規表現のC++ラッパー
 pcre2	新しいAPIを備えたPerl互換の正規表現ライブラリ
 pcsc-lite	SCard APIを使用してスマートカードにアクセスするためのミドルウェア
 pdal	ポイントデータ抽象化ライブラリ
+pdf-diff	2つのPDFファイルの違いを視覚化するツール
 pdf-redact-tools	メタデータを安全に編集および削除します
 pdf2djvu	PDFファイルからDjVuファイルを作成する
 pdf2htmlex	PDFからHTMLへの変換器
@@ -4930,6 +4934,7 @@ restic	高速で効率的かつ安全なバックアッププログラム
 restund	モジュラーサーバー STUN/TURN
 restview	直ぐに解釈するReStructuredTextドキュメントViewer
 resty	パイプラインで使用できるコマンドラインRESTクライアント
+retdec	LLVMに基づくリターゲット可能なマシンコード逆コンパイラ
 rethinkdb	リアルタイムWeb用のオープンソースデータベース
 revive	Go用の高速で美しい静的解析ツール 構成可能/拡張可能/柔軟
 rex	リモートサーバー上でコマンドを実行するコマンドラインツール
@@ -5251,7 +5256,9 @@ six	Python2および3互換性ユーティリティ
 sjk	Swiss Java Knife
 sk	rustあいまい検索ツール！
 skaffold	簡単で再現性のあるKubernetes開発
+skaffold@1.39	簡単で反復可能なKubernetes開発
 skafos	Metis MachineAIおよび機械学習展開プラットフォームのCLI
+skeema	MySQLおよびMariaDBの宣言型の純粋なSQLスキーマ管理
 ski	ジェットエンジンのskiで致命的なYetiを回避する
 skinny	ScalaのフルスタックWebアプリフレームワーク
 skktools	SKK辞書メンテナンスツール
@@ -5367,6 +5374,7 @@ spdylay	SPDY手続きバージョン2、3、および3.1の実験的実装
 spectra	大規模な固有値問題のためのヘッダーのみのC++ライブラリ
 spectral-cli	JSON/YAMLリンターとサポート OpenAPI v3.1/v3.0/v2.0/AsyncAPI v2.x
 speech-tools	エディンバラ大学のC++音声ソフトウェアライブラリ
+speedbump	変動するが予測可能なネットワーク遅延をシミュレートするためのTCPプロキシ
 speedread	シンプルな端末ベースの高速連続ビジュアル提示(RSVP)リーダー
 speedtest-cli	https://speedtest.net処理能力テストのコマンドラインインターフェイス
 speex	音声用に設計されたオーディオコーデック
@@ -5494,6 +5502,7 @@ stress-ng	さまざまな選択可能な方法でコンピュータシステム�
 strongswan	IPsecに基づくVPN
 structurizr-cli	Structurizrのコマンドラインユーティリティ
 stubby	getdnsに基づくDNSプライバシー対応スタブリゾルバーサービス
+stuffbin	静的ファイルとアセットを圧縮してGoバイナリに埋め込む
 stunnel	SSLトンネリングプログラム
 stuntman	STUN手続きの実装
 style-check	禁止されているフレーズを検索するためにラテックス形式のテキストを解析します
@@ -5783,6 +5792,7 @@ tox	汎用Python virtualenv管理およびテストコマンドラインツー�
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
 tpl	バイナリデータをCで保存および取得する
 tpp	Ncursesベースの提示ツール
+tproxy	TCP接続をプロキシおよび分析するCLIツール
 trace2html	JSONトレースをHTMLに変換するためのGoogle TraceViewerのユーティリティ
 tracebox	ミドルボックス検出ツール
 tracker	効率的な検索エンジンとトリプルstoreであるライブラリとデーモン
