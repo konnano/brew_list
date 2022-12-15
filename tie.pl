@@ -526,8 +526,8 @@ unless( $ARGV[0] ){
   $TRE = ( $TRE and $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s ) ? $TRE : '';
    $UCC .= "$_ \\\n" for(sort keys %HAU);
     $UCC = ( $UCC and $UCC =~ s/(.+)\\\n$/'-u[Uses list]:uses:( \\\n$1 )' \\\n/s ) ? $UCC : '';
-     $AIA = ( $AIA and $AIA =~ s/(.+)\\\n$/'-ai[Formula list]:Formula:( \\\n$1 )' \\\n/s ) ? $AIA : '';
-      $ACA = ( $ACA and $ACA =~ s/(.+)\\\n$/'-ac[Cask list]:Casks:( \\\n$1 )' \\\n/s ) ? $ACA : '';
+     $AIA = ( $AIA and $AIA =~ s/(.+)\\\n$/'-ai[Formula Analytics]:Formula:( \\\n$1 )' \\\n/s ) ? $AIA : '';
+      $ACA = ( $ACA and $ACA =~ s/(.+)\\\n$/'-ac[Cask Analytics]:Casks:( \\\n$1 )' \\\n/s ) ? $ACA : '';
   $TIN = ( $TIN and $TIN =~ s/(.+)\\\n$/{-t,-tt,-in}'[Depends item]:Depends:( \\\n$1 )' \\\n/s ) ? $TIN : '';
    $FON = ( $FON and $FON =~ s/(.+)\\\n$/'-p[Fonts list]:Fonts:( \\\n$1 )' \\\n/s ) ? $FON : '';
     $COM = ( $COM and $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s ) ? $COM : '';
