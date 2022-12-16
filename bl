@@ -290,7 +290,7 @@ my( $re,$loop ) = @_; my $pid;
     print STDERR "\x1B[?25l";
     if( $^O eq 'linux' or $loop or $re->{'TEN'} ){ my $i = 0;
      my $name = $loop ? 'Please wait' : 'Makes new cache';
-      while(1){ $i = $i % 8; my $c = int(rand 6) + 1;
+      while(1){ $i = $i % 8; my $c = ( (rand 6) + 1 ) >> 0;
        -d "$re->{'HOME'}/WAIT" ?
         print STDERR "\r  \033[3${c}m$ten[$i]\033[0m : $name" : last;
          $i++; system 'sleep 0.1';
@@ -503,7 +503,7 @@ sub Size_1{
       my $spa = $tput >= 88 ? 40 : ($tput - 48) > 0 ? $tput - 48 : 0;
    for(my $i=0;$i<@$an;$i++){
     @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
-     if( $i % 2 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
+     if( $i & 1 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
      }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
    }
    if( open my $FH,'-|' ){
@@ -1388,7 +1388,7 @@ sub Format_1{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
    my $leng = $re->{'LEN1'};
     $re->{'TPUT'} = `tput cols` unless $re->{'TPUT'};
-     my $size = int $re->{'TPUT'}/($leng+2);
+     my $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;
       my $in = 1;
       $re->{'PRE'} ? print" ==> Fonts\n" :
     ( $re->{'FOR'} and ( $re->{'BL'} or $re->{'S_OPT'} or $re->{'TOP'} ) ) ? print" ==> Formula\n" :
@@ -1404,17 +1404,17 @@ sub Format_1{
         print"\n" if $ze;
          print" ==> brew tap : homebrew/cask-fonts\n";
           $leng = $re->{'LEN2'};
-           $size = int $re->{'TPUT'}/($leng+2);  $in = $ls = 1;
+           $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ls = 1;
        }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-drivers/| and not $sl ){
         print"\n" if $ze;
          print" ==> brew tap : homebrew/cask-drivers\n";
           $leng = $re->{'LEN3'};
-           $size = int $re->{'TPUT'}/($leng+2);  $in = $sl = 1;
+           $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $sl = 1;
        }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-versions/| and not $ss ){
         print"\n" if $ze;
          print" ==> brew tap : homebrew/cask-versions\n";
           $leng = $re->{'LEN4'};
-           $size = int $re->{'TPUT'}/($leng+2);  $in = $ss = 1;
+           $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
        }
        for(my $i=$re->{'LEN'}{$re->{'ARR'}[$e]};$i<$leng+2;$i++){
         $re->{'ARR'}[$e] .= ' ';
@@ -2046,7 +2046,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
-   Dirs_1( "$MY_BREW/Library/Taps",1,0 ); 
+   Dirs_1( "$MY_BREW/Library/Taps",1,0 );
     $MY_BREW =~ s|/Homebrew$||;
 }
 
@@ -2068,13 +2068,15 @@ unless( $ARGV[0] ){
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
- } my( $in,$e ) = int @BREW/5;
+ }
+  my( $in,$e ) = @BREW/5 >> 0;
+   my @in = ( $in << 1,($in << 1) + $in,$in << 2 );
  for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
-   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
-   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
-   $e == $in*4 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
+   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
+   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in[2] ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
