@@ -84,13 +84,15 @@ unless( $ARGV[0] ){
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
- } my( $in,$e ) = int @BREW/5;
+ }
+  my( $in,$e ) = @BREW/5 >> 0;
+   my @in = ( $in << 1,($in << 1) + $in,$in << 2 );
  for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
-   $e == $in*2 ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
-   $e == $in*3 ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
-   $e == $in*4 ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
+   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
+   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in[2] ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
