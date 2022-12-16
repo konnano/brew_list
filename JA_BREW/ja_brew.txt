@@ -1427,6 +1427,7 @@ embulk	さまざまなデータベース間のデータ転送 ファイル形式
 emojify	コマンドラインの絵文字：scream：
 emp	帝国のためのCLI
 empty	シェルスクリプト用の軽量ExpectのようなPTYツール
+emqx	IoT向けMQTTブローカー
 ems-flasher	EMSゲームボーイUSBカートをフラッシュするためのソフトウェア
 emscripten	LLVMバイトコードからJavaScriptコンパイラへ
 enca	文字セット分析器と変換器
@@ -1444,6 +1445,7 @@ entityx	高速でタイプセーフなC++ Entityコンポーネントシステ�
 entr	ファイルが変更されたときに任意のコマンドを実行する
 envchain	環境変数で認証情報を保護する
 envconsul	ConsulおよびVaultからの環境変数を使用してプロセスを起動します
+envd	AI/MLの再現可能な開発環境
 envoy	クラウドネイティブの高性能プロキシ エッジ/ミドル/サービス
 envoy@1.18	クラウドネイティブの高性能プロキシ エッジ/ミドル/サービス
 envv	シェルに依存しない環境変数の処理
@@ -4301,6 +4303,7 @@ osqp	演算子分割QP Solver
 osrm-backend	高性能設定エンジン
 osslsigncode	PE/MSI/Java CABファイル用のOpenSSLベースのデジタル署名
 ossp-uuid	UUIDを生成するためのISO-CAPIおよびCLI
+osv-scanner	OSVデータベースを使用する脆弱性スキャナー
 osx-cpu-temp	OSXの現在のCPU温度を出力します
 osxutils	MacOSコマンドラインユーティリティのコレクション
 otf2	Open Trace Format 2ファイル処理ライブラリ
@@ -5566,6 +5569,7 @@ synscan	非同期ハーフオープンTCPポートスキャナー
 syntaxerl	Erlangコードと設定ファイルの構文チェッカー
 sysbench	システム性能基準比較ツール
 sysdig	システムレベルの調査と修繕のツール
+syslog-ng	高度な処理パイプラインと幅広いI/Oメソッドを備えたログデーモン
 sysstat	Linuxの性能監視ツール
 systemc	コアSystemC言語と例え
 systemd	システムおよびサービスマネージャー
