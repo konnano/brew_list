@@ -199,19 +199,19 @@ sub Died_1{
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula , all
   -ul\t:  formula depend on formula , item count
   -ud\t:  formula depend on formula , list : Second argument '.' not require dependencies Formula
-  -g\t:  Independent Formula\n  -de\t:  uninstalled, not require formula, second argument not uninstall Formula
-  -d\t:  uninstalled, not require formula, display tree, second argument not uninstall Formula
-  -dd\t:  uninstalled, not require formula, display tree and order, second argument not uninstall Formula
+  -g\t:  Independent Formula\n  -de\t:  uninstall, unnecessary formula, second argument not uninstall Formula
+  -d\t:  uninstall, unnecessary formula, display tree, second argument not uninstall Formula
+  -dd\t:  uninstall, unnecessary formula, display tree and order, second argument not uninstall Formula
   -ddd\t:  All deps uninstall, second argument not uninstall Formula
   -is\t:  Display in order of size\n  -g\t:  Independent formula
-  -ai\t:  Analytics Data ( not argument or argument 1,2 )\n";
+  -ai\t:  Analytics Data ( no argument, or argument 1,2 )\n";
  if( $^O eq 'darwin' ){
   print"   Only mac : Cask
   -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
   -ct\t:  cask tap list : First argument Formula search : Second argument '.' Full-text search
   -ci\t:  instaled cask list\n  -cx\t:  can't install cask list\n  -cs\t:  some name cask and formula
-  -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( not argument or argument 1,2 )
-  -ctp\t:  tap Font quickLook preview list\n  -p\t:  tap Font quickLook preview : p mark only ( unstable )\n";
+  -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( no argument, or argument 1,2 )
+  -ctp\t:  Font quickLook preview list\n  -p\t:  Font quickLook preview : p mark only ( unstable )\n";
  }
  die $Lang;
 }
@@ -582,7 +582,7 @@ my $re = shift; my( $ls,@an );
     Proc_1( $re,\@an,1 );
   for my $key(sort keys %{$re->{'HASH'}}){ my $keys = $key;
    Leng_1( $spa,\$keys ) if $spa >= 5;
-    $ls .= sprintf"%${spa}s uses  :%4s formula\n",$keys,@{$re->{$key}}-1;
+    $ls .= sprintf"%${spa}s uses  :%4s formula\n",$keys,@{$re->{$key}} - 1;
   }
  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
   print"$ls" if $ls;
