@@ -274,7 +274,6 @@ awips-python	AWIPS Python
 aws-vault	開発環境でAWS認証情報を安全に保存してアクセスします
 aws-vpn-client	AWSリソースに安全にアクセスするためのマネージドクライアントベースのVPNサービス
 axure-rp	開発者向けの計画およびプロトタイピングツール
-azirevpn	AzireVPN用のオープンソースVPNクライアント
 azure-data-studio	SQL Serverでの作業を可能にするデータ管理ツール
 babeledit	翻訳エディター
 back-in-time	TimeMachineバックアップのコンテンツにアクセスする
@@ -1152,7 +1151,6 @@ flock	ビジネスメッセージングおよびチーム協力的アプリ
 flomo	メモ取りと管理アプリ
 flotato	任意のWebページをデスクトップアプリに変えるツール
 flow	タスクおよびプロジェクト管理ソフトウェア
-flowsync	Polar Flow製品用の同期ソフトウェア
 flrig	アマチュア無線リグ制御
 fluent-reader	RSS/Atom ニュース収集
 fluid	Webサイトをデスクトップアプリに変えるツール
@@ -2781,7 +2779,6 @@ pritunl	OpenVPNクライアント
 privadovpn	VPNクライアント
 private-eye	Private Eye
 private-internet-access	VPNクライアント
-privatetunnel	VPNクライアント
 privatevpn	PrivateVPN
 privileges	管理権限切り替え
 prizmo	光学式文字認識(OCR)を使用したスキャンアプリケーション
@@ -3100,7 +3097,9 @@ scansion	scansion
 scap-workbench	SCAPスキャナーとグラフィカルユーザーインターフェイスの調整
 scapple	メモ帳ソフトウェア
 scatter	EOS用デスクトップウォレット
+scene-maestro	Scenica Playerを搭載したホストでのビデオ再生のリモートコントロール
 scenebuilder	JavaFX用のGUIデザイナをドラッグアンドドロップします
+scenica-player	デバイスをオンセットプレーヤーに変える
 schildichat	より伝統的なIMエクスペリエンスを備えたElementに基づくMatrixクライアント
 schism-tracker	Oldschoolのサンプルベースの作曲ツール
 scidavis	科学データの分析と視覚化への応用
@@ -3123,6 +3122,7 @@ scriptql	AppleScript QuickLookプラグイン
 scrivener	タイプライタースタイルのワードプロセッシングソフトウェア
 scroll	トラックパッドとマジックマウスでスクロールを設定する
 scroll-reverser	スクロール方向を逆にするツール
+scrolla	Vimモーションを使用してキーボードでスクロールする
 scummvm	古典的なグラフィカルアドベンチャーとロールプレイングゲームを実行する
 sdformatter	SDファイルシステム仕様に準拠したメモリーカードをフォーマットするツール
 sdm	Strongdmクライアント
@@ -3390,7 +3390,6 @@ ssdreporter-free	SSDヘルスモニタリングツール
 ssh-config-editor	OpenSSH sshクライアント構成ファイルを管理するためのツール
 ssh-tunnel-manager	SSHトンネルマネージャー
 ssokit	TCPおよびUDPデバッグツール
-stack	保存する個人用オンラインハードドライブ ファイルの表示と共有
 stack-exchange-notifier	Stack ExchangeNotifier
 stack-stack	すべての生産性アプリを1か所から管理するためのワークスペース
 stand	1時間に1回立ち上がるように通知します
