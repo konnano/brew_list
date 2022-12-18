@@ -1766,6 +1766,7 @@ font-sofia-sans	大きな文字セットを持つOpenTypeファミリ
 font-sofia-sans-condensed	Sofia Sansコンデンス
 font-sofia-sans-extra-condensed	Sofia Sansエクストラコンデンス
 font-sofia-sans-semi-condensed	Sofia Sansセミコンデンス
+font-solitreo	過去の遺物 言語のほとんどの作家がローマ字を使用するため
 font-solway	Solway
 font-sometype-mono	Sometype Mono
 font-song-myung	Song Myung
