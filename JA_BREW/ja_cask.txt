@@ -923,6 +923,7 @@ dungeon-crawl-stone-soup-tiles	ダンジョン探検のゲーム 戦闘と魔法
 duo-connect	組織のSSHサーバーにアクセスする
 dupeguru	コンピュータシステムで重複ファイルを検索します
 duplicacy	クラウドバックアップツール
+duplicacy-cli	クラウドバックアップツール
 duplicacy-web-edition	クラウドバックアップツール
 duplicate-annihilator-for-photos	写真の複製零化
 duplicate-file-finder	不要な重複ファイルやフォルダを見つけて削除する
@@ -3799,6 +3800,7 @@ universal-media-server	DLNA/UPnP/HTTP(S) をサポートするメディアサー
 unlox	指紋でコンピューターのロックを解除します
 unnaturalscrollwheels	物理的なスクロールホイールのスクロール方向を反転するツール
 unpkg	パッケージ内のすべてのファイルを解凍する.pkgおよび.mpkgのUnarchiver
+unraid-usb-creator	UnraidをUSBドライブにインストールするためのユーティリティ
 unshaky	Appleのバタフライキーボードでのダブルキー押下のソフトウェア修正
 upm	パスワードマネージャー
 upterm	21世紀のターミナルエミュレータ
@@ -3834,6 +3836,7 @@ ved	VVVVVVの外部レベルエディタ
 veepn	VPNクライアント
 vellum	電子ブック作成ソフトウェア
 veracrypt	TrueCryptに基づくセキュリティに焦点を当てたディスク暗号化ソフトウェア
+vero	広告フリー/アルゴリズムフリー ソーシャル
 versions	Subversionクライアント
 vertcoin-core	Vertcoinクライアントとウォレット
 vesta	電子的および構造的分析のための視覚化
@@ -3996,6 +3999,7 @@ wonderfultools-screensaver	素晴らしいツールのスクリーンセーバ�
 wondershare-edrawmax	ダイアグラムソフトウェア
 wondershare-filmora	動画編集
 wondershare-uniconverter	ビデオ編集ソフトウェア
+wooshy	入力によるUI要素のクリックなど
 wordpresscom	WordPressクライアント
 wordservice	選択したテキストを操作するためのコマンドを提供するツール
 workbench	シームレス iCloudに自動同期する "dotfile"
