@@ -2742,6 +2742,7 @@ kdoctor	Kotlin Multiplatformモバイルアプリ開発のための環境診断
 kedge	Kubernetes artifactsの展開ツール
 keepassc	KeePassv.1.xおよびKeePassX用のCursesベースのパスワードマネージャー
 keepkey-agent	Keepkeyハードウェアベースエージェント SSH/GPG
+keploy	テストツールキットはテストケースとデータモックを作成します API呼び出し/DBクエリ
 keptn	keepn.shのCLIはアプリケーション配信用のメッセージ駆動型control-plane
 kepubify	電子書籍をepubからkepubに変換する
 kerl	Erlang/OTP インスタンスの簡単な構築とインストール
@@ -3041,6 +3042,7 @@ libftdi	FTDIチップと通信するライブラリ
 libftdi0	FTDIチップと通信するライブラリ
 libfuse	Linux FUSEインターフェースのリファレンス実装
 libfuse@2	Linux FUSEインターフェースのリファレンス実装
+libfyaml	完全な機能 YAMLパーサーとエミッター
 libgadu	ICQ即時メッセンジャー手続きのライブラリ
 libgaiagraphics	共通ユーティリティラスター処理をサポートするライブラリ
 libgccjit	GNUコンパイラコレクションのJITライブラリ
@@ -6371,7 +6373,6 @@ z80dasm	ZilogZ80 microprcessorおよび互換機用の逆アセンブラ
 zabbix	可用性および監視ソリューション
 zabbix-cli	Zabbixモニタリングシステムと対話するためのCLIツール
 zanata-client	Zanata翻訳システムのコマンドラインクライアント
-zbackup	グローバルに重複排除するバックアップツール(rsyncのアイデアに基づく)
 zbar	バーコード読み取りツールのパッケージ
 zbctl	Zeebe CLIクライアント
 zboy	ゲームボーイエミュレータ
