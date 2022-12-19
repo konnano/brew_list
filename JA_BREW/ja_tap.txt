@@ -1753,6 +1753,7 @@ font-slabo-13px	Slabo 13px
 font-slabo-27px	Slabo 27px
 font-slackey	Slackey
 font-slackside-one	手書き表示フォント
+font-smiley-sans	人間主体と幾何学の視覚的バランスを追求した中国語書体
 font-smokum	Smokum
 font-smooch	他の手書きのスクリプトよりも少し大胆
 font-smooch-sans	Smooch Sans
