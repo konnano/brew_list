@@ -1,6 +1,6 @@
 #!/bin/bash
  NAME=$(uname)
- MY_BREW=$(dirname $(dirname $(which brew) 2>/dev/null) 2>/dev/null) ||\
+ MY_BREW=$(dirname $(dirname $(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null) ||\
   { echo -e "\033[31m Not installed HOME BREW\033[00m"; exit 1; }
 if [[ ! "$NAME" = Darwin && ! "$NAME" = Linux ]];then
  echo Not support OS; exit 1
@@ -21,7 +21,7 @@ fi
 if [[ ! $LINK || "$LINK" = JA ]];then
    [[ ! -d $MY_BREW/Cellar ]] && echo Not installed HOME BREW && exit 1
    if [[ -f $MY_BREW/bin/bl ]];then
-    echo -n "exist $MY_BREW/bin/bl bl upgrade [y/n] : "
+    echo -n "exist $MY_BREW/bin/bl bl upgrade [y/n]:"
      read i
      case $i in
       y)  :   ;;
