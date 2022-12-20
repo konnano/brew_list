@@ -52,7 +52,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    }
     Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
   }
- rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/12";
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
@@ -85,14 +85,13 @@ unless( $ARGV[0] ){
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
  }
-  my( $in,$e ) = @BREW/5 >> 0;
-   my @in = ( $in << 1,($in << 1) + $in,$in << 2 );
+  my( $in,$e ) = @BREW >> 2;
+   my @in = ( $in << 1,($in << 1) + $in );
  for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
-   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
-   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
-   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
-   $e == $in[2] ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
+   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
+   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
