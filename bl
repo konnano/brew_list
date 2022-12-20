@@ -190,7 +190,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.15_3\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.15_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -204,7 +204,7 @@ sub Died_1{
   -dd\t:  uninstall, unnecessary formula, display tree and order, second argument not uninstall Formula
   -ddd\t:  All deps uninstall, second argument not uninstall Formula
   -is\t:  Display in order of size\n  -g\t:  Independent formula
-  -ai\t:  Analytics Data ( no argument, or argument 1,2 )\n";
+  -ai\t:  Analytics Data ( no argument, or argument [1-8] )\n";
  if( $^O eq 'darwin' ){
   print"   Only mac : Cask
   -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
@@ -421,21 +421,37 @@ my( $spa,$name ) = @_;
 sub Ana_1{
  my $re = shift; my @an;
  $re->{'NEW'}++, Init_1( $re ) unless -f $re->{'CAN'};
-  my $mem = $re->{'ana'} if $re->{'ana'} and $re->{'ana'} !~ /^[12]$/;
- $re->{'ana'} = 0 if not $re->{'ana'} or $re->{'ana'} and $re->{'ana'} !~ /^[12]$/;
+  my $mem = $re->{'ana'} if $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/;
+ $re->{'ana'} = 0 if not $re->{'ana'} or $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/;
   open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
    while(<$dir>){ chomp;
-    my( $ls1,$ls2,$ls3,$ls4,$co1,$co2,$co3,$er1,$er2,$er3 ) = split '\t';
-    my $co = $re->{'ana'} == 1 ? $ls2 : $re->{'ana'} == 2 ? $ls3 : $ls4;
+    my( $ls,$ls1,$ls2,$ls3,$co1,$co2,$co3,$ls4,$ls5,$ls6,$eq1,$eq2,$eq3,$ls7,$ls8,$ls9,$er1,$er2,$er3 ) = split '\t';
+    my $co = $re->{'ana'} == 1 ? $ls1 : $re->{'ana'} == 2 ? $ls2 : $re->{'ana'} == 3 ? $ls6 :
+             $re->{'ana'} == 4 ? $ls4 : $re->{'ana'} == 5 ? $ls5 : $re->{'ana'} == 6 ? $ls9 :
+             $re->{'ana'} == 7 ? $ls7 : $re->{'ana'} == 8 ? $ls8 :$ls3;
+    if( $re->{'ana'} >= 3 and $re->{'ana'} <= 5 ){
+     $ls1 = $ls4; $ls2 = $ls5; $ls3 = $ls6;
+     my $mem = $co1; $co1 = $eq1; $eq1 = $mem;
+        $mem = $co2; $co2 = $eq2; $eq2 = $mem;
+        $mem = $co3; $co3 = $eq3; $eq3 = $mem;
+    }elsif( $re->{'ana'} >= 6 and $re->{'ana'} <= 8 ){
+     $ls1 = $ls7; $ls2 = $ls8; $ls3 = $ls9;
+     my $mem = $co1; $co1 = $er1; $er1 = $mem;
+        $mem = $co2; $co2 = $er2; $er2 = $mem;
+        $mem = $co3; $co3 = $er3; $er3 = $mem;
+    }
     if( $co ){
-     $an[$co]  = $ls1;
+     $an[$co]  = $ls;
+     $an[$co] .= $ls1 ? "\t$ls1" : "\t";
      $an[$co] .= $ls2 ? "\t$ls2" : "\t";
      $an[$co] .= $ls3 ? "\t$ls3" : "\t";
-     $an[$co] .= $ls4 ? "\t$ls4" : "\t";
      $an[$co] .= $co1 ? "\t$co1" : "\t";
      $an[$co] .= $co2 ? "\t$co2" : "\t";
      $an[$co] .= $co3 ? "\t$co3" : "\t";
      if( $re->{'FOR'} ){
+      $an[$co] .= $eq1 ? "\t$eq1" : "\t";
+      $an[$co] .= $eq2 ? "\t$eq2" : "\t";
+      $an[$co] .= $eq3 ? "\t$eq3" : "\t";
       $an[$co] .= $er1 ? "\t$er1" : "\t";
       $an[$co] .= $er2 ? "\t$er2" : "\t";
       $an[$co] .= $er3 ? "\t$er3" : "\t";
@@ -455,25 +471,30 @@ sub Ana_1{
     my $spr1 = "%${size}s$line[5]$line1$line[3]$line2$line[3]$line2$line[3]$line2$line[6]";
      my $spr2 = "%${size}s$line[0]%${spa}s$line[0] %10s $line[0] %10s $line[0] %10s $line[0]";
 
-  my $ana  = ( $re->{'MAC'} or -t STDOUT ) ?
-             (' 'x$size)."$line[7]$line1$line[1]$line2$line[1]$line2$line[1]$line2$line[8]\n" : $line3;
-     $ana .= (' 'x$size)."$line[0]".(' 'x$spa)."$line[0]      30d   $line[0]      90d   $line[0]     365d   $line[0]\n";
+   my $ana  = ( $re->{'MAC'} or -t STDOUT ) ?
+              (' 'x$size)."$line[7]$line1$line[1]$line2$line[1]$line2$line[1]$line2$line[8]\n" : $line3;
+      $ana .= (' 'x$size)."$line[0]".(' 'x$spa)."$line[0]      30d   $line[0]      90d   $line[0]     365d   $line[0]\n";
+
+   my( $in1,$in2,$in3 ) = ( $re->{'ana'} >= 3 and $re->{'ana'} <= 5 ) ?
+     ('install on request ','install ','build-error ') : ( $re->{'ana'} >= 6 and $re->{'ana'} <= 8 ) ?
+     ('build-error ','install on request ','install ') : ('install ','install on request ','build-error ');
  for(@an){
   next unless $_;
-   my( $ls1,$ls2,$ls3,$ls4,$co1,$co2,$co3,$er1,$er2,$er3 ) = split '\t';
-   if( not $mem or $re->{'ana'} or $mem and $mem eq $ls1 ){
-    Leng_1( $spa,\$ls1,1 ) if $spa >= 12;
-    $ls1 = "\033[36m$ls1\033[0m" if -t STDOUT;
+   my( $ls,$ls1,$ls2,$ls3,$co1,$co2,$co3,$eq1,$eq2,$eq3,$er1,$er2,$er3 ) = split '\t';
+   if( not $mem or $re->{'ana'} or $mem and $mem eq $ls ){
+    Leng_1( $spa,\$ls ) if $spa >= 12;
+    $ls = "\033[36m$ls\033[0m" if -t STDOUT;
      if( $re->{'FOR'} ){
       $ana .= ( $re->{'MAC'} or -t STDOUT ) ? sprintf "$spr1\n",' 'x$size : $line3;
-      $ana .= sprintf "%${size}s$line[0]%${spa}s$line[0]%9s   $line[0]%9s   $line[0]%9s   $line[0]\n$spr2\n$spr2\n",
-                      ' 'x$size,$ls1,$ls2,$ls3,$ls4,
-                      ' 'x$size,'install ',$co1,$co2,$co3,
-                      ' 'x$size,'build-error ',$er1,$er2,$er3;
+      $ana .= sprintf "%${size}s$line[0]%${spa}s$line[0]%9s   $line[0]%9s   $line[0]%9s   $line[0]\n$spr2\n$spr2\n$spr2\n",
+                      ' 'x$size,$ls,$ls1,$ls2,$ls3,
+                      ' 'x$size,$in1,$co1,$co2,$co3,
+                      ' 'x$size,$in2,$eq1,$eq2,$eq3,
+                      ' 'x$size,$in3,$er1,$er2,$er3;
      }else{
       $ana .= sprintf "$spr1\n",' 'x$size;
       $ana .= sprintf "%${size}s$line[0]%${spa}s$line[0]%9s   $line[0]%9s   $line[0]%9s   $line[0]\n$spr2\n",
-                      ' 'x$size,$ls1,$ls2,$ls3,$ls4,
+                      ' 'x$size,$ls,$ls1,$ls2,$ls3,
                       ' 'x$size,'install ',$co1,$co2,$co3;
      }
    }
@@ -674,14 +695,14 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
     }
     $HA{$_}++ if $re->{'OS'}{"${_}d_cask"};
    }
-  }elsif( $re->{'ANA'} ){ return if $$name =~ /^[12]$/;
-   if( $re->{'FOR'} ){ my $min;
+  }elsif( $re->{'ANA'} ){ my $min;
+   if( $re->{'FOR'} ){ return if $$name =~ /^[1-8]$/;
     for(@$cat){ chomp;
       last if $min and $min gt $_;
        $min = $_;
         $HA{$_}++;
     }
-   }else{ my $min;
+   }else{ return if $$name =~ /^[12]$/;
     for(my $i=0;$i<@$cat;$i++){
      $$cat[$i] lt $$cat[$i+1] ? next : $i++,$min++ unless $min;
       chomp $$cat[$i];
@@ -1607,6 +1628,7 @@ sub Nohup_1{
 my $re = shift;
  $re->{'NEW'}++, Init_1( $re )
   unless -f "$re->{'HOME'}/font.sh" and -f "$re->{'HOME'}/tie.pl";
+   $FindBin::Bin =~ s/(\s)/\\$1/g;
  $re->{'NEW'}++, Init_1( $re )
   if system "cat $FindBin::Bin/bl|sed '1,/^__END__\$/d;/^__TIE__\$/,\$d' > ~/.BREW_LIST/font2.sh
              diff ~/.BREW_LIST/font.sh ~/.BREW_LIST/font2.sh >/dev/null 2>&1" or
@@ -1713,13 +1735,20 @@ if [[ $2 ]];then
    curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
     { math_rm; ${die:?curl b error}; }
      rmdir ~/.BREW_LIST/6
+   curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
+    { math_rm; ${die:?curl c error}; }
+   curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
+    { math_rm; ${die:?curl d error}; }
+   curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
+    { math_rm; ${die:?curl e error}; }
+     rmdir ~/.BREW_LIST/7
    curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
     { math_rm; ${die:?curl c error}; }
    curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
     { math_rm; ${die:?curl d error}; }
    curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
     { math_rm; ${die:?curl e error}; }
-     rmdir ~/.BREW_LIST/7
+     rmdir ~/.BREW_LIST/8
   fi
 
   if [[ $2 -eq 2 ]];then
@@ -1792,7 +1821,7 @@ perl<<"EOF"
    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
     print $FILE1 @file;
    close $FILE1;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/8"
+  rmdir "$ENV{'HOME'}/.BREW_LIST/9"
 EOF
   [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 1 error};
 
@@ -1855,7 +1884,7 @@ perl<<"EOF"
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/cna.txt" or die " ana4 $!\n";
    print $dir4 @fom;
   close $dir4;
- rmdir "$ENV{'HOME'}/.BREW_LIST/9"
+ rmdir "$ENV{'HOME'}/.BREW_LIST/10"
 EOF
   [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 2 error};
   fi
@@ -1868,6 +1897,12 @@ EOF
    { math_rm; ${die:?curl h error}; }
  curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics-linux/install/365d/index.html ||\
    { math_rm; ${die:?curl i error}; }
+ curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics-linux/install-on-request/30d/index.html ||\
+   { math_rm; ${die:?curl j error}; }
+ curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics-linux/install-on-request/90d/index.html ||\
+   { math_rm; ${die:?curl k error}; }
+ curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics-linux/install-on-request/365d/index.html ||\
+   { math_rm; ${die:?curl l error}; }
  curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics-linux/build-error/30d/index.html ||\
    { math_rm; ${die:?curl j error}; }
  curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics-linux/build-error/90d/index.html ||\
@@ -1924,28 +1959,48 @@ perl<<"EOF"
       $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir3;
-
-  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " ana1 $!\n"; $i1 = 1;
-   while( $en1=<$dir4> ){
-    next if $en1 =~ /\s--HEAD|\s--with/;
-     $EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
-      $ER1{$EN1} = $en1,$EN1 = 0 if $EN1 and $en1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/req1.html" or die " req1 $!\n"; $i4 = 1;
+   while( $re1=<$dir4> ){
+    next if $re1 =~ /\s--HEAD|\s--with/;
+     $HA4{$re1} = $i4++,$RE1 = $re1 if $re1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $EQ1{$RE1} = $re1,$RE1 = 0 if $RE1 and $re1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir4;
-  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " ana2 $!\n"; $i2 = 1;
-   while( $en2=<$dir5> ){
-    next if $en2 =~ /\s--HEAD|\s--with/;
-     $EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
-      $ER2{$EN2} = $en2,$EN2 = 0 if $EN2 and $en2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/req2.html" or die " req2 $!\n"; $i5 = 1;
+   while( $re2=<$dir5> ){
+    next if $re2 =~ /\s--HEAD|\s--with/;
+     $HA5{$re2} = $i5++,$RE2 = $re2 if $re2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $EQ2{$RE2} = $re2,$RE2 = 0 if $RE2 and $re2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir5;
-  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " ana3 $!\n"; $i3 = 1;
-   while( $en3=<$dir6> ){
-    next if $en3 =~ /\s--HEAD|\s--with/;
-     $EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
-      $ER3{$EN3} = $en3,$EN3 = 0 if $EN3 and $en3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/req3.html" or die " req3 $!\n"; $i6 = 1;
+   while( $re3=<$dir6> ){
+    next if $re3 =~ /\s--HEAD|\s--with/;
+     $HA6{$re3} = $i6++,$RE3 = $re3 if $re3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $EQ3{$RE3} = $re3,$RE3 = 0 if $RE3 and $re3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir6;
+  open $dir7,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " err1 $!\n"; $i7 = 1;
+   while( $en1=<$dir7> ){
+    next if $en1 =~ /\s--HEAD|\s--with/;
+     $HA7{$en1} = $i7++,$EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER1{$EN1} = $en1,$EN1 = 0 if $EN1 and $en1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir7;
+  open $dir8,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " err2 $!\n"; $i8 = 1;
+   while( $en2=<$dir8> ){
+    next if $en2 =~ /\s--HEAD|\s--with/;
+     $HA8{$en2} = $i8++,$EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER2{$EN2} = $en2,$EN2 = 0 if $EN2 and $en2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir8;
+  open $dir9,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " err3 $!\n"; $i9 = 1;
+   while( $en3=<$dir9> ){
+    next if $en3 =~ /\s--HEAD|\s--with/;
+     $HA9{$en3} = $i9++,$EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER3{$EN3} = $en3,$EN3 = 0 if $EN3 and $en3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir9;
 
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
@@ -1955,6 +2010,15 @@ perl<<"EOF"
    $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $IN3{$ANA[$in1]} ? "\t$IN3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA4{$ANA[$in1]} ? "\t$HA4{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA5{$ANA[$in1]} ? "\t$HA5{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA6{$ANA[$in1]} ? "\t$HA6{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $EQ1{$ANA[$in1]} ? "\t$EQ1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $EQ2{$ANA[$in1]} ? "\t$EQ2{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $EQ3{$ANA[$in1]} ? "\t$EQ3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA7{$ANA[$in1]} ? "\t$HA7{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA8{$ANA[$in1]} ? "\t$HA8{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA9{$ANA[$in1]} ? "\t$HA9{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER1{$ANA[$in1]} ? "\t$ER1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER2{$ANA[$in1]} ? "\t$ER2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER3{$ANA[$in1]} ? "\t$ER3{$ANA[$in1]}\n" : "\t\n";
@@ -1962,10 +2026,10 @@ perl<<"EOF"
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/ana.txt" or die " ana4 $!\n";
    print $dir4 @fom;
   close $dir4;
+ rmdir "$ENV{'HOME'}/.BREW_LIST/11"
 EOF
  [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 3 error};
 
-  rm -rf  ~/.BREW_LIST/10
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
   if [[ "$NAME" = Darwin ]];then
@@ -2036,7 +2100,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    }
     Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
   }
- rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/12";
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
@@ -2069,14 +2133,13 @@ unless( $ARGV[0] ){
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
  }
-  my( $in,$e ) = @BREW/5 >> 0;
-   my @in = ( $in << 1,($in << 1) + $in,$in << 2 );
+  my( $in,$e ) = @BREW >> 2;
+   my @in = ( $in << 1,($in << 1) + $in );
  for my $dir1(@BREW){ my $bot;
   if( $re->{'MAC'} ){ $e++;
-   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
-   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
-   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
-   $e == $in[2] ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
+   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
+   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
+   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
