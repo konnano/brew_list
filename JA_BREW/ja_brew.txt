@@ -824,6 +824,7 @@ cloud-nuke	クラウドリソースを削除(削除)するCLIツール
 cloud-watch	Amazon CloudWatchコマンドラインツール
 cloudflare-quiche	QUICトランスポートプロトコルとHTTP/3のおいしい実装
 cloudflare-wrangler	Cloudflareワーカー向けのCLIツール
+cloudflare-wrangler2	Cloudflareワーカー用のCLI ツール
 cloudflared	Cloudflareトンネルクライアント(以前のArgoトンネル)
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
 cloudformation-guard	宣言型構文を使用してCloudFormationテンプレートの整合性をチェックします
@@ -2397,6 +2398,7 @@ htmltest	Goで書かれたHTML確認
 htop	改善されたtop(対話的なプロセスViewer)
 htpdate	リモートWebサーバーと時刻を同期する
 htslib	高性能連続データフォーマットのCライブラリ
+httm	インタラクティブ ZFS/btrfs 用のファイルレベルの Time Machine のようなツール
 http-parser	CのHTTPパーサー 要求/応答
 http-prompt	自動補完と構文の強調表示を備えた対話的なコマンドラインHTTPクライアント
 http-server	シンプルなゼロ構成コマンドラインHTTPサーバー
@@ -3934,6 +3936,7 @@ nanomsg	Cのソケットライブラリ
 nanomsgxx	C++11のNanomsg bindings
 nanopb-generator	Bufferメッセージをエンコードおよびデコードする手続きのCライブラリ
 nanorc	改善されたNano構文ハイライトファイル
+nap	端末のコードスニペット
 narwhal	アプリケーションを構築するための汎用JavaScriptプラットフォーム
 nasm	Netwide Assembler(NASM)は80x86アセンブラーです
 natalie	Storyboardコード発生器(Swift用)
@@ -5874,6 +5877,7 @@ twoping	指向性パケット損失を判別するためのpingユーティリ�
 twtxt	ハッカーのための分散型で必要最低限のマイクロブログサービス
 twty	golangで記述されたコマンドラインTwitterクライアント
 txr	便利なデータ変更のためのオリジナルの新しいプログラミング言語
+txt2man	フラットASCIIテキストをmanページ形式に変換します
 txt2tags	いくつかのファイル形式を生成するための変換ツール
 tygo	GolangソースコードからTypescriptタイプを生成する
 typedb	知識工学のための分散型ハイパーリレーショナルデータベース
