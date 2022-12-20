@@ -1,4 +1,4 @@
-brew list command extended version: version 1.15_2
+brew list command extended version: version 1.15_4
 
 : how to use
 ```
@@ -68,7 +68,7 @@ To uninstall, type ./init.sh unlink inside the brew_list-main folder
 
 '-' option brew list command
 
-'-ai' option sorts the analysis data (no argument 365d, argument 1 30d, argument 2 90d)
+'-ai' option sorts the analysis data ( argument [0-8] sort ) or formula
 
 Only Mac: Cask
 
@@ -88,7 +88,7 @@ Only Mac: Cask
 
 '-cd' option lists Casks and Formulas required by Cask
 
-'-ac' option sorts analysis data (no argument 365d, argument 1 30d, argument 2 90d)
+'-ac' option sorts analysis data ( argument [0-2] sort ) or cask
 
 '-p' option allows QuickLook preview of Font (unstable) tab completion
 
