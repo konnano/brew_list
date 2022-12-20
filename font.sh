@@ -74,13 +74,20 @@ if [[ $2 ]];then
    curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
     { math_rm; ${die:?curl b error}; }
      rmdir ~/.BREW_LIST/6
+   curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
+    { math_rm; ${die:?curl c error}; }
+   curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
+    { math_rm; ${die:?curl d error}; }
+   curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
+    { math_rm; ${die:?curl e error}; }
+     rmdir ~/.BREW_LIST/7
    curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
     { math_rm; ${die:?curl c error}; }
    curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
     { math_rm; ${die:?curl d error}; }
    curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
     { math_rm; ${die:?curl e error}; }
-     rmdir ~/.BREW_LIST/7
+     rmdir ~/.BREW_LIST/8
   fi
 
   if [[ $2 -eq 2 ]];then
@@ -153,7 +160,7 @@ perl<<"EOF"
    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
     print $FILE1 @file;
    close $FILE1;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/8"
+  rmdir "$ENV{'HOME'}/.BREW_LIST/9"
 EOF
   [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 1 error};
 
@@ -216,7 +223,7 @@ perl<<"EOF"
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/cna.txt" or die " ana4 $!\n";
    print $dir4 @fom;
   close $dir4;
- rmdir "$ENV{'HOME'}/.BREW_LIST/9"
+ rmdir "$ENV{'HOME'}/.BREW_LIST/10"
 EOF
   [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 2 error};
   fi
@@ -229,6 +236,12 @@ EOF
    { math_rm; ${die:?curl h error}; }
  curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics-linux/install/365d/index.html ||\
    { math_rm; ${die:?curl i error}; }
+ curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics-linux/install-on-request/30d/index.html ||\
+   { math_rm; ${die:?curl j error}; }
+ curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics-linux/install-on-request/90d/index.html ||\
+   { math_rm; ${die:?curl k error}; }
+ curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics-linux/install-on-request/365d/index.html ||\
+   { math_rm; ${die:?curl l error}; }
  curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics-linux/build-error/30d/index.html ||\
    { math_rm; ${die:?curl j error}; }
  curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics-linux/build-error/90d/index.html ||\
@@ -285,28 +298,48 @@ perl<<"EOF"
       $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir3;
-
-  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " ana1 $!\n"; $i1 = 1;
-   while( $en1=<$dir4> ){
-    next if $en1 =~ /\s--HEAD|\s--with/;
-     $EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
-      $ER1{$EN1} = $en1,$EN1 = 0 if $EN1 and $en1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/req1.html" or die " req1 $!\n"; $i4 = 1;
+   while( $re1=<$dir4> ){
+    next if $re1 =~ /\s--HEAD|\s--with/;
+     $HA4{$re1} = $i4++,$RE1 = $re1 if $re1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $EQ1{$RE1} = $re1,$RE1 = 0 if $RE1 and $re1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir4;
-  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " ana2 $!\n"; $i2 = 1;
-   while( $en2=<$dir5> ){
-    next if $en2 =~ /\s--HEAD|\s--with/;
-     $EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
-      $ER2{$EN2} = $en2,$EN2 = 0 if $EN2 and $en2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/req2.html" or die " req2 $!\n"; $i5 = 1;
+   while( $re2=<$dir5> ){
+    next if $re2 =~ /\s--HEAD|\s--with/;
+     $HA5{$re2} = $i5++,$RE2 = $re2 if $re2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $EQ2{$RE2} = $re2,$RE2 = 0 if $RE2 and $re2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir5;
-  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " ana3 $!\n"; $i3 = 1;
-   while( $en3=<$dir6> ){
-    next if $en3 =~ /\s--HEAD|\s--with/;
-     $EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
-      $ER3{$EN3} = $en3,$EN3 = 0 if $EN3 and $en3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/req3.html" or die " req3 $!\n"; $i6 = 1;
+   while( $re3=<$dir6> ){
+    next if $re3 =~ /\s--HEAD|\s--with/;
+     $HA6{$re3} = $i6++,$RE3 = $re3 if $re3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $EQ3{$RE3} = $re3,$RE3 = 0 if $RE3 and $re3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir6;
+  open $dir7,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " err1 $!\n"; $i7 = 1;
+   while( $en1=<$dir7> ){
+    next if $en1 =~ /\s--HEAD|\s--with/;
+     $HA7{$en1} = $i7++,$EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER1{$EN1} = $en1,$EN1 = 0 if $EN1 and $en1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir7;
+  open $dir8,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " err2 $!\n"; $i8 = 1;
+   while( $en2=<$dir8> ){
+    next if $en2 =~ /\s--HEAD|\s--with/;
+     $HA8{$en2} = $i8++,$EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER2{$EN2} = $en2,$EN2 = 0 if $EN2 and $en2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir8;
+  open $dir9,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " err3 $!\n"; $i9 = 1;
+   while( $en3=<$dir9> ){
+    next if $en3 =~ /\s--HEAD|\s--with/;
+     $HA9{$en3} = $i9++,$EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+      $ER3{$EN3} = $en3,$EN3 = 0 if $EN3 and $en3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
+   }
+  close $dir9;
 
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
@@ -316,6 +349,15 @@ perl<<"EOF"
    $fom[$in1] .= $IN1{$ANA[$in1]} ? "\t$IN1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $IN3{$ANA[$in1]} ? "\t$IN3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA4{$ANA[$in1]} ? "\t$HA4{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA5{$ANA[$in1]} ? "\t$HA5{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA6{$ANA[$in1]} ? "\t$HA6{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $EQ1{$ANA[$in1]} ? "\t$EQ1{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $EQ2{$ANA[$in1]} ? "\t$EQ2{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $EQ3{$ANA[$in1]} ? "\t$EQ3{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA7{$ANA[$in1]} ? "\t$HA7{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA8{$ANA[$in1]} ? "\t$HA8{$ANA[$in1]}" : "\t";
+   $fom[$in1] .= $HA9{$ANA[$in1]} ? "\t$HA9{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER1{$ANA[$in1]} ? "\t$ER1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER2{$ANA[$in1]} ? "\t$ER2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER3{$ANA[$in1]} ? "\t$ER3{$ANA[$in1]}\n" : "\t\n";
@@ -323,10 +365,10 @@ perl<<"EOF"
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/ana.txt" or die " ana4 $!\n";
    print $dir4 @fom;
   close $dir4;
+ rmdir "$ENV{'HOME'}/.BREW_LIST/11"
 EOF
  [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 3 error};
 
-  rm -rf  ~/.BREW_LIST/10
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
   if [[ "$NAME" = Darwin ]];then
