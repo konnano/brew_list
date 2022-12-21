@@ -144,6 +144,7 @@ MAIN:{
   }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = lc $AR[1];
   }elsif( $re->{'deps'} and $AR[1] and $AR[1] ne '.' ){ $re->{'dep_s'} = lc $AR[1];
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
+               $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[0-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
   if( $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
@@ -190,7 +191,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.15_4\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.15_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -423,6 +424,7 @@ sub Ana_1{
  $re->{'NEW'}++, Init_1( $re ) unless -f $re->{'CAN'};
   my $mem = $re->{'ana'} if $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/;
  $re->{'ana'} = 0 if not $re->{'ana'} or $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/;
+  $re->{'ana'} = $re->{'ana2'} if $re->{'ana2'};
   open my $dir,'<',$re->{'CAN'} or die " ana $!\n";
    while(<$dir>){ chomp;
     my( $ls,$ls1,$ls2,$ls3,$co1,$co2,$co3,$ls4,$ls5,$ls6,$eq1,$eq2,$eq3,$ls7,$ls8,$ls9,$er1,$er2,$er3 ) = split '\t';
@@ -430,15 +432,15 @@ sub Ana_1{
              $re->{'ana'} == 4 ? $ls4 : $re->{'ana'} == 5 ? $ls5 : $re->{'ana'} == 6 ? $ls9 :
              $re->{'ana'} == 7 ? $ls7 : $re->{'ana'} == 8 ? $ls8 :$ls3;
     if( $re->{'ana'} >= 3 and $re->{'ana'} <= 5 ){
-     $ls1 = $ls4; $ls2 = $ls5; $ls3 = $ls6;
-     my $mem = $co1; $co1 = $eq1; $eq1 = $mem;
-        $mem = $co2; $co2 = $eq2; $eq2 = $mem;
-        $mem = $co3; $co3 = $eq3; $eq3 = $mem;
+        ( $ls1,$ls2,$ls3 ) = ( $ls4,$ls5,$ls6 );
+      my @mem = ( $co1,$co2,$co3 );
+        ( $co1,$co2,$co3 ) = ( $eq1,$eq2,$eq3 );
+        ( $eq1,$eq2,$eq3 ) = @mem;
     }elsif( $re->{'ana'} >= 6 and $re->{'ana'} <= 8 ){
-     $ls1 = $ls7; $ls2 = $ls8; $ls3 = $ls9;
-     my $mem = $co1; $co1 = $er1; $er1 = $mem;
-        $mem = $co2; $co2 = $er2; $er2 = $mem;
-        $mem = $co3; $co3 = $er3; $er3 = $mem;
+        ( $ls1,$ls2,$ls3 ) = ( $ls7,$ls8,$ls9 );
+      my @mem = ( $co1,$co2,$co3 );
+        ( $co1,$co2,$co3 ) = ( $er1,$er2,$er3 );
+        ( $er1,$er2,$er3 ) = @mem;
     }
     if( $co ){
      $an[$co]  = $ls;
@@ -478,6 +480,7 @@ sub Ana_1{
    my( $in1,$in2,$in3 ) = ( $re->{'ana'} >= 3 and $re->{'ana'} <= 5 ) ?
      ('install on request ','install ','build-error ') : ( $re->{'ana'} >= 6 and $re->{'ana'} <= 8 ) ?
      ('build-error ','install on request ','install ') : ('install ','install on request ','build-error ');
+   $re->{'ana'} = 0 if $re->{'ana2'};
  for(@an){
   next unless $_;
    my( $ls,$ls1,$ls2,$ls3,$co1,$co2,$co3,$eq1,$eq2,$eq3,$er1,$er2,$er3 ) = split '\t';
