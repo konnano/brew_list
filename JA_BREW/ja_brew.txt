@@ -2398,7 +2398,7 @@ htmltest	Goで書かれたHTML確認
 htop	改善されたtop(対話的なプロセスViewer)
 htpdate	リモートWebサーバーと時刻を同期する
 htslib	高性能連続データフォーマットのCライブラリ
-httm	インタラクティブ ZFS/btrfs 用のファイルレベルの Time Machine のようなツール
+httm	インタラクティブ ZFS/btrfs用のファイルレベルのTime Machineのようなツール
 http-parser	CのHTTPパーサー 要求/応答
 http-prompt	自動補完と構文の強調表示を備えた対話的なコマンドラインHTTPクライアント
 http-server	シンプルなゼロ構成コマンドラインHTTPサーバー
@@ -4685,6 +4685,7 @@ pssh	OpenSSHおよび関連ツールの並列バージョン
 pstoedit	PostScriptおよびPDFファイルを編集可能なベクターグラフィックに変換します
 pstree	psの出力をツリーとして表示
 psutils	PostScriptドキュメント処理ユーティリティのコレクション
+psysh	ランタイム開発者コンソール PHP用の対話型デバッガーとREPL
 ptex	Texture mappingシステム
 pth	GNUポータブルスレッド
 ptpython	高度なPython REPL
@@ -5161,6 +5162,7 @@ seal	使いやすい準同型暗号化ライブラリ
 search-that-hash	ハッシュAPIを検索して、ハッシュをすばやくクラックします
 seaweedfs	高速分散保管システム
 sec	さまざまな種類のイベント処理のためのイベント相関ツール
+secp256k1	曲線secp256k1でのEC操作用に最適化されたCライブラリ
 securefs	透過的な認証付き暗号化を備えたファイルシステム
 seexpr	埋め込み式表現評価エンジン
 selecta	ファイルやその他の選択が必要な物のファジーテキストセレクター
