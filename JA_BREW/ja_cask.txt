@@ -258,7 +258,6 @@ avast-secure-browser	プライバシーに焦点を当てたWebブラウザー
 avast-security	ウイルス対策ソフト
 avg-antivirus	ウイルス対策ソフト
 aviatrix-vpn-client	SAML認証を提供するVPNクライアント
-avibrazil-rdm	Retinaディスプレイをカスタム解像度に設定するユーティリティ
 avidcodecsle	Media ComposerのないシステムでAvidコーデックを使用してQuickTimeムービーを使用する
 avidemux	動画編集
 avifquicklook	AVIF画像用のQuickLookプラグイン
@@ -381,7 +380,6 @@ bleunlock	Bluetooth LowEnergyデバイスの近くを使用してAppleコンピ�
 blheli-configurator	BLHeli Configurator
 blink1control	点滅を制御するユーティリティ(1)USB RGB LEDデバイス
 blisk	開発者向けブラウザー
-blitz	パフォーマンス分析ソフトウェア
 blobby-volley2	直接対決のマルチプレイヤー球技
 blobsaver	SHSHブロブを自動的に保存するためのGUI
 blockbench	boxyモデルとピクセルアートtexture用の3Dモデルエディター
@@ -832,6 +830,7 @@ devkinsta	KinstaによるローカルWordPress開発パッケージ
 devolo-cockpit	構成およびネットワーク監視ソフトウェア
 devonagent	Webをより効率的に検索するのに役立つツール
 devonthink	ドキュメントの編集と注釈付け 収集/整理
+devsquadron	エンタープライズグレード プロジェクト管理
 devtoys	一般的な開発タスクを容易にするために設計されたユーティリティ
 devutils	開発者向けのオフラインツールボックス
 dexed	DX7FMシンセサイザー
@@ -2296,7 +2295,6 @@ mysteriumvpn	VPNクライアント
 n1ghtshade	32ビットiOSデバイスの ダウングレード/脱獄を許可します
 nagbar	Nagiosのステータスバーモニター Icinga/2とThruk
 nagstamon	Nagiosステータスモニター
-nally	Mandarin BBS用に最適化された美しい telnet/sshクライアント
 name-mangler	複数ファイルの名前変更ツール
 namebench	DNSサーバーファインダー
 namechanger	ファイルのリストの名前をすばやく変更する
@@ -3437,7 +3435,6 @@ sublime-text	コード用のテキストエディタ マークアップ/プロ�
 subsurface	オープンソースのダイブログプログラム
 subsync	字幕音声シンクロナイザー
 subtitle-master	字幕マスター
-subtitles	字幕映画やテレビ番組を自動的にダウンロードします
 subtools	ヘルパー-MP4toolsのアプリケーション mkvtools/AVItools
 suitcase-fusion	フォントマネージャー
 sunloginclient	リモートデスクトップ制御および監視ツール
@@ -4019,7 +4016,6 @@ write	手書き用ワードプロセッサ
 writefull	あなたの執筆に関するフィードバックを提供します
 writemapper	マインドマップを使用してテキストドキュメントを作成するのに役立つライティングツール
 writer	Fountain言語に基づくスクリーンライティングアプリ
-wsjtx	弱信号状態の通信手続きを実装するアマチュア無線アプリ
 wwdc	WWDCライブストリームへのアクセスを許可します ビデオ/セッション
 wxcrafter	wxCrafter
 wxmacmolplt	GAMESS用のクロスプラットフォームGUI入力発生器
