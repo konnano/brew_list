@@ -2119,11 +2119,13 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 
 sub Dirs_1{
 my( $dir,$ls,$cask ) = @_;
- for(glob "$dir/*"){
-  next if $ls and m[/homebrew$|/homebrew-core$|/homebrew-cask$|/homebrew-bundle$|/homebrew-services$];
-   ( -d ) ? Dirs_1( $_,$ls,$cask ) : ( -l ) ? push @{$re->{'ALIA'}},$_ :
-   ( /\.rb$/ and $cask ) ? push @CASK,$_ : ( /\.rb$/ ) ? push @BREW,$_ : 0;
- }
+ opendir(my $DIR,$dir);
+  for(sort readdir $DIR){ next if /^\.{1,2}/;
+   next if $ls and /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/;
+   ( -d "$dir/$_" ) ? Dirs_1( "$dir/$_",$ls,$cask ) : ( -l "$dir/$_" ) ? push @{$re->{'ALIA'}},"$dir/$_" :
+   ( /\.rb$/ and $cask ) ? push @CASK,"$dir/$_" : ( /\.rb$/ ) ? push @BREW,"$dir/$_" : 0;
+  }
+ closedir $DIR;
 }
 
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
