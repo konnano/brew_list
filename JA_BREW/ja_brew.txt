@@ -112,6 +112,7 @@ ansible-language-server	Ansibleファイル用の言語サーバー
 ansible-lint	実践と行動についてAnsibleプレイブックをチェックします
 ansible@2.8	展開の自動化 構成/アップグレード
 ansible@2.9	展開の自動化 構成/アップグレード
+ansible@6	自動展開 構成/アップグレード
 ansifilter	ANSIコードを削除するか、HTML、(La)Tex、RTF、またはBBCodeに変換します
 ansilove	ANSI/ASCII アートからPNGへの変換器
 ansiweather	ANSIカラーとUnicode記号を使用した端末の天気予報
@@ -1328,6 +1329,7 @@ duckdb	埋め込み可能なSQLOLAPデータベース管理システム
 duckscript	シンプルで拡張可能で埋め込み可能なスクリプト言語
 duf	より優れた'df'代替品 ディスク 使用量/空き ユーティリティ-
 duff	コマンドラインから一連のファイル内の重複をすばやく見つける
+dufs	静的ファイルサーバー
 duktape	コンパクトな足跡を備えた埋め込み可能なJavascriptエンジン
 dumb	プレーヤーライブラリ IT/XM/S3M/MOD
 dump1090-mutability	RTL-SDR用のADS-B地上局システム
@@ -3600,6 +3602,7 @@ markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
 markdownlint-cli2	Markdown/CommonMark ファイルをリンティングするための高速で柔軟な構成ベースのCLI
 marked	速さのために構築されたマークダウンパーサーとコンパイラ
+marksman	Markdownの言語サーバープロトコル
 marp-cli	マープマークダウンファイルを静的に画像を変換、HTML/CSS、PDF、PPT
 mas	Mac AppStoreのcommand-lineインターフェイス
 mask	単純なマークダウンファイルで定義されたCLI taskランナー
@@ -6172,6 +6175,7 @@ wifi-password	現在のWiFiネットワークパスワードを表示する
 wiggle	競合する変更を含むパッチを適用するためのプログラム
 wiiuse	ニンテンドーWiiリモートを接続する
 wiki	ウィキペディアのようなMediaWikiウィキから要約を取得する
+wikibase-cli	ウィキベースへのコマンドラインインターフェース
 wildfly-as	アプリケーションを構築するための管理されたアプリケーションランタイム
 wildmidi	シンプルなソフトウェアMIDIプレーヤー
 willgit	William'sの多方面のgitツール
