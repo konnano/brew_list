@@ -777,6 +777,7 @@ font-inter	Inter
 font-inter-tight	Inter Tight
 font-iosevka	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-aile	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-comfy	デフォルトとは異なるスタイルとメトリックを使用したIosevkaのカスタムビルド
 font-iosevka-curly	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-curly-slab	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-etoile	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
@@ -2187,6 +2188,7 @@ roli-connect	ROLI製品のツールマネージャー
 safenet-authentication-client	スマートカードリーダーとセキュリティトークンのクライアント
 saleae-logic	Saleaeのデバイスの信号分析
 samsung-portable-ssd-t5	Samsung外部ストレージドライブ用のソフトウェア
+samsung-portable-ssd-t7	Samsung外部ストレージドライブ(T7 シリーズ)用のソフトウェア
 sandisk-security	SanDisk ExtremeポータブルSSDラインの新しい(V2)バージョンをパスワードで保護する
 seagate-dashboard	Seagateダッシュボード
 segger-jlink	SeggerJ-Linkデバッグプローブ用のソフトウェアおよびドキュメントパック
