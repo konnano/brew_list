@@ -2850,7 +2850,6 @@ qfinder-pro	NAS管理アプリケーション
 qgis	地理情報システム
 qgroundcontrol	ドローン用地上管制局
 qingg	五筆字型入力方式
-qiyimedia	双方向メディアプレーヤー
 ql-ansilove	テキストモードアートのQuick Lookプラグイン
 qlab	サウンド ビデオと照明の制御
 qladdict	QLAddict
@@ -3876,6 +3875,7 @@ vitalsource-bookshelf	eTextbooksにアクセスする
 vitamin-r	生産性ツールと技術のコレクション
 vivaldi	カスタマイズと制御に焦点を当てたWebブラウザー
 vivid	ディスプレイの適応輝度
+vk-calls	あらゆる目的のビデオ通話のためのプラットフォーム
 vk-messenger	メッセンジャーアプリ
 vlc	マルチメディアプレーヤー
 vlc-setup	VLCRemoteのVLCを設定する
