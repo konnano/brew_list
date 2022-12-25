@@ -2058,6 +2058,7 @@ clavia-nord-sound-manager	Nord機器のメモリを整理してバックアッ�
 concept2-utility	Concept2パフォーマンスモニターのユーティリティ
 content-manager-assistant	PlayStation用コンテンツマネージャーアシスタントﾂ✓
 corsair-icue	Corsairコンポーネントおよびデバイス用のソフトウェア
+creative	Creativeハードウェアのコントロールパネル
 creative-sb-command	Creative SoundBlaster周辺機器のオーディオ設定を構成およびパーソナライズする
 cycliq-cycliqplus	映像と自転車のカメラ設定エディター
 cycliqplus-firmware-updater	CycliqFlyバイクカメラ用のファームウェアアップデータ
