@@ -629,7 +629,6 @@ cockatrice	マルチプレイヤーカードゲーム用の仮想卓上
 cocktail	掃除 コンピュータシステムの修復と最適化
 cocoapods	Cocoaプロジェクトの依存関係マネージャー
 cocoarestclient	HTTP/REST エンドポイントをテストするためのアプリ
-cocoaspell	Aspellスペルチェッカーのサービスプロバイダー
 coconutbattery	さまざまなデバイスのバッテリーに関するライブ情報を表示するツール
 coconutid	MacまたはiPhoneの製造日を表示します
 coda	テキストエディター
@@ -947,7 +946,6 @@ ears	インスタントオーディオス切り替え
 easy-move-plus-resize	修飾キーとマウスドラッグを使用した移動とサイズ変更をサポートするユーティリティ
 easyeda	PCB設計ツール
 easyfind	ファイルを探す フォルダまたは任意のファイルの内容
-easytether	キャリアに依存しないインターネット接続の共有（テザリング）
 ebibookreader	ebi.BookReader
 ebmac	電子辞書ビューア
 ecamm-live	ライブストリーミング＆ビデオ制作スタジオ
@@ -3594,7 +3592,6 @@ thonny	初心者のためのPythonIDE
 thonny-xxl	初心者のためのPython IDE
 thor	アプリケーションを切り替えるユーティリティ
 thorium	Epubリーダー
-threads	集中的な議論と意思決定のためのコミュニケーションツール
 threema	End-to-endの暗号化されたインスタントメッセージングアプリケーション
 threema-work	End-to-endの暗号化されたインスタントメッセージングアプリケーション
 thumbsup	ThumbsUp
@@ -3853,6 +3850,7 @@ vincelwt-chatgpt	ChatGPTのメニューバーアプリ
 vine-server	VNCサーバー
 vip-access	2段階認証ソフトウェア
 vipriser	印刷可能な任意のアプリケーションからPDFを作成します
+virtual-desktop-streamer	VR仮想デスクトップストリーマー
 virtual-ii	仮想 ][
 virtualbox	x86ハードウェア用のバーチャライザー
 virtualbuddy	仮想化ツール
