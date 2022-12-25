@@ -4669,6 +4669,7 @@ protoc-gen-go-grpc	gRPC-Goクライアントのコードを生成するProtocプ
 protoc-gen-gogo	Buffer手続き Go with Gadgets
 protoc-gen-gogofaster	Buffer手続き Go with Gadgets
 protoc-gen-grpc-web	gRPC-Webクライアントのコードを生成するProtocプラグイン
+protolint	Protocol Bufferのスタイルと規則を適用するためのプラグイン可能なリンターとフィクサー
 prototool	Buffer手続きの万能ナイフ
 prover9	一次および等式論理の自動定理証明
 proxsuite	高度な近位最適化ツールボックス
