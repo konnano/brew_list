@@ -231,6 +231,7 @@ atlauncher	マインクラフトランチャー
 atok	JustSystemsが作成した日本語入力方式エディター(IME)
 atom	テキストエディター
 atomic-wallet	ビットコインを管理する イーサリアム/XRP/ライトコイン/XLMと300以上の他のコインとトークン
+attachecase	ファイルとディレクトリを暗号化/復号化するためのシンプルなユーティリティ
 au-lab	デジタルオーディオミキシングアプリケーション
 audacity	マルチトラックオーディオエディターおよびレコーダー
 audio-hijack	任意のアプリケーションからのオーディオを録音します
@@ -1501,6 +1502,7 @@ icestudio	オープンFPGAボード用のビジュアルエディター
 icloud-control	iCloudドライブのユーザー制御の選択的同期
 icollections	デスクトップを整理するのに役立つアプリ
 icon-shelf	Web開発者向けのアイコン マネージャー
+iconchanger	アイコン変更プロセスを簡略化してアプリのアイコンを変更できるアプリ
 iconizer	Xcodeアセット カタログクリエーター
 iconjar	アイコンオーガナイザー
 icons	アプリのアイコンを生成するツール
