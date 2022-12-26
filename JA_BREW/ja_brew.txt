@@ -4672,6 +4672,7 @@ protoc-gen-grpc-web	gRPC-Webクライアントのコードを生成するProtoc�
 protolint	Protocol Bufferのスタイルと規則を適用するためのプラグイン可能なリンターとフィクサー
 prototool	Buffer手続きの万能ナイフ
 prover9	一次および等式論理の自動定理証明
+prowler	クラウドセキュリティのベストプラクティスを実行するためのオープンソースセキュリティツール
 proxsuite	高度な近位最適化ツールボックス
 proxychains-ng	Hook先読み
 proxytunnel	HTTPSプロキシを介してTCPトンネルを作成する
@@ -5323,6 +5324,7 @@ sng	テキスト表現を介してPNGの損失の無い編集を有効にする
 sngrep	SIPコールメッセージフローを表示するためのコマンドラインツール
 sniffer	最新の代替ネットワーク転送量探知
 sniffglue	安全なマルチスレッドパケット探知
+sniffnet	ネットワークトラフィックを監視するためのクロスプラットフォームアプリケーション
 snobol4	文字列指向のシンボリックプログラミング言語
 snort	柔軟なネットワーク侵入検知システム
 snow	ホワイトスペースステガノグラフィ：ホワイトスペースを使用してコード化されたメッセージ
@@ -5486,10 +5488,12 @@ staticcheck	Goプログラミング言語の最先端の静的解析ツール
 statik	開発者向けのPythonベースの汎用静的Webサイト発生器
 statix	nixプログラミング言語のヒントと提案
 stdman	cppreference.comからのフォーマットされたC++ stdlibのマニュアルページ
+steampipe	SQLを使用してクラウドサービスを即座にクエリする
 stella	Atari 2600VCSエミュレーター
 stellar-core	Stellar(XLM)ネットワークのバックボーン
 stencil	サービス開発用のスマートテンプレートエンジン
 step	暗号とx509の万能ナイフ
+stepci	APIのテストとモニタリングがシンプルに
 stern	複数のKubernetesポッドとそのコンテナをTailする
 stgit	Gitコミットをパッチのスタックとして管理する
 stk	サウンド合成ツールキット
@@ -5570,6 +5574,7 @@ sword	聖書ソフトウェアを書くためのクロスプラットフォー�
 swtpm	libtpmsに基づくソフトウェアTPMエミュレーター
 sxiv	シンプルなX画像Viewer
 syck	YAMLを読み書きするための機能拡張
+syft	コンテナイメージからソフトウェア部品表を生成するためのCLI
 sylpheed	シンプルで軽量なメールクライアント
 symengine	C++で記述された高速記号操作ライブラリ
 sync_gateway	CouchbaseServerをCouchbaseLiteのレプリケーションエンドポイントにします
