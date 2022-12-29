@@ -2898,6 +2898,7 @@ lefthook	あらゆるタイプのプロジェクトに対応する高速で強�
 legit	ワークフローを簡素化するために最適化されたGitのコマンドラインインターフェイス
 lego	クライアントとACMEライブラリを暗号化しましょう
 leiningen	Clojureのビルドツール
+lemmeknow	なんでも識別する最速の方法!
 lemon	yaccやbisonのようなLALR(1)パーサ発生器
 lensfun	デジタル画像から欠陥を取り除く
 lepton	JPEGを損失無しで圧縮するためのツールとファイル形式
