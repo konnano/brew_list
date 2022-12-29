@@ -625,7 +625,6 @@ cncjs	CNCフライス盤コントローラーのインターフェース
 cncnet	CnCNet：クラシックコマンド&Conquer
 cnkiexpress	アカデミックアプリケーション
 coccinellida	シンプルなSSHトンネルマネージャー
-coccoc	コック・コックブラウザー
 cockatrice	マルチプレイヤーカードゲーム用の仮想卓上
 cocktail	掃除 コンピュータシステムの修復と最適化
 cocoapods	Cocoaプロジェクトの依存関係マネージャー
@@ -1984,6 +1983,7 @@ maestral	オープンソースのDropboxクライアント
 magicavoxel	8ビット3Dボクセルエディターと双方向パストレーシングレンダラー
 magiccap	画像/GIF キャプチャパッケージ
 magicplot	非線形フィッティング用のソフトウェア プロット/データ分析
+mail-assistant	HTML形式のメールを送信できる下書き用のコンパニオンツール
 mailbutler	AppleMailのパーソナルアシスタントおよび生産性向上ツール
 mailmaster	メールクライアント
 mailmate	IMAPメールクライアント
@@ -2088,6 +2088,7 @@ menu-bar-splitter	メニューバーに仕切りを追加するユーティリ�
 menubar-colors	システムのカラーパネルに簡単にアクセスできるメニューバーアプリ
 menubar-countdown	メニューバーのカウントダウンタイマー
 menubar-stats	温度とファンのプラグインを備えたシステムモニター
+menubarx	メニューバーブラウザ
 menucalendarclock-ical	MenuCalendarClock
 menumeters	CPU/メモリ/ディスク/ネットワーク 監視ツールのセット
 menutube	YouTubeをメニューバーに取り込むためのツール
@@ -2446,7 +2447,6 @@ one-switch	すべてのシステムスイッチとユーティリティスイッ
 onecast	OneCast
 onedrive	クラウドストレージクライアント
 onekey	クリプトウォレット
-onenote-importer-preview	OneNoteインポーター(プレビュー)
 onepile	OnePile
 onionshare	安全かつ匿名でファイルを共有 Webサイトをホスト 友人とチャットします
 only-switch	システムおよびユーティリティスイッチ
@@ -3654,7 +3654,6 @@ todometer	メーターベースのやることリスト
 todotxt	最低限 キーボード駆動のToDoマネージャー
 todour	Todo.txtアプリケーションTodour
 tofu	Tofu
-toggl-track	時間監視
 toinane-colorpicker	カラーコードを取得して保存する
 toland-qlmarkdown	Markdownファイル用のQuickLook生成器
 tomatobar	メニューバーポモドーロタイマー
@@ -4089,6 +4088,7 @@ yousician	楽器学習ツール
 youtrack-workflow	YouTrackのワークフローを作成および編集します
 youtube-downloader	YouTube映画をダウンロードするためのシンプルなメニューバーアプリ
 youtube-to-mp3	プレイリストまたはチャンネルから音楽をダウンロードします
+youtype	インプットメソッドヘルパー
 yt-music	music.youtube.comのアプリラッパー
 ytmdesktop-youtube-music	YouTubeミュージッククライアント
 yu-writer	マークダウンエディター
