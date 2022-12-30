@@ -1564,6 +1564,7 @@ intel-psxe-ce-c-plus-plus	ソフトウェア開発ツール
 intellidock	ドックがウィンドウと重なっているときにドックを非表示にします
 intellij-idea	JetBrainsによるJava IDE
 intellij-idea-ce	Java開発用IDE - コミュニティ版
+interact-scratchpad	テキストのスニペットから連絡先を作成するためのメニューバーユーティリティ
 internxt-drive	Internxtファイルストレージサービスのクライアント
 intune-company-portal	企業アプリへのアクセスを管理するアプリ データ/リソース
 invesalius	3D医用画像再構成ソフトウェア
@@ -2960,6 +2961,7 @@ react-studio	アプリ設計環境
 reactotron	React JSおよびReact Nativeプロジェクトを検査するためのデスクトップアプリ
 readdle-spark	メールクライアント
 readmoreading	繁体字中国語電子書籍サービス
+readwise-ibooks	Apple BooksからReadwiseにハイライトをインポートする
 readyapi	自動APIテストプラットフォーム
 realforce	Realforceキーボードおよびマウス用のソフトウェア
 reamp	SwiftUIで記述されたWinAMPクローン
