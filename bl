@@ -379,7 +379,7 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 }
 
 sub Proc_1{
-my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
+my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2,3 );
  for(my $i=0;$i<@$list;$i++){
   next if $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15';
    if( $re->{'OS'}{"$$list[$i]uses"} and $re->{'OS'}{"$$list[$i]uses_proc"} ){
@@ -389,23 +389,41 @@ my( $re,$list,$cou ) = @_; my( $e,$m,@an1,@an2,$deps ) = ( 0,1 );
    }elsif( $re->{'OS'}{"$$list[$i]uses"} ){ $deps = split '\t',$re->{'OS'}{"$$list[$i]uses"};
    }elsif( $re->{'OS'}{"$$list[$i]uses_proc"} ){ $deps = split '\t',$re->{'OS'}{"$$list[$i]uses_proc"};
    }else{ $deps = 0; }
-    if( $e > $m ){ push @an2,$$list[$i]; $m += $deps;
-            }else{ push @an1,$$list[$i]; $e += $deps; }
+    if( $m >= $c and $d >= $c and $e >= $c ){ push @an1,$$list[$i]; $c += $deps;
+    }elsif( $m >= $d and $e >= $d and $c >= $d ){ push @an2,$$list[$i]; $d += $deps;
+    }elsif( $m >= $e and $d >= $e and $c >= $e ){ push @an3,$$list[$i]; $e += $deps;
+    }elsif( $e >= $m and $d >= $m and $c >= $m ){ push @an4,$$list[$i]; $m += $deps; }
  }
   if( $cou and $re->{'LIN'} ){ push @an1,'glibc'; push @an2,'linux-headers@5.15'; }
+    sub _pare{ my( $re,$an,$hand ) = @_;
+               for my $ls(@$an){ my( @AN,%HA );
+                Uses_1( $re,$ls,\%HA,\@AN );
+                 push @{$re->{$ls}},@AN if $hand;
+                  $AN[0] ||= 0,print"$ls\t@AN\n" unless $hand;
+               } exit unless $hand;
+               while(<$hand>){ my($name,$data) = /([^\t]+)\t(.+)/;
+                @{$re->{$name}} = $data ? split '\s',$data : ();
+               } close $hand;
+             }
+
  if( open my $FH,'-|' ){
-  for my $ls(@an1){ my( @AN,%HA );
-   Uses_1( $re,$ls,\%HA,\@AN );
-    push @{$re->{$ls}},@AN;
-  }
-  while(<$FH>){ my($name,$data) = /([^\t]+)\t(.+)/;
-   @{$re->{$name}} = $data ? split '\s',$data : ();
-  } close $FH;
- if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 2\n"; }
+   if( open my $CH,'-|' ){
+     _pare( $re,\@an1,$CH );
+    die " can't open process 1\n" if $?;
+   }else{ exit unless @an3;
+     _pare( $re,\@an3 );
+   }
+    _pare( $re,[],$FH );
+  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 3\n"; }
  }else{ exit unless @an2;
-  for my $ls(@an2){ my( @AN,%HA );
-   Uses_1( $re,$ls,\%HA,\@AN ); $AN[0] ||= 0;
-    print"$ls\t@AN\n";
+   if( open my $DH,'-|' ){
+     _pare( $re,\@an2,$DH );
+    die " can't open process 2\n" if $?;
+   }else{ exit unless @an4;
+     _pare( $re,\@an4 );
+   }
+  for my $ls(@an2,@an4){ $re->{$ls}[0] ||= 0;
+    print"$ls\t@{$re->{$ls}}\n";
   } exit;
  }
 }
@@ -554,24 +572,24 @@ sub Size_1{
    }else{ print`du -ks $ls2` if $ls2; exit; }
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
     sub _cmp{ $_[0] =~ /(\d+)\s/; $1; }
-  for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
-   my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
-   for my $json(@{$AR{$name}}){
-    if( -f "$json/INSTALL_RECEIPT.json" ){
-     open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
-      while(<$dir>){
-       last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/;
-      }
-     close $dir;
-    }
-   } $utime = $utime ? $utime : 0;
-    my $time = [localtime($utime)];
-     my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
-      $size += $cou = sprintf "%.3f",$cou /= 1024;
-       Tap_2( $re,\$name );
-        Leng_1( $spa,\$name ) if $spa >= 5;
+   for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
+    my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
+    for my $json(@{$AR{$name}}){
+     if( -f "$json/INSTALL_RECEIPT.json" ){
+      open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
+       while(<$dir>){
+        last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/;
+       }
+      close $dir;
+     }
+    } $utime = $utime ? $utime : 0;
+     my $time = [localtime($utime)];
+      my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
+       $size += $cou = sprintf "%.3f",$cou /= 1024;
+        Tap_2( $re,\$name );
+         Leng_1( $spa,\$name ) if $spa >= 5;
      printf"%-${spa}s %8s%12s%3s%22s\n",$name,"size  : ","$cou MB","   ","install  :  $timer"
-  }
+   }
   printf" Totsl Size  %.2f MB  item %d\n",$size,$c if -t STDOUT;
  Nohup_1( $re );
 }
