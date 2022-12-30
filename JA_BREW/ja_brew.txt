@@ -607,11 +607,13 @@ canfigger	単純な構成ファイルパーサーライブラリ
 cap-completion	CapistranoのBash補完
 capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
+cargo-about	クレートのすべてのライセンスのリストを生成するCargoプラグイン
 cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lockファイルを監査する
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
 cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
 cargo-c	Cのようなライブラリを構築してインストールするためのヘルパープログラム
 cargo-crev	cargoパッケージ マネージャーのコードレビューシステム
+cargo-deny	依存関係をリンティングするCargoプラグイン
 cargo-depgraph	cargoプロジェクトの依存関係グラフを作成します
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-instruments	Rustの機器トレースを簡単に生成
