@@ -395,32 +395,32 @@ my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2
     }elsif( $e >= $m and $d >= $m and $c >= $m ){ push @an4,$$list[$i]; $m += $deps; }
  }
   if( $cou and $re->{'LIN'} ){ push @an1,'glibc'; push @an2,'linux-headers@5.15'; }
-    sub _pare{ my( $re,$an,$hand ) = @_;
-               for my $ls(@$an){ my( @AN,%HA );
-                Uses_1( $re,$ls,\%HA,\@AN );
-                 push @{$re->{$ls}},@AN if $hand;
-                  $AN[0] ||= 0,print"$ls\t@AN\n" unless $hand;
-               } exit unless $hand;
-               while(<$hand>){ my($name,$data) = /([^\t]+)\t(.+)/;
-                @{$re->{$name}} = $data ? split '\s',$data : ();
-               } close $hand;
-             }
+    my $par = sub{ my( $re,$an,$hand ) = @_;
+                   for my $ls(@$an){ my( @AN,%HA );
+                    Uses_1( $re,$ls,\%HA,\@AN );
+                     push @{$re->{$ls}},@AN if $hand;
+                      $AN[0] ||= 0,print"$ls\t@AN\n" unless $hand;
+                   } exit unless $hand;
+                   while(<$hand>){ my($name,$data) = /([^\t]+)\t(.+)/;
+                    @{$re->{$name}} = $data ? split '\s',$data : ();
+                   } close $hand;
+                 };
 
  if( open my $FH,'-|' ){
    if( open my $CH,'-|' ){
-     _pare( $re,\@an1,$CH );
+     $par->( $re,\@an1,$CH );
     die " can't open process 1\n" if $?;
    }else{ exit unless @an3;
-     _pare( $re,\@an3 );
+     $par->( $re,\@an3 );
    }
-    _pare( $re,[],$FH );
+    $par->( $re,[],$FH );
   if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 3\n"; }
  }else{ exit unless @an2;
    if( open my $DH,'-|' ){
-     _pare( $re,\@an2,$DH );
+     $par->( $re,\@an2,$DH );
     die " can't open process 2\n" if $?;
    }else{ exit unless @an4;
-     _pare( $re,\@an4 );
+     $par->( $re,\@an4 );
    }
   for my $ls(@an2,@an4){ $re->{$ls}[0] ||= 0;
     print"$ls\t@{$re->{$ls}}\n";
@@ -571,8 +571,8 @@ sub Size_1{
     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{ print`du -ks $ls2` if $ls2; exit; }
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-    sub _cmp{ $_[0] =~ /(\d+)\s/; $1; }
-   for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
+    my $cmp = sub{ $_[0] =~ /(\d+)\s/; $1; };
+   for(sort{$cmp->($b) <=> $cmp->($a)}@data){ my $utime; $c++;
     my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
     for my $json(@{$AR{$name}}){
      if( -f "$json/INSTALL_RECEIPT.json" ){
