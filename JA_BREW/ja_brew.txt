@@ -1599,6 +1599,7 @@ ffms2	Libav/ffmpeg ベースのソースライブラリとAvisynthプラグイ�
 ffsend	フル機能のFirefox Sendクライアント
 fftw	離散フーリエ変換を計算するためのCルーチン
 ffuf	Goで書かれた高速Web fuzzer
+fgbio	ゲノムおよびハイスループットシーケンスデータを操作するためのツール
 fheroes2	Free Heroes of Might and Magic IIは HoMM2ゲームエンジンを再現したものです。
 fibjs	Fiber上のJavaScript
 ficy	ストリームgrabber suite Icecast/Shoutcast
@@ -2609,6 +2610,7 @@ java-service-wrapper	展開の簡素化 Javaアプリケーションの起動と
 javacc	Javaアプリケーションで使用するためのパーサ発生器
 javarepl	JavaのEvalPrint Loop(REPL)を読む
 jbake	Javaベースの静的 サイト/ブログ 発生器
+jbang	作成するツール 自己完結型のソースのみのJavaプログラムを編集および実行する
 jbig2dec	JBIG2デコーダーおよびライブラリー(モノクロドキュメント用)
 jbig2enc	JBIG2エンコーダー(モノクロドキュメント用)
 jbigkit	JBIG1データ圧縮標準の実装
@@ -2675,6 +2677,7 @@ jpegoptim	JPEGファイルを最適化するユーティリティ
 jpegrescan	JPEGファイルを可逆圧縮
 jq	軽量で柔軟なコマンドラインJSON計算機
 jql	JSONクエリ言語CLIツール
+jreleaser	JReleaserを使用してプロジェクトをすばやく簡単にリリースする
 jrnl	コマンドラインnote taker
 jrsonnet	Jsonnet言語のRust実装
 jrtplib	RTP(Real-time Transport Protocol)用のフル機能のC++ライブラリ
@@ -3849,6 +3852,7 @@ mpdviz	独立型のコンソールMPD visualizer
 mpegdemux	MPEG1/2 システムストリームdemultiplexer
 mpfi	多倍長区間演算ライブラリ
 mpfr	多倍長浮動小数点計算用のCライブラリ
+mpfrcx	一変数多項式の演算用の任意精度ライブラリ
 mpg123	LinuxおよびUNIXのMP3プレーヤー
 mpg321	コマンドラインMP3プレーヤー
 mpgtx	MPEGファイルを操作するためのツールボックス
