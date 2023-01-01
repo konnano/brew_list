@@ -625,10 +625,10 @@ my( $re,$list ) = @_; my( %HA,@AN );
  if( $re->{'USE'} ){ my @cask;
   $re->{'KAI'} = 1 unless @AN = sort @AN;
    unshift @AN,' ==> Formula' if @AN;
-   $re->{'DMG'}{$_} ? push @cask,$_ : 0 for( @{$re->{'cask'}} );
+   $re->{'DMG'}{$_} ? push @cask,$_ : 0 for @{$re->{'cask'}};
     if( not $re->{'USES'} and @cask ){ push @AN,' ==> Cask',@cask;
     }elsif( $re->{'USES'} and @{$re->{'cask'}} ){ push @AN,' ==> Cask',@{$re->{'cask'}}; }
-  Mine_1( $_,$re,0 ) for(@AN);
+  Mine_1( $_,$re,0 ) for @AN;
  }
 }
 
@@ -683,7 +683,7 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
        Format_1( $re ) if @AN;
         print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN and not $re->{'dep_s'};
      }
-    $re->{"deps$_"} = $re->{'LEN1'} = 0 for(@AN);
+    $re->{"deps$_"} = $re->{'LEN1'} = 0 for @AN;
    @AN = @{$re->{'ARR'}} = ();
   $re->{'NOT'} = '';
  }
@@ -695,23 +695,23 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
 sub Like_1{
 my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
  waitpid( $re->{'PID'},0 ) if $re->{'PID'};
-  $name = $$_ ? $_ : next for(@$name);
+  $name = $$_ ? $_ : next for @$name;
    return if ref $name eq 'ARRAY';
  unless( $cat ){
-  $HA{$_}++ for(split '\t',$re->{'OS'}{'fontlist'});
+  $HA{$_}++ for split '\t',$re->{'OS'}{'fontlist'};
  }else{
   if( $re->{'USE'} and not $re->{'USES'} or $re->{'DEL'} and not $re->{'DDD'} or $re->{'use'} ){
    for my $key(keys %{$re->{'HASH'}}){
     if( $re->{'OS'}{"${key}deps"} ){
-     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for(split '\t',$re->{'OS'}{"${key}deps"});
+     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key}deps"};
     }
    }
    for my $key(keys %{$re->{'DMG'}}){
     if( $re->{'OS'}{"${key}d_cask"} ){
-     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for(split '\t',$re->{'OS'}{"${key}d_cask"});
+     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key}d_cask"};
     }
     if( $re->{'OS'}{"${key}formula"} ){
-     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for(split '\t',$re->{'OS'}{"${key}formula"});
+     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key}formula"};
     }
    }
   }
@@ -722,18 +722,16 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
     $HA{$_}++ if $re->{'OS'}{"${_}u_form"};
    }
   }elsif( $re->{'DEL'} and not $re->{'DDD'} ){
-   for(keys %{$re->{'HASH'}}){
-    push @ARR,$_ if $re->{'OS'}{"${_}deps"};
-   }
-   for(keys %{$re->{'DMG'}}){ my $ls;
-    $ls = push @ARR,$_ if $re->{'OS'}{"${_}d_cask"};
-    push @ARR,$_ if $re->{'OS'}{"${_}formula"} and not $ls;
-   }
+   $re->{'OS'}{"${_}deps"} ? push @ARR,$_ : 0 for keys %{$re->{'HASH'}};
+    for(keys %{$re->{'DMG'}}){ my $ls;
+     $ls = push @ARR,$_ if $re->{'OS'}{"${_}d_cask"};
+     push @ARR,$_ if $re->{'OS'}{"${_}formula"} and not $ls;
+    }
   }elsif( $re->{'dep_s'} ){
-   $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for(keys %{$re->{'HASH'}});
-   $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for(keys %{$re->{'DMG'}});
+   $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
+   $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for keys %{$re->{'DMG'}};
   }elsif( $re->{'COM'} or $re->{'IS'} ){
-    $HA{$_}++ for(keys %{$re->{'HASH'}});
+    $HA{$_}++ for keys %{$re->{'HASH'}};
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
    for(@$cat){ chomp;
     if( $re->{'FOR'} ){
@@ -758,7 +756,7 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
    }
   }
  }
- $HA{$_} = $HAN{$_} ? next : 1 for(@ARR); @ARR = ();
+ $HA{$_} = $HAN{$_} ? next : 1 for @ARR; @ARR = ();
  for my $key(sort keys %HA){
   if( $key =~ /^\Q$$name\E$/ ){ return;
   }elsif( not $cat and $key =~ /\Q$$name\E/ or $key =~ /^\Q$$name\E/ ){
@@ -816,8 +814,8 @@ my $re = shift; my( @AN,%HA,@an,$do );
    if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"} and -t STDOUT;
    exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
   Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
-   $_ eq $re->{'INF'} ? next : push @an,$_ for(sort @AN);
-    $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for(@an);
+   $_ eq $re->{'INF'} ? next : push @an,$_ for sort @AN;
+    $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for @an;
 
  unless( @an ){ @AN = ();
   unless( $re->{'CAS'} and $re->{'LINK'} ){
@@ -952,9 +950,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
      }
    }
   }elsif( $re->{'CAS'} and $re->{'S_OPT'} or $re->{'BL'} ){
-   for(@tap){
-    Search_1( $list,$_,0,$re );
-   }
+   Search_1( $list,$_,0,$re ) for @tap;
   }else{
    Search_1( $list,$file,0,$re );
   }
@@ -1340,7 +1336,7 @@ my( $list,$re,$in ) = @_;
 sub Tap_2{
 my( $re,$tap ) = @_;
  Tap_3( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
-  for(@{$re->{'TAP2'}}){ $$tap = $_ if m|/$$tap|; }
+  m|/$$tap| ? $$tap = $_ : 0 for @{$re->{'TAP2'}};
 }
 
 sub Tap_3{
@@ -1450,7 +1446,7 @@ sub Format_1{
     system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
   }
  }elsif( $re->{'DAT'} ){
-  print for(@{$re->{'OUT'}});
+  print for @{$re->{'OUT'}};
    $re->{'CAS'} = 0;
  }else{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
@@ -1504,10 +1500,7 @@ sub Format_1{
      }
     print"\n" if $ze;
   }else{
-   for(@{$re->{'ARR'}}){
-    next if m[^ ==> homebrew/|^ ==> Formula|^ ==> Cask];
-     print"$_\n";
-   }
+   m[^ ==> homebrew/|^ ==> Formula|^ ==> Cask] ? next : print"$_\n" for @{$re->{'ARR'}};
   }
   return if $re->{'deps'} or $re->{'LIKE'};
   $re->{'FOR'} = 0 if $re->{'MAC'};
@@ -1567,7 +1560,7 @@ my $re = shift;
  } $re->{'UNI'} = \@COU3 if @COU3;
 
  unless( $re->{'DDD'} ){ my( $AU,@AUA,@COU,@COU2 );
-  $COU2[$_] = 0 for(0..$cou);
+  $COU2[$_] = 0 for 0..$cou;
   for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
    my @AN = split '\s{3}',${$re->{'UNI'}}[$i];
    for(my $i=0;$i<=$cou;$i++){
@@ -1584,12 +1577,10 @@ my $re = shift;
   }
    waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
    print"$re->{'INF'}\n" if @AUA;
-   if( not $re->{'DD'} or -t STDOUT ){
-    for(my $i=$#AUA;$i>=0;$i--){ print $AUA[$i]; }
-   }
+   print reverse @AUA if not $re->{'DD'} or -t STDOUT;
  }
  if( $re->{'DD'} ){ my( $m,@AR,$flag ) = 0;
-   $_->[0] ? push @{$AR[$m++]},@{$_} : next for(@AR2);
+   $_->[0] ? push @{$AR[$m++]},@{$_} : next for @AR2;
   if( $re->{'DDD'} ){ my $i;
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
    for(@cn){
@@ -2415,14 +2406,14 @@ unless( $ARGV[0] ){
        my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1(@HE){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){
-         $HA{$_}++ for(split '\t',$tap{"${ls1}uses"});
+         $HA{$_}++ for split '\t',$tap{"${ls1}uses"};
         }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
            if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for(split '\t',$tap{"${ls1}alias"});
-            $AL{$_} ? $ne++ : 0 for(split '\t',$tap{"${name}deps"});
+            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
+            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
            } next if $ne;
           if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
            $tap{"${ls1}uses"} .= "$name\t";
@@ -2440,14 +2431,14 @@ unless( $ARGV[0] ){
        if( /runtime_dependencies/ or $in ){ $in = /]/ ? 0 : 1;
         my( $ls2 ) = /"full_name":\s*"([^"]+)".*/ ? $1 : next;
         if( $tap{"${ls2}uses"} ){
-         $HA{$_}++ for(split '\t',$tap{"${ls2}uses"});
+         $HA{$_}++ for split '\t',$tap{"${ls2}uses"};
         }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
            if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for(split '\t',$tap{"${ls2}alias"});
-            $AL{$_} ? $ne++ : 0 for (split '\t',$tap{"${name}deps"});
+            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
+            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
            } next if $ne;
           if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
            $tap{"${ls2}uses"} .= "$name\t";
@@ -2597,7 +2588,7 @@ unless( $ARGV[0] ){
   for my $br(glob "$re->{'CEL'}/*"){
    $br =~ s|.+/(.+)|$1|;
    if( $tap{"${br}deps"} ){ push @TRE,$br;
-    $HAU{$_}++ for(split '\t',$tap{"${br}deps"});
+    $HAU{$_}++ for split '\t',$tap{"${br}deps"};
      $DEP .= "$br \\\n";
    } $COM .= "$br \\\n";
   }
@@ -2610,19 +2601,19 @@ unless( $ARGV[0] ){
   for my $gs(glob "$glo/*"){ my $ls;
    $gs =~ s|.+/(.+)|$1|;
    if( $tap{"${gs}d_cask"} ){
-    $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
+    $HAU{$_}++ for split '\t',$tap{"${gs}d_cask"};
      $ls = push @TRE,$gs;
       $DEP .= "$gs \\\n";
    }
    if( $tap{"${gs}formula"} ){
-    $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
+    $HAU{$_}++ for split '\t',$tap{"${gs}formula"};
      push @TRE,$gs unless $ls;
       $DEP .= "$gs \\\n";
    }
   }
  } my( $UCC,$TRE );
-  $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
-   $UCC .= "$_ \\\n" for(sort keys %HAU);
+  $TRE .= $HAU{$_} ? '' : "$_ \\\n" for @TRE;
+   $UCC .= "$_ \\\n" for sort keys %HAU;
     $TRE = ( $TRE and $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s ) ? $TRE : '';
      $UCC = ( $UCC and $UCC =~ s/(.+)\\\n$/{-u,-ul}'[Uses list]:uses:( \\\n$1 )' \\\n/s )        ? $UCC : '';
       $AIA = ( $AIA and $AIA =~ s/(.+)\\\n$/'-ai[Formula Analytics]:Formula:( \\\n$1 )' \\\n/s ) ? $AIA : '';
