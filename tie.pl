@@ -319,14 +319,14 @@ unless( $ARGV[0] ){
        my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1(@HE){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){
-         $HA{$_}++ for(split '\t',$tap{"${ls1}uses"});
+         $HA{$_}++ for split '\t',$tap{"${ls1}uses"};
         }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
            if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for(split '\t',$tap{"${ls1}alias"});
-            $AL{$_} ? $ne++ : 0 for(split '\t',$tap{"${name}deps"});
+            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
+            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
            } next if $ne;
           if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
            $tap{"${ls1}uses"} .= "$name\t";
@@ -344,14 +344,14 @@ unless( $ARGV[0] ){
        if( /runtime_dependencies/ or $in ){ $in = /]/ ? 0 : 1;
         my( $ls2 ) = /"full_name":\s*"([^"]+)".*/ ? $1 : next;
         if( $tap{"${ls2}uses"} ){
-         $HA{$_}++ for(split '\t',$tap{"${ls2}uses"});
+         $HA{$_}++ for split '\t',$tap{"${ls2}uses"};
         }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
            if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for(split '\t',$tap{"${ls2}alias"});
-            $AL{$_} ? $ne++ : 0 for (split '\t',$tap{"${name}deps"});
+            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
+            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
            } next if $ne;
           if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
            $tap{"${ls2}uses"} .= "$name\t";
@@ -501,7 +501,7 @@ unless( $ARGV[0] ){
   for my $br(glob "$re->{'CEL'}/*"){
    $br =~ s|.+/(.+)|$1|;
    if( $tap{"${br}deps"} ){ push @TRE,$br;
-    $HAU{$_}++ for(split '\t',$tap{"${br}deps"});
+    $HAU{$_}++ for split '\t',$tap{"${br}deps"};
      $DEP .= "$br \\\n";
    } $COM .= "$br \\\n";
   }
@@ -514,19 +514,19 @@ unless( $ARGV[0] ){
   for my $gs(glob "$glo/*"){ my $ls;
    $gs =~ s|.+/(.+)|$1|;
    if( $tap{"${gs}d_cask"} ){
-    $HAU{$_}++ for(split '\t',$tap{"${gs}d_cask"});
+    $HAU{$_}++ for split '\t',$tap{"${gs}d_cask"};
      $ls = push @TRE,$gs;
       $DEP .= "$gs \\\n";
    }
    if( $tap{"${gs}formula"} ){
-    $HAU{$_}++ for(split '\t',$tap{"${gs}formula"});
+    $HAU{$_}++ for split '\t',$tap{"${gs}formula"};
      push @TRE,$gs unless $ls;
       $DEP .= "$gs \\\n";
    }
   }
  } my( $UCC,$TRE );
-  $TRE .= $HAU{$_} ? '' : "$_ \\\n" for(@TRE);
-   $UCC .= "$_ \\\n" for(sort keys %HAU);
+  $TRE .= $HAU{$_} ? '' : "$_ \\\n" for @TRE;
+   $UCC .= "$_ \\\n" for sort keys %HAU;
     $TRE = ( $TRE and $TRE =~ s/(.+)\\\n$/{-d,-dd,-de}'[Delete item]:Delete:( \\\n$1 )' \\\n/s ) ? $TRE : '';
      $UCC = ( $UCC and $UCC =~ s/(.+)\\\n$/{-u,-ul}'[Uses list]:uses:( \\\n$1 )' \\\n/s )        ? $UCC : '';
       $AIA = ( $AIA and $AIA =~ s/(.+)\\\n$/'-ai[Formula Analytics]:Formula:( \\\n$1 )' \\\n/s ) ? $AIA : '';
