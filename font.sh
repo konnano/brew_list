@@ -43,6 +43,7 @@ if [[ $2 ]];then
  if [[ "$NAME" = Darwin ]];then
   if [[ $2 -eq 1 ]];then
     mkdir -p ~/.BREW_LIST/{0..19}
+    rm -f ~/.BREW_LIST/keepme.zip
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl 1 error}; }
    curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
