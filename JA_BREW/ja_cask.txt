@@ -482,6 +482,7 @@ cakebrew	HomebrewのGUIアプリ
 cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
 calendar-366	イベントと通知の日程表メニューバー
+calhash	ファイルのチェックサムを計算して比較する
 calibre	電子書籍管理ソフトウェア
 calmly-writer	マークダウンフォーマットと選択したテーマを備えたワードプロセッサ
 camed	XMLエディター
@@ -507,6 +508,7 @@ cashnotify	メニューバーからStripeアカウントとPaypalアカウント
 castr	Castrストリーミングプラットフォームを制御するためのデスクトップアプリケーション
 catch	ブロードキャッチが簡単に
 catlight	開発者のためのアクションセンター
+catoclient	VPNクライアント
 cave-story	古典的な8ビットおよび16ビットゲームを彷彿とさせるアクションアドベンチャーゲーム
 ccleaner	ジャンクファイルと未使用ファイルを削除します
 ccmenu	継続的インテグレーションサーバーを監視するためのアプリケーション
@@ -1092,7 +1094,6 @@ feem	ローカルファイル転送
 feishu	プロジェクト管理ソフトウェア
 fellow	共同会議の議事 ノート/アクションアイテム
 fenix	協調的機能を備えたシンプルで視覚的な静的Webサーバー
-ferdi	複数のサービスを組み合わせたメッセージングブラウザー
 ferdium	マルチプラットフォーム/マルチメッセージング アプリ
 fertigt-slate	ウィンドウ管理アプリケーション
 fetch	ファイル転送クライアント
@@ -1753,7 +1754,6 @@ kindle	電子書籍を読んだり同期したりするためのインターフ�
 kindle-comic-converter	電子ブックリーダー用のコミックとマンガの変換
 kindle-comic-creator	Kindleコミッククリエーター
 kindle-previewer	Kindle電子書籍のプレビューと監査
-kinza	Webブラウザー
 kitematic	Docker Container管理用のビジュアルユーザーインターフェイス
 kitty	GPUベースのターミナルエミュレータ
 kiwi-for-gmail	フル機能のデスクトップオフィス生産性アプリのようにGmailを強化します
