@@ -55,11 +55,9 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  rmdir "$ENV{'HOME'}/.BREW_LIST/12";
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
-  $RPM = `ldd --version 2>/dev/null` ? `ldd --version|awk '/ldd/{print \$NF}'` : 0;
-   $CAT = -f "$ENV{'HOME'}/.BREW_LIST/brew.txt" ? `awk '/glibc\t/{print \$2}' ~/.BREW_LIST/brew.txt` : 0;
-    $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-     $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
-   $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
+  $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
+   $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
+    $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
    Dirs_1( "$MY_BREW/Library/Taps",1,0 );
@@ -68,11 +66,11 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 
 sub Dirs_1{
 my( $dir,$ls,$cask ) = @_;
- opendir(my $DIR,$dir);
-  for(sort readdir $DIR){ next if /^\.{1,2}/;
-   next if $ls and /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/;
-   ( -d "$dir/$_" ) ? Dirs_1( "$dir/$_",$ls,$cask ) : ( -l "$dir/$_" ) ? push @{$re->{'ALIA'}},"$dir/$_" :
-   ( /\.rb$/ and $cask ) ? push @CASK,"$dir/$_" : ( /\.rb$/ ) ? push @BREW,"$dir/$_" : 0;
+ opendir my $DIR,$dir or die " DIR $!\n";
+  for my $an(sort readdir $DIR){ next if $an =~ /^\./;
+   next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/;
+   ( -d "$dir/$an" ) ? Dirs_1( "$dir/$an",$ls,$cask ) : ( -l "$dir/$an" ) ? push @{$re->{'ALIA'}},"$dir/$an" :
+   ( $cask and $an =~ /\.rb$/ ) ? push @CASK,"$dir/$an" : ( $an =~ /\.rb$/ ) ? push @BREW,"$dir/$an" : 0;
   }
  closedir $DIR;
 }
@@ -367,11 +365,6 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
-
- if( $RPM and Version_1( $RPM,$CAT ) ){
-  $tap{'glibcun_Linux'} = 1;
-   $tap{'glibcLinux'} = 0;
- }
 }
 rmdir "$ENV{'HOME'}/.BREW_LIST/16";
 
