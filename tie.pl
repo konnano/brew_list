@@ -308,6 +308,18 @@ unless( $ARGV[0] ){
  }
 
  sub Glob_1{
+ my $sub = sub{ my( $name,$ls ) = @_;
+               if( $re->{'LIN'} and ( $ls eq 'gcc' or $ls eq 'glibc' ) ){
+                $tap{"${ls}uses"} .= "$name\t";
+                $tap{"${name}deps"} .= "$ls\t";
+               }elsif( $re->{'LIN'} ){
+                $tap{"${ls}uses_proc"} .= "$name\t";
+               }elsif( $re->{'MAC'} ){
+                $tap{"${ls}uses"} .= "$name\t";
+                $tap{"${name}deps"} .= "$ls\t";
+               }
+              };
+
  my( $brew,$mine,$loop ) = @_; my $in;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
@@ -328,15 +340,7 @@ unless( $ARGV[0] ){
             $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
             $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
            } next if $ne;
-          if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
-           $tap{"${ls1}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls1\t";
-          }elsif( $re->{'LIN'} ){
-           $tap{"${ls1}uses_proc"} .= "$name\t";
-          }elsif( $re->{'MAC'} ){
-           $tap{"${ls1}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls1\t";
-          }
+          $sub->( $name,$ls1 );
          }
         }
        }
@@ -353,15 +357,7 @@ unless( $ARGV[0] ){
             $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
             $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
            } next if $ne;
-          if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
-           $tap{"${ls2}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls2\t";
-          }elsif( $re->{'LIN'} ){
-           $tap{"${ls2}uses_proc"} .= "$name\t";
-          }elsif( $re->{'MAC'} ){
-           $tap{"${ls2}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls2\t";
-          }
+          $sub->( $name,$ls2 );
          }
         }
        }
