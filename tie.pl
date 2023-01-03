@@ -463,7 +463,7 @@ unless( $ARGV[0] ){
  close $FILE;
 
    my( $TIN,$UAA,$AIA,$ACA );
- @BREW = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @BREW;
+  @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
  if( $re->{'MAC'} ){
   for(@CASK){
    last unless m[$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/|
@@ -471,7 +471,7 @@ unless( $ARGV[0] ){
    my( $name ) = m|.+/(.+)\.rb|;
     $ACA .= "$name \\\n";
   }
-  @CASK = sort map{ $_=~s|.+/(.+)\.rb|$1|;$_ } @CASK;
+  @CASK = sort grep{ s|.+/(.+)\.rb|$1| }@CASK;
  }
 
   my $COU = $IN = 0;
