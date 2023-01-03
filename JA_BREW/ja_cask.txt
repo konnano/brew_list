@@ -2485,6 +2485,7 @@ openpht	Plexホームシアターのコミュニティ主導のフォーク
 openra	Westwoodゲーム用のリアルタイム戦略ゲームエンジン
 openrct2	RollerCoaster Tycoon2のオープンソースの再実装
 openrefine	面倒なデータを操作するためのツール(以前のGoogle Refine)
+openrgb	メーカーのソフトウェアに依存しないオープンソースのRGB照明制御
 opensc	スマートカードライブラリとユーティリティ
 openscad	プログラム可能なソリッド3DCADモデラー
 opensesame	社会科学のためのグラフィカルな実験ビルダー
