@@ -301,7 +301,7 @@ unless( $ARGV[0] ){
     $tap{"$ls$OS_Version2"} = 0 if $tap{"$ls$OS_Version2"};
      $tap{"${ls}un_xcode"} = 1;
    }
-   Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"}
+   Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"};
   }
  }
 
@@ -318,19 +318,17 @@ unless( $ARGV[0] ){
                }
               };
 
- my( $brew,$mine,$loop ) = @_; my $in;
+ my( $brew,$mine,$loop ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
-  for(@GLOB){ my($name) = m|$re->{'CEL'}/([^/]+)/.*|;
-   if( -f "$_/INSTALL_RECEIPT.json" ){
-    open my $CEL,'<',"$_/INSTALL_RECEIPT.json" or die " GLOB $!\n";
+  for my $glob(@GLOB){ my($name) = $glob =~ m|$re->{'CEL'}/([^/]+)/.*|;
+   if( -f "$glob/INSTALL_RECEIPT.json" ){ my $in;
+    open my $CEL,'<',"$glob/INSTALL_RECEIPT.json" or die " GLOB $!\n";
      while(<$CEL>){
-      unless( /\n/ or /^}$/ ){
+      unless( /\n/ ){
        s/.+"runtime_dependencies":\[([^]]*)].+/$1/;
        my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1(@HE){ my( %HA,%AL,$ne );
-        if( $tap{"${ls1}uses"} ){
-         $HA{$_}++ for split '\t',$tap{"${ls1}uses"};
-        }
+        if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
@@ -343,11 +341,9 @@ unless( $ARGV[0] ){
         }
        }
       }else{ my( %HA,%AL,$ne );
-       if( /runtime_dependencies/ or $in ){ $in = /]/ ? 0 : 1;
+       if( /runtime_dependencies/ or $in ){ $in = /]/ ? last : 1;
         my( $ls2 ) = /"full_name":\s*"([^"]+)".*/ ? $1 : next;
-        if( $tap{"${ls2}uses"} ){
-         $HA{$_}++ for split '\t',$tap{"${ls2}uses"};
-        }
+        if( $tap{"${ls2}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls2}uses"} }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
