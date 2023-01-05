@@ -1085,7 +1085,6 @@ fastrawviewer	RAWファイルを開き、オンザフライでレンダリング
 fastscripts	時間を節約するスクリプトを実行するためのツール
 fauxpas	Faux Pas
 favro	コラボレーティブ共同プランニングアプリ
-fawkes	顔認識を回避するために画像ファイルをマントします
 faxbot	FRITZ!BoxでFAX送信
 fbreader	ブックリーダー
 fedora-media-writer	Fedoraイメージをポータブルメディアファイルに書き込むためのツール
@@ -1536,7 +1535,6 @@ imagemin	デスクトップ画像縮小ツール
 imageoptim	画像をより小さなサイズに最適化するためのツール
 imagex	画像コレクションを視覚的に探索して検索する
 imazing	iPhone管理アプリケーション
-imdone	プレーンテキストのマークダウンファイルまたはコードで動作するKanbanボード
 imgotv	MangoTVビデオアプリ
 imhex	リバースエンジニア用のHexエディター
 imo	Imoメッセンジャー
@@ -2184,6 +2182,7 @@ mkvtoolnix	作成するツールのセット Matroskaファイル(MKV)の変更�
 mkvtools	MKVビデオを作成および編集するためのアプリ
 mmex	お金の管理アプリケーション
 mmhmm	仮想ビデオプレゼンテーションソフトウェア
+mmhmm-studio	仮想ビデオプレゼンテーションソフトウェア
 mnemosyne	フラッシュカードツール
 mob	Mob
 mobirise	No-code Webサイトクリエーター
@@ -2981,6 +2980,7 @@ redcine-x-pro	REDCODE RAWフッテージをトランスコードして操作す�
 redeclipse	Red Eclipse
 redis-pro	Redisデスクトップ
 redisinsight	合理化されたRedisアプリケーション開発のためのGUI
+redquits	最後のウィンドウを閉じるときにアプリを終了する
 redream	ドリームキャストエミュレータ
 reflect	会議用メモアプリ アイデア/ジャーナリング/研究
 reflector	ワイヤレス画面ミラーリングアプリケーション
@@ -3319,6 +3319,7 @@ soothe2	動的共振サプレッサー
 soqlxplorer	Salesforce.comプラットフォーム用のデスクトップクライアント
 soulseek	ファイル共有ネットワーク
 soulver	電卓内蔵のメモ帳
+soulver-cli	Soulver計算エンジンのスタンドアロンcli
 sound-control	アプリごとのオーディオコントロール
 sound-siphon	アプリのオーディオキャプチャ
 soundboosterlite	強化されたオーディオ体験のためのアプリ
@@ -3464,6 +3465,7 @@ svgcleaner	不要なデータを削除してSVGファイルをクリーンアッ
 sweet-home3d	インテリアデザインアプリケーション
 swift	Swift XMPPクライアント
 swift-publisher	ページレイアウトとデスクトップ出版アプリケーション
+swift-quit	最後のウィンドウを閉じるときにアプリを終了する
 swiftbar	メニューバーカスタマイズツール
 swiftcord	Swiftに組み込まれたネイティブのDiscordクライアント
 swiftdefaultappsprefpane	Swiftで書かれたRCDefaultAppsの代替品
@@ -3901,6 +3903,7 @@ vorta	ボーグのデスクトップバックアップクライアント
 vox	外部ソースを介した高解像度(Hi-Res)音楽用の音楽プレーヤー
 vox-preferences-pane	AppleRemote用のVOXアドオン EarPods/システムボタン
 voxql	voxql
+vpn-by-google-one	Google Oneが提供するVPN
 vpn-enabler	VPNイネーブラー
 vpn-tracker-365	VPNクライアント：IPsec、L2TP、OpenVPN、PPTP、SSTP、SonicWALL/AnyConnect/Fortinet SSL
 vrew	動画編集
