@@ -668,6 +668,7 @@ commander-one	2パネルのファイルマネージャー
 commandq	誤ってアプリを終了することはありません
 composercat	Composer(PHP)のグラフィカルインターフェイス
 compositor	WYSIWYG LaTeXエディター
+confectionery	ウェブサイトのスクリーンショットツール
 conferences	会議のビデオを見るためのアプリ
 confluent-cli	開発者がConfluent CloudまたはConfluent Platformを管理できるようにします
 connectiq	ConnectIQ SDKを使用してGarminデバイスとセンサーのウェアラブルエクスペリエンスを構築します
