@@ -3595,7 +3595,6 @@ marcli	MARC(ISO 2709)ファイルを解析する
 mariadb	MySQLのDrop-in代替品
 mariadb-connector-c	Cアプリケーション用のMariaDBデータベース連結装置
 mariadb-connector-odbc	業界標準のODBCAPIを使用するデータベースドライバー
-mariadb@10.1	MySQLのDrop-in代替品
 mariadb@10.2	MySQLのDrop-in代替品
 mariadb@10.3	MySQLのDrop-in代替品
 mariadb@10.4	MySQLのDrop-in代替品
@@ -4594,7 +4593,6 @@ podofo	PDFファイル形式で動作するライブラリ
 poetry	Pythonパッケージ管理ツール
 points2grid	ローカルGridingを使用して数値標高モデルを生成する
 pokerstove	ポーカー評価および列挙ソフトウェア
-polipo	Web Cachingプロキシ
 polyglot	XBoardでUCIエンジンを実行するための手続きアダプタ
 polyml	標準ML実装
 polynote	First-classのScalaをサポートするPolyglotノートブック
@@ -5042,15 +5040,16 @@ rtptools	RTPデータを処理するためのツールのセット
 rttr	C++リフレクションライブラリ
 rtv	コマンドラインRedditクライアント
 rubberband	オーディオタイム伸張ツールとライブラリ
-ruby	強力で綺麗なオブジェクト指向のスクリプト言語
+ruby	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby-build	さまざまなRubyバージョンと実装をインストールします
 ruby-completion	RubyのBash補完
 ruby-install	Rubyをインストール、JRuby/Rubinius/TruffleRuby/mruby
-ruby@2.4	強力で綺麗なオブジェクト指向のスクリプト言語
-ruby@2.5	強力で綺麗なオブジェクト指向のスクリプト言語
-ruby@2.6	強力で綺麗なオブジェクト指向のスクリプト言語
-ruby@2.7	強力で綺麗なオブジェクト指向のスクリプト言語
-ruby@3.0	強力で綺麗なオブジェクト指向のスクリプト言語
+ruby@2.4	オブジェクト指向のスクリプト言語 強力/クリーン
+ruby@2.5	オブジェクト指向のスクリプト言語 強力/クリーン
+ruby@2.6	オブジェクト指向のスクリプト言語 強力/クリーン
+ruby@2.7	オブジェクト指向のスクリプト言語 強力/クリーン
+ruby@3.0	オブジェクト指向のスクリプト言語 強力/クリーン
+ruby@3.1	オブジェクト指向のスクリプト言語 強力/クリーン
 rubyfmt	Rubyオート整形ツール
 ruff	Rustで書かれた非常に高速なPythonリンター
 run	小さなスクリプトとラッパーを簡単に管理および呼び出す
@@ -6042,6 +6041,7 @@ vgrep	grepのユーザーに親しいPager
 vhs	貴方のCLIホームビデオレコーダー
 vice	用途の広いCommodoreエミュレータ
 viddy	現代の監視コマンド
+video-compare	FFmpegとSDL2を使用した分割画面ビデオ比較ツール
 viennacl	many-core基本設計およびmulti-core CPUの線形代数ライブラリ
 viewvc	CVSおよびSubversionリポジトリのブラウザインターフェイス
 vifm	Viのようなkeybindingsを備えたNcursesベースのファイルマネージャー
