@@ -2822,6 +2822,7 @@ kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成でき�
 kubefirst	Kubernetes向けのGitOpsインフラストラクチャとアプリケーション配信プラットフォーム
 kubekey	Kubernetes and/or KubeSphereのインストーラー...詳しくはENで
 kubeless	Kubernetesネイティブ Serverlessフレームワーク
+kubent	非推奨のAPIの使用についてクラスターを簡単に確認する
 kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋めるためのコマンドのコレクション
 kubernetes-cli	Kubernetesコマンドラインインターフェース
@@ -4821,6 +4822,7 @@ qtfaststart	Quicktimeファイル用のユーティリティ
 qthreads	軽量の現場を意識したユーザーレベルのスレッドランタイム
 qtkeychain	パスワードを安全に保存するためのプラットフォームに依存しないQtAPI
 quantlib	数理ファイナンスのための図書館
+quartz-wm	XQuartzウィンドウマネージャー
 quasi88	PC-8801エミュレータ
 quazip	GillesVollantのZIP/UNZIPパッケージのC++ラッパー
 questdb	時系列データベース
@@ -5255,6 +5257,7 @@ silicon	ソースコードの美しい画像を作成する
 silk	転送量分析ツールのコレクション
 simde	それらをネイティブにサポートしないシステムのためのSIMD組み込み関数の実装
 simdjson	SIMDで高速化されたC++ JSONパーサー
+simdutf	高速Unicode変換ルーチン
 simg2img	Androidのまばらな画像を生の画像に変換して戻すためのツール
 simgrid	大規模分散システムの振る舞いを研究する
 simh	ポータブルなマルチシステム模擬装置
@@ -5890,6 +5893,7 @@ twarc	TwitterJSONをアーカイブするためのコマンドラインツール
 tweak	コマンドライン ncursesライブラリベースの16進エディタ
 twemcache	memcachedのTwitterフォーク
 twine-pypi	PyPIと対話するためのユーティリティ
+twm	Xウィンドウシステムのタブウィンドウマネージャー
 two-lame	最適化されたMPEGオーディオレイヤー2(MP2)エンコーダー
 twoping	指向性パケット損失を判別するためのpingユーティリティ
 twtxt	ハッカーのための分散型で必要最低限のマイクロブログサービス
@@ -6287,6 +6291,7 @@ xgboost	拡張可能なポータブルで分散型の勾配ブースティング
 xh	HTTPリクエストを送信するための親しく高速なツール
 xhyve	FreeBSDのbhyveに基づく軽量のMacOS仮想化ソリューション
 xidel	XPath/XQuery 3.0 データを抽出するJSONiq解釈プログラム HTML/XML/JSON
+xinit	Xウィンドウシステムサーバーを起動します。
 xinput	X入力デバイスを構成およびテストするためのユーティリティ
 xkbcomp	XKBキーボード記述コンパイラ
 xkcd	最新の取得 ターミナル内のランダムまたは特定のxkcdコミック
@@ -6306,10 +6311,12 @@ xmlsectool	XMLドキュメントのスキーマの有効性と署名を確認し
 xmlstarlet	XMLコマンドラインユーティリティ
 xmlto	XMLを別の形式に変換する(XSLまたは他のツールに基づく)
 xmltoman	XMLからmanページへの変換
+xmodmap	Xでキーマップとポインターボタンのマッピングを変更する
 xmount	複数の入力ディスクイメージタイプと出力ディスクイメージタイプの間で変換する
 xmp	モジュール音楽フォーマット(MOD、S3M、ITなど)用のコマンドラインプレーヤー
 xmrig	Monero(XMR)CPUマイナー
 xonsh	Pythonを利用したクロスプラットフォーム Unixを注視するシェル言語とコマンドプロンプト
+xorg-server	X Window Systemディスプレイサーバー
 xorgproto	X.Org：手続きヘッダー
 xorgrgb	X.Org：色名データベース
 xorriso	ISO9660+RR操作ツール
@@ -6321,6 +6328,7 @@ xplr	ハッキング可能で最低限の高速のTUIファイルエクスプロ
 xq	コマンドラインXML美化ツールおよびコンテンツエクストラクタ
 xqilla	XQueryおよびXPath2コマンドライン解釈プログラム
 xray	ネットワーク制限をバイパスするプロキシを構築するためのプラットフォーム
+xrdb	Xリソースデータベースユーティリティ
 xrick	Rick Dangerousのクローン
 xrootd	高性能で拡張性のあるfault-tolerantデータアクセス
 xsane	グラフィカルスキャンフロントエンド
