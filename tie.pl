@@ -323,10 +323,10 @@ unless( $ARGV[0] ){
   for my $glob(@GLOB){ my($name) = $glob =~ m|$re->{'CEL'}/([^/]+)/.*|;
    if( -f "$glob/INSTALL_RECEIPT.json" ){ my $in;
     open my $CEL,'<',"$glob/INSTALL_RECEIPT.json" or die " GLOB $!\n";
-     while(<$CEL>){
-      unless( /\n/ ){
-       s/.+"runtime_dependencies":\[([^]]*)].+/$1/;
-       my @HE = /{"full_name":"([^"]+)","version":"[^"]+"}/g;
+     while(my $cel=<$CEL>){
+      unless( $cel =~ /\n/ ){
+       $cel =~ s/.+"runtime_dependencies":\[([^]]*)].+/$1/;
+       my @HE = $cel =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1(@HE){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
@@ -341,8 +341,8 @@ unless( $ARGV[0] ){
         }
        }
       }else{ my( %HA,%AL,$ne );
-       if( /runtime_dependencies/ or $in ){ $in = /]/ ? last : 1;
-        my( $ls2 ) = /"full_name":\s*"([^"]+)".*/ ? $1 : next;
+       if( $in or $cel =~ /runtime_dependencies/ ){ $in = $cel =~ /]/ ? last : 1;
+        my( $ls2 ) = $cel =~ /"full_name":\s*"([^"]+)".*/ ? $1 : next;
         if( $tap{"${ls2}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls2}uses"} }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
