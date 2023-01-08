@@ -820,7 +820,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
   }
   unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
   }else{
-   Info_1( $re,0,'',\@AN );
+   Info_1( $re,0,0,\@AN );
     Proc_1( $re,\@AN );
      my @list1 = sort @AN;
    for my $brew(@list1){
@@ -984,7 +984,7 @@ my( $re,$file,$spa,$AN ) = @_;
    $re->{'deps'} ? $re->{'NOT'} = " \033[33mexists Formula and Cask $re->{'INF'}...\033[0m\n" :
     print " \033[33mexists Formula and Cask $re->{'INF'}...\033[0m\n";
  }
- my $brew = $file ? $file : $re->{'INF'} ? $re->{'INF'} : exit;
+ my $brew = $file || $re->{'INF'} || exit;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|';
@@ -1030,7 +1030,8 @@ my( $name,$re,$ls ) = @_;
   $re->{'LEN'}{$name} = length $name;
    push @{$re->{'ARR'}},$name;
  }else{
-   push @{$re->{'ARR'}},$name; return;
+   push @{$re->{'ARR'}},$name;
+    ( $re->{'BR'} ) = $name =~ m|==>.+/(.+)|; return;
  }
  if( $name =~ m|^homebrew/cask-versions/| ){
    $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
@@ -1039,7 +1040,13 @@ my( $name,$re,$ls ) = @_;
  }elsif( $name =~ m|^homebrew/cask-fonts/| ){
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
  }else{
-   $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
+  if( $re->{'BR'} ){
+   if( $re->{'BR'} eq 'cask-versions' ){ $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
+   }elsif( $re->{'BR'} eq 'cask-drivers' ){ $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
+   }elsif( $re->{'BR'} eq 'cask-fonts' ){ $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
+   }
+  }else{ $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
+  }
  }
 }
 
@@ -1456,27 +1463,28 @@ sub Format_1{
     ( $re->{'FOR'} and ( $re->{'BL'} or defined $re->{'S_OPT'} or $re->{'TOP'} ) ) ? print" ==> Formula\n" :
     ( $re->{'CAS'} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks\n" : 0 if @{$re->{'ARR'}};
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
-      if( $re->{'ARR'}[$e] =~ m[^ ==> homebrew/|^ ==> Formula|^ ==> Cask] ){
+      if( $re->{'ARR'}[$e] =~ /^ ==> Formula|^ ==> Cask/ ){
        ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ ==> Cask/ ) ?
-        print"\n$re->{'ARR'}[$e]\n" :
-        print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] !~ m|^ ==> homebrew/|;
-         $in = 1;
+        print"\n$re->{'ARR'}[$e]\n" : print"$re->{'ARR'}[$e]\n"; $in = 1;
       }else{
-       if( $re->{'ARR'}[$e] =~ m|^homebrew/cask-fonts/| and not $ls ){
+       if( $re->{'ARR'}[$e] =~ m|homebrew/cask-fonts| and not $ls ){
         print"\n" if $ze;
-         print" ==> brew tap : homebrew/cask-fonts\n";
-          $leng = $re->{'LEN2'};
-           $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ls = 1;
-       }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-drivers/| and not $sl ){
+         $leng = $re->{'LEN2'};
+          $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ls = 1;
+        if( $re->{'ARR'}[$e] =~ /^ ==>/ ){ print"$re->{'ARR'}[$e]\n"; next;
+        }else{ print" ==> brew tap : homebrew/cask-fonts\n"; }
+       }elsif( $re->{'ARR'}[$e] =~ m|homebrew/cask-drivers| and not $sl ){
         print"\n" if $ze;
-         print" ==> brew tap : homebrew/cask-drivers\n";
-          $leng = $re->{'LEN3'};
-           $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $sl = 1;
-       }elsif( $re->{'ARR'}[$e] =~ m|^homebrew/cask-versions/| and not $ss ){
+         $leng = $re->{'LEN3'};
+          $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $sl = 1;
+        if( $re->{'ARR'}[$e] =~ /^ ==>/ ){ print"$re->{'ARR'}[$e]\n"; next;
+        }else{ print" ==> brew tap : homebrew/cask-drivers\n"; }
+       }elsif( $re->{'ARR'}[$e] =~ m|homebrew/cask-versions| and not $ss ){
         print"\n" if $ze;
-         print" ==> brew tap : homebrew/cask-versions\n";
-          $leng = $re->{'LEN4'};
-           $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
+         $leng = $re->{'LEN4'};
+          $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
+        if( $re->{'ARR'}[$e] =~ /^ ==>/ ){ print"$re->{'ARR'}[$e]\n"; next;
+        }else{ print" ==> brew tap : homebrew/cask-versions\n"; }
        }
        for(my $i=$re->{'LEN'}{$re->{'ARR'}[$e]};$i<$leng+2;$i++){
         $re->{'ARR'}[$e] .= ' ';
@@ -1488,8 +1496,6 @@ sub Format_1{
          }
         unless( $size and $ze = $in % $size ){
          $re->{'KAI'} = print"\n";
-        }elsif( $re->{'ARR'}[$e+1] and $re->{'ARR'}[$e+1] =~ m|^ ==> homebrew/| ){
-         print"\n"; $ze = 0;
         }else{
          $re->{'KAI'} = 0;
         }
