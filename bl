@@ -1040,11 +1040,9 @@ my( $name,$re,$ls ) = @_;
  }elsif( $name =~ m|^homebrew/cask-fonts/| ){
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
  }else{
-  if( $re->{'BR'} ){
-   if( $re->{'BR'} eq 'cask-versions' ){ $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
-   }elsif( $re->{'BR'} eq 'cask-drivers' ){ $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
-   }elsif( $re->{'BR'} eq 'cask-fonts' ){ $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
-   }
+  if( $re->{'BR'} eq 'cask-versions' ){ $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
+  }elsif( $re->{'BR'} eq 'cask-drivers' ){ $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
+  }elsif( $re->{'BR'} eq 'cask-fonts' ){ $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
   }else{ $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
   }
  }
@@ -1057,16 +1055,19 @@ my( $re,$mem,$dir ) = @_;
   if( @$file ){
      unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n";
      }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
-     }elsif( $mem ){ $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n"; }
+     }elsif( $mem ){ $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
+     }
    for(my $i=0;$i<@$file;$i++){
      unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
      }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
-     }elsif( $mem ){ $re->{'EXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]"; }
+     }elsif( $mem ){ $re->{'EXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
+     }
    }
   }else{
      unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n";
      }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
-     }elsif( $mem ){ $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n"; }
+     }elsif( $mem ){ $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
+     }
   }
  }else{
     $re->{'ALL'} .= $re->{'MEM'} unless defined $re->{'L_OPT'};
