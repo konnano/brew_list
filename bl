@@ -1040,9 +1040,12 @@ my( $name,$re,$ls ) = @_;
  }elsif( $name =~ m|^homebrew/cask-fonts/| ){
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
  }else{
-  if( $re->{'BR'} eq 'cask-versions' ){ $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
-  }elsif( $re->{'BR'} eq 'cask-drivers' ){ $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
-  }elsif( $re->{'BR'} eq 'cask-fonts' ){ $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
+  if( $re->{'BR'} and $re->{'BR'} eq 'cask-versions' ){
+   $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
+  }elsif( $re->{'BR'} and $re->{'BR'} eq 'cask-drivers' ){
+   $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
+  }elsif( $re->{'BR'} and $re->{'BR'} eq 'cask-fonts' ){
+   $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
   }else{ $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
   }
  }
