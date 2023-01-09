@@ -167,6 +167,7 @@ apr-util	apr手引きライブラリ、Apache PortableRuntimeライブラリ
 apt	高度なパッケージツール
 apt-dater	SSHを使用してリモートホストのパッケージ更新を管理する
 aptly	Debianリポジトリ管理用の万能ナイフ
+aptos	すべての分散型資産への公平なアクセスをサポートするために構築されたレイヤー 1ブロックチェーン
 aqbanking	一般的なオンラインバンキング インターフェイス
 arabica	C++で記述されたXMLツールキット
 arangodb	マルチモデルNoSQLデータベース
@@ -4591,6 +4592,7 @@ podiff	2つのPOファイルのテキスト情報を比較する
 podman	OCIコンテナとポッドを管理するためのツール
 podman-compose	dockerの代替-podmanを使用して作成
 podofo	PDFファイル形式で動作するライブラリ
+podsync	YouTubeまたはVimeoチャンネルを回す ユーザー、またはプレイリストをポッドキャストフィードに
 poetry	Pythonパッケージ管理ツール
 points2grid	ローカルGridingを使用して数値標高モデルを生成する
 pokerstove	ポーカー評価および列挙ソフトウェア
