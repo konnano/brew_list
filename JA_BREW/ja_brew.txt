@@ -630,6 +630,7 @@ carrot2	検索結果クラスタリングエンジン
 carthage	Cocoaの分散型依存関係マネージャー
 carton	Perlモジュール依存関係マネージャー(別名Bundler for Perl)
 cartridge-cli	Tarantool Cartridgeコマンドラインユーティリティ
+cascadia	Go cascadiaパッケージのコマンドラインCSSセレクター
 cash-cli	ターミナルから直接為替レートを変換する
 cask	Emacsの依存関係管理
 cassandra	結果整合性のある分散型Key-Value store
