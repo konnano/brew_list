@@ -491,9 +491,9 @@ unless( $ARGV[0] ){
    } $COM .= "$br \\\n";
   }
  if( $re->{'MAC'} ){
-  for(@CASK){
-   $TIN .= "$_ \\\n" if $tap{"${_}formula"} or $tap{"${_}d_cask"};
-   $UAA .= "$_ \\\n" if $tap{"${_}u_cask"} or  $tap{"${_}u_form"};
+  for my $ca(@CASK){
+   $TIN .= "$ca \\\n" if $tap{"${ca}formula"} or $tap{"${ca}d_cask"};
+   $UAA .= "$ca \\\n" if $tap{"${ca}u_cask"} or  $tap{"${ca}u_form"};
   }
    my $glo = -d '/usr/local/Caskroom' ? '/usr/local/Caskroom' : "$MY_BREW/Caskroom";
   for my $gs(glob "$glo/*"){ my $ls;
