@@ -2,7 +2,6 @@
 use strict;
 use warnings;
 use Encode;
-use FindBin;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$Locale,%JA );
@@ -296,7 +295,7 @@ my( $re,$loop ) = @_; my $pid;
       while(1){ $i = $i % 8; my $c = ( (rand 6) + 1 ) >> 0;
        -d "$re->{'HOME'}/WAIT" ?
         print STDERR "\r  \033[3${c}m$ten[$i]\033[0m : $name" : last;
-         $i++; system 'sleep 0.1';
+         $i++; select undef,undef,undef,0.1;
       }
     }else{ my $i = 0; my $ma = '';
       while(1){
@@ -573,9 +572,7 @@ sub Size_1{
     for my $json(@{$AR{$name}}){
      if( -f "$json/INSTALL_RECEIPT.json" ){
       open my $dir,'<',"$json/INSTALL_RECEIPT.json" or die " JSON $!\n";
-       while(<$dir>){
-        last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/;
-       }
+       while(<$dir>){ last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/ }
       close $dir;
      }
     } $utime = $utime || 0;
@@ -697,17 +694,17 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
   $HA{$_}++ for split '\t',$re->{'OS'}{'fontlist'};
  }else{
   if( $re->{'USE'} and not $re->{'USES'} or $re->{'DEL'} and not $re->{'DDD'} or $re->{'use'} ){
-   for my $key(keys %{$re->{'HASH'}}){
-    if( $re->{'OS'}{"${key}deps"} ){
-     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key}deps"};
+   for my $key1(keys %{$re->{'HASH'}}){
+    if( $re->{'OS'}{"${key1}deps"} ){
+     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key1}deps"};
     }
    }
-   for my $key(keys %{$re->{'DMG'}}){
-    if( $re->{'OS'}{"${key}d_cask"} ){
-     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key}d_cask"};
+   for my $key2(keys %{$re->{'DMG'}}){
+    if( $re->{'OS'}{"${key2}d_cask"} ){
+     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key2}d_cask"};
     }
-    if( $re->{'OS'}{"${key}formula"} ){
-     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key}formula"};
+    if( $re->{'OS'}{"${key2}formula"} ){
+     $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key2}formula"};
     }
    }
   }
@@ -719,9 +716,9 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
    }
   }elsif( $re->{'DEL'} and not $re->{'DDD'} ){
    $re->{'OS'}{"${_}deps"} ? push @ARR,$_ : 0 for keys %{$re->{'HASH'}};
-    for(keys %{$re->{'DMG'}}){ my $ls;
-     $ls = push @ARR,$_ if $re->{'OS'}{"${_}d_cask"};
-     push @ARR,$_ if $re->{'OS'}{"${_}formula"} and not $ls;
+    for my $key(keys %{$re->{'DMG'}}){ my $ls;
+     $ls = push @ARR,$key if $re->{'OS'}{"${key}d_cask"};
+     push @ARR,$key if $re->{'OS'}{"${key}formula"} and not $ls;
     }
   }elsif( $re->{'dep_s'} ){
    $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
@@ -786,8 +783,8 @@ my $re = shift;
  die " exist mater.$type please type : bl -new\n"
   if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
  die " \033[31mNot connected\033[0m\n"
-  if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null";
-     system "sleep 0.1; qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1";
+  if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null &&\
+             qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1";
   unlink "$re->{'HOME'}/master.$type";
  Nohup_1( $re );
 }
@@ -1531,17 +1528,17 @@ my $re = shift;
   my( $cou,@COU2,@COU3,@AR2,@SC,@cn,%ha ) = 0;
  $re->{'KEN'} = 0 if not $re->{'KEN'} or $re->{'KEN'} and $re->{'KEN'} !~ /^\d+$/;
   $cn[0] = $re->{'INF'};
- for(@{$re->{'UNI'}}){
+ for my $uni(@{$re->{'UNI'}}){
    if( $re->{'D'} ){
-    my @bn = split '\|';
+    my @bn = split '\|',$uni;
      $bn[$#bn] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
       push @{$SC[$#bn-1]},$bn[$#bn] : push @{$SC[$#bn-1]},0;
        $ha{$bn[$#bn]}++;
         push @cn,$bn[$#bn] if $ha{$bn[$#bn]} < 2;
    }
-    my $an = () = /\|/g;
-   s/\|/│/g, s/│--/├──/g if $Locale;
-  push @COU2,$_ if $an < $re->{'KEN'} + 1;
+    my $an = () = $uni =~ /\|/g;
+   $uni =~ s/\|/│/g, $uni =~ s/│--/├──/g if $Locale;
+  push @COU2,$uni if $an < $re->{'KEN'} + 1;
   $cou = $an if $cou < $an;
  } $re->{'UNI'} = \@COU2 if @COU2 and not $re->{'D'};
 
@@ -1674,12 +1671,10 @@ sub Nohup_1{
 my $re = shift;
  $re->{'NEW'}++, Init_1( $re )
   unless -f "$re->{'HOME'}/font.sh" and -f "$re->{'HOME'}/tie.pl";
-   $FindBin::Bin =~ s/(\s)/\\$1/g;
+   Tied_1( $re,'font2.sh','tie2.pl' );
  $re->{'NEW'}++, Init_1( $re )
-  if system "cat $FindBin::Bin/bl|sed '1,/^__END__\$/d;/^__TIE__\$/,\$d' > ~/.BREW_LIST/font2.sh
-             diff ~/.BREW_LIST/font.sh ~/.BREW_LIST/font2.sh >/dev/null 2>&1" or
-     system "cat $FindBin::Bin/bl|sed '1,/^__TIE__\$/d' > ~/.BREW_LIST/tie2.pl
-             diff ~/.BREW_LIST/tie.pl ~/.BREW_LIST/tie2.pl >/dev/null 2>&1";
+  if system 'diff ~/.BREW_LIST/font.sh ~/.BREW_LIST/font2.sh >/dev/null 2>&1 &&\
+             diff ~/.BREW_LIST/tie.pl  ~/.BREW_LIST/tie2.pl  >/dev/null 2>&1';
   unlink "$ENV{'HOME'}/.BREW_LIST/font2.sh","$ENV{'HOME'}/.BREW_LIST/tie2.pl";
  my( $time1,$time2 ) = -f $re->{'TXT'} ?
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] ) : ([0,0,0,0,0,1],[0,0,0,0,0,0]);
@@ -1691,18 +1686,21 @@ my $re = shift;
 }
 
 sub Tied_1{
-my $re = shift; my( $i,@file1,@file2 );
- while(my $data=<DATA>){
-  $i++, next if $data =~ /^__TIE__$/;
-   $i ? push @file2,$data : push @file1,$data;
+my( $re,$an1,$an2 ) = @_; my $i;
+ $an1 = $an1 || 'font.sh'; $an2 = $an2 || 'tie.pl';
+ unless( $re->{'DATA1'} ){
+  while(my $data=<DATA>){
+   $i++, next if $data =~ /^__TIE__$/;
+    $i ? push @{$re->{'DATA1'}},$data : push @{$re->{'DATA2'}},$data;
+  }
  }
- open my $file1,'>',"$re->{'HOME'}/font.sh" or die " Tied1 $!\n";
-  print $file1 @file1;
+ open my $file1,'>',"$re->{'HOME'}/$an1" or die " Tied1 $!\n";
+  print $file1 @{$re->{'DATA2'}};
  close $file1;
- open my $file2,'>',"$re->{'HOME'}/tie.pl"  or die " Tied2 $!\n";
-  print $file2 @file2;
+ open my $file2,'>',"$re->{'HOME'}/$an2"  or die " Tied2 $!\n";
+  print $file2 @{$re->{'DATA1'}};
  close $file2;
-  chmod 0755,"$re->{'HOME'}/font.sh";
+  chmod 0755,"$re->{'HOME'}/font.sh" if $an1 eq 'font.sh';
 }
 __END__
 #!/bin/bash
@@ -2583,9 +2581,9 @@ unless( $ARGV[0] ){
    } $COM .= "$br \\\n";
   }
  if( $re->{'MAC'} ){
-  for(@CASK){
-   $TIN .= "$_ \\\n" if $tap{"${_}formula"} or $tap{"${_}d_cask"};
-   $UAA .= "$_ \\\n" if $tap{"${_}u_cask"} or  $tap{"${_}u_form"};
+  for my $ca(@CASK){
+   $TIN .= "$ca \\\n" if $tap{"${ca}formula"} or $tap{"${ca}d_cask"};
+   $UAA .= "$ca \\\n" if $tap{"${ca}u_cask"} or  $tap{"${ca}u_form"};
   }
    my $glo = -d '/usr/local/Caskroom' ? '/usr/local/Caskroom' : "$MY_BREW/Caskroom";
   for my $gs(glob "$glo/*"){ my $ls;
