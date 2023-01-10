@@ -253,9 +253,8 @@ my $re = shift; my( $list,$pid ) = [];
      @{$re->{'cask'}} = ( @list1,@list2 );
    }
   }
- if( @$list and ( $re->{'IS'} and not $re->{'INF'} or
-                  $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not $re->{'use'} or
-                  $re->{'IS'} and $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ) ){
+ if( @$list and ( $re->{'IS'} and ( not $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
+                  $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not $re->{'use'} ) ){
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
    $re->{'PID2'} = fork;
     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
@@ -801,21 +800,21 @@ my( $re,$tap,$HA,$AN ) = @_;
 }
 
 sub Dele_1{
-my $re = shift; my( @AN,%HA,@an,$do );
- $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
-  print" \033[33mexists Formula and Cask...\033[0m\n"
-   if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"} and -t STDOUT;
-   exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
-  Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
-   $_ eq $re->{'INF'} ? next : push @an,$_ for sort @AN;
-    $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for @an;
+my $re = shift; my( @AN,%HA,@an,$do,$pid );
+ print" \033[33mexists Formula and Cask...\033[0m\n"
+  if $re->{'FOR'} and $re->{'OS'}{"$re->{'INF'}so_name"} and -t STDOUT;
+  exit unless $re->{'HASH'}{$re->{'INF'}} or $re->{'DMG'}{$re->{'INF'}};
+ Uses_1( $re,$re->{'INF'},\%HA,\@AN ) if $re->{'FOR'};
+  $_ eq $re->{'INF'} ? next : push @an,$_ for sort @AN;
+   $re->{'HASH'}{$_} ? print"required formula ==> $_\n" : print"required cask ==> $_\n" for @an;
 
  unless( @an ){ @AN = ();
-  unless( $re->{'CAS'} and $re->{'LINK'} ){
-   $re->{'PID2'} = fork;
-    die " Dele Not fork : $!\n" unless defined $re->{'PID2'};
+  unless( $re->{'CAS'} ){
+   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+    $re->{'PID2'} = fork;
+     die " Dele Not fork : $!\n" unless defined $re->{'PID2'};
   }
-  unless( $re->{'PID2'} or $re->{'CAS'} and $re->{'LINK'} ){ Wait_1( $re,1 );
+  unless( $re->{'PID2'} or $re->{'CAS'} ){ Wait_1( $re,1 );
   }else{
    Info_1( $re,0,0,\@AN );
     Proc_1( $re,\@AN );
@@ -847,7 +846,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
    }
   }
  }
- Nohup_1( $re );
+ exit;
 }
 
 sub File_1{
@@ -859,8 +858,8 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   }
   $tap[0] = $file if $re->{'CAS'} and defined $re->{'S_OPT'} or $re->{'BL'};
   if( $re->{'CAS'} and -f $re->{'Q_TAP'} ){
-   open my $BREW,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
-    while(my $tap=<$BREW>){ chomp $tap;
+   open my $TAP,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
+    while(my $tap=<$TAP>){ chomp $tap;
      if( $tap =~ /^[3-9#]$/ ){
        if( $re->{'FDIR'} and $re->{'DDIR'} and $re->{'VERS'} and $tap ne '9' or
            $re->{'FDIR'} and $re->{'DDIR'} and not $re->{'VERS'} and $tap ne '8' or
@@ -872,11 +871,13 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
            not( $re->{'VERS'} or $re->{'FDIR'} or $re->{'DDIR'} ) and $tap ne '#' ){
             die " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
              $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
-              $re->{'TEN'} = 1; Wait_1( $re );
+              $re->{'TEN'} = 1;
+               select undef,undef,undef,0.1;
+                Wait_1( $re );
        }
         last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
-       exit unless not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'};
-       exit unless not $re->{'PRE'} or $re->{'FDIR'};
+       exit unless ( not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ) and
+                   ( not $re->{'PRE'} or $re->{'FDIR'} );
        Prew_1( $re ) if $re->{'PRE'};
       next;
      }
@@ -890,7 +891,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
         push @{$file},$tap;
       }
     }
-   close $BREW;
+   close $TAP;
   }elsif( $re->{'TAP'} and not -f $re->{'Q_TAP'} ){
     die " Tap No such file\n";
   }
@@ -912,15 +913,13 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
      }
     close $JA;
    }
-   if( $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ){
-    if( $re->{'CAS'} or $re->{'TAP'} or $re->{'DEP'} ){
-     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " ### Not exist tap JA_file ###\n";
-      while(<$JA>){
-      my( $name,$desc ) = split '\t';
-       chomp( $JA{$name} = $desc );
-      }
-     close $JA;
-    }
+   if( ( $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ) and ( $re->{'CAS'} or $re->{'TAP'} or $re->{'DEP'} ) ){
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " ### Not exist tap JA_file ###\n";
+     while(<$JA>){
+     my( $name,$desc ) = split '\t';
+      chomp( $JA{$name} = $desc );
+     }
+    close $JA;
    }
   }
   Format_3( $file,$re ) if $re->{'DEP'};
@@ -1451,9 +1450,10 @@ sub Format_1{
    system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
   }
+  $re->{'PID'} ? $re->{'CAS'} = 0 : $re->{'LINK'} ? $re->{'FOR'} = 0 : 0;
  }elsif( $re->{'DAT'} ){
   print for @{$re->{'OUT'}};
-   $re->{'CAS'} = 0;
+   $re->{'FOR'} = 0;
  }else{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
    my $leng = $re->{'LEN1'};
