@@ -1188,6 +1188,7 @@ foobar2000	オーディオプレイヤー
 force-paste	強制貼り付け
 forecast	チャプター付きポッドキャストMP3エンコーダー
 fork	GITクライアント
+forkgram-telegram	Telegram Desktopのフォーク
 forklift	Finderの交換と FTP/SFTP/WebDAV/Amazons 3クライアント
 forticlient	エンドポイント保護とクラウドサンドボックスを備えたファブリックエージェント
 forticlient-vpn	FortiClient用のFree VPNクライアント
@@ -1513,6 +1514,7 @@ icq	メッセンジャーアプリケーション
 id3-editor	MP3およびAIFFID3タグエディター
 idafree	バイナリコード分析ツール
 idagio	クラシック音楽ストリーミングアプリ
+ideamaker	Raise3DによるFDM 3D印刷スライサー
 idefrag	ディスクオプティマイザとデフラグツール
 idisplay	iDisplay
 idrive	iDrive
