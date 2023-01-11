@@ -17,14 +17,11 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version2 = $CPU eq 'arm\?' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
-  $Xcode = `xcodebuild -version 2>/dev/null` ?
-   `xcodebuild -version|awk '/Xcode/{print \$NF}'` : 0;
-     $Xcode =~ s/^(\d\.)/0$1/;
-  $re->{'CLANG'} = `/usr/bin/clang --version|sed '/Apple/!d' 2>/dev/null` ?
-                   `/usr/bin/clang --version|sed '/Apple/!d;s/.*clang-\\([^.]*\\).*/\\1/'` : 0;
-  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null` ?
-                 `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables|\
-                  sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` : 0;
+  $Xcode = `xcodebuild -version 2>/dev/null|\
+            sed -E '/Xcode/!d;s/[^0-9]*([0-9\\.]*)/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
+  $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.*clang-([^.]*).*/\\1/'` || 0;
+  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null|\
+                  sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` || 0;
  }
   %MAC_OS = ('ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
              'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11',
