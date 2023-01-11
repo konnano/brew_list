@@ -1000,7 +1000,6 @@ font-luxurious-script	豪華なスクリプト
 font-lxgw-bright	Ysabeau OfficeとLXGW WenKaiのフォントを統合
 font-lxgw-bright-gb	Ysabeau Officeと LXGW WenKai GBのフォントを統合
 font-lxgw-bright-tc	Ysabeau Officeと LXGW WenKai TCのフォントを統合
-font-lxgw-new-clear-gothic	IPAexゴシックから派生した簡体字中国語のsans-serifフォント
 font-lxgw-wenkai	FontworksのKlee Oneから派生したオープンソースの中国語フォント
 font-lxgw-wenkai-lite	FontworksのKlee Oneから派生したオープンソースの中国語フォント
 font-lxgw-wenkai-tc	FontworksのKlee Oneから派生したオープンソースの繁体字中国語フォント
@@ -2120,7 +2119,6 @@ insta360-studio	ビデオおよび写真エディター
 interstuhl-s40	Interstuhl S4.0
 jabra-direct	Jabraヘッドセットを最適化してパーソナライズする
 kensington-trackball-works	Kensingtonトラックボールをプログラムするソフトウェア
-kensingtonworks	Kensingtonのトラックボールをパーソナライズするソフトウェア マウス/プレゼンター
 kiibohd-configurator	モジュラーコミュニティキーボードファームウェア
 konica-minolta-bizhub-c220-c280-c360-driver	コニカ ミノルタBizhubC220/C280/C360 PostScriptプリンタードライバー
 konica-minolta-bizhub-c750i-driver	PostScriptプリンタードライバー
@@ -2161,6 +2159,7 @@ obinskit	Anne ProおよびAnne Pro2用のソフトウェア
 obs-ios-camera-source	OBS Studio用のiOSカメラプラグイン
 obsbot-me-tool	OBSBOT Meの構成およびファームウェア更新ユーティリティ
 obsbot-tinycam	OBSBOT TinyおよびTiny4K Webカメラの構成およびファームウェア更新ユーティリティ
+obsbot-webcam	OBSBOT TinyおよびMeetシリーズの構成およびファームウェア更新ユーティリティ
 openintelwireless-heliport	Intel Wi-Fiアダプターカーネル拡張用のクライアント
 opentx-companion	OpenTXファームウェアで実行されているRC無線送信機のユーティリティ
 pallotron-yubiswitch	Yubikey Nanoを有効/無効にするステータスバーアプリケーション
@@ -2274,9 +2273,7 @@ buckets-beta	予算編成ツール
 calibre4	電子書籍管理ソフトウェア
 carbon-copy-cloner5	ハードディスクのバックアップとクローン作成ユーティリティ
 charles-applejava	Webデバッグプロキシアプリケーション
-charles-beta	Webデバッグプロキシアプリケーション
 chromedriver-beta	Google Chrome用のWebアプリの自動テスト
-citra-nightly	ニンテンドー3DSエミュレーター
 clashx-pro	clashに基づくGUIを備えたルールベースのカスタムプロキシ
 cleanmymac3	ディスクから不要なファイルとフォルダーを削除するツール
 corretto11	AmazonからのOpenJDKディストリビューション
@@ -2303,14 +2300,12 @@ element-nightly	マトリックスコラボレーションクライアント
 elephas-beta	パーソナルAIライティングアシスタント
 emacs-nightly	GNU Emacsテキストエディター
 emacs-pretest	テキストエディター
-ferdi-beta	複数のサービスを組み合わせたメッセージングブラウザー
 figma-beta	協調的チームソフトウェア
 firefox-beta	Webブラウザー
 firefox-developer-edition	Webブラウザー
 firefox-esr	Webブラウザー
 firefox-nightly	Webブラウザー
 forklift2	Finderの代替品と FTP/SFTP/WebDAV/Amazon s3クライアント
-freecad-pre	3D parametricモデラー
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等
 gimp-dev	Freeでオープンソースの画像エディター
 github-beta	GitHubリポジトリ用のデスクトップクライアント
@@ -2398,9 +2393,6 @@ quicktime-player7	QuickTime Player 7
 rambox-ce	Freeのオープンソースメッセージングおよび電子メールアプ
 reflector2	ワイヤレス画面ミラーリングアプリケーション
 royal-tsx-beta	リモート管理ソリューション
-rstudio-daily	RStudio
-rstudio-preview	RとPythonに焦点を当てたデータサイエンスソフトウェア
-rstudio-preview-electron	RとPythonに焦点を当てたデータサイエンスソフトウェア
 safari-technology-preview	Webブラウザー
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
@@ -2421,7 +2413,6 @@ sourcetree-beta	Gitバージョン管理用のグラフィカルクライアン�
 sublime-merge-dev	Gitクライアント
 sublime-text-dev	コード用のテキストエディタ マークアップ/散文
 sublime-text2	Sublime Text 2
-synergy-beta	Synergy
 telegram-desktop-beta	Telegramメッセンジャー用のデスクトップクライアント
 temurin11	Eclipse Foundation(Adoptium)のJDK
 temurin17	Eclipse Foundation(Adoptium)のJDK
@@ -2457,7 +2448,6 @@ wine-devel	Windowsアプリケーションを実行するための互換性レ�
 wine-staging	Windowsアプリケーションを実行するための互換性レイヤー
 xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 xmind8	マインドマッピングとブレーンストーミングツール
-yubico-authenticator-beta	TOTPおよびHOTPコードを生成するためのアプリケーション
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
