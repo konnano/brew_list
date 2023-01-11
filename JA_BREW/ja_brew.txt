@@ -391,7 +391,6 @@ bdftopcf	XフォントをBitmap Distribution FormatからPortable Compiled Forma
 bdw-gc	CおよびC++のガベージコレクター
 beagle	木の進化順序を評価する
 beancount	プレーンテキストファイルで機能する複式簿記ツール
-beansdb	さらに別の分散型Key-Value保管システム
 beanstalkd	もともとWebの待ち時間を短縮するために設計された汎用ワークキュー
 bear	clangツールのコンパイルデータベースを生成する
 beast	ベイズ進化分析サンプリングツリー
@@ -560,6 +559,7 @@ byacc	(おそらく)最高のyacc変換
 byobu	テキストベースのウィンドウマネージャーとターミナル多重装置
 byteman	テスト/監視/トレース のためのJavaバイトコード操作ツール
 bzip2	Freeで入手できる高品質のデータ圧縮機
+bzip3	BZip2のより優れた強力な後継
 bzr-builder	レシピに基づいてブランチを構築するためのBazaarプラグイン
 bzr-colo	BazaarのGitスタイルに共同設置されたブランチ
 bzr-externals	svn：externalsのような外部ブランチのBazaarサポート
@@ -940,7 +940,6 @@ corral	Pony言語の依存関係マネージャー
 corrosion	簡単なRustとC/C++の統合
 corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
-cosi	拡張可能な集合署名の実装
 cosign	コンテナ署名
 coturn	TURNおよびSTUNサーバーのFreeオープンソース実装
 couchdb	Apache CouchDBデータベースサーバー
@@ -2843,6 +2842,7 @@ kumo	Javaのワードクラウド
 kustomize	Kubernetes YAMLマニフェストのテンプレートFreeカスタマイズ
 kustomizer	Kubernetes 構成をOCIアーティファクトとして配布するためのパッケージマネージャー
 kvazaar	Ultravideo HEVCエンコーダー
+kwctl	KubernetesのKubewardenポリシーエンジンのCLIツール
 kyma-cli	Kymaコマンドラインインターフェース
 kyoto-cabinet	データベースを管理するためのルーチンのライブラリ
 kyoto-tycoon	京都Cabinetへのインターフェースを備えたデータベースサーバー
@@ -4281,6 +4281,7 @@ opentsdb	拡張性のある分散時系列データベース
 openttd	Transport Tycoon Deluxeをベースにしたシミュレーションゲーム
 openvdb	限られたボリュームデータ処理ツールキット
 openvi	UNIXシステム用のポータブルOpenBSD vi
+openvino	AI推論用のOpen Visual Inference And Optimizationツールキット
 openvpn	OSIレイヤー2または3の安全なネットワーク拡張を実装する SSL/TLS VPN
 operator-sdk	Kubernetesアプリケーションを構築するためのSDK
 ophcrack	rainbow tablesを使用したMicrosoftWindowsパスワードクラッカー
