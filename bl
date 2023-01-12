@@ -69,20 +69,20 @@ MAIN:{
    $re->{'BIN'} = "$MY_BREW/opt";
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
     $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
-     $OS_Version = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
+     $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
     $OS_Version =~ s/^10\.9.*\n/10.09/;
      $OS_Version =~ s/^(1[1-3]).+\n/$1.0/;
   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
-   $OS_Version = "${OS_Version}M1" if $UNAME =~ /arm64/;
+   $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
    $ref->{'DDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
     $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
  }
 
- if( $re->{'MAC'} and ( $UNAME =~ /arm64/ or not -d '/usr/local/Homebrew' ) ){
+ if( $re->{'MAC'} and ( $UNAME eq 'arm64' or not -d '/usr/local/Homebrew' ) ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
     $ref->{'CEL'} = "$MY_BREW/Caskroom";
@@ -218,7 +218,7 @@ sub Died_1{
 }
 
 sub Init_1{
-my $re = shift; my( $list,$pid ) = [];
+my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[0m\n"
    if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -232,11 +232,17 @@ my $re = shift; my( $list,$pid ) = [];
     DB_2( $re ) unless $re->{'BL'} or defined $re->{'S_OPT'} or $re->{'COM'};
   }
   if( $re->{'INF'} and not $re->{'COL'} or $re->{'USE'} or $re->{'dep_s'} or $re->{'ANA'} or $re->{'use'} ){
-   my $cat = $re->{'MAC'} ? [`awk '{print \$1}' ~/.BREW_LIST/brew.txt 2>/dev/null || echo 1
-                              awk '{print \$1}' ~/.BREW_LIST/cask.txt 2>/dev/null || echo 1`]:
-                            [`awk '{print \$1}' ~/.BREW_LIST/brew.txt 2>/dev/null`];
-   @$cat ? Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'}],$cat ) :
-    die " \033[33mNo file...\033[0m tyep bl -new\n";
+   if( $re->{'TREE'} or $re->{'LINK'} and $re->{'LINK'} == 6 or $re->{'USES'} or $re->{'ANA'} ){
+     open my $DIR1,"$re->{'HOME'}/brew.txt" or die" L_DIR1 $!\n";
+      while(<$DIR1>){ s/^([^\t]+)\t.+/$1/; push @$cat,$_ }
+     close $DIR1;
+    if( $re->{'MAC'} ){
+     open my $DIR2,"$re->{'HOME'}/cask.txt" or die" L_DIR2 $!\n";
+      while(<$DIR2>){ s/^([^\t]+)\t.+/$1/; push @$cat,$_ }
+     close $DIR2;
+    }
+   }
+   Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'}],$cat );
   }
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
    Info_1( $re ) if $re->{'INF'};
@@ -821,7 +827,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
      my @list1 = sort @AN;
    for my $brew(@list1){
     next if $brew eq 'glibc' or $brew eq 'linux-headers@5.15';
-    exit unless ref $re->{$brew};
+    exit unless $re->{$brew};
      my @list2 = sort @{$re->{$brew}};
      my $i = 0; my $e = 0;
      for(;$i<@list2;$i++){ my $flag;
@@ -2098,7 +2104,6 @@ use Fcntl ':DEFAULT';
 
 my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
 chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
 
@@ -2107,21 +2112,19 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
    $OS_Version =~ s/^10\.9.*\n/10.09/;
     $OS_Version =~ s/^(1[1-3]).+\n/$1.0/;
- $OS_Version2 = $CPU eq 'arm\?' ? "${OS_Version}M1" : $OS_Version;
+ $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
   $Xcode = `xcodebuild -version 2>/dev/null|\
-            sed -E '/Xcode/!d;s/[^0-9]*([0-9.]*)/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
-  $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.*clang-([^.]*).*/\\1/'` || 0;
-  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null|\
-                  sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` || 0;
+            sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+)/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
+  $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
   %MAC_OS = ('ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
              'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11',
              'yosemite'=>'10.10','mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
      %HAN = ('newer'=>'>','older'=>'<');
 
-  if( $CPU eq 'intel\?' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
+  if( $UNAME eq 'x86_64' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
     $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
      $re->{'COM'} = '/usr/local/share/zsh/site-functions';
    unless( $ARGV[0] ){
@@ -2146,7 +2149,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
+   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
@@ -2227,24 +2230,15 @@ unless( $ARGV[0] ){
       $SPA = $IN = 1, next if $data =~ /^\s*on_macos\s+do/;
     }
      if( $data =~ /^\s*head\s+do/ ){ $SPA = $IN = 1; next;
-     }elsif( $data =~ /^\s*on_intel\s+do/ and $UNAME =~ /arm64/ or
-             $data =~ /^\s*on_arm\s+do/ and $UNAME =~ /x86_64/ ){ $SPA = $IN = 1; next;
+     }elsif( $data =~ /^\s*on_intel\s+do/ and $UNAME eq 'arm64' or
+             $data =~ /^\s*on_arm\s+do/ and $UNAME eq 'x86_64' ){ $SPA = $IN = 1; next;
      }elsif( my( $ha1,$ha2 ) = $data =~ /^\s*on_([^\s]+)\s+:or_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $re->{'LIN'} or eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version"; next;
      }elsif( my( $ha3,$ha4 ) = $data =~ /^\s+on_system\s+:linux,\s+macos:\s+:(.+)_or_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $re->{'MAC'} and eval "$MAC_OS{$ha3} $HAN{$ha4} $OS_Version"; next;
      }
 
-      if( my( $ls1,$ls2 ) =
-        $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([\d.]+)"/ ){
-         if( $re->{'MAC'} and not $Xcode and $ls1 =~ /^[<=>]+$/ and eval "$re->{'CLT'} $ls1 $ls2" ){
-          $tap{"${name}un_xcode"} = 1;
-           $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-         }elsif( $re->{'LIN'} ){
-          $tap{"${name}un_Linux"} = 1;
-           $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
-         } next;
-      }elsif( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
+      if( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
          $data =~ s/^(\d\.)/0$1/;
          if( $re->{'MAC'} and $data gt $Xcode ){
           $tap{"${name}un_xcode"} = 1;
@@ -2278,12 +2272,6 @@ unless( $ARGV[0] ){
 
      if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
          next;
-     }elsif( $re->{'MAC'} and my( $ds,$ds1,$ds2,$ds3 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+).+CPU\.([^\s]+)/ ){
-        if( $ds1 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds1 $ds2" and $CPU eq $ds3 ){
-         $tap{"${ds}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$ds\t";
-        }
      }elsif( $re->{'MAC'} and my( $ds4,$ds5,$ds6 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
         if( $ds5 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds5 $ds6" ){
