@@ -2275,7 +2275,6 @@ musaicfm	SpotifyまたはLast.fmのプロファイルデータに基づいてア
 muse	TouchBarをサポートするオープンソースのSpotifyコントローラー
 museeks	音楽プレーヤー
 musescore	オープンソースの楽譜作成ソフトウェア
-music-bar	メニューバーから直接Apple Musicを制御する
 music-manager	Google Playミュージックマネージャー
 musicbrainz-picard	音楽タグ付け
 musictube	ストリーミング音楽プレーヤー
@@ -3451,6 +3450,7 @@ supercollider	サウンド合成とアルゴリズム作曲のための サー�
 superduper	バックアップ/リカバリ/クローン作成ソフトウェア
 superhuman	メールクライアント
 superkey	画面上の任意の場所でテキストを検索してクリックする
+superlist	共同ToDoリストアプリ
 supermjograph	データから科学的なグラフを生成する
 supernotes	共同メモ取りアプリ
 superproductivity	やることリストと時間監視
