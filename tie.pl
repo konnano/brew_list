@@ -5,7 +5,6 @@ use Fcntl ':DEFAULT';
 
 my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my $CPU = $UNAME =~ /arm64/ ? 'arm\?' : 'intel\?';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
 chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
 
@@ -14,21 +13,19 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
    $OS_Version =~ s/^10\.9.*\n/10.09/;
     $OS_Version =~ s/^(1[1-3]).+\n/$1.0/;
- $OS_Version2 = $CPU eq 'arm\?' ? "${OS_Version}M1" : $OS_Version;
+ $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
   $Xcode = `xcodebuild -version 2>/dev/null|\
-            sed -E '/Xcode/!d;s/[^0-9]*([0-9.]*)/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
-  $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.*clang-([^.]*).*/\\1/'` || 0;
-  $re->{'CLT'} = `pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>/dev/null|\
-                  sed '/version/!d;s/[^0-9]*\\([0-9]*\\.[0-9]*\\).*/\\1/'` || 0;
+            sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+)/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
+  $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
   %MAC_OS = ('ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
              'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11',
              'yosemite'=>'10.10','mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
      %HAN = ('newer'=>'>','older'=>'<');
 
-  if( $CPU eq 'intel\?' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
+  if( $UNAME eq 'x86_64' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
     $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
      $re->{'COM'} = '/usr/local/share/zsh/site-functions';
    unless( $ARGV[0] ){
@@ -53,7 +50,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   $OS_Version2 = $UNAME =~ /x86_64/ ? 'Linux' : 'LinuxM1';
+   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
@@ -134,24 +131,15 @@ unless( $ARGV[0] ){
       $SPA = $IN = 1, next if $data =~ /^\s*on_macos\s+do/;
     }
      if( $data =~ /^\s*head\s+do/ ){ $SPA = $IN = 1; next;
-     }elsif( $data =~ /^\s*on_intel\s+do/ and $UNAME =~ /arm64/ or
-             $data =~ /^\s*on_arm\s+do/ and $UNAME =~ /x86_64/ ){ $SPA = $IN = 1; next;
+     }elsif( $data =~ /^\s*on_intel\s+do/ and $UNAME eq 'arm64' or
+             $data =~ /^\s*on_arm\s+do/ and $UNAME eq 'x86_64' ){ $SPA = $IN = 1; next;
      }elsif( my( $ha1,$ha2 ) = $data =~ /^\s*on_([^\s]+)\s+:or_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $re->{'LIN'} or eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version"; next;
      }elsif( my( $ha3,$ha4 ) = $data =~ /^\s+on_system\s+:linux,\s+macos:\s+:(.+)_or_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $re->{'MAC'} and eval "$MAC_OS{$ha3} $HAN{$ha4} $OS_Version"; next;
      }
 
-      if( my( $ls1,$ls2 ) =
-        $data =~ /^\s*depends_on\s+xcode:.+if\s+MacOS::CLT\.version\s+([^\s]+)\s+"([\d.]+)"/ ){
-         if( $re->{'MAC'} and not $Xcode and $ls1 =~ /^[<=>]+$/ and eval "$re->{'CLT'} $ls1 $ls2" ){
-          $tap{"${name}un_xcode"} = 1;
-           $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-         }elsif( $re->{'LIN'} ){
-          $tap{"${name}un_Linux"} = 1;
-           $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
-         } next;
-      }elsif( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
+      if( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
          $data =~ s/^(\d\.)/0$1/;
          if( $re->{'MAC'} and $data gt $Xcode ){
           $tap{"${name}un_xcode"} = 1;
@@ -185,12 +173,6 @@ unless( $ARGV[0] ){
 
      if( $data =~ /^\s*depends_on\s+"[^"]+"\s*=>\s+:test/ ){
          next;
-     }elsif( $re->{'MAC'} and my( $ds,$ds1,$ds2,$ds3 ) =
-       $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+).+CPU\.([^\s]+)/ ){
-        if( $ds1 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds1 $ds2" and $CPU eq $ds3 ){
-         $tap{"${ds}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-          $tap{"${name}deps_b"} .= "$ds\t";
-        }
      }elsif( $re->{'MAC'} and my( $ds4,$ds5,$ds6 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
         if( $ds5 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds5 $ds6" ){
