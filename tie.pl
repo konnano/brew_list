@@ -5,7 +5,7 @@ use Fcntl ':DEFAULT';
 
 my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
 chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
@@ -81,7 +81,7 @@ unless( $ARGV[0] ){
  }
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,($in << 1) + $in );
- for my $dir1(@BREW){ my $bot;
+ for my $dir1(@BREW){ my( $bot,@an );
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
    $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
@@ -103,20 +103,35 @@ unless( $ARGV[0] ){
         $tap{"${name}10.12"} = $tap{"${name}10.11"} = $tap{"${name}10.10"} =
         $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
        }
-        $tap{"$name$data"} =
-        $data =~ s/.*arm64_ventura:.*\n/13.0M1/  ? 1 :
-        $data =~ s/.*ventura:.*\n/13.0/          ? 1 :
-        $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
-        $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
-        $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
-        $data =~ s/.*big_sur:.*\n/11.0/          ? 1 :
-        $data =~ s/.*catalina:.*\n/10.15/        ? 1 :
-        $data =~ s/.*mojave:.*\n/10.14/          ? 1 :
-        $data =~ s/.*high_sierra:.*\n/10.13/     ? 1 :
-        $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
-        $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
-        $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
-        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64 #
+        if( $re->{'LIN'} ){
+           $data =~ s/.*x86_64_linux:.*\n/Linux/ ? $tap{"$name$data"} = 1 : next;
+        }else{
+         if( not $an[0] and $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ){
+           $tap{"$name$data"} = $an[0] = 1; next;
+         }elsif( not $an[2] and $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ){
+           $tap{"$name$data"} = $an[2] = 1; next;
+         }elsif( not $an[4] and $data =~ s/.*arm64_big_sur:.*\n/11.0M1/ ){
+           $tap{"$name$data"} = $an[4] = 1; next;
+         }elsif( not $an[1] and $data =~ s/.*ventura:.*\n/13.0/ ){
+           $tap{"$name$data"} = $an[1] = 1; next;
+         }elsif( not $an[3] and $data =~ s/.*monterey:.*\n/12.0/ ){
+           $tap{"$name$data"} = $an[3] = 1; next;
+         }elsif( not $an[5] and $data =~ s/.*big_sur:.*\n/11.0/ ){
+           $tap{"$name$data"} = $an[5] = 1; next;
+         }elsif( not $an[6] and $data =~ s/.*catalina:.*\n/10.15/ ){
+           $tap{"$name$data"} = $an[6] = 1; next;
+         }elsif( not $an[7] and $data =~ s/.*mojave:.*\n/10.14/ ){
+           $tap{"$name$data"} = $an[7] = 1; next;
+         }elsif( not $an[8] and $data =~ s/.*high_sierra:.*\n/10.13/ ){
+           $tap{"$name$data"} = $an[8] = 1; next;
+         }elsif( not $an[9] and $data =~ s/.*sierra:.*\n/10.12/ ){
+           $tap{"$name$data"} = $an[9] = 1; next;
+         }elsif( not $an[10] and $data =~ s/.*el_capitan:.*\n/10.11/ ){
+           $tap{"$name$data"} = $an[10] = 1; next;
+         }elsif( not $an[11] and $data =~ s/.*yosemite:.*\n/10.10/ ){
+           $tap{"$name$data"} = $an[11] = 1; next;
+         }else{ next }
+        }
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
       $KIN = 0; next;
@@ -208,12 +223,6 @@ unless( $ARGV[0] ){
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"(?!.+:test).*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
-     }elsif( $re->{'LIN'} and
-             my( $us5,$us6 ) = $data =~ /^\s*depends_on\s+"([^"]+)".+OS::Linux[^\s]+\s+([^\s]+)/ ){
-      if( $us6 =~ /^[<=>]+$/ and eval "$RPM $us6 $CAT" ){
-       $tap{"${us5}uses"} .= "$name\t";
-        $tap{"${name}deps"} .= "$us5\t";
-      }
      }elsif( $re->{'LIN'} and
              my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
       if( -d "$MY_BREW/Cellar/glibc" ){
@@ -341,14 +350,13 @@ unless( $ARGV[0] ){
   }1;
  } Glob_1;
 }
-rmdir "$ENV{'HOME'}/.BREW_LIST/16";
 
 sub Version_1{
  my @ls1 = split '\.|-|_',$_[0];
  $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
  my $i = 0;
   for(;$i<@ls2;$i++){
-   if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
+   if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
      if( $ls1[$i] gt $ls2[$i] ){ return 1;
      }elsif( $ls1[$i] lt $ls2[$i] ){ return;
      }
