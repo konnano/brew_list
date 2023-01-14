@@ -191,7 +191,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.15_9\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.16_0\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -295,7 +295,7 @@ my( $re,$loop ) = @_; my $pid;
   if( $pid or $loop ){
    if( ( $loop or not -d "$re->{'HOME'}/LOCK" ) and -t STDOUT ){
     print STDERR "\x1B[?25l";
-    if( $^O eq 'linux' or $loop or $re->{'TEN'} ){ my $i = 0;
+    if( $re->{'LIN'} or $loop or -d "$re->{'HOME'}/TAP" ){ my $i = 0;
      my $name = $loop ? 'Please wait' : 'Makes new cache';
       while(1){ $i = $i % 8; my $c = ( (rand 6) + 1 ) >> 0;
        -d "$re->{'HOME'}/WAIT" ?
@@ -321,7 +321,7 @@ my( $re,$loop ) = @_; my $pid;
    } exit;
   }else{
    Tied_1( $re ) unless -d "$re->{'HOME'}/LOCK";
-    $re->{'TEN'} ? system '~/.BREW_LIST/font.sh 1 2' : system '~/.BREW_LIST/font.sh 0 1';
+    -d "$re->{'HOME'}/TAP" ? system '~/.BREW_LIST/font.sh 1 2' : system '~/.BREW_LIST/font.sh 0 1';
      exit;
   }
 }
@@ -788,8 +788,8 @@ my $re = shift;
  die " exist mater.$type please type : bl -new\n"
   if -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
  die " \033[31mNot connected\033[0m\n"
-  if system "curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{\"$re->{'PRE'}font\"} 2>/dev/null &&\
-             qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1";
+  if qx{ curl -sLo ~/.BREW_LIST/master.$type $re->{'OS'}{"$re->{'PRE'}font"} 2>/dev/null &&\
+         qlmanage -p ~/.BREW_LIST/master.$type >/dev/null 2>&1 };
   unlink "$re->{'HOME'}/master.$type";
  Nohup_1( $re );
 }
@@ -836,7 +836,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
         last if $list1[$e] eq $list2[$i];
         $flag++, last if $list1[$e] gt $list2[$i];
        }
-       $flag++ if $list1[$#list1] lt $list2[$i];
+       $flag++ if $list1[-1] lt $list2[$i];
       last if $flag;
      }
     $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
@@ -877,7 +877,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
            not( $re->{'VERS'} or $re->{'FDIR'} or $re->{'DDIR'} ) and $tap ne '#' ){
             die " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
              $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
-              $re->{'TEN'} = 1;
+              mkdir "$re->{'HOME'}/TAP";
                select undef,undef,undef,0.1;
                 Wait_1( $re );
        }
@@ -1058,37 +1058,34 @@ my( $re,$mem,$dir ) = @_;
  if( defined $dir ){
   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
   if( @$file ){
-     unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n";
-     }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
-     }elsif( $mem ){ $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
-     }
+    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n";
+    }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
+    }elsif( $mem ){ $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
+    }
    for(my $i=0;$i<@$file;$i++){
-     unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
-     }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
-     }elsif( $mem ){ $re->{'EXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
-     }
+    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
+    }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
+    }elsif( $mem ){ $re->{'EXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
+    }
    }
   }else{
-     unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n";
-     }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
-     }elsif( $mem ){ $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
-     }
+    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n";
+    }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
+    }elsif( $mem ){ $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
+    }
   }
  }else{
-    $re->{'ALL'} .= $re->{'MEM'} unless defined $re->{'L_OPT'};
-     if( $re->{'KEN'} and defined $re->{'L_OPT'} ){
-      my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
-      my( $brew ) = split '\t',$mee;
-      my $name = -d "$ENV{'HOME'}/.JA_BREW" ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
-       if( $mee =~ /^ ==>/ or $mee =~ s/(\Q$name\E)/\033[33m$1\033[0m/ig ){
-           $mee =~ s/\033\[33m|\033\[00m//g unless -t STDOUT;
-          $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
-         $re->{'DN'}++ if $mee !~ /^ ==>/;
-        $re->{'KXC'} .= "$top$mee\n";
-       }
-     }else{
-      $re->{'EXC'} .= $re->{'MEM'} if $mem;
-     }
+  $re->{'ALL'} .= $re->{'MEM'} unless defined $re->{'L_OPT'};
+  if( $re->{'KEN'} and defined $re->{'L_OPT'} ){
+   my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
+   my( $brew ) = split '\t',$mee;
+   my $name = -d "$ENV{'HOME'}/.JA_BREW" ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
+    if( $mee =~ /^ ==>/ or -t STDOUT and $mee =~ s/(\Q$name\E)/\033[33m$1\033[0m/ig or $mee =~ /\Q$name\E/ ){
+       $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
+      $re->{'DN'}++ if $mee !~ /^ ==>/;
+     $re->{'KXC'} .= "$top$mee\n";
+    }
+  }elsif( $mem ){ $re->{'EXC'} .= $re->{'MEM'} }
  }
 }
 
@@ -1097,14 +1094,14 @@ sub Version_1{
  my @ls2 = split '\.|-|_',$_[1];
  my $i = 0;
   for(;$i<@ls2;$i++){
-   if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
-     if( $ls1[$i] gt $ls2[$i] ){ return 1;
-     }elsif( $ls1[$i] lt $ls2[$i] ){ return;
-     }
+   if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
+    if( $ls1[$i] gt $ls2[$i] ){ return 1;
+    }elsif( $ls1[$i] lt $ls2[$i] ){ return;
+    }
    }else{
-     if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
-     }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
-     }
+    if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
+    }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
+    }
    }
   }
  $ls1[$i] ? 1 : 0;
@@ -1117,7 +1114,7 @@ my( $re,$ls1,$ls2 ) = @_;
    Dirs_1( "$ENV{'HOME'}/Library/Caches/Homebrew/Cask",2 ) :
     Dirs_1( "$ENV{'HOME'}/.cache/Homebrew",2 ) unless $re->{'TAR'};
  for my $gz( @{$re->{'TAR'}} ){
-  if( $gz =~ s/^$ls1--([\d._-]+)\.[^\d_-]+\d?$/$1/ or $gz =~ s/^$ls1--([\d._-]+)$/$1/ ){
+  if( $gz =~ s/^$ls1--([\d._-]+)(?:\.[^\d_-]+\d?)?$/$1/ ){
     $re->{'GZ'} = ( $re->{'FOR'} and Version_1($gz,$re->{'HASH'}{$ls1}) ) ? 1 :
                   ( $re->{'CAS'} and Version_1($gz,$re->{'DMG'}{$ls1}) )  ? 1 : 0;
     last if $re->{'GZ'};
@@ -1140,7 +1137,7 @@ my( $list,$file,$in,$re ) = @_;
  for(my $i=0;$i<@$file;$i++){ my $pop = 0;
   my( $brew_1,$brew_2,$brew_3 ) = split '\t',$file->[$i];
    next if not defined $re->{'S_OPT'} and $brew_1 =~ m|^homebrew/|;
-    my $mem = ( defined $re->{'L_OPT'} and ( $brew_1 =~ /$re->{'L_OPT'}/ or $brew_1 =~ /^[012]$/ ) ) ? 1 : 0;
+    my $mem = ( defined $re->{'L_OPT'} and ( $brew_1 =~ /$re->{'L_OPT'}|^[012]$/ ) ) ? 1 : 0;
 
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
@@ -1154,7 +1151,7 @@ my( $list,$file,$in,$re ) = @_;
   $brew_3 = ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
    ( $re->{'TAP'} and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} : $brew_3 ? $brew_3 : 0;
     $brew_3 = $JA{$brew_1} if $JA{$brew_1};
-     $brew_3 =~ s/[“”]//g unless $Locale;
+     $brew_3 =~ tr/“”//d unless $Locale;
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -1210,13 +1207,13 @@ my( $list,$file,$in,$re ) = @_;
        $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
      }
     if( $pop ){
-     if( not $list->[$in] or $list->[$in] =~ /^\s/ ){
+     if( not $list->[$in] or index($list->[$in],' ') == 0 ){
        Memo_1( $re,$mem,$brew_1 );
          $i--; next;
-     }elsif( $list->[$in + 1] and $list->[$in + 1] !~ /^\s/ ){
+     }elsif( $list->[$in + 1] and index($list->[$in + 1],' ') != 0 ){
        Memo_1( $re,$mem,$brew_1 );
        while(1){ $in++;
-        last if not $list->[$in + 1] or $list->[$in + 1] =~ /^\s/;
+        last if not $list->[$in + 1] or index($list->[$in + 1],' ') == 0;
        }
      }
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or
@@ -1236,7 +1233,7 @@ my( $list,$file,$in,$re ) = @_;
      $in++;
     }
     $re->{'MEM'} .= "$brew_2\t$brew_3\n" if defined $brew_2;
-     $re->{'MEM'} =~ s/\t/\n/ unless defined $brew_2;
+     $re->{'MEM'} =~ tr/\t/\n/ unless defined $brew_2;
       Memo_1( $re,$mem ) if $re->{'LIST'} or $pop;
        $re->{'BN'}++ if $mem and $brew_1 !~ m|==> homebrew/|;
         $re->{'AN'}++ if $brew_1 !~ m|==> homebrew/|;
@@ -1311,11 +1308,11 @@ my( $list,$re,$in ) = @_;
   if( defined $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
        Tap_2( $re,\$tap ) if $re->{'FOR'};
         Mine_1( $tap,$re,1 );
-  }elsif( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){ $$in++;
-    if( $list->[$$in + 1] and $list->[$$in + 1] !~ /^\s/ ){
+  }elsif( $list->[$$in + 1] and index($list->[$$in + 1],' ') != 0 ){ $$in++;
+    if( $list->[$$in + 1] and index($list->[$$in + 1],' ') != 0 ){
      Memo_1( $re,$mem,$tap );
       while(1){ $$in++;
-       last if not $list->[$$in + 1] or $list->[$$in + 1] =~ /^\s/;
+       last if not $list->[$$in + 1] or index($list->[$$in + 1],' ') == 0;
       }
     }
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap} or
@@ -1458,7 +1455,7 @@ sub Format_1{
   }
   $re->{'FOR'} = 0 if $re->{'LINK'} and $re->{'LINK'} > 5;
  }elsif( $re->{'DAT'} ){
-  print for @{$re->{'OUT'}};
+  unless( -d "$re->{'HOME'}/TAP" ){ print for @{$re->{'OUT'}} }
    $re->{'FOR'} = 0;
  }else{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
@@ -1527,7 +1524,7 @@ sub Format_2{
 my $re = shift;
  if( $re->{'TT'} or $re->{'DD'} ){ my( $e,$mm,@tt ) = 0;
   for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
-   $mm = () = ${$re->{'UNI'}}[$i] =~ /\|/g;
+   $mm = ${$re->{'UNI'}}[$i] =~ tr/|/|/;
    if( $mm == $e or ${$re->{'UNI'}}[$i] =~ /require/ or ${$re->{'UNI'}}[$i] =~ /can delete/ ){
     push @tt,${$re->{'UNI'}}[$i];
      $e = $mm - 1;
@@ -1540,12 +1537,12 @@ my $re = shift;
  for my $uni(@{$re->{'UNI'}}){
    if( $re->{'D'} ){
     my @bn = split '\|',$uni;
-     $bn[$#bn] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
-      push @{$SC[$#bn-1]},$bn[$#bn] : push @{$SC[$#bn-1]},0;
-       $ha{$bn[$#bn]}++;
-        push @cn,$bn[$#bn] if $ha{$bn[$#bn]} < 2;
+     $bn[-1] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
+      push @{$SC[$#bn-1]},$bn[-1] : push @{$SC[$#bn-1]},0;
+       $ha{$bn[-1]}++;
+        push @cn,$bn[-1] if $ha{$bn[-1]} < 2;
    }
-    my $an = () = $uni =~ /\|/g;
+    my $an = $uni =~ tr/|/|/;
    $uni =~ s/\|/│/g, $uni =~ s/│--/├──/g if $Locale;
   push @COU2,$uni if $an < $re->{'KEN'} + 1;
   $cou = $an if $cou < $an;
@@ -1602,7 +1599,7 @@ my $re = shift;
      $i++, print" check $re->{'CEL'}/$cn  \033[33mbrew cleanup...\033[0m\n" if @$file > 1;
    } exit if $i;
     print STDERR "$re->{'INF'} : deps All delete [y/n]:";
-    <STDIN> =~ /^y\n$/ ? system "brew uninstall $re->{'INF'}" : exit;
+    <STDIN> eq "y\n" ? system "brew uninstall $re->{'INF'}" : exit;
   } my $in = ( $re->{'KEN'} and $re->{'KEN'} < @AR ) ? $re->{'KEN'} : @AR;
   for(my $e=0;$e<$in;$e++){ $flag++;
    if( $re->{'DDD'} ){
@@ -1699,7 +1696,7 @@ my( $re,$an1,$an2 ) = @_; my $i;
  $an1 = $an1 || 'font.sh'; $an2 = $an2 || 'tie.pl';
  unless( $re->{'DATA1'} ){
   while(my $data=<DATA>){
-   $i++, next if $data =~ /^__TIE__$/;
+   $i++, next if $data eq "__TIE__\n";
     $i ? push @{$re->{'DATA2'}},$data : push @{$re->{'DATA1'}},$data;
   }
  }
@@ -1718,7 +1715,7 @@ __END__
 [[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK,font2.sh,tie2.pl} ~/.JA_BREWG; }
+                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
  TI=$(date +%s)
 if [[ $1 -eq 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
@@ -1814,7 +1811,7 @@ if [[ $2 ]];then
    unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
 
 perl<<"EOF"
-   if( `uname -m` =~ /x86_64/ and -d '/usr/local/Homebrew' ){
+   if( `uname -m` eq "x86_64\n" and -d '/usr/local/Homebrew' ){
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
       $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
@@ -1902,24 +1899,24 @@ perl<<"EOF"
     print $FILE3 @file4;
    close $FILE3;
 
-  open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n"; $i1 = 1;
+  open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n";
    while( $an1=<$dir1> ){
     next if $an1 =~ /\s--HEAD|\s--with/;
-     $HA1{$an1} = $i1++,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA1{$an1} = ++$i1,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN1{$AN1} = $an1,$AN1 = 0 if $AN1 and $an1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir1;
-  open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/cna2.html" or die " cna2 $!\n"; $i2 = 1;
+  open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/cna2.html" or die " cna2 $!\n";
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     $HA2{$an2} = $i2++,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA2{$an2} = ++$i2,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN2{$AN2} = $an2,$AN2 = 0 if $AN2 and $an2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir2;
-  open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/cna3.html" or die " cna3 $!\n"; $i3 = 1;
+  open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/cna3.html" or die " cna3 $!\n";
    while( $an3=<$dir3> ){
     next if $an3 =~ /\s--HEAD|\s--with/;
-     $HA3{$an3} = $i3++,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA3{$an3} = ++$i3,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir3;
@@ -1989,66 +1986,66 @@ perl<<"EOF"
     print $FILE2 @file1;
    close $FILE2;
 
-  open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/ana1.html" or die " ana1 $!\n"; $i1 = 1;
+  open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/ana1.html" or die " ana1 $!\n";
    while( $an1=<$dir1> ){
     next if $an1 =~ /\s--HEAD|\s--with/;
-     $HA1{$an1} = $i1++,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA1{$an1} = ++$i1,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN1{$AN1} = $an1,$AN1 = 0 if $AN1 and $an1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir1;
-  open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/ana2.html" or die " ana2 $!\n"; $i2 = 1;
+  open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/ana2.html" or die " ana2 $!\n";
    while( $an2=<$dir2> ){
     next if $an2 =~ /\s--HEAD|\s--with/;
-     $HA2{$an2} = $i2++,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA2{$an2} = ++$i2,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN2{$AN2} = $an2,$AN2 = 0 if $AN2 and $an2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir2;
-  open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/ana3.html" or die " ana3 $!\n"; $i3 = 1;
+  open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/ana3.html" or die " ana3 $!\n";
    while( $an3=<$dir3> ){
     next if $an3 =~ /\s--HEAD|\s--with/;
-     $HA3{$an3} = $i3++,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA3{$an3} = ++$i3,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir3;
-  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/req1.html" or die " req1 $!\n"; $i4 = 1;
+  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/req1.html" or die " req1 $!\n";
    while( $re1=<$dir4> ){
     next if $re1 =~ /\s--HEAD|\s--with/;
-     $HA4{$re1} = $i4++,$RE1 = $re1 if $re1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA4{$re1} = ++$i4,$RE1 = $re1 if $re1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $EQ1{$RE1} = $re1,$RE1 = 0 if $RE1 and $re1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir4;
-  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/req2.html" or die " req2 $!\n"; $i5 = 1;
+  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/req2.html" or die " req2 $!\n";
    while( $re2=<$dir5> ){
     next if $re2 =~ /\s--HEAD|\s--with/;
-     $HA5{$re2} = $i5++,$RE2 = $re2 if $re2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA5{$re2} = ++$i5,$RE2 = $re2 if $re2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $EQ2{$RE2} = $re2,$RE2 = 0 if $RE2 and $re2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir5;
-  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/req3.html" or die " req3 $!\n"; $i6 = 1;
+  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/req3.html" or die " req3 $!\n";
    while( $re3=<$dir6> ){
     next if $re3 =~ /\s--HEAD|\s--with/;
-     $HA6{$re3} = $i6++,$RE3 = $re3 if $re3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA6{$re3} = ++$i6,$RE3 = $re3 if $re3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $EQ3{$RE3} = $re3,$RE3 = 0 if $RE3 and $re3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir6;
-  open $dir7,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " err1 $!\n"; $i7 = 1;
+  open $dir7,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " err1 $!\n";
    while( $en1=<$dir7> ){
     next if $en1 =~ /\s--HEAD|\s--with/;
-     $HA7{$en1} = $i7++,$EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA7{$en1} = ++$i7,$EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $ER1{$EN1} = $en1,$EN1 = 0 if $EN1 and $en1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir7;
-  open $dir8,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " err2 $!\n"; $i8 = 1;
+  open $dir8,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " err2 $!\n";
    while( $en2=<$dir8> ){
     next if $en2 =~ /\s--HEAD|\s--with/;
-     $HA8{$en2} = $i8++,$EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA8{$en2} = ++$i8,$EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $ER2{$EN2} = $en2,$EN2 = 0 if $EN2 and $en2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir8;
-  open $dir9,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " err3 $!\n"; $i9 = 1;
+  open $dir9,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " err3 $!\n";
    while( $en3=<$dir9> ){
     next if $en3 =~ /\s--HEAD|\s--with/;
-     $HA9{$en3} = $i9++,$EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
+     $HA9{$en3} = ++$i9,$EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $ER3{$EN3} = $en3,$EN3 = 0 if $EN3 and $en3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir9;
@@ -2104,7 +2101,7 @@ use Fcntl ':DEFAULT';
 
 my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,$RPM,$CAT,@BREW,@CASK );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
 chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
@@ -2180,7 +2177,7 @@ unless( $ARGV[0] ){
  }
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,($in << 1) + $in );
- for my $dir1(@BREW){ my $bot;
+ for my $dir1(@BREW){ my( $bot,@an );
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
    $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
@@ -2202,20 +2199,35 @@ unless( $ARGV[0] ){
         $tap{"${name}10.12"} = $tap{"${name}10.11"} = $tap{"${name}10.10"} =
         $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
        }
-        $tap{"$name$data"} =
-        $data =~ s/.*arm64_ventura:.*\n/13.0M1/  ? 1 :
-        $data =~ s/.*ventura:.*\n/13.0/          ? 1 :
-        $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ? 1 :
-        $data =~ s/.*monterey:.*\n/12.0/         ? 1 :
-        $data =~ s/.*arm64_big_sur:.*\n/11.0M1/  ? 1 :
-        $data =~ s/.*big_sur:.*\n/11.0/          ? 1 :
-        $data =~ s/.*catalina:.*\n/10.15/        ? 1 :
-        $data =~ s/.*mojave:.*\n/10.14/          ? 1 :
-        $data =~ s/.*high_sierra:.*\n/10.13/     ? 1 :
-        $data =~ s/.*sierra:.*\n/10.12/          ? 1 :
-        $data =~ s/.*el_capitan:.*\n/10.11/      ? 1 :
-        $data =~ s/.*yosemite:.*\n/10.10/        ? 1 :
-        $data =~ s/.*x86_64_linux:.*\n/Linux/    ? 1 : next; # x86_64 #
+        if( $re->{'LIN'} ){
+           $data =~ s/.*x86_64_linux:.*\n/Linux/ ? $tap{"$name$data"} = 1 : next;
+        }else{
+         if( not $an[0] and $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ){
+           $tap{"$name$data"} = $an[0] = 1; next;
+         }elsif( not $an[2] and $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ){
+           $tap{"$name$data"} = $an[2] = 1; next;
+         }elsif( not $an[4] and $data =~ s/.*arm64_big_sur:.*\n/11.0M1/ ){
+           $tap{"$name$data"} = $an[4] = 1; next;
+         }elsif( not $an[1] and $data =~ s/.*ventura:.*\n/13.0/ ){
+           $tap{"$name$data"} = $an[1] = 1; next;
+         }elsif( not $an[3] and $data =~ s/.*monterey:.*\n/12.0/ ){
+           $tap{"$name$data"} = $an[3] = 1; next;
+         }elsif( not $an[5] and $data =~ s/.*big_sur:.*\n/11.0/ ){
+           $tap{"$name$data"} = $an[5] = 1; next;
+         }elsif( not $an[6] and $data =~ s/.*catalina:.*\n/10.15/ ){
+           $tap{"$name$data"} = $an[6] = 1; next;
+         }elsif( not $an[7] and $data =~ s/.*mojave:.*\n/10.14/ ){
+           $tap{"$name$data"} = $an[7] = 1; next;
+         }elsif( not $an[8] and $data =~ s/.*high_sierra:.*\n/10.13/ ){
+           $tap{"$name$data"} = $an[8] = 1; next;
+         }elsif( not $an[9] and $data =~ s/.*sierra:.*\n/10.12/ ){
+           $tap{"$name$data"} = $an[9] = 1; next;
+         }elsif( not $an[10] and $data =~ s/.*el_capitan:.*\n/10.11/ ){
+           $tap{"$name$data"} = $an[10] = 1; next;
+         }elsif( not $an[11] and $data =~ s/.*yosemite:.*\n/10.10/ ){
+           $tap{"$name$data"} = $an[11] = 1; next;
+         }else{ next }
+        }
        next;
      }elsif( $data =~ /^\s*end/ and $KIN == 1 ){
       $KIN = 0; next;
@@ -2307,12 +2319,6 @@ unless( $ARGV[0] ){
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"(?!.+:test).*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
-     }elsif( $re->{'LIN'} and
-             my( $us5,$us6 ) = $data =~ /^\s*depends_on\s+"([^"]+)".+OS::Linux[^\s]+\s+([^\s]+)/ ){
-      if( $us6 =~ /^[<=>]+$/ and eval "$RPM $us6 $CAT" ){
-       $tap{"${us5}uses"} .= "$name\t";
-        $tap{"${name}deps"} .= "$us5\t";
-      }
      }elsif( $re->{'LIN'} and
              my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
       if( -d "$MY_BREW/Cellar/glibc" ){
@@ -2440,14 +2446,13 @@ unless( $ARGV[0] ){
   }1;
  } Glob_1;
 }
-rmdir "$ENV{'HOME'}/.BREW_LIST/16";
 
 sub Version_1{
  my @ls1 = split '\.|-|_',$_[0];
  $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
  my $i = 0;
   for(;$i<@ls2;$i++){
-   if( $ls1[$i] and $ls2[$i] =~ /[^\d]/ ){
+   if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
      if( $ls1[$i] gt $ls2[$i] ){ return 1;
      }elsif( $ls1[$i] lt $ls2[$i] ){ return;
      }
