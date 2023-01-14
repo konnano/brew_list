@@ -1142,7 +1142,7 @@ my( $list,$file,$in,$re ) = @_;
   $brew_1 = $brew_1 eq '0' ? ' ==> homebrew/cask-fonts' :
             $brew_1 eq '1' ? ' ==> homebrew/cask-drivers' :
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
-  Mine_1($brew_1,$re,0), next if ( $re->{'BL'} or defined $re->{'S_OPT'} ) and $brew_1 =~ m|^ ==> homebrew/|;
+  Mine_1($brew_1,$re,0), next if ( $re->{'BL'} or defined $re->{'S_OPT'} ) and index($brew_1,' ') == 0;
 
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'TAP'} or $re->{'CAS'} and
             $re->{'OS'}{"${brew_1}c_version"} and length $re->{'OS'}{"${brew_1}c_version"} <= length $brew_2;
@@ -1305,7 +1305,7 @@ my( $list,$re,$in ) = @_;
        $re->{'LINK'} and $re->{'LINK'} == 8 and not $re->{'OS'}{"${tap}font"} ){
       $brew = 0;
    }
-  if( defined $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/ and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
+  if( defined $re->{'S_OPT'} and $tap =~ /$re->{'S_OPT'}/o and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
        Tap_2( $re,\$tap ) if $re->{'FOR'};
         Mine_1( $tap,$re,1 );
   }elsif( $list->[$$in + 1] and index($list->[$$in + 1],' ') != 0 ){ $$in++;
@@ -1471,26 +1471,26 @@ sub Format_1{
        ( not $re->{'KAI'} and $re->{'ARR'}[$e] =~ /^ ==> Cask/ ) ?
         print"\n$re->{'ARR'}[$e]\n" : print"$re->{'ARR'}[$e]\n"; $in = 1;
       }else{
-       if( $re->{'ARR'}[$e] =~ m|homebrew/cask-fonts| and not $ls ){
-        next if $re->{'ARR'}[$e] =~ /^ ==>/ and ( not $re->{'ARR'}[$e+1] or $re->{'ARR'}[$e+1] =~ /^ ==>/ );
+       if( not $ls and $re->{'ARR'}[$e] =~ m|homebrew/cask-fonts| ){
+        next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
          print"\n" if $ze;
           $leng = $re->{'LEN2'};
            $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ls = 1;
-        if( $re->{'ARR'}[$e] =~ /^ ==>/ and $re->{'ARR'}[$e+1] ){ print"$re->{'ARR'}[$e]\n"; next;
+        if( index($re->{'ARR'}[$e],' ') == 0 ){ print"$re->{'ARR'}[$e]\n"; next;
         }else{ print" ==> brew tap : homebrew/cask-fonts\n"; }
-       }elsif( $re->{'ARR'}[$e] =~ m|homebrew/cask-drivers| and not $sl ){
-        next if $re->{'ARR'}[$e] =~ /^ ==>/ and ( not $re->{'ARR'}[$e+1] or $re->{'ARR'}[$e+1] =~ /^ ==>/ );
+       }elsif( not $sl and  $re->{'ARR'}[$e] =~ m|homebrew/cask-drivers| ){
+        next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
          print"\n" if $ze;
           $leng = $re->{'LEN3'};
            $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $sl = 1;
-        if( $re->{'ARR'}[$e] =~ /^ ==>/ ){ print"$re->{'ARR'}[$e]\n"; next;
+        if( index($re->{'ARR'}[$e],' ') == 0 ){ print"$re->{'ARR'}[$e]\n"; next;
         }else{ print" ==> brew tap : homebrew/cask-drivers\n"; }
-       }elsif( $re->{'ARR'}[$e] =~ m|homebrew/cask-versions| and not $ss ){
-        next if $re->{'ARR'}[$e] =~ /^ ==>/ and ( not $re->{'ARR'}[$e+1] or $re->{'ARR'}[$e+1] =~ /^ ==>/ );
+       }elsif( not $ss and $re->{'ARR'}[$e] =~ m|homebrew/cask-versions| ){
+        next if index($re->{'ARR'}[$e],' ') == 0 and not $re->{'ARR'}[$e+1];
          print"\n" if $ze;
           $leng = $re->{'LEN4'};
            $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
-        if( $re->{'ARR'}[$e] =~ /^ ==>/ ){ print"$re->{'ARR'}[$e]\n"; next;
+        if( index($re->{'ARR'}[$e],' ') == 0 ){ print"$re->{'ARR'}[$e]\n"; next;
         }else{ print" ==> brew tap : homebrew/cask-versions\n"; }
        }
        for(my $i=$re->{'LEN'}{$re->{'ARR'}[$e]};$i<$leng+2;$i++){
@@ -2467,7 +2467,7 @@ sub Version_1{
   my $FON;
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- my( $IN,$in,$e ) = ( 0,@CASK >> 1,0 ); $tap{'fontlist'} = '';
+ my( $IN,$in,$e ) = ( 0,@CASK >> 1,0 ); delete $tap{"fontlist"};
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
