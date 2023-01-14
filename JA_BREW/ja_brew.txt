@@ -1391,6 +1391,7 @@ echidna	イーサリアム スマートコントラクトファザー
 echoprint-codegen	EchoprintのCodegen
 ecl	埋め込み可能なCommon Lisp
 ecm	CDイメージファイルを作成して圧縮率を高めます
+ecoji	データを絵文字としてエンコード(およびデコード)します
 ed	従来のUNIXラインエディタ
 edencommon	WatchmanおよびEden プロジェクトの共有ライブラリ
 editorconfig	複数のエディター間で一貫したコーディングスタイルを維持する
@@ -1629,6 +1630,7 @@ fizz	TLS-1.3標準のC++14実装
 flac	Freeで損失の無いオーディオコーデック
 flac123	FLACオーディオファイルを再生するためのコマンドラインプログラム
 flactag	シングルアルバムのFLACファイルにMusicBrainz CUEシートのタグを付ける
+flagd	Unix哲学を備えた機能フラグデーモン
 flake	FLACオーディオエンコーダ
 flake8	Pythonコードにスタイルと論理エラーがないかリントする
 flamebearer	V8およびノード用の非常に高速なフレームグラフツール
@@ -4152,6 +4154,7 @@ ocamlbuild	OCamlの汎用ビルドツール
 oci-cli	Oracle Cloud Infrastructure CLI
 ocl-icd	OpenCL ICDローダー
 oclgrind	OpenCLデバイス模擬装置とデバッガー
+ocm	Red Hat OpenShiftクラスタマネージャのCLI
 ocp	Open CubicPlayerのUNIXポート
 ocproxy	ユーザーレベルのSOCKSとポート転送プロキシ
 ocrad	光学式文字認識(OCR)プログラム
