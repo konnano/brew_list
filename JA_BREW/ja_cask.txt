@@ -3072,6 +3072,7 @@ rstudio	RとPythonに焦点を当てたデータサイエンスソフトウェ�
 rsyncosx	rsyncのGUI
 rubymine	Ruby on Rails IDE
 rubymotion	Rubyでクロスプラットフォームのネイティブアプリを作成する
+runcat-plugins-manager	RunCatを有効にしてCPU温度を表示する
 runelite	Old School RuneScapeのクライアント
 runescape	Old School RuneScapeのゲームクライアント
 runjs	コードが入力されると自動評価されるJavaScriptプレイグラウンド
@@ -3602,6 +3603,7 @@ thonny	初心者のためのPythonIDE
 thonny-xxl	初心者のためのPython IDE
 thor	アプリケーションを切り替えるユーティリティ
 thorium	Epubリーダー
+threads	焦点を絞った議論と意思決定のためのコミュニケーションツール
 threema	End-to-endの暗号化されたインスタントメッセージングアプリケーション
 threema-work	End-to-endの暗号化されたインスタントメッセージングアプリケーション
 thumbsup	ThumbsUp
