@@ -765,7 +765,7 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
  }
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
-   print" $$name...\n" if $cat and not $re->{'dep_s'};
+   print" $$name...\n" unless not -t STDOUT or $re->{'dep_s'} or $re->{'ANA'};
  }else{
   if( @ARR ){
    $re->{'LIKE'} = print"\033[33m much...\033[0m\n";
@@ -1534,7 +1534,7 @@ my $re = shift;
  $re->{'KEN'} = 0 if not $re->{'KEN'} or $re->{'KEN'} and $re->{'KEN'} !~ /^\d+$/;
   $cn[0] = $re->{'INF'};
  for my $uni(@{$re->{'UNI'}}){
-   if( $re->{'D'} ){
+   if( $re->{'DD'} ){
     my @bn = split '\|',$uni;
      $bn[-1] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
       push @{$SC[$#bn-1]},$bn[-1] : push @{$SC[$#bn-1]},0;
@@ -1565,7 +1565,7 @@ my $re = shift;
       push @COU3,$name1; last;
      }
     }
-   } push @COU3,$name1 if not $re->{'DD'} and not $flag and $name1 =~ s/\(can delete\)//;
+   } push @COU3,$name1 if not $re->{'DD'} and not $flag and $name1 =~ /\(can delete\)/;
   }
  } $re->{'UNI'} = \@COU3 if @COU3;
 
@@ -2466,7 +2466,7 @@ sub Version_1{
   my $FON;
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- my( $IN,$in,$e ) = ( 0,@CASK >> 1,0 ); delete $tap{"fontlist"};
+ my( $IN,$in,$e ) = ( 0,@CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
