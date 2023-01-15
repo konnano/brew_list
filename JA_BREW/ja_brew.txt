@@ -670,6 +670,7 @@ cd-discid	CDを読み取り、CDDBディスク情報を取得します
 cdargs	ディレクトリブックマークシステム-拡張CDユーティリティ
 cdb	定数データベースの作成と読み取り
 cddlib	一般的な多面体コーンの二重記述法
+cdebug	コンテナデバッグの万能ナイフ
 cdecl	英語のフレーズをCまたはC++宣言に変える
 cdk	Curses開発キットは、アプリの事前定義されたcursesウィジェットを提供します
 cdk8s	オブジェクト指向プログラミングを使用して、k8sネイティブアプリと抽象化を定義します
@@ -2103,6 +2104,7 @@ gofish	クロスプラットフォームシステムパッケージマネージ�
 gofumpt	より厳格なgofmt
 gojq	jqのPureGo実装
 gokart	Goコードを保護するための静的コード分析
+gokey	Goのシンプルなボールトレスパスワードマネージャー
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
 gollum	Go n：mメッセージ 多重装置
