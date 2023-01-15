@@ -1425,7 +1425,7 @@ sub Format_1{
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
   waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
   $re->{'ZEN'} = $re->{'ALL'} || $re->{'EXC'} || $re->{'KXC'} || 0;
-  if( $re->{'CAS'} ){
+  if( $re->{'TAP'} and not $re->{'LINK'} ){
     $re->{'ZEN'} = $re->{'ZEN'} =~ /^\s{10}==>.*\n\s{10}==>.*\n\s{10}==>.*\n$/ ? 0 :
     $re->{'ZEN'} =~ /^(\s{10}==>.*\n)([^=]+)(\s{10}==>.*\n)([^=]+)\s{10}==> .*\n$/ ? "$1$2$3$4" :
     $re->{'ZEN'} =~ /^(\s{10}==>.*\n)([^=]+)\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$/ ? "$1$2$3$4" :
@@ -1436,11 +1436,10 @@ sub Format_1{
     $re->{'ZEN'} =~ /^\s{10}==>.*\n(\s{10}==> .*\n)([^=]+)$/ ? "$1$2" :
     $re->{'ZEN'} =~ /^(\s{10}==> .*\n)([^=]+)\s{10}==>.*\n$/ ? "$1$2" :
     $re->{'ZEN'} =~ /^\s{10}==>.*\n\s{10}==>.*\n$/ ? 0 :
-    $re->{'ZEN'} =~ /^\s{10}==>.*\n$/ ? 0 :
-    $re->{'ZEN'} if $re->{'TAP'} and ( $re->{'EXC'} or $re->{'KXC'} );
-   $re->{'ZEN'} =~ s/(.+)\n\s{10}item.+:.+/$1/
-    if $re->{'ZEN'} !~ /item.+:\sinstall[^:]+item.+:\sinstall/;
+    $re->{'ZEN'} =~ /^\s{10}==>.*\n$/ ? 0 : $re->{'ZEN'} if $re->{'EXC'} or $re->{'KXC'};
+    $re->{'ZEN'} =~ s/\s{10}item.+:.+\n// if $re->{'ZEN'} !~ /item.+:\sinstall.+item.+:\sinstall/s;
   }
+    $re->{'ZEN'} =~ s/\s{10}in_item.+\n// if $re->{'CAS'} and $re->{'ZEN'} !~ /in_item.+in_item/s;
   if( $re->{'ZEN'} ){
    system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
     system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
