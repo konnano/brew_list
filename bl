@@ -1239,9 +1239,8 @@ my( $list,$file,$in,$re ) = @_;
    }
   }
  }
- if( $list->[$in] ){
-  Tap_1( $list,$re,\$in ) while($list->[$in]);
- }
+ if( $list->[$in] ){ Tap_1( $list,$re,\$in ) while($list->[$in]) }
+
  unless( $re->{'LIST'} ){ my @tap = ([],[],[]);
   for my $arr(@{$re->{'ARY'}}){
    push @{$tap[2]},$arr if $arr =~ s/^homebrew-cask-versions\n(.+)/$1/;
@@ -1256,7 +1255,7 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'ALL'} .= "$re->{'SPA'} ==> homebrew/cask-fonts\n";
     }elsif( $i == 3 or $i == 5 ){ $i++;
       $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n" if $e; $e = 0;
-      $re->{'ALL'} .= $i == 3 ? "$re->{'SPA'} ==> homebrew/cask-drivers\n" :
+      $re->{'ALL'} .= $i == 4 ? "$re->{'SPA'} ==> homebrew/cask-drivers\n" :
                                 "$re->{'SPA'} ==> homebrew/cask-versions\n";
     }
     if( $i == 2 or $i == 4 ){ $e++;
