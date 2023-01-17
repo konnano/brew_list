@@ -310,6 +310,7 @@ aws-keychain	AWS認証情報の保存にMacOSキーチェーンを使用しま�
 aws-nuke	AWSアカウント全体を削除しすべてのリソースを削除します
 aws-okta	Okta認証情報を使用してAWSで認証する
 aws-rotate-key	AWSアクセスキーを簡単にローテーション
+aws-sam-cli	AWS SAMを使用してサーバーレスアプリケーションを 構築/テスト/デバッグ/デプロイするためのCLI ツール
 aws-sdk-cpp	AWS SDK for C++
 aws-shell	AWS CLIを操作するための統合シェル
 aws-sso-util	AWS SSOの荒削りな部分を滑らかにします(一時的に、AWSが改善するまで)
@@ -2193,6 +2194,7 @@ graphqurl	自動補完を使用したGraphQL用のCurl サブスクリプショ�
 graphqxl	大規模でスケーラブルなGraphQLサーバーサイドスキーマを作成するための言語
 graphviz	AT＆Tおよびベル研究所のdotグラフ視覚化ソフトウェア
 gravity	埋め込み可能なプログラミング言語
+grayskull	Condaのレシピジェネレーター
 grc	ログファイルとコマンド出力の色付け
 greed	消費のゲーム
 grep	GNU grep/egrep/fgrep
@@ -4575,6 +4577,7 @@ plowshare	人気のあるファイル共有ウェブサイトの ダウンロー
 plplot	科学的な立案を作成するためのクロスプラットフォームソフトウェアパッケージ
 plustache	MustacheテンプレートシステムのC++ポート
 pluto	Kubernetesで非推奨のapiVersionを検出するのに役立つCLIツール
+plz-cli	ターミナルのCopilot
 plzip	データ圧縮機
 pmccabe	C/C++コードのMcCabe-styleの循環的複雑度を計算します
 pmd	Java/JavaScript などのソースコード分析器
