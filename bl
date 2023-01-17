@@ -1469,21 +1469,24 @@ sub Format_1{
           print"\n" if $ze;
            $leng = $re->{'LEN2'};
             $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ls = 1;
-         if( index($re->{'ARR'}[$e],' ') == 0 ){ print"$re->{'ARR'}[$e]\n"; next;
+         if( index($re->{'ARR'}[$e],' ') == 0 ){
+          print"$re->{'ARR'}[$e]\n" unless $re->{'ARR'}[$e + 1] =~ m|^homebrew/|; next;
          }else{ print" ==> brew tap : homebrew/cask-fonts\n"; }
         }elsif( not $sl and  $re->{'ARR'}[$e] =~ m|homebrew/cask-drivers| ){
          next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
           print"\n" if $ze;
            $leng = $re->{'LEN3'};
             $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $sl = 1;
-         if( index($re->{'ARR'}[$e],' ') == 0 ){ print"$re->{'ARR'}[$e]\n"; next;
+         if( index($re->{'ARR'}[$e],' ') == 0 ){
+          print"$re->{'ARR'}[$e]\n" unless $re->{'ARR'}[$e + 1] =~ m|^homebrew/|; next;
          }else{ print" ==> brew tap : homebrew/cask-drivers\n"; }
         }elsif( not $ss and $re->{'ARR'}[$e] =~ m|homebrew/cask-versions| ){
-         next if index($re->{'ARR'}[$e],' ') == 0 and not $re->{'ARR'}[$e+1];
+         next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
           print"\n" if $ze;
            $leng = $re->{'LEN4'};
             $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
-         if( index($re->{'ARR'}[$e],' ') == 0 ){ print"$re->{'ARR'}[$e]\n"; next;
+         if( index($re->{'ARR'}[$e],' ') == 0 ){
+          print"$re->{'ARR'}[$e]\n" unless $re->{'ARR'}[$e + 1] =~ m|^homebrew/|; next;
          }else{ print" ==> brew tap : homebrew/cask-versions\n"; }
         }
        }
