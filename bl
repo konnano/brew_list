@@ -315,8 +315,8 @@ my( $re,$loop ) = @_; my $pid;
     }
     unless( $loop ){
      waitpid $pid,0;
-     ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or
-       $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ? ( print "\x1B[?25h$dok" and exit ) : die "\x1B[?25h$not";
+     ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ?
+     ( print "\x1B[?25h$dok" and exit ) : die "\x1B[?25h$not";
     }else{ print "\r",$re->{'SPA'}x2,"\r\x1B[?25h"; }
    } exit;
   }else{
@@ -1176,7 +1176,7 @@ my( $list,$file,$in,$re ) = @_;
     }else{
      if( defined $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){
-       Mine_1( $brew_1,$re,0 ) if $opt =~ /\b$re->{'S_OPT'}\b/o and $re->{'S_OPT'} !~ /^(-|\\-)$/;
+       Mine_1( $brew_1,$re,0 ) if $re->{'S_OPT'} !~ /^(-|\\-)$/ and $opt =~ /\b$re->{'S_OPT'}\b/o;
       }else{ Mine_1( $brew_1,$re,0 ); }
      }
     }
@@ -1246,7 +1246,7 @@ my( $list,$file,$in,$re ) = @_;
    push @{$tap[2]},$arr if $arr =~ s/^homebrew-cask-versions\n(.+)/$1/;
     push @{$tap[1]},$arr if $arr =~ s/^homebrew-cask-drivers\n(.+)/$1/;
      push @{$tap[0]},$arr if $arr =~ s/^homebrew-cask-fonts\n(.+)/$1/;
-  } my( $i,$flag1,$flag2 ); my $e = 0;
+  } my( $i,$e,$flag1,$flag2 );
   for my $tap( @tap ){ $i++;
    $flag2++, $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if @$tap and $re->{'ALL'} and not $flag2;
    $i++ unless @$tap;
@@ -1436,16 +1436,14 @@ sub Format_1{
   }
     $re->{'ZEN'} =~ s/\s{10}in_item.+\n// if $re->{'CAS'} and $re->{'ZEN'} !~ /in_item.+in_item/s;
   if( $re->{'ZEN'} ){
-   system " printf '\033[?7l' " if( $re->{'MAC'} and -t STDOUT );
-    system 'setterm -linewrap off' if( $re->{'LIN'} and -t STDOUT );
-     ( $re->{'LINK'} > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
-     ( $re->{'LINK'} > 5 and $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
-     print $re->{'ZEN'};
-     $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
-     $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
-     $re->{'KXC'} ? print " item $re->{'DN'} : install $re->{'DI'}\n" : 0;
-   system " printf '\033[?7h' " if( $re->{'MAC'} and -t STDOUT );
-    system 'setterm -linewrap on' if( $re->{'LIN'} and -t STDOUT );
+   $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off' if -t STDOUT;
+    ( $re->{'LINK'} > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
+    ( $re->{'LINK'} > 5 and $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
+    print $re->{'ZEN'};
+    $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
+    $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
+    $re->{'KXC'} ? print " item $re->{'DN'} : install $re->{'DI'}\n" : 0;
+   $re->{'MAC'} ? system "printf '\033[?7h' " : system 'setterm -linewrap on' if -t STDOUT;
   }
   $re->{'FOR'} = 0 if $re->{'LINK'} and $re->{'LINK'} > 5;
  }elsif( $re->{'DAT'} ){
