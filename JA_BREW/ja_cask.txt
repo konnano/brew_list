@@ -2432,6 +2432,7 @@ odbc-manager	ODBC管理
 odrive	クラウドストレージを統合するためのツール 同期/共有可能/暗号化
 offset-explorer	Apache Kafkaクラスターを管理および使用するためのGUI
 ogdesign-eagle	すべての参照画像を1か所に整理
+oka-unarchiver	Free アンアーカイバー
 okta-advanced-server-access	IDおよびアクセス管理
 old-school-runescape	Old School RuneScapeのゲームクライアント
 olive	Non-linearビデオエディター
