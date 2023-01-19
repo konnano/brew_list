@@ -1320,6 +1320,7 @@ dsocks	*BSD/MacOS のSOCKSクライアントラッパー
 dspdfviewer	ラテックスビーマー用のデュアルスクリーンPDF Viewer
 dsq	JSONに対してSQLクエリを実行するためのCLIツール CSV/Excel/寄木細工など
 dssim	RGBA構造的類似性Rustの実装
+dstack	再現性とコラボレーションのために設計されたMLワークフローオーケストレーションシステム
 dstask	Gitを利用したパーソナルタスクトラッカー
 dsvpn	Dead Simple VPN
 dtach	画面のデタッチ機能をエミュレートします
@@ -3301,7 +3302,6 @@ libstxxl	ビッグデータセット用のSTLのC++実装
 libsvg	SVGファイル用のライブラリ
 libsvg-cairo	Cairoを使用したSVG表現ライブラリ
 libsvm	ベクターサポートマシンのライブラリ
-libswiften	XMPPアプリケーションを実装するためのC++ライブラリ
 libswiftnav	GNSS関連の関数とアルゴリズムを実装するCライブラリ
 libtar	POSIXtarファイルを操作するためのCライブラリ
 libtasn1	ASN.1構造パーサーライブラリ
@@ -4385,6 +4385,7 @@ pari	数論における高速計算のために設計された数式処理シス
 pari-elldata	PARI/GP用のJE Cremona楕円曲線データ
 pari-galdata	PARI/GP用のGalois分解方程式データ
 pari-galpol	PARI/GP用のGalois多項式データベース
+pari-nflistdata	PARI/GP用 nflist() のデータファイル
 pari-seadata	PARI/GP用のモジュラー多項式データ
 pari-seadata-big	PARI/GP用の追加のモジュラー多項式データ
 parliament	AWS IAM lintingライブラリ
@@ -4697,6 +4698,7 @@ proxychains-ng	Hook先読み
 proxytunnel	HTTPSプロキシを介してTCPトンネルを作成する
 prql-compiler	シンプルで強力なパイプライン化されたSQL置換
 prr	github のメーリングリスト/スタイルのコードレビュー
+prs	GPGとgit syncを備えた安全で高速かつ便利なパスワードマネージャーCLI
 ps2eps	PostScriptをEPSファイルに変換する
 psalm	PHP静的分析ツール
 psc-package	パッケージセットに基づくPureScriptのパッケージマネージャー
