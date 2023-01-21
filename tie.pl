@@ -294,18 +294,6 @@ unless( $ARGV[0] ){
  }
 
  sub Glob_1{
- my $sub = sub{ my( $name,$ls ) = @_;
-               if( $re->{'LIN'} and ( $ls eq 'gcc' or $ls eq 'glibc' ) ){
-                $tap{"${ls}uses"} .= "$name\t";
-                $tap{"${name}deps"} .= "$ls\t";
-               }elsif( $re->{'LIN'} ){
-                $tap{"${ls}uses_proc"} .= "$name\t";
-               }elsif( $re->{'MAC'} ){
-                $tap{"${ls}uses"} .= "$name\t";
-                $tap{"${name}deps"} .= "$ls\t";
-               }
-              };
-
  my( $brew,$mine,$loop ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for my $glob(@GLOB){ my($name) = $glob =~ m|$re->{'CEL'}/([^/]+)/.*|;
@@ -320,11 +308,19 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
-           if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
-            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
-           } next if $ne;
-          $sub->( $name,$ls1 );
+          if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
+           $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
+           $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
+          } next if $ne;
+          if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls1}uses_proc"} .= "$name\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }
          }
         }
        }
@@ -335,11 +331,19 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
-           if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
-            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
-           } next if $ne;
-          $sub->( $name,$ls2 );
+          if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
+           $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
+           $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
+          } next if $ne;
+          if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls2}uses_proc"} .= "$name\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }
          }
         }
        }
@@ -371,7 +375,7 @@ sub Version_1{
   my $FON;
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- my( $IN,$in,$e ) = ( 0,@CASK >> 1,0 ); $tap{'fontlist'} = '';
+ my( $IN,$in,$e ) = ( 0,@CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
