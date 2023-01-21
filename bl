@@ -395,32 +395,32 @@ my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2
     }elsif( $e >= $m and $d >= $m and $c >= $m ){ push @an4,$$list[$i]; $m += $deps; }
  }
   if( $cou and $re->{'LIN'} ){ push @an1,'glibc'; push @an2,'linux-headers@5.15'; }
-    my $par = sub{ my( $re,$an,$hand ) = @_;
-                   for my $ls(@$an){ my( @AN,%HA );
-                    Uses_1( $re,$ls,\%HA,\@AN );
-                     push @{$re->{$ls}},@AN if $hand;
-                      $AN[0] ||= 0,print"$ls\t@AN\n" unless $hand;
-                   } exit unless $hand;
-                   while(<$hand>){ my($name,$data) = /([^\t]+)\t(.+)/;
-                    @{$re->{$name}} = $data ? split '\s',$data : ();
-                   } close $hand;
-                 };
+    sub _par{ my( $re,$an,$hand ) = @_;
+             for my $ls(@$an){ my( @AN,%HA );
+              Uses_1( $re,$ls,\%HA,\@AN );
+               push @{$re->{$ls}},@AN if $hand;
+                $AN[0] ||= 0,print"$ls\t@AN\n" unless $hand;
+             } exit unless $hand;
+              while(<$hand>){ my($name,$data) = /([^\t]+)\t(.+)/;
+               @{$re->{$name}} = $data ? split '\s',$data : ();
+              } close $hand;
+            }
 
  if( open my $FH,'-|' ){
    if( open my $CH,'-|' ){
-     $par->( $re,\@an1,$CH );
+     _par( $re,\@an1,$CH );
     die " can't open process 1\n" if $?;
    }else{ exit unless @an3;
-     $par->( $re,\@an3 );
+     _par( $re,\@an3 );
    }
-    $par->( $re,[],$FH );
+    _par( $re,[],$FH );
   if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 3\n"; }
  }else{ exit unless @an2;
    if( open my $DH,'-|' ){
-     $par->( $re,\@an2,$DH );
+     _par( $re,\@an2,$DH );
     die " can't open process 2\n" if $?;
    }else{ exit unless @an4;
-     $par->( $re,\@an4 );
+     _par( $re,\@an4 );
    }
   for my $ls(@an2,@an4){ $re->{$ls}[0] ||= 0;
     print"$ls\t@{$re->{$ls}}\n";
@@ -571,8 +571,8 @@ sub Size_1{
     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{ print`du -ks $ls2` if $ls2; exit; }
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-    my $cmp = sub{ $_[0] =~ /(\d+)\s/; $1; };
-   for(sort{$cmp->($b) <=> $cmp->($a)}@data){ my $utime; $c++;
+    sub _cmp{ $_[0] =~ /(\d+)\s/; $1; };
+   for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
     my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
     for my $json(@{$AR{$name}}){
      if( -f "$json/INSTALL_RECEIPT.json" ){
@@ -1398,7 +1398,7 @@ my $re = shift; my( $ls1,$ls2,%HA,%OP );
    if( $ls1 =~ m[^$re->{'CELD'}/\.|^$re->{'CELD'}/s?bin/]o ){
            print"$ls1\n";
    }elsif(not -l $ls1 and $ls1 =~ m|^$re->{'CELD'}/lib/[^/]+dylib$|o){
-           print"$ls1\n"; $re->{'INN'} = 1;
+           $re->{'INN'} = print"$ls1\n";
    }else{ $ls2 = $ls1;
      $ls1 =~ s|^($re->{'CELD'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
        $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
@@ -1473,7 +1473,7 @@ sub Format_1{
            $leng = $re->{'LEN2'};
             $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ls = 1;
          if( index($re->{'ARR'}[$e],' ') == 0 ){
-          print"$re->{'ARR'}[$e]\n" unless $re->{'ARR'}[$e + 1] =~ m|^homebrew/|; next;
+          print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e + 1] !~ m|^homebrew/|; next;
          }else{ print" ==> brew tap : homebrew/cask-fonts\n"; }
         }elsif( not $sl and  $re->{'ARR'}[$e] =~ m|homebrew/cask-drivers| ){
          next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
@@ -1481,7 +1481,7 @@ sub Format_1{
            $leng = $re->{'LEN3'};
             $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $sl = 1;
          if( index($re->{'ARR'}[$e],' ') == 0 ){
-          print"$re->{'ARR'}[$e]\n" unless $re->{'ARR'}[$e + 1] =~ m|^homebrew/|; next;
+          print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e + 1] !~ m|^homebrew/|; next;
          }else{ print" ==> brew tap : homebrew/cask-drivers\n"; }
         }elsif( not $ss and $re->{'ARR'}[$e] =~ m|homebrew/cask-versions| ){
          next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
@@ -1489,7 +1489,7 @@ sub Format_1{
            $leng = $re->{'LEN4'};
             $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
          if( index($re->{'ARR'}[$e],' ') == 0 ){
-          print"$re->{'ARR'}[$e]\n" unless $re->{'ARR'}[$e + 1] =~ m|^homebrew/|; next;
+          print"$re->{'ARR'}[$e]\n" if $re->{'ARR'}[$e + 1] !~ m|^homebrew/|; next;
          }else{ print" ==> brew tap : homebrew/cask-versions\n"; }
         }
        }
@@ -1525,7 +1525,7 @@ my $re = shift;
  if( $re->{'TT'} or $re->{'DD'} ){ my( $e,$mm,@tt ) = 0;
   for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
    $mm = ${$re->{'UNI'}}[$i] =~ tr/|/|/;
-   if( $mm == $e or ${$re->{'UNI'}}[$i] =~ /require/ or ${$re->{'UNI'}}[$i] =~ /can delete/ ){
+   if( $mm == $e or ${$re->{'UNI'}}[$i] =~ /\(require\)/ or ${$re->{'UNI'}}[$i] =~ /\(can delete\)/ ){
     push @tt,${$re->{'UNI'}}[$i];
      $e = $mm - 1;
    }
@@ -2390,18 +2390,6 @@ unless( $ARGV[0] ){
  }
 
  sub Glob_1{
- my $sub = sub{ my( $name,$ls ) = @_;
-               if( $re->{'LIN'} and ( $ls eq 'gcc' or $ls eq 'glibc' ) ){
-                $tap{"${ls}uses"} .= "$name\t";
-                $tap{"${name}deps"} .= "$ls\t";
-               }elsif( $re->{'LIN'} ){
-                $tap{"${ls}uses_proc"} .= "$name\t";
-               }elsif( $re->{'MAC'} ){
-                $tap{"${ls}uses"} .= "$name\t";
-                $tap{"${name}deps"} .= "$ls\t";
-               }
-              };
-
  my( $brew,$mine,$loop ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
   for my $glob(@GLOB){ my($name) = $glob =~ m|$re->{'CEL'}/([^/]+)/.*|;
@@ -2416,11 +2404,19 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
          }else{ next unless Glob_1( $ls1,$name,1 );
-           if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
-            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
-           } next if $ne;
-          $sub->( $name,$ls1 );
+          if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
+           $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
+           $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
+          } next if $ne;
+          if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls1}uses_proc"} .= "$name\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls1}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls1\t";
+          }
          }
         }
        }
@@ -2431,11 +2427,19 @@ unless( $ARGV[0] ){
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
          }else{ next unless Glob_1( $ls2,$name,1 );
-           if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
-            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
-            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
-           } next if $ne;
-          $sub->( $name,$ls2 );
+          if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
+           $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
+           $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
+          } next if $ne;
+          if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }elsif( $re->{'LIN'} ){
+           $tap{"${ls2}uses_proc"} .= "$name\t";
+          }elsif( $re->{'MAC'} ){
+           $tap{"${ls2}uses"} .= "$name\t";
+           $tap{"${name}deps"} .= "$ls2\t";
+          }
          }
         }
        }
