@@ -103,7 +103,7 @@ MAIN:{
       $? ? die " can not git clone ~/.JA_BREW\n" : exit;
   }elsif( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
-    $AR[1] = $AR[2] if defined $AR[2]; $AR[2] = $AR[3] || '';
+    $AR[1] = $AR[2] if defined $AR[2]; $AR[2] = $AR[3] || 0;
   }elsif( not $Locale ){
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
   }
@@ -137,12 +137,12 @@ MAIN:{
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
 
-  }elsif( $re->{'USE'} ){  $re->{'USE'} = lc $AR[1] || Died_1();
-  }elsif( $ref->{'PRE'} ){ $ref->{'PRE'}= lc $AR[1] || Died_1();
-  }elsif( $re->{'INF'} ){  $re->{'INF'} = $ref->{'INF'} = lc $AR[1] || Died_1();
-  }elsif( $re->{'IS'} and $AR[1] ){ $re->{'INF'} = lc $AR[1];
-  }elsif( $re->{'uses'} and $AR[1] ){ $re->{'use'} = lc $AR[1];
-  }elsif( $re->{'deps'} and $AR[1] and $AR[1] ne '.' ){ $re->{'dep_s'} = lc $AR[1];
+  }elsif( $re->{'USE'} ){  $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $ref->{'PRE'} ){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'INF'} ){  $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
+  }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
+  }elsif( $re->{'deps'} and defined $AR[1] and $AR[1] ne '.' ){ $re->{'dep_s'} = lc $AR[1];
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[0-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
@@ -259,8 +259,8 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
      @{$re->{'cask'}} = ( @list1,@list2 );
    }
   }
- if( @$list and ( $re->{'IS'} and ( not $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
-                  $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not $re->{'use'} ) ){
+ if( @$list and ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
+                  $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} ) ){
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
    $re->{'PID2'} = fork;
     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
@@ -550,7 +550,7 @@ sub Ana_1{
 
 sub Size_1{
  my( $re,$list ) = @_; my( %AR,@data,$size,$ls1,$ls2,$c );
-  if( $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
+  if( defined $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
     push @data,$re->{'INF'};
@@ -632,6 +632,7 @@ my( $re,$list ) = @_; my( %HA,@AN );
 
 sub Brew_2{
 my $re = shift; my( $ls,@an,%ha );
+ exit if defined $re->{'use'} and not $re->{'HASH'}{$re->{'use'}};
  my $tput = `tput cols`;
   my $spa = $tput >= 66 ? 44 : ($tput - 22) > 0 ? $tput - 22 : 0;
  if( $re->{'use'} ){
@@ -657,6 +658,7 @@ my $re = shift; my( $ls,@an,%ha );
 
 sub Brew_3{
 my( $re,$ls ) = @_; my( @AN,$mine,$in );
+ exit if defined $re->{'dep_s'} and not ( $re->{'HASH'}{$re->{'dep_s'}} or $re->{'DMG'}{$re->{'dep_s'}} );
  my $brew = $ls ? 'DMG' : 'HASH';
  for my $key(sort keys %{$re->{$brew}}){
   next if $re->{'dep_s'} and $re->{'dep_s'} ne $key;
