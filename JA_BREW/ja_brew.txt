@@ -4543,6 +4543,7 @@ pioneers	Catanの移植クローン
 pip-audit	既知の脆弱性についてPython環境と依存関係ツリーを監査します
 pip-completion	PIPのBash補完
 pip-tools	PIP要件ファイルのロックと同期
+pipdeptree	インストールされたPythonパッケージの依存関係ツリーを表示するCLI
 pipe-rename	お気に入りのテキストエディタを使用してファイルの名前を変更します
 pipebench	STDIN/STDOUT の通信の速度を測定します
 pipemeter	入力から出力に移動するデータの速度を示します
