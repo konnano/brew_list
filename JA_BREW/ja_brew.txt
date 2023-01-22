@@ -736,6 +736,7 @@ chcase	Perlファイルの名前変更スクリプト
 cheapglk	非常に最低限のGlkライブラリ
 cheat	*nixコマンドの対話的チートシートを作成して表示する
 check	Cの単体テストフレームワーク
+check-jsonschema	JSONスキーマCLI
 check_postgres	Postgresデータベースを監視する
 checkbashisms	シェルスクリプトのbashismsをチェックします
 checkmake	Makefilesの静的解析/分析
@@ -929,6 +930,7 @@ convertlit	Microsoft Reader形式の電子書籍をオープン形式に変換�
 convmv	ファイル名エンコーディング変換ツール
 convox	Convox PaaSのコマンドラインインターフェイス
 cookiecutter	テンプレートからプロジェクトを作成するユーティリティ
+copa	脆弱性スキャンの結果が与えられたコンテナーイメージに直接パッチを適用するツール
 copier	プロジェクトテンプレートを解釈するためのユーティリティ
 copilot	Amazon ECSおよびAWS FargateのCLIツール
 coq	高階述語論理の証明アシスタント
@@ -2850,6 +2852,7 @@ kustomize	Kubernetes YAMLマニフェストのテンプレートFreeカスタマ
 kustomizer	Kubernetes 構成をOCIアーティファクトとして配布するためのパッケージマネージャー
 kvazaar	Ultravideo HEVCエンコーダー
 kwctl	KubernetesのKubewardenポリシーエンジンのCLIツール
+kwok	Kubernetes WithOut Kubelet - 何千ものノードとクラスターをシミュレートします
 kyma-cli	Kymaコマンドラインインターフェース
 kyoto-cabinet	データベースを管理するためのルーチンのライブラリ
 kyoto-tycoon	京都Cabinetへのインターフェースを備えたデータベースサーバー
@@ -4182,6 +4185,7 @@ ohcount	ソースコードラインカウンター
 ohdear-cli	あなたの大事なサイトを管理するツール
 oil	より一貫性のある構文と意味を備えたBash互換のUnixシェル
 oksh	パブリックドメインのKornシェル(pdksh)に基づくポータブルOpenBSD ksh
+okta-awscli	awscliのOkta認証
 okteto	Kubernetesで直接コードを開発してテストすることでより優れたアプリを構築します
 ola	照明点灯の基本設計のための情報制御
 olsrd	最適化されたリンク状態設定手続きの実装
@@ -5154,6 +5158,7 @@ screen	VT100/ANSI ターミナルエミュレーションを備えたターミ�
 screenfetch	ターミナルでASCIIアートを生成する シェル/OS情報
 screenresolution	表示解像度の取得、設定、および一覧表示
 scriptcs	C#を記述して実行するためのツール
+scriptisto	コンパイル済み言語でスクリプトを作成するための言語に依存しない"shebang interpreter"
 scrollkeeper	スクロールキーパーの移行パッケージ
 scrub	データ回復を阻止するために磁気メディアにパターンを書き込みます
 scry	Crystalプログラミング言語用のコード分析サーバー
