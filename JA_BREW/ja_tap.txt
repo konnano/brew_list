@@ -1763,10 +1763,6 @@ font-snippet	Snippet
 font-snowburst-one	Snowburst One
 font-sofadi-one	Sofadi One
 font-sofia	Sofia
-font-sofia-sans	大きな文字セットを持つOpenTypeファミリ
-font-sofia-sans-condensed	Sofia Sansコンデンス
-font-sofia-sans-extra-condensed	Sofia Sansエクストラコンデンス
-font-sofia-sans-semi-condensed	Sofia Sansセミコンデンス
 font-solitreo	過去の遺物 言語のほとんどの作家がローマ字を使用するため
 font-solway	Solway
 font-sometype-mono	Sometype Mono
@@ -2342,7 +2338,6 @@ little-snitch4	ホストベースのアプリケーションファイアウォ�
 local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
 macfuse-dev	ファイルシステム統合
 macloggerdx-beta	アマチュア無線ロギングおよびリグ制御ソフトウェア
-macpass-dev	KeePass-clientおよびパスワードマネージャー
 mailmate-beta	IMAPメールクライアント
 mi-beta	テキストエディター
 microsoft-edge-beta	マルチプラットフォームのWebブラウザー
@@ -2365,6 +2360,7 @@ omnifocus2	編成重視のスケジューリングアプリ
 omnigraffle6	ビジュアルコミュニケーションソフトウェア
 omniplan3	プロジェクト計画および管理ソフトウェア
 openemu-experimental	レトロなビデオゲームエミュレーション
+openra-playtest	Westwoodゲーム用のリアルタイムストラテジーゲームエンジン
 openscad-snapshot	OpenSCAD
 openshot-video-editor-daily	クロスプラットフォームのビデオエディター
 openzfs-dev	ZFSドライバーとユーティリティ
