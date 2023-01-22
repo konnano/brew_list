@@ -643,6 +643,7 @@ codelite	C/C++/PHP/Node.js 用のIDE
 codeql	セマンティックコード分析エンジン
 coderunner	多言語プログラミングエディター
 codespace	Code snippetマネージャー
+codux	コンポーネントのスタイルとレイアウトを視覚的に編集するために構築されたReact IDE
 coffitivity-offline	Ambientサウンド生成器
 cog	オーディオプレイヤー
 coin-wallet	デジタル通貨ウォレット
