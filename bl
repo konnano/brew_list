@@ -103,7 +103,7 @@ MAIN:{
       $? ? die " can not git clone ~/.JA_BREW\n" : exit;
   }elsif( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
-    $AR[1] = $AR[2] if defined $AR[2]; $AR[2] = $AR[3] || 0;
+    $AR[1] = $AR[2] // undef; $AR[2] = $AR[3] || '';
   }elsif( not $Locale ){
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
   }
@@ -120,9 +120,10 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
-   if( $name and $AR[2] and $AR[2] eq '.' and not $re->{'deps'} and not $re->{'INF'}){ $name->{'KEN'} = 1;
-   }elsif( $re->{'deps'} and $AR[1] and $AR[1] eq '.' ){ $name->{'KEN'} = 1;
+   if( $name and $AR[2] and $AR[2] eq '.' and not $re->{'deps'} and not $re->{'INF'} ){ $name->{'KEN'} = 1;
    }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2];
+   }elsif( $re->{'deps'} and defined $AR[1] ){ if( $AR[1] eq '.' ){ $name->{'KEN'} = 1;
+                                               }else{ $re->{'dep_s'} = lc $AR[1] }
    }
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
@@ -137,16 +138,15 @@ MAIN:{
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
 
-  }elsif( $re->{'USE'} ){  $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'USE'} ){ $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $ref->{'PRE'} ){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
-  }elsif( $re->{'INF'} ){  $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
   }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
-  }elsif( $re->{'deps'} and defined $AR[1] and $AR[1] ne '.' ){ $re->{'dep_s'} = lc $AR[1];
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
-               $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[0-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
+               $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
-  if( $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
+  if( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
@@ -191,7 +191,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.16_2\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.16_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -267,7 +267,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
  }
  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
  }else{
-  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or $re->{'USE'} ) ? Brew_1( $re,$list ) :
+  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or defined $re->{'USE'} ) ? Brew_1( $re,$list ) :
    $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
     $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
  }
@@ -580,7 +580,7 @@ sub Size_1{
        while(<$dir>){ last if( $utime ) = /^.*"time":[^0-9]*([0-9]+),.*/ }
       close $dir;
      }
-    } $utime = $utime || 0;
+    } $utime ||= 0;
      my $time = [localtime($utime)];
       my $timer = sprintf "%04d/%02d/%02d",$time->[5]+=1900,++$time->[4],$time->[3];
        $size += $cou = sprintf "%.3f",$cou /= 1024;
@@ -695,7 +695,7 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
 sub Like_1{
 my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
  waitpid( $re->{'PID'},0 ) if $re->{'PID'};
-  $name = $$_ ? $_ : next for @$name;
+  $name = defined $$_ ? $_ : next for @$name;
    return if ref $name eq 'ARRAY';
  unless( $cat ){
   $HA{$_}++ for split '\t',$re->{'OS'}{'fontlist'};
@@ -886,7 +886,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
         last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
        exit unless ( not $re->{'TAP'} or $re->{'FDIR'} or $re->{'DDIR'} or $re->{'VERS'} ) and
                    ( not $re->{'PRE'} or $re->{'FDIR'} );
-       Prew_1( $re ) if $re->{'PRE'};
+       Prew_1( $re ) if defined $re->{'PRE'};
       next;
      }
       if( $re->{'TAP'} ){
@@ -1035,7 +1035,7 @@ my( $name,$re,$ls ) = @_;
    push @{$re->{'ARR'}},$name;
  }else{
    push @{$re->{'ARR'}},$name;
-    ( $re->{'BR'} ) = $name =~ m|==>.+/(.+)|; return;
+    ( $re->{'BR'} ) = $name =~ m|^ ==>.+/(.+)|; return;
  }
  if( $name =~ m|^homebrew/cask-versions/| ){
    $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
@@ -1500,7 +1500,7 @@ sub Format_1{
         }
         print $re->{'ARR'}[$e];
          if( $re->{'deps'} and not $re->{'dep_s'} ){
-          my $leng1 = $leng * ( ( $size and $in % $size ) ? $in % $size + 1 : 1 );
+          my $leng1 = $leng * ( $size ? $in % $size + 1 : 1 );
            $re->{'LENG'} = $leng1 if $re->{'LENG'} < $leng1;
          }
         unless( $size and $ze = $in % $size ){
@@ -1614,9 +1614,9 @@ my $re = shift;
 }
 
 sub Format_3{
- my( $file,$re ) = @_; my( $line1,$line2,$flag1,$flag2,$ca,$fo );
-   $line1 = $Locale ? '├──' : '|--';
-   $line2 = $Locale ? '└──' : '`--';
+ my( $file,$re ) = @_; my( $flag1,$flag2,$ca,$fo );
+  my $line1 = $Locale ? '├──' : '|--';
+  my $line2 = $Locale ? '└──' : '`--';
   for(my $m=0;$m<@$file;$m++){
    if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
     $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-drivers ==\033[0m\n" : "  == homebrew/cask-drivers ==\n";
@@ -1667,9 +1667,9 @@ sub Format_3{
   }
   if( $ca and $fo ){
    if( -t STDOUT ){
-    system " printf '\033[?7l' ";
+    system "printf '\033[?7l' ";
     print"  \033[33m### require Cask and Formula ###\033[0m\n$ca  \033[33m### require Formula ###\033[0m\n$fo";
-    system " printf '\033[?7h' ";
+    system "printf '\033[?7h' ";
    }else{ print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo"; }
   }
  Nohup_1( $re );
@@ -1695,7 +1695,7 @@ my $re = shift;
 
 sub Tied_1{
 my( $re,$an1,$an2 ) = @_; my $i;
- $an1 = $an1 || 'font.sh'; $an2 = $an2 || 'tie.pl';
+ $an1 ||= 'font.sh'; $an2 ||= 'tie.pl';
  unless( $re->{'DATA1'} ){
   while(my $data=<DATA>){
    $i++, next if $data eq "__TIE__\n";
@@ -2479,7 +2479,7 @@ sub Version_1{
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS,$FI ) = ( 1,0,0,0,1 );
-    $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
+    delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( $name =~ /^font-/ and $FI ){
