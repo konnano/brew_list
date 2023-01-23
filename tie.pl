@@ -381,7 +381,7 @@ sub Version_1{
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $IF1,$IF2,$ELIF,$ELS,$FI ) = ( 1,0,0,0,1 );
-    $tap{"${name}d_cask"} = $tap{"${name}formula"} = '';
+    delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( $name =~ /^font-/ and $FI ){
