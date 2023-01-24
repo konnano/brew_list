@@ -2301,6 +2301,7 @@ firefox-beta	Webブラウザー
 firefox-developer-edition	Webブラウザー
 firefox-esr	Webブラウザー
 firefox-nightly	Webブラウザー
+folding-at-home-beta	科学研究のためのタンパク質特定構造シミュレーション
 forklift2	Finderの代替品と FTP/SFTP/WebDAV/Amazon s3クライアント
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等
 gimp-dev	Freeでオープンソースの画像エディター
