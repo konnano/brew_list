@@ -3131,6 +3131,7 @@ libksba	X.509およびCMSライブラリ
 liblas	LASLiDAR形式の読み取りおよび書き込み用のC/C++ライブラリ
 liblbfgs	限られたメモリのBFGS最適化アルゴリズムのCライブラリ
 liblcf	RPGツクール 2000/2003 ゲームデータ用ライブラリ
+liblerc	Ersi LERCライブラリ(限定エラーラスター圧縮)
 liblinear	大規模な線形分類のためのライブラリ
 liblo	軽量のオープンサウンドコントロールの実装
 liblockfile	標準のメールボックスをロックする機能を提供するライブラリ
@@ -3262,6 +3263,7 @@ librsvg	Cairoを使用してSVGファイルを解釈するライブラリ
 librsync	rsync remote-delta アルゴリズムを実装するライブラリ
 librtlsdr	ちゃちなSDRとしてRealtek DVB-Tドングルを使用する
 librttopo	RTトポロジライブラリ
+libsais	高速線形時間サフィックス配列 LCPアレイとBwtの構築
 libsamplerate	オーディオデータのサンプルレート変換用のライブラリ
 libsass	SassコンパイラのC実装
 libsbol	Synthetic Biology Open Language(SBOL)でのファイルの読み取りと書き込み
