@@ -1450,6 +1450,7 @@ hey	HEYメールサービスにアクセスする
 hfsleuth	HFSleuth
 hiarcs-chess-explorer	チェスデータベース 分析およびゲームプレイプログラム
 hiddenbar	メニューバー項目を非表示にするユーティリティ
+hidock	異なるディスプレイを使用する場合のカスタムDock設定を設定する
 hightop	メニューバーを介したファイルアクセス
 historyhound	ブラウザーの履歴とブックマークのキーワード検索
 hma-pro-vpn	HMA! Pro VPN
