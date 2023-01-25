@@ -2148,7 +2148,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   $OS_Version2 = $UNAME !~ /arm64|aarch64/ ? 'Linux' : 'LinuxM1';
+   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
