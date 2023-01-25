@@ -101,6 +101,7 @@ amqp-cpp	RabbitMQメッセージブローカーと通信するためのC++ライ
 amtk	GNOMEのアクション、メニュー、ツールバーキット
 amtterm	Intel AMTのSerial-over-LAN(sol)クライアント
 analog	ログファイル分析器
+ancient	古い形式の解凍ルーチン
 angband	ダンジョン探検ゲーム
 angle-grinder	コマンドラインでログファイルをスライスおよびdiceします
 angular-cli	AngularのCLIツール
@@ -2043,6 +2044,7 @@ gnome-autoar	アーカイブ処理用のGNOMEライブラリ
 gnome-common	GNOMEのコアファイル
 gnome-latex	GNOMEデスクトップのLaTeXエディター
 gnome-recipes	公式のGNOMEレシピ
+gnome-themes-extra	GNOMEデスクトップ環境用の追加テーマ
 gnome-themes-standard	GNOMEデスクトップ環境のデフォルトのテーマ
 gnu-apl	プログラミング言語APLのGNU実装
 gnu-barcode	テキスト文字列を印刷されたバーに変換する
@@ -6470,6 +6472,7 @@ zrepl	ワンストップZFSバックアップおよびレプリケーション�
 zsdx	Solarus DXのゼルダミステリー
 zsh	UNIXシェル(コマンド解釈プログラム)
 zsh-async	外部ツールを使用せずに非同期でタスクを実行する
+zsh-autopair	zshで一致する区切り文字を自動的に閉じて削除する
 zsh-autosuggestions	zshに対するFishのようなautosuggestions 高速/目立たない
 zsh-completions	zshの追加の補完定義
 zsh-fast-syntax-highlighting	Zshの機能豊富な構文の強調表示
