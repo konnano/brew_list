@@ -3562,6 +3562,7 @@ lzlib	データ圧縮ライブラリ
 lzo	リアルタイムデータ圧縮ライブラリ
 lzop	ファイル圧縮機
 m-cli	MacOSの万能ナイフ
+m1ddc	M1 MacでDDC/CIを使用して外部ディスプレイを制御(USB-C/DisplayPort Altモード)
 m4	マクロ処理言語
 mabel	ターミナル用のFancy BitTorrentクライアント
 mac-robber	デジタル調査ツール
@@ -3668,6 +3669,7 @@ mdcat	テキスト端末にマークダウンドキュメントを表示する
 mdds	多次元データ構造とインデックス作成アルゴリズム
 mdf2iso	MDF(アルコール120％画像)画像をISO画像に変換するツール
 mdk	GNU MIX開発キット
+mdless	ターミナルでマークダウンファイルの書式設定および強調表示されたビューを提供します
 mdp	コマンドラインベースのマークダウン提示ツール
 mdr	diffを読みやすくする
 mdv	Style付きターミナルマークダウンViewer
