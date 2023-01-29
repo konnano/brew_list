@@ -686,6 +686,7 @@ convert3dgui	一般的なファイル形式間で3D画像を変換するため�
 cookie	追跡およびオンラインプロファイリングからの保護
 cool-retro-term	古いカソードディスプレイを模倣したターミナルエミュレータ
 coolterm	シリアルポート端子
+copilot-for-xcode	Github CopilotのXcode拡張機能
 copyclip	クリップボードマネージャー
 copyq	高度な機能を備えたクリップボードマネージャー
 copytranslator	コピーしながらリアルタイムでテキストを翻訳するツール
@@ -1908,6 +1909,7 @@ lookingglassstudio	Looking Glassで3D画像およびビデオ形式を表示お�
 loom	画面およびビデオ録画ソフトウェア
 loopback	ケーブルFreeオーディオルーター
 losslesscut	ビデオファイルとオーディオファイルを劣化無しでトリミング
+lotus	GitHubの通知を確認する
 love	Lua用の2Dゲームフレームワーク
 lrtimelapse	時間経過編集 キーフレーム グレーディング/レンダリング
 ltspice	SPICEシミュレーションソフトウェア 回路図キャプチャ/波形ビューア
@@ -2219,6 +2221,7 @@ monitorcontrol	外部モニターの明るさと音量を制御するツール
 monity-helper	Monity Helper
 mono-mdk	Microsoftの.NETFrameworkのオープンソース実装
 monodraw	テキストベースのアートを作成するためのツール
+monofocus	Todoアプリのすべてのタスクをメニューバーに保持する
 monolingual	システムから不要な言語リソースを削除するユーティリティ
 moom	1つのディスプレイでウィンドウを移動およびズームするユーティリティ
 moonlight	GameStreamクライアント
@@ -3043,6 +3046,7 @@ ringcentral-meetings	ビデオ会議/画面共有/チームメッセージング
 ringcentral-phone	電話システムマネージャー
 ripcord	Slack(およびDiscord)用のデスクトップチャットクライアント
 ripme	さまざまなWebサイトのアルバムリッパー
+rive	機能的なグラフィックを作成するデザインツール
 rnnoise	音声のノイズ抑制
 roam-research	ネットワーク化された思考のためのメモを取るツール
 roaringapps	RoaringApps
@@ -3162,6 +3166,7 @@ senuti	曲を転送します プレイリスト/iPodからコンピュータへ�
 sequel-ace	MySQL/MariaDBデータベース管理
 sequel-pro	MySQL/MariaDBデータベース管理プラットフォーム
 sequential	画像とPDFファイルのフォルダとアーカイブを表示します
+serene	集中と計画のための生産性向上アプリ
 serial	シリアルポートでほとんど何にでも接続できます
 serial-tools	シリアルツール
 serviio	メディアサーバー
@@ -3374,6 +3379,7 @@ spotify-now-playing	Spotify - now playing
 spotmenu	メニューバーのSpotifyとiTunes
 spotspot	Spotifyミニプレーヤー
 springtoolsuite	Spring Boot用の次世代ツール
+spybuster	スパイウェア対策ツール
 spyder	科学的なPython IDE
 sql-tabs	SQLタブ
 sqlcl	Oracle SQLclは、Oracleデータベースの最新のコマンドラインインターフェイスです。
@@ -3772,6 +3778,7 @@ ujam	UJAM製品の管理ツール
 ukelele	Unicodeキーボードレイアウトエディター
 ukrainian-typographic-keyboard	ウクライナ語のキーボードレイアウトと活版印刷の記号の組み合わせ
 ukrainian-unicode-layout	ウクライナのUnicodeレイアウト
+ulbow	ログブラウザ
 ultdata	iPhoneデータ回復ソフトウェア
 ultimaker-cura	3DプリンターとスライスGUI
 ultimate	電子書籍のDRMを変換して削除する
