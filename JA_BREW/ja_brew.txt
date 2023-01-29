@@ -790,6 +790,7 @@ clac	後置表記を使用したコマンドラインのスタックベースの
 clair	コンテナの脆弱性静的分析器
 clamav	ウイルス対策ソフト
 clamz	AmazonのミュージックstoreからMP3ファイルをダウンロードする
+clang-build-analyzer	コンパイル時間を分析するツール
 clang-format	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
 clang-format@11	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
 clang-format@8	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
@@ -6294,6 +6295,7 @@ xcb-util-keysyms	標準のX定数とキーコードとの間の変換
 xcb-util-renderutil	XRender機能拡張の便利な機能
 xcb-util-wm	EWMHおよびICCCMのクライアントおよびウィンドウマネージャーヘルパー
 xcbeautify	xcodebuildの小さな美化ツール
+xcdiff	xcodeprojファイルを比較するツール
 xcenv	Xcodeバージョンマネージャー
 xcinfo	利用可能なXcodeバージョンに関する情報を取得してインストールするためのツール
 xclip	コマンドラインからX11クリップボードにアクセスする
