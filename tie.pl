@@ -377,7 +377,7 @@ sub Version_1{
   my $FON;
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
- my( $in,$e ) = ( 0,@CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
+ my( $in,$e ) = ( @CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
