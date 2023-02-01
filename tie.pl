@@ -3,7 +3,6 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my( $IN,$KIN,$SPA ) = ( 0,0,0 );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'intel' : 'arm';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
 chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
@@ -81,6 +80,7 @@ unless( $ARGV[0] ){
  }
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,($in << 1) + $in );
+    my( $IN,$KIN,$SPA ) = ( 0,0,0 );
  for my $dir1(@BREW){ my( $bot,@an );
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
@@ -456,7 +456,7 @@ unless( $ARGV[0] ){
   @CASK = sort grep{ s|.+/(.+)\.rb|$1| }@CASK;
  }
 
-  my $COU = $IN = 0;
+  my( $COU,$IN ) = ( 0,0 );
  for(my $i=0;$i<@BREW;$i++){
   $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
   $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
