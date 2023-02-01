@@ -3377,6 +3377,7 @@ splitshow	PDFスライドのデュアルヘッドプレゼンテーション
 spotifree	Spotifyの広告を自動的にミュートします(サポートされていません)
 spotify	音楽ストリーミングサービス
 spotify-now-playing	Spotify - now playing
+spotify4bigsur	通知センターにSpotify用のウィジェットを実装します
 spotmenu	メニューバーのSpotifyとiTunes
 spotspot	Spotifyミニプレーヤー
 springtoolsuite	Spring Boot用の次世代ツール
