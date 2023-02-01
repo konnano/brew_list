@@ -2954,6 +2954,7 @@ libantlr3c	CのANTLRv3解析ライブラリ
 libao	クロスプラットフォームオーディオライブラリ
 libapplewm	Apple-WM拡張機能用のXlib-baseのライブラリ
 libarchive	Multi-formatのアーカイブおよび圧縮ライブラリ
+libaribcaption	ポータブルARIB STD-B24キャプション デコーダ/レンダラー
 libart	高性能2Dグラフィックス用のライブラリ
 libass	ASS/SSA 字幕形式の字幕renderer
 libassuan	Assuan IPCライブラリ
@@ -4238,6 +4239,7 @@ openblas	最適化されたBLASライブラリ
 opencascade	3Dモデル化および数値シミュレーションソフトウェア CAD/CAM/CAE
 opencbm	さまざまなフロッピードライブ形式へのアクセスを提供します
 opencc	簡体字-繁体字中国語変換ツール
+opencl-clhpp-headers	OpenCL APIのC++言語ヘッダーファイル
 opencl-headers	OpenCL APIのC言語ヘッダーファイル
 opencl-icd-loader	OpenCLインストール可能クライアントドライバー{ICD}ローダー
 openclonk	マルチプレイヤーアクションゲーム
@@ -4819,6 +4821,7 @@ qcli	libavfilterを介して視聴覚metricsを報告する
 qd	C++/Fortran-90 double-doubleおよびquad-double パッケージ
 qdae	速くてDirtyなアプリコットエミュレータ
 qdbm	データベースを管理するためのルーチンのライブラリ
+qdmr	DMR radios Codeplugプログラミングツール
 qemu	x86およびPowerPC用のエミュレーター
 qhull	n次元の凸包を計算します
 qjackctl	JACKサウンドサーバーデーモンを制御するためのシンプルなQtアプリケーション
