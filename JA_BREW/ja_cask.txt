@@ -2720,6 +2720,7 @@ poedit	翻訳エディター
 poi	拡張性のあるKanColleブラウザーとツール
 pokemon-reborn	ポケモンリボーン
 pokemon-showdown	ポケモン対決
+pokemon-tcg-live	ポケモントレーディングカードゲームをプレイ
 pokemon-trading-card-game-online	ポケモンTCGをオンラインでプレイ
 poker-copilot	オンラインポーカーHUDおよび追跡ソフトウェア
 pokerstars	Freeでプレイできるオンラインポーカー
