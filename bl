@@ -779,10 +779,10 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
 }
 
 sub Prew_1{
-my $re = shift;
- unless( $re->{'OS'}{"$re->{'PRE'}font"} ){
-  Like_1( $re,[\$re->{'PRE'}] ) if $re->{'OS'}{'fontlist'};
-   exit unless $re->{'OS'}{"$re->{'PRE'}font"};
+my $re = shift;									print" koko\n";
+ unless( $re->{'OS'}{"$re->{'PRE'}font"} ){					print" dede\n";
+  Like_1( $re,[\$re->{'PRE'}] ) if $re->{'OS'}{'fontlist'};			print" momo\n";
+#   exit unless $re->{'OS'}{"$re->{'PRE'}font"};
   print" $re->{'PRE'}...\n"
  unless -f "$re->{'HOME'}/master.ttf" or -f "$re->{'HOME'}/master.otf" or -f "$re->{'HOME'}/master.dfont";
  }
@@ -2480,7 +2480,7 @@ sub Version_1{
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
-     my( $SPA,$CN,$IN,$FI,$CP1,$CP2 ) = ( 0,0,0,0,0,0 );
+     my( $SPA,$CN,$IN,$CP1,$CP2,$FI ) = ( 0,0,0,0,0,1 );
       delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
