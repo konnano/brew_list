@@ -382,7 +382,7 @@ sub Version_1{
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
-     my( $SPA,$CN,$IN,$FI,$CP1,$CP2 ) = ( 0,0,0,0,0,0 );
+     my( $SPA,$CN,$IN,$CP1,$CP2,$FI ) = ( 0,0,0,0,0,1 );
       delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
