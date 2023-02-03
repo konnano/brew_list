@@ -430,6 +430,8 @@ font-della-respira	Della Respira
 font-delugia-book	Cascadiaコード + オタクフォント,Caskaydia Coveオタクフォントのわずかな違い
 font-delugia-complete	Cascadiaコード + オタクフォント,Caskaydia Coveオタクフォントのわずかな違い
 font-delugia-mono-complete	Cascadiaコード + オタクフォント,Caskaydia Coveオタクフォントのわずかな違い
+font-delugia-mono-powerline	Cascadiaコード + Nerdフォント,Caskaydia Cove Nerdフォントのマイナーな違い
+font-delugia-powerline	Cascadiaコード + Nerdフォント,Caskaydia Cove Nerdフォントのマイナーな違い
 font-denk-one	Denk One
 font-devicons	Devicons
 font-devonshire	Devonshire
