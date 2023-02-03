@@ -1001,6 +1001,7 @@ create-dmg	派手なDMGを構築するためのシェルスクリプト
 credstash	クラウドで認証情報を管理するための小さなユーティリティ
 creduce	関心のある属性を維持しながらC/C++プログラムを削減します
 crf++	連続データを セグメント化/ラベル付け するための条件付き確率場
+crfsuite	条件付きランダムフィールドの高速実装
 cri-tools	Kubelet Container Runtime Interface(CRI)のCLIおよび検証ツール
 crispy-doom	ChocolateDoomに基づく制限を削除する拡張解像度のDoomソースポート
 criterion	21世紀のクロスプラットフォームCおよびC++ユニットテストフレームワーク
@@ -2722,6 +2723,7 @@ jsonschema	PythonのJSONスキーマの実装
 jsonschema2pojo	JSONスキーマ(またはJSONの例え)からJavaタイプを生成します
 jsvc	Javaアプリケーションをデーモンとして起動するラッパー
 jthread	スレッドを簡単に利用できるC++クラス
+juicefs	RedisとS3上に構築されたクラウドベースの分散POSIXファイルシステム
 juise	JUNOSユーザーインターフェイススクリプト環境
 juju	DevOps管理ツール
 juju-wait	配置の設定を待つためのJujuプラグイン
