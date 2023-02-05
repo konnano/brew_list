@@ -423,6 +423,7 @@ font-dejavu-sans-mono-for-powerline	DejaVu Sans Mono for Powerline
 font-dejavu-sans-mono-nerd-font	DejaVu Sans Monoオタクフォント(DejaVu Sans Mono)
 font-dekko	Dekko
 font-dela-gothic-one	Dela Gothic One
+font-delicious-handrawn	agung rohmatの手書きに影響されたフォント
 font-delius	Delius
 font-delius-swash-caps	Delius Swash Caps
 font-delius-unicase	Delius Unicase
@@ -561,6 +562,7 @@ font-foundry-sterling	Foundry Sterling
 font-fragment-mono	Helveticaに影響を受けた等幅コーディングフォント
 font-francois-one	Francois One
 font-frank-ruhl-libre	Frank Ruhl Libre
+font-fraunces	4軸可変フォント
 font-freckle-face	Freckle Face
 font-fredericka-the-great	Fredericka the Great
 font-fredoka	ben nathanが率いる イスラエルを拠点とするタイパーデザイン製造所
@@ -578,6 +580,7 @@ font-fzshusong-z01	Fangzheng Shusong GBK
 font-gabriela	Gabriela
 font-gaegu	Gaegu
 font-gafata	Gafata
+font-gajraj-one	Gajraj One
 font-galada	Galada
 font-galdeano	Galdeano
 font-galindo	Galindo
@@ -619,6 +622,7 @@ font-girassol	Girassol
 font-give-you-glory	Give You Glory
 font-glass-antiqua	Glass Antiqua
 font-glegoo	Glegoo
+font-gloock	細い線と太い線の滑らかな関係
 font-gloria-hallelujah	Gloria Hallelujah
 font-glory	ロゴに適しています 利用可能な6つのウエイトを持つ見出しと本文
 font-glow-sans-j-compressed	Glow Sans J Compressed
@@ -644,6 +648,7 @@ font-goblin-one	Goblin One
 font-gochi-hand	Gochi Hand
 font-gohufont-nerd-font	GohuFontオタクフォント(Gohu)
 font-goldman	ポスター用に設計されたラテンのディスプレイ書体
+font-golos-text	Golos Text
 font-gorditas	Gorditas
 font-gothic-a1	Gothic A1
 font-gotu	Gotu
@@ -664,6 +669,7 @@ font-griffy	Griffy
 font-gruppo	Gruppo
 font-gudea	Gudea
 font-gugi	Gugi
+font-gulzar	オリジナルのラテン版が設計されたNasta'liqタイプ
 font-gupter	Gupter
 font-gurajada	Gurajada
 font-gwendolyn	Gwendolyn
@@ -897,6 +903,7 @@ font-koh-santepheap	本文用のKhmerフォント
 font-koho	KoHo
 font-kokoro	心
 font-kolker-brush	コピーを編集するときにすべて大文字を使用することはお勧めしません
+font-konkhmer-sleokchher	見出しや大きなタイポグラフィでの使用に最適
 font-kosugi	Available as kosugi maru
 font-kosugi-maru	Available as kosugi
 font-kotta-one	Kotta One
@@ -912,6 +919,7 @@ font-kumar-one	Kumar One
 font-kumbh-sans	幾何学的なsans-serif多目的フォント
 font-kurale	Kurale
 font-la-belle-aurore	美しい日の出
+font-labrada	Labrada
 font-lacquer	Lacquer
 font-laila	Laila
 font-lakki-reddy	Lakki Reddy
@@ -1153,6 +1161,7 @@ font-museo	Museo
 font-museomoderno	MuseoModerno
 font-my-soul	微妙に装飾された大文字の形をしたフラットペン書道スタイル
 font-myanmar-sans-pro	ミャンマー Sans Pro
+font-mynerve	Mynerve
 font-myrica	Myrica
 font-myricam	MyricaM
 font-mystery-quest	Mystery Quest
@@ -1501,6 +1510,7 @@ font-petrona	Petrona
 font-phetsarath	Phetsarath
 font-philosopher	Philosopher
 font-photonico-code	Free/モノスペース コーティング用のslab-serifスタイルフォント
+font-phudu	Phudu
 font-piazzolla	メディア用のSerifフォントファミリー
 font-piedra	Piedra
 font-pigmo00	かわいい描画スタイルの日本語フォント
@@ -1593,6 +1603,7 @@ font-rasa	Rasa
 font-rationale	Rationale
 font-ravi-prakash	Ravi Prakash
 font-readex-pro	可変フォントのファミリー
+font-recursive	アロータイプを筆頭にブルックリンに拠点を置く活字製造所、ニューヨーク、アメリカ
 font-recursive-code	Recursiveのビルド済みのテキストエディターに適したファイル powerline glyphsを含む
 font-red-hat-display	Red Hat Display
 font-red-hat-mono	Red Hat Mono
@@ -1723,6 +1734,7 @@ font-sf-pro	Sans-serif variant of \
 font-shadows-into-light	Shadows Into Light
 font-shadows-into-light-two	Shadows Into Light Two
 font-shalimar	平らなペン先の書道のストロークに触発された直立したスクリプト
+font-shantell-sans	Shantell Sans
 font-shanti	Shanti
 font-share	Share
 font-share-tech	Share Tech
@@ -1765,6 +1777,10 @@ font-snippet	Snippet
 font-snowburst-one	Snowburst One
 font-sofadi-one	Sofadi One
 font-sofia	Sofia
+font-sofia-sans	Sofia Sans
+font-sofia-sans-condensed	Sofia Sans Condensed
+font-sofia-sans-extra-condensed	Sofia Sans Extra Condensed
+font-sofia-sans-semi-condensed	Sofia Sans Semi Condensed
 font-solitreo	過去の遺物 言語のほとんどの作家がローマ字を使用するため
 font-solway	Solway
 font-sometype-mono	Sometype Mono
@@ -2290,7 +2306,8 @@ discord-canary	音声およびテキストチャットソフトウェア
 discord-development	音声およびテキストチャットソフトウェア
 discord-ptb	音声およびテキストチャットソフトウェア
 docker-edge	コンテナ化されたアプリケーションとマイクロサービスを構築して共有するためのアプリ
-dolphin-dev	ゲームキューブとWiiのゲームをプレイするエミュレーター
+dolphin-beta	ゲームキューブやWiiのゲームが遊べるエミュレーター
+dolphin-dev	ゲームキューブとWiiのゲームが遊べるエミュレーター
 dotnet-preview	開発者プラットフォーム
 dotnet-sdk-preview	開発者プラットフォーム
 dropbox-beta	Dropboxクラウドストレージサービスのクライアント
@@ -2441,6 +2458,7 @@ vmware-fusion7	VMware Fusion
 vmware-fusion8	VMware Fusion
 vox2	VOX
 vscodium-insiders	コードエディタ
+wezterm-nightly	GPUで高速化されたクロスプラットフォームターミナルエミュレーターおよびマルチプレクサー
 whatsapp-alpha	WhatsAppのネイティブデスクトップクライアント
 whatsapp-beta	WhatsAppのデスクトップクライアント
 whoozle-android-file-transfer-nightly	Androidファイル転送
