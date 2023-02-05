@@ -298,7 +298,6 @@ avro-cpp	データ順番化システム
 avro-tools	Avroコマンドラインツールとユーティリティ
 awf	A Widget Factoryは、gtk2とgtk3のテーマプレビューアプリケーションです。
 awk	テキスト処理スクリプト言語
-aws-apigateway-importer	SwaggerまたはRAMLAPIからAmazon API GatewayAPIを作成または更新します
 aws-auth	IAMロールを介してAWSアカウントにプログラムで認証できるようにします
 aws-cdk	AWSクラウド開発キット AWS基礎構造をコードとして定義するためのフレームワーク
 aws-cfn-tools	Amazon CloudFormation Webサービスのクライアント
@@ -1191,7 +1190,6 @@ diamond	加速されたBLAST互換のローカル連続aligner
 diceware	覚えておくべきパスフレーズ
 dict	辞書サーバー手続き(RFC2229)クライアント
 diction	GNUの言葉遣いとスタイル
-dieharder	乱数テストパッケージ
 diesel	RustORMディーゼルのコマンドラインツール
 diff-pdf	2つのPDFファイルを視覚的に比較します
 diff-so-fancy	diff-highlightなどを使用した見栄えの良いdiff
@@ -2049,7 +2047,6 @@ gnome-common	GNOMEのコアファイル
 gnome-latex	GNOMEデスクトップのLaTeXエディター
 gnome-recipes	公式のGNOMEレシピ
 gnome-themes-extra	GNOMEデスクトップ環境用の追加テーマ
-gnome-themes-standard	GNOMEデスクトップ環境のデフォルトのテーマ
 gnu-apl	プログラミング言語APLのGNU実装
 gnu-barcode	テキスト文字列を印刷されたバーに変換する
 gnu-chess	チェスプレイプログラム
@@ -3136,7 +3133,6 @@ libkate	Oggの多重化された オーディオ/ビデオ のoverlayコーデ�
 libkeccak	Keccak-ファミリハッシュライブラリ
 libkml	KMLを解析、生成、操作するためのライブラリ
 libksba	X.509およびCMSライブラリ
-liblas	LASLiDAR形式の読み取りおよび書き込み用のC/C++ライブラリ
 liblbfgs	限られたメモリのBFGS最適化アルゴリズムのCライブラリ
 liblcf	RPGツクール 2000/2003 ゲームデータ用ライブラリ
 liblerc	Ersi LERCライブラリ(限定エラーラスター圧縮)
@@ -3755,7 +3751,6 @@ minidlna	クライアントに準拠したメディアサーバーソフトウ�
 minikube	Kubernetesクラスターをローカルで実行する
 minimal-racket	最新のプログラミング言語 Lisp/Scheme family
 minimap2	ゲノムおよびスプライシングされたヌクレオチド配列のための多用途のペアワイズアライナー
-minimesos	Mesosフレームワーク基礎構造のテスト
 minimodem	汎用ソフトウェアオーディオFSKモデム
 minio	高性能、Kubernetesネイティブオブジェクト記憶装置
 minio-mc	オブジェクト記憶装置のls、cp、その他のコマンドの置き換え
@@ -5404,6 +5399,7 @@ sonarqube-lts	コード品質を管理する
 sonic	高速/軽量 スキーマレスの検索バックエンド
 sonobuoy	クラスタの適合性に関する報告を生成するKubernetesコンポーネント
 sophus	Eigenを使用したLie GroupのC++実装
+soplex	線形計画問題(LP)を解くための最適化パッケージ
 sops	暗号化されたファイルの編集
 sord	RDFデータをメモリに格納するためのCライブラリ
 souffle	ロジック定義の静的解析
@@ -6015,6 +6011,7 @@ usbutils	USBデバイスに関する詳細情報を一覧表示します
 userspace-rcu	ユーザースペースRCU用のライブラリ(read-copy-update)
 utf8cpp	ポータブルな方法でC++を使用したUTF-8
 utf8proc	UTF-8Unicodeデータを処理するためのクリーンなCライブラリ
+utftex	TeXライクな構文を使用してmonospaceフォントで数学をきれいに印刷します
 uthash	ハッシュテーブルなどのCマクロ
 util-linux	Linuxユーティリティのコレクション
 util-macros	X.Org：他のxorgパッケージを構築するために使用されるautoconfマクロのセット
