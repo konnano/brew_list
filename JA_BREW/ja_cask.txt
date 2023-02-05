@@ -724,7 +724,6 @@ crossover	Windowsソフトウェアを実行するためのツール
 crosspack-avr	AtmelのAVR®マイクロコントローラーの開発環境
 crunch	非常識(非常に遅いbut wicked good)PNG画像の最適化
 crushftp	ファイル転送サーバー
-cryo	ビジュアルファイルマネージャー
 crypter	暗号化ソフトウェア
 cryptomator	マルチプラットフォームのクライアント側クラウドファイル暗号化ツール
 cryptonomic-galleon	Tezosブロックチェーン用のソフトウェアウォレット
@@ -3258,7 +3257,6 @@ sketch	デジタルデザインおよびプロトタイピングプラットフ�
 sketch-toolbox	スケッチツールボックス
 sketchbook	描画 ペイント&スケッチ アプリケーション
 sketchpacks	スケッチパック
-sketchup	3D設計ソフトウェア
 skim	PDFリーダーとメモ取りアプリケーション
 skitch	マークアップと共有機能を備えた画面キャプチャツール
 skychart	星図を描く
