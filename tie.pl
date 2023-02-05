@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'intel' : 'arm';
+my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
 chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
 
@@ -24,7 +24,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
              'yosemite'=>'10.10','mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
      %HAN = ('newer'=>'>','older'=>'<');
 
-  if( $UNAME eq 'intel' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
+  if( $UNAME eq 'x86_64' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
     $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
      $re->{'COM'} = '/usr/local/share/zsh/site-functions';
    unless( $ARGV[0] ){
@@ -49,7 +49,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   $OS_Version2 = $UNAME eq 'intel' ? 'Linux' : 'LinuxM1';
+   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
@@ -146,8 +146,8 @@ unless( $ARGV[0] ){
       $SPA = $IN = 1, next if $data =~ /^\s*on_macos\s+do/;
     }
      if( $data =~ /^\s*head\s+do/ ){ $SPA = $IN = 1; next;
-     }elsif( $data =~ /^\s*on_intel\s+do/ and $UNAME eq 'arm' or
-             $data =~ /^\s*on_arm\s+do/ and $UNAME eq 'intel' ){ $SPA = $IN = 1; next;
+     }elsif( $data =~ /^\s*on_intel\s+do/ and $UNAME eq 'arm64' or
+             $data =~ /^\s*on_arm\s+do/ and $UNAME eq 'x86_64' ){ $SPA = $IN = 1; next;
      }elsif( my( $ha1,$ha2 ) = $data =~ /^\s*on_([^\s]+)\s+:or_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $re->{'LIN'} or eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version"; next;
      }elsif( my( $ha3,$ha4 ) = $data =~ /^\s+on_system\s+:linux,\s+macos:\s+:(.+)_or_([^\s]+)\s+do/ ){
@@ -378,6 +378,7 @@ sub Version_1{
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  my( $in,$e ) = ( @CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
+ $UNAME = $UNAME eq 'x86_64' ? 'intel' : 'arm';
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
