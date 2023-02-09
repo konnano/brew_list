@@ -2152,6 +2152,7 @@ logitech-gaming-software	Logitechゲーミングソフトウェア
 logitech-myharmony	Logitech Harmonyユニバーサルリモコンの設定ソフトウェア
 logitech-options	Logitechデバイス用のソフトウェア
 logitech-unifying	デバイスをUnifyingレシーバーとペアリングするためのユーティリティ
+logitune	ウェブカメラを最適化 ヘッドセットとビデオ会議用のLog Dock
 loupedeck	Loupedeckコンソール用のソフトウェア
 lovense-remote	Lovense製品のリモート
 luftdateninfo-flashing-tool	Luftdaten.info点滅ツール
@@ -2440,7 +2441,6 @@ thunderbird-daily	カスタマイズ可能なメールクライアント
 tinymediamanager3	メディア管理ツール V3バージョンライセンスは不要
 tor-browser-alpha	セキュリティに重点を置いたWebブラウザー
 tower2	Tower
-transmission-beta	オープンソースのBitTorrentクライアント
 transmission-nightly	オープンソースのBitTorrentクライアント
 transmit4	Transmit
 tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
