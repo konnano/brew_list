@@ -569,7 +569,6 @@ cisdem-data-recovery	Cisdemデータリカバリ
 cisdem-document-reader	Windowsベースのファイルを開いて表示するためのドキュメントリーダー
 cisdem-duplicate-finder	重複ファインダー
 cisdem-pdf-converter-ocr	OCR機能を備えたPDF変換器
-cisdem-pdfmanagerultimate	Cisdem PDFManagerUltimate
 citra	ニンテンドー3DSエミュレーター
 citrix-workspace	マネージドデスクトップ仮想化ソリューション
 cityofzion-neon	NEOブロックチェーン用ライトウォレット
@@ -647,6 +646,7 @@ codespace	Code snippetマネージャー
 codux	コンポーネントのスタイルとレイアウトを視覚的に編集するために構築されたReact IDE
 coffitivity-offline	Ambientサウンド生成器
 cog	オーディオプレイヤー
+coherence-x	ウェブサイトをアプリに変える
 coin-wallet	デジタル通貨ウォレット
 coinomi-wallet	安全に保管 多くのブロックチェーン資産を管理および交換する
 cold-turkey-blocker	Webサイトをブロックする ゲーム/アプリケーション
@@ -1369,6 +1369,7 @@ gpg-suite	メールやファイルを保護するためのツール
 gpg-suite-no-mail	ファイルを保護するためのツール
 gpg-suite-pinentry	GPGSuite用のPinentryGUI
 gpg-sync	GPG同期
+gpgfrontend	OpenPGP/GnuPG暗号 サインと鍵の管理ツール
 gplates	電極テクトニクスプログラム
 gpodder	ポッドキャストクライアント
 gpxsee	GPSログファイルビューアおよび分析
@@ -2237,7 +2238,6 @@ mountain	ボリュームの マウント/アンマウント時に通知を表示
 mountain-duck	サーバーとクラウドストレージをディスクとしてデスクトップにマウントします
 mounty	書き込み保護されたNTFSボリュームを再マウントします
 mouse-fix	サードパーティのマウスにジェスチャー機能とスムーズなスクロールを追加するためのマウスユーティリティ
-mouse-locator	Mouse Locator
 mousepose	マウスポインタとカーソル位置を強調表示します
 movist	QuickTimeとFFmpegをベースにしたムービープレーヤー
 movist-pro	メディアプレーヤー
