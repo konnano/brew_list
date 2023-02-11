@@ -2854,6 +2854,7 @@ kumactl	Kumaコントロールplaneコマンドラインユーティリティ
 kumo	Javaのワードクラウド
 kustomize	Kubernetes YAMLマニフェストのテンプレートFreeカスタマイズ
 kustomizer	Kubernetes 構成をOCIアーティファクトとして配布するためのパッケージマネージャー
+kuttl	KUbernetesテストツール
 kvazaar	Ultravideo HEVCエンコーダー
 kwctl	KubernetesのKubewardenポリシーエンジンのCLIツール
 kwok	Kubernetes WithOut Kubelet - 何千ものノードとクラスターをシミュレートします
@@ -3291,6 +3292,7 @@ libsmf	SMF('* .mid')ファイルを処理するためのCライブラリ
 libsmi	SMIMIB情報にアクセスするためのライブラリ
 libsndfile	サンプリングされたサウンドを含むファイル用のCライブラリ
 libsodium	NaClネットワーキングおよび暗号化ライブラリ
+libsolv	パッケージを解決しリポジトリを読み取るためのライブラリ
 libsoundio	クロスプラットフォームのオーディオ入力と出力
 libsoup	GNOMEのHTTPライブラリ クライアント/サーバー
 libsoup@2	GNOMEのHTTPライブラリ クライアント/サーバー
@@ -3726,6 +3728,7 @@ mhash	多数のハッシュアルゴリズムへの統一されたインター�
 mhonarc	メールからHTMLへの変換器変換器
 micro	モダンで直感的な端末ベースのテキストエディタ
 micro_inetd	シンプルネットワークサービスspawner
+micromamba	高速クロスプラットフォームパッケージマネージャー
 micronaut	モジュラーmicroservicesを構築するための最新のJVM-baseのフレームワーク
 microplane	多くのリポジトリ間でgitを変更するためのCLIツール
 micropython	マイクロコントローラーと制約のあるシステムのためのPythonの実装
@@ -5435,6 +5438,7 @@ speedread	シンプルな端末ベースの高速連続ビジュアル提示(RSV
 speedtest-cli	https://speedtest.net処理能力テストのコマンドラインインターフェイス
 speex	音声用に設計されたオーディオコーデック
 speexdsp	Speexオーディオ処理ライブラリ
+spek	音響スペクトラムアナライザ
 sphinx	全文検索エンジン
 sphinx-doc	高度で美しいドキュメントを作成するためのツール
 spice-gtk	SPICEのGTKクライアント/ライブラリ
@@ -5807,6 +5811,7 @@ titan-server	分散グラフデータベース
 titlecase	テキストをタイトルケースに変換するスクリプト
 tivodecode	.tivoを.mpegに変換します
 tkdiff	グラフィカルなサイドバイサイドdiffユーティリティ
+tl-expected	C++11/14/17 std::expectedと機能的なスタイルの拡張
 tldr	簡素化されたコミュニティ主導のマニュアルページ
 tlsx	TLSベースのデータ収集に重点を置いた高速で構成可能なTLSグラバー
 tlx	洗練されたC++データ構造のコレクション アルゴリズム/ヘルパー
@@ -5849,6 +5854,7 @@ tor	TCPの匿名化overlayネットワーク
 torchvision	コンピュータービジョンのデータセット、変換、モデル
 torsocks	TorでSOCKSに適したアプリケーションを使用する
 totp-cli	Goで書かれたTOTP CLIツールのような Authy/Google Authenticator
+touca	Open source tool for regression testing complex software workflows
 tox	汎用Python virtualenv管理およびテストコマンドラインツール
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
 tpl	バイナリデータをCで保存および取得する
@@ -6420,6 +6426,7 @@ yle-dl	コマンドラインからYleビデオをダウンロードする
 yorkie	共同アプリケーション用のDocument store
 yosys	Verilog RTL合成のフレームワーク
 you-get	ウェブを削り取るDumbダウンローダー
+youplot	ターミナルでプロットを描画するコマンドラインツール
 youtube-dl	コマンドラインからYouTubeビデオをダウンロードする
 youtube-dlc	YouTubeなどのさまざまなサイトをサポートするメディアダウンローダー
 youtubedr	GolangでYoutubeビデオをダウンロード
@@ -6481,6 +6488,7 @@ zrepl	ワンストップZFSバックアップおよびレプリケーション�
 zsdx	Solarus DXのゼルダミステリー
 zsh	UNIXシェル(コマンド解釈プログラム)
 zsh-async	外部ツールを使用せずに非同期でタスクを実行する
+zsh-autocomplete	Zshのリアルタイム先行入力補完
 zsh-autopair	zshで一致する区切り文字を自動的に閉じて削除する
 zsh-autosuggestions	zshに対するFishのようなautosuggestions 高速/目立たない
 zsh-completions	zshの追加の補完定義
