@@ -2124,7 +2124,6 @@ michaelvillar-timer	タイマーアプリケーション
 micro-sniff	マイクのアクティビティを監視する
 micro-snitch	マイクとカメラのアクティビティを監視および報告します
 microblog	マイクロブログとソーシャルネットワーキングサービス
-micromamba	Mambaクロスプラットフォームパッケージマネージャーの小さなバージョン
 microsoft-auto-update	さまざまなMicrosoft製品の更新を提供します
 microsoft-azure-storage-explorer	AzureStorageのエクスプローラー
 microsoft-edge	Webブラウザー
@@ -2309,7 +2308,7 @@ namechanger	ファイルのリストの名前をすばやく変更する
 nano	Nano暗号通貨のローカルノード
 nanoem	クロスプラットフォームMMD(MikuMikuDance)対応実装
 nanosaur	PangeaSoftwareのサイエンスフィクションサードパーソンシューティングゲーム
-nanostudio	NanoStudio
+nanosaur2	Pangea Softwareの恐竜三人称シューティングゲームの続編nanostudio	NanoStudio
 nasas-eyes	地球/太陽系/宇宙 およびそれらを探索する宇宙船について学ぶ
 native-access	NativeInstruments製品の管理ツール
 nativedisplaybrightness	NativeDisplayBrightness
