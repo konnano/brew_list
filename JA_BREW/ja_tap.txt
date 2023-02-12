@@ -47,6 +47,7 @@ font-alice	Alice
 font-alike	Alike
 font-alike-angular	Alike Angular
 font-alkalami	非常に黒い、塗りつぶされた長方形
+font-alkatra	書体ファミリーを表示する
 font-allan	Allan
 font-allerta	Allerta
 font-allerta-stencil	Allerta Stencil
@@ -1493,6 +1494,7 @@ font-parisienne	Parisienne
 font-passero-one	Passero One
 font-passion-one	Passion One
 font-passions-conflict	Passions Conflict
+font-pathway-extreme	非常に人気のある歴史的なタイポグラフィスタイル
 font-pathway-gothic-one	Pathway Gothic One
 font-patrick-hand	Patrick Hand
 font-patrick-hand-sc	Patrick Hand SC
@@ -2159,7 +2161,6 @@ luftdateninfo-flashing-tool	Luftdaten.info点滅ツール
 luna-display	iPadをワイヤレスセカンドディスプレイとして使用する
 luna-secondary	コンピューターまたはタブレットを2番目のディスプレイに変える
 mazda-toolbox	マツダツールボックス
-microsoft-intellipoint	Microsoft IntelliPoint
 mimu-glover	MiMUグローブソフトウェア
 motu-m-series	MOTU M2およびM4システム拡張機能をインストールします
 muteme	MuteMe物理ミュートボタンのコンパニオンアプリ
