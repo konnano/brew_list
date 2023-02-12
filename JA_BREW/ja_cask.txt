@@ -970,6 +970,7 @@ eddie	OpenVPN UI
 edex-ui	サイエンスフィクションをテーマにしたターミナルエミュレーターとシステムモニター
 edfbrowser	EDF+/BDF+ Viewerとツールボックス
 editaro	テキストエディター
+egnyte	Egnyteクラウドストレージサービスのクライアント
 eiskaltdcpp	ダイレクトコネクトおよびADC手続きを使用したファイル共有
 ejector	メニューバーにEjectアイコンを追加します
 elan	オーディオおよびビデオ録画用の注釈ツール
@@ -1582,7 +1583,6 @@ ionic-lab	IonicLab
 ioquake3	First person shooterエンジン
 ios-app-signer	iOS アプリに(再)署名してバンドルするためのアプリ
 ios-console	iOSコンソール
-ios-saver	OSX用iOS8ロックスクリーン
 iota-wallet	IOTAウォレット
 ip-in-menu-bar	メニューバーに現在のIPアドレスを表示します
 ipa-manager	IPAパレット
@@ -2308,7 +2308,7 @@ namechanger	ファイルのリストの名前をすばやく変更する
 nano	Nano暗号通貨のローカルノード
 nanoem	クロスプラットフォームMMD(MikuMikuDance)対応実装
 nanosaur	PangeaSoftwareのサイエンスフィクションサードパーソンシューティングゲーム
-nanosaur2	Pangea Softwareの恐竜三人称シューティングゲームの続編nanostudio	NanoStudio
+nanosaur2	Pangea Softwareの恐竜三人称シューティングゲームの続編
 nasas-eyes	地球/太陽系/宇宙 およびそれらを探索する宇宙船について学ぶ
 native-access	NativeInstruments製品の管理ツール
 nativedisplaybrightness	NativeDisplayBrightness
