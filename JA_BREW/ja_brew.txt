@@ -229,6 +229,7 @@ aspell	ispellよりも優れた論理を備えたスペルチェッカー
 asroute	tracerouteを解釈するCLI -a 通過した名前をAS表示
 assh	高度なSSH正規表現構成、エイリアス/ゲートウェイ/インクルード/動的ホスト
 assimp	多くの有名な3Dモデル形式をインポートするためのポータブルライブラリ
+astgen	JS/TSのjson形式でASTを生成する
 astro	Airflow DAGをローカルで構築および実行し、AstronomerAPIと対話する
 astrometry-net	天体画像の自動識別
 astyle	ソースコードを美化する C/C++/C#/Java
@@ -5621,6 +5622,7 @@ syck	YAMLを読み書きするための機能拡張
 syft	コンテナイメージからソフトウェア部品表を生成するためのCLI
 sylpheed	シンプルで軽量なメールクライアント
 symengine	C++で記述された高速記号操作ライブラリ
+symlinks	シンボリックリンクメンテナンスユーティリティ
 sync_gateway	CouchbaseServerをCouchbaseLiteのレプリケーションエンドポイントにします
 syncthing	オープンソースの連続ファイル同期アプリケーション
 synergy-core	相乗、キーボードとマウスの共有ツール
