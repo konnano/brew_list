@@ -556,6 +556,7 @@ bvm	すべてのバイナリのバージョンマネージャー
 bwa	DNAの対調整のためのBurrow-Wheeler Aligner
 bwctl	ネットワーク測定ツールのコマンドラインツールとデーモン
 bwfmetaedit	BWFファイルのメタデータを 埋め込み/検証/転送 するためのツール
+bwidget	開発者に追加ツールを提供するTcl/Tkスクリプトのみのメガウィジェットのセット
 bwm-ng	Console-basedのライブネットワークとディスクI/O処理能力モニター
 byacc	(おそらく)最高のyacc変換
 byobu	テキストベースのウィンドウマネージャーとターミナル多重装置
@@ -4392,6 +4393,7 @@ pango	i18nテキストのレイアウトと解釈のためのフレームワー�
 pangomm	PangoへのC++インターフェース
 pangomm@2.46	PangoへのC++インターフェース
 paperkey	OpenPGP秘密鍵から秘密情報だけを抽出する
+papilo	整数および線形最適化のための並列事前解決
 paps	PangoからPostScriptへの変換器
 par	電子メールの段落リフロー
 par2	Parchive：データ回復用の等価アーカイブボリュームセット
