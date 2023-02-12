@@ -191,7 +191,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.16_5\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.16_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -281,7 +281,7 @@ sub Doc_1{
     "\r  \033[31m✖︎\033[0m : Can not Create           \n",('⣸','⣴','⣦','⣇','⡏','⠟','⠻','⢹') ) :
   ( "\r  \033[36mo\033[0m : Creat new cache          \n",
     "\r  \033[31mx\033[0m : Can not Create           \n",('|','/','-','\\','|','/','-','\\') );
- $not,$dok,@ten;
+ $not,$dok,\@ten;
 }
 
 sub Wait_1{
@@ -289,7 +289,7 @@ my( $re,$loop ) = @_; my $pid;
  system 'mv ~/.BREW_LIST ~/BREW_LIST$$' if -d $re->{'HOME'} and not -f $re->{'TXT'};
   mkdir $re->{'HOME'};
    mkdir "$re->{'HOME'}/WAIT";
-  my( $not,$dok,@ten ) = Doc_1;
+  my( $not,$dok,$ten ) = Doc_1;
   unless( $loop ){
    $pid = fork;
     die " Wait Not fork : $!\n" unless defined $pid;
@@ -301,7 +301,7 @@ my( $re,$loop ) = @_; my $pid;
      my $name = $loop ? 'Please wait' : 'Makes new cache';
       while(1){ $i = $i % 8; my $c = ( (rand 6) + 1 ) >> 0;
        -d "$re->{'HOME'}/WAIT" ?
-        print STDERR "\r  \033[3${c}m$ten[$i]\033[0m : $name" : last;
+        print STDERR "\r  \033[3${c}m$ten->[$i]\033[0m : $name" : last;
          $i++; select undef,undef,undef,0.1;
       }
     }else{ my $i = 0; my $ma = '';
@@ -1715,39 +1715,39 @@ my( $re,$an1,$an2 ) = @_; my $i;
 __END__
 #!/bin/bash
  NAME=$(uname)
-[[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
-[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
+[[ "$1" =~ ^[01]$ ]] || ${die:?input 1 error}
+[[ ! "$2" || "$2" =~ ^[12]$ ]] || ${die:?input 2 error}
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
                        rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
  TI=$(date +%s)
-if [[ $1 -eq 1 ]];then
+if [[ "$1" = 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ $LS ]];then
+ if [[ -n $LS ]];then
   if [[ "$NAME" = Darwin ]];then
-   LS=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
-    [[ $LS && $LS -ne 60 && $TI -gt $LS ]] && math_rm
+   LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
+    (( $LS1 != 60 && $TI > $LS1 )) && math_rm
   else
-   LS=$(( $(date +%s --date "$LS" 2>/dev/null)+60 ))
-    [[ $LS && $LS -ne 60 && $TI -gt $LS ]] && math_rm
+   LS1=$(( $(date +%s --date "$LS" 2>/dev/null)+60 ))
+    (( $LS1 != 60 && $TI > $LS1 )) && math_rm
   fi
  fi
 fi
 
-if [[ $2 ]];then
+if [[ -n $2 ]];then
  if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
    exit 2
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
-  LS1=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ $LS1 ]];then
+  LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
+ if [[ -n $LS2 ]];then
   if [[ "$NAME" = Darwin ]];then
-   LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS1" +%s 2>/dev/null)+60*60*24 ))
+   LS3=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS2" +%s 2>/dev/null)+60*60*24 ))
   else
-   LS1=$(( $(date +%s --date "$LS1" 2>/dev/null)+60*60*24 ))
+   LS3=$(( $(date +%s --date "$LS2" 2>/dev/null)+60*60*24 ))
   fi
-  if [[ $TI -gt $LS1 ]];then
+  if (( $TI > $LS3 ));then
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
@@ -1756,7 +1756,7 @@ if [[ $2 ]];then
  fi
 
  if [[ "$NAME" = Darwin ]];then
-  if [[ $2 -eq 1 ]];then
+  if [[ "$2" = 1 ]];then
     mkdir -p ~/.BREW_LIST/{0..19}
     rm -f ~/.BREW_LIST/keepme.zip
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
@@ -1806,7 +1806,7 @@ if [[ $2 ]];then
      rmdir ~/.BREW_LIST/8
   fi
 
-  if [[ $2 -eq 2 ]];then
+  if [[ "$2" = 2 ]];then
    unzip -jq ~/.BREW_LIST/keepme.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip error}; }
   fi
 
@@ -1875,9 +1875,9 @@ perl<<"EOF"
    close $FILE1;
   rmdir "$ENV{'HOME'}/.BREW_LIST/9"
 EOF
-  [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 1 error};
+  (( $? != 0 )) && math_rm 1 && ${die:?perl 1 error};
 
-  if [[ $2 -eq 1 ]];then
+  if [[ "$2" = 1 ]];then
 perl<<"EOF"
    open $FILE2,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
     while($brew=<$FILE2>){
@@ -1938,7 +1938,7 @@ perl<<"EOF"
   close $dir4;
  rmdir "$ENV{'HOME'}/.BREW_LIST/10"
 EOF
-  [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 2 error};
+  (( $? != 0 )) && math_rm 1 && ${die:?perl 2 error};
   fi
  else
   curl -so ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html || \
@@ -1963,7 +1963,7 @@ EOF
    { math_rm; ${die:?curl l error}; }
  fi
 
- if [[ $2 -eq 1 ]];then
+ if [[ "$2" = 1 ]];then
 perl<<"EOF"
   open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
    while($brew=<$FILE1>){
@@ -2080,7 +2080,7 @@ perl<<"EOF"
   close $dir4;
  rmdir "$ENV{'HOME'}/.BREW_LIST/11"
 EOF
- [[ $? -ne 0 ]] && math_rm 1 && ${die:?perl 3 error};
+ (( $? != 0 )) && math_rm 1 && ${die:?perl 3 error};
 
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
@@ -2091,7 +2091,7 @@ EOF
    mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
   fi
  fi
-  if [[ $2 -eq 2 ]];then
+  if [[ "$2" = 2 ]];then
    perl ~/.BREW_LIST/tie.pl 1 || { math_rm 1 && ${die:?perl tie2 error}; }
   fi
 rm -rf ~/.BREW_LIST/19
