@@ -1475,6 +1475,7 @@ houseparty	対面のソーシャルネットワーキングアプリ
 hp-eprint	モバイル印刷ソリューション
 hp-prime	グラフ電卓エミュレータ
 hstracker	Hearthstoneのデッキ監視およびデッキマネージャー
+html-mangareader	完全な連続スクロールを備えた軽量のオフラインCBZ/CBRおよび画像ビューア
 http-toolkit	HTTP（S）デバッグプロキシ/分析/クライアント
 httpie	デスクトップ用HTTPie
 hubstaff	作業時間監視
@@ -2126,9 +2127,12 @@ micro-snitch	マイクとカメラのアクティビティを監視および報�
 microblog	マイクロブログとソーシャルネットワーキングサービス
 microsoft-auto-update	さまざまなMicrosoft製品の更新を提供します
 microsoft-azure-storage-explorer	AzureStorageのエクスプローラー
+microsoft-defender	ウイルス対策ソフト
 microsoft-edge	Webブラウザー
 microsoft-excel	表計算ソフトウェア
 microsoft-office	オフィスパッケージ
+microsoft-office-businesspro	オフィスパッケージ
+microsoft-onenote	デジタルノート作成アプリ
 microsoft-openjdk	MicrosoftからのOpenJDKディストリビューション
 microsoft-outlook	メールクライアント
 microsoft-powerpoint	プレゼンテーションソフトウェア
@@ -2195,6 +2199,7 @@ mob	Mob
 mobirise	No-code Webサイトクリエーター
 mobster	Pair and mobプログラミングタイマー
 mochi	間隔反復を使用した研究ノートとフラッシュカード
+mochi-diffusion	Stable Diffusionをネイティブに実行する
 mockoon	数秒でモックAPIを作成する
 mockplus	モックアップとワイヤーフレームを作成する
 mockuuups-studio	デザイナーやマーケターがビジュアルをscenesにドラッグアンドドロップできるようにします
@@ -2309,6 +2314,7 @@ nano	Nano暗号通貨のローカルノード
 nanoem	クロスプラットフォームMMD(MikuMikuDance)対応実装
 nanosaur	PangeaSoftwareのサイエンスフィクションサードパーソンシューティングゲーム
 nanosaur2	Pangea Softwareの恐竜三人称シューティングゲームの続編
+nanostudio	NanoStudio
 nasas-eyes	地球/太陽系/宇宙 およびそれらを探索する宇宙船について学ぶ
 native-access	NativeInstruments製品の管理ツール
 nativedisplaybrightness	NativeDisplayBrightness
@@ -3117,6 +3123,7 @@ scidavis	科学データの分析と視覚化への応用
 scidvsmac	チェスツールキット
 scihubeva	Sci-Hub GUIアプリ
 scilab	数値計算用ソフトウェア
+scoot	キーボード駆動のカーソルアクチュエータ
 scout	シンプルなSassプロセッサ
 scrapp	クラウドストレージを備えたスクリーンショットツール
 scratch	プログラム双方向ストーリー ゲーム/アニメーション
@@ -3410,6 +3417,7 @@ stand	1時間に1回立ち上がるように通知します
 standard-notes	Freeのオープンソースの完全に暗号化されたメモアプリ
 starcraft	Starcraft
 starleaf	Starleaf
+starnet-plus-plus	MLモデルを使用して天体写真画像から星を削除します
 starsector	オープンワールドのシングルプレイヤー宇宙戦闘およびトレーディングRPG
 start	Tencentクラウドゲームプラットフォーム
 startninja	StartNinja
@@ -3558,6 +3566,7 @@ teensy	Teensy
 teeworlds	Teeworlds
 telegram	速度とセキュリティに重点を置いたメッセージングアプリ
 telegram-desktop	Telegramメッセンジャー用のデスクトップクライアント
+teleport-connect	クラウドインフラストラクチャ向けの開発者向けブラウザ
 tempbox	使い捨てメールクライアント
 tempo	すべての電子メールをバッチで配信する電子メールクライアント
 temurin	Eclipse Foundation(Adoptium)のJDK
@@ -3748,14 +3757,10 @@ tuxera-ntfs	ファイルシステムおよびストレージ管理ソフトウ�
 tuxguitar	マルチトラックギタータブ譜エディターおよびプレーヤー
 tv-browser	電子テレビガイド
 tvrenamer	TVリストからTVエピソードの名前を変更するユーティリティ
-tweet-tray	気を散らすことなくデスクトップからすばやくツイートする
-tweetbot	Twitterクライアント
-tweeten	Twitterクライアント
 twilioquest	16ビットゲームでクラウドを保存するミッションでCrewをコーディングして導く方法を学びましょう
 twine	双方向で非線形のストーリーを伝えるためのツール
 twist	チームコミュニケーションおよび協力的ソフトウェア
 twitch-studio	新しいストリーマー向けに設計された Freeストリーミングソフトウェア
-twitterrific	Twitterクライアント
 twobird	共同メモをクライアントにメールで送信
 twonkyserver	DLNA/UPnP メディアサーバー
 tyke	Tyke
