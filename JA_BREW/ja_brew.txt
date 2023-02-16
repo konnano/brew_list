@@ -921,6 +921,7 @@ configen	Xcodeプロジェクトで使用するための構成ファイルコー
 conftest	Open PolicyAgentを使用して構成ファイルをテストします
 confuse	Cで記述された構成ファイルパーサーライブラリ
 conjure-up	大きなソフトウェアの展開はとても簡単でほとんど魔法のようです
+conman	多数のデバイスをサポートするシリアルコンソール管理プログラム
 conmon	OCIコンテナランタイムモニター
 connect	SSHにSOCKSおよびHTTPSプロキシサポートを提供します
 conserver	複数のユーザーが順番にコンソールを視聴できるようにします
@@ -1857,6 +1858,7 @@ geogram	幾何学的アルゴリズムのプログラミングライブラリ
 geographiclib	C++地理ライブラリ
 geoip	このライブラリは、GeoIP Legacy形式(dat)です。
 geoipupdate	GeoIP2およびGeoIPレガシーデータベースの自動更新
+geometry	最小限で完全にカスタマイズ可能で構成可能なzshプロンプトテーマ
 geomview	対話的3D表示プログラム
 geos	Geometryエンジン
 geoserver	地理空間データを共有および編集するためのJavaサーバー
@@ -2187,6 +2189,7 @@ gradle	GroovyおよびKotlinDSLに基づくオープンソースのビルド自�
 gradle-completion	GradleのBashとZshの補完
 gradle-profiler	Gradleビルドのプロファイリングと基準比較ツール
 gradle@6	GroovyおよびKotlinDSLに基づくオープンソースのビルド自動化ツール
+gradle@7	GroovyおよびKotlin DSLに基づくオープンソースのビルド自動化ツール
 grafana	時系列データベースの豪華なmetricの視覚化とダッシュボード
 grafana-agent	Prometheus Metricsのエクスポーター ロキログ/テンポトレース
 grails	Groovy言語用のWebアプリケーションフレームワーク
@@ -2281,6 +2284,7 @@ gucharmap	Unicode文字データベースに基づくGNOME文字マップ
 guetzli	知覚JPEGエンコーダ
 guichan	ゲーム用に設計された小さくて効率的なC++ GUIライブラリ
 guile	機能拡張のためのGNU Ubiquitousの高度な言語
+guile-gnutls	GnuTLSライブラリのGuileバインディング
 guile@2	機能拡張のためのGNU Ubiquitousの高度な言語
 gulp-cli	Gulpのコマンドラインユーティリティ
 gum	魅力的なシェルスクリプト用のツー
@@ -3429,6 +3433,7 @@ libxxf86vm	X.Org：XFree86-VidMode X機能拡張
 libyaml	YAMLパーサー
 libyubikey	Yubicoワンタイムパスワードを操作するためのCライブラリ
 libzdb	データベース接続プールライブラリ
+libzim	ZIM 仕様の参照実装
 libzip	読むためのCライブラリ 作成/zipアーカイブの変更
 libzzip	ZIPアーカイブの読み取りアクセスを提供するライブラリ
 license-eye	ライセンスヘッダーを確認して修正し依存ライセンスを解決するためのツール
@@ -5075,6 +5080,7 @@ rtorrent	libtorrent-rakshasaに基づくNcursesBitTorrentクライアント
 rtptools	RTPデータを処理するためのツールのセット
 rttr	C++リフレクションライブラリ
 rtv	コマンドラインRedditクライアント
+rtx	Polyglot ランタイム マネージャー(asdf rustクローン)
 rubberband	オーディオタイム伸張ツールとライブラリ
 ruby	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby-build	さまざまなRubyバージョンと実装をインストールします
@@ -5522,6 +5528,7 @@ sslyze	SSLスキャナー
 ssss	Shamirの秘密共有schemeの実装
 sstp-client	SSTP(PPP over SSLのMicrosoftリモートアクセスソリューション)クライアント
 st	コマンドラインからの統計
+stackql	CRUDを完全にサポートする任意のリソース用のSQLインターフェース
 stanc3	Stan変換器
 standard	JavaScriptスタイルガイド リンターと自動コード修正機能付き
 standardese	C++の次世代ドキュメント発生器
@@ -6030,6 +6037,7 @@ uudeview	スマートマルチファイルマルチパートデコーダー
 uutils-coreutils	GNUcoreutilsのクロスプラットフォームRustリライト
 uutils-findutils	GNU findutilsのクロスプラットフォームRustリライト
 uuu	汎用アップデートユーティリティ mfgtools3.0。NXPI.MXチップイメージ展開ツール
+uvg266	オープンソースのVVC/H.266エンコーダー
 uwsgi	ホスティングサービスを構築するためのフルスタック
 v	Z for vim
 v2ray	ネットワーク制限をバイパスするプロキシを構築するためのプラットフォーム
