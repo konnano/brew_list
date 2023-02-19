@@ -1603,7 +1603,7 @@ my $re = shift;
      $i++, print" check $re->{'CEL'}/$cn  \033[33mbrew cleanup...\033[0m\n" if @$file > 1;
    } exit if $i;
     print STDERR "$re->{'INF'} : deps All delete [y/n]:";
-    <STDIN> eq "y\n" ? system "brew uninstall $re->{'INF'}" : exit;
+    getc eq 'y' ? system "brew uninstall $re->{'INF'}" : exit;
   } my $in = ( $re->{'KEN'} and $re->{'KEN'} < @AR ) ? $re->{'KEN'} : @AR;
   for(my $e=0;$e<$in;$e++){ $flag++;
    if( $re->{'DDD'} ){
