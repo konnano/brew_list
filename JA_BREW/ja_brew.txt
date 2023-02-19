@@ -820,6 +820,7 @@ clinfo	OpenCLプラットフォームとデバイスに関する情報を印刷�
 cling	C++解釈プログラム
 clingo	論理プログラムを接地して解決するASPシステム
 clip	コマンドラインから高品質のグラフを作成する
+clipboard	何でも、どこでも、すべて端末から カット/コピー/ペースト
 clipper	MacOSクリップボードをtmuxやその他のローカルおよびリモートアプリと共有する
 clipsafe	パスワードセーフへのコマンドラインインターフェイス
 clisp	GNU CLISP、CommonLispの実装
@@ -3623,6 +3624,7 @@ marcli	MARC(ISO 2709)ファイルを解析する
 mariadb	MySQLのDrop-in代替品
 mariadb-connector-c	Cアプリケーション用のMariaDBデータベース連結装置
 mariadb-connector-odbc	業界標準のODBCAPIを使用するデータベースドライバー
+mariadb@10.10	MySQLのDrop-in代替品
 mariadb@10.2	MySQLのDrop-in代替品
 mariadb@10.3	MySQLのDrop-in代替品
 mariadb@10.4	MySQLのDrop-in代替品
@@ -4239,6 +4241,7 @@ open-sp	SGMLパーサー
 open-tyrian	Tyrianのオープンソースポート
 open-zwave	選択したZ-WavePCコントローラーと接続するライブラリ
 open62541	OPC UAのオープンソース実装
+openai-whisper	汎用音声認識モデル
 openal-soft	OpenAL3DオーディオAPIの実装
 openalpr	自動ナンバープレート認識ライブラリ
 openapi-generator	クライアントを生成する OpenAPI仕様(v2/v3)のサーバーとドキュメント
@@ -4608,6 +4611,7 @@ pmccabe	C/C++コードのMcCabe-styleの循環的複雑度を計算します
 pmd	Java/JavaScript などのソースコード分析器
 pmdmini	PC-88/98PMDチップチューン形式で音楽を再生します
 pms	ncursesベースのMPDクライアントであるPracticalMusic Search
+pmtiles	作成用の単一ファイル実行可能ツール PMTilesアーカイブの読み取りとアップロード
 pnetcdf	OpenMPIライブラリを使用した科学データ用の並列netCDFライブラリ
 png++	libpngライブラリのC++ラッパー
 png2ico	PNGからアイコンへの変換器
