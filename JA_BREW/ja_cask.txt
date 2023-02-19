@@ -2069,6 +2069,7 @@ mediaelch	Kodiのメディアマネージャー
 mediahuman-audio-converter	Audio変換器
 mediahuman-youtube-downloader	YouTubeビデオダウンローダー
 mediainfo	ビデオおよびオーディオファイルの技術データとタグデータを表示する
+mediainfoex	Finderコンテキストメニューにファイル情報を表示する
 mediathekview	ドイツ語のオンラインマルチメディアライブラリを管理します オーストリアとスイスの公共放送
 medibangpaintpro	デジタルアートとコミックを作成する
 medis	Redisの最新のGUI
@@ -2832,6 +2833,7 @@ psychopy	心理学および神経科学の実験を実行するため
 ptpwebcam	DSLRライブビュービデオプラグイン
 publii	静的Webサイト生成器
 publish-or-perish	Harzing PublishまたはPerish
+pulsar	テキストエディタ
 pulse	ロガーとネットワーク検査
 pulse-sms	Pulse SMS用のデスクトップクライアント
 puppetry	PuppeteerとJestに加えて非開発者向けのWebテストソリューション
@@ -3238,6 +3240,7 @@ sim-daltonism	ビデオと画像の色覚異常模擬装置
 sim-genie	Xcodeシミュレーター機能へのより簡単なアクセス
 simpholders	SimPholders
 simple-comic	コミック 見る/読む
+simpleclock	完全にSwiftで書かれたシンプルなアナログ時計のスクリーンセーバー
 simplediagrams	SimpleDiagrams
 simplefloatingclock	シンプルなフローティングクロック
 simplelink-msp432-sdk	MSP432P4マイクロコントローラー用のソフトウェア開発キット
