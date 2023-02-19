@@ -23,6 +23,7 @@ font-agave-nerd-font	Agave Nerd Font(Agave)
 font-aguafina-script	Aguafina Script
 font-ahuramzda	Ahuramzda
 font-aileron	Aileron
+font-akatab	Akatab
 font-akaya-kanadaka	Akaya Kanadaka
 font-akaya-telivigala	Akaya Telivigala
 font-akronim	Akronim
@@ -1983,6 +1984,7 @@ font-wendy-one	Wendy One
 font-whisper	Whisper
 font-windsong	複数の文体セットを含む細長いスクリプト
 font-wire-one	Wire One
+font-wix-madefor-display	Wix Madefor ディスプレイ
 font-work-sans	Work Sans
 font-xanh-mono	lambaoとduydaoによってデザインされたMono-serif書体
 font-xits	数学的および科学的出版のための時代のような書体
