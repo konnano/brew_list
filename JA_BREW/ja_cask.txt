@@ -637,6 +637,7 @@ coda	テキストエディター
 code-composer-studio	統合開発環境
 code-notes	Codeノート
 code42-crashplan	エンドポイントのバックアップとリカバリ
+codeedit	コードエディタ
 codeexpander	クラウド同期開発ツール
 codekit	Webサイトを構築するためのアプリ
 codelite	C/C++/PHP/Node.js 用のIDE
@@ -994,6 +995,7 @@ element	Matrix協調クライアント
 elephas	パーソナルAIライティングアシスタント
 elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
 eliot	オープンソースのスクラブルゲーム
+elk	Mastodon webクライアント
 elmedia-player	ビデオおよびオーディオプレーヤー
 eloquent	SWORD Projectに基づく Free/オープンソースの聖書研究アプリケーション
 eloston-chromium	Google Chromium Googleとの統合はありません
@@ -2181,6 +2183,7 @@ mirrordisplays	ミラーディスプレイ
 mirrorop	wePresentシステム用のミラーリングソフトウェアアプリケーション
 mission-control-plus	Mission Controlでウィンドウを管理する
 missive	チームの受信トレイとチャットツール
+mist	ファームウェアとインストーラーを自動的にダウンロードするユーティリティ
 mit-app-inventor	Android エミュレーター
 mixed-in-key	DJと音楽プロデューサーのための調和的ミキシング
 mixed-in-key-live	キーライブでミックス
@@ -2233,6 +2236,7 @@ moom	1つのディスプレイでウィンドウを移動およびズームす�
 moonlight	GameStreamクライアント
 moose	moose
 moradownloader	日本市場向けのオンライン音楽およびビデオストア
+morgen	オールインワンのカレンダー タスク/スケジューラ
 morkro-papyrus	非公式のDropbox Paperデスクトップアプリ
 morpheus	多細胞システム生物学のモデリング環境
 mos	スクロールをスムーズにしマウスのスクロール方向を個別に設定します
@@ -4033,6 +4037,7 @@ workman	代替英語キーボード レイアウト
 workplace-chat	組織のコミュニケーションポータル
 workspace-one-intelligent-hub	VMwareワークスペース
 workspaces	ワークスペース整理アプリ
+worldpainter	マインクラフトのインタラクティブマップジェネレーター
 wormhole	PCで電話を閲覧&制御 iOSおよびAndroid用のScreenFusion
 wow	Wow TVコンテンツのストリーミング(formerly Sky Ticket)
 wowmatrix	WowMatrix
