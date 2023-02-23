@@ -2039,6 +2039,7 @@ behringer-x32-edit	LAN/Wi-Fi経由でBehringerデジタルミキサーを編集�
 blackvue-viewer	BlackVue DashcamSDカードとCloudViewer
 blocks-code	LittleFoot言語を使用してROLIBLOCKSのアプリケーションを開発する
 blue-sherpa	Blue USBマイク用コンパニオンアプリ
+bluos-controller	オーディオシステムの管理
 bose-soundtouch	コンピューターからBose SoundTouchシステムを制御する
 bose-updater	Bose製品のソフトウェアアップデート
 bose-usb-link-updater	Bose USB Linkにアップデートを提供します
@@ -2118,7 +2119,6 @@ fujifilm-x-webcam	XシリーズとGFXシステムのデジタルカメラをWeb�
 fujitsu-scansnap-home	富士通ScanSnapスキャナーソフトウェア
 fujitsu-scansnap-manager	富士通ドキュメントスキャナー用スキャンソフトウェア
 fujitsu-scansnap-manager-ix500	富士通ScanSnapiX500用ScanSnap Manager
-fujitsu-scansnap-manager-s1300	富士通ScanSnapS1300用ScanSnap Manager
 g-raid-with-thunderbolt-configurator	ThunderboltConfiguratorを使用したG-RAID
 garmin-basecamp	3Dマッピングアプリケーション
 garmin-express	マップとソフトウェアを更新する Garmin Connectと同期してデバイスを登録します
@@ -2223,7 +2223,6 @@ sound-blaster-play3	Sound Blaster PLAYのドライバーとコントロールパ
 steelseries-engine	SteelSeries周辺機器およびアクセサリの設定
 steelseries-exactmouse-tool	SteelSeriesExactMouseツール
 steelseries-gg	SteelSeries周辺機器およびアクセサリの設定
-suunto-moveslink2	Suunto AmbitまたはTraverseウォッチをMovescountに接続します
 synology-cloud-station-backup	一元化されたSynology NASにファイルをバックアップします
 synology-drive	Synology NASドライブへの同期およびバックアップサービス
 synology-photo-station-uploader	写真やビデオをSynology Photo Stationに一括アップロードする
