@@ -2098,6 +2098,7 @@ go@1.15	Goプログラミング環境(1.15)
 go@1.16	Goプログラミング環境(1.16)
 go@1.17	Goプログラミング環境(1.17)
 go@1.18	シンプル/信頼性/効率的なソフトウェアを構築するためのオープンソースプログラミング言語
+go@1.19	シンプル/信頼性/効率的なソフトウェアを構築するためのオープンソースプログラミング言語
 goaccess	Apache Webサーバーのログ分析と対話的Viewer
 goad	Goに組み込まれたAWS Lambdaを利用した、高度に分散された負荷テストツール
 goawk	Goで記述されたPOSIX準拠のAWK解釈プログラム
@@ -2574,6 +2575,7 @@ ipcalc	特定のIPアドレスからさまざまなネットワークマスク�
 iperf	最大TCPおよびUDPの処理能力を測定するツール
 iperf3	iperfの更新：処理能力を測定します TCP/UDP/SCTP
 ipfs	ピアツーピアhypermedia手続き
+ipget	IPFS経由でファイルを取得しローカルに保存する
 iphotoexport	iPhotoライブラリをフォルダツリーに書き出して同期する
 ipinfo	IPネットワークの計算のためのツール
 ipinfo-cli	IPinfoIPアドレスAPIの公式CLI
@@ -2925,6 +2927,7 @@ leaps	Golangで書かれた共同Webベースのテキスト編集サービス
 ledger	コマンドライン 複式簿記ツール
 ledit	対話的なコマンドのラインエディタ
 leela-zero	知識のない人間に提供する神経ネットワークGoエンジン
+leetup	Leetcodeの問題を解決するためのコマンドラインツール
 lefthook	あらゆるタイプのプロジェクトに対応する高速で強力なGit hooksマネージャー
 legit	ワークフローを簡素化するために最適化されたGitのコマンドラインインターフェイス
 lego	クライアントとACMEライブラリを暗号化しましょう
@@ -3778,7 +3781,7 @@ minizip-ng	minizip1.x互換性レイヤーを備えたZipファイル操作ラ�
 mint	Swiftコマンドラインツールパッケージをインストールして実行する依存関係マネージャー
 minuit2	関数最小化のための物理分析ツール
 miruo	Pretty-print TCPセッション モニター/分析
-mist	Macコマンドラインツール MacOSの インストーラー/ファームウェア を自動的にダウンロードする
+mist-cli	macOS ファームウェア/インストーラーを自動的にダウンロードする Macコマンドラインツール
 mit-scheme	Scheme開発ツールとランタイムライブラリ MIT/GNU
 mitie	情報抽出のためのライブラリとツール
 mitmproxy	HTTP/Sトラフィックを節約する 傍受/変更/リプレイ
@@ -4187,6 +4190,7 @@ ocrad	光学式文字認識(OCR)プログラム
 ocrmypdf	スキャンしたPDFファイルにOCRテキストレイヤーを追加します
 octant	開発者向けのKubernetesイントロスペクションツール
 octave	数値計算のための高レベルのインタプリタ言語
+octobuild	Unreal Engine のコンパイラ キャッシュ
 octomap	八分木に基づく効率的で確率的3Dマッピングフレームワーク
 octosql	さまざまなファイル形式やデータベースのデータを分析するSQLクエリツール
 ode	関節式剛体力学の模擬検証
@@ -5401,6 +5405,7 @@ solana	分散型アプリとマーケットプレイス向けのWebスケール�
 solargraph	Ruby言語サーバー
 solarus	アクションRPGゲームエンジン
 solc-select	複数の Solidityコンパイラバージョンを管理する
+solhint	Solidityコードのリンター
 solid	3D空間の幾何学的オブジェクトの衝突検出ライブラリ
 solidity	契約指向プログラミング言語
 sollya	安全な浮動小数点コード開発のためのライブラリ
@@ -5981,6 +5986,7 @@ uggconv	汎用ゲームGenieコード変換器
 ugit	gitコマンドを元に戻します あなたのダメージコントロール git buddy
 ugrep	クエリUIを備えた超高速grep あいまい検索/アーカイブ検索など
 uhd	すべてのUSRPデバイス用のハードウェアドライバー
+ulfius	CでのRESTアプリケーション用のHTTPフレームワーク
 ultralist	コマンドライン用のシンプルなGTDスタイルのタスク管理
 um	個人のマニュアルページを作成および保守するためのコマンドラインユーティリティ
 umlet	このUMLツールは、UML図をすばやく作成する方法を提供することを目的としています
