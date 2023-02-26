@@ -453,6 +453,7 @@ brook	プロキシ/VPN クライアント
 brooklyn	Appleスペシャルイベントブルックリンで発表されたアニメーションに基づくスクリーンセーバー
 browserosaurus	オープンソースのブラウザープロンプター
 browserstacklocal	ローカルホストとステージングWebサイトをテストします
+bruno	APIを探索およびテストするためのオープンソースIDE
 btcpayserver-vault	Webアプリケーションがhardware walletにアクセスできるようにするアプリ
 bubo	Bubo
 buckets	予算編成ツール
@@ -1083,7 +1084,6 @@ fantastical	予定表ソフトウェア
 fantasy-grounds	ファンタジーグラウンド
 fantasy-map-generator	双方向で高度にカスタマイズ可能なマップを生成する
 far2l	FAR Manager v2のUnixフォーク
-farcaster	分散型ソーシャルネットワーク
 farrago	オーディオ再生
 fastclicker	自動クリッカーとマウス自動化ユーティリティ
 fastmarks	Webブラウザーのブックマークを検索して開きます
@@ -1247,6 +1247,7 @@ futurerestore-gui	FutureRestoreのグラフィカルインターフェイス
 fuwari	stickyの様なフローティングスクリーンショット
 fuzzyclock	FuzzyClock
 fvim	NeovimテキストエディターのGUI
+fx-cast-bridge	Chromecastサポートを有効にするfx_cast Firefox拡張機能のブリッジヘルパー
 fxfactory	ブラウズ 巨大なカタログからエフェクトとプラグインをインストールして購入する
 g-desktop-suite	Gデスクトップパッケージ
 gactions	Google Actions SDK用のCLIツール
@@ -1316,7 +1317,6 @@ gitkraken	生産性に焦点を当てたGitクライアント
 gitnote	gitnote
 gitpigeon	GitPigeon
 gitscout	Gitscout
-gitter	Gitter
 gittyup	グラフィカルGitクライアント
 gitup	視覚的な相互作用に焦点を当てたGitインターフェース
 gitx	GitX
@@ -2433,6 +2433,7 @@ nwjs	すべてのNode.jsモジュールをDOMおよびWebワーカーから直�
 nym-wallet	コインを結合したり、Nymノードとやり取りしたり、他のノードに委任したりするために使用します
 nzbget	効率に焦点を当てたUsenetダウンローダー
 nzbvortex	パフォーマンスと使いやすさのために最適化されたNZBクライアント
+oak9	oak9のセキュリティコンプライアンスSaaS製品のコンポーネント
 objectivesharpie	Objective-Cコードから始まるC#インターフェイスを生成するために使用されるツール
 objektiv	Objektiv
 obs	ライブストリーミングと画面録画用のオープンソースソフトウェア
