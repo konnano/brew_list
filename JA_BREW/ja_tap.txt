@@ -100,6 +100,7 @@ font-antic-slab	Antic Slab
 font-antinoou	Antinoou
 font-anton	Anton
 font-antonio	Antonio
+font-anuphan	ibm plex sans thaiの変更ではありません
 font-anybody	10程度 目立つか微妙
 font-aoboshi-one	Aoboshi One
 font-arapey	Arapey
@@ -976,6 +977,7 @@ font-libre-caslon-text	Libre Caslonテキスト
 font-libre-franklin	Libre フランクリン
 font-licorice	完璧なスクラップブッキングカード/招待状/楽しいイベント
 font-life-savers	ライフセーバー
+font-liga-comic-mono	プログラミング合字を備えた読みやすい等幅フォント
 font-ligature-symbols	合字記号
 font-lilex	Lilex
 font-lilex-nerd-font	多数のグリフを含む開発者向けのフォント
@@ -2406,6 +2408,7 @@ processing2	柔軟なソフトウェアスケッチブックとコーディン�
 processing3	コーディング方法を学習するための柔軟なソフトウェア スケッチブックと言語
 propresenter-beta	ライブイベントのプレゼンテーションおよび制作アプリケーション
 propresenter6	ライブイベントのプレゼンテーションおよび制作アプリケーション
+qbittorrent-lt20	libtorrent-rasterbar 2.0.xに基づくqBitorrentのエディション
 qgis-ltr	地理情報システム
 qt-creator-dev	アプリケーション開発のためのIDE
 quicktime-player7	QuickTime Player 7
