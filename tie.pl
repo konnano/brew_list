@@ -421,7 +421,8 @@ sub Version_1{
        $SPA = $CN = not eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version" ? 1 : 0;
         $CP1 = $CP2 = $CN ? 0 : 1; next;
      }elsif( my( $ha3 ) = $data =~ /^\s*on_([^\s]+)\s+do/ ){
-       $SPA = $CN = $MAC_OS{$ha3} eq $OS_Version ? 1 : 0; next;
+       $SPA = $CN = $MAC_OS{$ha3} eq $OS_Version ? 1 : 0;
+        $CP1 = $CP2 = $CN ? 0 : 1; next;
      }elsif( $data !~ /^\s*end/ and $CN ){ $SPA++ if $data =~ /\s+do\s/;
       $tap{"${name}c_version"} = $data if $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/;
        if( my( $ls3,$ls4 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
