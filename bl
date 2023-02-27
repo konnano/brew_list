@@ -191,7 +191,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.16_6\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.16_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
@@ -1685,7 +1685,7 @@ my $re = shift;
  $re->{'NEW'}++, Init_1( $re )
   if system 'diff ~/.BREW_LIST/font.sh ~/.BREW_LIST/font2.sh >/dev/null 2>&1 &&\
              diff ~/.BREW_LIST/tie.pl  ~/.BREW_LIST/tie2.pl  >/dev/null 2>&1';
-  unlink "$ENV{'HOME'}/.BREW_LIST/font2.sh","$ENV{'HOME'}/.BREW_LIST/tie2.pl";
+  unlink "$re->{'HOME'}/font2.sh","$re->{'HOME'}/tie2.pl";
  my( $time1,$time2 ) = -f $re->{'TXT'} ?
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] ) : ([0,0,0,0,0,1],[0,0,0,0,0,0]);
    if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
@@ -2521,7 +2521,8 @@ sub Version_1{
        $SPA = $CN = not eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version" ? 1 : 0;
         $CP1 = $CP2 = $CN ? 0 : 1; next;
      }elsif( my( $ha3 ) = $data =~ /^\s*on_([^\s]+)\s+do/ ){
-       $SPA = $CN = $MAC_OS{$ha3} eq $OS_Version ? 1 : 0; next;
+       $SPA = $CN = $MAC_OS{$ha3} eq $OS_Version ? 1 : 0;
+        $CP1 = $CP2 = $CN ? 0 : 1; next;
      }elsif( $data !~ /^\s*end/ and $CN ){ $SPA++ if $data =~ /\s+do\s/;
       $tap{"${name}c_version"} = $data if $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/;
        if( my( $ls3,$ls4 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
