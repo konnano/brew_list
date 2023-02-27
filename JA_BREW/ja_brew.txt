@@ -105,6 +105,7 @@ ancient	古い形式の解凍ルーチン
 angband	ダンジョン探検ゲーム
 angle-grinder	コマンドラインでログファイルをスライスおよびdiceします
 angular-cli	AngularのCLIツール
+animdl	アニメのダウンローダーとストリーマー
 anime-downloader	お気に入りのアニメをダウンロード
 anjuta	GNOME統合開発環境
 ansible	展開の自動化 構成/アップグレード
@@ -5884,6 +5885,7 @@ trace2html	JSONトレースをHTMLに変換するためのGoogle TraceViewerの�
 tracebox	ミドルボックス検出ツール
 tracker	効率的な検索エンジンとトリプルstoreであるライブラリとデーモン
 tractorgen	ASCIIトラクターアートを生成します
+tracy	リアルタイム ナノ秒解像度のフレームプロファイラー
 tradcpp	K＆RスタイルのCプリプロセッサ
 trader	スタートレーダー
 traefik	最新の逆プロキシ
