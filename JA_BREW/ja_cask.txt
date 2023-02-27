@@ -951,6 +951,7 @@ eaglefiler	ファイルを整理する 電子メールをアーカイブする W
 ealeksandrov-cd-to	ターミナルで現在のディレクトリを開くためのFinderツールバーアプリ
 ears	インスタントオーディオス切り替え
 easy-move-plus-resize	修飾キーとマウスドラッグを使用した移動とサイズ変更をサポートするユーティリティ
+easydict	辞書と翻訳アプリ
 easyeda	PCB設計ツール
 easyfind	ファイルを探す フォルダまたは任意のファイルの内容
 ebibookreader	ebi.BookReader
