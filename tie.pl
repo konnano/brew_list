@@ -430,7 +430,7 @@ sub Version_1{
        } next;
      }elsif( $data =~ /^\s*end/ and $SPA > 1 ){ $SPA--; next;
      }elsif( $data =~ /^\s*end/ and $CN ){ $SPA = $CN = 0; next;
-     }elsif( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ or $data =~ s/^\s*version\s+:([^\s]+).*\n/$1/ ){
+     }elsif( $data =~ s/^\s*version\s+[":]([^"\s]+)"?.*\n/$1/ ){
        $tap{"${name}c_version"} = $data unless $tap{"${name}c_version"};
      }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}c_desc"} = $data;
