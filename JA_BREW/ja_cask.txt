@@ -444,7 +444,6 @@ bricklink-partdesigner	独自のLEGOパーツをデザインする
 bricklink-studio	LEGOの指示を作成します 建てる/表現する
 bricksmith	仮想レゴモデリング
 bridge	メガスキャンとメタヒューマンへのゲートウェイ
-brightness	ディスプレイとバックライトキーボードの明るさを調整するためのメニューバー項目
 brightness-sync	LG UltraFineディスプレイの明るさを同期するユーティリティ
 brisk	レーダーを提示するアプリ
 brisync	外部ディスプレイの明るさを自動的に制御するユーティリティ
@@ -549,7 +548,6 @@ chrome-remote-desktop-host	Google Chromeブラウザーを介して別のコン�
 chromedriver	Google Chrome用のWebアプリの自動テスト
 chromium	FreeのオープンソースWebブラウザー
 chromium-gost	Chromium-Gost
-chronicle	パーソナルファイナンスマネージャー
 chronoagent	ChronoSyncのリモートファイル共有
 chronos	JIRAおよびTrello用のデスクトップクライアント
 chronosync	同期およびバックアップツール
@@ -1512,6 +1510,7 @@ icestudio	オープンFPGAボード用のビジュアルエディター
 icloud-control	iCloudドライブのユーザー制御の選択的同期
 icollections	デスクトップを整理するのに役立つアプリ
 icon-shelf	Web開発者向けのアイコン マネージャー
+iconchamp	Big SurとMontereyのアイコンテーマアプリ
 iconchanger	アイコン変更プロセスを簡略化してアプリのアイコンを変更できるアプリ
 iconizer	Xcodeアセット カタログクリエーター
 iconjar	アイコンオーガナイザー
@@ -2693,7 +2692,6 @@ pixel-check	PiXelチェック
 pixel-picker	画面から色を選択するためのメニューバーアプリケーション
 pixelorama	Godotエンジンで作成された2Dスプライトエディター
 pixelsnap	画面測定ツール
-pixelstick	距離を測定するためのツール 画面上の角度と色
 pktriot	ホストサーバーアプリケーションと静的Webサイト
 plain-clip	コピーしたテキストから書式を削除します
 plan	カレンダーとプロジェクトマネージャー
@@ -3556,7 +3554,7 @@ taskade	チームのタスクマネージャー
 taskexplorer	実行中のすべてのタスク(プロセス)を探索するためのツール
 taskpaper	リストを作成し整理を支援するアプリ
 taskwarrior-pomodoro	Taskwarrior-ポモドーロ
-tastyworks	tastyworks証券会社向けのデスクトップ取引プラットフォーム
+tastytrade	デスクトップ取引プラットフォーム
 tau	TAU
 td-agent	Fluentd配布パッケージ
 tdr-kotelnikov	範囲制御と柔軟性を組み合わせた広帯域ダイナミクスプロセッサ
@@ -3797,6 +3795,7 @@ ultdata	iPhoneデータ回復ソフトウェア
 ultimaker-cura	3DプリンターとスライスGUI
 ultimate	電子書籍のDRMを変換して削除する
 ultimate-control	コンピューターをワイヤレスで制御する
+ultimate-vocal-remover	音声ファイルからボーカルを削除します
 ultracopier	ファイルコピーダイアログの置換
 ultrastardeluxe	カラオケゲーム
 unclack	入力中にキーボードをミュートします
