@@ -66,6 +66,7 @@ aircrack-ng	多くの新機能を備えた次世代のaircrack
 airshare	ローカルネットワークでのクロスプラットフォームコンテンツ共有
 airspy	ソフトウェア無線用のドライバーとツール
 airspyhf	ソフトウェア無線用のドライバーとツール
+aiven-client	Aiven の公式コマンドライン クライアント
 akamai	AkamaiのAPIを操作するためのCLIツールキット
 akka	並行構築するためのツールキット、分散およびfault tolerantアプリ
 akku	Schemeのパッケージ マネージャー
@@ -315,6 +316,7 @@ aws-rotate-key	AWSアクセスキーを簡単にローテーション
 aws-sam-cli	AWS SAMを使用してサーバーレスアプリケーションを 構築/テスト/デバッグ/デプロイするためのCLI ツール
 aws-sdk-cpp	AWS SDK for C++
 aws-shell	AWS CLIを操作するための統合シェル
+aws-sso-cli	AWS SSOを使用してAWS API認証情報を安全に管理する
 aws-sso-util	AWS SSOの荒削りな部分を滑らかにします(一時的に、AWSが改善するまで)
 aws-vault	開発環境でAWSの認証情報を安全に保存してアクセスする
 aws2-wrap	現在のAWS SSOクレデンシャルをエクスポートする、またはそれらを使用してサブプロセスを実行するスクリプト
@@ -704,6 +706,7 @@ cf	数値のタイムスタンプをフォーマットされた日時に置き�
 cf-tool	Codeforcesコンテスト用のコマンドラインツール
 cf4ocl	OpenCLのCフレームワーク
 cfengine	IT基礎構造の管理と理解を支援する
+cffi	PythonのC外部関数インターフェイス
 cfitsio	オプションのFortranラッパーを使用したFITSデータファイルへのCアクセス
 cflow	Cコードからコールグラフを生成する
 cfn-flip	AWS CloudFormationテンプレートをJSON形式とYAML形式の間で変換する
@@ -817,6 +820,7 @@ click	Kubernetesのコマンドライン対話的コントローラー
 clickhouse-cpp	ClickHouseのC++クライアントライブラリ
 clickhouse-odbc	データソースとしてClickHouseにアクセスするための公式ODBCドライバーの実装
 cliclick	マウスとキーボードのイベントをエミュレートするためのツール
+clifm	コマンドラインインターフェイスファイルマネージャー
 clinfo	OpenCLプラットフォームとデバイスに関する情報を印刷する
 cling	C++解釈プログラム
 clingo	論理プログラムを接地して解決するASPシステム
@@ -2045,6 +2049,7 @@ gmic	画像処理のためのフル機能のオープンソースフレームワ
 gmime	MIMEメールユーティリティ
 gmp	GNU多精度算術ライブラリ
 gmsh	CADエンジンを備えた3D限定要素Grid発生器
+gmssl	中国国家暗号標準のツールキット
 gmt	地理データとCartesianデータを操作および立案するためのツール
 gmt@5	地理データとCartesianデータを操作および立案するためのツール
 gnirehtet	Android逆テザリングツール
@@ -2303,6 +2308,7 @@ gwyddion	走査型プローブ顕微鏡の視覚化および分析ツール
 gx	言語に依存しない、汎用パッケージマネージャー
 gx-go	goで記述されたパッケージのgxパッケージマネージャーで使用するツール
 gxml	GObject-based XML DOM API
+gyb	Gmailメッセージをバックアップおよび復元するためのCLI
 gzip	人気のGNUデータ圧縮プログラム
 gzrt	Gzipリカバリツールキット
 h2	JavaSQLデータベース
@@ -2680,6 +2686,7 @@ jnettop	ネットワーク転送量を最も多く使用している ホスト/�
 jo	シェルからのJSON出力
 jobber	cronの代替品 より優れたステータスレポートとエラー処理
 joe	フル機能の端末ベースのスクリーンエディタ
+joern	コードプロパティグラフに基づくオープンソースコード分析プラットフォーム
 john	特徴的なUNIXパスワードクラッカー
 john-jumbo	UNIXパスワードクラッカーであるjohnの拡張バージョン
 joker	小さなクロージャーインタープリター リンター/フォーマッター
@@ -4084,6 +4091,7 @@ nikto	Webサーバースキャナー
 nim	静的に型付けされたコンパイル済みシステムプログラミング言語
 ninja	gypまたはCMakeで使用するための小さなビルドシステム
 ninvaders	ターミナルのスペースインベーダー
+nixpacks	App source + Nix packages + Docker = Image
 nkf	ネットワーク漢字コード変換フィルター(NKF)
 nload	リアルタイムコンソールネットワーク使用状況モニター
 nlohmann-json	最新のC++のJSON
@@ -4277,6 +4285,7 @@ openfpgaloader	FPGAをプログラミングするための汎用ユーティリ�
 openfst	荷重限界状態トランスデューサのライブラリ
 openh264	CiscoのH.264コーデック
 openhmd	没入型テクノロジー用のFreeオープンソースAPIとドライバー
+openiked	IKEv2 daemon - OpenBSD ikedのポータブル バージョン
 openimageio	読み込むためのライブラリ 画像処理/書き込み
 openiothub-server	OpenIoTHub用サーバー
 openj9	高性能で拡張性のあるJava仮想マシン
@@ -4780,6 +4789,7 @@ py2cairo	CairoグラフィックライブラリのPython2 bindings
 py3cairo	CairoグラフィックライブラリのPython3 bindings
 pybind11	C++11とPython間のSeamlessな操作性
 pycodestyle	1つのPythonファイルに含まれるシンプルなPythonスタイルチェッカー
+pycparser	PythonのCパーサー
 pydocstyle	Pythondocstringスタイルチェッカー
 pyenv	Pythonバージョン管理
 pyenv-ccache	Pythonのビルドを高速化 `ccache`のレバレッジを使用する
@@ -4788,6 +4798,7 @@ pyenv-virtualenv	virtualenvを管理するためのPyenvプラグイン
 pyenv-virtualenvwrapper	virtualenvsを管理するためのpyenvの代替品
 pyenv-which-ext	pyenvとシステムコマンドを統合する
 pyflow	Pythonのインストールおよび依存関係システム
+pygit2	libgit2 共有ライブラリへのバインド
 pygitup	より良い 'git pull'
 pygments	一般的な構文ハイライター
 pygobject3	GNOME Python bindings(GObjectイントロスペクションに基づく)
