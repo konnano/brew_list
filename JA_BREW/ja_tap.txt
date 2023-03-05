@@ -1671,6 +1671,7 @@ font-rubik-microbe	Rubik Microbe
 font-rubik-mono-one	Rubik Mono One
 font-rubik-moonrocks	Rubik Moonrocks
 font-rubik-one	Rubik One
+font-rubik-pixels	Rubik Pixels
 font-rubik-puddles	Rubik Puddles
 font-rubik-spray-paint	Rubik Spray Paint
 font-rubik-storm	Rubik Storm
