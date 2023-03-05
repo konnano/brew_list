@@ -28,9 +28,9 @@ if [[ $2 ]];then
   LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS2 ]];then
   if [[ $NAME = Darwin ]];then
-   LS3=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS2" +%s 2>/dev/null)+60*60*24 ))
+   LS3=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS2" +%s 2>/dev/null)+86400 ))
   else
-   LS3=$(( $(date +%s --date "$LS2" 2>/dev/null)+60*60*24 ))
+   LS3=$(( $(date +%s --date "$LS2" 2>/dev/null)+86400 ))
   fi
   if (( $TI > $LS3 ));then
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
@@ -379,6 +379,6 @@ EOF
   if [[ $2 = 2 ]];then
    perl ~/.BREW_LIST/tie.pl 1 || { math_rm 1 && ${die:?perl tie2 error}; }
   fi
-rm -rf ~/.BREW_LIST/19
+ rm -rf ~/.BREW_LIST/19
  math_rm
 fi
