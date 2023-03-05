@@ -956,7 +956,8 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   }else{
    Search_1( $list,$file,0,$re );
   }
-} 
+}
+
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
  my $name = $$brew;
