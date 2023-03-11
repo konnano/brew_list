@@ -328,7 +328,7 @@ awsume	コマンドラインからAWS IAMロールを簡単に引き受けるた
 awsweeper	AWSアカウントをクリーンアップするためのCLIツール
 axel	Light UNIXダウンロードアクセラレータ
 azcopy	Azure Storageデータ転送ユーティリティ
-aztfy	既存のAzureリソースをTerraformの管理下に置きます
+aztfexport	既存のAzureリソースをTerraform の管理下に置く
 azure-cli	Microsoft Azure CLI 2.0
 azure-storage-cpp	C++のMicrosoft Azure記憶装置 クライアントライブラリ
 b2-tools	B2クラウドストレージ コマンドラインツール
@@ -357,6 +357,7 @@ baresip	モジュラーSIPユーザーエージェント
 bartib	コマンドライン用の単純時間追跡
 bartycrouch	Stringsファイルを段階的に 更新/翻訳 します
 bas55	ECMA-55で定義されている最低限のBASICプログラミング言語解釈プログラム
+base16384	バイナリファイルを印刷可能なutf16beにエンコードする
 base64	base64ファイルのエンコードとデコード
 base91	base91ファイルをエンコードおよびデコードするユーティリティ
 basex	軽量XMLデータベース計算機 XPath/XQuery
@@ -919,8 +920,10 @@ compface	X-Face形式との間で変換
 compiledb	Make-baseのビルドシステム用のClangコンパイルデータベースを生成する
 composer	PHPの依存関係マネージャー
 conan	C/C++の分散型オープンソースパッケージマネージャー
+conan@1	C/C++用の分散型オープンソースパッケージマネージャー
 concurrencykit	並行システムの設計と実装を支援する
 conda-zsh-completion	condaのZsh補完
+conduit	データストア間でデータをストリーミングします Kafka Connectの置き換え JVM不要
 condure	接続マネージャー HTTP/WebSocket
 confd	テンプレートを使用してローカルアプリケーション構成ファイルを管理する
 configen	Xcodeプロジェクトで使用するための構成ファイルコード発生器
@@ -1150,6 +1153,7 @@ ddrescue	GNUデータ回復ツール
 deark	古い形式のファイル変換ユーティリティ
 debianutils	Debianに固有のその他のユーティリティ
 defaultbrowser	デフォルトのブラウザを取得および設定するためのコマンドラインツール
+define	複数のソースにアクセスできるコマンドライン辞書(thesaurus)アプリ
 deheader	不要なヘッダーがないかC/C++ファイルを分析します
 dehydrated	シェルスクリプトとして実装された LetsEncrypt/acme クライアント
 deja-gnu	他のプログラムをテストするためのフレームワーク
@@ -1365,6 +1369,7 @@ dupseek	重複ファイルを見つけて削除するための対話的なプロ
 dura	Gitコミットを介して作業を自動的にバックアップします
 dust	Rustのduのより直感的なバージョン
 duti	MacOSのドキュメントとURL配置のデフォルトアプリを選択します
+dutree	Rustで書かれたファイルシステムの使用状況を分析するツール
 dvanalyzer	テープからファイルへのDVストリームを検査するための品質管理ツール
 dvc	データサイエンスプロジェクトのGit
 dvd+rw-tools	DVD+-RW/R ツール
@@ -1486,6 +1491,7 @@ epsilon	強力なwavelet画像圧縮機
 epstool	プレビュー画像を編集しEPSファイルのバウンディングボックスを修正します
 epubcheck	EPUBファイルを検証する バージョン2.0以降
 eralchemy	単純実体関連(ER)図の生成
+erdtree	マルチスレッドのファイルツリービジュアライザーとディスク使用状況アナライザー
 erigon	効率性最前線でのイーサリアム(実行クライアント)の実装
 erlang	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@21	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
@@ -2689,6 +2695,7 @@ joe	フル機能の端末ベースのスクリーンエディタ
 joern	コードプロパティグラフに基づくオープンソースコード分析プラットフォーム
 john	特徴的なUNIXパスワードクラッカー
 john-jumbo	UNIXパスワードクラッカーであるjohnの拡張バージョン
+johnnydep	Pythonディストリビューションの依存関係ツリーを表示する
 joker	小さなクロージャーインタープリター リンター/フォーマッター
 jolie	サービス指向プログラミング言語
 jooby-bootstrap	joobyアプリの作成を簡素化するスクリプト
@@ -3236,6 +3243,7 @@ libowfat	libdjbを再実装します
 libp11	CのPKCS#11ラッパーライブラリ
 libpagemaker	Aldus/Adobe PageMakerドキュメントのファイル形式をインポートします
 libpano	重なり合う画像のセットからパノラマ画像を作成する
+libpaper	紙の特性を扱うライブラリ
 libpcap	ネットワーク転送量キャプチャ用のポータブルライブラリ
 libpciaccess	汎用PCIアクセスライブラリ
 libpcl	coroutinesのCライブラリとAPI
@@ -4193,6 +4201,7 @@ oci-cli	Oracle Cloud Infrastructure CLI
 ocl-icd	OpenCL ICDローダー
 oclgrind	OpenCLデバイス模擬装置とデバッガー
 ocm	Red Hat OpenShiftクラスタマネージャのCLI
+ocmtoc	Mach-OからPE/COFFへのバイナリコンバーター
 ocp	Open CubicPlayerのUNIXポート
 ocproxy	ユーザーレベルのSOCKSとポート転送プロキシ
 ocrad	光学式文字認識(OCR)プログラム
@@ -4217,6 +4226,7 @@ ohcount	ソースコードラインカウンター
 ohdear-cli	あなたの大事なサイトを管理するツール
 oil	より一貫性のある構文と意味を備えたBash互換のUnixシェル
 oksh	パブリックドメインのKornシェル(pdksh)に基づくポータブルOpenBSD ksh
+okta-aws-cli	AWS CLIのOktaフェデレーションID
 okta-awscli	awscliのOkta認証
 okteto	Kubernetesで直接コードを開発してテストすることでより優れたアプリを構築します
 ola	照明点灯の基本設計のための情報制御
@@ -5257,6 +5267,7 @@ sersniff	2つの順番ポート間をするプログラム tunnel/sniff
 serve	必要な場所にある静的httpサーバー
 serveit	静的コンテンツの同期サーバーと再構築
 serverless	サーバーレス基本設計でアプリケーションを構築する
+service-weaver	クラウドアプリケーションを作成およびデプロイするためのプログラミングフレームワーク
 servus	zeroconfネットワーキング用のライブラリとユーティリティ
 setweblocthumb	カスタムアイコンをweblocファイルに割り当てます
 seven-kingdoms	Enlight SoftwareのTrevor Chanが開発したリアルタイム戦略ゲーム
@@ -6173,6 +6184,7 @@ vramsteg	コマンドラインアプリケーションにプログレスバー�
 vroom	配車ルートオープンソース最適化マシン
 vrpn	バーチャルリアリティ周辺機器ネットワーク
 vsce	パッケージング用のツール VSCode拡張機能の公開と管理
+vscode-langservers-extracted	vscodeから抽出された HTML/CSS/JavaScript/JSON の言語サーバー
 vsearch	微生物叢分析のための多用途のオープンソースツール
 vsftpd	UNIXの安全なFTPサーバー
 vsh	HashiCorp Vault対話的シェル
