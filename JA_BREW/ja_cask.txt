@@ -1,5 +1,6 @@
 0-ad	リアルタイム戦略ゲーム
 010-editor	テキストエディター
+115	115クラウドストレージサービスのクライアント
 115browser	Webブラウザー
 1clipboard	クリップボード管理アプリ
 1password	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
@@ -94,7 +95,7 @@ alacritty	GPUで高速化されたターミナルエミュレータ
 aladin	双方向sky atlas
 alchemy	図面プロジェクトを開く
 aldente	最大充電率を制限するメニューバーツール
-aleph-one	Bungieの Marathon 2ゲームエンジンのオープンソースの続き
+alex313031-thorium	ウェブブラウザ
 alfaview	オーディオビデオ会議
 alfred	アプリケーションランチャーと生産性ソフトウェア
 algodoo	物理システムを描画して操作する
@@ -886,6 +887,7 @@ dogecoin	暗号通貨
 doll	メニューバーのドックからアプリのバッジを表示するユーティリティ
 dolphin	ゲームキューブとWiiのゲームをプレイするエミュレーター
 doomsday-engine	Doomの拡張ソースポート Heretic/Hexen
+doppler	音楽プレーヤー
 dosbox	DOSを使用したx86用エミュレーター
 dosbox-x	DOSBoxプロジェクトのフォーク
 doteditor	DotEditor
@@ -1605,8 +1607,7 @@ ireadfast	速読プログラム
 iridium	セキュリティとプライバシーに焦点を当てたWebブラウザー
 iris	ブルーライトフィルターと目の保護ソフトウェア
 iriunwebcam	携帯電話のカメラをワイヤレスWebカメラとして使用する
-irpf2021	ブラジルの連邦歳入庁(RFB)の昨年の収入を宣言する
-irpf2022	ブラジルの歳入サービスの税レポート(DIRPF)に記入する
+irpf2023	ブラジル歳入庁(RFB)の納税申告書(DIRPF)に記入する
 isabelle	一般的な証明アシスタント
 ishowu	iShowU
 ishowu-instant	リアルタイム画面録画
@@ -1745,7 +1746,6 @@ keycast	スクリーンキャストのキーストロークを記録する
 keycastr	オープンソースのキーストロークビジュアライザー
 keycombiner	インスタントショートカットルックアップ
 keycue	見つける キーボードショートカットを学習して記憶する
-keyfinder	音楽調検出ツール
 keyman	別の言語で入力するようにキーボードを再構成します
 keymanager	証明書マネージャー
 keypad-layout	Ctrlキーとテンキーを使用してウィンドウレイアウトを制御するユーティリティ
@@ -2119,6 +2119,7 @@ metashapepro	デジタル画像を処理し3D空間データを生成します
 metasploit	侵入テストフレームワーク
 metaz	Mp4メタデータエディター
 meteorologist	調整可能な天気表示アプリケーション
+mfiles	ローカルネットワーク経由でファイルを転送する
 mgba	ゲームボーイアドバンスエミュレータ
 mi	テキストエディター
 mia-for-gmail	Gmail用のデスクトップメールクライアント
@@ -2218,6 +2219,7 @@ molotov	フランスのテレビストリーミングサービス
 monal	チャットサーバーに安全に接続するためのツール
 monero-wallet	追跡不可能な暗号通貨ウォレット
 moneydance	プライバシーに焦点を当てた個人の財務管理アプリケーション
+moneymanager	財務マネージャー
 moneymoney	ドイツの銀行および財務管理ソフトウェア
 moneywiz	財務管理アプリケーション
 mongodb-compass	MongoDBデータを探索して操作する
@@ -2279,6 +2281,7 @@ multimc	マインクラフトランチャー
 multipass	仮想Ubuntuインスタンスを調整します
 multipatch	ファイルパッチユーティリティ
 multitouch	トラックパッドとマジックマウスのジェスチャーを追加する
+multiviewer-for-f1	F1TVの非公式デスクトップクライアント
 mumble	オープンソース/低遅延 ゲーム用の高品質ボイスチャットソフトウェア
 mumu	Mumu
 munki	ソフトウェアインストールマネージャー
@@ -2437,6 +2440,7 @@ oak9	oak9のセキュリティコンプライアンスSaaS製品のコンポー�
 objectivesharpie	Objective-Cコードから始まるC#インターフェイスを生成するために使用されるツール
 objektiv	Objektiv
 obs	ライブストリーミングと画面録画用のオープンソースソフトウェア
+obs-advanced-scene-switcher	OBS Studioの自動シーンスイッチャー
 obs-ndi	OBS Studio用のNewTek NDI統合
 obs-virtualcam	OBSバーチャルカメラ
 obs-websocket	WebSocketを介したOBS Studioのリモートコントロール
@@ -3116,7 +3120,6 @@ sauce-connect	Sauce Labs自動テストプラットフォームに安全に接�
 sauerbraten	マルチプレイヤー&シングルプレイヤー一人称シューティングゲーム
 save-hollywood	カスタムビデオファイルのスクリーンセーバー
 scala-ide	Scala IDE
-scansion	scansion
 scap-workbench	SCAPスキャナーとグラフィカルユーザーインターフェイスの調整
 scapple	メモ帳ソフトウェア
 scatter	EOS用デスクトップウォレット
