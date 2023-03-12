@@ -1176,6 +1176,7 @@ font-nanum-gothic	Nanum Gothic
 font-nanum-gothic-coding	Nanum Gothic Coding
 font-nanum-myeongjo	Nanum Myeongjo
 font-nanum-pen-script	Nanum Pen Script
+font-narnoor	積極的に復活した
 font-national-park	National Park
 font-nats	NATS
 font-neonderthaw	ネオンをシミュレートするシングルウェイトスクリプト
@@ -1715,6 +1716,7 @@ font-sawarabi-mincho	さわらび明朝
 font-scada	Scada
 font-scheherazade	Scheherazade
 font-scheherazade-new	古典的なアラビアンナイト物語のヒロインにちなんで名付けられました
+font-schibsted-grotesk	ユーザーインターフェイス用に作成されたデジタルファーストフォントファミリー
 font-schoolbell	Schoolbell
 font-scope-one	Scope One
 font-seaweed-script	Seaweed Script
@@ -1755,6 +1757,7 @@ font-short-stack	Short Stack
 font-shrikhand	Shrikhand
 font-shure-tech-mono-nerd-font	ShureTechMonoオタクフォント(Share Tech Mono)
 font-siemreap	Siemreap
+font-sigmar	Sigmar
 font-sigmar-one	Sigmar One
 font-signika	優しいキャラクターのSans-serif看板書体
 font-signika-negative	Signika Negative
