@@ -95,6 +95,7 @@ alacritty	GPUで高速化されたターミナルエミュレータ
 aladin	双方向sky atlas
 alchemy	図面プロジェクトを開く
 aldente	最大充電率を制限するメニューバーツール
+aleph-one	Bungie's Marathon 2 ゲームエンジンのオープンソース継続版
 alex313031-thorium	ウェブブラウザ
 alfaview	オーディオビデオ会議
 alfred	アプリケーションランチャーと生産性ソフトウェア
@@ -1548,6 +1549,7 @@ imagemin	デスクトップ画像縮小ツール
 imageoptim	画像をより小さなサイズに最適化するためのツール
 imagex	画像コレクションを視覚的に探索して検索する
 imazing	iPhone管理アプリケーション
+imazing-converter	HEICをJPEGに/HEVCをMP4に変換するFreeツール
 imgotv	MangoTVビデオアプリ
 imhex	リバースエンジニア用のHexエディター
 imo	Imoメッセンジャー
