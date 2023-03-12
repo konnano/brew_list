@@ -2128,7 +2128,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
     $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
      $re->{'COM'} = '/usr/local/share/zsh/site-functions';
    unless( $ARGV[0] ){
-    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 );
+    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 )
+    if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks';
      Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
       Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
        Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
@@ -2138,7 +2139,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
      $re->{'FON'} = "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
       $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
    unless( $ARGV[0] ){
-    Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks",0,1 );
+    Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks",0,1 )
+    if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks";
      Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
       Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
        Dirs_1( "$MY_BREW/Library/Taps",1,0 );
