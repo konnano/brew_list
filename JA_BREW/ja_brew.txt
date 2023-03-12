@@ -2420,6 +2420,7 @@ howdoi	コマンドラインを介した即時コーディングの回答
 hpack	Haskellパッケージの最新フォーマット
 hping	コマンドライン指向の TCP/IP パケット アセンブラ/分析
 hpp-fcl	柔軟な衝突ライブラリの拡張
+hq	Jq、しかしHTML用
 hqx	ピクセルアートに設計された倍率フィルター
 hr	<hr />、ターミナルウィンドウ用
 hsd	応答確認デーモン & Full Node
@@ -2890,6 +2891,7 @@ kyua	ソフトウェア基礎構造のテストフレームワーク
 kyverno	Kubernetesネイティブポリシー管理
 lab	GitLabのGitラッパー
 lablgtk	gtk+へのObjectiveCamlインターフェース
+lacework-cli	Laceworkを管理するためのCLI
 ladspa-sdk	Linuxオーディオ開発者向けのシンプルなプラグイン
 lame	高品質のMPEGオーディオレイヤーIII(MP3)エンコーダー
 lammps	分子動力学模擬装置
@@ -4566,6 +4568,7 @@ pick	選択肢のセットから1つのオプションを選択するユーテ�
 pickle	PHP拡張インストーラー
 picoc	スクリプト用のCインタプリタ
 picocom	最低限のDump端末エミュレーションプログラム
+picotool	BOOTSELモードまたはRP2040バイナリでRP2040デバイスと対話するためのツール
 pict	ペアごとに独立した組み合わせツール
 pidcat	指定されたアプリのエントリのみを表示する色付きのlogcatスクリプト
 pidgin	Multi-protocolチャットクライアント
@@ -5737,6 +5740,7 @@ tectonic	近代化され完全な自己完結型のTeX/LaTeXエンジン
 tee-clc	Microsoft Team Explorer Everywhereコマンドラインクライアント
 teem	科学ラスターデータ用のライブラリ
 teensy_loader_cli	Teensy USB開発ボードのコマンドライン統合
+teip	「ひとつのことをうまくする」コマンドを助けるマスキングテープ
 tektoncd-cli	TektonCDと対話するためのCLI
 teku	イーサリアム2.0 Beacon ChainのJava実装
 teleconsole	ターミナルセッションを信頼できる人と共有するためのFreeサービス
@@ -5937,6 +5941,7 @@ trezor-bridge	Trezor通信デーモン
 triangle	Delaunay三角形分割を使用して、画像をコンピューターで生成されたアートに変換します
 trimage	PNGおよびJPGファイルを最適化するためのクロスプラットフォームツール
 trino	ビッグデータ用の分散SQLクエリエンジン
+trippy	mtrに触発されたネットワーク診断ツール
 triton	Joyent Triton CLI
 trivy	コンテナ画像の脆弱性スキャナー ファイルシステム/Git repos
 trojan-go	Goのトロイの木馬プロキシ
