@@ -314,6 +314,7 @@ battery-report	電源装置の技術概要を作成します
 battle-net	オンラインゲームプラットフォーム
 battlescribe	卓上ウォーゲーマーのための軍隊リスト作成
 baudline	時間頻度ブラウザー
+bazecor	Dygma Raiseキーボードのグラフィカルコンフィギュレーター
 bbc-iplayer-downloads	BBC iPlayer Webサイトからプログラムをダウンロードします
 bbedit	テキスト/コード/マークアップ エディター
 bdash	軽量データ分析のためのシンプルなSQLクライアント
