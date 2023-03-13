@@ -1085,7 +1085,7 @@ cxxopts	軽量のC++コマンドラインオプションパーサー
 cxxtest	JUnit/CppUnit/xUnit に似たC++単体テストフレームワーク
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
 cyral-gimme-db-token	データベースへのSSOログインにCyralを簡単に使用
-cyrus-sasl	Simple Authentication and Security Layer
+cyrus-sasl	シンプルな認証とセキュリティレイヤー
 cython	Python言語のC機能拡張を作成するためのコンパイラ
 czg	標準化されたコミットメッセージを生成するインタラクティブなCommitizen CLI
 czmq	ZeroMQの高レベルC bindings
@@ -3112,8 +3112,9 @@ libgetdata	Dirfile標準のリファレンス実装
 libgfshare	秘密を共有するためのライブラリ
 libghthash	C++の汎用ハッシュテーブル
 libgig	GigasamplerおよびDLSのライブラリ(ダウンロード可能なサウンド)レベル 1/2 ファイル
-libgit2	re-entrantでリンク可能なGit core methodsのCライブラリ
+libgit2	再入可能でリンク可能なGitコアメソッドのCライブラリ
 libgit2-glib	libgit2 gitアクセスライブラリの周りのGlibラッパーライブラリ
+libgit2@1.5	再入可能でリンク可能なGitコアメソッドのCライブラリ
 libglade	GTK+インターフェースの構築を支援するRADツール
 libglademm	libgladeのC++ラッパー
 libgnomecanvas	高レベルの構造化グラフィックライブラリ
@@ -3498,7 +3499,7 @@ livekit	拡張可能高性能WebRTCサーバー
 livekit-cli	LiveKitへのコマンドラインインターフェイス
 livestreamer	ストリーミングサービスからVLCなどのプレーヤーにビデオをパイプします
 lizard	非常に高速な減圧を備えた効率的な圧縮機
-lizard-analyzer	Extensible Cyclomatic Complexity Analyzer
+lizard-analyzer	拡張可能な循環的複雑度アナライザー
 llama	端末ファイルマネージャー
 lldpd	IEEE 802.1ab(LLDP)の実装
 llnode	node.jsアプリのデバッグ用LLDBプラグイン live/post-mortem
@@ -4231,6 +4232,7 @@ oksh	パブリックドメインのKornシェル(pdksh)に基づくポータブ�
 okta-aws-cli	AWS CLIのOktaフェデレーションID
 okta-awscli	awscliのOkta認証
 okteto	Kubernetesで直接コードを開発してテストすることでより優れたアプリを構築します
+ol	Lispの純粋関数方言
 ola	照明点灯の基本設計のための情報制御
 olsrd	最適化されたリンク状態設定手続きの実装
 omake	拡張性のために設計されたシステムを構築する 移植/簡潔
@@ -5901,7 +5903,7 @@ tor	TCPの匿名化overlayネットワーク
 torchvision	コンピュータービジョンのデータセット、変換、モデル
 torsocks	TorでSOCKSに適したアプリケーションを使用する
 totp-cli	Goで書かれたTOTP CLIツールのような Authy/Google Authenticator
-touca	Open source tool for regression testing complex software workflows
+touca	回帰テストの複雑なソフトウェアワークフロー用のオープンソースツール
 tox	汎用Python virtualenv管理およびテストコマンドラインツール
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
 tpl	バイナリデータをCで保存および取得する
