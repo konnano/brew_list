@@ -2177,6 +2177,7 @@ miniconda	condaの最小限のインストーラー
 miniforge	conda-forgeに固有のcondaの最小限のインストーラー
 minishift	Minishift
 minisim	iOSおよびAndroidシミュレーターを起動するためのアプリ
+minitimer	目立たない軽量タイマー
 minitube	YouTubeアプリケーション
 miniwol	Wake on LAN(WOL)ネットワークパケットを送信するための小さなメニューバーツール
 minizincide	オープンソースの制約モデリング言語とIDE
