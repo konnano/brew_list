@@ -37,6 +37,7 @@ admesh	三角形分割されたソリッドメッシュを処理します
 adns	C/C++のresolverライブラリとDNS resolverユーティリティ
 adplug	Freeのハードウェアに依存しないAdLibサウンドプレーヤーライブラリ
 adr-tools	基本設計決定レコードを操作するためのCLIツール
+adr-viewer	アーキテクチャ決定記録用に読みやすいWebページを生成する
 advancecomp	ファイルの再圧縮ユーティリティ .PNG/.MNG/.ZIP/.GZ
 advancemame	高度なビデオサポートを備えたMAME
 advancescan	AdvanceMAME/MESS ROMマネージャー
@@ -208,6 +209,7 @@ arrayfire	汎用GPUライブラリ
 arss	サウンドファイルをスペクトログラムに分析します
 artifactory	バイナリを管理します
 artillery	開発者/SRE 向けのクラウドネイティブの性能と信頼性テスト
+arttime	端末用の 時計、タイマー、タイムマネージャ、ASCII+テキストアートビューア
 arturo	効率的なスクリプティングのためのシンプルでモダンでポータブルなプログラミング言語
 arx-libertatis	ArxFatalisのクロスプラットフォームのオープンソースポート
 arxiv_latex_cleaner	arXivに送信するLaTeXコードをクリーンアップします
@@ -406,6 +408,7 @@ bee	データベースの変更を管理するためのツール
 beecrypt	C/C++暗号化ライブラリ
 befunge93	難解プログラミング言語
 bench	コマンドライン基準比較ツール
+benerator	現実的なテストデータ生成ツール
 benthos	Goで書かれたありふれたタスクのためのストリーム計算機
 bento4	フル機能のMP4形式とMPEGDASHライブラリおよびツール
 berglas	Google Cloudで機密管理するためのツール
@@ -1888,6 +1891,7 @@ getxbook	さまざまなソースから電子書籍をダウンロードする�
 gexiv2	Exiv2写真メタデータライブラリのGObjectラッパー
 gf	Golangのアプリ開発フレームワーク
 gflags	command-lineフラグを処理するためのライブラリ
+gfold	Rustで書かれたGitリポジトリを追跡するのに役立ちます
 gforth	ANS Forth言語の実装
 gh	GitHubコマンドラインツール
 ghc	Glorious Glasgow Haskellコンパイルシステム
@@ -2132,6 +2136,7 @@ gokart	Goコードを保護するための静的コード分析
 gokey	Goのシンプルなボールトレスパスワードマネージャー
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
+golines	長い行を修正するGolangフォーマッタ
 gollum	Go n：mメッセージ 多重装置
 golo	JVMの軽量動的言語
 gom	SQLiteのGObjectラッパー
@@ -3058,6 +3063,7 @@ libdrm	ダイレクト解釈マネージャーにアクセスするためのラ�
 libdshconfig	分散シェルライブラリ
 libdsk	ディスクおよびディスクイメージファイルにアクセスするためのライブラリ
 libdv	DVビデオエンコーディング形式のコーデック
+libdvbcsa	DVB Common Scrambling AlgorithmのFree実装
 libdvbpsi	MPEGTSおよびDVBPSIテーブルを デコード/生成 するためのライブラリ
 libdvdcss	復号化せずにブロックデバイスとしてDVDにアクセスする
 libdvdnav	DVDナビゲーションライブラリ
@@ -4676,6 +4682,7 @@ poppler	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
 poppler-qt5	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
 popt	いくつかの機能拡張を備えたgetopt(3)のようなライブラリ
 portablegl	Clean CでのOpenGL 3.x-ishの実装
+portal	任意のコンピューターから別のコンピューターへの迅速かつ簡単なコマンドラインファイル転送ユーティリティ
 portaudio	オーディオ I/O用のクロスプラットフォームライブラリ
 portmidi	リアルタイムMIDI I/O用のクロスプラットフォームライブラリ
 posh	ポリシーに準拠した通常のシェル
@@ -6525,6 +6532,7 @@ zita-convolver	高速なパーティション畳み込みエンジンライブ�
 zk	プレーンテキストのメモ取りアシスタント
 zlib	汎用で損失の無いデータ圧縮ライブラリ
 zlib-ng	次世代システム向けの最適化によるZlibの置き換え
+zlint	Web PKIの標準と要件に焦点を当てた X.509証明書リンター
 zlog	高性能Cロギングライブラリ
 zls	Zigの言語サーバー
 zmap	インターネット全体のネットワーク研究のためのネットワークスキャナー
