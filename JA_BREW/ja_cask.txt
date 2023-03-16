@@ -2176,7 +2176,7 @@ mini-vmac	最新のコンピュータが初期のAppleコンピュータ用に�
 miniconda	condaの最小限のインストーラー
 miniforge	conda-forgeに固有のcondaの最小限のインストーラー
 minishift	Minishift
-minitimer	miniTimer
+minisim	iOSおよびAndroidシミュレーターを起動するためのアプリ
 minitube	YouTubeアプリケーション
 miniwol	Wake on LAN(WOL)ネットワークパケットを送信するための小さなメニューバーツール
 minizincide	オープンソースの制約モデリング言語とIDE
@@ -3312,7 +3312,6 @@ snagit	スクリーンキャプチャソフトウェア
 snapmaker-luban	3Dプリントソフトウェア
 snapmotion	ビデオから画像を抽出する
 snapndrag	スクリーンキャプチャアプリケーション
-snappy	Snappy
 sneek	Sneek
 snes9x	ビデオ ゲーム コンソール エミュレーター
 snip	スクリーンキャプチャツール
