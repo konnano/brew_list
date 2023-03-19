@@ -264,7 +264,6 @@ aviatrix-vpn-client	SAML認証を提供するVPNクライアント
 avidcodecsle	Media ComposerのないシステムでAvidコーデックを使用してQuickTimeムービーを使用する
 avidemux	動画編集
 avifquicklook	AVIF画像用のQuickLookプラグイン
-avira-antivirus	ウイルス対策およびVPNソフトウェア
 avitools	さまざまなビデオファイル処理ツールのグラフィカルインターフェイス
 avocode	デザインファイルでの協調
 avogadro	分子エディターおよびビジュアライザー
@@ -2799,6 +2798,7 @@ prezi-video	ストリーミングまたは録画しながらコンテンツを�
 prince	HTMLをPDFに変換する
 principle	アニメーション化された双方向なユーザーインターフェイスを設計する
 printopia	任意のプリンターへのAirPrint
+prism	統計分析およびグラフ作成ソフトウェア
 prisma-studio	Prismaプロジェクト用のビジュアルデータベースエディター
 prismatik	Prismatik
 prismlauncher	マインクラフトランチャー
@@ -3097,6 +3097,7 @@ rrcc	RoboRockコントロールセンター
 rssowl	RSSOwl
 rstudio	RとPythonに焦点を当てたデータサイエンスソフトウェア
 rsyncosx	rsyncのGUI
+rsyncui	rsyncのGUI
 rubymine	Ruby on Rails IDE
 rubymotion	Rubyでクロスプラットフォームのネイティブアプリを作成する
 runcat-plugins-manager	RunCatを有効にしてCPU温度を表示する
