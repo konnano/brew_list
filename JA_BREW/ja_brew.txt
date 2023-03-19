@@ -61,6 +61,7 @@ aggregate	プレフィックスのリストを最適化してリストの長さ�
 aha	ANSIHTMLアダプター
 ahcpd	IPv6とIPv6/IPv4 ネットワークの自動構成手続き
 ahoy	YAMLファイルのコマンドから自己文書化CLIプログラムを作成します
+aicommits	AIを使用してgitコミットメッセージを書き込みます
 aida-header	データ分析の抽象インターフェースは、物理分析のインターフェースを定義します
 aide	ファイルとディレクトリの整合性チェッカー
 aircrack-ng	多くの新機能を備えた次世代のaircrack
@@ -412,9 +413,9 @@ benerator	現実的なテストデータ生成ツール
 benthos	Goで書かれたありふれたタスクのためのストリーム計算機
 bento4	フル機能のMP4形式とMPEGDASHライブラリおよびツール
 berglas	Google Cloudで機密管理するためのツール
-berkeley-db	高性能 キー/値 データベース
-berkeley-db@4	高性能 キー/値 データベース
-berkeley-db@5	高性能 key/valueデータベース
+berkeley-db	高性能データベース key/value
+berkeley-db@4	高性能データベース key/value
+berkeley-db@5	高性能データベース key/value
 bettercap	ネットワーク攻撃と監視のための万能ナイフ
 betty	コマンドラインの英語のようなインターフェイス
 bfg	git-filter-branchなどのGit履歴から大きなファイルやパスワードを削除する
@@ -1809,6 +1810,7 @@ gammaray	実行時にQtアプリケーションの内部を調べて操作する
 gammu	電話を制御するためのコマンドラインユーティリティ
 gandi.cli	パブリックAPIを使用したGandi.net製品へのコマンドラインインターフェイス
 ganglia	拡張性のある分散監視システム
+garble	Goビルドを難読化する
 garmintools	Garmin Forerunner GPS単体へのインターフェース
 gateway-go	OpenIoTHub用のGateWayクライアント
 gator	Open Policy Agent Gatekeeperの CLIユーティリティ
@@ -3406,6 +3408,7 @@ libwebm	WebMコンテナ
 libwebsockets	C websocketsサーバーライブラリ
 libwmf	WMF(ウィンドウメタファイル形式)ファイルを変換するためのライブラリ
 libwpd	WordPerfectファイルを読み取るための汎用ライブラリ
+libwpe	WPE WebKitの汎用ライブラリ
 libwpg	Word Perfect Graphics形式を読み取って解析するためのライブラリ
 libwps	MS Works形式でファイルをインポートするためのライブラリ
 libx11	X.Org：コアX11手続きのクライアントライブラリ
@@ -4551,6 +4554,7 @@ pgtune	postgresql.confのチューニングウィザード
 pgweb	WebベースのPostgreSQLデータベースブラウザ
 pgxnclient	PostgreSQL拡張ネットワークのコマンドラインクライアント
 phive	Pharのインストールおよび検証環境(PHIVE)
+phoneinfoga	電話番号の情報収集フレームワーク
 phoon	月のASCIIアートを介して現在または指定の時期を表示します
 phoronix-test-suite	オープンソースの自動ソフトウェア テスト/基準比較
 php	汎用スクリプト言語
@@ -5352,6 +5356,7 @@ simple-scan	GNOMEドキュメントスキャンアプリケーション
 simple-tiles	空間データ用の画像生成ライブラリ
 simutrans	輸送模擬装置
 since	Stateful tail：最後のチェック以降のファイルへの変更を表示
+sing-box	ユニバーサルプロキシプラットフォーム
 singular	多項式計算のための数式処理システム
 singularity	Linuxのアプリケーションコンテナと非特権サンドボックスプラットフォーム
 sip	CおよびC++ライブラリ用のPython bindingsを作成するためのツール
@@ -5394,6 +5399,7 @@ slurm	さらに別のネットワーク負荷モニター
 smake	自動作成機能を備えたポータブル作成プログラム
 smali	AndroidのJavaVM実装用のアセンブラー/逆アセンブラー
 smap	shodan.ioを利用した Nmapのドロップイン置換
+smartdns	高速IP解決のためのRule-based DNSサーバー DoT/DoH/DoQをサポート
 smartmontools	SMARTハードドライブの監視
 smartypants	印刷デザインの整形
 smimesign	Gitで使用する S/MIME署名ユーティリティ
@@ -5867,6 +5873,7 @@ titan-server	分散グラフデータベース
 titlecase	テキストをタイトルケースに変換するスクリプト
 tivodecode	.tivoを.mpegに変換します
 tkdiff	グラフィカルなサイドバイサイドdiffユーティリティ
+tkey-ssh-agent	TKeyセキュリティスティックで使用するSSHエージェント
 tl-expected	C++11/14/17 std::expectedと機能的なスタイルの拡張
 tldr	簡素化されたコミュニティ主導のマニュアルページ
 tlsx	TLSベースのデータ収集に重点を置いた高速で構成可能なTLSグラバー
@@ -6322,6 +6329,7 @@ wordplay	アナグラム発生器
 wownero	Wownero暗号通貨の公式ウォレットおよびノードソフトウェア
 wp-cli	WordPressのコマンドラインインターフェイス
 wp-cli-completion	WpcliのBash補完
+wpebackend-fdo	WPE WebKitのFreedesktop.orgバックエンド
 wput	ファイルをアップロードするための小さなwgetのようなFTPクライアント
 wrangler	emacsとEclipseが統合されたErlangのRefactoringツール
 wren	小さくて高速なクラスベースの並行スクリプト言語
@@ -6443,6 +6451,7 @@ xtensor	ブロードキャストとレイジーコンピューティングを備
 xterm	X WindowSystem用のターミナルエミュレータ
 xtitle	X端末のウィンドウタイトルとアイコンを設定する
 xtrans	X.Org：Xネットワークトランスポート層の共有コード
+xurls	テキストからURLを抽出する
 xvid	高性能で高品質のMPEG-4ビデオライブラリ
 xwin	Microsoft CRT/Windows SDK ヘッダー/ライブラリ ローダー
 xxh	sshを通過する場所ならどこでもお気に入りのシェルを持ってきてください
