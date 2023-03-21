@@ -1106,6 +1106,7 @@ fertigt-slate	ウィンドウ管理アプリケーション
 fetch	ファイル転送クライアント
 ff-works	ビデオエンコーディングおよびトランスコーディングアプリ
 fig	ターミナルを再考する
+fightcade	レトロゲームのマッチメイキングプラットフォーム
 figma	コラボレーティブ共同チームソフトウェア
 figmadaemon	Figmaフォントインストーラー
 figtree	FigTree
@@ -1134,7 +1135,6 @@ firefly	IOTAの公式ウォレット
 firefox	Webブラウザー
 firestorm	仮想世界にアクセスするためのViewer
 fireworks	パーティクルエフェクトエディター
-firmaec	デジタル証明書を介してドキュメントに署名する
 fiscript	FiScript
 fishing-funds	メニューバーに中国のファンドのリアルタイムトレンドを表示する
 fission	オーディオエディター
@@ -2572,7 +2572,6 @@ oversight	コンピューターのマイクとWebカメラを監視します
 overt	アプリストアを開く
 owasp-zap	FreeのオープンソースWebアプリスキャナー
 owncloud	ownCloud用のデスクトップ同期クライアント
-oxwu	OX ウェイクアップ
 oxygen-xml-editor	OxygenXML開発および作成を含むXML編集用のツール
 p4	これを使用して操作に即座にアクセスしシステムを完全に制御します
 p4v	Helix Coreのビジュアルクライアント
