@@ -2807,6 +2807,7 @@ kestrel	分散メッセージキュー
 kettle	Pentahoデータ統合ソフトウェア
 keychain	ssh-agent(1)へのユーザーに親しいフロントエンド
 keydb	RedisのMultithreadedフォーク
+keyring	Pythonからシステムキーリングサービスにアクセスする簡単な方法
 keystone	アセンブラーフレームワーク：Core + bindings
 khal	CLIカレンダーアプリケーション
 khard	コンソールcarddavクライアント
@@ -4534,6 +4535,7 @@ pev	PE分析ツールキット
 pex	PostgreSQLのパッケージマネージャー
 pferd	ファイルをすばやく簡単にダウンロードするためのプログラム
 pfetch	POSIX shで書かれたかなりのシステム情報ツール
+pfetch-rs	Rustで書かれたプリティシステム情報ツール
 pg_cron	PostgreSQLで定期的なジョブを実行す
 pg_partman	PostgreSQLのパーティション管理拡張機能
 pg_top	PostgreSQLプロセスを監視する
@@ -5526,6 +5528,7 @@ spring-roo	Java開発者向けの迅速なアプリケーション開発ツー�
 sproxy	'siege-friendly'作法でURLを収集するHTTPプロキシサーバー
 sql-language-server	SQL用言語サーバー
 sql-lint	クエリでエラーをDBから戻し健全性チェックを行うSQL静的解析
+sql-migrate	Go用SQLスキーマ移行ツール
 sql-translator	構造化データ定義の操作(SQLなど)
 sqlancer	DBMSでの論理バグの検出
 sqlbench	1つ以上のSQLクエリの実行時間を測定して比較します
