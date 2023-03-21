@@ -294,6 +294,7 @@ font-capriola	Capriola
 font-caramel	3つのバリエーションを持つ楽しい手書きのスクリプト
 font-carattere	フォーマルなエレガンスと美しさが不可欠​​な場所に最適
 font-cardo	Cardo
+font-carlito	calibriとのメトリック互換
 font-carme	Carme
 font-carrois-gothic	Carrois Gothic
 font-carrois-gothic-sc	Carrois Gothic SC
@@ -1533,6 +1534,7 @@ font-podkova-vf-beta	Podkova VF Beta
 font-poetsen-one	Poetsen One
 font-poiret-one	Poiret One
 font-poller-one	Poller One
+font-poltawski-nowy	Poltawski Nowy
 font-poly	Poly
 font-pompiere	Pompiere
 font-ponnala	Ponnala
