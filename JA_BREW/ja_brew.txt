@@ -2105,6 +2105,7 @@ go-bindata	任意のファイルからGoコードを生成する小さなユー�
 go-boring	BoringCryptoでGoプログラミング言語に移行する
 go-camo	セキュアイメージプロキシサーバー
 go-critic	独断的なGoソースコードlinter
+go-feature-flag-relay-proxy	GO機能フラグを実行するスタンドアロンサーバー
 go-jira	Goのシンプルなjiraコマンドラインクライアント
 go-jsonnet	JSONデータを定義するための構成言語の実装に移動します
 go-md2man	マークダウンをroffに変換します(manページ)
@@ -2389,6 +2390,7 @@ hesiod	DNS上に構築された単純な文字列検索サービスのライブ�
 hevea	LaTeXからHTMLへの翻訳
 hexcurse	Ncursesベースのコンソール16進エディター
 hexedit	16進数またはASCIIでファイルを表示および編集する
+hexer	viに似たインターフェイスを備えた端末用の16進エディタ
 hexgui	16進テキストで16進を再生するためのGUI
 hexo	高速でシンプルかつ強力なblogフレームワーク
 hexyl	コマンドライン16進Viewer
@@ -3518,6 +3520,7 @@ llvm@11	次世代基礎構造コンパイラ
 llvm@12	次世代基礎構造コンパイラ
 llvm@13	次世代基礎構造コンパイラ
 llvm@14	次世代基礎構造コンパイラ
+llvm@15	次世代基礎構造コンパイラ
 llvm@7	次世代基礎構造コンパイラ
 llvm@8	次世代基礎構造コンパイラ
 llvm@9	次世代基礎構造コンパイラ
@@ -3968,6 +3971,7 @@ mupdf-tools	軽量PDFとXPS Viewer
 mupen64plus	クロスプラットフォームのplugin-basedのN64エミュレーター
 murex	コマンドラインの生産性を高め、スクリプトをより安全にするために設計されたBashのようなシェル
 musepack	オーディオ圧縮フォーマットとツール
+musikcube	端末ベースのオーディオエンジン ライブラリ/プレーヤー/サーバー
 mussh	Multi-host SSHラッパー
 mutt	メールユーザーエージェントの雑種(part elm、pine、mush、mhなど)
 mvnvm	Mavenバージョンマネージャー
@@ -4553,6 +4557,7 @@ pgrouting	PostGIS/PostgreSQL データベースの地理空間設定を提供し
 pgsync	データベース間でPostgresデータを同期する
 pgtoolkit	PostgreSQLメンテナンス用のツール
 pgtune	postgresql.confのチューニングウィザード
+pgvector	Postgres用のオープンソースのベクトル類似性検索
 pgweb	WebベースのPostgreSQLデータベースブラウザ
 pgxnclient	PostgreSQL拡張ネットワークのコマンドラインクライアント
 phive	Pharのインストールおよび検証環境(PHIVE)
@@ -6153,6 +6158,7 @@ vgmstream	ビデオゲームからストリーミングされたオーディオ�
 vgrep	grepのユーザーに親しいPager
 vhs	貴方のCLIホームビデオレコーダー
 vice	用途の広いCommodoreエミュレータ
+victoriametrics	費用対効果が高くスケーラブルな監視ソリューションと時系列データベース
 viddy	現代の監視コマンド
 video-compare	FFmpegとSDL2を使用した分割画面ビデオ比較ツール
 viennacl	many-core基本設計およびmulti-core CPUの線形代数ライブラリ
