@@ -511,7 +511,6 @@ cashnotify	メニューバーからStripeアカウントとPaypalアカウント
 castr	Castrストリーミングプラットフォームを制御するためのデスクトップアプリケーション
 catch	ブロードキャッチが簡単に
 catlight	開発者のためのアクションセンター
-catoclient	VPNクライアント
 cave-story	古典的な8ビットおよび16ビットゲームを彷彿とさせるアクションアドベンチャーゲーム
 ccleaner	ジャンクファイルと未使用ファイルを削除します
 ccmenu	継続的インテグレーションサーバーを監視するためのアプリケーション
@@ -3429,7 +3428,6 @@ stack-stack	すべての生産性アプリを1か所から管理するための�
 stand	1時間に1回立ち上がるように通知します
 standard-notes	Freeのオープンソースの完全に暗号化されたメモアプリ
 starcraft	Starcraft
-starleaf	Starleaf
 starnet-plus-plus	MLモデルを使用して天体写真画像から星を削除します
 starsector	オープンワールドのシングルプレイヤー宇宙戦闘およびトレーディングRPG
 start	Tencentクラウドゲームプラットフォーム
@@ -4057,7 +4055,6 @@ writefull	あなたの執筆に関するフィードバックを提供します
 writemapper	マインドマップを使用してテキストドキュメントを作成するのに役立つライティングツール
 writer	Fountain言語に基づくスクリーンライティングアプリ
 wwdc	WWDCライブストリームへのアクセスを許可します ビデオ/セッション
-wxcrafter	wxCrafter
 wxmacmolplt	GAMESS用のクロスプラットフォームGUI入力発生器
 x-mirage	X-Mirage
 x-moto	2Dモトクロスプラットフォームゲーム
@@ -4143,6 +4140,7 @@ zazu	ハッカー向けの拡張可能なオープンソースランチャー �
 zdoom	Doomのソースポート
 zebra2	ワイヤレスモジュラーシンセサイザー
 zecwallet-lite	Zcashライトウォレット
+zed	マルチプレイヤーコードエディター
 zeebe-modeler	BPMNを使用してZeebeワークフローをモデル化するためのデスクトップアプリケーション
 zeitgeist	Vercelの展開に注意してください
 zenbeats	音楽作成アプリ
