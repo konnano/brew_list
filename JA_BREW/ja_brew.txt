@@ -3720,6 +3720,7 @@ mdk	GNU MIX開発キット
 mdless	ターミナルでマークダウンファイルの書式設定および強調表示されたビューを提供します
 mdp	コマンドラインベースのマークダウン提示ツール
 mdr	diffを読みやすくする
+mdt	コマンドラインマークダウンtodoリストマネージャー
 mdv	Style付きターミナルマークダウンViewer
 mdxmini	X68000MDXチップチューン形式で音楽を再生します
 mdzk	mdBookに基づくプレーンテキストZettelkasten
@@ -4268,6 +4269,7 @@ onnxruntime	MLモデルのクロスプラットフォームの高性能スコア
 onscripter	NScripter互換のvisual novel engine
 ooniprobe	ネットワーク干渉検出ツール
 opa	オープンソースの汎用ポリシーエンジン
+opal	RubyからJavaScriptへのトランスパイラ
 opam	OCamlパッケージマネージャー
 open-adventure	Colossal Cave Adventure、1995年の430-pointバージョン
 open-babel	化学ツールボックス
@@ -4347,6 +4349,7 @@ openslp	サービスロケーション手続きの実装
 openssh	OpenBSDのFreeライセンスSSH接続ツール
 openssl@1.1	暗号化と SSL/TLS ツールキット
 openssl@3	暗号化と SSL/TLS ツールキット
+openssl@3.0	暗号化/SSL/TLS ツールキット
 openstackclient	OpenStackのコマンドラインクライアント
 opensubdiv	オープンソースのsubdivision surfaceライブラリ
 opentelemetry-cpp	OpenTelemetry C++クライアント
@@ -5978,6 +5981,7 @@ trzsz-go	シンプルなファイル転送ツール lrzsz(rz/sz)に似ていま�
 tsduck	MPEG転送ストリームツールキット
 tssh	SSH軽量管理ツール
 tsung	負荷テスト HTTP/PostgreSQL/Jabberなど
+tt	アプリケーションを管理するためのコマンドラインユーティリティ
 tta	損失の無いオーディオコーデック
 ttdl	ターミナルTodoリストマネージャー
 ttf2eot	TTFファイルをEOTに変換する
@@ -6565,6 +6569,7 @@ zork	ダンジョンがFORTRANからCに変更されました
 zoro	ローカルサーバーを外部ネットワークに公開する
 zoxide	ファイルシステムをより速くナビゲートするためのシェル拡張
 zpaq	増分 ジャーナリングコマンドラインアーカイバ
+zpaqfranz	コマンドラインアーカイバとバックアップ ツールの重複排除
 zplug	zshの次世代プラグインマネージャー
 zrepl	ワンストップZFSバックアップおよびレプリケーションソリューション
 zsdx	Solarus DXのゼルダミステリー
