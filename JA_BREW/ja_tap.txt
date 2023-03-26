@@ -305,6 +305,7 @@ font-cascadia-mono	合字のないCascadiaコードのバージョン
 font-cascadia-mono-pl	糸結びがなく、Powerlineが埋め込まれたCascadiaコードのバージョン
 font-caskaydia-cove-nerd-font	CaskaydiaCove Nerdフォント(Caskaydiaコード)
 font-castoro	北米ビーバーにちなんで名付けられました castor canadensis
+font-castoro-titling	Castoro Titling
 font-catamaran	Catamaran
 font-caudex	Caudex
 font-caveat	Caveat
@@ -782,6 +783,7 @@ font-inria	Inria
 font-inria-sans	Inria Sans
 font-inria-serif	Inria Serif
 font-inspiration	Inspiration
+font-instrument-serif	Instrument Serif
 font-inter	Inter
 font-inter-tight	Inter Tight
 font-iosevka	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
@@ -1968,6 +1970,7 @@ font-victor-mono	Victor Mono
 font-victor-mono-nerd-font	VictorMonoオタクフォント(Victor Mono)
 font-vidaloka	Vidaloka
 font-viga	Viga
+font-vina-sans	Vina Sans
 font-voces	Voces
 font-volkhov	Volkhov
 font-vollkorn	Vollkorn
