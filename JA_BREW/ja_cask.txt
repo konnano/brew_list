@@ -973,6 +973,7 @@ eddie	OpenVPN UI
 edex-ui	サイエンスフィクションをテーマにしたターミナルエミュレーターとシステムモニター
 edfbrowser	EDF+/BDF+ Viewerとツールボックス
 editaro	テキストエディター
+edrawmind	マインドマッピングソフトウェア
 egnyte	Egnyteクラウドストレージサービスのクライアント
 eiskaltdcpp	ダイレクトコネクトおよびADC手続きを使用したファイル共有
 ejector	メニューバーにEjectアイコンを追加します
@@ -2165,7 +2166,6 @@ mimestream	Gmail用のネイティブアプリのメールクライアント
 min	プライバシーを保護する最小限のブラウザー
 mindforger	思考力のあるノートブックとマークダウンIDE
 mindjet-mindmanager	マインドマッピングツール
-mindmaster	マインドマスター
 minecraft	サンドボックス建設ビデオゲーム
 minecraft-server	Minecraftマルチプレイヤーサーバーを実行する
 minecraftpe	Minecraftの教育版
@@ -2538,6 +2538,7 @@ oracle-jdk	OracleのJDK
 oracle-jdk-javadoc	OracleJDKのドキュメント
 orange	コンポーネントベースのデータマイニングソフトウェア
 orangedrangon-android-messages	Androidメッセージデスクトップ
+orbstack	Dockerデスクトップの代替
 orca	Orca
 origami-studio	Facebookのプロトタイプデザインツール デザイン/アニメート
 origin	PCゲームをプレイし友達とつながる
@@ -3431,7 +3432,6 @@ starcraft	Starcraft
 starnet-plus-plus	MLモデルを使用して天体写真画像から星を削除します
 starsector	オープンワールドのシングルプレイヤー宇宙戦闘およびトレーディングRPG
 start	Tencentクラウドゲームプラットフォーム
-startninja	StartNinja
 startupizer	ログインアイテムハンドラ
 staruml	ソフトウェアモデラー
 stationtv-link	StationTV® Link
