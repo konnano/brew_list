@@ -1669,6 +1669,7 @@ flash	あらゆる種類のSDカードイメージをフラッシュするコマ
 flashrom	フラッシュチップ 識別/読み取り/書き込み/検証/消去
 flatbuffers	C++用の順番化ライブラリサポート Java/C#/Go
 flatcc	FlatBuffersコンパイラとCforCのライブラリ
+flavours	どんなワークフローにも統合できる、使いやすいbase16スキームマネージャー
 flawfinder	コードを調べてセキュリティ上の弱点の可能性を報告します
 fleet-cli	Kubernetesクラスターの大規模なfleetを管理する
 fleetctl	分散型initシステム
@@ -2544,6 +2545,7 @@ imap-uw	ワシントン大学のIMAPツールキット
 imapfilter	IMAPメッセージ 計算機/フィルタ
 imapsync	IMAPメールアカウントの移行またはバックアップ
 imath	2Dと3Dのベクターライブラリ Matrix/数学演算
+imessage-exporter	ローカルiMessageデータベースをエクスポートして検査するためのコマンドラインツール
 imessage-ruby	iMessageを送信するためのコマンドラインツール
 imgproxy	リモート画像のサイズ変更と変換のための高速で安全なサーバー
 imgur-screenshot	スクリーンショットを選択 upload to imgur. + more cool things
@@ -5630,6 +5632,7 @@ stp	単純な定理証明 ビットベクトル用の効率的なSMTソルバー
 strace	Linuxカーネル用のデバッグツール 診断/教育
 streamlink	さまざまなWebサイトからビデオプレーヤーにストリームを抽出するためのCLI
 streamripper	Shoutcastsタイトルストリーミングによる個別のトラック
+streamvbyte	Cでの高速整数圧縮
 stress	コンピュータシステムに負荷をかけストレステストを行うためのツール
 stress-ng	さまざまな選択可能な方法でコンピュータシステムのストレステストを行う
 strongswan	IPsecに基づくVPN
