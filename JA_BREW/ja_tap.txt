@@ -280,6 +280,7 @@ font-caesar-dressing	Caesar Dressing
 font-cagliostro	Cagliostro
 font-cairo	Cairo
 font-cairo-play	カラーマークが特徴的なCairoのカラーフォントバージョン
+font-cal-sans	幾何学的 sans-serif書体
 font-caladea	Caladea
 font-calistoga	Calistoga
 font-calligraffitti	Calligraffitti
@@ -2049,7 +2050,6 @@ bluos-controller	オーディオシステムの管理
 bose-soundtouch	コンピューターからBose SoundTouchシステムを制御する
 bose-updater	Bose製品のソフトウェアアップデート
 bose-usb-link-updater	Bose USB Linkにアップデートを提供します
-bragi-updater	Dashの新しいスキルを確認し言語を切り替えます
 brother-p-touch-update-software	ブラザーP-touchラベルプリンター用ソフトウェア
 caldigit-docking-utility	CalDigit Thunderboltドッキングステーションユーティリティ
 caldigit-thunderbolt-charging	Appleデバイスのサポートの改善
