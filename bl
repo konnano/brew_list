@@ -58,8 +58,9 @@ MAIN:{
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
  }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'} = 1;
  }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'} = 1;
- }elsif( $AR[0] eq  '-'  ){ $re->{'BL'} = $ref->{'BL'}  = 1;
+ }elsif( $AR[0] eq '-'   ){ $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
+ }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }else{  Died_1();
  }
@@ -191,10 +192,11 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.16_7\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.16_8\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
-  -lx\t:  can't install formula list\n  -s\t:  type search formula name\n  -o\t:  brew outdated
+  -lx\t:  can't install formula list\n  -s\t:  type search formula name
+  -ss\t:  type search formula name ( hide formula that can't installed )\n  -o\t:  brew outdated
   -co\t:  formula library display\n  -in\t:  formula require formula list
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula , all
@@ -230,6 +232,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} and not $re->{'COL'} ){
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
     DB_2( $re ) unless $re->{'BL'} or defined $re->{'S_OPT'} or $re->{'COM'};
+     DB_2( $re ) if $re->{'S_O'};
   }
   if( $re->{'INF'} and not $re->{'COL'} or $re->{'USE'} or $re->{'dep_s'} or $re->{'ana'} or $re->{'use'} ){
    if( $re->{'TREE'} or $re->{'LINK'} and $re->{'LINK'} == 6 or $re->{'USES'} or
@@ -1148,7 +1151,7 @@ my( $list,$file,$in,$re ) = @_;
             $brew_1 eq '2' ? ' ==> homebrew/cask-versions' : $brew_1;
   Mine_1($brew_1,$re,0), next if ( $re->{'BL'} or defined $re->{'S_OPT'} ) and index($brew_1,' ') == 0;
 
-  $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'TAP'} or $re->{'CAS'} and
+  $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'TAP'} or $re->{'CAS'} and $brew_2 and
             $re->{'OS'}{"${brew_1}c_version"} and length $re->{'OS'}{"${brew_1}c_version"} <= length $brew_2;
   $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
 
@@ -1184,7 +1187,10 @@ my( $list,$file,$in,$re ) = @_;
         my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/o;
        }
-      }else{ Mine_1( $brew_1,$re,0 ); }
+      }else{ Mine_1( $brew_1,$re,0 )
+        unless ( $re->{'MAC'} and ( $re->{'OS'}{"${brew_1}un_xcode"} or $re->{'OS'}{"${brew_1}un_cask"} ) ) or
+                 $re->{'LIN'} and $re->{'OS'}{"${brew_1}un_Linux"};
+      }
      }
     }
    unless( defined $re->{'S_OPT'} or $re->{'BL'} ){
