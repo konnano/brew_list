@@ -1946,6 +1946,7 @@ font-udev-gothic-nf	BIZ UD GothicとJetBrains Monoのフォントを統合す
 font-ultra	Ultra
 font-unbounded	おそらく世界初のon-chain資金援助によるフォント
 font-uncial-antiqua	Uncial Antiqua
+font-undefined-medium	ピクセルグリッドベース monospace書体
 font-underdog	Underdog
 font-unica-one	Unica One
 font-unifrakturcook	UnifrakturCook
@@ -2184,6 +2185,7 @@ obs-ios-camera-source	OBS Studio用のiOSカメラプラグイン
 obsbot-me-tool	OBSBOT Meの構成およびファームウェア更新ユーティリティ
 obsbot-tinycam	OBSBOT TinyおよびTiny4K Webカメラの構成およびファームウェア更新ユーティリティ
 obsbot-webcam	OBSBOT TinyおよびMeetシリーズの構成およびファームウェア更新ユーティリティ
+opal	Opal C1用のプロフェッショナルウェブカメラソフトウェア
 openintelwireless-heliport	Intel Wi-Fiアダプターカーネル拡張用のクライアント
 opentx-companion	OpenTXファームウェアで実行されているRC無線送信機のユーティリティ
 pallotron-yubiswitch	Yubikey Nanoを有効/無効にするステータスバーアプリケーション
