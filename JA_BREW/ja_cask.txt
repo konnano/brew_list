@@ -150,7 +150,6 @@ ankerwork	ウェブカメラ&オーディオ デバイスソフトウェア
 anki	記憶力トレーニングアプリケーション
 ankiapp-anki	暗記App
 anonym	ネットワークアクセスAnonymizer
-anonymousvpn	匿名VPN
 another-redis-desktop-manager	Redisデスクトップマネージャー
 ansible-dk	Ansibleベースのインフラストラクチャ基盤コードで作業するためのOmnibusベースのツールキット
 antconc	調整およびテキスト分析のためのコーパス分析ツールキット
@@ -342,7 +341,6 @@ betterdummy	カスタム解像度を実現するためのAppleシリコンMac用
 bettermouse	サードパーティのマウスのパフォーマンスと機能を向上させるユーティリティ
 bettertouchtool	入力デバイスをカスタマイズしコンピューターシステムを自動化するためのツール
 betterzip	アーカイブを作成および変更するためのユーティリティ
-between	カップルのための関係アプリ
 betwixt	Chrome DevToolsネットワークパネルに基づくWebデバッグプロキシ
 beyond-compare	ファイルとフォルダを比較する
 bfxr	Bfxr
@@ -736,6 +734,7 @@ cura-lulzbot	3D印刷ソリューション
 curio	メモ取りと整理のアプリ
 curiosity	SwiftUI Redditクライアント
 curseforge	アドオンとMODをダウンロードして管理します
+cursor	AIを使用してコードを 作成/編集/チャットする
 cursorcerer	Cursorcerer
 cursorsense	カーソルの加速と感度を調整します
 cursr	複数のディスプレイ間でのマウスの動きをカスタマイズする
@@ -1472,7 +1471,6 @@ hostsx	ローカルホスト更新ツール
 hot	熱の問題によるCPU速度制限を表示するメニューバーアプリケーション
 hotswitch	2ストロークホットキーを使用した高速ウィンドウ切り替え
 houdahspot	ファイル検索アプリケーション
-houseparty	対面のソーシャルネットワーキングアプリ
 hp-eprint	モバイル印刷ソリューション
 hp-prime	グラフ電卓エミュレータ
 hstracker	Hearthstoneのデッキ監視およびデッキマネージャー
@@ -1482,6 +1480,7 @@ httpie	デスクトップ用HTTPie
 hubstaff	作業時間監視
 hue-topia	Philips Hue電球の手動制御
 hugin	パノラマ写真スティッチャー
+hummingbird	OpenVPN 3クライアント
 hush	SafariでCookieとプライバシーを侵害する追跡を受け入れるためにnagsをブロックする
 hwsensors	利用可能なハードウェアセンサーからの情報にアクセスするためのツール
 hydrogen	ドラムマシンとシーケンサー
@@ -1688,7 +1687,6 @@ jpadilla-rabbitmq	RabbitMQのアプリラッパー
 jpadilla-redis	Redisのアプリラッパー
 jpc-qlcolorcode	構文を強調表示してソースコードをレンダリングするQuickLookプラグイン
 jprofiler	Javaプロファイラー
-jqbx	他の人と同期してSpotifyの音楽を聴く
 jquake	日本向けリアルタイム地震監視ソフトウェア
 jt-bridge	WSJT-Xとアマチュア無線ロギングアプリケーション間のブリッジとして機能します
 jtool	逆エンジニアリングを支援するツール セキュリティ研究/tweak開発
@@ -3254,7 +3252,6 @@ skala-preview	Skalaプレビュー
 sketch	デジタルデザインおよびプロトタイピングプラットフォーム
 sketch-toolbox	スケッチツールボックス
 sketchbook	描画 ペイント&スケッチ アプリケーション
-sketchpacks	スケッチパック
 skim	PDFリーダーとメモ取りアプリケーション
 skitch	マークアップと共有機能を備えた画面キャプチャツール
 skychart	星図を描く
@@ -3499,7 +3496,6 @@ syncmate	オールインワン同期ツール
 syncovery	ファイル同期およびバックアップソフトウェア
 syncplay	メディアプレーヤーを同期します
 syncroom	オンラインリモートコンサートサービス：遠く離れていても演奏を楽しむ
-syncsettings	アプリの設定を同期して保存する
 syncterm	BBSターミナルプログラム
 syncthing	リアルタイムファイル同期ソフトウェア
 synfigstudio	2Dアニメーションソフトウェア
@@ -3892,7 +3888,6 @@ vmware-horizon-client	仮想マシンクライアント
 vnc-server	リモートデスクトップサーバーアプリケーション
 vnc-viewer	セキュリティに重点を置いたリモートデスクトップアプリケーション
 vnote	メモを取るプラットフォーム
-voicemac	VoiceMac
 voikkospellservice	フィンランド語のスペルチェックサービス
 volanta	パーソナルフライト監視
 volley	非同期ビデオメッセージングアプリ
