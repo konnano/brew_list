@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.15_4 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
+brew list コマンド拡張版 : version 1.16_8 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 : 使用方法
 ```
@@ -28,6 +28,8 @@ brew install brew_list
 '-i' オプションでインストール済みFormulaリストが表示されます
 
 '-s' オプションでFormulaの検索ができます、//で正規表現が使えます
+
+'-ss' オプションでFormulaの検索ができます(インストール出来ないFormulaを隠す)、//で正規表現が使えます
 
 '-co' オプションでFormulaのライブラリーが表示されます
 
