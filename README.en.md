@@ -1,4 +1,4 @@
-brew list command extended version: version 1.15_4
+brew list command extended version: version 1.16_8
 
 : how to use
 ```
@@ -27,6 +27,9 @@ To uninstall, type ./init.sh unlink inside the brew_list-main folder
 '-i' option shows installed formula list
 
 '-s' option allows you to search formulas</br>
+&ensp;// allows you to use regular expressions
+
+'-ss' option allows you to search formulas ( hide formula that can't installed )</br>
 &ensp;// allows you to use regular expressions
 
 '-co' option shows formula library
