@@ -61,6 +61,7 @@ aggregate	プレフィックスのリストを最適化してリストの長さ�
 aha	ANSIHTMLアダプター
 ahcpd	IPv6とIPv6/IPv4 ネットワークの自動構成手続き
 ahoy	YAMLファイルのコマンドから自己文書化CLIプログラムを作成します
+aichat	ChatGPT cli
 aicommits	AIを使用してgitコミットメッセージを書き込みます
 aida-header	データ分析の抽象インターフェースは、物理分析のインターフェースを定義します
 aide	ファイルとディレクトリの整合性チェッカー
@@ -1186,6 +1187,7 @@ devspace	CLIは、Dockerとk8sを使用したアプリの 開発/展開/デバ�
 devtodo	コマンドラインタスクリスト
 dex	器用なテキストエディタ
 dex2jar	Android.dexおよびJava.classファイルを操作するためのツール
+dexter	Postgresの自動インデクサー
 dfc	ファイルシステムの 空き/使用量 のグラフを色で表示します
 dfix	Dソースコードの自動アップグレードツール
 dfmt	Dソースコードの初期化装置
@@ -1467,6 +1469,7 @@ emscripten	LLVMバイトコードからJavaScriptコンパイラへ
 enca	文字セット分析器と変換器
 encfs	暗号化されたパススルーFUSEファイルシステム
 enchant	スペルチェッカーラッピングライブラリ
+enchive	暗号化された個人のアーカイブ
 enet	UDPの上にネットワーク通信層を提供します
 enex2notion	Evernote ENEXファイルを Notionにインポートする
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
@@ -2989,6 +2992,7 @@ libadwaita	最新のアダプティブGNOMEアプリケーションのビルデ�
 libaec	Golomb-Riceアルゴリズムを実装した適応均質化コーディング
 libagg	C++の忠実度の高い2Dグラフィックライブラリ
 libaio	Linuxネイティブの非同期I/Oアクセスライブラリ
+libansilove	ANSI/ASCII/およびその他の形式を PNGに変換するためのライブラリ
 libantlr3c	CのANTLRv3解析ライブラリ
 libao	クロスプラットフォームオーディオライブラリ
 libapplewm	Apple-WM拡張機能用のXlib-baseのライブラリ
@@ -4150,6 +4154,7 @@ normalize	オーディオファイルの音量を標準レベルに調整しま�
 notcurses	派手なキャラクターライブラリ グラフィックス/TUI
 noti	プロセスが完了したときに通知を送信する
 notifiers	通知を送信する簡単な方法
+notify	CLIの出力をストリーミングしサポートされているさまざまなプラットフォームに公開します
 notmuch	スレッドベースの電子メールインデックス 検索/タグ付け
 notmuch-mutt	Muttの統合はあまりありません
 noweb	WEBのような文芸的プログラミングツール
@@ -6025,6 +6030,7 @@ typescript-language-server	TypeScriptラッピングtsserverの言語サーバ�
 typespeed	正しく入力して画面上を飛んでいる単語をZapする
 typewritten	最小限のzshプロンプト
 typos-cli	ソースコードスペルチェッカー
+typst	マークアップベースの組版システム
 tz	CLIタイムゾーンvisualizer
 u-boot-tools	汎用ブートローダー
 uade	アラブ首長国連邦のエミュレーションを通じてAmigaの曲を再生する
