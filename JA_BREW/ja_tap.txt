@@ -2328,6 +2328,7 @@ emacs-nightly	GNU Emacsテキストエディター
 emacs-pretest	テキストエディター
 figma-beta	協調的チームソフトウェア
 firefox-beta	Webブラウザー
+firefox-cn	中国語版Firefox
 firefox-developer-edition	Webブラウザー
 firefox-esr	Webブラウザー
 firefox-nightly	Webブラウザー
@@ -2365,6 +2366,7 @@ kitty-nightly	GPU-basedターミナルエミュレータ
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
 lando-edge	Docker上に構築されたローカル開発環境とDevOpsツール
 libreoffice-still	Freeのクロスプラットフォームオフィススイート
+libreoffice-still-language-pack	LibreOfficeの代替言語のコレクション
 little-snitch4	ホストベースのアプリケーションファイアウォール
 local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
 macfuse-dev	ファイルシステム統合
@@ -2455,6 +2457,7 @@ tower2	Tower
 transmission-nightly	オープンソースのBitTorrentクライアント
 transmit4	Transmit
 tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
+typora-dev	Markdownをサポートする構成可能なドキュメントエディター
 utm-beta	QEMUを使用した仮想マシンUI
 virtualbox-beta	Oracle VirtualBox
 virtualbox6	x86ハードウェアのバーチャライザー
