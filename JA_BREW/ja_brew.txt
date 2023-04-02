@@ -2859,6 +2859,7 @@ krakend	Goに組み込まれた超高性能APIゲートウェイ
 krb5	ネットワーク認証手続き
 krew	kubectlプラグインのパッケージマネージャー
 ksh93	KornShell, ksh93
+ksops	SOPS暗号化リソース用の柔軟なKustomizeプラグイン
 kstart	キータブを使用して認証できるkinitの修正バージョン
 ksync	ローカルシステムとkubernetesクラスター間でファイルを同期する
 kt-connect	kubernetes開発環境とより効率的に統合するためのツールキット
