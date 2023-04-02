@@ -472,6 +472,7 @@ blitz	C++の多次元配列ライブラリ
 blitzwave	C++ウェーブレットライブラリ
 bloaty	バイナリのサイズプロファイラー
 blockhash	知覚画像ハッシュ計算ツール
+blocky	ローカル ネットワークの広告ブロッカーとしての高速で軽量なDNSプロキシ
 blogc	テンプレートエンジンとマークアップ言語を備えたBlogコンパイラ
 bltool	backloggery.comとのコマンドライン対話のためのツール
 bluepill	複数の模擬装置を使用してUI実行するiOSのテストツール
@@ -2489,6 +2490,7 @@ hyperspec	Common LispANSI標準のハイパースペック
 hypre	grid問題のための並列マルチgrid法を特徴とするライブラリ
 hysteria	損失の多い不安定な接続用に最適化された機能満載のプロキシおよびリレーツール
 hyx	コンソール用の強力な16進エディタ
+hz	マイクロサービス用のGolang HTTPフレームワーク
 i2c-tools	Linuxの異種のI2Cツールのセット
 i2p	匿名overlayネットワーク - a network within a network
 i2pd	I2Pクライアントのフル機能のC++実装
