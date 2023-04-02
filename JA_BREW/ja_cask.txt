@@ -1157,7 +1157,6 @@ flow	タスクおよびプロジェクト管理ソフトウェア
 flrig	アマチュア無線リグ制御
 fluent-reader	RSS/Atom ニュース収集
 fluid	Webサイトをデスクトップアプリに変えるツール
-flume	Instagramデスクトップクライアント
 fluor	アクティブなアプリケーションに応じてfnキーの動作を変更します
 flutter	モバイル向けアプリケーションを構築するためのUIツールキット Web/デスクトップ
 flux	画面の色温度コントローラー
@@ -1490,7 +1489,6 @@ hyper	Webテクノロジーに基づいて構築されたターミナル
 hyperbackupexplorer	Synology NASからのバックアップデータ
 hyperdock	HyperDock
 hyperkey	CapsLockキーまたは修飾キーのいずれかをハイパーキーに変換します
-hyperswitch	HyperSwitch
 i1profiler	写真家やデザイナーのための自動化とクリエイティブなコントロール
 ibabel	iBabel
 ibackup	バックアップユーティリティ
@@ -2642,7 +2640,6 @@ pg-commander	PostgreSQLクライアント
 pgadmin4	PostgreSQLの管理および開発プラットフォーム
 phantomjs	PhantomJS
 phd2	望遠鏡ガイドソフトウェア
-phew	Phew
 phoenix	JavaScriptでスクリプト化可能なウィンドウとアプリマネージャー
 phoenix-slides	フルスクリーンスライドショープログラム
 phonegap	PhoneGap
@@ -3297,7 +3294,6 @@ snwe	拡張可能でカスタマイズ可能なメニューバーの交換
 soapui	APIテストツール
 socket-io-tester	socket-io-tester.app
 sococo	Sococo
-soda-player	ビデオプレーヤーとストリーミングプラットフォーム
 soduto	デバイス間で情報を通信および共有する
 sofa-server	Sofa
 softmaker-freeoffice	オフィスパッケージ
