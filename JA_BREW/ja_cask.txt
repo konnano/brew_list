@@ -37,7 +37,6 @@ accordance	聖書研究ソフトウェア
 accurics	コードとしての基盤のセキュリティと順守
 ace-link	VLCプレーヤーでAce Streamビデオストリームを再生できるメニューバーアプリ
 acorn	シンプルさに焦点を当てた画像エディター
-acquia-dev	Drupalサイトをローカルに構築します インストール/テスト
 acronis-true-image	フルイメージのバックアップとクローン作成ソフトウェア
 acslogo	Logo通訳
 activedock	カスタマイズ可能なドック アプリケーションランチャー/ドックの交換
@@ -814,7 +813,6 @@ deltawalker	ファイルとフォルダを比較および同期するための�
 deluge	BitTorrentクライアント
 dendroscope	rootの系統treeとネットワークのための双方向なビューア
 denemo	楽譜作成プログラム
-depthmapx	空間ネットワーク分析ソフトウェア
 descript	オーディオおよびビデオエディタ
 deskreen	Webブラウザーを備えたデバイスをセカンダリ画面に変えます
 desktoppr	デスクトップ画像を設定するためのコマンドラインツール
@@ -1353,7 +1351,6 @@ google-chat-electron	Googleチャット用の独立型アプリ
 google-chrome	Webブラウザー
 google-cloud-sdk	Google Cloudでホストされているリソースとアプリケーションを管理するためのツールのセット
 google-drive	Googleドライブストレージサービスのクライアント
-google-drive-file-stream	Googleドライブストレージサービスのクライアント
 google-earth-pro	Virtual globe
 google-japanese-ime	Google日本語入力方式エディター
 google-trends	Googleトレンドのスクリーンセーバー
@@ -1487,7 +1484,6 @@ hydrus-network	メディアを整理するためのパーソナルbooru-styleの
 hype	アニメーション化された双方向なWebコンテンツを作成するアプリ
 hyper	Webテクノロジーに基づいて構築されたターミナル
 hyperbackupexplorer	Synology NASからのバックアップデータ
-hyperdock	HyperDock
 hyperkey	CapsLockキーまたは修飾キーのいずれかをハイパーキーに変換します
 i1profiler	写真家やデザイナーのための自動化とクリエイティブなコントロール
 ibabel	iBabel
@@ -1747,7 +1743,6 @@ keysmith	あらゆるもののカスタムキーボードショートカット�
 keystore-explorer	JavaコマンドラインユーティリティkeytoolおよびjarsignerのGUI置換
 kicad	電子工学設計自動化パッケージ
 kid3	効率を重視したオーディオタグ付け
-kieler	グラフィカルモデルベースの設計ツール
 kigb	任天堂ゲームボーイ/ゲームボーイカラーエミュレータ
 kindavim	入力フィールドと非入力フィールドでVimを使用する
 kindle	電子書籍を読んだり同期したりするためのインターフェース
@@ -1916,7 +1911,6 @@ lunacy	グラフィックデザインソフトウェア
 lunar	外部ディスプレイの適応輝度
 lunar-client	Minecraft 1.7.10/1.8.9 用のModpack
 lunasea	メディアソフトウェア用のオープンソースのself-hostedリモコン
-lunastudio	Lunaスタジオ
 luxmark	OpenCLベンチマーク
 luyten	Procyon用のオープンソースJava逆コンパイラGUI
 lx-music	Electron&Vueをベースにした音楽アプリ
@@ -2242,7 +2236,6 @@ movist-pro	メディアプレーヤー
 mp3gain-express	MP3Gain表現
 mp3tag	MP3/FLAC/OGG などのオーディオファイルのメタデータを編集するためのツール
 mp4tools	MP4ビデオの作成と編集
-mpeg-streamclip	ビデオ変換器 プレーヤー/エディター
 mplab-xc16	コンパイラ 16ビットPIC/SAMMCU/MPU
 mplab-xc32	コンパイラ 32ビットPIC/SAMMCU/MPU
 mplab-xc8	コンパイラ 8ビットPIC/SAMMCU/MPU
@@ -2260,6 +2253,7 @@ mu-editor	初心者のPythonプログラマー向けの小さくてシンプル�
 mubu	メモ取りと管理アプリの概要
 mucommander	dual-paneインターフェイスを備えたファイルマネージャー
 mudlet	Multi-Userダンジョンクライアント
+mullvad-browser	プライバシーを重視し追跡とフィンガープリンティングを最小限に抑えることに重点を置いたWebブラウザ
 mullvadvpn	VPNクライアント
 multi	Webサイトのグループからアプリを作成する
 multibit-hd	マルチビットHD
@@ -2284,7 +2278,6 @@ musicbrainz-picard	音楽タグ付け
 musictube	ストリーミング音楽プレーヤー
 mutespotifyads	MuteSpotifyAds
 mutesync	mütesync物理ボタンへのコンパニオンアプリ
-mutify	Mutify
 muzzle	画面共有中に困惑する通知を黙らせる
 mweb-pro	マークダウンライティング ノートをつたえる静的ブログ生成機アプリ
 mx-power-gadget	Apple Mxプロセッサの電源管理と監視
@@ -2315,7 +2308,6 @@ native-access	NativeInstruments製品の管理ツール
 nativedisplaybrightness	NativeDisplayBrightness
 natron	オープンソースのノードグラフベースのビデオ合成ソフトウェア
 nault	ハードウェアウォレットをサポートするNano暗号通貨用のウォレット
-nautilus	Docker Composeチャート作成ツール
 naver-whale	Webブラウザー
 navicat-data-modeler	データベース設計ツール
 navicat-data-modeler-essentials	データベース設計ツール
@@ -2651,7 +2643,6 @@ photozoom-pro	デジタル写真やグラフィックスを拡大および縮小
 phpstorm	JetBrainsによるPHP IDE
 phpwebstudy	PHPおよびWeb開発環境マネージャー
 physics-101	物理学の分野全体にわたるシミュレーション、ツール、および方程式のコレクション
-physicseditor	2D衝突形状エディタ
 pibar	メニューバーのPi-hole(s)管理
 picfindr	Freeストック画像の検索エンジンとマネージャー
 picgo	画像をアップロードするためのツール
@@ -3132,7 +3123,6 @@ scrolla	Vimモーションを使用してキーボードでスクロールする
 scummvm	古典的なグラフィカルアドベンチャーとロールプレイングゲームを実行する
 sdformatter	SDファイルシステム仕様に準拠したメモリーカードをフォーマットするツール
 sdm	Strongdmクライアント
-sdrdx	SdrDx
 seadrive	Seafileサーバーのマニュアル
 seafile-client	ファイル同期クライアント
 seaglass	Matrixクライアント
@@ -3800,6 +3790,7 @@ usage	アプリケーションの使用状況を追跡します
 usb-overdrive	USBおよびBluetoothデバイスドライバー
 usbimager	ディスクイメージとUSBドライブへの書き込み/読み取りが可能な非常に最小限のGUIアプリ
 usenapp	ニュースリーダーとUsenetクライアント
+usmart-trade	株とオプションの取引
 usr-sse2-rdm	Retinaディスプレイをカスタム解像度に設定する
 utc-menu-clock	メニューバー時計
 utm	QEMUを使用した仮想マシンUI
@@ -3823,6 +3814,7 @@ vanilla	メニューバーアイコンを非表示にするツール
 vapor	視覚化および分析プラットフォーム
 vassal	ボードゲームエンジン
 vb-cable	あるアプリケーションから別のアプリケーションにオーディオをルーティングするための仮想オーディオケーブル
+vbrokers	取引プラットフォーム
 vcv-rack	オープンソースの仮想モジュラーシンセサイザー
 ved	VVVVVVの外部レベルエディタ
 veepn	VPNクライアント
@@ -3949,7 +3941,6 @@ weektodo	プライバシーに焦点を当てWeekly planner app
 weiyun	ドキュメントのバックアップとオンライン管理
 weka	データマイニングタスク用の機械学習アルゴリズムのコレクション
 welly	BBSクライアント
-wercker	Wercker
 wewechat	非公式のWeChatクライアント
 wey	オープンソースのSlackデスクトップアプリ
 wezterm	GPUで高速化されたクロスプラットフォームのターミナルエミュレーターとマルチプレクサー
@@ -4117,7 +4108,6 @@ zoho-mail	メールクライアント
 zoho-workdrive	Zohoクラウドストレージサービスのクライアント
 zoom	ビデオ通信および仮想会議プラットフォーム
 zoom-for-it-admins	ビデオ通信および仮想会議プラットフォーム
-zoomus	ビデオコミュニケーションツールZoomの一時的な仮のエイリアス
 zotero	研究ソースを共有する 収集/整理/引用
 zprint	ClojureおよびClojurescriptのソースコードとS式を再フォーマットするためのライブラリ
 zterm	ターミナルエミュレーションプログラム
