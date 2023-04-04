@@ -251,6 +251,7 @@ font-bonheur-royale	Bonheur Royale
 font-boogaloo	Boogaloo
 font-bowlby-one	Bowlby One
 font-bowlby-one-sc	Bowlby One SC
+font-braah-one	大胆で遊び心のあるフォント
 font-brawler	Brawler
 font-bree-serif	Bree Serif
 font-brill	Brill
@@ -364,6 +365,7 @@ font-comic-mono	読みやすい等幅フォント
 font-comic-neue	Comic Neue
 font-comic-sans-ms	Comic Sans
 font-coming-soon	Coming Soon
+font-comme	可変、細いものから黒いものまでのウェイト軸
 font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストsans-serifフォント
 font-computer-modern	Computer Modern
 font-conakry	Conakry
@@ -2337,6 +2339,7 @@ forklift2	Finderの代替品と FTP/SFTP/WebDAV/Amazon s3クライアント
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等
 gimp-dev	Freeでオープンソースの画像エディター
 github-beta	GitHubリポジトリ用のデスクトップクライアント
+godot3	ゲーム開発エンジン
 google-chrome-beta	Webブラウザー
 google-chrome-canary	Webブラウザー
 google-chrome-dev	Webブラウザー
