@@ -5,6 +5,7 @@ aalib	ポータブルASCIIアートグラフィックライブラリ
 aamath	数式をASCIIアートとして表現します
 aarch64-elf-binutils	aarch64-elfクロス開発のためのGNU Binutils
 aarch64-elf-gcc	aarch64-elf用のGNUコンパイラコレクション
+aarch64-elf-gdb	aarch64-elfクロス開発のためのGNUデバッガー
 aardvark_shell_utils	シェルスクリプトまたはコマンドラインユーザーを支援するユーティリティ
 abcde	より良いCDエンコーダー
 abcl	Armed Bear Common Lisp：CommonLispの完全な実装
@@ -5047,6 +5048,7 @@ reminiscence	Flashbackエンジンの再実装
 ren	ディレクトリ内の複数のファイルの名前を変更します
 rename	多くの便利なビルトインを備えたPerlベースのファイル名前変更スクリプト
 renameutils	ファイルの名前を変更するためのツール
+renovate	依存関係の自動更新 柔軟性があるのでそうする必要はありません
 reop	暗号化されたキーペア管理
 reorder-python-imports	ソースを書き換えてPythonインポートを並べ替えます
 repl	非対話型プログラムをREPLでラップする
@@ -6279,6 +6281,7 @@ waybackpy	Wayback Machine APIインターフェイスとコマンドラインツ
 wayland	植字工がクライアントと通信するための手続き
 wayland-protocols	Wayland手続きの追加
 waypoint	構築するツール 配備 任意のプラットフォームで任意のアプリケーションをリリースします
+wazero	ゼロ依存WebAssemblyランタイム
 wb32-dfu-updater_cli	USBデバイスとの間でファームウェアをダウンロードとアップロードするためのUSBプログラマー
 wbox	HTTPテストツールと構成不要のHTTPサーバー
 wcslib	FITS世界座標系のライブラリとユーティリティ
