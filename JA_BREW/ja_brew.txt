@@ -5048,7 +5048,7 @@ reminiscence	Flashbackエンジンの再実装
 ren	ディレクトリ内の複数のファイルの名前を変更します
 rename	多くの便利なビルトインを備えたPerlベースのファイル名前変更スクリプト
 renameutils	ファイルの名前を変更するためのツール
-renovate	依存関係の自動更新 柔軟性があるのでそうする必要はありません
+renovate	依存関係の自動更新
 reop	暗号化されたキーペア管理
 reorder-python-imports	ソースを書き換えてPythonインポートを並べ替えます
 repl	非対話型プログラムをREPLでラップする
