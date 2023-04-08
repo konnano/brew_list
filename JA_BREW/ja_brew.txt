@@ -85,6 +85,7 @@ algol68g	Algol68コンパイラ-インタプリタ
 aliddns	Aliyun(Alibaba Cloud)ddns for golang
 align	テキスト列の配置フィルター
 aliyun-cli	AlibabaCloudの汎用コマンドラインインターフェイス
+aliyunpan	Alibaba aDriveディスク用のコマンドラインクライアントツール
 all-repos	すべてのリポジトリのクローンを作成し、抜本的な変更を適用します
 allegro	クロスプラットフォームゲーム開発用のC/C++マルチメディアライブラリ
 allure	柔軟で軽量なテスト報告ツール
@@ -857,6 +858,7 @@ cloudflared	Cloudflareトンネルクライアント(以前のArgoトンネル)
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
 cloudformation-guard	宣言型構文を使用してCloudFormationテンプレートの整合性をチェックします
 cloudiscovery	クラウド環境でリソースを発見するのに役立ちます
+cloudpan189-go	Cloud189 Webディスク用のコマンドラインクライアントツール
 cloudprober	顧客よりも先に障害を検出するアクティブ監視ソフトウェア
 clozure-cl	長い歴史を持つCommonLispの実装
 clp	線形計画法Solver
@@ -5989,6 +5991,7 @@ truecrack	TrueCryptのブルートフォースパスワードクラッカー
 truffle	開発環境 イーサリアムのテストフレームワークとアセットパイプライン
 truncate	ファイルを指定されたサイズに切り捨てます
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
+trurl	URLの解析と操作のためのコマンドラインツール
 trzsz	lrzsz (rz/sz)に似たシンプルなファイル転送ツール tmuxと互換性があります
 trzsz-go	シンプルなファイル転送ツール lrzsz(rz/sz)に似ています tmuxと互換性があります
 tsduck	MPEG転送ストリームツールキット
