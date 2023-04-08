@@ -100,7 +100,7 @@ alfaview	オーディオビデオ会議
 alfred	アプリケーションランチャーと生産性ソフトウェア
 algodoo	物理システムを描画して操作する
 alinof-timer	タイマーアプリ
-alipay-development-assistant	Alipayのオープンプラットフォーム開発アシスタント
+alipay-key-tool	鍵生成ツール
 aliwangwang	ショッピングコミュニケーションツール
 aliworkbench	Merchantワークベンチ
 all-in-one-messenger	さまざまなメッセージングプラットフォーム用の複合インターフェイス
@@ -193,6 +193,7 @@ aquaskk	AquaSKK
 aquaterm	Grahicsレンダラー
 araxis-merge	2方向および3方向のファイル比較 マージ/フォルダー同期
 arc	Chromiumベースのブラウザ
+archaeology	バイナリファイルを掘り下げるためのツール
 archipelago	Webテクノロジに基づいて構築されたターミナルエミュレータ
 archiver	アーカイブを開く ファイルを圧縮する ファイルを分割して結合するだけでなく
 archy	YAMLプロセッサ
@@ -321,6 +322,7 @@ beaker-browser	実験的なピアツーピアWebブラウザー
 beamer	Apple TVおよびChromecast用のデスクトップキャスト/ストリーミングアプリ
 bean	ワードプロセッサ
 beardedspice	BeardedSpice
+beardie	キーボードでさまざまなメディアプレーヤーを操作
 beast2	ツリーのサンプリングによるベイジアン進化分析
 beatunes	曲の 分析/検査/再生
 bee	Bee
@@ -498,6 +500,7 @@ captain	メニューバーからDockerコンテナを管理する
 captin	CapsLockステータスを表示するツール
 caption	字幕を自動的に検索して設定します
 capto	スクリーン キャプチャ/レコーダー/ビデオエディター
+carbide-create	CNCルーター用CAD/CAMソフトウェア
 carbon-copy-cloner	ハードディスクのバックアップとクローン作成ユーティリティ
 cardhop	連絡先マネージャー
 cardinal	仮想モジュラーシンセサイザープラグイン
@@ -1835,7 +1838,6 @@ letter-opener	winmail.datファイルをMail.appに直接表示します
 libcblite	CおよびC++用のCouchbase Liteライブラリ(エンタープライズ版)
 libcblite-community	CおよびC ++用のCouchbaseLiteライブラリ（コミュニティエディション）
 librecad	LibreCAD
-libreelec-usb-sd-creator	LibreELEC USB-SDクリエーター
 libreoffice	オフィスパッケージ
 libreoffice-language-pack	LibreOfficeの代替言語のコレクション
 librepcb	プリント回路基板を開発するためのEDAソフトウェア
@@ -2395,6 +2397,7 @@ nova	ネイティブコードエディター
 novabench	コンピューターのパフォーマンスをすばやくテストして比較するためのベンチマークツール
 now-tv-player	ビデオストリーミングサービスプレーヤー
 noxappplayer	モバイルゲームをプレイするためのAndroidエミュレーター
+nozbe	プロジェクト管理アプリ
 nrlquaker-winbox	MikroTik Winbox
 nslogger	最新の柔軟なロギングツール
 nsregextester	NSRegexTester
@@ -2514,6 +2517,7 @@ orange	コンポーネントベースのデータマイニングソフトウェ�
 orangedrangon-android-messages	Androidメッセージデスクトップ
 orbstack	Dockerデスクトップの代替
 orca	Orca
+orcaslicer	3Dプリンター用Gコードジェネレーター
 origami-studio	Facebookのプロトタイプデザインツール デザイン/アニメート
 origin	PCゲームをプレイし友達とつながる
 orion	WebKitベースのWebブラウザ
@@ -3384,6 +3388,7 @@ ssdreporter-free	SSDヘルスモニタリングツール
 ssh-config-editor	OpenSSH sshクライアント構成ファイルを管理するためのツール
 ssh-tunnel-manager	SSHトンネルマネージャー
 ssokit	TCPおよびUDPデバッグツール
+stack	ファイルを保存、表示、共有するための個人用オンラインハードドライブ
 stack-stack	すべての生産性アプリを1か所から管理するためのワークスペース
 stand	1時間に1回立ち上がるように通知します
 standard-notes	Freeのオープンソースの完全に暗号化されたメモアプリ
@@ -3919,7 +3924,6 @@ wavebox	Webブラウザー
 waves-central	Waves製品をインストールしてアクティブ化するクライアント
 wavesurfer	WaveSurfer
 weakauras-companion	Wago.ioからオーラを更新しそれらの定期的なバックアップを作成します
-webarchiveextractor	Webアーカイブファイルからディレクトリにコンテンツを抽出します
 webcamoid	Webcamoid
 webcatalog	デスクトップアプリのようなWebアプリを実行するためのツール
 webex	ビデオ通信および仮想会議プラットフォーム
