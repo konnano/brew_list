@@ -2137,6 +2137,7 @@ genki-wave-for-work	ウェーブリングソフトウェア
 gk6-plus	GK6シリーズPCB/キーボード用のキーボードユーティリティ
 gutenprint	CUPSおよびGIMPで使用するためのさまざまなプリンター用のドライバー
 hdhomerun	見守る 地上波HDTVのスケジュールと録画
+hexcore-link	AnneシリーズとTenet 70用の設定ソフトウェア
 hhkb-keymap-tool	Happy Hacking Keyboard Professional用のキーマップツール(ハイブリッドモデルのみ)
 hhkb-pro-driver	HHKB Professionalのドライバー
 hp-connectivity-kit	HPコネクティビティキット
