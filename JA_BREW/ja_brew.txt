@@ -200,6 +200,7 @@ argus-clients	監査記録の生成と利用システムのクライアント
 argyll-cms	ICC互換のカラーマネジメントシステム
 aria2	セグメント化されたダウンロードで再度ダウンロードする
 aribb24	ARIB STD-B24用ライブラリ JIS 8ビット文字のデコードとMPEG-TSの解析
+arjun	HTTPパラメータ検出セット
 arkade	オープンソースのKubernetesマーケットプレイス
 arm-linux-gnueabihf-binutils	arm-linuxにクロスコンパイルするための FSF/GNU binutils
 armadillo	C++線形代数ライブラリ
@@ -5868,6 +5869,7 @@ threadweaver	マルチスレッドプログラミングのヘルパー
 threemux	i3に触発されたターミナル多重装置
 thrift	scalableな多言語サービス開発のためのフレームワーク
 thrift@0.9	scalableな多言語サービス開発のためのフレームワーク
+thriftgo	プラグインメカニズムを使用したgo言語でのthriftコンパイラの実装
 thrulay	ネットワークの性能を測定する
 tidy-html5	最新の標準をサポートするHTMLツールの祖父
 tidy-viewer	CLI csv pretty printer
@@ -5992,6 +5994,7 @@ truffle	開発環境 イーサリアムのテストフレームワークとア�
 truncate	ファイルを指定されたサイズに切り捨てます
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
 trurl	URLの解析と操作のためのコマンドラインツール
+trust-dns	RustベースのDNSクライアント　サーバー/ゾルバー
 trzsz	lrzsz (rz/sz)に似たシンプルなファイル転送ツール tmuxと互換性があります
 trzsz-go	シンプルなファイル転送ツール lrzsz(rz/sz)に似ています tmuxと互換性があります
 tsduck	MPEG転送ストリームツールキット
@@ -6378,6 +6381,7 @@ wumpus	古来のBASIC Hunt the Wumpusゲームの正確なクローン
 wv	Microsoft Word文書にアクセスするためのプログラム
 wv2	Microsoft Word文書にアクセスするためのプログラム
 wwwoffle	断続的な接続があるコンピューターのブラウジングの改善
+wxlua	wxWidgetsクロスプラットフォームGUIツールキットのLuaバインディング
 wxmaxima	MaximaのクロスプラットフォームGUI
 wxpython	wxWidgetsのPython bindings
 wxwidgets	クロスプラットフォームのC++ GUIツールキット
