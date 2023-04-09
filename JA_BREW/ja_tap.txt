@@ -2451,6 +2451,7 @@ telegram-desktop-beta	Telegramメッセンジャー用のデスクトップク�
 temurin11	Eclipse Foundation(Adoptium)のJDK
 temurin17	Eclipse Foundation(Adoptium)のJDK
 temurin18	Eclipse Foundation(Adoptium)のJDK
+temurin19	Eclipse Foundation(Adoptium)のJDK
 temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
 thunderbird-beta	Mozilla Thunderbird
