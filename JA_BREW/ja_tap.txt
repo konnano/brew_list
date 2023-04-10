@@ -20,6 +20,7 @@ font-advent-pro	Advent Pro
 font-african-sans	African Sans
 font-african-serif	African Serif
 font-agave-nerd-font	Agave Nerd Font(Agave)
+font-agdasima	Big shouldersをベースに、凝縮されたアメリカンゴシックsans-serif
 font-aguafina-script	Aguafina Script
 font-ahuramzda	Ahuramzda
 font-aileron	Aileron
@@ -1319,6 +1320,7 @@ font-noto-sans-myanmar	Noto Sans Myanmar
 font-noto-sans-myanmar-ui	Noto Sans Myanmar UI
 font-noto-sans-n-ko	Noto Sans NKo
 font-noto-sans-nabataean	Noto Sans Nabataean
+font-noto-sans-nag-mundari	インド語 nag mundariスクリプトのデザイン
 font-noto-sans-new-tai-lue	Noto Sans New Tai Lue
 font-noto-sans-newa	Noto Sans Newa
 font-noto-sans-nko	Noto Sans NKo
