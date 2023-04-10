@@ -270,7 +270,6 @@ avtouchbar	タッチバー用のオーディオビジュアライザー
 awa	音楽ストリーミングサービス
 aware	アクティブなコンピューターの使用状況を追跡するメニューバーアプリ
 awareness	時間追跡アプリケーション
-awips-python	AWIPS Python
 aws-vault	開発環境でAWS認証情報を安全に保存してアクセスします
 aws-vpn-client	AWSリソースに安全にアクセスするためのマネージドクライアントベースのVPNサービス
 axure-rp	開発者向けの計画およびプロトタイピングツール
@@ -2651,6 +2650,7 @@ pibar	メニューバーのPi-hole(s)管理
 picfindr	Freeストック画像の検索エンジンとマネージャー
 picgo	画像をアップロードするためのツール
 pichon	アイコン8の検索ユーティリティ
+piclist	クラウドストレージマネージャーツール
 pictogram	アプリのアイコンをカスタマイズして維持する
 pictureview	画像ビューア
 pieces-cli	Pieces.appのコマンドライン ツール
