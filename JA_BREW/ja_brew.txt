@@ -1821,6 +1821,7 @@ gandi.cli	パブリックAPIを使用したGandi.net製品へのコマンドラ�
 ganglia	拡張性のある分散監視システム
 garble	Goビルドを難読化する
 garmintools	Garmin Forerunner GPS単体へのインターフェース
+gat	🐱 Goで書かれたcatの代替品
 gateway-go	OpenIoTHub用のGateWayクライアント
 gator	Open Policy Agent Gatekeeperの CLIユーティリティ
 gatsby-cli	Gatsbyコマンドラインインターフェイス
@@ -2838,6 +2839,7 @@ kind	DockerでローカルKubernetesクラスターを実行する
 kitchen-completion	kitchenのBash補完
 kitchen-sync	ダンプおよびリロードすることなく、データベースを高速で効率的に同期します
 kite	プログラマーの経験を最低限に抑えるように設計されたプログラミング言語
+kitex	マイクロサービス用のGolang RPCフレームワーク
 klavaro	Freeタッチタイピングtutorプログラム
 klee	シンボリック実行エンジン
 kmod	Linuxカーネルモジュールの処理
@@ -4181,6 +4183,7 @@ nsq	リアルタイム分散メッセージングプラットフォーム
 nss	セキュリティ対応のクライアントおよびサーバーアプリケーション用のライブラリ
 nsuds	Ncurses数独システム
 ntfs-3g	FUSEのRead-write NTFSドライバー
+ntfy	PUT/POST経由で電話またはデスクトップにプッシュ通知を送信する
 ntl	C++数論ライブラリ
 ntopng	オリジナルのntopの次世代バージョン
 ntp	ネットワークタイム手順(NTP)の配布
