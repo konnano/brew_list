@@ -1184,6 +1184,7 @@ detach	デタッチされたプロセスで指定されたコマンドを実行�
 detect-secrets	コード内の機密を検出および防止する企業に親しい方法
 detekt	Kotlinの静的コード分析器
 detox	ファイル名の問題のある文字を置き換えるユーティリティ
+devcontainer	開発コンテナ仕様の参照実装
 devd	開発者向けのローカルWebサーバー
 devdash	開発者向けの高度に構成可能なターミナルダッシュボード
 device-mapper	論理ボリューム管理用のユーザースペースライブラリとツール
@@ -3770,6 +3771,7 @@ mesalib-glw	OpenGL仕様のオープンソース実装
 mesheryctl	クラウドネイティブの管理プレーンであるMesheryのコマンドラインユーティリティ
 meson	高速でユーザーに親しいビルドシステム
 mesos	Apacheクラスターマネージャー
+meta-package-manager	統合CLIを使用したすべてのパッケージマネージャーのラッパー
 metabase	ビジネス知性報告サーバー
 metalang99	C99プリプロセッサベースのメタプログラミング言語
 metals	Scala言語サーバー
