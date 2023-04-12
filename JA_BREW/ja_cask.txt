@@ -17,7 +17,6 @@
 7777	ローカルポート7777のリモートAWSデータベース
 86box	PCemに基づくx86ベースマシンのエミュレーター
 8bitdo-ultimate-software	コントローラーのすべての部分を制御する
-8x8-meet	ビデオ会議プラットフォーム
 8x8-work	音声によるコミュニケーションアプリケーション ビデオ/チャット/Web会議
 a-better-finder-attributes	ファイルと写真の微調整ツール
 a-better-finder-rename	ファイルの名前変更 音楽/写真
@@ -2459,6 +2458,7 @@ open-in-code	Visual StudioCodeで現在のフォルダーを開くためのFinde
 open-video-downloader	Electronとnode.jsで作成されたyoutube-dl用のクロスプラットフォームGUI
 openaudible	Audibleユーザー向けのオーディオブックマネージャー
 openbazaar	OpenBazaar#{version.major}
+openbb-terminal	オープンソースの投資調査端末
 openbci	OpenBCIハードウェアに接続し 生理学的データを視覚化してストリーミングします
 openboard	双方向ホワイトボードアプリケーション
 openboardview	.brdファイルのファイルビューアー
