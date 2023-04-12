@@ -6260,6 +6260,8 @@ vulkan-headers	VulkanヘッダーファイルとAPIレジストリ
 vulkan-loader	Vulkan ICDローダー
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
+vvdec	Fraunhofer汎用ビデオデコーダ
+vvenc	Fraunhofer汎用ビデオエンコーダ
 w-calc	非常に有能な計算機
 w3m	Pager/テキスト ベースのブラウザ
 wabt	Web Assemblyバイナリツールキット
