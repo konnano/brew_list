@@ -401,6 +401,7 @@ bluesnooze	スリープ状態のコンピュータがBluetoothアクセサリに
 bluestacks	モバイルゲームプラットフォーム
 bluetility	Bluetooth Low Energyブラウザー
 bluewallet	Bitcoinウォレットとライトニングウォレット
+bluos-controller	オーディオシステムの管理
 blurred	暗くするユーティリティ画面のコンテンツ 背景/非アクティブ
 blurscreen	画面の任意の部分をぼかす
 bob	テキストの翻訳アプリケーション ピクチャー/手動入力
@@ -490,6 +491,7 @@ camo-studio	画像調整コントロールを備えた高品質のWebカメラ�
 camtasia	スクリーンレコーダーとビデオエディター
 camunda-modeler	ワークフローおよび意思決定自動化プラットフォーム
 candybar	ファイルアイコンを変更するツール
+canon-eos-utility	Canon EOSカメラとの通信
 cantata	Qt5グラフィカルMPDクライアント
 canva	デザインツール
 caprine	エレガントなFacebookメッセンジャーデスクトップアプリ
@@ -697,6 +699,7 @@ cornercal	CornerCal
 cornerstone	Subversionクライアント
 corona-tracker	地図とチャートを備えたコロナウイルス監視アプリ
 corretto	AmazonからのOpenJDKディストリビューション
+corsair-icue	Corsairコンポーネントおよびデバイス用のソフトウェア
 coscreen	マルチユーザー画面共有を備えた協力的ツール
 coteditor	Webページ用のプレーンテキストエディタ プログラムのソースコードなど
 couchbase-server-community	分散型NoSQLクラウドデータベース
@@ -864,6 +867,7 @@ diskcatalogmaker	DiskCatalogMakerのToast-bundledバージョン
 diskmaker-x	システムインストールディスクを構築するためのツール
 displaperture	ディスプレイの角を丸めます
 displaycal	DisplayCAL
+displaylink	DisplayLinkドック用ドライバー アダプター/モニター
 displays	モニターの解像度と設定マネージャー
 ditto	スクリーンミラーリングとデジタル信号
 divvy	シンプルさに焦点を当てたアプリケーションウィンドウマネージャー
@@ -994,6 +998,9 @@ electrumsv	ビットコインSV用のデスクトップウォレット
 element	Matrix協調クライアント
 elephas	パーソナルAIライティングアシスタント
 elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
+elgato-stream-deck	キーを割り当て装飾してラベルを付ける
+elgato-video-capture	アナログソースからビデオをキャプチャ
+elgato-wave-link	コンテンツ作成用にカスタム構築されたソフトウェア
 elk	Mastodon webクライアント
 elmedia-player	ビデオおよびオーディオプレーヤー
 eloquent	SWORD Projectに基づく Free/オープンソースの聖書研究アプリケーション
@@ -1775,6 +1782,7 @@ kodi	Freeのオープンソースメディアプレーヤー
 komet	コミットメッセージエディター
 komodo-edit	テキストエディター
 komodo-ide	すべての言語に対応した1つのIDE
+konica-minolta-bizhub-c750i-driver	PostScriptプリンタードライバー
 koodo-reader	バックアップと復元をサポートするオープンソースのEpubリーダー
 kopiaui	バックアップ/復元ツール
 kotlin-native	KotlinのLLVMバックエンド
@@ -1888,6 +1896,9 @@ logicsniffer	Open Bench Logic Sniffer倫理分析ハードウェアのソフト�
 loginputmac	中国語入力方式
 logisim	デジタル論理回路を設計およびシミュレーションするためのツール
 logisim-evolution	デジタル倫理デザイナーおよび模擬装置
+logitech-camera-settings	カメラコントロールへのアクセスを提供します
+logitech-g-hub	Logitech Gギアのサポート
+logitech-options	Logitechデバイス用のソフトウェア
 logitech-presentation	Logitechプレゼンテーション
 logmein-client	リモートアクセスツール
 logmein-hamachi	LogMeIn Hamachi
@@ -3139,6 +3150,7 @@ securid	認証ソフトウェア
 security-growler	セキュリティグローラー
 securityspy	SecuritySpy
 segger-embedded-studio-for-arm	組み込みシステム向けIDE
+segger-jlink	Segger J-Linkデバッグプローブ用のソフトウェアおよびドキュメントパック
 sejda-pdf	PDFエディター
 sekey	SeKey
 selfcontrol	気が散るWebサイトへの自分のアクセスをブロックする
@@ -3309,6 +3321,7 @@ sonic3air	ソニック3&ナックルズの再実装(オリジナルゲームが�
 sonixd	Subsonic-APIとJellyfinミュージックサーバー用のデスクトップクライアント
 sonoair	SonoAir
 sonobus	高品質のネットワークオーディオストリーミング
+sony-ps-remote-play	PlayStation 4/5 を制御するためのアプリケーション
 soothe2	動的共振サプレッサー
 soqlxplorer	Salesforce.comプラットフォーム用のデスクトップクライアント
 soulseek	ファイル共有ネットワーク
@@ -3507,6 +3520,7 @@ tableflip	マークダウンファイルを編集するアプリ
 tableplus	リレーショナルデータベース用のネイティブGUIツール
 tabtopus	WebブラウザータブURLエクスポータ
 tabula	PDFファイル内に閉じ込められたデータテーブルを解放するためのツール
+tachidesk-sorayomi	マンガリーダー
 tad	表形式のデータを表示および分析するためのデスクトップアプリケーション
 tag	音楽タグエディター
 tageditor	オーディオファイル用のスプレッドシートスタイルのタグエディタ
@@ -3669,6 +3683,7 @@ tor-browser	セキュリティに重点を置いたWebブラウザー
 torguard	VPNクライアント
 torrent-file-editor	トレントファイルエディター
 tortoisehg	Mercurial分散リビジョン管理システム用のツール
+toshiba-color-mfp	Toshiba ColorMFPデバイスのドライバー
 touch-bar-simulator	独立型アプリとしてのタッチバー
 touch-portal	マクロリモコン
 touchbarserver	TouchBarServer
@@ -3742,6 +3757,7 @@ typora	Markdownをサポートする構成可能なドキュメントエディ�
 tysimulator	iPhone模擬装置アプリにすばやくアクセスするためのユーティリティ
 ubar	ウィンドウマネージャーと生産性ツール
 ubersicht	コマンドを実行しその出力をデスクトップに表示します
+ubiquiti-unifi-controller	UniFiネットワークの設定、構成、管理、分析
 ubports-installer	モバイルデバイスにubportsをインストールするためのアプリケーション
 udeler	Udemyコースをダウンロードするためのデスクトップアプリケーション
 udig	uDig
@@ -4084,6 +4100,7 @@ youtype	インプットメソッドヘルパー
 yt-music	music.youtube.comのアプリラッパー
 ytmdesktop-youtube-music	YouTubeミュージッククライアント
 yu-writer	マークダウンエディター
+yubico-yubikey-manager	YubiKeyを設定するためのアプリケーション
 yubihsm2-sdk	YubiHSM 2とネイティブに、またPKCS#11経由でやり取りするためのライブラリとユーティリティ
 yuna	アニメプレイヤー兼リストマネージャー
 yuque	クラウド知識ベース
