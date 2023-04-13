@@ -2051,7 +2051,6 @@ behringer-x32-edit	LAN/Wi-Fi経由でBehringerデジタルミキサーを編集�
 blackvue-viewer	BlackVue DashcamSDカードとCloudViewer
 blocks-code	LittleFoot言語を使用してROLIBLOCKSのアプリケーションを開発する
 blue-sherpa	Blue USBマイク用コンパニオンアプリ
-bluos-controller	オーディオシステムの管理
 bose-soundtouch	コンピューターからBose SoundTouchシステムを制御する
 bose-updater	Bose製品のソフトウェアアップデート
 bose-usb-link-updater	Bose USB Linkにアップデートを提供します
@@ -2062,7 +2061,6 @@ calibrite-ccprofiler	Calibrite ColorChecker Display Pro & Plus のモニター�
 camengine	ライブストリーマーCAM用アプリ
 cameracontroller	アプリからUSBカメラを制御する
 canon-captureontouch-utility	CaptureOnTouch
-canon-eos-utility	キヤノンEOSカメラとの通信
 canon-eos-webcam-utility	キヤノンのカメラをWebカメラとして使用する
 canon-fax	Canon imageCLASSMFプリンター用のファックスドライバーとユーティリティ
 canon-ijscanner1	キヤノンE500/E600/MG2100/MG3100/MG4100/MG5100/MG5200/MG5300/MG6100/MG6200/MG8100/MG8200/MP190/MP210/MP220/MP240/MP250/MP260/MP270/MP280/MP470/MP480/ MP490/MP493/MP495/MP520/MP540/MP550/MP560/MP610/MP620/MP630/MP640/MP970/MP980/MP990/MX300/MX310/MX320/MX330/MX340/MX350/MX360/MX370/MX410/MX420/MX430/ MX510/MX700/MX710/MX7600/MX850/MX860/MX870/MX880/MX890シリーズ
@@ -2086,7 +2084,6 @@ cardo-update	Cardo通信システムを更新します
 clavia-nord-sound-manager	Nord機器のメモリを整理してバックアップします
 concept2-utility	Concept2パフォーマンスモニターのユーティリティ
 content-manager-assistant	PlayStation用コンテンツマネージャーアシスタントﾂ✓
-corsair-icue	Corsairコンポーネントおよびデバイス用のソフトウェア
 creative	Creativeハードウェアのコントロールパネル
 creative-sb-command	Creative SoundBlaster周辺機器のオーディオ設定を構成およびパーソナライズする
 cycliq-cycliqplus	映像と自転車のカメラ設定エディター
@@ -2094,7 +2091,6 @@ cycliqplus-firmware-updater	CycliqFlyバイクカメラ用のファームウェ�
 datacolor-spyder-elite	モニターキャリブレーションツール
 datacolor-spyder-express	モニターキャリブレーションツール
 datacolor-spyder-pro	モニターキャリブレーションツール
-displaylink	DisplayLinkドック用のドライバー アダプター/モニター
 displaylink-login-extension	ログイン前にDisplayLink画面を有効にします
 drobo-dashboard	データロボティクスストレージデバイス用の管理ソフトウェアとドライバー
 droidcam-obs	OBS Studioで直接カメラとして携帯電話を使用する
@@ -2106,10 +2102,7 @@ elektron-transfer	サンプルを転送するためのツール プリセット�
 elgato-camera-hub	Elgato FACECAM構成ツール
 elgato-control-center	Elgatoキーライトを制御する
 elgato-game-capture-hd	ゲームキャプチャーHD
-elgato-stream-deck	キーを割り当ててから、装飾してラベルを付けます
 elgato-thunderbolt-dock	ElgatoThunderboltドックのメニューバーユーティリティ
-elgato-video-capture	Elgatoビデオキャプチャ
-elgato-wave-link	コンテンツ作成用にカスタムビルドされたソフトウェア
 eobcanka	チェコ国民IDカードアプリ
 epson-photo-plus	ディスクへの直接印刷を含む写真の整理と印刷
 epson-print-layout	すばやく簡単にカラー管理された印刷
@@ -2151,7 +2144,6 @@ jabra-direct	Jabraヘッドセットを最適化してパーソナライズす�
 kensington-trackball-works	Kensingtonトラックボールをプログラムするソフトウェア
 kiibohd-configurator	モジュラーコミュニティキーボードファームウェア
 konica-minolta-bizhub-c220-c280-c360-driver	コニカ ミノルタBizhubC220/C280/C360 PostScriptプリンタードライバー
-konica-minolta-bizhub-c750i-driver	PostScriptプリンタードライバー
 konica-minolta-bizhub-c759-c658-c368-c287-c3851-driver	コニカ ミノルタBizhubプリンター用ドライバー
 kyocera-printer-drivers	京セラMacドライバー
 lacie-network-assistant	CloudBoxとすべてのLaCieネットワーク接続ストレージを管理します
@@ -2160,13 +2152,10 @@ lg-onscreen-control	接続されているすべてのLGモニター情報を表�
 linn-konfig	Linn Konfig
 lmsclients-squeezeplay	メディアサーバークライアント
 logi-options-plus	Logitechデバイス用のソフトウェア
-logitech-camera-settings	カメラコントロールへのアクセスを提供します
 logitech-control-center	マウスとキーボードをカスタマイズする
 logitech-firmwareupdatetool	Logitechワイヤレスレシーバーと選択したキーボードを更新します
-logitech-g-hub	Logitech Gギアのサポート
 logitech-gaming-software	Logitechゲーミングソフトウェア
 logitech-myharmony	Logitech Harmonyユニバーサルリモコンの設定ソフトウェア
-logitech-options	Logitechデバイス用のソフトウェア
 logitech-unifying	デバイスをUnifyingレシーバーとペアリングするためのユーティリティ
 logitune	ウェブカメラを最適化 ヘッドセットとビデオ会議用のLog Dock
 loupedeck	Loupedeckコンソール用のソフトウェア
@@ -2222,14 +2211,12 @@ samsung-portable-ssd-t5	Samsung外部ストレージドライブ用のソフト�
 samsung-portable-ssd-t7	Samsung外部ストレージドライブ(T7 シリーズ)用のソフトウェア
 sandisk-security	SanDisk ExtremeポータブルSSDラインの新しい(V2)バージョンをパスワードで保護する
 seagate-dashboard	Seagateダッシュボード
-segger-jlink	SeggerJ-Linkデバッグプローブ用のソフトウェアおよびドキュメントパック
 segger-ozone	J-Linkデバッガーおよびパフォーマンスアナライザー
 shearwater	デスクトップコンピューターをShearwaterダイブコンピューターにリンクします
 shureplus-motiv	Shure MV7とMV88 +マイクの追加機能とコントロール
 silicon-labs-vcp-driver	CP210x USB to UARTブリッジVCPドライバー
 smartscope	SmartScopeオシロスコープに接続するためのアプリ
 sonos	Sonosシステムを制御する
-sony-ps-remote-play	PlayStation4またはPlayStation5を制御するためのアプリケーション
 sony-rcs300	SONY CCID CardReaderRC-S300ドライバー
 sony-xperia-companion	Xperia™ Companion
 sound-blaster-play3	Sound Blaster PLAYのドライバーとコントロールパネル！3 USB DACとアンプ
@@ -2245,8 +2232,6 @@ tiptoi-manager	子供のデータを管理する Ravensburger tip toi audio pen
 tomtom-mydrive-connect	TomTomナビゲーションデバイスを更新します
 tomtom-sports-connect	TomTom MySports Connect
 toneprint	TonePrintペダルのキャラクターを変更する
-toshiba-color-mfp	Toshiba ColorMFPデバイス用のドライバー
-ubiquiti-unifi-controller	UniFiネットワークのセットアップ、構成、管理、分析
 ubiquiti-unifi-controller-lts	Ubiquiti UniFi SDNコントローラーLTS
 uhk-agent	究極のハッキングキーボードの構成アプリケーション
 wacom-tablet	Wacomタブレットのリソース
@@ -2259,7 +2244,6 @@ xerox-print-driver	Xeroxプリンター用のドライバー
 xppen-pentablet	XP-Penグラフィックタブレット用のドライバーおよび構成アプリ
 yamaha-usb-midi-driver	ヤマハ楽器用MIDIドライバー
 yubico-authenticator	TOTPおよびHOTPコードを生成するためのアプリケーション
-yubico-yubikey-manager	YubiKeyを設定するためのアプリケーション
 yubico-yubikey-personalization-gui	YubiKeyツール
 yubico-yubikey-piv-manager	PIV対応のYubiKeyを設定するためのアプリケーション
 zsa-wally	ZSAキーボード用のフラッシュツール
@@ -2416,6 +2400,7 @@ parallels17	デスクトップ仮想化ソフトウェア
 pdf-expert-beta	PDFリーダー エディター/注釈
 pgadmin3	pgAdmin
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
+postico1	PostgreSQLデータベースのGUIクライアント
 powershell-preview	コマンドラインシェルとスクリプト言語
 powershell6	コマンドラインシェルとスクリプト言語
 processing2	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶための言語
