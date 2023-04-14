@@ -2059,7 +2059,6 @@ caldigit-docking-utility	CalDigit Thunderboltドッキングステーション�
 caldigit-thunderbolt-charging	Appleデバイスのサポートの改善
 calibrite-ccprofiler	Calibrite ColorChecker Display Pro & Plus のモニターキャリブレーション
 camengine	ライブストリーマーCAM用アプリ
-cameracontroller	アプリからUSBカメラを制御する
 canon-captureontouch-utility	CaptureOnTouch
 canon-eos-webcam-utility	キヤノンのカメラをWebカメラとして使用する
 canon-fax	Canon imageCLASSMFプリンター用のファックスドライバーとユーティリティ
@@ -2093,15 +2092,11 @@ datacolor-spyder-express	モニターキャリブレーションツール
 datacolor-spyder-pro	モニターキャリブレーションツール
 displaylink-login-extension	ログイン前にDisplayLink画面を有効にします
 drobo-dashboard	データロボティクスストレージデバイス用の管理ソフトウェアとドライバー
-droidcam-obs	OBS Studioで直接カメラとして携帯電話を使用する
 dymo-label	DYMO LabelWriters用ソフトウェア
 eizo-colornavigator	Eizo Coloredge画面を調整する
 elecom-mouse-assistant	ELECOMマウスをより効果的に使用するためのソフトウェア
 elektron-overbridge	Elektronハードウェアを音楽ソフトウェアに統合する
 elektron-transfer	サンプルを転送するためのツール プリセットとファームウェアの更新
-elgato-camera-hub	Elgato FACECAM構成ツール
-elgato-control-center	Elgatoキーライトを制御する
-elgato-game-capture-hd	ゲームキャプチャーHD
 elgato-thunderbolt-dock	ElgatoThunderboltドックのメニューバーユーティリティ
 eobcanka	チェコ国民IDカードアプリ
 epson-photo-plus	ディスクへの直接印刷を含む写真の整理と印刷
@@ -2109,7 +2104,6 @@ epson-print-layout	すばやく簡単にカラー管理された印刷
 epson-surecolor-p900	プリンタードライバー/メディアインストーラー/ソフトウェアアップデーター
 evoluent-vertical-mouse-device-controller	Evoluent垂直マウスデバイスコントローラー
 evolv-escribe-suite	DNAデバイスの動作を構成、監視、および変更する
-fitbit-connect	Fitbit Connect
 flashforge-flashprint	flashforge 3dプリンター用印刷ソフトウェア
 fnatic-op	FNATICGEARデバイスをカスタマイズする
 focusrite-control	Focusriteインターフェースを制御する
@@ -2120,17 +2114,14 @@ ftdi-vcp-driver	FTDI VCPドライバー
 fujifilm-x-acquire	FUJIFILM X取得
 fujifilm-x-raw-studio	Fujifilmカメラに接続してRAWファイルを希望どおりに抽出および変換します
 fujifilm-x-webcam	XシリーズとGFXシステムのデジタルカメラをWebカメラに変えるソリューション
-fujitsu-scansnap-home	富士通ScanSnapスキャナーソフトウェア
 fujitsu-scansnap-manager	富士通ドキュメントスキャナー用スキャンソフトウェア
 fujitsu-scansnap-manager-ix500	富士通ScanSnapiX500用ScanSnap Manager
 g-raid-with-thunderbolt-configurator	ThunderboltConfiguratorを使用したG-RAID
 garmin-basecamp	3Dマッピングアプリケーション
-garmin-express	マップとソフトウェアを更新する Garmin Connectと同期してデバイスを登録します
 garmin-virb-edit	ガーミンVIRB編集
 genki-softwave	ウェーブリングソフトウェア
 genki-wave-for-work	ウェーブリングソフトウェア
 gk6-plus	GK6シリーズPCB/キーボード用のキーボードユーティリティ
-gutenprint	CUPSおよびGIMPで使用するためのさまざまなプリンター用のドライバー
 hdhomerun	見守る 地上波HDTVのスケジュールと録画
 hexcore-link	AnneシリーズとTenet 70用の設定ソフトウェア
 hhkb-keymap-tool	Happy Hacking Keyboard Professional用のキーマップツール(ハイブリッドモデルのみ)
@@ -2151,7 +2142,6 @@ lg-dual-controller	デュアルコントローラーにより、システム間�
 lg-onscreen-control	接続されているすべてのLGモニター情報を表示します
 linn-konfig	Linn Konfig
 lmsclients-squeezeplay	メディアサーバークライアント
-logi-options-plus	Logitechデバイス用のソフトウェア
 logitech-control-center	マウスとキーボードをカスタマイズする
 logitech-firmwareupdatetool	Logitechワイヤレスレシーバーと選択したキーボードを更新します
 logitech-gaming-software	Logitechゲーミングソフトウェア
@@ -2191,7 +2181,6 @@ playdate-mirror	Playdateからゲームプレイのオーディオとビデオ�
 pololu-avr-programmer-v2	Pololu AVRプログラマーv2のドライバー
 prolific-pl2303	PL2303 USB-シリアルドライバ
 qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
-qmk-toolbox	QMKファームウェアのツールボックスコンパニオン
 qnap-external-raid-manager	QNAP外部RAIDデバイスのステータスを表示します 設定/モニター
 rapoo-mt750s	マルチモードワイヤレスレーザーマウスドライバー
 razer-synapse	Razer周辺機器の構成ソフトウェア
@@ -2199,7 +2188,6 @@ reinersct-cyberjack	REINER SCTによるスマートカードリーダー用ド�
 reolink-client	Reolinkクライアント
 ricoh-ps-printers-vol3-exp-driver	PSドライバーが印刷デバイスを制御し、全機能を有効にすることを許可する
 ricoh-ps-printers-vol4-exp-driver	Ricoh PSプリンターVol4 EXPドライバー
-ricoh-theta	RICOH THETA
 rjm-megxeditor	RJMミニエフェクトギズモ X MIDIオーディオループスイッチャーを設定するエディターソフトウェア
 rjm-mmgteditor	RJM Mastermind GT MIDIペダルボードを構成するためのエディターソフトウェア
 rode-central	RØDEデバイス設定を構成する 特徴/関数/ファームウェア
@@ -2216,15 +2204,11 @@ shearwater	デスクトップコンピューターをShearwaterダイブコン�
 shureplus-motiv	Shure MV7とMV88 +マイクの追加機能とコントロール
 silicon-labs-vcp-driver	CP210x USB to UARTブリッジVCPドライバー
 smartscope	SmartScopeオシロスコープに接続するためのアプリ
-sonos	Sonosシステムを制御する
 sony-rcs300	SONY CCID CardReaderRC-S300ドライバー
 sony-xperia-companion	Xperia™ Companion
 sound-blaster-play3	Sound Blaster PLAYのドライバーとコントロールパネル！3 USB DACとアンプ
-steelseries-engine	SteelSeries周辺機器およびアクセサリの設定
 steelseries-exactmouse-tool	SteelSeriesExactMouseツール
-steelseries-gg	SteelSeries周辺機器およびアクセサリの設定
 synology-cloud-station-backup	一元化されたSynology NASにファイルをバックアップします
-synology-drive	Synology NASドライブへの同期およびバックアップサービス
 synology-photo-station-uploader	写真やビデオをSynology Photo Stationに一括アップロードする
 synology-surveillance-station-client	Synology製品のSurveillance Stationにアクセスするためのデスクトップユーティリティ
 synologyassistant	LAN全体でSynology NASを管理するためのツール
@@ -2243,7 +2227,6 @@ xbox360-controller-driver-unofficial	Microsoft Xboxシリーズコントロー�
 xerox-print-driver	Xeroxプリンター用のドライバー
 xppen-pentablet	XP-Penグラフィックタブレット用のドライバーおよび構成アプリ
 yamaha-usb-midi-driver	ヤマハ楽器用MIDIドライバー
-yubico-authenticator	TOTPおよびHOTPコードを生成するためのアプリケーション
 yubico-yubikey-personalization-gui	YubiKeyツール
 yubico-yubikey-piv-manager	PIV対応のYubiKeyを設定するためのアプリケーション
 zsa-wally	ZSAキーボード用のフラッシュツール
