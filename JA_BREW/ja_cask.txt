@@ -487,6 +487,7 @@ calmly-writer	マークダウンフォーマットと選択したテーマを備
 camed	XMLエディター
 camera-live	Live Syphonカメラ
 camerabag-photo	写真のフィルタリングと編集
+cameracontroller	アプリからUSBカメラを制御する
 camo-studio	画像調整コントロールを備えた高品質のWebカメラとして携帯電話を使用する
 camtasia	スクリーンレコーダーとビデオエディター
 camunda-modeler	ワークフローおよび意思決定自動化プラットフォーム
@@ -908,6 +909,7 @@ drawpile	共同描画アプリ
 dremel-slicer	CADファイルを安全にスライスする
 drivedx	健康診断および監視ツールを駆動する
 drivethrurpg	DriveThruRPGライブラリを互換性のあるデバイスに同期する
+droidcam-obs	OBS Studioで携帯電話を直接カメラとして使用する
 droidid	DroidID
 drop-to-gif	Zero-clickアニメーションGIF
 dropbox	Dropboxクラウドストレージサービスのクライアント
@@ -998,6 +1000,9 @@ electrumsv	ビットコインSV用のデスクトップウォレット
 element	Matrix協調クライアント
 elephas	パーソナルAIライティングアシスタント
 elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
+elgato-camera-hub	Elgato FACECAM設定ツール
+elgato-control-center	Elgatoキーライトをコントロール
+elgato-game-capture-hd	Elgatoビデオアプリ キャプチャ/ストリーミング
 elgato-stream-deck	キーを割り当て装飾してラベルを付ける
 elgato-video-capture	アナログソースからビデオをキャプチャ
 elgato-wave-link	コンテンツ作成用にカスタム構築されたソフトウェア
@@ -1243,6 +1248,7 @@ fsnotes	ノートマネージャー
 fspy	静止画カメラマッチング
 fstream	FStream
 fugu	Fugu
+fujitsu-scansnap-home	富士通 ScanSnapスキャナーソフトウェア
 functionflip	ファンクションキーコントロール
 funter	隠しファイルと隠しフォルダを表示しFinderでそれらの表示を切り替えます
 fuse	Fuseフレームワークを操作するためのビジュアルデスクトップツールパッケージ
@@ -1265,6 +1271,7 @@ ganttproject	Ganttチャートとプロジェクト管理アプリケーショ�
 gaphor	UML/SysML モデリングツール
 garagesale	eBayリストを管理する
 gargoyle	双方向フィクションプレーヤーのIOレイヤー
+garmin-express	地図とソフトウェアを更新しGarmin Connectと同期してデバイスを登録する
 gas-mask	ホストファイルエディター/マネージャー
 gather	仮想ビデオ通話スペース
 gb-studio	レトロゲームクリエイターをドラッグアンドドロップします
@@ -1411,6 +1418,7 @@ guitar-pro	ギター用楽譜エディタソフトウェア ベース/キーボ�
 gulp	gulp-app
 guppy	React.jsのフレンドリーなアプリケーションマネージャーとタスクランナー
 gureumkim	クラウド入力
+gutenprint	CUPSやGIMPで使用する各種プリンターのドライバー
 gyazmail	メールクライアント
 gyazo	スクリーンショットと画面記録ツール
 gyroflow	ジャイロスコープデータを使用したビデオ手ぶれ補正
@@ -1891,6 +1899,7 @@ lockrattler	セキュリティシステムをチェックし、問題を報告�
 lofi	WebGLビジュアライゼーションを備えたミニSpotifyプレーヤー
 logdna-agent	エージェントはログファイルからLogDNAアカウントにストリーミングします
 logdna-cli	LogDNA CLI
+logi-options-plus	Logitechデバイス用のソフトウェア
 logicalshift-zoom	Z-Code用プレーヤー TADS/HUGOの物語やゲーム
 logicsniffer	Open Bench Logic Sniffer倫理分析ハードウェアのソフトウェアクライアント
 loginputmac	中国語入力方式
@@ -2880,6 +2889,7 @@ qlrest	QLRest
 qlstephen	拡張子のないプレーンテキストファイル用のQuickLookプラグイン
 qlswift	QLSwift
 qlvideo	動画ファイル用のQuickLook生成器
+qmk-toolbox	QMKファームウェアのツールボックスコンパニオン
 qmoji	mojibarに似ていますがreasonmlで書かれています
 qnapi	QNapi
 qobuz	ストリーミングおよびダウンロード用の高解像度音楽のカタログ
@@ -3036,6 +3046,7 @@ revolver-office	プロジェクト管理ツール
 rhino	3Dモデルクリエーター
 ricochet	匿名のピアツーピアインスタントメッセージング
 ricochet-refresh	Torを介したプライベートおよび匿名のインスタントメッセージング
+ricoh-theta	360°カメラのコンパニオン ソフトウェア
 rider	.NET IDE
 ridibooks	Ridibooks
 rightfont	プレビューに役立つフォントマネージャー インストール フォントの同期と管理
@@ -3321,6 +3332,7 @@ sonic3air	ソニック3&ナックルズの再実装(オリジナルゲームが�
 sonixd	Subsonic-APIとJellyfinミュージックサーバー用のデスクトップクライアント
 sonoair	SonoAir
 sonobus	高品質のネットワークオーディオストリーミング
+sonos	Sonos システムを操作する
 sony-ps-remote-play	PlayStation 4/5 を制御するためのアプリケーション
 soothe2	動的共振サプレッサー
 soqlxplorer	Salesforce.comプラットフォーム用のデスクトップクライアント
@@ -3418,6 +3430,8 @@ stay	Windowsマネージャー
 steam	ビデオゲームデジタル配信サービス
 steam-plus-plus	Steamヘルパーツール
 steamcmd	SteamCMD
+steelseries-engine	SteelSeries周辺機器およびアクセサリの設定
+steelseries-gg	SteelSeries周辺機器およびアクセサリの設定
 steermouse	マウスボタンをカスタマイズする ホイール/カーソル速度
 stella	マルチプラットフォームのAtari2600エミュレーター
 stellarium	画面上にリアルタイムでリアルな空をレンダリングするツール
@@ -3504,6 +3518,7 @@ syncterm	BBSターミナルプログラム
 syncthing	リアルタイムファイル同期ソフトウェア
 synfigstudio	2Dアニメーションソフトウェア
 synology-chat	SynologyNASで実行されるメッセージングサービス
+synology-drive	Synology NASドライブへの同期およびバックアップサービス
 synology-note-station-client	コンテンツが豊富なメモを管理および共有する 書く/見る
 syntax-highlight	ソースファイルのQuicklook拡張機能
 synthesia	落下音を使ってピアノを弾く方法を学ぶ
@@ -4100,6 +4115,7 @@ youtype	インプットメソッドヘルパー
 yt-music	music.youtube.comのアプリラッパー
 ytmdesktop-youtube-music	YouTubeミュージッククライアント
 yu-writer	マークダウンエディター
+yubico-authenticator	TOTP/HOTP コードを生成するためのアプリケーション
 yubico-yubikey-manager	YubiKeyを設定するためのアプリケーション
 yubihsm2-sdk	YubiHSM 2とネイティブに、またPKCS#11経由でやり取りするためのライブラリとユーティリティ
 yuna	アニメプレイヤー兼リストマネージャー
