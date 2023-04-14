@@ -2277,16 +2277,6 @@ gsoap	CおよびC++のSOAP stubおよび骨格コンパイラ
 gspell	GTK+アプリケーションにスペルチェックを実装するための柔軟なAPI
 gssdp	SSDPを介したリソースの検出とアナウンスのためのGUPnPライブラリ
 gssh	Groovy DSLに基づくSSH自動化ツール
-gst-devtools	GStreamer開発および検証ツール
-gst-editing-services	GStreamer編集サービス
-gst-libav	LibavのGStreamerプラグイン(FFmpegのフォーク)
-gst-plugins-bad	GStreamerプラグインはあまりサポートされていません 完全にはテストされていません
-gst-plugins-base	GStreamerプラグイン(十分にサポートされた基本セット)
-gst-plugins-good	GStreamerプラグイン(十分にサポートされている、LGPLの下で)
-gst-plugins-rs	Rustで書かれたGStreamerプラグイン
-gst-plugins-ugly	メディア処理コンポーネントのグラフを作成するためのライブラリ
-gst-python	gobject-introspection-baseのpygst bindingsのPythonオーバーライド
-gst-rtsp-server	GStreamerに基づくRTSPサーバーライブラリ
 gstreamer	マルチメディアアプリケーションの開発フレームワーク
 gti	コマンドのタイプミスコレクターを表示するASCIIアート
 gtk+	GUIツールキット
@@ -5073,6 +5063,7 @@ restic	高速で効率的かつ安全なバックアッププログラム
 restund	モジュラーサーバー STUN/TURN
 restview	直ぐに解釈するReStructuredTextドキュメントViewer
 resty	パイプラインで使用できるコマンドラインRESTクライアント
+resvg	SVGレンダリングツールとライブラリ
 retdec	LLVMに基づくリターゲット可能なマシンコード逆コンパイラ
 rethinkdb	リアルタイムWeb用のオープンソースデータベース
 revive	Go用の高速で美しい静的解析ツール 構成可能/拡張可能/柔軟
