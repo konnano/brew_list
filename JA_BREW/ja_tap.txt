@@ -2092,7 +2092,6 @@ datacolor-spyder-express	モニターキャリブレーションツール
 datacolor-spyder-pro	モニターキャリブレーションツール
 displaylink-login-extension	ログイン前にDisplayLink画面を有効にします
 drobo-dashboard	データロボティクスストレージデバイス用の管理ソフトウェアとドライバー
-dymo-label	DYMO LabelWriters用ソフトウェア
 eizo-colornavigator	Eizo Coloredge画面を調整する
 elecom-mouse-assistant	ELECOMマウスをより効果的に使用するためのソフトウェア
 elektron-overbridge	Elektronハードウェアを音楽ソフトウェアに統合する
@@ -2107,7 +2106,6 @@ evolv-escribe-suite	DNAデバイスの動作を構成、監視、および変更
 flashforge-flashprint	flashforge 3dプリンター用印刷ソフトウェア
 fnatic-op	FNATICGEARデバイスをカスタマイズする
 focusrite-control	Focusriteインターフェースを制御する
-focusrite-saffire-mixcontrol	Focusrite製品のソフトウェア
 focusrite-thunderbolt	Focusriteデバイス用のThunderboltドライバー
 fractal-bot	Fractal Audio Systems製品との間でデータを送受信します
 ftdi-vcp-driver	FTDI VCPドライバー
