@@ -944,6 +944,7 @@ dwarf-fortress-lmp	ゲームを壊すことなくDwarf Fortressでグラフィ�
 dwgsee	DWGSee
 dwihn0r-keepassx	KeePassX
 dyalog	APLベースの開発環境
+dymo-label	DYMO LabelWriters用ソフトウェア
 dyn-updater	Dynアップデータ
 dynalist	Dynalist
 dynamic-dark-mode	自動ダークモードtoggle
@@ -1184,6 +1185,7 @@ focus	Webサイトとアプリケーションブロッカー
 focus-booster	時間監視
 focusatwill	パーソナライズされたフォーカスミュージック
 focused	マークダウンライティングアプリ
+focusrite-saffire-mixcontrol	Focusrite製品のソフトウェア
 fog	非公式のovercast.fmポッドキャストアプリ
 folder-colorizer	フォルダーアイコン エディター&マネージャー
 folding-at-home	折りたたみ用のグラフィカルインターフェイス制御
@@ -2506,6 +2508,7 @@ openra	Westwoodゲーム用のリアルタイム戦略ゲームエンジン
 openrct2	RollerCoaster Tycoon2のオープンソースの再実装
 openrefine	面倒なデータを操作するためのツール(以前のGoogle Refine)
 openrgb	メーカーのソフトウェアに依存しないオープンソースのRGB照明制御
+openrocket	Rocket simulator モデル
 opensc	スマートカードライブラリとユーティリティ
 openscad	プログラム可能なソリッド3DCADモデラー
 opensesame	社会科学のためのグラフィカルな実験ビルダー
