@@ -1249,6 +1249,7 @@ fsmonitor	FSMonitor
 fsnotes	ノートマネージャー
 fspy	静止画カメラマッチング
 fstream	FStream
+ftdi-vcp-driver	仮想COMポートドライバー
 fugu	Fugu
 fujitsu-scansnap-home	富士通 ScanSnapスキャナーソフトウェア
 functionflip	ファンクションキーコントロール
@@ -1985,6 +1986,7 @@ mactracker	これまでに製造されたすべてのアップル製品に関す
 macupdate	MacUpdateデスクトップ
 macupdater	インストールされているソフトウェアの最新バージョンを追跡して更新します
 macvim	テキストエディター
+macwhisper	音声認識ツール
 macwinzipper	Zipアーカイバ
 macx-dvd-ripper-mac-free-edition	MacXDVDリッパーMac Free版
 macx-dvd-ripper-pro	DVDリッピングアプリケーション
@@ -2813,6 +2815,7 @@ programmer-dvorak	プログラマーDvorak
 progressive-downloader	ダウンロードマネジャー
 projectlibre	ブラウザーのMicrosoft Project
 projector	Swingアプリケーションをリモートで実行するための一般的なクライアント関連のコード
+prolific-pl2303	PL2303 USB-to-シリアルドライバ
 pronterface	PCから3Dプリンターを制御する
 propresenter	ライブイベントのプレゼンテーションおよび制作アプリケーション
 prosys-opc-ua-browser	OPCUAサーバーからのデータを参照して視覚化する
@@ -3240,6 +3243,7 @@ signet	バンドル署名をスキャンしてチェックします
 silentknight	コンピュータのセキュリティを自動的にチェックします
 silicon	Intelのみのアプリを特定する
 silicon-info	実行中のアプリケーションのアーキテクチャを表示する
+silicon-labs-vcp-driver	CP210x USBからUARTへのブリッジVCPドライバー
 silnite	EFIファームウェアとセキュリティデータファイルの更新を確認します
 silo	3DポリゴンモデラーとUVマッパー
 sim-daltonism	ビデオと画像の色覚異常模擬装置
@@ -3957,6 +3961,7 @@ waterfox-classic	Webブラウザー
 wavebox	Webブラウザー
 waves-central	Waves製品をインストールしてアクティブ化するクライアント
 wavesurfer	WaveSurfer
+wch-ch34x-usb-serial-driver	USBシリアルドライバー
 weakauras-companion	Wago.ioからオーラを更新しそれらの定期的なバックアップを作成します
 webcamoid	Webcamoid
 webcatalog	デスクトップアプリのようなWebアプリを実行するためのツール
