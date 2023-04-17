@@ -5238,6 +5238,7 @@ schema-evolution-manager	postgresqlデータベーススキーマの移行を管
 schemathesis	仕様を備えたWebアプリケーションのテストツール
 scheme48	Schemeバイトコードインタプリタ
 schroedinger	Diracコーデックの高速実装
+scip	混合整数計画法および混合整数非線形計画法のソルバー
 scipy	数学のためのソフトウェア 理科/エンジニアリング
 scm-manager	Gitを管理する Mercurial/HTTPを介したSubversionリポジトリ
 scmpuff	一般的なgitコマンドに番号付きのショートカットを追加します
