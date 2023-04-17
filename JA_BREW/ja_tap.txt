@@ -787,6 +787,7 @@ font-inria	Inria
 font-inria-sans	Inria Sans
 font-inria-serif	Inria Serif
 font-inspiration	Inspiration
+font-instrument-sans	Instrument Sans
 font-instrument-serif	Instrument Serif
 font-inter	Inter
 font-inter-tight	Inter Tight
@@ -1010,6 +1011,8 @@ font-loved-by-the-king	Loved by the King
 font-lovers-quarrel	Lovers Quarrel
 font-luckiest-guy	Luckiest Guy
 font-luculent	Luculent
+font-lugrasimo	書道文字スタイルの書体
+font-lumanosimo	表現力豊かな書体
 font-lusitana	Lusitana
 font-lustria	Lustria
 font-luxurious-roman	一貫性のないserifを含む半手書きフォント
@@ -1321,6 +1324,7 @@ font-noto-sans-myanmar-ui	Noto Sans Myanmar UI
 font-noto-sans-n-ko	Noto Sans NKo
 font-noto-sans-nabataean	Noto Sans Nabataean
 font-noto-sans-nag-mundari	インド語 nag mundariスクリプトのデザイン
+font-noto-sans-nandinagari	歴史的インド語ナンディナガリー文字
 font-noto-sans-new-tai-lue	Noto Sans New Tai Lue
 font-noto-sans-newa	Noto Sans Newa
 font-noto-sans-nko	Noto Sans NKo
@@ -1529,6 +1533,7 @@ font-pirata-one	Pirata One
 font-plaster	Plaster
 font-play	Play
 font-playball	Playball
+font-playfair	Playfair
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
 font-plemol-jp	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
@@ -2108,7 +2113,6 @@ fnatic-op	FNATICGEARデバイスをカスタマイズする
 focusrite-control	Focusriteインターフェースを制御する
 focusrite-thunderbolt	Focusriteデバイス用のThunderboltドライバー
 fractal-bot	Fractal Audio Systems製品との間でデータを送受信します
-ftdi-vcp-driver	FTDI VCPドライバー
 fujifilm-x-acquire	FUJIFILM X取得
 fujifilm-x-raw-studio	Fujifilmカメラに接続してRAWファイルを希望どおりに抽出および変換します
 fujifilm-x-webcam	XシリーズとGFXシステムのデジタルカメラをWebカメラに変えるソリューション
@@ -2177,7 +2181,6 @@ picoscope	PicoScope oscilloscops用のテストおよび測定オシロスコー
 plantronics-hub	Plantronics Hub
 playdate-mirror	Playdateからゲームプレイのオーディオとビデオをストリーミングするアプリケーション
 pololu-avr-programmer-v2	Pololu AVRプログラマーv2のドライバー
-prolific-pl2303	PL2303 USB-シリアルドライバ
 qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
 qnap-external-raid-manager	QNAP外部RAIDデバイスのステータスを表示します 設定/モニター
 rapoo-mt750s	マルチモードワイヤレスレーザーマウスドライバー
@@ -2200,7 +2203,6 @@ seagate-dashboard	Seagateダッシュボード
 segger-ozone	J-Linkデバッガーおよびパフォーマンスアナライザー
 shearwater	デスクトップコンピューターをShearwaterダイブコンピューターにリンクします
 shureplus-motiv	Shure MV7とMV88 +マイクの追加機能とコントロール
-silicon-labs-vcp-driver	CP210x USB to UARTブリッジVCPドライバー
 smartscope	SmartScopeオシロスコープに接続するためのアプリ
 sony-rcs300	SONY CCID CardReaderRC-S300ドライバー
 sony-xperia-companion	Xperia™ Companion
@@ -2217,7 +2219,6 @@ toneprint	TonePrintペダルのキャラクターを変更する
 ubiquiti-unifi-controller-lts	Ubiquiti UniFi SDNコントローラーLTS
 uhk-agent	究極のハッキングキーボードの構成アプリケーション
 wacom-tablet	Wacomタブレットのリソース
-wch-ch34x-usb-serial-driver	USBシリアルドライバー
 wd-drive-utilities	WDドライブの管理
 wd-firmware-updater	WDファームウェアアップデータ
 wd-security	WDドライブ用の暗号化ソフトウェア
