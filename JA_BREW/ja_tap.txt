@@ -363,7 +363,6 @@ font-comfortaa	Comfortaa
 font-comforter	多くの用途にアピール
 font-comforter-brush	comforter Brushyの仲間 弾む 直立したブラシスタイルのスクリプト
 font-comic-mono	読みやすい等幅フォント
-font-comic-neue	Comic Neue
 font-comic-sans-ms	Comic Sans
 font-coming-soon	Coming Soon
 font-comme	可変、細いものから黒いものまでのウェイト軸
@@ -551,6 +550,8 @@ font-fira-sans	Fira Sans
 font-fira-sans-condensed	Fira Sans Condensed
 font-fira-sans-extra-condensed	Fira Sans Extra Condensed
 font-firago	FiraGO
+font-firge	Fira MonoとGenshinゴシックをベースにしたプログラミングフォント
+font-firgenerd	Fira MonoとGenshinゴシックをベースにしたプログラミングフォント
 font-fjalla-one	Fjalla One
 font-fjord-one	Fjord One
 font-flamenco	Flamenco
