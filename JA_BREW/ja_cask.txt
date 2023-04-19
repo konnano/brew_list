@@ -3016,6 +3016,7 @@ rekordbox	あなたの音楽ファイルを準備して管理するためのFree
 remarkable	観察/画面共有/整理/案件 reMarkableデバイスにファイルをダウンロードします
 rember	Rember
 remember-the-milk	やることアプリ
+reminders-menubar	リマインダーを表示して操作するためのシンプルなメニューバーアプリ
 remix-ide	イーサリアムの賢い約定開発に使用されるデスクトップバージョンのRemix Web IDE
 remnote	間隔反復を利用したメモ取りツール
 remote-buddy	Remote Buddy
