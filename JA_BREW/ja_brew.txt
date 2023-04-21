@@ -32,6 +32,7 @@ act	GitHubアクションをローカルで実行する 🚀
 actionlint	GitHub Actionsワークフローファイルの静的チェッカー
 activemq	Apache ActiveMQ：強力なオープンソースメッセージングサーバー
 activemq-cpp	Apache ActiveMQなどのメッセージブローカーのC++ API
+ada-url	最新のC++で記述されたWHATWG準拠の高速URLパーサー
 adamstark-audiofile	Adam StarkによるC++オーディオファイルライブラリ
 adios2	Exascaleコンピューティングプログラムで開発された次世代のADIOS
 admesh	三角形分割されたソリッドメッシュを処理します
@@ -98,6 +99,7 @@ alpscore	物理シミュレーション用のアプリケーションとライ�
 alsa-lib	LinuxオペレーティングシステムにオーディオおよびMIDI機能を提供します
 alure	OpenALアプリケーションで一般的なタスクを管理する
 amazon-ecs-cli	開発用のクラスターとタスクを管理するためのAmazon ECSのCLI
+amber	Crystal Webフレームワーク ベアメタルのパフォーマンス、生産性と幸福
 amdatu-bootstrap	OSGi開発のブートストラップ
 amfora	Gemini手続きの豪華なターミナルブラウザ
 ammonite-repl	Ammoniteは、ScalaREPLのクリーンルームでの再実装です。
@@ -248,6 +250,7 @@ asyncapi	すべてのAsyncAPIツールのオールインワンCLI
 asyncplusplus	C++11の並行性フレームワーク
 at-spi2-atk	Accessibility Toolkit GTK+モジュール
 at-spi2-core	D-Busat-spiの手続き定義とデーモン
+ata	端末のChatGPT
 atari800	Atari8ビットマシンエミュレーター
 atasm	UnixのAtari MAC/65 互換アセンブラ
 atdtool	コマンドラインインターフェイス、締め切り後言語チェッカー
@@ -750,6 +753,7 @@ charm-tools	Juju Charmsを作成および維持するためのツール
 charmcraft	Charmsを作成してCharmhubに公開するためのツール
 chars	Unicode文字に関する情報を表示するコマンドラインツール
 chart-testing	指導チャートのテストとlinting
+chatblade	ChatGPT用 CLIスイス万能ナイフ
 chcase	Perlファイルの名前変更スクリプト
 cheapglk	非常に最低限のGlkライブラリ
 cheat	*nixコマンドの対話的チートシートを作成して表示する
@@ -1633,6 +1637,7 @@ ffmpeg	オーディオとビデオ 再生/録音/変換/ストリーミング
 ffmpeg2theora	ビデオファイルをOggTheora形式に変換します
 ffmpeg@2.8	オーディオとビデオ 再生/録音/変換/ストリーミング
 ffmpeg@4	オーディオとビデオ 再生/録音/変換/ストリーミング
+ffmpeg@5	オーディオとビデオの　再生/録音/変換/ストリーミング
 ffmpegthumbnailer	ビデオファイルのサムネイルを作成する
 ffms2	Libav/ffmpeg ベースのソースライブラリとAvisynthプラグイン
 ffsend	フル機能のFirefox Sendクライアント
@@ -6570,7 +6575,6 @@ zig	堅牢性のために設計されたプログラミング言語 最適性/�
 zile	テキストエディタ開発キット
 zim	Wikiページのコレクションを維持するために使用されるグラフィカルテキストエディタ
 zimg	拡大縮小 色空間変換/ディザリングライブラリ
-zinc	sbtのScalaインクリメンタルコンパイラの独立型バージョン
 zinit	柔軟で高速なZshプラグインマネージャー
 zint	50以上のシンボル体系をサポートするBarcodeエンコーディングライブラリ
 zip	圧縮およびファイルのユーティリティ パッケージ/アーカイブ
