@@ -204,8 +204,6 @@ unless( $ARGV[0] ){
          $tap{"${ds7}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
           $tap{"${name}deps_b"} .= "$ds7\t";
         }
-     }elsif( $re->{'MAC'} and $data =~ s/^\s*depends_on\s+"([^"]+)".+MacOS\.version\.outdated_release\?\n/$1/ ){
-       push @{$re->{'OS'}},"$name,$data";
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
        $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
         $tap{"${name}deps_b"} .= "$data\t";
@@ -227,12 +225,6 @@ unless( $ARGV[0] ){
      }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"(?!.+:test).*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
-     }elsif( $re->{'LIN'} and
-             my( $us7 ) = $data =~ /^\s*depends_on\s+"([^"]+)".*\["glibc"]\.any_version_installed/ ){
-      if( -d "$MY_BREW/Cellar/glibc" ){
-       $tap{"${us7}uses"} .= "$name\t";
-        $tap{"${name}deps"} .= "$us7\t";
-      }
      }elsif( $data =~ s/^\s*depends_on\s+"([^"]+)".*\n/$1/ ){
        $tap{"${data}uses"} .= "$name\t";
         $tap{"${name}deps"} .= "$data\t";
