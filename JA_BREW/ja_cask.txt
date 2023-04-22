@@ -38,6 +38,7 @@ ace-link	VLCプレーヤーでAce Streamビデオストリームを再生でき�
 acorn	シンプルさに焦点を当てた画像エディター
 acronis-true-image	フルイメージのバックアップとクローン作成ソフトウェア
 acslogo	Logo通訳
+active-trader-pro	取引プラットフォーム
 activedock	カスタマイズ可能なドック アプリケーションランチャー/ドックの交換
 activitywatch	時間監視
 actual	あなたの財政を管理するためのプライバシーに焦点を当てたアプリ
@@ -427,7 +428,6 @@ box-notes	Boxノート
 box-sync	セキュリティに焦点を当てたクラウドベースの協調および管理プラットフォーム
 box-tools	Webブラウザーから直接ファイルを作成および編集します
 boxcryptor	さまざまなクラウドストレージサービスのファイルとフォルダーを暗号化するツール
-boxofsnoo-fairmount	もともとMetakineからのDVDマウントソフトウェア
 boxy-suite	Gmail/日程表 KeepとContactsアプリ
 brackets	Web開発用のオープンソースコードエディター
 brain-workshop	知的ワークショップ
@@ -2018,7 +2018,6 @@ mambaforge	Mambaのサポートがプリインストールされたcondaの最�
 mame	多目的エミュレーションフレームワークの移植
 mamp	Apacheを使用したWeb開発ソリューション Nginx/PHP&MySQL
 mana-security	個人の脆弱性管理
-manageengine-mibbrowser	SNMP 対応デバイスを監視するためのツール
 manico	アプリランチャーと切り替え
 manictime	コンピューターの使用状況データを自動的に収集する時間監視
 manila	フォルダーの色を変更するためのファインダー拡張機能
@@ -3750,6 +3749,7 @@ trunk-io	Trunkランチャー
 tsh	分散インフラストラクチャを管理するチーム向けのSSHサーバー
 ttscoff-mmd-quicklook	MMD-QuickLook
 tuck	ウィンドウマネージャー
+tuist	Xcodeプロジェクトを大規模に作成/維持/操作する
 tunein	Freeのインターネットラジオ
 tuneinstructor	Tune•インストラクター
 tunnelbear	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
@@ -4092,6 +4092,7 @@ xrg	システムモニター
 xscope	画面上のグラフィックスとレイアウトを測定/検査/テスト するためのツール
 xscreensaver	スクリーンセーバー
 xstation5	デスクトップ取引プラットフォーム
+xtool-creative-space	xToolレーザー加工機用の設計および制御ソフトウェア
 xtorrent	トレントクライアント
 yacreader	コミックリーダー
 yakyak	Google Hangouts用のデスクトップチャットクライアント
