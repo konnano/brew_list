@@ -51,6 +51,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'}  = 1;
  }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'}  = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = $re->{'USE'} = 1;
+ }elsif( $AR[0] eq '-bu' ){ $name = $re;  $re->{'BUI'}  = 1;
  }elsif( $AR[0] eq '-ul' ){ $name = $re;  $re->{'uses'} = 1;
  }elsif( $AR[0] eq '-ud' ){ $name = $re;  $re->{'deps'} = 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
@@ -140,7 +141,8 @@ MAIN:{
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
 
   }elsif( $re->{'USE'} ){ $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1();
-  }elsif( $ref->{'PRE'} ){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
   }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
@@ -192,7 +194,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.16_8\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.16_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -200,7 +202,7 @@ sub Died_1{
   -co\t:  formula library display\n  -in\t:  formula require formula list
   -t\t:  formula require formula, display tree\n  -tt\t:  only require formula, display tree
   -u\t:  formula depend on formula\n  -ua\t:  formula depend on formula , all
-  -ul\t:  formula depend on formula , item count
+  -ul\t:  formula depend on formula , item count\n  -bu\t:  Formulas dependent on formula build
   -ud\t:  formula depend on formula , list : Second argument '.' not require dependencies Formula
   -g\t:  Independent Formula\n  -de\t:  uninstall, unnecessary formula, second argument not uninstall Formula
   -d\t:  uninstall, unnecessary formula, display tree, second argument not uninstall Formula
@@ -234,10 +236,11 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
     DB_2( $re ) unless $re->{'BL'} or defined $re->{'S_OPT'} or $re->{'COM'};
      DB_2( $re ) if $re->{'S_O'};
   }
-  if( $re->{'INF'} and not $re->{'COL'} or $re->{'USE'} or $re->{'dep_s'} or $re->{'ana'} or $re->{'use'} ){
-   if( $re->{'TREE'} or $re->{'LINK'} and $re->{'LINK'} == 6 or $re->{'USES'} or
-       $re->{'FOR'} and $re->{'ana'} and $re->{'ana'} !~ /^[0-8]$/ or
-       $re->{'CAS'} and $re->{'ana'} and $re->{'ana'} !~ /^[0-2]$/ ){
+  if( $re->{'INF'} and not $re->{'COL'} or
+      $re->{'USE'} or $re->{'dep_s'} or $re->{'ana'} or $re->{'use'} or $re->{'BUI'} ){
+   if( $re->{'TREE'} or $re->{'LINK'} and $re->{'LINK'} == 6 or $re->{'USES'} or $re->{'BUI'} or
+       $re->{'FOR'} and $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/ or
+       $re->{'CAS'} and $re->{'ana'} and $re->{'ana'} !~ /^[12]$/ ){
      open my $DIR1,"$re->{'HOME'}/brew.txt" or die" L_DIR1 $!\n";
       while(<$DIR1>){ s/^([^\t]+)\t.+/$1/; push @$cat,$_ }
      close $DIR1;
@@ -247,7 +250,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
      close $DIR2;
     }
    }
-   Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'}],$cat );
+   Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'},\$re->{'BUI'}],$cat );
   }
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
    Info_1( $re ) if $re->{'INF'};
@@ -257,7 +260,8 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
      ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
        Dirs_1( $re->{'CEL'},0,$re );
    @$list = $re->{'OS'}{"$re->{'USE'}uses"} ? split '\t',$re->{'OS'}{"$re->{'USE'}uses"} : () if $re->{'USE'};
-    $re->{'cask'} = [] if $re->{'USE'} or $re->{'BL'};
+   @$list = $re->{'OS'}{"$re->{'BUI'}build"} ? split '\t',$re->{'OS'}{"$re->{'BUI'}build"} : () if $re->{'BUI'};
+    $re->{'cask'} = [] if $re->{'USE'} or $re->{'BL'} or $re->{'BUI'};
    if( $re->{'MAC'} and $re->{'USE'} ){
     my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
     my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
@@ -272,7 +276,8 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
  }
  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
  }else{
-  $re->{'COM'} ? Command_1( $re ) : ( $re->{'BL'} and $re->{'FOR'} or defined $re->{'USE'} ) ? Brew_1( $re,$list ) :
+  $re->{'COM'} ? Command_1( $re ) :
+  ( $re->{'BL'} and $re->{'FOR'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ? Brew_1( $re,$list ) :
    $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
     $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
  }
@@ -621,7 +626,10 @@ my( $re,$list ) = @_; my( %HA,@AN );
  return unless @$list or @{$re->{'cask'}};
   for(my $i=0;$i<@$list;$i++){ my $tap = $list->[$i];
    Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
-    ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and not $re->{'USE'} ) ? Mine_1( $list->[$i],$re,0 ) :
+    ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'BL'} or
+     $re->{'BUI'} and not $re->{'OS'}{"${tap}$OS_Version"} and
+    ( $re->{'MAC'} and not $re->{'OS'}{"${tap}un_xcode"} or $re->{'LIN'} and not $re->{'OS'}{"${tap}un_Linux"} ) ) ?
+      Mine_1( $list->[$i],$re,0 ) :
     ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'USE'} and not $re->{'USES'} ) ?
       Uses_1( $re,$tap,\%HA,\@AN ) : $re->{'USES'} ? push @AN,$tap : 0;
   }
@@ -725,6 +733,15 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
     $HA{$c1}++ if $re->{'OS'}{"${c1}uses"};
     $HA{$c1}++ if $re->{'OS'}{"${c1}u_cask"};
     $HA{$c1}++ if $re->{'OS'}{"${c1}u_form"};
+   }
+  }elsif( $re->{'BUI'} ){
+   for my $b1(@$cat){ chomp $b1;
+    if( $re->{'OS'}{"${b1}build"} ){
+     for my $b2( split '\t',$re->{'OS'}{"${b1}build"} ){
+      $HA{$b1}++,last if not $re->{'OS'}{"${b2}$OS_Version"} and
+       ( $re->{'MAC'} and not $re->{'OS'}{"${b2}un_xcode"} or $re->{'LIN'} and not $re->{'OS'}{"${b2}un_Linux"} );
+     }
+    }
    }
   }elsif( $re->{'DEL'} and not $re->{'DDD'} ){
    $re->{'OS'}{"${_}deps"} ? push @ARR,$_ : 0 for keys %{$re->{'HASH'}};
@@ -2547,7 +2564,7 @@ unless( $ARGV[0] ){
   my @LIST = <$FILE>;
  close $FILE;
 
-   my( $TIN,$UAA,$AIA,$ACA );
+   my( $TIN,$UAA,$AIA,$ACA,$BUI );
   @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
  if( $re->{'MAC'} ){
   for(@CASK){
@@ -2564,6 +2581,12 @@ unless( $ARGV[0] ){
   $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
   $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
   $AIA .= "$BREW[$i] \\\n";
+   if( $tap{"$BREW[$i]build"} ){
+    for my $b1( split '\t',$tap{"$BREW[$i]build"} ){
+     $BUI .= "$BREW[$i] \\\n",last if not $tap{"${b1}$OS_Version2"} and
+      ( $re->{'MAC'} and not $tap{"${b1}un_xcode"} or $re->{'LIN'} and not $tap{"${b1}un_Linux"} );
+    }
+   }
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
      $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]f_version"}, last if $BREW[$i] lt $ls1;
@@ -2621,7 +2644,8 @@ unless( $ARGV[0] ){
     $COM = ( $COM and $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s )  ? $COM : '';
      $UAA = ( $UAA and $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s )         ? $UAA : '';
       $DEP = ( $DEP and $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s )         ? $DEP : '';
-  my $TOP = "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}";
+       $BUI = ( $BUI and $BUI =~ s/(.+)\\\n$/'-bu[Bulid list]:Build:( \\\n$1 )' \\\n/s )         ? $BUI : '';
+  my $TOP = "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$BUI$FON}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
