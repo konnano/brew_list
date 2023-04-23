@@ -441,7 +441,7 @@ unless( $ARGV[0] ){
   my @LIST = <$FILE>;
  close $FILE;
 
-   my( $TIN,$UAA,$AIA,$ACA );
+   my( $TIN,$UAA,$AIA,$ACA,$BUI );
   @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
  if( $re->{'MAC'} ){
   for(@CASK){
@@ -458,6 +458,12 @@ unless( $ARGV[0] ){
   $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
   $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
   $AIA .= "$BREW[$i] \\\n";
+   if( $tap{"$BREW[$i]build"} ){
+    for my $b1( split '\t',$tap{"$BREW[$i]build"} ){
+     $BUI .= "$BREW[$i] \\\n",last if not $tap{"${b1}$OS_Version2"} and
+      ( $re->{'MAC'} and not $tap{"${b1}un_xcode"} or $re->{'LIN'} and not $tap{"${b1}un_Linux"} );
+    }
+   }
    for(;$COU<@LIST;$COU++){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
      $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]f_version"}, last if $BREW[$i] lt $ls1;
@@ -515,7 +521,8 @@ unless( $ARGV[0] ){
     $COM = ( $COM and $COM =~ s/(.+)\\\n$/{-co,-is}'[Library list]:Library:( \\\n$1 )' \\\n/s )  ? $COM : '';
      $UAA = ( $UAA and $UAA =~ s/(.+)\\\n$/'-ua[All uses list]:USES:( \\\n$1 )' \\\n/s )         ? $UAA : '';
       $DEP = ( $DEP and $DEP =~ s/(.+)\\\n$/'-ud[Depends list]:DEPS:( \\\n$1 )' \\\n/s )         ? $DEP : '';
-  my $TOP = "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$FON}";
+       $BUI = ( $BUI and $BUI =~ s/(.+)\\\n$/'-bu[Bulid list]:Build:( \\\n$1 )' \\\n/s )         ? $BUI : '';
+  my $TOP = "#compdef bl\n_bl(){\n_arguments '*::' \\\n$TRE$TIN$UAA$UCC$COM$DEP$AIA$ACA$BUI$FON}";
    no warnings 'closed';
   open my $dir,'>',"$re->{'COM'}/_bl";
    print $dir $TOP;
