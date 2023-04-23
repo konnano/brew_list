@@ -1637,7 +1637,7 @@ ffmpeg	オーディオとビデオ 再生/録音/変換/ストリーミング
 ffmpeg2theora	ビデオファイルをOggTheora形式に変換します
 ffmpeg@2.8	オーディオとビデオ 再生/録音/変換/ストリーミング
 ffmpeg@4	オーディオとビデオ 再生/録音/変換/ストリーミング
-ffmpeg@5	オーディオとビデオの　再生/録音/変換/ストリーミング
+ffmpeg@5	オーディオとビデオ 再生/録音/変換/ストリーミング
 ffmpegthumbnailer	ビデオファイルのサムネイルを作成する
 ffms2	Libav/ffmpeg ベースのソースライブラリとAvisynthプラグイン
 ffsend	フル機能のFirefox Sendクライアント
@@ -6258,6 +6258,7 @@ vttest	VT100互換端末の互換性をテストします
 vue-cli	Vue.js開発のための標準ツール
 vulkan-headers	VulkanヘッダーファイルとAPIレジストリ
 vulkan-loader	Vulkan ICDローダー
+vulkan-tools	Vulkanユーティリティとツール
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
 vvdec	Fraunhofer汎用ビデオデコーダ
