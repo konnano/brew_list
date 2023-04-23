@@ -363,6 +363,7 @@ font-comfortaa	Comfortaa
 font-comforter	多くの用途にアピール
 font-comforter-brush	comforter Brushyの仲間 弾む 直立したブラシスタイルのスクリプト
 font-comic-mono	読みやすい等幅フォント
+font-comic-neue	古典的 comic sansのオリジナルの再解釈
 font-comic-sans-ms	Comic Sans
 font-coming-soon	Coming Soon
 font-comme	可変、細いものから黒いものまでのウェイト軸
