@@ -190,6 +190,7 @@ archi-steam-farm	複数のアカウントから同時にSteamカードをアイ�
 archivemount	libarchiveを使用してアーカイブにアクセスするためのファイルシステム
 archiver	クロスプラットフォームのマルチフォーマットアーカイブユーティリティ
 arduino-cli	Arduinoコマンドラインインターフェース
+ares	暗号化されたテキストの自動デコード
 argo	Kubernetesのコンテナネイティブワークフローで作業の完了
 argocd	KubernetesのGitOps継続的デリバリー
 argocd-autopilot	ArgoCDをインストールしてGitOpsリポジトリを管理するための意見のある方法
@@ -3800,6 +3801,7 @@ mikmod	ポータブルトラックミュージックプレーヤー
 mikutter	拡張可能なTwitterクライアント
 mill	Scalaビルドツール
 miller	sed/awk/cut/join/sort のようなCSVとして名前インデックスデータの並べ替え
+millet	標準 ML(SML)用の言語サーバー
 mimalloc	コンパクトな汎用メモリ割り当て
 mimic	CMUFliteに基づく軽量のテキスト読み上げエンジン
 mimirtool	Grafana Mimirとやり取りするためのCLI
@@ -4699,6 +4701,7 @@ podofo	PDFファイル形式で動作するライブラリ
 podsync	YouTubeまたはVimeoチャンネルを回す ユーザー、またはプレイリストをポッドキャストフィードに
 poetry	Pythonパッケージ管理ツール
 points2grid	ローカルGridingを使用して数値標高モデルを生成する
+poke	構造化されたバイナリデータ用の拡張可能なエディター
 pokerstove	ポーカー評価および列挙ソフトウェア
 polyglot	XBoardでUCIエンジンを実行するための手続きアダプタ
 polyml	標準ML実装
