@@ -1458,6 +1458,7 @@ elektra	グローバルkeyデータベースの構成設定にアクセスする
 eless	より良い`less` EmacsビューモードとBashを使う
 eleventy	よりシンプルな静的サイト発生器
 elfutils	ELFオブジェクトを処理するためのライブラリとユーティリティ
+elfx86exts	x86バイナリ(ELF/Mach-O)をデコードし使用中のISA拡張機能を出力します
 elinks	テキストモードのWebブラウザ
 elixir	Erlang VM上に構築された機能的なメタプログラミング対応言語
 elixir-build	RubyビルドのElixirバージョン
@@ -1950,6 +1951,7 @@ git-annex	ファイルの内容をチェックインせずにgitでファイル�
 git-annex-remote-rclone	git-annexでrcloneがサポートするクラウドストレージを使用する
 git-appraise	Gitリポジトリの分散コードレビューシステム
 git-archive-all	プロジェクトとそのサブモジュールをアーカイブする
+git-big-picture	Gitリポジトリの可視化ツール
 git-branchless	Gitの高速でmonorepo-scaleワークフロー
 git-bug	分散/gitに埋め込まれたoffline-firstバグトラッカー ブリッジがあります
 git-cal	GitHubのような投稿カレンダーです コマンドラインにあります
@@ -3411,6 +3413,9 @@ libvidstab	Transcodeビデオ安定化プラグイン
 libvirt	C仮想化API
 libvirt-glib	glibベースのプログラム用のLibvirtAPI
 libvisio	Visio図表の解釈とインポート
+libvisual	オーディオ視覚化ツールとライブラリ
+libvisual-plugins	オーディオ視覚化ツールとライブラリ
+libvisual-projectm	LibvisualのprojectMサポート用の可視化プラグイン
 libvmaf	multi-methodフュージョンに基づく知覚ビデオ品質評価
 libvnc	VNCサーバーまたはクライアントを簡単に実装するためのクロスプラットフォームCライブラリ
 libvncserver	VNCサーバーおよびクライアントライブラリ
@@ -5879,7 +5884,7 @@ thrift	scalableな多言語サービス開発のためのフレームワーク
 thrift@0.9	scalableな多言語サービス開発のためのフレームワーク
 thriftgo	プラグインメカニズムを使用したgo言語でのthriftコンパイラの実装
 thrulay	ネットワークの性能を測定する
-tidy-html5	最新の標準をサポートするHTMLツールの祖父
+tidy-html5	最新の標準をサポートするHTMLツールの元祖
 tidy-viewer	CLI csv pretty printer
 tidyp	HTMLを検証および変更する
 tiff2png	TIFFからPNGへの変換器
@@ -6259,9 +6264,11 @@ vtk	3Dコンピュータグラフィックス用のツールキット 画像処�
 vtk@8.2	3Dコンピュータグラフィックス用のツールキット 画像処理/視覚化
 vttest	VT100互換端末の互換性をテストします
 vue-cli	Vue.js開発のための標準ツール
+vulkan-extensionlayer	ネイティブサポートが利用できない場合にVulkan機能を提供するレイヤー
 vulkan-headers	VulkanヘッダーファイルとAPIレジストリ
 vulkan-loader	Vulkan ICDローダー
 vulkan-tools	Vulkanユーティリティとツール
+vulkan-validationlayers	開発者がVulkan APIの正しい使用を検証できるようにするVulkanレイヤー
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
 vvdec	Fraunhofer汎用ビデオデコーダ
