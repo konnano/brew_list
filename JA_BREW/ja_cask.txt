@@ -495,6 +495,7 @@ candybar	ファイルアイコンを変更するツール
 canon-eos-utility	Canon EOSカメラとの通信
 cantata	Qt5グラフィカルMPDクライアント
 canva	デザインツール
+capacities	アイデアを書いて整理するアプリ
 caprine	エレガントなFacebookメッセンジャーデスクトップアプリ
 capslocknodelay	Caps Lockを押したときの遅延をなくす
 captain	メニューバーからDockerコンテナを管理する
@@ -3049,6 +3050,7 @@ reunion	系図(家系図)アプリ
 reveal	iOS開発者向けの強力なランタイムビューデバッグ
 reverso	テキスト翻訳アプリケーション
 revolver-office	プロジェクト管理ツール
+rewind	画面と音声を記録して検索する
 rhino	3Dモデルクリエーター
 ricochet	匿名のピアツーピアインスタントメッセージング
 ricochet-refresh	Torを介したプライベートおよび匿名のインスタントメッセージング
