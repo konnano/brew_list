@@ -796,6 +796,7 @@ dcp-o-matic-playlist-editor	DCP-o-matic プレイリストエディター
 dcv-viewer	NICE DCVリモートディスプレイ手続きのクライアント
 dd-utility	オペレーティングシステムのIMGおよびISOファイルの書き込みとバックアップ
 ddnet	DDRaceのTeeworldsバージョン
+ddpm	モニターおよび周辺機器マネージャー
 deadbolt	Deadbolt
 deathtodsstore	DeathToDSStore
 debookee	ネットワークトラフィック分析
@@ -1329,6 +1330,7 @@ github	GitHubリポジトリ用のデスクトップクライアント
 githubpulse	GithubPulse
 gitify	デスクトップにGitHub通知を表示するアプリ
 gitkraken	生産性に焦点を当てたGitクライアント
+gitkraken-cli	GitKrakenのCLI
 gitnote	gitnote
 gitpigeon	GitPigeon
 gitscout	Gitscout
@@ -1722,6 +1724,7 @@ kaleidoscope	テキストと画像のファイルまたはフォルダの違い�
 kap	Webテクノロジーで構築されたオープンソースのスクリーンレコーダー
 kapitainsky-rclone-browser	Rcloneブラウザー
 karabiner-elements	キーボードカスタマイザー
+karafun	カラオケプレイヤーソフト
 katalon-studio	テスト自動化ソリューション
 katana	オープンソースのスクリーンショットユーティリティ
 katrain	ゲームを分析して遊ぶためのツールはKataGoからのAIフィードバックに対応しています
