@@ -614,6 +614,7 @@ font-genwanmin	GenWanMin
 font-genyogothic	GenYoGothic
 font-genyomin	GenYoMin
 font-geo	Geo
+font-geologica	Geologica
 font-georama	いくつかの幅とウェイトで利用可能なオリジナルの書体
 font-georgia	Georgia
 font-geostar	Geostar
@@ -869,6 +870,7 @@ font-jura	Jura
 font-just-another-hand	Just Another Hand
 font-just-me-again-down-here	Just Me Again Down Here
 font-k2d	K2D
+font-kablammo	Kablammo
 font-kadwa	Kadwa
 font-kaisei-decol	漢字と同じ要素でデザインされたストロークの終わりにある小さな点
 font-kaisei-harunoumi	Kaisei 春の海
@@ -2248,7 +2250,6 @@ adoptopenjdk8	ビルド済みのOpenJDKバイナリ
 aerial-beta	Apple TV Aerialスクリーンセーバー
 affinity-designer-beta	写真編集およびグラフィックデザインソフトウェア
 affinity-photo-beta	Serif Affinity Photo
-affinity-publisher-beta	プロのデスクトップ出版ソフトウェア
 alfred2	アプリケーションランチャーと生産性ソフトウェア
 alfred3	アプリケーションランチャーと生産性ソフトウェア
 alfred4	アプリケーションランチャーと生産性ソフトウェア
@@ -2263,7 +2264,6 @@ arq5	マルチクラウドバックアップアプリケーション
 atom-beta	クロスプラットフォームのテキストエディター
 atom-nightly	クロスプラットフォームのテキストエディター
 azure-data-studio-insiders	SQLServerでの作業を可能にするデータ管理ツール
-background-music-pre	オーディオユーティリティ
 blender-lts	Freeのオープンソース3D作成スイート
 brave-browser-beta	プライバシーに焦点を当てたWebブラウザー
 brave-browser-dev	プライバシーに焦点を当てたWebブラウザー
@@ -2428,7 +2428,6 @@ temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
 thunderbird-beta	Mozilla Thunderbird
 thunderbird-daily	カスタマイズ可能なメールクライアント
-tinymediamanager3	メディア管理ツール V3バージョンライセンスは不要
 tor-browser-alpha	セキュリティに重点を置いたWebブラウザー
 tower2	Tower
 transmission-nightly	オープンソースのBitTorrentクライアント
