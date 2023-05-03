@@ -20,6 +20,7 @@ abricate	コンティグの耐性と不良要素を見つける
 abseil	C++共通ライブラリ
 abuse	Dark 2D横スクロールプラットフォームゲーム
 abyss	短い読み取りのためのゲノム配列アセンブラー
+access	端末から離れずにアクセスをリクエストして許可する最も簡単な方法
 ace	適応型通信環境：C++でのオブジェクト指向ネットワークプログラミング
 aces_container	SMPTEST2065-4のリファレンス実装
 ack	grepのような検索ツールですが、プログラマー向けに最適化されています
@@ -53,6 +54,7 @@ afio	cpio形式のアーカイブを作成します
 afl-fuzz	American fuzzy lop：セキュリティ指向のファザー
 afsctool	HFS+圧縮ファイルを操作するためのユーティリティ
 aften	ATSC A/52 圧縮オーディオストリームを生成するオーディオエンコーダ
+aftman	Robloxのツールチェーン マネージャー Foremanの放蕩続編
 afuse	FUSEを使用してユーザースペースに実装された自動マウントファイルシステム
 agda	依存型関数型プログラミング言語
 age	シンプルでモダンに安全なファイル暗号化
@@ -1848,6 +1850,7 @@ gcalcli	コマンドラインからGoogleカレンダーに簡単にアクセス
 gcc	GNUコンパイラコレクション
 gcc@10	GNUコンパイラコレクション
 gcc@11	GNUコンパイラコレクション
+gcc@12	GNUコンパイラコレクション
 gcc@4.9	GNUコンパイラコレクション
 gcc@5	GNUコンパイラコレクション
 gcc@6	GNUコンパイラコレクション
@@ -3134,6 +3137,7 @@ libgccjit	GNUコンパイラコレクションのJITライブラリ
 libgcrypt	GnuPGのコードに基づく暗号ライブラリ
 libgda	GNOMEプロジェクトへの統合データアクセスを提供します
 libgdata	オンラインサービスAPIにアクセスするためのGLibベースのライブラリ
+libgedit-gtksourceview	コード編集用のテキストエディターウィジェット
 libgee	GObjectベースのインターフェースを提供するコレクションライブラリ
 libgeotiff	GeoTIFFを処理するためのライブラリとツール
 libgetdata	Dirfile標準のリファレンス実装
@@ -3201,6 +3205,7 @@ liblqr	C/C++ seam carvingライブラリ
 libltc	タイムコード(LTC)を処理するためのPOSIX-Cライブラリ 線形/対数
 liblunar	太陰暦
 liblwgeom	SpatiaLiteがPostGISのようなST_MakeValid()をサポートできるようにします
+liblxi	LXI互換計測器と通信するためのシンプルなC API
 liblzf	非常に小さく、非常に高速なデータ圧縮ライブラリ
 libmaa	ハッシュテーブルを含む低レベルのデータ構造 セット/リスト
 libmagic	file(1)コマンドの実装
@@ -4154,7 +4159,6 @@ node	ネットワークアプリケーションを構築するためにV8上に�
 node-build	NodeJSバージョンをインストールする
 node-sass	SassコンパイラのJavaScript実装
 node@10	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
-node@12	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node@14	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node@16	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node@18	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
