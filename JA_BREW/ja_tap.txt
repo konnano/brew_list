@@ -365,6 +365,7 @@ font-comforter-brush	comforter Brushyの仲間 弾む 直立したブラシス�
 font-comic-mono	読みやすい等幅フォント
 font-comic-neue	古典的 comic sansのオリジナルの再解釈
 font-comic-sans-ms	Comic Sans
+font-comic-shanns-mono-nerd-font	多数のglyphsを含む開発者向けのフォント
 font-coming-soon	Coming Soon
 font-comme	可変、細いものから黒いものまでのウェイト軸
 font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストsans-serifフォント
@@ -820,6 +821,7 @@ font-iosevka-ss15	Sans-serif/slab-serif/monospace/quasi‑proportional 書体フ
 font-iosevka-ss16	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-ss17	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-ss18	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
+font-iosevka-term-nerd-font	多数のglyphsを含む開発者向けのフォント
 font-ipaexfont	IPAex Fonts
 font-ipafont	IPA Fonts
 font-ipamjmincho	IPAmj明朝
@@ -2371,7 +2373,6 @@ openemu-experimental	レトロなビデオゲームエミュレーション
 openra-playtest	Westwoodゲーム用のリアルタイムストラテジーゲームエンジン
 openscad-snapshot	OpenSCAD
 openshot-video-editor-daily	クロスプラットフォームのビデオエディター
-openzfs-dev	ZFSドライバーとユーティリティ
 opera-beta	Webブラウザー
 opera-crypto-developer	Web3ブラウザ
 opera-developer	Webブラウザー
