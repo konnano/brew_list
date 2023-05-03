@@ -389,6 +389,7 @@ blockstack	ブロックスタック
 blocs	ビジュアルWebデザインソフトウェア
 bloodhound	ドメイン管理者のSix Degrees
 bloomrpc	GRPCサービス用のGUIクライアント
+bloop	コード検索エンジン
 blu-ray-player	Blu-rayコンテンツ用のプレーヤー
 blu-ray-player-pro	Blu-rayプレーヤーソフトウェア
 bluebubbles	BlueBubblesアプリエコシステム内のクライアントにiMessageを転送するためのサーバー
@@ -412,6 +413,7 @@ bonitastudiocommunity	ビジネスプロセスの自動化と最適化
 bonjeff	ネットワーク上で公開されているBonjourサービスのライブディスプレイを表示します
 bonjour-browser	Bonjourブラウザー
 bookends	参照管理および参考文献ソフトウェア
+bookletcreator	小冊子からPDFユーティリティ
 bookmacster	ブックマークマネージャー
 bookwright	このツールとBlurbプリントサービスで本を作る
 boom	オーディオ入力を変換します
@@ -3002,6 +3004,7 @@ recovery-disk-assistant	リカバリディスクアシスタント
 rectangle	キーボードショートカットまたはスナップ領域を使用してウィンドウを移動およびサイズ変更
 rectangle-pro	ウィンドウスナップツール
 recut	ビデオから無音を削除し、カットリストを自動的に生成します
+red-canary-mac-monitor	セキュリティ調査とマルウェアのトリアージのための分析ツール
 red-eye	Red Eye
 redcine-x-pro	REDCODE RAWフッテージをトランスコードして操作する
 redeclipse	Red Eclipse
