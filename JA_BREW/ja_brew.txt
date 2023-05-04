@@ -1740,6 +1740,7 @@ forego	Procfileベースのアプリケーション管理のためのGoのForema
 foreman	Procfileベースのアプリケーションを管理する
 foremost	ヘッダーとフッターに基づいてファイルを回復するためのコンソールプログラム
 forge	高性能の視覚化
+forgit	ターミナルでのインタラクティブなgitコマンド
 fork-cleaner	GitHubアカウントの古くて非アクティブなフォークをクリーンアップします
 form	記号操作システム
 format-udf	ブロックデバイスをUDFにフォーマットするためのBashスクリプト
@@ -2034,6 +2035,7 @@ gitleaks	秘密のgitリポジトリを監査する
 gitless	gitに加えて簡素化されたバージョン管理システム
 gitlint	git commitメッセージのLinting
 gitmoji	コミットメッセージで絵文字を使用するための対話的コマンドラインツール
+gitoxide	慣用的/効率的 Gitの高速で安全なpure Rust実装
 gitql	Gitクエリ言語
 gitslave	スーパープロジェクトとして1つの関連するリポジトリのグループを作成します
 gitter-cli	端末用の非常にシンプルなGitterクライアント
@@ -5210,6 +5212,7 @@ s4cmd	SuperS3コマンドラインツール
 s6	小さくて安全な監視ソフトウェアパッケージ
 sad	CLI 検索と置換 | Space Age seD
 safe-rm	ファイルの危険な削除を防ぐためにrmをラップします
+safeint	整数オーバーフローを管理するC++用のクラスライブラリ
 sagittarius-scheme	FreeのR6RSおよびR7RSをサポートするSchemeの実装
 sail	WordPressアプリケーションを提供しDigitalOceanに展開するためのCLIツールキット
 saldl	速度と早期プレビュー用に最適化されたCLIダウンローダー
