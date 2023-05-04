@@ -16,7 +16,7 @@ font-actor	Actor
 font-adamina	Adamina
 font-adinatha-tamil-brahmi	Adinatha Tamil Brahmi
 font-adobe-blank	Adobe Blank
-font-advent-pro	Advent Pro
+font-advent-pro	Webと印刷用に設計されたモダンなフォント
 font-african-sans	African Sans
 font-african-serif	African Serif
 font-agave-nerd-font	Agave Nerd Font(Agave)
@@ -230,9 +230,9 @@ font-bitstream-vera-sans-mono-nerd-font	BitstreamVeraSansMonoオタクフォン�
 font-bitter	電子インク画面用に最適化されたSlab-serif書体
 font-bitter-ht	電子インク画面用に最適化されたSlab-serif書体
 font-biz-udgothic	BIZ UDGothic
-font-biz-udmincho	BIZ UDMincho
+font-biz-udmincho	日本の明朝体伝統のユニバーサルデザイン書体
 font-biz-udpgothic	BIZ UDPGothic
-font-biz-udpmincho	BIZ UDPMincho
+font-biz-udpmincho	日本の明朝体伝統のユニバーサルデザイン書体
 font-black-and-white-picture	黒と白の画像
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
@@ -320,7 +320,7 @@ font-changa	Changa
 font-changa-one	Changa One
 font-chango	Chango
 font-chapbook	Chapbook
-font-charis-sil	Charis SIL
+font-charis-sil	ラテン文字とキリル文字を使用する言語をサポートするUnicodeベースのフォントファミリ
 font-charm	Charm
 font-charmonman	Charmonman
 font-charter	Charter
@@ -379,7 +379,7 @@ font-content	Content
 font-contrail-one	Contrail One
 font-convergence	Convergence
 font-cookie	Cookie
-font-cooper-hewitt	Cooper Hewitt
+font-cooper-hewitt	修正された幾何学的曲線とアーチで構成された現代的なsans serif
 font-copse	Copse
 font-corben	Corben
 font-corinthia	Corinthia
@@ -398,7 +398,7 @@ font-courier-prime-sans	Courier Prime Sans
 font-cousine	Cousine
 font-cousine-nerd-font	Cousine Nerd Font(Cousine)
 font-coustard	Coustard
-font-covered-by-your-grace	Covered By Your Grace
+font-covered-by-your-grace	あなたの恵みによって覆われています
 font-cozette	ビットマッププログラミングフォント
 font-crafty-girls	Crafty Girls
 font-creepster	Creepster
@@ -464,7 +464,7 @@ font-doppio-one	Doppio One
 font-dorsa	Dorsa
 font-dosis	Dosis
 font-dotgothic16	DotGothic16
-font-doulos-sil	Doulos SIL
+font-doulos-sil	ラテン文字とキリル文字を使用する言語をサポートする Unicode ベースのフォント ファミリ
 font-dr-sugiyama	杉山博士
 font-droid-sans-mono-for-powerline	Droid Sans Mono for Powerline
 font-droid-sans-mono-nerd-font	DroidSansMonoオタクフォント(Droid Sans Mono)
@@ -543,8 +543,8 @@ font-festive	Festive
 font-figtree	Webやモバイルアプリで使用するためのクリーンで親しい幾何学的なsans serif font
 font-finger-paint	Finger Paint
 font-finlandica	Finlandica
-font-fira-code	Fira Code
-font-fira-code-nerd-font	FiraCode Nerd Font(Fira Code)
+font-fira-code	プログラミング合字付きのfree等幅フォント
+font-fira-code-nerd-font	多数のglyphsを含む開発者向けのフォント
 font-fira-mono	Fira Mono
 font-fira-mono-for-powerline	Fira Mono for Powerline
 font-fira-mono-nerd-font	FiraMono Nerd Font(Fira)
@@ -576,7 +576,7 @@ font-fraunces	4軸可変フォント
 font-freckle-face	Freckle Face
 font-fredericka-the-great	Fredericka the Great
 font-fredoka	ben nathanが率いる イスラエルを拠点とするタイパーデザイン製造所
-font-free-mono-tengwar	Unicode tengwar monospaced font
+font-free-mono-tengwar	Unicode tengwar等幅フォント
 font-freefont	FreeFont
 font-freehand	Freehand
 font-fresca	Fresca
@@ -1059,7 +1059,7 @@ font-marcellus-sc	Marcellus SC
 font-marck-script	Marck Script
 font-margarine	Margarine
 font-marhey	楽しい表示書体コントラストストロークのカスタムハンドレタリング
-font-markazi-text	Markazi Text
+font-markazi-text	現代的で読みやすい書体
 font-marko-one	Marko One
 font-marmelad	Marmelad
 font-martel	Martel
@@ -1070,7 +1070,7 @@ font-masinahikan	Masinahikan
 font-masinahikan-dene	Masinahikan Dene
 font-mate	Mate
 font-mate-sc	Mate SC
-font-material-design-icons-webfont	Material Design Icons Webfont
+font-material-design-icons-webfont	マテリアルデザインアイコンのWebフォント
 font-material-icons	Material Icons
 font-maven-pro	Maven Pro
 font-maven-pro-vf-beta	Maven Pro VF Beta
@@ -1334,7 +1334,7 @@ font-noto-sans-nag-mundari	インド語 nag mundariスクリプトのデザイ�
 font-noto-sans-nandinagari	歴史的インド語ナンディナガリー文字
 font-noto-sans-new-tai-lue	Noto Sans New Tai Lue
 font-noto-sans-newa	Noto Sans Newa
-font-noto-sans-nko	Noto Sans NKo
+font-noto-sans-nko	アフリカのN'Koスクリプトのテキストの調整されていないデザイン
 font-noto-sans-nushu	Noto Sans Nushu
 font-noto-sans-ogham	Noto Sans Ogham
 font-noto-sans-ol-chiki	Noto Sans Ol Chiki
@@ -1557,7 +1557,7 @@ font-poltawski-nowy	Poltawski Nowy
 font-poly	Poly
 font-pompiere	Pompiere
 font-ponnala	Ponnala
-font-pontano-sans	Pontano Sans
+font-pontano-sans	ミニマルで軽量なsans serif
 font-poor-story	Poor Story
 font-poppins	Poppins
 font-poppins-latin	PoppinsLatin
@@ -1984,8 +1984,8 @@ font-vesper-libre	Vesper Libre
 font-viaoda-libre	Viaoda Libre
 font-vibes	Vibes
 font-vibur	Vibur
-font-victor-mono	Victor Mono
-font-victor-mono-nerd-font	VictorMonoオタクフォント(Victor Mono)
+font-victor-mono	筆記体の斜体とプログラミング記号の合字を使用した等幅フォント
+font-victor-mono-nerd-font	多数のglyphsを含む開発者向けのフォント
 font-vidaloka	Vidaloka
 font-viga	Viga
 font-vina-sans	Vina Sans
@@ -2136,7 +2136,7 @@ hexcore-link	AnneシリーズとTenet 70用の設定ソフトウェア
 hhkb-keymap-tool	Happy Hacking Keyboard Professional用のキーマップツール(ハイブリッドモデルのみ)
 hhkb-pro-driver	HHKB Professionalのドライバー
 hp-connectivity-kit	HPコネクティビティキット
-hp-easy-start	HP Easy Start
+hp-easy-start	HPプリンターのセットアップ
 huiontablet	Huionタブレット用ドライバー
 insta360-studio	ビデオおよび写真エディター
 interstuhl-s40	Interstuhl S4.0
@@ -2149,7 +2149,7 @@ kyocera-printer-drivers	京セラMacドライバー
 lacie-network-assistant	CloudBoxとすべてのLaCieネットワーク接続ストレージを管理します
 lg-dual-controller	デュアルコントローラーにより、システム間でのキーボードとマウスの共有が可能になります
 lg-onscreen-control	接続されているすべてのLGモニター情報を表示します
-linn-konfig	Linn Konfig
+linn-konfig	オーディオ機器の制御ソフトウェア
 lmsclients-squeezeplay	メディアサーバークライアント
 logitech-control-center	マウスとキーボードをカスタマイズする
 logitech-firmwareupdatetool	Logitechワイヤレスレシーバーと選択したキーボードを更新します
@@ -2221,7 +2221,7 @@ synology-surveillance-station-client	Synology製品のSurveillance Stationにア
 synologyassistant	LAN全体でSynology NASを管理するためのツール
 tiptoi-manager	子供のデータを管理する Ravensburger tip toi audio pen
 tomtom-mydrive-connect	TomTomナビゲーションデバイスを更新します
-tomtom-sports-connect	TomTom MySports Connect
+tomtom-sports-connect	TomTomスポーツウォッチのコンパニオンソフトウェア
 toneprint	TonePrintペダルのキャラクターを変更する
 ubiquiti-unifi-controller-lts	Ubiquiti UniFi SDNコントローラーLTS
 uhk-agent	究極のハッキングキーボードの構成アプリケーション
@@ -2245,17 +2245,17 @@ ableton-live-intro10	サウンドと音楽のエディター
 ableton-live-lite10	サウンドと音楽のエディター
 ableton-live-standard10	サウンドと音楽のエディター
 ableton-live-suite10	サウンドと音楽のエディター
-ableton-live-suite9	Ableton Live 9 Suite
+ableton-live-suite9	サウンドおよび音楽エディター
 adguard-nightly	スタンドアロンの広告ブロッカー
 adguard-vpn-nightly	プライバシーとセキュリティのためのVPN
 adoptopenjdk8	ビルド済みのOpenJDKバイナリ
 aerial-beta	Apple TV Aerialスクリーンセーバー
 affinity-designer-beta	写真編集およびグラフィックデザインソフトウェア
-affinity-photo-beta	Serif Affinity Photo
+affinity-photo-beta	プロフェッショナルな画像編集ソフトウェア
 alfred2	アプリケーションランチャーと生産性ソフトウェア
 alfred3	アプリケーションランチャーと生産性ソフトウェア
 alfred4	アプリケーションランチャーと生産性ソフトウェア
-anaconda2	Continuum Analytics Anaconda2
+anaconda2	データサイエンスプラットフォーム
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
 anki-beta	記憶力トレーニングアプリケーション
@@ -2354,7 +2354,7 @@ microsoft-edge-beta	マルチプラットフォームのWebブラウザー
 microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2016	オフィススイート
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
-miniconda2	Continuum Analytics Miniconda
+miniconda2	condaの最小限のインストーラー
 monal-beta	チャットサーバーに安全に接続するためのツール
 mongodb-compass-beta	MongoDBのGUI
 mono-mdk-for-visual-studio	Microsoftの.NETFrameworkのオープンソース実装
@@ -2371,7 +2371,7 @@ omnigraffle6	ビジュアルコミュニケーションソフトウェア
 omniplan3	プロジェクト計画および管理ソフトウェア
 openemu-experimental	レトロなビデオゲームエミュレーション
 openra-playtest	Westwoodゲーム用のリアルタイムストラテジーゲームエンジン
-openscad-snapshot	OpenSCAD
+openscad-snapshot	プログラム可能なソリッド3D CADモデラー
 openshot-video-editor-daily	クロスプラットフォームのビデオエディター
 opera-beta	Webブラウザー
 opera-crypto-developer	Web3ブラウザ
@@ -2384,7 +2384,7 @@ parallels15	デスクトップ仮想化ソフトウェア
 parallels16	デスクトップ仮想化ソフトウェア
 parallels17	デスクトップ仮想化ソフトウェア
 pdf-expert-beta	PDFリーダー エディター/注釈
-pgadmin3	pgAdmin
+pgadmin3	PostgreSQLの管理および開発プラットフォーム
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
 postico1	PostgreSQLデータベースのGUIクライアント
 powershell-preview	コマンドラインシェルとスクリプト言語
@@ -2396,7 +2396,7 @@ propresenter6	ライブイベントのプレゼンテーションおよび制作
 qbittorrent-lt20	libtorrent-rasterbar 2.0.xに基づくqBitorrentのエディション
 qgis-ltr	地理情報システム
 qt-creator-dev	アプリケーション開発のためのIDE
-quicktime-player7	QuickTime Player 7
+quicktime-player7	ビデオプレーヤー
 rambox-ce	Freeのオープンソースメッセージングおよび電子メールアプ
 reflector2	ワイヤレス画面ミラーリングアプリケーション
 royal-tsx-beta	リモート管理ソリューション
@@ -2404,12 +2404,12 @@ safari-technology-preview	Webブラウザー
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
-sequel-pro-nightly	Sequel Pro
-shadow-beta	Shadow Beta
+sequel-pro-nightly	MySQL/MariaDB データベース管理プラットフォーム
+shadow-beta	オンライン仮想化コンピュータ
 signal-beta	セキュリティに焦点を当てたインスタントメッセージングアプリケーション
 sketch-beta	デジタルデザインおよびプロトタイピングプラットフォーム
 skype-preview	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
-skype7	Skype
+skype7	ビデオ チャット/音声通話/インスタントメッセージング アプリケーション
 slack-beta	チームコミュニケーションおよび協力ソフトウェア
 slicer-preview	医用画像処理および視覚化システム
 smcfancontrol-beta	内蔵ファンの最低速度を設定します
@@ -2419,7 +2419,7 @@ soulver2	テキストエディタと電卓
 sourcetree-beta	Gitバージョン管理用のグラフィカルクライアント
 sublime-merge-dev	Gitクライアント
 sublime-text-dev	コード用のテキストエディタ マークアップ/散文
-sublime-text2	Sublime Text 2
+sublime-text2	コード用テキストエディタ マークアップ/散文
 telegram-desktop-beta	Telegramメッセンジャー用のデスクトップクライアント
 temurin11	Eclipse Foundation(Adoptium)のJDK
 temurin17	Eclipse Foundation(Adoptium)のJDK
@@ -2430,24 +2430,24 @@ termius-beta	SSHクライアント
 thunderbird-beta	Mozilla Thunderbird
 thunderbird-daily	カスタマイズ可能なメールクライアント
 tor-browser-alpha	セキュリティに重点を置いたWebブラウザー
-tower2	Tower
+tower2	パワーと生産性に重点を置いたGitクライアント
 transmission-nightly	オープンソースのBitTorrentクライアント
-transmit4	Transmit
+transmit4	ファイル転送アプリケーション
 tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
 typora-dev	Markdownをサポートする構成可能なドキュメントエディター
 utm-beta	QEMUを使用した仮想マシンUI
-virtualbox-beta	Oracle VirtualBox
+virtualbox-beta	x86およびarm64ハードウェア用のバーチャライザー
 virtualbox6	x86ハードウェアのバーチャライザー
 visual-studio-code-insiders	コードエディター
 vivaldi-snapshot	カスタマイズと制御に焦点を当てたWebブラウザー
 vlc-nightly	オープンソースのクロスプラットフォームマルチメディアプレーヤー
-vmware-fusion-tech-preview	仮想マシンを実行します 作成/管理
-vmware-fusion10	VMware Fusion
+vmware-fusion-tech-preview	仮想マシンの 実行/作成/管理
+vmware-fusion10	仮想マシンの 作成/管理/実行
 vmware-fusion11	再起動せずに他のオペレーティングシステムを実行するアプリ
-vmware-fusion12	仮想マシンの作成/管理/実行
-vmware-fusion7	VMware Fusion
-vmware-fusion8	VMware Fusion
-vox2	VOX
+vmware-fusion12	仮想マシンの 作成/管理/実行
+vmware-fusion7	仮想マシンの 作成/管理/実行
+vmware-fusion8	仮想マシンの 作成/管理/実行
+vox2	外部ソースからのハイレゾ(Hi-Res)音楽用の音楽プレーヤー
 vscodium-insiders	コードエディタ
 wezterm-nightly	GPUで高速化されたクロスプラットフォームターミナルエミュレーターおよびマルチプレクサー
 whatsapp-alpha	WhatsAppのネイティブデスクトップクライアント
