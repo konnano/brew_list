@@ -2766,7 +2766,7 @@ popsql	共同SQLエディター
 portfolioperformance	投資ポートフォリオの全体的なパフォーマンスを計算します
 porting-kit	Microsoft Windows用にコンパイルされたゲームとアプリをインストールします
 portx	SSHクライアント
-post-haste	Post Haste
+post-haste	デジタルメディアプロジェクト管理ツール
 postbird	オープンソースのPostgreSQL GUIクライアント
 postbox	プライバシー保護に焦点を当てた電子メールクライアント
 posterazor	Rasterイメージスプリッター
@@ -2802,7 +2802,6 @@ principle	アニメーション化された双方向なユーザーインター�
 printopia	任意のプリンターへのAirPrint
 prism	統計分析およびグラフ作成ソフトウェア
 prisma-studio	Prismaプロジェクト用のビジュアルデータベースエディター
-prismatik	Prismatik
 prismlauncher	マインクラフトランチャー
 pritunl	OpenVPNクライアント
 privadovpn	VPNクライアント
@@ -3473,6 +3472,7 @@ subler	Muxとタグのmp4ファイル
 sublercli	Sublerのコマンドラインバージョン
 sublime-merge	Gitクライアント
 sublime-text	コード用のテキストエディタ マークアップ/プロセス
+submariner	Submariner
 subsurface	オープンソースのダイブログプログラム
 subsync	字幕音声シンクロナイザー
 subtitle-master	字幕マスター
@@ -3632,7 +3632,7 @@ there	チーム内の人々の現地時間を表示するツール
 therm	優れたデフォルトと最小限の機能を持つことを目的としたiTerm2のフォーク
 thetimemachinemechanic	TimeMachineログビューアとステータスインスペクタ
 thingsmacsandboxhelper	モノのヘルパーアプリケーション
-thinkorswim	thinkDesktop
+thinkorswim	TD Ameritrade取引プラットフォームのデスクトップクライアント
 thinlinc-client	Linuxリモートデスクトップサーバー
 thonny	初心者のためのPythonIDE
 thonny-xxl	初心者のためのPython IDE
