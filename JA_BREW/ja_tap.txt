@@ -1250,6 +1250,7 @@ font-noto-sans-caucasian-albanian	Noto Sans Caucasian Albanian
 font-noto-sans-chakma	Noto Sans Chakma
 font-noto-sans-cham	Noto Sans Cham
 font-noto-sans-cherokee	Noto Sans Cherokee
+font-noto-sans-chorasmian	歴史的な中東コラスミアン文字のデザイン
 font-noto-sans-cjk	Noto Sans CJK
 font-noto-sans-cjk-jp	Noto Sans CJK JP
 font-noto-sans-cjk-kr	Noto Sans CJK KR
