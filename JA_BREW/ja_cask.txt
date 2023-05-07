@@ -2065,7 +2065,6 @@ mattermost	オープンソースのセルフホストSlack-alternative
 mattr-slate	Slate
 mauve	複数のゲノムアラインメントを構築するためのシステム
 mavensmate	MavensMateサーバー用のパッケージデスクトップアプリ
-max	CDやファイルからさまざまな形式の高品質オーディオファイルを作成します
 maxon	インストール/使用 Maxon製品をお試しください
 mbcord	JellyfinとEmbyのDiscordリッチプレゼンスクライアント
 mbed-studio	MbedOSアプリケーションおよびライブラリ開発用のIDE
@@ -2261,7 +2260,6 @@ mountain-duck	サーバーとクラウドストレージをディスクとして
 mounty	書き込み保護されたNTFSボリュームを再マウントします
 mouse-fix	サードパーティのマウスにジェスチャー機能とスムーズなスクロールを追加するためのマウスユーティリティ
 mousepose	マウスポインタとカーソル位置を強調表示します
-movist	QuickTimeとFFmpegをベースにしたムービープレーヤー
 movist-pro	メディアプレーヤー
 mp3gain-express	MP3Gain表現
 mp3tag	MP3/FLAC/OGG などのオーディオファイルのメタデータを編集するためのツール
@@ -3214,7 +3212,6 @@ shapr3d	3DCADソフトウェア
 sharemouse	コンピュータ間で周辺機器を共有する
 sharepod	Sharepod
 shearwater-cloud	レビュー ダイビングログデータの編集と共有
-shellhere	ターミナルで現在地を開くFinder用ツールバーアプリ
 sherlock	iOSシミュレータビジュアルデバッガ
 shiba	Linter付きのリッチマークダウンライブプレビューアプリ
 shield	プロセス注入から保護するアプリ
@@ -3738,7 +3735,6 @@ transmission-remote-gui	伝送リモートGUI
 transmit	ファイル転送アプリケーション
 transnomino	バッチ名前変更ユーティリティ
 transocks	さまざまなビデオ音楽リソースへのアクセスを最適化するツール
-trash-it	詰まったゴミを削除するツール
 treesheets	オープンソースの階層型表計算とアウトラインアプリケーション
 tresorit	Tresoritクラウドストレージサービスのクライアント
 trex	使いやすいテキスト抽出ツール
