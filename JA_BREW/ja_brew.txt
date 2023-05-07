@@ -168,7 +168,7 @@ apngasm	apngasmの次世代、APNGアセンブラー
 apollo	ActiveMQに基づくMulti-protocolメッセージングブローカー
 apollo-cli	Apollo GraphQLのコマンドラインツール
 apophenia	統計および科学計算用の Cライブラリ
-app-engine-java	Java Google App Engine
+app-engine-java	Google App Engine for Java
 app-engine-python	Google App Engine
 apparix	ブックマークディレクトリを介したファイルシステムナビゲーション
 appium	アプリの自動化
@@ -4094,6 +4094,7 @@ neovim	拡張性と敏捷性に焦点を当てた野心的なVimフォーク
 neovim-qt	NeoVim GUI, in Qt5
 neovim-remote	`nvr`コマンドラインツールを使用してnvimプロセスを制御する
 nerdctl	ContaiNERD CTL containerd用のDocker互換CLI
+nerdfix	古いNerd Fontアイコンを見つけて修正する
 nesc	深くネットワーク化されたシステムのためのプログラミング言語
 nest	Python3 bindingsを備えた神経シミュレーションツール(NEST)(PyNEST)
 nestopia-ue	NESエミュレータ
