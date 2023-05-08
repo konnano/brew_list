@@ -719,6 +719,7 @@ craftmanager	Craftツールを最新の状態に保つのに役立ちます
 creality-slicer	すべてのCreality FDM 3Dプリンター用のスライサー
 create-recovery-partition-installer	リカバリパーティションインストーラーの作成
 createuserpkg	CreateUserPkg
+creative	Creativeハードウェアのコントロールパネル
 creepy	位置情報OSINTツール
 crescendo	リアルタイムイベントビューア
 criptext	プライバシーを中心に構築されたメールサービス
@@ -1919,6 +1920,7 @@ logitech-camera-settings	カメラコントロールへのアクセスを提供�
 logitech-g-hub	Logitech Gギアのサポート
 logitech-options	Logitechデバイス用のソフトウェア
 logitech-presentation	Logitechプレゼンテーション
+logitune	ビデオ会議用に最適化 ウェブカメラ/ヘッドセット/Logi Dock
 logmein-client	リモートアクセスツール
 logmein-hamachi	LogMeIn Hamachi
 logos	聖書研究ソフトウェア
@@ -2451,6 +2453,7 @@ obs-advanced-scene-switcher	OBS Studioの自動シーンスイッチャー
 obs-ndi	OBS Studio用のNewTek NDI統合
 obs-virtualcam	OBSバーチャルカメラ
 obs-websocket	WebSocketを介したOBS Studioのリモートコントロール
+obsbot-webcam	OBSBOT TinyおよびMeetシリーズの構成およびファームウェア更新ユーティリティ
 obsidian	プレーンテキストのマークダウンファイルのローカルフォルダの上で機能する知識ベース
 ocenaudio	オーディオエディター
 oclint	静的ソースコード分析ツール
@@ -2482,6 +2485,7 @@ only-switch	システムおよびユーティリティスイッチ
 onlyoffice	ドキュメントエディター
 onyx	システムファイルの構造を確認 その他のメンテナンスを実行します。
 oolite	oolite
+opal	Opal C1用のプロフェッショナルウェブカメラソフトウェア
 open-in-code	Visual StudioCodeで現在のフォルダーを開くためのFinderツールバーアプリ
 open-video-downloader	Electronとnode.jsで作成されたyoutube-dl用のクロスプラットフォームGUI
 openaudible	Audibleユーザー向けのオーディオブックマネージャー
@@ -2745,6 +2749,7 @@ pokerstars	Freeでプレイできるオンラインポーカー
 pokerth	FreeのTexas hold'emポーカー
 polar-bookshelf	統合された読書環境
 polkadot-js	PolkadotおよびSubstrateネットワークへのポータル
+pololu-avr-programmer-v2	Pololu AVR Programmer v2のドライバー
 polymail	メール生産性アプリケーション
 polypad	開発者向けのスクリプト可能なテキストパッド
 polypane	野心的な開発者のためのブラウザー
@@ -3930,6 +3935,7 @@ voikkospellservice	フィンランド語のスペルチェックサービス
 volanta	パーソナルフライト監視
 volley	非同期ビデオメッセージングアプリ
 volt	Slack/Discord/Skype/Gmail/Twitter/Facebook などのクライアント
+volta	GitHubの問題と通知
 voodoopad	ノートオーガナイザー
 voov-meeting	国境を越えたビデオ会議ソフトウェア
 vorta	ボーグのデスクトップバックアップクライアント
