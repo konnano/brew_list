@@ -3119,6 +3119,7 @@ safeincloud-password-manager	SafeInCloudパスワードマネージャー
 sage	数学ソフトウェアシステム
 sameboy	Cで書かれたゲームボーイとゲームボーイカラーエミュレーター
 samsung-dex	一部のSamsungデバイスをデスクトップのようなエクスペリエンスに拡張します
+samsung-portable-ssd-t7	Samsung外部ストレージドライブ(T7 シリーズ)用のソフトウェア
 sanesidebuttons	サイドボタンのシステム全体のナビゲーション機能を有効にします
 santa	バイナリ認証システム
 saoimageds9	天文データ可視化ツール
