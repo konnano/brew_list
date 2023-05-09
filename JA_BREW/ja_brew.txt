@@ -2586,7 +2586,6 @@ inih	Cの単純な.INIファイル解析器
 iniparser	iniファイルを解析するためのライブラリ
 inja	最新のC++のテンプレートエンジン
 inko	安全で並列のオブジェクト指向プログラミング言語
-inlets	ローカルendpointsをインターネットに公開する
 innoextract	Inno Setupによって作成されたインストーラーを解凍するツール
 innotop	MySQLのTopクローン
 inotify-tools	inotifyするためのシンプルなインターフェイスを提供するCライブラリとコマンドラインプログラム
@@ -2697,6 +2696,7 @@ jenkins-lts	拡張可能なオープンソースCIサーバー
 jenv	Java環境を管理する
 jerm	インターフェースを介した順番通信端末 TCP/IP
 jerryscript	インターネット向けの超軽量JavaScriptエンジン
+jet	コード生成と自動クエリ結果データマッピングを備えたType safe SQLビルダー
 jetty	JavaサーブレットエンジンとWebサーバー
 jetty-runner	ディストリビューションをインストールせずにJettyを使用する
 jflex	Javaで記述されたJavaの字句解析発生器
@@ -4806,7 +4806,7 @@ prowler	クラウドセキュリティのベストプラクティスを実行す
 proxsuite	高度な近位最適化ツールボックス
 proxychains-ng	Hook先読み
 proxytunnel	HTTPSプロキシを介してTCPトンネルを作成する
-prql-compiler	シンプルで強力なパイプライン化されたSQL置換
+prqlc	シンプルで強力なパイプライン化されたSQL置換
 prr	github のメーリングリスト/スタイルのコードレビュー
 prs	GPGとgit syncを備えた安全で高速かつ便利なパスワードマネージャーCLI
 ps2eps	PostScriptをEPSファイルに変換する
