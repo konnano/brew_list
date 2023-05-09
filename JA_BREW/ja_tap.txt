@@ -2247,6 +2247,7 @@ sourcetree-beta	Gitバージョン管理用のグラフィカルクライアン�
 sublime-merge-dev	Gitクライアント
 sublime-text-dev	コード用のテキストエディタ マークアップ/散文
 sublime-text2	コード用テキストエディタ マークアップ/散文
+surge4	ネットワークツールボックス
 telegram-desktop-beta	Telegramメッセンジャー用のデスクトップクライアント
 temurin11	Eclipse Foundation(Adoptium)のJDK
 temurin17	Eclipse Foundation(Adoptium)のJDK
