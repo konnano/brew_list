@@ -3,6 +3,7 @@
 115	115クラウドストレージサービスのクライアント
 115browser	Webブラウザー
 1clipboard	クリップボード管理アプリ
+1kc-razer	Razerデバイス用のオープンソースカラーエフェクトマネージャー
 1password	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
 1password-cli	1Passwordパスワードマネージャーのコマンドラインヘルパー
 360safe	保護とウイルス対策のセキュリティ
@@ -217,6 +218,7 @@ artpip	厳選された写真のデスクトップの背景
 asana	チームプロジェクトとタスクを管理する
 ascension	ANSI/ASCII アートビューア
 asciidocfx	本を作成するためのAsciidocエディターとツールチェーン ドキュメント/スライド
+asix-ax88179	ASIX Electronicsデバイス用のUSB 3.0からギガビットイーサネットドライバ
 asset-catalog-tinkerer	.carファイルから画像を 参照/抽出します
 assinador-serpro	デジタル証明書を使用してドキュメントを検証および署名します
 astah-professional	ソフトウェアモデリングツール
@@ -482,6 +484,8 @@ cajviewer	CAJクラウドリーディング
 cakebrew	HomebrewのGUIアプリ
 cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
+caldigit-docking-utility	Caldigitドックに接続されているすべてのドライブを切断するユーティリティ
+caldigit-thunderbolt-charging	Appleデバイスのサポートの改善
 calendar-366	イベントと通知の日程表メニューバー
 calhash	ファイルのチェックサムを計算して比較する
 calibre	電子書籍管理ソフトウェア
@@ -674,6 +678,7 @@ commander-one	2パネルのファイルマネージャー
 commandq	誤ってアプリを終了することはありません
 composercat	Composer(PHP)のグラフィカルインターフェイス
 compositor	WYSIWYG LaTeXエディター
+concept2-utility	Concept2 Performance Monitorのユーティリティ
 confectionery	ウェブサイトのスクリーンショットツール
 conferences	会議のビデオを見るためのアプリ
 confluent-cli	開発者がConfluent CloudまたはConfluent Platformを管理できるようにします
@@ -2304,6 +2309,9 @@ muse	TouchBarをサポートするオープンソースのSpotifyコントロー
 museeks	音楽プレーヤー
 musescore	オープンソースの楽譜作成ソフトウェア
 music-manager	Google Playミュージックマネージャー
+music-miniplayer	iTunes MiniPlayerのレプリカ
+music-remote	Music.appのリモートアプリケーション
+music-widget	ダッシュボードのiTunesウィジェットのレプリカ
 musicbrainz-picard	音楽タグ付け
 musictube	ストリーミング音楽プレーヤー
 mutespotifyads	MuteSpotifyAds
@@ -3122,6 +3130,7 @@ safe-exam-browser	電子評価を安全に実施するためのWebブラウザ�
 safe-multisig	イーサリアムマルチシグウォレット
 safeincloud-password-manager	SafeInCloudパスワードマネージャー
 sage	数学ソフトウェアシステム
+saleae-logic	Saleaeのデバイスの信号解析
 sameboy	Cで書かれたゲームボーイとゲームボーイカラーエミュレーター
 samsung-dex	一部のSamsungデバイスをデスクトップのようなエクスペリエンスに拡張します
 samsung-portable-ssd-t7	Samsung外部ストレージドライブ(T7 シリーズ)用のソフトウェア
