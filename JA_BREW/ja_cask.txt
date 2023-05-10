@@ -424,6 +424,7 @@ boop	開発者向けのスクリプト可能なスクラッチパッド
 boost-note	開発者向けのマークダウンノートエディター
 bootstrap-studio	Bootstrapフレームワークを使用したWebサイトの設計とプロトタイプ
 bootxchanger	古いMacのブートロゴを変更するユーティリティ
+bose-updater	Bose製品のソフトウェアアップデート
 bossa	bossa
 bot-framework-emulator	Bot Framework SDKで構築されたチャットボットをテストおよびデバッグします
 bowtie	カスタマイズ可能なショートカットで音楽を制御する
@@ -1306,6 +1307,7 @@ geektool	デスクトップカスタマイズツール
 gemini	重複した類似のファイルを見つけて削除するディスクスペースクリーナー
 geneious-prime	生物情報科学ソフトウェアプラットフォーム
 genesis-plus	セガ ジェネシス/メガドライブ エミュレータ
+genesys-cloud	Genesys Cloudをスタンドアロンプログラムとして実行しWebブラウザから分離します
 genymotion	Androidエミュレータ
 geogebra	数学の問題を 解決し/保存し/共有する グラフ関数等
 geomap	ブラウズ 地球科学データセットの視覚化と分析
@@ -1807,6 +1809,7 @@ komet	コミットメッセージエディター
 komodo-edit	テキストエディター
 komodo-ide	すべての言語に対応した1つのIDE
 konica-minolta-bizhub-c750i-driver	PostScriptプリンタードライバー
+konica-minolta-bizhub-c759-c658-c368-c287-c3851-driver	コニカミノルタBizhubプリンター用ドライバー
 koodo-reader	バックアップと復元をサポートするオープンソースのEpubリーダー
 kopiaui	バックアップ/復元ツール
 kotlin-native	KotlinのLLVMバックエンド
@@ -2605,6 +2608,7 @@ pagico	すべてのタスクを管理する ファイル/メモ
 paintbrush	画像エディター
 paintcode	ベクトル描画をプログラムコードに変換する
 paletro	任意のアプリケーションのコマンドパレット
+pallotron-yubiswitch	Yubikey Nanoを 有効/無効にするステータスバーアプリケーション
 panda	ライトモードからダークモードに切り替えるユーティリティ
 pandora	Pandora Webラジオサービス用のデスクトップクライアント
 panic-unison	Usenetニュースグループにアクセスするためのアプリ
@@ -3248,6 +3252,7 @@ showhiddenfiles	Finderで隠しファイルを表示
 showyedge	現在の入力ソースの可視インジケータ
 shrinkit	ShrinkIt
 shupapan	Shupapan
+shureplus-motiv	Shure MV7およびMV88+マイクの追加機能とコントロール
 shutter-encoder	ビデオ オーディオと画像変換器
 shuttle	シンプルなショートカットメニュー
 sia-ui	Siaのグラフィカルフロントエンド
@@ -4178,6 +4183,7 @@ zoom	ビデオ通信および仮想会議プラットフォーム
 zoom-for-it-admins	ビデオ通信および仮想会議プラットフォーム
 zotero	研究ソースを共有する 収集/整理/引用
 zprint	ClojureおよびClojurescriptのソースコードとS式を再フォーマットするためのライブラリ
+zsa-wally	ZSAキーボード用のFlashツール
 zterm	ターミナルエミュレーションプログラム
 zulip	Zulipチームチャットプラットフォーム用のデスクトップクライアント
 zulu	AzulからのOpenJDKディストリビューション
