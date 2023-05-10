@@ -3584,6 +3584,7 @@ loudmouth	Jabber手続きの軽量Cライブラリ
 lout	TeXのようなテキストフォーマットですが、よりシンプルです
 lp_solve	混合整数線形計画Solver
 lpc21isp	いくつかのNXPマイクロコントローラー用のIn-circuitプログラミング(ISP)ツール
+lpeg	LuaJITの式文法の解析
 lrdf	LADSPAプラグインシステムのpluginメタデータにアクセスするためのRDFライブラリ
 lrzip	非常に高い圧縮率の圧縮プログラム
 lrzsz	ファイル書き出し用のツール zmodem/xmodem/ymodem
@@ -5623,6 +5624,7 @@ sslmate	コマンドラインからSSL証明書を購入する
 sslscan	SSL/TLS 対応サービスをテストしてサポートされている暗号パッケージを検出します
 sslsplit	SSL暗号化ネットワーク接続に対するman-in-the-middle攻撃
 sslyze	SSLスキャナー
+ssocr	Seven Segment光学式文字認識
 ssss	Shamirの秘密共有schemeの実装
 sstp-client	SSTP(PPP over SSLのMicrosoftリモートアクセスソリューション)クライアント
 st	コマンドラインからの統計
