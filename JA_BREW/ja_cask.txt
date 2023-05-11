@@ -1197,6 +1197,7 @@ focus	Webサイトとアプリケーションブロッカー
 focus-booster	時間監視
 focusatwill	パーソナライズされたフォーカスミュージック
 focused	マークダウンライティングアプリ
+focusrite-control	Focusriteインターフェースコントローラー
 focusrite-saffire-mixcontrol	Focusrite製品のソフトウェア
 fog	非公式のovercast.fmポッドキャストアプリ
 folder-colorizer	フォルダーアイコン エディター&マネージャー
@@ -1227,6 +1228,7 @@ foxitreader	PDFリーダー
 foxmail	メールクライアント
 fpc-laz	Lazarus用のPascalコンパイラ
 fpc-src-laz	Lazarus用のPascalコンパイラソースファイル
+fractal-bot	Fractal Audio Systems製品との間でデータを送受信する
 framer	チームが製品認識のあらゆる部分を設計するのに役立つツール
 framer-x	チームが製品認識のあらゆる部分を設計するのに役立つツール
 franz	WhatsAppのメッセージングアプリ Facebookメッセンジャー/スラック/電報など
@@ -1464,6 +1466,7 @@ hazel	自動化された組織
 hazeover	Windowsマネージャーとデスクトップオーガナイザー
 hbuilderx	HTMLエディター
 hdfview	HDFファイルを閲覧および編集するためのツール
+hdhomerun	HDHomeRunストリーマーのクライアント
 hdrmerge	拡張されたダイナミックレンジで生の画像を作成します
 headlamp	KubernetesのUI
 headset	YouTubeとRedditを搭載した音楽プレーヤー
@@ -1500,6 +1503,7 @@ hostsx	ローカルホスト更新ツール
 hot	熱の問題によるCPU速度制限を表示するメニューバーアプリケーション
 hotswitch	2ストロークホットキーを使用した高速ウィンドウ切り替え
 houdahspot	ファイル検索アプリケーション
+hp-easy-start	HPプリンターをセットアップする
 hp-eprint	モバイル印刷ソリューション
 hp-prime	グラフ電卓エミュレータ
 hstracker	Hearthstoneのデッキ監視およびデッキマネージャー
@@ -1589,6 +1593,7 @@ input-source-pro	多言語ユーザー向けのツール
 inso	CLIHTTPおよびGraphQLクライアント
 insomnia	HTTPおよびGraphQLクライアント
 inssider	遅いwifiを無効化する
+insta360-studio	ビデオと写真の編集
 install-disk-creator	起動可能なシステムインストールディスクを作成するユーティリティ
 instatus-out	メニューバーでサービスを監視する
 insync	GoogleドライブとOneDriveファイルを管理する
@@ -1659,6 +1664,7 @@ ivpn	VPNクライアント
 izip	ZIPを管理するアプリ ZIPX/RAR/TAR/7ZIP/その他の圧縮ファイル
 izotope-product-portal	オーディオ録音用のプロフェッショナルオーディオソフトウェア 混合/放送など
 j	数学のためのプログラミング言語 データの統計的/論理的 分析
+jabra-direct	Jabraヘッドセットを最適化してパーソナライズする
 jabref	編集する参照マネージャー BibTeXファイルの管理と検索
 jad	Javaデコンパイラ
 jaikoz	オーディオタグエディター
@@ -1868,6 +1874,7 @@ lens	Kubernetes IDE
 leocad	仮想LEGOモデルを作成するためのCADプログラム
 lepton	Snippet管理アプリ
 letter-opener	winmail.datファイルをMail.appに直接表示します
+lg-onscreen-control	接続されている全てのLGモニター情報を表示します
 libcblite	CおよびC++用のCouchbase Liteライブラリ(エンタープライズ版)
 libcblite-community	CおよびC ++用のCouchbaseLiteライブラリ（コミュニティエディション）
 librecad	CADアプリケーション
@@ -1895,6 +1902,7 @@ linear-linear	ソフトウェア開発を管理しバグを追跡するための
 linearmouse	マウスの動作をカスタマイズする
 lingon-x	アプリを起動するAutomatorソフトウェア スクリプトやコマンドなどを実行する
 linkliar	macOS用のリンク層MAC偽装GUI
+linn-konfig	オーディオ機器の制御ソフトウェア
 linphone	通信システム開発者向けソフトウェア
 listen1	さまざまなオンラインソースから曲を検索して再生する
 litecoin	暗号通貨ウォレット
@@ -2408,6 +2416,7 @@ noisy	ホワイトノイズ生成器
 nomachine	リモートデスクトップソフトウェア
 nomachine-enterprise-client	リモートデスクトップソフトウェア
 nomad	NoMAD
+nordic-nrf-command-line-tools	Nordic nRF Semiconductors用のコマンドライン ツール
 nordlayer	ビジネス向けセキュリティソフトウェア
 nordlocker	ファイルを安全に保存および同期する
 nordpass	認証情報を1つの場所に保存し任意のデバイスにログインします オフラインでも
@@ -2680,6 +2689,7 @@ pg-commander	PostgreSQLクライアント
 pgadmin4	PostgreSQLの管理および開発プラットフォーム
 phantomjs	Headlessウェブブラウザ
 phd2	望遠鏡ガイドソフトウェア
+philips-hue-sync	スマートライトシステムを制御する
 phoenix	JavaScriptでスクリプト化可能なウィンドウとアプリマネージャー
 phoenix-slides	フルスクリーンスライドショープログラム
 phonegap	PhoneGap
@@ -2893,6 +2903,7 @@ qctools	ビデオファイルの視聴覚分析とフィルタリング
 qdesktop	Webサイトをデスクトップの背景として設定するアプリ
 qdslrdashboard	ニコンを制御するためのアプリケーション キヤノン/ソニーのカメラ
 qfinder-pro	NAS管理アプリケーション
+qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
 qgis	地理情報システム
 qgroundcontrol	ドローン用地上管制局
 qingg	五筆字型入力方式
@@ -3553,6 +3564,7 @@ synfigstudio	2Dアニメーションソフトウェア
 synology-chat	SynologyNASで実行されるメッセージングサービス
 synology-drive	Synology NASドライブへの同期およびバックアップサービス
 synology-note-station-client	コンテンツが豊富なメモを管理および共有する 書く/見る
+synologyassistant	LAN経由でSynology NASを管理するツール
 syntax-highlight	ソースファイルのQuicklook拡張機能
 synthesia	落下音を使ってピアノを弾く方法を学ぶ
 sysdig-inspect	Sysdig Inspect
@@ -3702,6 +3714,7 @@ tiny-player	メディアプレーヤー
 tinymediamanager	メディア管理ツール
 tinypng4mac	TinyPNGクライアント
 tip	任意のアプリで使用できるプログラム可能なツールチップ
+tiptoi-manager	子供用 Ravensburgerチップとオーディオペンのデータを管理
 tl-legacy	TLレガシー
 tla-plus-toolbox	TLA+用のIDE
 tlv	Tableau ログを操作するためのツール
@@ -3972,6 +3985,7 @@ vym	あなたの考えを示す地図を生成して操作する
 vyprvpn	VPNクライアント
 vysor	スマートフォンをミラーリングして制御する
 wacom-inkspace	Wacomインクスペース
+wacom-tablet	ワコムタブレットのリソース
 wail	Webアーカイブ統合レイヤー：ワンクリックのユーザー主導の保存
 wallpaper-wizard	調整可能な壁紙アプリケーション
 waltr	Appleデバイス用のメディア直接転送ツール
