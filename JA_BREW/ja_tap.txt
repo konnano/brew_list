@@ -2052,17 +2052,6 @@ font-zhi-mang-xing	Zhi Mang Xing
 font-zhudou-sans	NotoSansから派生したCJK記号と句読点
 font-zilla-slab	Zilla Slab
 font-zilla-slab-highlight	Zilla Slab Highlight
-fractal-bot	Fractal Audio Systems製品との間でデータを送受信します
-hexcore-link	AnneシリーズとTenet 70用の設定ソフトウェア
-hp-easy-start	HPプリンターのセットアップ
-jabra-direct	Jabraヘッドセットを最適化してパーソナライズする
-lg-onscreen-control	接続されているすべてのLGモニター情報を表示します
-linn-konfig	オーディオ機器の制御ソフトウェア
-nordic-nrf-command-line-tools	Nordic nRF Semiconductorsのコマンドラインツール
-philips-hue-sync	スマートライトシステムを制御する
-qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
-synologyassistant	LAN全体でSynology NASを管理するためのツール
-wacom-tablet	Wacomタブレットのリソース
 1password-beta	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
 1password-cli-beta	1Passwordパスワードマネージャーのコマンドラインヘルパー
 1password-cli1	1Passwordパスワードマネージャーのコマンドラインヘルパー
