@@ -1048,6 +1048,7 @@ enpass	パスワードと認証情報の管理
 entry	ブロックベースのコーディングプラットフォーム
 envkey	認証情報を保護し構成を同期します
 enzymex	DNAシーケンスファイルの視覚化と編集
+eobcanka	チェコ国民IDカードアプリ
 epic	プライベートで安全なWebブラウザー
 epic-games	*Epic Games* ゲームのランチャー
 epichrome	独立型アプリのように機能するWebベースのアプリケーションを作成するためのツール
@@ -1513,6 +1514,7 @@ httpie	デスクトップ用HTTPie
 hubstaff	作業時間監視
 hue-topia	Philips Hue電球の手動制御
 hugin	パノラマ写真スティッチャー
+huiontablet	Huion タブレット用ドライバー
 hummingbird	OpenVPN 3クライアント
 hush	SafariでCookieとプライバシーを侵害する追跡を受け入れるためにnagsをブロックする
 hwsensors	利用可能なハードウェアセンサーからの情報にアクセスするためのツール
@@ -2430,7 +2432,6 @@ not-pacman	Not パックマン
 not-tetris	Not テトリス
 nota	マークダウンファイルエディター
 notable	マークダウンベースのメモ取りアプリ that doesn't suck
-notational-velocity	表記速度
 notch-simulator	MacBookProのノッチをシミュレートする
 notebooks	ワードプロセッサ
 notedup	Evernote InternationalからEvernoteへのデータ転送
@@ -3562,8 +3563,11 @@ syncterm	BBSターミナルプログラム
 syncthing	リアルタイムファイル同期ソフトウェア
 synfigstudio	2Dアニメーションソフトウェア
 synology-chat	SynologyNASで実行されるメッセージングサービス
+synology-cloud-station-backup	ファイルを一元化されたSynology NASにバックアップします
 synology-drive	Synology NASドライブへの同期およびバックアップサービス
 synology-note-station-client	コンテンツが豊富なメモを管理および共有する 書く/見る
+synology-photo-station-uploader	写真とビデオをSynology Photo Stationに一括アップロード
+synology-surveillance-station-client	Synology製品のSurveillance Stationにアクセスするためのデスクトップユーティリティ
 synologyassistant	LAN経由でSynology NASを管理するツール
 syntax-highlight	ソースファイルのQuicklook拡張機能
 synthesia	落下音を使ってピアノを弾く方法を学ぶ
