@@ -4950,6 +4950,7 @@ qtfaststart	Quicktimeファイル用のユーティリティ
 qthreads	軽量の現場を意識したユーザーレベルのスレッドランタイム
 qtkeychain	パスワードを安全に保存するためのプラットフォームに依存しないQtAPI
 quantlib	数理ファイナンスのための図書館
+quantum++	最新のC++量子コンピューティングライブラリ
 quartz-wm	XQuartzウィンドウマネージャー
 quasi88	PC-8801エミュレータ
 quazip	GillesVollantのZIP/UNZIPパッケージのC++ラッパー
@@ -5635,6 +5636,7 @@ standardese	C++の次世代ドキュメント発生器
 stanford-corenlp	コアNLPツールのJavaパッケージ
 stanford-ner	スタンフォードNLPグループによる固有表現抽出の実装
 stanford-parser	統計的NLPパーサー
+staq	フルスタック量子処理ツールキット
 star	標準のタップアーカイバ
 starship	宇宙飛行のためのクロスシェルプロンプト
 startup-notification	起動通知手続きのリファレンス実装
@@ -5702,6 +5704,8 @@ svg2png	SVGからPNGへの変換器
 svgbob	アスキーダイアグラムの落書きを幸せな小さなSVGに変換します
 svgcleaner	不要なデータを削除してSVGファイルをクリーンアップします
 svgo	SVGベクターグラフィックファイルを最適化するためのNodejsベースのツール
+svlint	SystemVerilogリンター
+svls	SystemVerilog言語サーバー
 svt-av1	AV1エンコーダー
 svtplay-dl	https://www.svtplay.se/からビデオをダウンロードします
 swagger-codegen	クライアントを生成する サーバースタブとOpenAPI仕様のドキュメント
