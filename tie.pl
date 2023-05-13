@@ -47,7 +47,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    }
     Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
   }
- rmdir "$ENV{'HOME'}/.BREW_LIST/12";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
@@ -85,9 +85,9 @@ unless( $ARGV[0] ){
     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
  for my $dir1(@BREW){ my( $bot,@an );
   if( $re->{'MAC'} ){ $e++;
-   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
-   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" :
-   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/15" : 0;
+   $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
+   $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
+   $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" : 0;
   }
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
    $tap{"${name}core"} = $dir1;
@@ -265,7 +265,7 @@ unless( $ARGV[0] ){
  }
 
  if( $re->{'MAC'} ){ my %HA;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
+  rmdir "$ENV{'HOME'}/.BREW_LIST/15";
   for(@{$re->{'OS'}}){
    my( $name,$data,$ls ) = split ',';
    if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
@@ -370,11 +370,11 @@ sub Version_1{
 }
   my $FON;
  if( $re->{'MAC'} ){
- rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/16";
  my( $in,$e ) = ( @CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
  $UNAME = $UNAME eq 'x86_64' ? 'intel' : 'arm';
   for my $dir2(@CASK){ my $ver;
-   rmdir "$ENV{'HOME'}/.BREW_LIST/18" if $in == $e++;
+   rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
    my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir2;
      my( $SPA,$CN,$IN,$CP1,$CP2,$FI ) = ( 0,0,0,0,0,1 );
@@ -435,7 +435,7 @@ sub Version_1{
    close $BREW;
   }
  }
-
+ rmdir "$ENV{'HOME'}/.BREW_LIST/18";
 unless( $ARGV[0] ){
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
   my @LIST = <$FILE>;
