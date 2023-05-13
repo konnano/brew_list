@@ -52,43 +52,40 @@ if [[ $2 ]];then
    curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
     { math_rm; ${die:?curl 3 error}; }
      rmdir ~/.BREW_LIST/1
-   curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-drivers/archive/master.zip ||\
-    { math_rm; ${die:?curl 4 error}; }
-     rmdir ~/.BREW_LIST/2
-   curl -skLo ~/.BREW_LIST/master3.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip ||\
+   curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip ||\
     { math_rm; ${die:?curl 5 error}; }
-   zip -jq ~/.BREW_LIST/keepme.zip ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ~/.BREW_LIST/master3.zip ||\
+   zip -jq ~/.BREW_LIST/keepme.zip ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ||\
     { rm -f keepme.zip; math_rm; ${die:?zip error}; }
-     rmdir ~/.BREW_LIST/3
+     rmdir ~/.BREW_LIST/2
    curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
     { math_rm; ${die:?curl 6 error}; }
    curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
     { math_rm; ${die:?curl 7 error}; }
-     rmdir ~/.BREW_LIST/4
+     rmdir ~/.BREW_LIST/3
    curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
     { math_rm; ${die:?curl 8 error}; }
    curl -sko ~/.BREW_LIST/cna1.html https://formulae.brew.sh/analytics/cask-install/30d/index.html ||\
     { math_rm; ${die:?curl 9 error}; }
-     rmdir ~/.BREW_LIST/5
+     rmdir ~/.BREW_LIST/4
    curl -sko ~/.BREW_LIST/cna2.html https://formulae.brew.sh/analytics/cask-install/90d/index.html ||\
     { math_rm; ${die:?curl a error}; }
    curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
     { math_rm; ${die:?curl b error}; }
-     rmdir ~/.BREW_LIST/6
+     rmdir ~/.BREW_LIST/5
    curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
     { math_rm; ${die:?curl c error}; }
    curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
     { math_rm; ${die:?curl d error}; }
    curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
     { math_rm; ${die:?curl e error}; }
-     rmdir ~/.BREW_LIST/7
+     rmdir ~/.BREW_LIST/6
    curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
     { math_rm; ${die:?curl c error}; }
    curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
     { math_rm; ${die:?curl d error}; }
    curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
     { math_rm; ${die:?curl e error}; }
-     rmdir ~/.BREW_LIST/8
+     rmdir ~/.BREW_LIST/7
   fi
 
   if [[ $2 = 2 ]];then
@@ -97,18 +94,15 @@ if [[ $2 ]];then
 
    unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
-   unzip -q ~/.BREW_LIST/master3.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
 
 perl<<"EOF"
    if( `uname -m` eq "x86_64\n" and -d '/usr/local/Homebrew' ){
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
-     $DDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-drivers';
-      $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
+     $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }else{
     chomp( $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
     $VERS = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
-     $DDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-drivers";
-      $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
+     $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
    }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ next if $hand1 =~ /^\./;
@@ -121,44 +115,27 @@ perl<<"EOF"
    }
    closedir $dir1;
     @file1 = sort @file1;
-=cut
-   opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-drivers-master/Casks" or die " DIR2 $!\n";
+   opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR2 $!\n";
     for $hand2( readdir($dir2) ){ next if $hand2 =~ /^\./;
       $hand2 =~ s/(.+)\.rb$/$1/;
-       if( $DDIR ){
+       if( $VERS ){
         push @file2,"$hand2\n";
        }else{ $i2 = 1;
-        push @file2,"homebrew/cask-drivers/$hand2\n";
+        push @file2,"homebrew/cask-versions/$hand2\n";
        }
     }
    closedir $dir2;
     @file2 = sort @file2;
-=cut
-   opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR3 $!\n";
-    for $hand3( readdir($dir3) ){ next if $hand3 =~ /^\./;
-      $hand3 =~ s/(.+)\.rb$/$1/;
-       if( $VERS ){
-        push @file3,"$hand3\n";
-       }else{ $i3 = 1;
-        push @file3,"homebrew/cask-versions/$hand3\n";
-       }
-    }
-   closedir $dir3;
-    @file3 = sort @file3;
 
-   ( $i1 and $i2 and $i3 ) ? push @file,"#\n",@file1,@file2,@file3 :
-   ( $i1 and $i2 ) ? push @file,"3\n2\n",@file3,@file1,@file2 :
-   ( $i1 and $i3 ) ? push @file,"4\n1\n",@file2,@file1,@file3 :
-   ( $i2 and $i3 ) ? push @file,"5\n0\n",@file1,@file2,@file3 :
-    $i1 ? push @file,"6\n1\n",@file2,"2\n",@file3,@file1 :
-    $i2 ? push @file,"7\n0\n",@file1,"2\n",@file3,@file2 :
-    $i3 ? push @file,"8\n0\n",@file1,"1\n",@file2,@file3 :
-          push @file,"9\n0\n",@file1,"1\n",@file2,"2\n",@file3;
+   ( $i1 and $i2 ) ? push @file,"3\n",@file1,@file2 :
+    $i1 ? push @file,"4\n1\n",@file2,@file1 :
+    $i2 ? push @file,"5\n0\n",@file1,@file2 :
+          push @file,"6\n0\n",@file1,"1\n",@file2;
 
    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
     print $FILE1 @file;
    close $FILE1;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/9";
+  rmdir "$ENV{'HOME'}/.BREW_LIST/8";
 EOF
   (( $? != 0 )) && math_rm 1 && ${die:?perl 1 error}
 
@@ -221,7 +198,7 @@ perl<<"EOF"
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/cna.txt" or die " ana4 $!\n";
    print $dir4 @fom;
   close $dir4;
- rmdir "$ENV{'HOME'}/.BREW_LIST/10";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/9";
 EOF
   (( $? != 0 )) && math_rm 1 && ${die:?perl 2 error}
   fi
@@ -363,7 +340,7 @@ perl<<"EOF"
   open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/ana.txt" or die " ana4 $!\n";
    print $dir4 @fom;
   close $dir4;
- rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+ rmdir "$ENV{'HOME'}/.BREW_LIST/10";
 EOF
  (( $? != 0 )) && math_rm 1 && ${die:?perl 3 error}
 
