@@ -4704,6 +4704,7 @@ pngquant	PNG画像最適化ユーティリティ
 pnpm	📦🚀 高速でディスクスペース効率の高いパッケージマネージャー
 po4a	ドキュメント翻訳メンテナンスツール
 poac	C++のパッケージマネージャー
+pocketbase	1つのファイルで次のプロジェクトのオープンソースバックエンドを実現
 pocl	ポータブルコンピューティング言語
 poco	ネットワークおよびインターネットベースのアプリケーションを構築するためのC++クラスライブラリ
 pocsuite3	オープンソースのリモート脆弱性テストフレームワーク
@@ -6229,6 +6230,7 @@ virgil	Virgilアカウントとアプリケーションを管理するためのC
 virt-manager	仮想マシンを管理するためのアプリ
 virtualenv	分離された仮想Python環境を作成するためのツール
 virtualenvwrapper	Python virtualenv機能拡張
+virtualfish	Fish Shell用のPython仮想環境マネージャー
 virtualhost.sh	MacOSがApache仮想ホストを作成するためのスクリプト
 virtualpg	SQLiteとSpatiaLiteのロード可能な動的拡張
 virtuoso	高性能オブジェクトリレーショナルSQLデータベース
@@ -6299,6 +6301,7 @@ wakeonlan	ネットワークデバイスをウェイクアップするために�
 wal2json	PostgreSQLチェンジセットをJSON形式に変換します
 walkmod	コード規約を適用および共有するためのJavaベースのオープンソースツール
 wallpaper	デスクトップの壁紙を管理する
+wally	Cargoから影響を受けたRobloxプロジェクト用の最新のパッケージマネージャー
 wandio	zipからの読み取りとzipへの書き込みを透過的に行う bzip2/lzmaまたはzstdアーカイブ
 wangle	基本単位 構成可能な抽象化フレームワーク クライアント/サーバー
 waon	Wave-to-notesトランスクライバー
