@@ -758,6 +758,7 @@ cutter	Rizinを搭載した逆エンジニアリングプラットフォーム
 cyberduck	サーバーとクラウドストレージブラウザー
 cyberghost-vpn	VPNクライアント
 cycling74-max	独自の双方向ソフトウェアを作成するための柔軟なスペース
+dadroit-json-viewer	JSONビューア
 daedalus-mainnet	Cardanoブロックチェーン上のadaの暗号通貨ウォレット
 daedalus-testnet	Cardano Testnetブロックチェーンのテストada用の暗号通貨ウォレット
 daisydisk	ディスクスペースビジュアライザー
