@@ -1547,7 +1547,6 @@ font-playfair-display-sc	Playfair Display SC
 font-plemol-jp	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-hs	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-nf	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
-font-plemol-jp-nfj	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plus-jakarta-sans	用途が広いmodern type family
 font-podkova	Podkova
 font-podkova-vf-beta	Podkova VF Beta
@@ -2203,6 +2202,7 @@ pdf-expert-beta	PDFリーダー エディター/注釈
 pgadmin3	PostgreSQLの管理および開発プラットフォーム
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
 postico1	PostgreSQLデータベースのGUIクライアント
+postmancanary	API開発のためのコラボレーションプラットフォーム
 powershell-preview	コマンドラインシェルとスクリプト言語
 powershell6	コマンドラインシェルとスクリプト言語
 processing2	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶための言語
