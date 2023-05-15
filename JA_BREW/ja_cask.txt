@@ -1787,6 +1787,7 @@ keystore-explorer	Javaコマンドラインユーティリティkeytoolおよび
 kicad	電子工学設計自動化パッケージ
 kid3	効率を重視したオーディオタグ付け
 kigb	任天堂ゲームボーイ/ゲームボーイカラーエミュレータ
+kiibohd-configurator	モジュラーコミュニティキーボードファームウェア
 kindavim	入力フィールドと非入力フィールドでVimを使用する
 kindle	電子書籍を読んだり同期したりするためのインターフェース
 kindle-comic-converter	電子ブックリーダー用のコミックとマンガの変換
@@ -1917,6 +1918,7 @@ live-home-3d	Home&floorplan designer&renderer
 livebook	開発者向けのコードノートブック
 livetail	Sumologic livetail CLI
 lmms	音楽制作ソフトウェア
+lo-rain	どこにいてもアプリの上でも雨を降らせるアプリ
 loading	ネットワークアクティビティモニター
 loaf	アニメーションアイコンライブラリ
 local	FlywheelによるWordPressローカル開発ツール
@@ -3828,6 +3830,7 @@ ubports-installer	モバイルデバイスにubportsをインストールする�
 udeler	Udemyコースをダウンロードするためのデスクトップアプリケーション
 udig	uDig
 ueli	キーストロークランチャー
+uhk-agent	Ultimate Hacking Keyboardの設定アプリケーション
 ui	コーポレートWi-Fi VPN/SSO/HR アプリケーション
 ui-browser	AppleのアクセシビリティとAppleScript GUIスクリプティングのアシスタント
 ukelele	Unicodeキーボードレイアウトエディター
