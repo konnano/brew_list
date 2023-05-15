@@ -2170,6 +2170,7 @@ microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2016	オフィススイート
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
 miniconda2	condaの最小限のインストーラー
+mixxx-snapshot	オープンソースのDJソフトウェア
 monal-beta	チャットサーバーに安全に接続するためのツール
 mongodb-compass-beta	MongoDBのGUI
 mono-mdk-for-visual-studio	Microsoftの.NETFrameworkのオープンソース実装
