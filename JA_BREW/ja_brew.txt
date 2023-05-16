@@ -958,6 +958,7 @@ consul-template	領事による一般的なテンプレートの解釈と通知
 container-diff	DockerコンテナのDiff
 container-structure-test	コンテナイメージの構造を検証します
 contentful-cli	充実したコマンドラインツール
+convco	従来のコミット、変更ログ、バージョン管理、検証
 convertlit	Microsoft Reader形式の電子書籍をオープン形式に変換する
 convmv	ファイル名エンコーディング変換ツール
 convox	Convox PaaSのコマンドラインインターフェイス
@@ -1169,6 +1170,7 @@ ddh	高速複製ファイルファインダー
 ddrescue	GNUデータ回復ツール
 deark	古い形式のファイル変換ユーティリティ
 debianutils	Debianに固有のその他のユーティリティ
+debugbreak	プログラムでデバッガに侵入する
 defaultbrowser	デフォルトのブラウザを取得および設定するためのコマンドラインツール
 define	複数のソースにアクセスできるコマンドライン辞書(thesaurus)アプリ
 deheader	不要なヘッダーがないかC/C++ファイルを分析します
@@ -1414,6 +1416,7 @@ dynare	経済モデル、特にDSGEおよびOLGモデルのプラットフォー
 dynein	DynamoDB CLI
 dynet	動的神経ネットワークツールキット
 dynomite	さまざまなkv記憶装置エンジン用の汎用ダイナモ実装
+dzr	コマンドラインDeezer.comプレーヤー
 e2fsprogs	ext2/ext3/ext4 ファイルシステムのユーティリティ
 e2tools	読み取り/書き込み ユーティリティと ext2/3/4ファイルシステム内のファイルを操作する
 earthly	コンテナeraのビルド自動化ツール
@@ -3059,6 +3062,7 @@ libcerf	複雑な誤差関数の数値ライブラリ
 libchamplain	マップを表示するためのClutterActor
 libchaos	ランダム化/ハッシュ/統計分析 の高度なライブラリ
 libchewing	高度な音声入力方式ライブラリ
+libclc	OpenCL Cプログラミング言語のライブラリ要件の実装
 libcmph	Cの最低限の完全なハッシュライブラリ
 libcoap	軽量のアプリケーション-リソースに制約のあるデバイスの手続き
 libconfig	構成ファイル処理ライブラリ
