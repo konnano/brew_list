@@ -1917,6 +1917,7 @@ little-snitch	ホストベースのアプリケーションファイアウォー
 live-home-3d	Home&floorplan designer&renderer
 livebook	開発者向けのコードノートブック
 livetail	Sumologic livetail CLI
+llamachat	LLaMAモデルのクライアント
 lmms	音楽制作ソフトウェア
 lo-rain	どこにいてもアプリの上でも雨を降らせるアプリ
 loading	ネットワークアクティビティモニター
