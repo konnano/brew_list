@@ -848,6 +848,7 @@ clipper	MacOSクリップボードをtmuxやその他のローカルおよびリ
 clipsafe	パスワードセーフへのコマンドラインインターフェイス
 clisp	GNU CLISP、CommonLispの実装
 clitest	コマンドラインテスター
+clive	⚡ 端末操作を自動化
 cln	数字のクラスライブラリ
 cloc	コードの行をカウントする統計ユーティリティ
 clockywock	Ncursesアナログ時計
@@ -3007,6 +3008,7 @@ lha	lzhアーカイブを作成して開くためのユーティリティ
 lhasa	.lzhおよび.lzsアーカイブを解凍するためのLHA実装
 lib3ds	3D-Studioリリース3および4の「.3DS」ファイルを管理するためのライブラリ
 libaacs	Advanced Access ContentSystem仕様を実装します
+libabigail	ABI汎用分析および計測ライブラリ
 libabw	AbiWordドキュメントを解析するためのライブラリ
 libadwaita	最新のアダプティブGNOMEアプリケーションのビルディングブロック
 libaec	Golomb-Riceアルゴリズムを実装した適応均質化コーディング
@@ -5136,6 +5138,7 @@ robotfindskitten	Zenシミュレーション 子猫を見つけるロボット
 rocksdb	高速保管のための埋め込み可能で永続的なKey-Value store
 rofs-filtered	FUSEのフィルタリングされた読み取り専用ファイルシステム
 rogue	ダンジョン巡回ビデオゲーム
+rojo	プロフェッショナルグレードのRoblox開発ツール
 roll	サイコロを振るためのCLIプログラム
 rolldice	ある量の仮想サイコロを振る
 rollup	次世代ESモジュールバンドラー
@@ -5207,6 +5210,7 @@ rustscan	現代のポートスキャナー
 rustup-init	Rustツールチェーンインストーラー
 rxvt-unicode	UnicodeをサポートするRxvtフォーク
 ry	Ruby仮想環境ツール
+rye	Python用の実験的なパッケージ管理ソリューション
 rzip	ファイル圧縮ツール(gzipやbzip2など)
 s-lang	マルチプラットフォームソフトウェアを作成するためのライブラリ
 s-nail	Heirloomのフォークmailx
@@ -6544,6 +6548,7 @@ yamcha	ベクターサポートマシンを使用したNLPテキストチャン�
 yamdi	Flashビデオにメタデータを追加する
 yaml-cpp	YAML1.2仕様のC++ YAMLパーサーとエミッター
 yaml-language-server	Yamlファイル用の言語サーバー
+yamlfmt	YAMLファイルをフォーマットするための拡張可能なコマンドラインツール
 yamllint	YAMLファイルの静的解析ツール
 yank	端末出力をクリップボードにコピーします
 yapf	Pythonコードの整形ツール
