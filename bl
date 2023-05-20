@@ -120,10 +120,9 @@ MAIN:{
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
-   if( $name and $AR[2] and $AR[2] eq '.' and not $re->{'deps'} and not $re->{'INF'} ){ $name->{'KEN'} = 1;
+   if( $name and $AR[2] and $AR[2] eq '.' and not( $re->{'deps'} or $re->{'INF'} ) ){ $name->{'KEN'} = 1;
    }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2];
-   }elsif( $re->{'deps'} and defined $AR[1] ){ if( $AR[1] eq '.' ){ $name->{'KEN'} = 1;
-                                               }else{ $re->{'dep_s'} = lc $AR[1] }
+   }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){$name->{'KEN'} = 1}else{$re->{'dep_s'} = lc $AR[1]}
    }
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
@@ -192,7 +191,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.17_1\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.17_2\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -579,7 +578,7 @@ sub Size_1{
     if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
    }else{ print`du -ks $ls2` if $ls2; exit; }
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-    sub _cmp{ $_[0] =~ /(\d+)\s/; $1; }
+    sub _cmp{ $_[0] =~ /(\d+)\s/; $1 }
    for(sort{_cmp($b) <=> _cmp($a)}@data){ my $utime; $c++;
     my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
     for my $json(@{$AR{$name}}){
@@ -922,7 +921,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
     no warnings 'closed';
    if( $re->{'FOR'} or $re->{'DEP'} ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " ### Not exist brew JA_file ###\n";
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " === Not exist brew JA_file ===\n";
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
@@ -930,7 +929,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
     close $JA;
    }
    if( $re->{'CAS'} and ( not $re->{'TAP'} or $re->{'DEP'} ) ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " ### Not exist cask JA_file ###\n";
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " === Not exist cask JA_file ===\n";
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
@@ -938,7 +937,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
     close $JA;
    }
    if( ( $re->{'FDIR'} or $re->{'VERS'} ) and ( $re->{'TAP'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " ### Not exist tap JA_file ###\n";
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " === Not exist tap JA_file ===\n";
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
@@ -1613,7 +1612,7 @@ sub Format_3{
    if( $$file[$m] eq 1 and $$file[$m+1] !~ m|^homebrew/| ){
     $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[0m\n" : "  == homebrew/cask-versions ==\n";
     $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[0m\n" : "  == homebrew/cask-versions ==\n";
-   }  next if $$file[$m] =~ m[^[012]$|^homebrew/];
+   }  next if $$file[$m] =~ m[^[01]$|^homebrew/];
 
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
     my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
@@ -1657,9 +1656,9 @@ sub Format_3{
   if( $ca and $fo ){
    if( -t STDOUT ){
     system "printf '\033[?7l' ";
-    print"  \033[33m### require Cask and Formula ###\033[0m\n$ca  \033[33m### require Formula ###\033[0m\n$fo";
+    print"  \033[33m[ require Cask and Formula ]\033[0m\n$ca  \033[33m[ require Formula ]\033[0m\n$fo";
     system "printf '\033[?7h' ";
-   }else{ print"  ### require Cask and Formula ###\n$ca  ### require Formula ###\n$fo"; }
+   }else{ print"  [ require Cask and Formula ]\n$ca  [ require Formula ]\n$fo"; }
   }
  Nohup_1( $re );
 }
