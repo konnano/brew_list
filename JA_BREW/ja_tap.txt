@@ -1947,6 +1947,7 @@ font-tt2020	高度なオープンソースの現実的な多言語タイプラ�
 font-tuffy	Tuffy
 font-tulpen-one	Tulpen One
 font-turret-road	Turret Road
+font-twilio-sans-mono	プログラミングフォント
 font-twinkle-star	キュートで楽しいjuvenileスクリプト
 font-twitter-color-emoji	Twitterカラー絵文字
 font-typographer-woodcut-initials-one	タイポグラファーの木版画のイニシャル one
