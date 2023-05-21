@@ -5132,6 +5132,7 @@ rmw	コマンドラインのユーティリティ Safe-remove
 rnr	ファイルとディレクトリの名前をバッチで変更するコマンドラインツール
 rnv	Relax NGCompact構文確認の実装
 roapi	コードを1行も記述しない静的データセット用の本格的なAPI
+roblox-ts	Roblox用TypeScriptからLuauへのコンパイラー
 robodoc	ソースコードドキュメントツール
 robot-framework	受け入れテストのためのオープンソーステストフレームワーク
 robotfindskitten	Zenシミュレーション 子猫を見つけるロボット
