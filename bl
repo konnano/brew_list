@@ -1256,7 +1256,7 @@ my( $list,$file,$in,$re ) = @_;
  }
  if( $list->[$in] ){ Tap_1( $list,$re,\$in ) while($list->[$in]) }
 
- unless( $re->{'LIST'} ){ my @tap = ([],[]);
+ unless( $re->{'LIST'} or $re->{'FOR'} ){ my @tap = ([],[]);
   for my $arr(@{$re->{'ARY'}}){
    push @{$tap[1]},$arr if $arr =~ s/^homebrew-cask-versions\n(.+)/$1/;
     push @{$tap[0]},$arr if $arr =~ s/^homebrew-cask-fonts\n(.+)/$1/;
