@@ -535,6 +535,7 @@ chai	システムがスリープ状態になるのを防ぐユーティリティ
 chalk	電卓ソフトウェア
 charles	Webデバッグプロキシアプリケーション
 charlessoft-timetracker	時間追跡
+chatbox	GPT-4/GPT-3.5 用デスクトップアプリ(OpenAI API)
 chatmate-for-facebook	Facebookメッセンジャークライアント
 chatmate-for-whatsapp	WhatsAppのChatMate
 chatology	チャットマネージャーとメッセージ検索ソフトウェア
@@ -721,6 +722,7 @@ coverload	映画の高品質のアートワークをダウンロードする 音
 cozy-drive	CosyCloudのファイル同期
 cpuinfo	CPUメーターメニューバーアプリ
 cr	XML/CSS ベースの電子書籍リーダー
+craft	ネイティブドキュメントエディタ
 craftmanager	Craftツールを最新の状態に保つのに役立ちます
 creality-slicer	すべてのCreality FDM 3Dプリンター用のスライサー
 create-recovery-partition-installer	リカバリパーティションインストーラーの作成
@@ -868,6 +870,7 @@ digikam	デジタルフォトマネージャー
 digital	論理設計および回路模擬装置
 dingtalk	Alibabaグループによるチームワークアプリ
 dingtalk-lite	Alibabaグループによるチームワークアプリ
+dintch	ファイルの整合性を確認して下さい
 direqual	高度なディレクトリ比較ユーティリティ
 discord	音声およびテキストチャットソフトウェア
 discretescroll	一般的なスクロールホイールの問題を修正するユーティリティ
@@ -1066,9 +1069,11 @@ espanso	Rustで書かれたクロスプラットフォームのテキストエ�
 espresso	才能と効率に焦点を当てたWebサイトエディター
 ethereum-wallet	イーサリアムネットワーク上のÐappsのブラウザー
 etrecheckpro	コンピュータシステムの問題を見つけて修正するためのユーティリティ
+eu	ウクライナ国税局のEDIプロバイダーのプログラム
 eudic	ヨーロッパの辞書
 eul	ステータスモニタリング
 eurkey	ヨーロッパ人のためのキーボードレイアウト コーダー/翻訳
+eusamanager	ウクライナ国税庁の EDIプロバイダーのWebブラウザー用プログラム
 ev3-classroom	LEGO MINDSTORMストームエデュケーションEV3 Core Set用コンパニオンアプリ
 eve-launcher	EVEOnlineクライアント
 evernote	メモを取るためのアプリ 整理/タスクリスト/アーカイブ
@@ -1138,6 +1143,7 @@ file-juicer	PDFから画像を抽出する パワーポイント/Word/Excel/そ�
 filebot	映画を整理して名前を変更するためのツール テレビ番組/アニメ/音楽
 filemaker-pro	リレーショナルデータベースと迅速なアプリケーション開発プラットフォーム
 filemon	ファイルモニター
+filemonitor	ファイルシステムのアクティビティを監視する
 filen	Filen.ioのデスクトップクライアント
 filepane	ファイル管理マルチツール
 final-cut-library-manager	Arctic Whiteness FinalCutライブラリマネージャー
@@ -1155,6 +1161,7 @@ firebase-admin	Firebase管理
 firebird-emu	TI Nspire電卓エミュレータ
 firecamp	マルチ手続きAPI開発プラットフォーム
 firefly	IOTAの公式ウォレット
+firefly-shimmer	IOTAの公式ウォレット
 firefox	Webブラウザー
 firestorm	仮想世界にアクセスするためのViewer
 fireworks	パーティクルエフェクトエディター
@@ -1847,6 +1854,7 @@ lantern	全てのインターネットを開く
 lapce	Rustで書かれたオープンソースコードエディタ
 laravel-kit	デスクトップLaravel管理パネルアプリ
 lark	プロジェクト管理ソフトウェア
+lasso	マウスを使用してウィンドウを移動およびサイズ変更する
 lastfm	音楽サービスマネージャー
 lastpass	パスワードマネージャー
 latest	最新のアプリアップデートを表示するユーティリティ
@@ -2841,6 +2849,7 @@ privatevpn	PrivateVPN
 privileges	管理権限切り替え
 prizmo	光学式文字認識(OCR)を使用したスキャンアプリケーション
 processing	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶための言語
+processmonitor	プロセスアクティビティを監視する
 procexp	プロセスエクスプローラー
 proclaim	教会のプレゼンテーションソフトウェア
 product-hunt	Product Hunt
@@ -3314,6 +3323,7 @@ skala-preview	Skalaプレビュー
 sketch	デジタルデザインおよびプロトタイピングプラットフォーム
 sketch-toolbox	スケッチツールボックス
 sketchbook	描画 ペイント&スケッチ アプリケーション
+skiff	End-to-end 暗号化された電子メール/カレンダー/ドキュメント/ファイルのサポート
 skim	PDFリーダーとメモ取りアプリケーション
 skitch	マークアップと共有機能を備えた画面キャプチャツール
 skychart	星図を描く
@@ -3610,6 +3620,7 @@ td-agent	Fluentd配布パッケージ
 tdr-kotelnikov	範囲制御と柔軟性を組み合わせた広帯域ダイナミクスプロセッサ
 tdr-nova	パラレルダイナミックイコライザー
 tdr-vos-slickeq	音楽の柔軟性と非の打ちどころのないサウンドのために設計されたミキシングイコライザー
+tea	統合パッケージマネージャー
 teacode	開発者向けのテキスト拡張アプリ
 teambition	Teambition
 teamspeak-client	音声通信クライアント
