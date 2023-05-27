@@ -498,6 +498,7 @@ bombadillo	増え続ける手順のリスト用に設計された非Webブラウ
 bond	スキーマ化されたデータを操作するためのクロスプラットフォームフレームワーク
 bonnie++	ファイルシステムとハードドライブの基準比較パッケージ
 bookloupe	Project Gutenberg対象ファイルの一般的なフォーマットエラーを一覧表示します
+boolector	固定サイズのビットベクトル用のSMTソルバー
 boom-completion	BoomのBashとZshの補完
 boost	ポータブルC++ソースライブラリのコレクション
 boost-bcp	Boostライブラリのサブセットを抽出するためのユーティリティ
@@ -3121,6 +3122,7 @@ libexosip	eXosip2用ツールキット
 libextractor	ファイルからメタデータを抽出するためのライブラリ
 libfabric	OpenFabrics libfabric
 libfaketime	偽のシステム時間をプログラムに報告する
+libfastjson	C用の高速JSONライブラリ
 libff	有限体と楕円曲線のC++ライブラリ
 libffcall	GNU外部関数インターフェイスライブラリ
 libffi	ポータブルForeign Functionインターフェイスライブラリ
@@ -3223,6 +3225,7 @@ libmatio	MATLAB MATファイルの読み取りと書き込み用のCライブラ
 libmatroska	拡張可能 オーディオ/ビデオ のオープンスタンダードコンテナフォーマット
 libmaxminddb	MaxMind DBファイル形式のCライブラリ
 libmd	BSDメッセージDigestライブラリ
+libmediainfo	mediainfoの共有ライブラリ
 libmemcached	memcachedサーバーへのCおよびC++クライアントライブラリ
 libmetalink	Metalink XMLファイルを解析するためのCライブラリ
 libmicrohttpd	Light HTTP/1.1 サーバーライブラリ
@@ -3502,6 +3505,7 @@ libxxf86vm	X.Org：XFree86-VidMode X機能拡張
 libyaml	YAMLパーサー
 libyubikey	Yubicoワンタイムパスワードを操作するためのCライブラリ
 libzdb	データベース接続プールライブラリ
+libzen	libmediainfoの共有ライブラリ
 libzim	ZIM 仕様の参照実装
 libzip	読むためのCライブラリ 作成/zipアーカイブの変更
 libzzip	ZIPアーカイブの読み取りアクセスを提供するライブラリ
@@ -3896,6 +3900,7 @@ moco	Maven、Gradle、Scala、およびシェル統合を備えたStubサーバ�
 modd	ファイルシステムの変更に対応するための柔軟なツール
 modgit	フィルタを使用したgitリポジトリ展開用のツール。Magentoの開発に使用
 modman	Magento開発向けのモジュール展開スクリプト
+mods	コマンドラインのGPT-4
 modules	モジュールファイルを介したユーザーの環境の動的な変更
 moe	ISO-8859およびASCIIのコンソールテキストエディタ
 mogenerator	CoreDataモデルからObjective-CおよびSwiftクラスを生成する
@@ -4766,7 +4771,6 @@ ppsspp	PlayStation Portableエミュレーター
 pqiv	最低限のUIを備えた強力な画像Viewer
 pre-commit	多言語の事前コミットフックを管理するためのフレームワーク
 precomp	より良い圧縮を実現するためのコマンドラインプリコンプレッサ
-predictionio	ソース機械学習サーバー
 prefixsuffix	GUIバッチ名前変更ユーティリティ
 premake	一度書いて Luaベースのビルドシステムをどこでもビルドできます
 prestd	既存または新規のPostgresアプリケーションの開発を簡素化および加速します
@@ -5387,6 +5391,7 @@ shmcat	共有メモリセグメントをダンプするツール(System Vおよ�
 shml	ターミナルのスタイルフレームワーク
 shmux	多くのホストで同じコマンドを並行して実行します
 shntool	WAVファイルを操作および分析するための多目的ツール
+shodan	Shodan用のPythonライブラリとコマンドラインユーティリティ
 showkey	シンプルなキーストロークvisualizer
 shpotify	MacでのSpotifyのコマンドラインインターフェイス
 shtool	GNUのポータブルシェルツール
@@ -5771,6 +5776,7 @@ taglib	オーディオメタデータライブラリ
 tagref	コードベースの他の場所を参照してください
 tailor	Swiftのクロスプラットフォーム静的分析と静的解析ツール
 tailscale	WireGuardと2FAを使用する最も簡単で安全な方法
+tailwindcss-language-server	LSP for TailwindCSS
 takt	テキストベースの音楽プログラミング言語
 taktuk	リモートnodeにコマンドを展開する(潜在的に大きなset)
 tal	一致する場合は行末を揃えます
