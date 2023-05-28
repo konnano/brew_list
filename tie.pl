@@ -56,7 +56,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
    Dirs_1( "$MY_BREW/Library/Taps",1,0 );
-    $MY_BREW =~ s|/Homebrew$||;
+    Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
 }
 
 sub Dirs_1{
@@ -434,8 +434,25 @@ sub Version_1{
     }
    close $BREW;
   }
+ }else{
+  for my $dir3(@CASK){
+   my( $name ) = $dir3 =~ m|.+/(.+)\.rb|;
+    $tap{"${name}cask"} = $dir3; $tap{"${name}lfont"} = 1;
+   open my $BREW,'<',$dir3 or die " tie Info_3 $!\n";
+    while(my $data=<$BREW>){
+     if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
+       $tap{"${name}c_version"} = $data;
+     }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
+       $tap{"${name}c_desc"} = $data;
+     }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
+       $tap{"${name}c_name"} = $data;
+     }
+    }
+   close $BREW;
+  }
  }
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
+
 unless( $ARGV[0] ){
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
   my @LIST = <$FILE>;
@@ -446,7 +463,7 @@ unless( $ARGV[0] ){
  if( $re->{'MAC'} ){
   for(@CASK){
    last unless m[$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/|
-                 $MY_BREW/Library/Taps/homebrew/homebrew-cask/]x;
+                 $MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks/]x;
    my( $name ) = m|.+/(.+)\.rb|;
     $ACA .= "$name \\\n";
   }
