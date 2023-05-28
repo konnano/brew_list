@@ -698,6 +698,7 @@ convert3dgui	一般的なファイル形式間で3D画像を変換するため�
 cookie	追跡およびオンラインプロファイリングからの保護
 cool-retro-term	古いカソードディスプレイを模倣したターミナルエミュレータ
 coolterm	シリアルポート端子
+copilot	お金を追跡して予算を立てる
 copilot-for-xcode	Github CopilotのXcode拡張機能
 copyclip	クリップボードマネージャー
 copyq	高度な機能を備えたクリップボードマネージャー
