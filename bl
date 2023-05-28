@@ -114,7 +114,7 @@ MAIN:{
    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-versions\n";
     File_1( $ref );
   }unless( not $re->{'FTD'} or $re->{'LFOD'} ){
-   print " not exists cask tap\n homebrew/linux-fonts\n";
+   print " not exists font tap\n homebrew/linux-fonts\n";
     File_1( $re );
   }elsif( $ref->{'PRE'} and not $ref->{'FDIR'} ){
    print " not exists cask tap homebrew/cask-fonts\n";
