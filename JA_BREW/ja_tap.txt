@@ -163,6 +163,7 @@ font-b612	B612
 font-b612-mono	B612 Mono
 font-babylonica	直立または逆傾斜のフォームによってさえぎられ強調が発生します
 font-bad-script	Bad Script
+font-bagel-fat-one	Bagel Fat One
 font-bahiana	Bahiana
 font-bahianita	Bahianita
 font-bai-jamjuree	Bai Jamjuree
@@ -449,6 +450,7 @@ font-dhyana	Dhyana
 font-didact-gothic	Didact Gothic
 font-digital-numbers	Digital Numbers
 font-digohweli-old-do	Digohweli Old DO
+font-diphylleia	水に触れると花びらが透明になる不思議な花
 font-diplomata	Diplomata
 font-diplomata-sc	Diplomata SC
 font-dm-mono	DM Mono
@@ -596,6 +598,7 @@ font-galindo	Galindo
 font-gamja-flower	Gamja Flower
 font-gandhi-sans	Gandhi Sans
 font-gantari	すべてのキャラクターが調和して見えるように設計されています
+font-gasoek-one	Gasoek One
 font-gayathri	Gayathri
 font-gelasio	Gelasio
 font-gemunu-libre	Gemunu Libre
@@ -667,6 +670,7 @@ font-gowun-batang	Gowun Batang
 font-gowun-dodum	Gowun Dodum
 font-graduate	Graduate
 font-grand-hotel	Grand Hotel
+font-grandiflora-one	Grandiflora One
 font-grandstander	ウェイト軸を使用して可変フォントを表示する
 font-grape-nuts	1800年代後半にさかのぼる有名な朝食用シリアルから派生
 font-gravitas-one	Gravitas One
@@ -1128,6 +1132,7 @@ font-modak	Modak
 font-modern-antiqua	Modern Antiqua
 font-mogra	Mogra
 font-mohave	Mohave
+font-moirai-one	Moirai One
 font-molengo	Molengo
 font-molle	Molle
 font-mona-sans	GitHubの可変フォントMona Sans
@@ -1482,6 +1487,7 @@ font-open-sans-hebrew-condensed	Open Sans Hebrew Condensed
 font-oppo-sans	OPPO Sans
 font-optician-sans	Optician Sans
 font-oranienbaum	Oranienbaum
+font-orbit	暗い背景に明るい文字を10pt未満で使用することをお勧めします
 font-orbitron	Orbitron
 font-oregano	Oregano
 font-orelega-one	Orelega One
