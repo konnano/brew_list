@@ -3195,6 +3195,7 @@ libidn2	国際ドメイン名ライブラリ(IDNA2008、Punycode、TR46)
 libilbc	WebRTCプロジェクトのiLBCコーデックのパッケージバージョン
 libimagequant	pnquant2から抽出されたパレット量子化ライブラリ
 libimobiledevice	iOSデバイスとネイティブに通信するためのライブラリ
+libint	電子反発積分を効率的に計算するためのライブラリ
 libiodbc	ODBCに基づくデータベース接続レイヤー(unixodbcの代替品)
 libiptcdata	libiptcdata0によって提供される仮想パッケージ
 libirecovery	USB経由で iBoot/iBSS と通信するためのライブラリとユーティリティ
