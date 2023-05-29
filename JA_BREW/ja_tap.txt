@@ -2061,6 +2061,7 @@ font-zilla-slab-highlight	Zilla Slab Highlight
 1password-beta	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
 1password-cli-beta	1Passwordパスワードマネージャーのコマンドラインヘルパー
 1password-cli1	1Passwordパスワードマネージャーのコマンドラインヘルパー
+1password-nightly	パスワードマネージャー
 1password6	すべてのパスワードを1つのパスワードで安全に保つパスワードマネージャー
 1password7	すべてのパスワードを1つのパスワードで安全に保つパスワードマネージャー
 ableton-live-intro10	サウンドと音楽のエディター
