@@ -75,7 +75,7 @@ MAIN:{
   $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
    $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
     $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
-     $re->{'NEW'}++ if $re->{'FTD'} and not -f $re->{'LFO'};
+     $re->{'NEW'}++ unless -f $re->{'LFO'};
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
@@ -198,7 +198,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.17_4\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.17_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
