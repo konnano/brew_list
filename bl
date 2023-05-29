@@ -72,9 +72,10 @@ MAIN:{
    $re->{'BIN'} = "$MY_BREW/opt";
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
      $re->{'LFOD'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-linux-fonts";
-      $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
-       $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
-        $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
+  $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
+   $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
+    $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
+     $re->{'NEW'}++ if $re->{'FTD'} and not -f $re->{'LFO'};
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
@@ -109,16 +110,6 @@ MAIN:{
     $AR[1] = $AR[2] // undef; $AR[2] = $AR[3] // undef;
   }elsif( not $Locale ){
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
-  }
-  unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'VERS'} ){
-   print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-versions\n";
-    File_1( $ref );
-  }unless( not $re->{'FTD'} or $re->{'LFOD'} ){
-   print " not exists font tap\n homebrew/linux-fonts\n";
-    File_1( $re );
-  }elsif( $ref->{'PRE'} and not $ref->{'FDIR'} ){
-   print " not exists cask tap homebrew/cask-fonts\n";
-    File_1( $ref );
   }
 
   if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
@@ -158,6 +149,16 @@ MAIN:{
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
    }
   }
+   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'VERS'} ){
+    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-versions\n";
+     File_1( $ref );
+   }elsif( $re->{'FTD'} and not $re->{'LFOD'} ){
+    print " not exists font tap\n homebrew/linux-fonts\n";
+     File_1( $re );
+   }elsif( $ref->{'PRE'} and not $ref->{'FDIR'} ){
+    print " not exists cask tap homebrew/cask-fonts\n";
+     File_1( $ref );
+   }
  Fork_1( $name,$re,$ref );
 }
 
@@ -197,7 +198,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.17_3\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.17_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -1482,7 +1483,7 @@ sub Format_1{
     $re->{'TPUT'} = `tput cols` unless $re->{'TPUT'};
      my $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;
       my $in = 1;
-      pop @{$re->{'ARR'}} if $re->{'LIN'} and index($re->{'ARR'}[-1],' ') == 0;
+      pop @{$re->{'ARR'}} if $re->{'LIN'} and @{$re->{'ARR'}} and index($re->{'ARR'}[-1],' ') == 0;
       $re->{'PRE'} ? print" ==> Fonts\n" :
     ( $re->{'FOR'} and ( $re->{'BL'} or defined $re->{'S_OPT'} or $re->{'TOP'} ) ) ? print" ==> Formula\n" :
     ( $re->{'CAS'} and $re->{'ARR'}[0] !~ m|homebrew/| ) ? print" ==> Casks\n" : 0
@@ -1976,7 +1977,7 @@ perl<<"EOF"
         push @file3,"homebrew/linux-fonts/$hand3\n";
        }
     }
-   closedir $dir3; 
+   closedir $dir3;
     @file3 = sort @file3;
      $i3 ? push @file4,"3\n",@file3 : push @file4,"4\n0\n",@file3;
 
