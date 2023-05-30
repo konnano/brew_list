@@ -4359,6 +4359,7 @@ opendht	C++ 14分散ハッシュテーブルの実装
 openexr	ハイダイナミックレンジ画像ファイル形式
 openexr@2	ハイダイナミックレンジ画像ファイル形式
 openfast	NRELがサポートするOpenFAST全回転シミュレーションコード
+openfga	高性能かつ柔軟な 認可/許可エンジン
 openfortivpn	PPP+SSL VPNトンネルサービス用のOpen Fortinetクライアント
 openfpgaloader	FPGAをプログラミングするための汎用ユーティリティ
 openfst	荷重限界状態トランスデューサのライブラリ
@@ -4790,6 +4791,7 @@ prips	指定された範囲のIPアドレスを出力します
 privoxy	高度なフィルタリングWebプロキシ
 procmail	自律型メール計算機
 procps	procfsを閲覧するためのユーティリティ
+procps@3	procfを参照するためのユーティリティ
 procs	Rustによって書かれたpsの最新の代替品
 proctools	OpenBSDおよびDarwinバージョンの pgrep/pkill/pfind
 procyon-decompiler	Java5以降用の最新の逆コンパイラ
