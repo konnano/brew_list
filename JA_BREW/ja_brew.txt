@@ -125,6 +125,7 @@ ansible-lint	実践と行動についてAnsibleプレイブックをチェック
 ansible@2.8	展開の自動化 構成/アップグレード
 ansible@2.9	展開の自動化 構成/アップグレード
 ansible@6	自動展開 構成/アップグレード
+ansible@7	導入/構成/アップグレード を自動化する
 ansifilter	ANSIコードを削除するか、HTML、(La)Tex、RTF、またはBBCodeに変換します
 ansilove	ANSI/ASCII アートからPNGへの変換器
 ansiweather	ANSIカラーとUnicode記号を使用した端末の天気予報
@@ -316,6 +317,7 @@ avro-cpp	データ順番化システム
 avro-tools	Avroコマンドラインツールとユーティリティ
 awf	A Widget Factoryは、gtk2とgtk3のテーマプレビューアプリケーションです。
 awk	テキスト処理スクリプト言語
+aws-amplify	フルスタックのWebアプリとモバイルアプリを数時間で構築します、簡単に始められ簡単に拡張できます
 aws-auth	IAMロールを介してAWSアカウントにプログラムで認証できるようにします
 aws-cdk	AWSクラウド開発キット AWS基礎構造をコードとして定義するためのフレームワーク
 aws-cfn-tools	Amazon CloudFormation Webサービスのクライアント
@@ -384,6 +386,7 @@ bash-language-server	Bashの言語サーバー
 bash-preexec	Bashのpreexecおよびprecmd関数(Zshなど)
 bash-snippets	ヘビーターミナルユーザー向けの小さなbashスクリプトのコレクション
 bash_unit	プロフェッショナル向けのBash単体テスト エンタープライズ版フレームワーク
+bashate	bashプログラムのコード スタイルの強調
 bashdb	Bashシェルデバッガー
 bashish	テキスト端末のテーマ環境
 basis_universal	基準汎用GPUテクスチャコーデック コマンドライン圧縮ツール
@@ -1597,6 +1600,7 @@ fastbit	NoSQL精神のオープンソースデータ処理ライブラリ
 fastd	高速で安全なトンネリングデーモン
 fastfec	Cで書かれた非常に高速なFECファイリングパーサー
 fastfetch	neofetchと似ていますが、Cで書かれているためはるかに高速です
+fastgron	高性能のJSONからGRONへのコンバーター
 fastjar	Sunのjarツールの実装
 fastlane	モバイルアプリを構築してリリースする最も簡単な方法
 fastme	正確で高速な距離ベースの系統発生推論プログラム
@@ -2738,6 +2742,7 @@ jooby-bootstrap	joobyアプリの作成を簡素化するスクリプト
 joplin-cli	同期機能を備えたメモ取りとToDoアプリケーション
 jose	Javascriptオブジェクトの署名と暗号化のC言語実装
 joshua	統計的機械翻訳デコーダー
+joshuto	Rustで書かれたRanger-likeターミナルファイルマネージャー
 jove	Viのようなメモリを備えたEmacsスタイルのエディタ CPU/サイズ定義
 jp	JSONデータからのデッドシンプルターミナルプロット
 jp2a	JPG画像をASCIIに変換する
@@ -4142,6 +4147,7 @@ newrelic-cli	New Relicのコマンドラインインターフェイス
 newrelic-infra-agent	New Relic基礎構造の手段
 newsboat	テキスト端末用の RSS/Atom フィードリーダー
 newt	カラーテキストモード用のライブラリ widgetベースのユーザーインターフェイス
+nexttrace	オープンソースのビジュアルルート追跡CLIツール
 nexus	binaryソフトウェアコンポーネント用のリポジトリマネージャ
 nfcutils	POSIXシステムでの近距離無線通信(NFC)ツール
 nfdump	コマンドラインでNetFlowデータを収集および処理するためのツール
@@ -6284,6 +6290,7 @@ volta	再現可能な環境のためのJavaScriptツールチェーンマネー�
 vorbis-tools	Ogg VorbisCODECツール
 vorbisgain	Ogg VorbisファイルにReplay Gainボリュームタグを追加する
 voro++	3D Voronoiセルソフトウェアライブラリ
+votca	粗粒度アプリケーション向けの多用途のオブジェクト指向ツールキット
 vowpal-wabbit	オンライン学習アルゴリズム
 vpcs	IP経由をテストするためのVirtualPC模擬装置
 vpn-slice	簡単で安全なスプリットトンネルVPNセットアップのためのVpncスクリプトの置き換え
