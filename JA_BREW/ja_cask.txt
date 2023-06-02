@@ -1046,6 +1046,7 @@ endurance	バッテリーの監視と管理
 energia	電子工学プロトタイピングプラットフォーム
 energybar	Touch Barウィジェットアプリケーション
 enfusegui	HDRイメージクリエーター
+engine-dj	DJソフトウェアセット
 engine-prime	DenonのエンジンOSハードウェア用の音楽管理ソフトウェア
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
 enjoyable	マウスやキーボードのようにゲームパッドやジョイスティックを使用する
@@ -1714,7 +1715,6 @@ jettison	外付けドライブを自動的に排出します
 jewelrybox	RVMマネージャー
 jgrasp	ソフトウェアの理解度を向上させるための視覚化を備えたIDE
 jgrennison-openttd	OpenTTDに適用されたパッチのコレクション
-jietu	クイック注釈と共有スクリーンショットツール
 jiggler	コンピューターをスリープ状態にしない
 jitouch	Multi-touchジェスチャエディター
 jitsi	Jitsi
@@ -2288,6 +2288,7 @@ mos	スクロールをスムーズにしマウスのスクロール方向を個�
 mosaic	アプリのサイズ変更と再配置
 moscow-ml	StandardMLの軽量実装
 motrix	オープンソースのダウンロードマネージャー
+motu-m-series	Motu Mシリーズ(M2/M4/M6)用のオーディオインターフェイスドライバー
 mountain	ボリュームの マウント/アンマウント時に通知を表示する
 mountain-duck	サーバーとクラウドストレージをディスクとしてデスクトップにマウントします
 mounty	書き込み保護されたNTFSボリュームを再マウントします
@@ -4165,6 +4166,7 @@ yandex-disk	クラウドストレージ
 yandex-music-unofficial	Yandex ミュージック非公式
 yate	メディアファイルタグエディター
 yattee	代替のプライバシーに優しいYouTubeフロントエンド
+yealink-meeting	ビデオコミュニケーションおよび仮想会議プラットフォーム
 yed	ダイアグラムを手動で作成するか分析のために外部データをインポートします
 yemuzip	YemuZip
 yep	ドキュメントマネージャー
