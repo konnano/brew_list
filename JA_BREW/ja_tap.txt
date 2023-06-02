@@ -797,6 +797,7 @@ font-inria-serif	Inria Serif
 font-inspiration	Inspiration
 font-instrument-sans	Instrument Sans
 font-instrument-serif	Instrument Serif
+font-intel-one-mono	表現力豊かな等幅フォントファミリー
 font-inter	Inter
 font-inter-tight	Inter Tight
 font-iosevka	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
@@ -2082,7 +2083,6 @@ anaconda2	データサイエンスプラットフォーム
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
 anki-beta	記憶力トレーニングアプリケーション
-appcode-eap	Swift/Objective-C/C/C++ 開発用のIDE
 arduino-ide-nightly	電子工学プロトタイピングプラットフォーム
 arduino-nightly	電子プロトタイピングプラットフォーム
 arq5	マルチクラウドバックアップアプリケーション
