@@ -1174,6 +1174,7 @@ ddcutil	DDC/CIとUSBを使用してモニター設定を制御する
 ddd	コマンドラインデバッガーのグラフィカルフロントエンド
 ddgr	ターミナルからのDuckDuckGo
 ddh	高速複製ファイルファインダー
+ddns-go	シンプルで使いやすいDDNS
 ddrescue	GNUデータ回復ツール
 deark	古い形式のファイル変換ユーティリティ
 debianutils	Debianに固有のその他のユーティリティ
@@ -3113,6 +3114,7 @@ libdvdread	DVDビデオ画像を読み取るためのCライブラリ
 libeatmydata	fsyncと関連する呼び出しを透過的に無効にするLD_PRELOADライブラリとラッパー
 libebml	XMLのsbinaryバージョンのようなもの
 libebur128	EBUR 128ラウドネス標準を実装するライブラリ
+libecpint	有効コアポテンシャルに対する積分を効率的に評価するためのライブラリ
 libedit	BSDスタイルのライセンスされたreadlineの代替品
 libelf	ELFオブジェクトファイルアクセスライブラリ
 libemf2svg	Microsoft(MS)EMFからSVGへの変換ライブラリ
@@ -5597,6 +5599,7 @@ spoof-mac	MacOSでMACアドレスの偽装
 spot	LTLおよび自動操作のためのプラットフォーム
 spotbugs	Java静的分析用ツール(FindBugsの後継)
 spotify-tui	Spotifyのターミナルベースのクライアント
+spotify_player	コマンド駆動のSpotifyプレーヤー
 spotifyd	Spotifyデーモン
 spr	個別の修正可能でリベース可能なコミットのプルリクエストをGitHubに送信します
 spring-completion	SpringのBash補完
@@ -5747,6 +5750,7 @@ swftools	SWF操作および生成ツール
 swi-prolog	ISO/Edinburgh-styleのProlog解釈プログラム
 swift	高性能システムプログラミング言語
 swift-format	Swiftソースコードのフォーマット技術
+swift-outdated	古いSwiftパッケージマネージャーの依存関係を確認する
 swift-protobuf	Swiftでprotobufを使用するためのプラグインとランタイムライブラリ
 swift-sh	簡単なzero-conf依存関係のインポートによるスクリプト
 swiftdraw	SVGを PDF/PNG/JPEG/SFシンボルに変換
@@ -5870,6 +5874,7 @@ termrec	端末出力のビデオを録画する
 termshare	クライアントまたはWebを介した対話または表示専用の端末共有
 termshark	Wiresharkに触発されたtsharkのターミナルUI
 termtosvg	ターミナルセッションをSVGアニメーションとして記録する
+tern	ソフトウェア部品表(SBOM)ツール
 terracognita	既存のクラウドプロバイダーから読み取りTerraformコードを生成します
 terraform	構築するツール 変化とバージョン基礎構造
 terraform-docs	Terraformモジュールからドキュメントを生成するためのツール
