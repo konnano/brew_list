@@ -197,7 +197,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.17_5\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.17_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -1178,7 +1178,7 @@ my( $list,$file,$in,$re ) = @_;
   $brew_3 = ( ( $re->{'CAS'} or $re->{'FTD'} ) and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
             ( ( $re->{'TAP'} or $re->{'FTD'} ) and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} :
             $brew_3 ? $brew_3 : '';
-    $brew_3 = $JA{$brew_1} if $JA{$brew_1}; $brew_3 =~ tr/“”//d unless $Locale;
+  $brew_3 = $JA{$brew_1} if $JA{$brew_1}; $brew_3 =~ tr/“”//d unless $Locale;
 
   if( not $re->{'LINK'} or
       $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
@@ -1309,19 +1309,18 @@ my( $list,$re,$in ) = @_;
     my( $dirs1 )=( $re->{'FTD'} and $re->{'OS'}{"${tap}core"} ) ? $re->{'OS'}{"${tap}core"} =~ m|.+/(homebrew-[^/]+)/.+| :
                    $re->{'OS'}{"${tap}cask"} ? $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+| : '';
 
-    my $ver = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_version"}) ?
-     $re->{'OS'}{"${tap}f_version"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_version"}) ?
-      $re->{'OS'}{"${tap}c_version"} : ( $re->{'FOR'} and $re->{'HASH'}{$tap} ) ?
-       $re->{'HASH'}{$tap} : ( $re->{'CAS'} and $re->{'DMG'}{$tap} ) ? $re->{'DMG'}{$tap} : 0;
-    $ver = $ver.$re->{'OS'}{"${tap}revision"}
-     if $re->{'FOR'} and $ver !~ /_\d+$/ and $re->{'OS'}{"${tap}revision"};
+    my $ver = $re->{'OS'}{"${tap}f_version"} ? $re->{'OS'}{"${tap}f_version"} :
+              $re->{'OS'}{"${tap}c_version"} ? $re->{'OS'}{"${tap}c_version"} :
+              $re->{'HASH'}{$tap} ? $re->{'HASH'}{$tap} :
+              $re->{'DMG'}{$tap} ? $re->{'DMG'}{$tap} : 0;
+       $ver = $ver.$re->{'OS'}{"${tap}revision"}
+        if $re->{'FOR'} and $ver !~ /_\d+$/ and $re->{'OS'}{"${tap}revision"};
 
-    my $com = ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_desc"} ) ?
-     $re->{'OS'}{"${tap}f_desc"} : ( $re->{'FOR'} and $re->{'OS'}{"${tap}f_name"} ) ?
-      $re->{'OS'}{"${tap}f_name"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_desc"} ) ?
-       $re->{'OS'}{"${tap}c_desc"} : ( $re->{'CAS'} and $re->{'OS'}{"${tap}c_name"} ) ?
-        $re->{'OS'}{"${tap}c_name"} : '';
-     $com = $JA{$tap} if $JA{$tap}; $com =~ tr/“”//d unless $Locale;
+    my $com = $re->{'OS'}{"${tap}f_desc"} ? $re->{'OS'}{"${tap}f_desc"} :
+              $re->{'OS'}{"${tap}f_name"} ? $re->{'OS'}{"${tap}f_name"} :
+              $re->{'OS'}{"${tap}c_desc"} ? $re->{'OS'}{"${tap}c_desc"} :
+              $re->{'OS'}{"${tap}c_name"} ? $re->{'OS'}{"${tap}c_name"} : '';
+       $com = $JA{$tap} if $JA{$tap}; $com =~ tr/“”//d unless $Locale;
 
       my $brew = 1;
    if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
