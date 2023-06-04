@@ -298,7 +298,7 @@ sub Doc_1{
 
 sub Wait_1{
 my( $re,$loop ) = @_; my $pid;
- system 'mv ~/.BREW_LIST ~/BREW_LIST$$' if -d $re->{'HOME'} and not -f $re->{'TXT'};
+ rename $re->{'HOME'}, "$ENV{'HOME'}/BREW_LIST$$" if -d $re->{'HOME'} and not -f $re->{'TXT'};
   mkdir $re->{'HOME'};
    mkdir "$re->{'HOME'}/WAIT";
   my( $not,$dok,$ten ) = Doc_1;
