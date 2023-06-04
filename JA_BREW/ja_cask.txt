@@ -1963,6 +1963,7 @@ loom	画面およびビデオ録画ソフトウェア
 loopback	ケーブルFreeオーディオルーター
 losslesscut	ビデオファイルとオーディオファイルを劣化無しでトリミング
 lotus	GitHubの通知を確認する
+loupedeck	Loupedeckコンソール用ソフトウェア
 love	Lua用の2Dゲームフレームワーク
 lrtimelapse	時間経過編集 キーフレーム グレーディング/レンダリング
 ltspice	SPICEシミュレーションソフトウェア 回路図キャプチャ/波形ビューア
