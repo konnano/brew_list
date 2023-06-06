@@ -6475,6 +6475,7 @@ xauth	X.Orgアプリケーション：xauth
 xbee-comm	XBee通信ライブラリとユーティリティ
 xbitmaps	複数のX11アプリケーションで使用されるビットマップイメージ
 xboard	チェスのグラフィカルユーザーインターフェイス
+xbyak	 C++ JITアセンブラー x86(IA32)/x64(AMD64,x86-64)
 xcb-proto	X.Org：libxcbコード生成のためのXML-XCB手順の説明
 xcb-util	XCBライブラリへの追加の拡張
 xcb-util-cursor	XCBカーソルライブラリ(libXcursorの代わり)
