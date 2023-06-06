@@ -1647,6 +1647,7 @@ font-reem-kufi-fun	Also the name of khaled's daughter
 font-reem-kufi-ink	Also the name of khaled's daughter
 font-reenie-beanie	Reenie Beanie
 font-reggae-one	Reggae One
+font-rethink-sans	Rethink Sans
 font-revalia	Revalia
 font-rhodium-libre	Rhodium Libre
 font-ribeye	Ribeye
@@ -2282,6 +2283,7 @@ whoozle-android-file-transfer-nightly	Androidファイル転送
 wine-devel	Windowsアプリケーションを実行するための互換性レイヤー
 wine-staging	Windowsアプリケーションを実行するための互換性レイヤー
 xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
+xmind-beta	マインドマップとブレインストーミングツール
 xmind8	マインドマッピングとブレーンストーミングツール
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
