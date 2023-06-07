@@ -201,6 +201,7 @@ argocd-autopilot	ArgoCDをインストールしてGitOpsリポジトリを管理
 argocd-vault-plugin	機密管理ツールから機密を取得するArgo CDプラグイン
 argon2	パスワードハッシュライブラリとCLIユーティリティ
 argp-standalone	GLIBCの関数を解析する引数の独立型バージョン
+argparse	最新のC++用の引数パーサー
 argtable	GNUスタイルのコマンドラインオプションを解析するためのANSICライブラリ
 argus	監査記録の生成と利用システムサーバー
 argus-clients	監査記録の生成と利用システムのクライアント
@@ -2289,6 +2290,7 @@ groovysdk	SDK for Groovy：Javaベースのスクリプト言語
 groovyserv	Groovyの起動時間を短縮する
 grpc	次世代のオープンソースRPCライブラリとフレームワーク
 grpc-swift	gRPCのSwift言語実装
+grpc@1.54	次世代のオープンソースRPCライブラリとフレームワーク
 grpcui	postmanの方針に沿ったgRPCの対話的Web UI
 grpcurl	cURLと同様ですがgRPC用です
 grsync	rsyncのGUI
@@ -4821,6 +4823,7 @@ proselint	散文のための静的解析ツール
 proteinortho	異なる種類のOrthologous Genesの検出
 protobuf	Buffer手続き(Googleのデータ交換形式)
 protobuf-c	Buffer手続きライブラリ
+protobuf@21	プロトコルバッファー(Googleのデータ交換形式)
 protobuf@3	プロトコルバッファ(Googleのデータ交換形式)
 protobuf@3.6	Buffer手続き(Googleのデータ交換形式)
 protoc-gen-go	Goサポート、Google Bufferの手続き
