@@ -1439,6 +1439,7 @@ gridtracker	使いやすいインターフェースで表示されるアマチ�
 grisbi	個人財務管理プログラム
 groestlcoin-core	Groestlcoin クライアント/ウォレット
 growlnotify	通知システム
+grs-bluewallet	Groestlcoinウォレット/Lightningウォレット
 gswitch	使用するグラフィックカードを設定する
 gtkwave	GTK+ ベースのウェーブビューア
 guijs	JSプロジェクトを管理するためのグラフィカルインターフェイス
@@ -3126,6 +3127,7 @@ rocket	目の不自由な人向けに最適化された絵文字picker
 rocket-chat	Rocket.Chatの公式デスクトップクライアント
 rocket-typist	一般的なフレーズのテキストエキスパンダー
 rocks-n-diamonds	アーケードスタイルのゲーム
+rode-connect	ポッドキャスティングソフトウェア
 rodeo	Python用データサイエンスIDE
 roku-remote-tool	Rokuリモートツール
 rolisteam	仮想卓上ソフトウェア
