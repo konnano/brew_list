@@ -2769,6 +2769,7 @@ jsawk	awkと同様ですがJSONの場合、JavaScriptオブジェクトと配列
 jscpd	ソースコードをプログラミングするための コピー/ペースト 検出器
 jsdoc3	JavaScriptのAPIドキュメント発生器
 jshon	シェルからJSONを 解析/読み取り/作成 します
+jsign	Windows実行可能ファイルに署名するためのツール インストーラー/スクリプト
 jslint4java	JavaScript Lint(jsl)のJavaラッパー
 jsmin	JavaScriptコードを縮小する
 json-c	CのJSONパーサー
@@ -3713,6 +3714,7 @@ mariadb	MySQLのDrop-in代替品
 mariadb-connector-c	Cアプリケーション用のMariaDBデータベース連結装置
 mariadb-connector-odbc	業界標準のODBCAPIを使用するデータベースドライバー
 mariadb@10.10	MySQLのDrop-in代替品
+mariadb@10.11	MySQLのDrop-in代替品
 mariadb@10.2	MySQLのDrop-in代替品
 mariadb@10.3	MySQLのDrop-in代替品
 mariadb@10.4	MySQLのDrop-in代替品
