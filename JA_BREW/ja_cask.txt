@@ -178,6 +178,7 @@ appgrid	Vimのようなホットキーを備えたウィンドウマネージャ
 appium	Appium自動化サーバーへのグラフィカルフロントエンド
 appium-inspector	モバイルアプリのGUI検査
 apple-events	非公式のAppleイベントアプリ
+apple-hewlett-packard-printer-drivers	HPプリンタードライバー
 apple-juice	バッテリー残量などを表示するバッテリーゲージ
 applepi-baker	SDカードのバックアップと復元 USBドライブ/外付けHDD等
 apppolice	実行中のプロセスのCPU使用率をすばやく制限するためのアプリ
@@ -634,7 +635,6 @@ cmd-eikana	⌘英かな
 cmdtap	Task Switcherに他の機能を追加します
 cncjs	CNCフライス盤コントローラーのインターフェース
 cncnet	CnCNet：クラシックコマンド&Conquer
-cnkiexpress	アカデミックアプリケーション
 coccinellida	シンプルなSSHトンネルマネージャー
 cockatrice	マルチプレイヤーカードゲーム用の仮想卓上
 cocktail	掃除 コンピュータシステムの修復と最適化
@@ -2925,7 +2925,6 @@ qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
 qgis	地理情報システム
 qgroundcontrol	ドローン用地上管制局
 qingg	五筆字型入力方式
-ql-ansilove	テキストモードアートのQuick Lookプラグイン
 qlab	サウンド ビデオと照明の制御
 qladdict	QLAddict
 qlc-plus	DMXまたはアナログ照明システムを制御する
