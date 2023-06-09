@@ -167,7 +167,6 @@ apktool	サードパーティのクローズドバイナリAndroidアプリを�
 apm-bash-completion	Atomパッケージマネージャーの補完
 apng2gif	APNGアニメーションをアニメーションGIF形式に変換します
 apngasm	apngasmの次世代、APNGアセンブラー
-apollo	ActiveMQに基づくMulti-protocolメッセージングブローカー
 apollo-cli	Apollo GraphQLのコマンドラインツール
 apophenia	統計および科学計算用の Cライブラリ
 app-engine-java	Google App Engine for Java
@@ -975,6 +974,7 @@ copa	脆弱性スキャンの結果が与えられたコンテナーイメージ
 copier	プロジェクトテンプレートを解釈するためのユーティリティ
 copilot	Amazon ECSおよびAWS FargateのCLIツール
 coq	高階述語論理の証明アシスタント
+core-lightning	仕様への準拠とパフォーマンスに重点を置いたLightning Networkの実装
 corectl	CoreOS over MacOSが非常にシンプルになりました
 coredns	プラグインをチェーンするDNSサーバー
 coreos-ct	Container Linux ConfigをIgnitionに変換します
@@ -3608,6 +3608,7 @@ lolcode	難解プログラミング言語
 lorem	コンソール用のPython発生器
 loudmouth	Jabber手続きの軽量Cライブラリ
 lout	TeXのようなテキストフォーマットですが、よりシンプルです
+lowdown	シンプルマークダウントランスレータ
 lp_solve	混合整数線形計画Solver
 lpc21isp	いくつかのNXPマイクロコントローラー用のIn-circuitプログラミング(ISP)ツール
 lpeg	LuaJITの式文法の解析
@@ -5206,7 +5207,6 @@ rtmpdump	RTMPストリーミングメディアをダウンロードするため�
 rtorrent	libtorrent-rakshasaに基づくNcursesBitTorrentクライアント
 rtptools	RTPデータを処理するためのツールのセット
 rttr	C++リフレクションライブラリ
-rtv	コマンドラインRedditクライアント
 rtx	Polyglot ランタイム マネージャー(asdf rustクローン)
 rubberband	オーディオタイム伸張ツールとライブラリ
 ruby	オブジェクト指向のスクリプト言語 強力/クリーン
@@ -5499,7 +5499,6 @@ snag	すべてのニーズに対応する自動ビルドツール
 snakefmt	Snakemakeコードフォーマッター
 snakemake	Pythonicワークフローシステム
 snap	.snapファイルを操作するためのツール
-snap-telemetry	Snapはオープンソースの遠隔測定フレームワークです
 snap7	Siemens S7PLCとネイティブに連携するイーサネット通信パッケージ
 snapcast	同期マルチルームオーディオプレーヤー
 snapcraft	すべてのLinuxデスクトップ用に任意のアプリをパッケージ化します サーバ/クラウド/デバイス
