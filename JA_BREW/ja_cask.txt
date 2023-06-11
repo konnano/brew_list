@@ -851,6 +851,7 @@ devkinsta	KinstaによるローカルWordPress開発パッケージ
 devolo-cockpit	構成およびネットワーク監視ソフトウェア
 devonagent	Webをより効率的に検索するのに役立つツール
 devonthink	ドキュメントの編集と注釈付け 収集/整理
+devpod	devcontainer.jsonに基づいて再現可能な開発者環境を作成するための UI
 devsquadron	エンタープライズグレード プロジェクト管理
 devtoys	一般的な開発タスクを容易にするために設計されたユーティリティ
 devutils	開発者向けのオフラインツールボックス
@@ -2329,6 +2330,7 @@ multitouch	トラックパッドとマジックマウスのジェスチャーを
 multiviewer-for-f1	F1TVの非公式デスクトップクライアント
 mumble	オープンソース/低遅延 ゲーム用の高品質ボイスチャットソフトウェア
 mumu	Mumu
+mumu-x	GPT-3 AIを利用した同義語を利用して絵文字や記号を検索します
 munki	ソフトウェアインストールマネージャー
 munkiadmin	Munkiリポジトリを管理するためのツール
 mural	ビジュアルオンライン協力的プラットフォーム
