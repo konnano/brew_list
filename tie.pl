@@ -4,7 +4,7 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
 chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
@@ -62,8 +62,9 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 sub Dirs_1{
 my( $dir,$ls,$cask ) = @_;
  opendir my $DIR,$dir or die " DIR $!\n";
-  for my $an(sort readdir $DIR){ next if $an =~ /^\./;
+  for my $an(sort readdir $DIR){ next if $an =~ /^\./; $HA{$an}++ if not $cask and $an =~ /\.rb$/;
    next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/;
+    next if not $cask and $an =~ /\.rb$/ and $HA{$an} > 1;
    ( -d "$dir/$an" ) ? Dirs_1( "$dir/$an",$ls,$cask ) : ( -l "$dir/$an" ) ? push @{$re->{'ALIA'}},"$dir/$an" :
    ( $cask and $an =~ /\.rb$/ ) ? push @CASK,"$dir/$an" : ( $an =~ /\.rb$/ ) ? push @BREW,"$dir/$an" : 0;
   }
