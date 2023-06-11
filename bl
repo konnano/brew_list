@@ -197,7 +197,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.17_6\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.17_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -395,7 +395,7 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 sub Proc_1{
 my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2,3 );
  for(my $i=0;$i<@$list;$i++){
-  next if $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15';
+  next if $re->{'LIN'} and ( $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15' );
    if( $re->{'OS'}{"$$list[$i]uses"} and $re->{'OS'}{"$$list[$i]uses_proc"} ){
            my $proc = split '\t',$re->{'OS'}{"$$list[$i]uses_proc"};
               $deps = split '\t',$re->{'OS'}{"$$list[$i]uses"};
@@ -408,7 +408,7 @@ my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2
     }elsif( $m >= $e and $d >= $e and $c >= $e ){ push @an3,$$list[$i]; $e += $deps;
     }elsif( $e >= $m and $d >= $m and $c >= $m ){ push @an4,$$list[$i]; $m += $deps; }
  }
-  if( $cou and $re->{'LIN'} ){ push @an1,'glibc'; push @an2,'linux-headers@5.15'; }
+  if( $cou and $re->{'LIN'} ){ push @an1,'glibc'; push @an2,'linux-headers@5.15' }
     sub _par{ my( $re,$an,$hand ) = @_;
              for my $ls(@$an){ my( @AN,%HA );
               Uses_1( $re,$ls,\%HA,\@AN );
@@ -610,7 +610,7 @@ sub Top_1{
 my( $re,$list ) = @_; my $top;
  Proc_1( $re,$list );
  for my $ls(@$list){
-  next if $ls eq 'glibc' or $ls eq 'linux-headers@5.15';
+  next if $re->{'LIN'} and ( $ls eq 'glibc' or $ls eq 'linux-headers@5.15' );
   if( @{$re->{$ls}} and @{$re->{$ls}} < 2 ){
    my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
    Tap_2( $re,\$ls ) if $re->{'FOR'};
@@ -854,7 +854,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
     Proc_1( $re,\@AN );
      my @list1 = sort @AN;
    for my $brew(@list1){
-    next if $brew eq 'glibc' or $brew eq 'linux-headers@5.15';
+    next if $re->{'LIN'} and ( $brew eq 'glibc' or $brew eq 'linux-headers@5.15' );
     exit unless $re->{$brew};
      my @list2 = sort @{$re->{$brew}};
      my $i = 0; my $e = 0;
@@ -946,6 +946,14 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
    }
    if( ( $re->{'FDIR'} or $re->{'VERS'} ) and ( $re->{'TAP'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
     open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " === Not exist tap JA_file ===\n";
+     while(<$JA>){
+     my( $name,$desc ) = split '\t';
+      chomp( $JA{$name} = $desc );
+     }
+    close $JA;
+   }
+   if( $re->{'FTD'} or $re->{'LFOD'} and $re->{'PRINT'} ){
+    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_linux.txt" or print " === Not exist linux JA_file ===\n";
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
@@ -1770,6 +1778,7 @@ if [[ $2 ]];then
     cp ~/.JA_BREWG/* ~/.JA_BREW
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
     [[ $NAME = Linux ]] && rm ~/.JA_BREW/ja_cask.txt ~/.JA_BREW/ja_tap.txt
+    [[ $NAME = Darwin ]] && rm ~/.JA_BREW/ja_linux.txt
   fi
  fi
 
