@@ -25,11 +25,7 @@ if [[ $2 ]];then
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
-  if [[ $NAME = Darwin ]];then
-   LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
-  else
-   LS2=$(date -r ~/.JA_BREW/ja_linux.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
-  fi
+  LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS2 ]];then
   if [[ $NAME = Darwin ]];then
    LS3=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS2" +%s 2>/dev/null)+86400 ))
