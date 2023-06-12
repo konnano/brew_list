@@ -2026,6 +2026,7 @@ git-svn-abandon	履歴を保持するsvnからgitへの移行
 git-sync	Gitリポジトリのクローンを作成しアップストリームとの同期を維持します
 git-test	revisionリスト内の個別のツリーごとにテストを実行します
 git-tf	TFSとgitの間で変更を共有する
+git-tools	さまざまなgit関連のスクリプトとツール
 git-town	Gitの高レベルのコマンドラインインターフェイス
 git-tracker	Pivotal TrackerをGitワークフローに統合する
 git-trim	マージまたは削除されたgitリモートトラッキングブランチをトリミングします
