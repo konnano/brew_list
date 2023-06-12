@@ -1435,11 +1435,13 @@ font-noto-serif-khmer	Noto Serif Khmer
 font-noto-serif-khojki	インド語コージ文字のテキストの変調デザイン(serif)
 font-noto-serif-kr	韓国語の変調デザイン(serif)
 font-noto-serif-lao	Noto Serif Lao
+font-noto-serif-makasar	歴史的な東南アジアのマカサル文字のデザイン
 font-noto-serif-malayalam	Noto Serif Malayalam
 font-noto-serif-myanmar	Noto Serif Myanmar
 font-noto-serif-np-hmong	Noto Serif NP Hmong
 font-noto-serif-nyiakeng-puachue-hmong	Noto Serif Nyiakeng Puachue Hmong
 font-noto-serif-oriya	インド語のオディア(oriya)文字のテキストの変調デザイン(serif)
+font-noto-serif-ottoman-siyaq	シヤク記数体系のアラビア語形式の変調デザイン(serif)
 font-noto-serif-sc	簡体字中国語の変調デザイン(serif)
 font-noto-serif-sinhala	Noto Serif Sinhala
 font-noto-serif-tamil	Noto Serif Tamil
@@ -1526,7 +1528,6 @@ font-pattaya	Pattaya
 font-patua-one	Patua One
 font-pavanam	Pavanam
 font-paytone-one	Paytone One
-font-pecita	Pecita
 font-peddana	Peddana
 font-peralta	Peralta
 font-permanent-marker	Permanent Marker
@@ -1677,7 +1678,6 @@ font-rounded-mplus	Rounded M+
 font-routed-gothic	Routed Gothic
 font-rowdies	Rowdies
 font-rozha-one	Rozha One
-font-ru-serius	RU Serius
 font-rubik	Rubik
 font-rubik-80s-fade	Rubik 80s Fade
 font-rubik-beastly	Hubert と Fischer、Meir Sadan、Cyreal による Googleフォントの Rubikに基づいています
@@ -1820,9 +1820,7 @@ font-souliyo	Souliyo
 font-source-code-pro	Source Code Pro
 font-source-code-pro-for-powerline	Source Code Pro for Powerline
 font-source-sans-3	Source Sans 3
-font-source-sans-pro	Source Sans Pro
 font-source-serif-4	Source Serif 4
-font-source-serif-pro	Source Serif Pro
 font-space-grotesk	Space Grotesk
 font-space-mono	Space Mono
 font-space-mono-nerd-font	開発者向けのグリフ数が多いフォント
