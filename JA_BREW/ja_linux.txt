@@ -158,7 +158,7 @@ font-averia-sans-libre	Averia Sans Libre
 font-averia-serif-libre	Averia Serif Libre
 font-awesome-terminal-fonts	Awesome Terminal Fonts
 font-azeret-mono	Martin Vácha/Daniel Quisek によるデザイン
-font-azonix	モダン sans-serif typeface
+font-azonix	モダン sans-serif 書体
 font-b612	B612
 font-b612-mono	B612 Mono
 font-babylonica	直立または後傾した形状によって中断され、中断された応力が与えられます
@@ -209,27 +209,27 @@ font-besley	オーウェン・アール、デザイン(indestructible type*)
 font-beth-ellen	Beth Ellen
 font-bevan	Bevan
 font-bhavuka	Bhavuka
-font-bhutuka-expanded-one	アオイフェ・ムーニーのバイオリズムの拡張されたライト書体　Gurmukhi companion
+font-bhutuka-expanded-one	アオイフェ・ムーニーのバイオリズムの拡張されたライト書体 Gurmukhi companion
 font-big-shoulders-display	Big Shoulders Display
-font-big-shoulders-inline-display	凝縮されたアメリカン ゴシック書体　Superfamily
-font-big-shoulders-inline-text	凝縮されたアメリカン ゴシック書体　Superfamily
-font-big-shoulders-stencil-display	凝縮されたアメリカン ゴシック書体　Superfamily
-font-big-shoulders-stencil-text	凝縮されたアメリカン ゴシック書体　Superfamily
+font-big-shoulders-inline-display	凝縮されたアメリカン ゴシック書体 Superfamily
+font-big-shoulders-inline-text	凝縮されたアメリカン ゴシック書体 Superfamily
+font-big-shoulders-stencil-display	凝縮されたアメリカン ゴシック書体 Superfamily
+font-big-shoulders-stencil-text	凝縮されたアメリカン ゴシック書体 Superfamily
 font-big-shoulders-text	Big Shoulders Text
 font-bigblue-terminal-nerd-font	開発者向けのグリフ数が多いフォント
 font-bigelow-rules	Bigelow Rules
 font-bigshot-one	Bigshot One
 font-bilbo	Bilbo
 font-bilbo-swash-caps	Bilbo Swash Caps
-font-biorhyme	Latin typeface family
+font-biorhyme	Latin 書体 family
 font-biorhyme-expanded	BioRhyme Expanded
-font-birthstone	キャップと末尾のスワッシュフォームを含む　Sibling birthstone bounce
-font-birthstone-bounce	さらなる輝きと遊び心をプラスする　Sibling family of birthstone
+font-birthstone	キャップと末尾のスワッシュフォームを含む Sibling birthstone bounce
+font-birthstone-bounce	さらなる輝きと遊び心をプラスする Sibling family of birthstone
 font-biryani	Biryani
 font-bitstream-vera	Bitstream Vera
 font-bitstream-vera-sans-mono-nerd-font	開発者向けのグリフ数が多いフォント
-font-bitter	e-inkスクリーン用に最適化された　Slab-serif typeface
-font-bitter-ht	e-inkスクリーン用に最適化された　Slab-serif typeface
+font-bitter	e-inkスクリーン用に最適化された Slab-serif 書体
+font-bitter-ht	e-inkスクリーン用に最適化された Slab-serif 書体
 font-biz-udgothic	BIZ UDGothic
 font-biz-udmincho	日本の明朝体の伝統を継承したユニバーサルデザイン書体
 font-biz-udpgothic	BIZ UDPGothic
@@ -245,9 +245,9 @@ font-blex-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-blinker	Blinker
 font-blokk-neue	BLOKK Neue
 font-bm	BM
-font-bodoni-moda	コントラストの高い　Serif typeface
+font-bodoni-moda	コントラストの高い Serif 書体
 font-bokor	Bokor
-font-bona-nova	Cursive typeface
+font-bona-nova	Cursive 書体
 font-bonbon	Bonbon
 font-bonheur-royale	Bonheur Royale
 font-boogaloo	Boogaloo
@@ -283,7 +283,7 @@ font-caesar-dressing	Caesar Dressing
 font-cagliostro	Cagliostro
 font-cairo	Cairo
 font-cairo-play	カラーマークを備えたカイロのカラーフォントバージョン
-font-cal-sans	幾何学的な sans-serif typeface
+font-cal-sans	幾何学的な sans-serif 書体
 font-caladea	Caladea
 font-calistoga	Calistoga
 font-calligraffitti	Calligraffitti
@@ -357,7 +357,7 @@ font-code-new-roman-nerd-font	開発者向けのグリフ数が多いフォン�
 font-code2002	Code2002
 font-codicon	Visual Studio Codeのアイコンフォント
 font-codystar	Codystar
-font-coelacanth	ブルース・ロジャースのケンタウルスに影響を受けた Serif typeface
+font-coelacanth	ブルース・ロジャースのケンタウルスに影響を受けた Serif 書体
 font-coiny	Coiny
 font-combo	Combo
 font-comfortaa	Comfortaa
@@ -476,7 +476,7 @@ font-dynapuff	DynaPuff
 font-eagle-lake	Eagle Lake
 font-east-sea-dokdo	East Sea Dokdo
 font-eater	Eater
-font-eb-garamond	1592年のバーナー標本に基づいた Garamond typeface
+font-eb-garamond	1592年のバーナー標本に基づいた Garamond 書体
 font-ebh	Exeter Bookのスクリプトに基づいたベクトル化されたフォント
 font-economica	Economica
 font-eczar	Eczar
@@ -518,11 +518,11 @@ font-ewert	Ewert
 font-exo	Exo
 font-exo-2	Exo 2
 font-expletus-sans	Expletus Sans
-font-explora	スウォッシュフォームを備えた美しい　calligraphic typeface
+font-explora	スウォッシュフォームを備えた美しい calligraphic 書体
 font-ezra-sil	Ezra SIL
 font-fahkwang	Fahkwang
 font-fairfax	Fairfax
-font-familjen-grotesk	現代的な外観の　Sans serif typeface
+font-familjen-grotesk	現代的な外観の Sans serif 書体
 font-fandol	Fandol
 font-fantasque-sans-mono	Fantasque Sans Mono
 font-fantasque-sans-mono-nerd-font	開発者向けのグリフ数が多いフォント
@@ -542,7 +542,7 @@ font-federo	Federo
 font-felipa	Felipa
 font-fenix	Fenix
 font-festive	Festive
-font-figtree	Webアプリやモバイルアプリで使用できる、すっきりしていて親しみやすい幾何学的な　sans serif font
+font-figtree	Webアプリやモバイルアプリで使用できる、すっきりしていて親しみやすい幾何学的な sans serif font
 font-finger-paint	Finger Paint
 font-finlandica	Finlandica
 font-fira-code	Fira Code
@@ -743,8 +743,8 @@ font-ia-writer-mono	iA Writer Mono
 font-ia-writer-quattro	iA Writer Quattro
 font-iansui	Klee One から派生した中国語フォント
 font-ibarra-real-nova	Ibarra Real Nova
-font-ibm-plex	Corporate typeface for IBM
-font-ibm-plex-mono	Corporate typeface for IBM
+font-ibm-plex	Corporate 書体 for IBM
+font-ibm-plex-mono	Corporate 書体 for IBM
 font-ibm-plex-sans	IBM Plex Sans
 font-ibm-plex-sans-arabic	IBM Plex Sans Arabic
 font-ibm-plex-sans-condensed	IBM Plex Sans Condensed
@@ -806,7 +806,7 @@ font-iosevka-comfy	Custom build of Iosevka with different style and metrics than
 font-iosevka-curly	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-curly-slab	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-etoile	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
-font-iosevka-nerd-font	Developer targeted fonts with a high number of glyphs
+font-iosevka-nerd-font	開発者向けのグリフ数が多いフォント
 font-iosevka-slab	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-ss01	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-ss02	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
@@ -826,7 +826,7 @@ font-iosevka-ss15	Sans-serif, slab-serif, monospace and quasi‑proportional typ
 font-iosevka-ss16	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-ss17	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-ss18	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
-font-iosevka-term-nerd-font	Developer targeted fonts with a high number of glyphs
+font-iosevka-term-nerd-font	開発者向けのグリフ数が多いフォント
 font-ipaexfont	IPAex Fonts
 font-ipafont	IPA Fonts
 font-ipamjmincho	IPAmj明朝
@@ -889,7 +889,7 @@ font-kameron	Kameron
 font-kanit	Kanit
 font-kantumruy-pro	幅と重量を変更したワークサンズから
 font-kapakana	2つのウェイトのフォントで、静的インスタンスとしても可変フォントとしても使用可能
-font-karantina	3つのウェイトファミリー　ライト/レギュラー/ボールド
+font-karantina	3つのウェイトファミリー ライト/レギュラー/ボールド
 font-karla	Karla
 font-karla-tamil-inclined	Karla Tamil Inclined
 font-karla-tamil-upright	Karla Tamil Upright
@@ -976,7 +976,7 @@ font-lexend-zetta	Lexend Zetta
 font-liberation	Liberation
 font-liberation-mono-for-powerline	Literation Mono for Powerline
 font-liberation-nerd-font	開発者向けのグリフ数が多いフォント
-font-libertinus	19世紀の本の活字から影響を植えたプロポーショナル serif typeface
+font-libertinus	19世紀の本の活字から影響を植えたプロポーショナル serif 書体
 font-libre-barcode-128	Libre Barcode 128
 font-libre-barcode-128-text	Libre Barcode 128 Text
 font-libre-barcode-39	Libre Barcode 39
@@ -1021,8 +1021,8 @@ font-loved-by-the-king	Loved by the King
 font-lovers-quarrel	Lovers Quarrel
 font-luckiest-guy	Luckiest Guy
 font-luculent	Luculent
-font-lugrasimo	カリグラフィレタリングスタイル　Typeface
-font-lumanosimo	Expressive typeface
+font-lugrasimo	カリグラフィレタリングスタイル 書体
+font-lumanosimo	Expressive 書体
 font-lusitana	Lusitana
 font-lustria	Lustria
 font-luxurious-roman	一貫性のないセリフを含む半手書きフォント
@@ -1057,7 +1057,7 @@ font-manjari	Manjari
 font-manrope	Manrope
 font-mansalva	Mansalva
 font-manuale	Manuale
-font-maple	角が丸い　Nerd Font
+font-maple	角が丸い Nerd Font
 font-marcellus	Marcellus
 font-marcellus-sc	Marcellus SC
 font-marck-script	Marck Script
@@ -1176,7 +1176,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	ディスプレイとテキストのタイポグラフィーの両方のために設計された Minimalist sans serif typeface
+font-mulish	ディスプレイとテキストのタイポグラフィーの両方のために設計された Minimalist sans serif 書体
 font-murecho	9つの実用的なウェイトと可変フォントとして利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1538,7 +1538,7 @@ font-phetsarath	Phetsarath
 font-philosopher	Philosopher
 font-photonico-code	コーディング用の無料の等幅 slab-serif style font
 font-phudu	Phudu
-font-piazzolla	メディア用の　Serif font family
+font-piazzolla	メディア用の Serif font family
 font-piedra	Piedra
 font-pigmo00	かわいい絵柄の日本語フォント
 font-pigmo01	かわいい絵柄の日本語フォント
@@ -1639,7 +1639,7 @@ font-red-hat-text	Red Hat Text
 font-red-rose	ポスター用にデザインされたラテン表示書体
 font-redacted	Redacted
 font-redacted-script	Redacted Script
-font-redhat	Geometric sans-serif typeface
+font-redhat	Geometric sans-serif 書体
 font-redressed	Redressed
 font-reem-kufi	Reem Kufi
 font-reem-kufi-fun	khaled の娘の名前でもある
@@ -1777,7 +1777,7 @@ font-shure-tech-mono-nerd-font	開発者向けのグリフ数が多いフォン�
 font-siemreap	Siemreap
 font-sigmar	Sigmar
 font-sigmar-one	Sigmar One
-font-signika	優しい文字の Sans-serif signage typeface
+font-signika	優しい文字の Sans-serif signage 書体
 font-signika-negative	Signika Negative
 font-signika-negative-sc	Signika SC フォントの代替バージョン
 font-signika-sc	Signika フォントのスモールキャップ バージョン
@@ -1951,7 +1951,7 @@ font-twilio-sans-mono	プログラミングフォント
 font-twinkle-star	可愛くて楽しい少年向けスクリプト
 font-twitter-color-emoji	Twitter Unicode絵文字カラー OpenType-SVGフォント
 font-typographer-woodcut-initials-one	タイポグラファーの木版画のイニシャル One
-font-ubuntu	明確にするために手動でヒントを追加した　Sans-serif typeface
+font-ubuntu	明確にするために手動でヒントを追加した Sans-serif 書体
 font-ubuntu-condensed	Ubuntu Condensed
 font-ubuntu-mono	Ubuntu Mono
 font-ubuntu-mono-derivative-powerline	Ubuntu Mono 派生 Powerline
@@ -2011,7 +2011,7 @@ font-windsong	複数の文体セットを含む長いスクリプト
 font-wire-one	Wire One
 font-wix-madefor-display	Wix Madefor Display
 font-work-sans	Work Sans
-font-xanh-mono	Mono-serif typeface、lam bao、duy dao によってデザインされました
+font-xanh-mono	Mono-serif 書体、lam bao、duy dao によってデザインされました
 font-xits	XITS
 font-xkcd	xkcd
 font-xkcd-script	xkcd-script
@@ -2046,7 +2046,7 @@ font-zen-kurenaido	手書き感のある日本語フォント
 font-zen-loop	Zen フォントコレクションの一部として、大平良道によってデザインされたラテン語フォント
 font-zen-maru-gothic	あらゆるシーンでも使いやすい
 font-zen-old-mincho	テキストでの使用を目的としており、大きなサイズでもうまく機能します
-font-zen-tokyo-zoo	Zen Tokyo Zoo
+font-zen-tokyo-zoo	Zen 東京 Zoo
 font-zeyada	Zeyada
 font-zhi-mang-xing	Zhi Mang Xing
 font-zhudou-sans	Noto Sans から派生した CJK記号と句読点
