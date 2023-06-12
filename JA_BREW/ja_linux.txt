@@ -101,7 +101,7 @@ font-antic-slab	Antic Slab
 font-antinoou	Antinoou
 font-anton	Anton
 font-antonio	Antonio
-font-anuphan	ibm plex sans thai の修正ではありません
+font-anuphan	ibm plex sans thaiの修正ではありません
 font-anybody	10度、目立ちますが微妙です
 font-aoboshi-one	Aoboshi One
 font-arapey	Arapey
@@ -157,8 +157,8 @@ font-averia-libre	Averia Libre
 font-averia-sans-libre	Averia Sans Libre
 font-averia-serif-libre	Averia Serif Libre
 font-awesome-terminal-fonts	Awesome Terminal Fonts
-font-azeret-mono	Martin Vácha/Daniel Quisek によるデザイン
-font-azonix	モダン sans-serif 書体
+font-azeret-mono	Martin Vácha/Daniel Quisekによるデザイン
+font-azonix	モダンな書体 sans-serif
 font-b612	B612
 font-b612-mono	B612 Mono
 font-babylonica	直立または後傾した形状によって中断され、中断された応力が与えられます
@@ -228,12 +228,12 @@ font-birthstone-bounce	さらなる輝きと遊び心をプラスする Sibling 
 font-biryani	Biryani
 font-bitstream-vera	Bitstream Vera
 font-bitstream-vera-sans-mono-nerd-font	開発者向けのグリフ数が多いフォント
-font-bitter	e-inkスクリーン用に最適化された Slab-serif 書体
-font-bitter-ht	e-inkスクリーン用に最適化された Slab-serif 書体
+font-bitter	e-inkスクリーン用に最適化された書体 Slab-serif
+font-bitter-ht	e-inkスクリーン用に最適化された書体 Slab-serif
 font-biz-udgothic	BIZ UDGothic
-font-biz-udmincho	日本の明朝体の伝統を継承したユニバーサルデザイン書体
+font-biz-udmincho	日本の明朝体の伝統を継承した書体　ユニバーサルデザイン
 font-biz-udpgothic	BIZ UDPGothic
-font-biz-udpmincho	日本の明朝体の伝統を継承したユニバーサルデザイン書体
+font-biz-udpmincho	日本の明朝体の伝統を継承した書体　ユニバーサルデザイン
 font-black-and-white-picture	Black And White Picture
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
@@ -245,7 +245,7 @@ font-blex-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-blinker	Blinker
 font-blokk-neue	BLOKK Neue
 font-bm	BM
-font-bodoni-moda	コントラストの高い Serif 書体
+font-bodoni-moda	コントラストの高い書体 Serif
 font-bokor	Bokor
 font-bona-nova	Cursive 書体
 font-bonbon	Bonbon
@@ -283,7 +283,7 @@ font-caesar-dressing	Caesar Dressing
 font-cagliostro	Cagliostro
 font-cairo	Cairo
 font-cairo-play	カラーマークを備えたカイロのカラーフォントバージョン
-font-cal-sans	幾何学的な sans-serif 書体
+font-cal-sans	幾何学的な書体 sans-serif
 font-caladea	Caladea
 font-calistoga	Calistoga
 font-calligraffitti	Calligraffitti
@@ -357,7 +357,7 @@ font-code-new-roman-nerd-font	開発者向けのグリフ数が多いフォン�
 font-code2002	Code2002
 font-codicon	Visual Studio Codeのアイコンフォント
 font-codystar	Codystar
-font-coelacanth	ブルース・ロジャースのケンタウルスに影響を受けた Serif 書体
+font-coelacanth	ブルース・ロジャースのケンタウルスに影響を受けた書体 Serif
 font-coiny	Coiny
 font-combo	Combo
 font-comfortaa	Comfortaa
@@ -476,7 +476,7 @@ font-dynapuff	DynaPuff
 font-eagle-lake	Eagle Lake
 font-east-sea-dokdo	East Sea Dokdo
 font-eater	Eater
-font-eb-garamond	1592年のバーナー標本に基づいた Garamond 書体
+font-eb-garamond	1592年のバーナー標本に基づいた書体 Garamond
 font-ebh	Exeter Bookのスクリプトに基づいたベクトル化されたフォント
 font-economica	Economica
 font-eczar	Eczar
@@ -518,11 +518,11 @@ font-ewert	Ewert
 font-exo	Exo
 font-exo-2	Exo 2
 font-expletus-sans	Expletus Sans
-font-explora	スウォッシュフォームを備えた美しい calligraphic 書体
+font-explora	スウォッシュフォームを備えた美しい書体 calligraphic
 font-ezra-sil	Ezra SIL
 font-fahkwang	Fahkwang
 font-fairfax	Fairfax
-font-familjen-grotesk	現代的な外観の Sans serif 書体
+font-familjen-grotesk	現代的な外観の書体 Sans serif
 font-fandol	Fandol
 font-fantasque-sans-mono	Fantasque Sans Mono
 font-fantasque-sans-mono-nerd-font	開発者向けのグリフ数が多いフォント
@@ -554,8 +554,8 @@ font-fira-sans	Fira Sans
 font-fira-sans-condensed	Fira Sans Condensed
 font-fira-sans-extra-condensed	Fira Sans Extra Condensed
 font-firago	FiraGO
-font-firge	Fira Mono と Genshin Gothic をベースにしたプログラミングフォント
-font-firgenerd	Fira Mono と Genshin Gothic をベースにしたプログラミングフォント
+font-firge	Fira Mono と Genshin Gothicをベースにしたプログラミングフォント
+font-firgenerd	Fira Mono と Genshin Gothicをベースにしたプログラミングフォント
 font-fjalla-one	Fjalla One
 font-fjord-one	Fjord One
 font-flamenco	Flamenco
@@ -571,14 +571,14 @@ font-fontdiner-swanky	Fontdiner Swanky
 font-forum	Forum
 font-foundation-icons	Foundation Icons
 font-foundry-sterling	Foundry Sterling
-font-fragment-mono	Helvetica から影響を受けて等幅コーディングフォント
+font-fragment-mono	Helveticaから影響を受けて等幅コーディングフォント
 font-francois-one	Francois One
 font-frank-ruhl-libre	Frank Ruhl Libre
 font-fraunces	Variable font with four axes
 font-freckle-face	Freckle Face
 font-fredericka-the-great	Fredericka the Great
 font-fredoka	イスラエルに拠点を置くタイターデザインファウンドリ、ベン・ネイサンが率いる
-font-free-mono-tengwar	Unicode tengwar 等幅フォント
+font-free-mono-tengwar	Unicode tengwar等幅フォント
 font-freefont	FreeFont
 font-freehand	Freehand
 font-fresca	Fresca
@@ -691,8 +691,8 @@ font-habibi	Habibi
 font-hachi-maru-pop	Handwritten font
 font-hack	Hack
 font-hack-nerd-font	開発者向けのグリフ数が多いフォント
-font-hackgen	Hack と GenJyuu-Gothic を組み合わせた日本語プログラミングフォント
-font-hackgen-nerd	Hack と GenJyuu-Gothic を組み合わせた日本語プログラミングフォント
+font-hackgen	Hack と GenJyuu-Gothicを組み合わせた日本語プログラミングフォント
+font-hackgen-nerd	Hack と GenJyuu-Gothicを組み合わせた日本語プログラミングフォント
 font-hahmlet	あらゆる種類の植字、印刷、スクリーンに最適
 font-halant	Halant
 font-hammersmith-one	Hammersmith One
@@ -706,7 +706,7 @@ font-hanken-grotesk	アルフレッド・マルコ・プラディル率いる
 font-hannari	Hannari
 font-hanuman	Hanuman
 font-happy-monkey	Happy Monkey
-font-harano-aji	日本語フォント(Source Han fonts with Adobe-Japan1 (AJ1) CIDs)
+font-harano-aji	日本語フォント(Source Han fonts with Adobe-Japan1(AJ1)CIDs)
 font-harmattan	Harmattan
 font-hasklig	等幅合字を含むコードフォント
 font-hasklug-nerd-font	開発者向けのグリフ数が多いフォント
@@ -732,7 +732,7 @@ font-holtwood-one-sc	Holtwood One SC
 font-homemade-apple	Homemade Apple
 font-homenaje	Homenaje
 font-hubballi	カジュアルで親しみやすい外観の単線書体
-font-hubot-sans	Hubot Sans、GitHub の可変フォント
+font-hubot-sans	Hubot Sans、GitHubの可変フォント
 font-humor-sans	Humor Sans
 font-hurmit-nerd-font	開発者向けのグリフ数が多いフォント
 font-hurricane	Hurricane
@@ -741,7 +741,7 @@ font-ia-writer-duo	iA Writer Duo
 font-ia-writer-duospace	iA Writer Duospace
 font-ia-writer-mono	iA Writer Mono
 font-ia-writer-quattro	iA Writer Quattro
-font-iansui	Klee One から派生した中国語フォント
+font-iansui	Klee Oneから派生した中国語フォント
 font-ibarra-real-nova	Ibarra Real Nova
 font-ibm-plex	Corporate 書体 for IBM
 font-ibm-plex-mono	Corporate 書体 for IBM
@@ -868,7 +868,7 @@ font-jsmath-cmti10	jsMath cmti10
 font-jua	Jua
 font-judson	Judson
 font-julee	Julee
-font-juliamono	Julia でのプログラミング用に設計された等幅書体
+font-juliamono	Juliaでのプログラミング用に設計された等幅書体
 font-julius-sans-one	Julius Sans One
 font-junction	Junction
 font-junge	Junge
@@ -907,8 +907,8 @@ font-khand	Khand
 font-khmer	Khmer
 font-khula	Khula
 font-khyay	Khyay
-font-kimberella	kimberella に影響を受けた古代生物学スタイルのフォント
-font-kings	3セット font family に基づいています(kings honor, kings quest and kings dominion)
+font-kimberella	kimberellaに影響を受けた古代生物学スタイルのフォント
+font-kings	3セットfont familyに基づいています(kings honor, kings quest and kings dominion)
 font-kirang-haerang	Kirang Haerang
 font-kite-one	Kite One
 font-kiwi-maru	日常表現や俗語表現を視覚化するための書体
@@ -933,7 +933,7 @@ font-krub	Krub
 font-kufam	現代の情報デザインを目的としたアラビア語とラテン語のバイリンガル書体
 font-kulim-park	Kulim Park
 font-kumar-one	Kumar One
-font-kumbh-sans	幾何学模様のサンセリフ多目的フォント
+font-kumbh-sans	幾何学模様の多目的フォント sans-serif
 font-kurale	Kurale
 font-la-belle-aurore	La Belle Aurore
 font-labrada	Labrada
@@ -942,20 +942,20 @@ font-laila	Laila
 font-lakki-reddy	Lakki Reddy
 font-lalezar	Lalezar
 font-lancelot	Lancelot
-font-langar	カジュアルで遊び心のある文字形をベースにした 1ウェイトのラテン語/グルムキー表示フォント
+font-langar	カジュアルで遊び心のある文字形をベースにした1ウェイトのラテン語/グルムキー表示フォント
 font-langdon	Langdon
 font-lao-muang-don	Lao Muang Don
 font-lao-muang-khong	Lao Muang Khong
 font-lao-sans-pro	Lao Sans Pro
-font-last-resort	Unicode 文字の種類を表すグリフを提供する特別な目的のフォント
-font-last-resort-high-efficiency	Unicode 文字の種類を表すグリフを提供する特別な目的のフォント
+font-last-resort	Unicode文字の種類を表すグリフを提供する特別な目的のフォント
+font-last-resort-high-efficiency	Unicode文字の種類を表すグリフを提供する特別な目的のフォント
 font-lateef	Lateef
 font-latin-modern	Latin Modern
 font-latin-modern-math	Latin Modern Math
 font-lato	Lato
 font-lavishly-yours	Charming calligraphic script
 font-league-gothic	古典の復活, Alternate Gothic #1
-font-league-mono	Fira Mono、Libertinus Mono、Courier から影響を受けた等幅書体
+font-league-mono	Fira Mono、Libertinus Mono、Courierから影響を受けた等幅書体
 font-league-script	League Script
 font-league-spartan	ATF の古典的なスパルタンの幾何学的な sans-serifの再現
 font-leckerli-one	Leckerli One
@@ -965,7 +965,7 @@ font-lekton-nerd-font	開発者向けのグリフ数が多いフォント
 font-lemon	Lemon
 font-lemonada	Lemonada
 font-lemonada-vf-beta	Lemonada VF Beta
-font-lexend	font bureau によって 8つのウェイトの範囲で拡張されました
+font-lexend	font bureauによって8つのウェイトの範囲で拡張されました
 font-lexend-deca	Lexend Deca
 font-lexend-exa	Lexend Exa
 font-lexend-giga	Lexend Giga
@@ -976,7 +976,7 @@ font-lexend-zetta	Lexend Zetta
 font-liberation	Liberation
 font-liberation-mono-for-powerline	Literation Mono for Powerline
 font-liberation-nerd-font	開発者向けのグリフ数が多いフォント
-font-libertinus	19世紀の本の活字から影響を植えたプロポーショナル serif 書体
+font-libertinus	19世紀の本の活字から影響を植えたプロポーショナル書体 serif
 font-libre-barcode-128	Libre Barcode 128
 font-libre-barcode-128-text	Libre Barcode 128 Text
 font-libre-barcode-39	Libre Barcode 39
@@ -1021,8 +1021,8 @@ font-loved-by-the-king	Loved by the King
 font-lovers-quarrel	Lovers Quarrel
 font-luckiest-guy	Luckiest Guy
 font-luculent	Luculent
-font-lugrasimo	カリグラフィレタリングスタイル 書体
-font-lumanosimo	Expressive 書体
+font-lugrasimo	カリグラフィレタリングスタイル書体
+font-lumanosimo	Expressive書体
 font-lusitana	Lusitana
 font-lustria	Lustria
 font-luxurious-roman	一貫性のないセリフを含む半手書きフォント
@@ -1057,7 +1057,7 @@ font-manjari	Manjari
 font-manrope	Manrope
 font-mansalva	Mansalva
 font-manuale	Manuale
-font-maple	角が丸い Nerd Font
+font-maple	角が丸いNerd Font
 font-marcellus	Marcellus
 font-marcellus-sc	Marcellus SC
 font-marck-script	Marck Script
@@ -1068,7 +1068,7 @@ font-marko-one	Marko One
 font-marmelad	Marmelad
 font-martel	Martel
 font-martel-sans	Martel Sans
-font-martian-mono	Evil Martians の等幅フォント
+font-martian-mono	Evil Martiansの等幅フォント
 font-marvel	Marvel
 font-masinahikan	Masinahikan
 font-masinahikan-dene	Masinahikan Dene
@@ -1087,7 +1087,7 @@ font-meera-inimai	Meera Inimai
 font-megrim	Megrim
 font-meie-script	Meie Script
 font-meltho	Meltho Fonts
-font-mengshen-regular	同形異義語をサポートするオープンソースのピンイン フォント
+font-mengshen-regular	同形異義語をサポートするオープンソースのピンインフォント
 font-menlo-for-powerline	Menlo for Powerline
 font-meow-script	6つのスタイルセットに多数の代替形式を備えたモノラインフォント
 font-merge-one	Merge One
@@ -1097,13 +1097,13 @@ font-merriweather-sans	Merriweather Sans
 font-mervale-script	Mervale Script
 font-meslo-for-powerline	Meslo for Powerline
 font-meslo-lg	Meslo LG
-font-meslo-lg-dz	Meslo LG フォントのドットゼロのバリアント
+font-meslo-lg-dz	Meslo LGフォントのドットゼロのバリアント
 font-meslo-lg-nerd-font	開発者向けのグリフ数が多いフォント
 font-metal	Metal
 font-metal-mania	Metal Mania
 font-metamorphous	Metamorphous
 font-metrophobic	Metrophobic
-font-metropolis	モダンな幾何学的な書体
+font-metropolis	モダンで幾何学的な書体
 font-miama	Miama
 font-miao-unicode	MiaoUnicode
 font-michroma	Michroma
@@ -1119,7 +1119,7 @@ font-milonga	Milonga
 font-miltonian	Miltonian
 font-miltonian-tattoo	Miltonian Tattoo
 font-mina	Mina
-font-mingzat	jason glavy の jg lepcha カスタムエンコードフォントに基づく Unicodeフォント
+font-mingzat	jason glavy の jg lepchaカスタムエンコードフォントに基づく Unicodeフォント
 font-miniver	Miniver
 font-miriam-libre	Miriam Libre
 font-miriam-mono-clm	Miriam Mono CLM
@@ -1135,7 +1135,7 @@ font-mohave	Mohave
 font-moirai-one	Moirai One
 font-molengo	Molengo
 font-molle	Molle
-font-mona-sans	Mona Sans、GitHub の可変フォント
+font-mona-sans	Mona Sans、GitHubの可変フォント
 font-monda	Monda
 font-monocraft	Minecraftの書体からインスピレーションを得た等幅プログラミングフォント
 font-monocraft-nerd-font	Minecraftの書体からインスピレーションを得た等幅フォントにパッチを適用して Nerdグリフを追加
@@ -1176,7 +1176,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	ディスプレイとテキストのタイポグラフィーの両方のために設計された Minimalist sans serif 書体
+font-mulish	ディスプレイとテキストのタイポグラフィーの両方のために設計された書体 Minimalist sans serif
 font-murecho	9つの実用的なウェイトと可変フォントとして利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1187,7 +1187,7 @@ font-myrica	Programming font
 font-myricam	Programming font
 font-mystery-quest	Mystery Quest
 font-n-gage	N-Gage
-font-nabla	isometric computer games から影響を受けた得たカラーフォント、colrv1 形式で構築されてます
+font-nabla	isometric computer gamesから影響を受けた得たカラーフォント、colrv1形式で構築されてます
 font-nanum-brush-script	Nanum Brush Script
 font-nanum-gothic	Nanum Gothic
 font-nanum-gothic-coding	Nanum Gothic Coding
@@ -1196,8 +1196,8 @@ font-nanum-pen-script	Nanum Pen Script
 font-narnoor	Actively being revived
 font-national-park	National Park
 font-nats	NATS
-font-neonderthaw	ネオンをシミュレートする単一ウェイト スクリプト
-font-nerko-one	分厚い効果フォント ‘marker’
+font-neonderthaw	ネオンをシミュレートする単一ウェイトスクリプト
+font-nerko-one	分厚い効果フォント 'marker'
 font-neucha	Neucha
 font-neuton	Neuton
 font-new-rocker	New Rocker
@@ -1285,7 +1285,7 @@ font-noto-sans-hanifi-rohingya	Noto Sans Hanifi Rohingya
 font-noto-sans-hanunoo	Noto Sans Hanunoo
 font-noto-sans-hatran	Noto Sans Hatran
 font-noto-sans-hebrew	Noto Sans Hebrew
-font-noto-sans-hk	伝統的な中国語のハンの表意文字を使用した Sans-serif design
+font-noto-sans-hk	伝統的な中国語のハンの表意文字を使用したデザイン Sans-serif
 font-noto-sans-imperial-aramaic	Noto Sans Imperial Aramaic
 font-noto-sans-indic-siyaq-numbers	Noto Sans Indic Siyaq Numbers
 font-noto-sans-inscriptional-pahlavi	Noto Sans Inscriptional Pahlavi
@@ -1365,7 +1365,7 @@ font-noto-sans-rejang	Noto Sans Rejang
 font-noto-sans-runic	Noto Sans Runic
 font-noto-sans-samaritan	Noto Sans Samaritan
 font-noto-sans-saurashtra	Noto Sans Saurashtra
-font-noto-sans-sc	簡体字中国語の表意文字の Sans-serif design
+font-noto-sans-sc	簡体字中国語の表意文字デザイン Sans-serif
 font-noto-sans-sharada	Noto Sans Sharada
 font-noto-sans-shavian	Noto Sans Shavian
 font-noto-sans-siddham	Noto Sans Siddham
@@ -1617,7 +1617,7 @@ font-radio-canada	Radio Canada
 font-radley	Radley
 font-rajdhani	Rajdhani
 font-rakkas	Rakkas
-font-raleway	エレガントな sans-serif font family、9ウェイトと斜体スタイルになりました
+font-raleway	エレガントな9ウェイトと斜体スタイルになりました sans-serif font family
 font-raleway-dots	Raleway Dots
 font-ramabhadra	Ramabhadra
 font-ramaraja	Ramaraja
@@ -1680,7 +1680,7 @@ font-rowdies	Rowdies
 font-rozha-one	Rozha One
 font-rubik	Rubik
 font-rubik-80s-fade	Rubik 80s Fade
-font-rubik-beastly	Hubert と Fischer、Meir Sadan、Cyreal による Googleフォントの Rubikに基づいています
+font-rubik-beastly	Hubert と Fischer、Meir Sadan、Cyrealによる Googleフォントの Rubikに基づいています
 font-rubik-bubbles	Rubik Bubbles
 font-rubik-burned	Rubik Burned
 font-rubik-dirt	Rubik Dirt
@@ -1727,7 +1727,7 @@ font-sansita-one	Sansita One
 font-sansita-swashed	Beautiful display font in vintage form
 font-sarabun	Sarabun
 font-sarala	Sarala
-font-sarasa-gothic	Iosevka と Source Han Sans に基づく CJKプログラミングフォント
+font-sarasa-gothic	Iosevka と Source Han Sansに基づく CJKプログラミングフォント
 font-sarina	Sarina
 font-sarpanch	Sarpanch
 font-sassy-frass	Sassy Frass
@@ -1756,7 +1756,7 @@ font-seoul-namsan-condensed	Seoul Namsan Condensed
 font-seoul-namsan-vertical	Seoul Namsan Vertical
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
-font-sf-mono-for-powerline	Powerlineサポート用に Nerd Fontsパッチャーを適用した Apple の SF Monoフォント
+font-sf-mono-for-powerline	Powerlineサポート用に Nerd Fontsパッチャーを適用したAppleのSF Monoフォント
 font-shadows-into-light	Shadows Into Light
 font-shadows-into-light-two	Shadows Into Light Two
 font-shalimar	平らなペン先のペンのカリグラフィーのストロークからインスピレーションを得た直立したスクリプト
@@ -1777,7 +1777,7 @@ font-shure-tech-mono-nerd-font	開発者向けのグリフ数が多いフォン�
 font-siemreap	Siemreap
 font-sigmar	Sigmar
 font-sigmar-one	Sigmar One
-font-signika	優しい文字の Sans-serif signage 書体
+font-signika	優しい文字の書体 Sans-serif signage
 font-signika-negative	Signika Negative
 font-signika-negative-sc	Signika SC フォントの代替バージョン
 font-signika-sc	Signika フォントのスモールキャップ バージョン
@@ -1942,7 +1942,7 @@ font-trocchi	Trocchi
 font-trochut	Trochut
 font-truculenta	パッケージ、ブランディング、本の表紙、イラスト版、映画のタイトル用
 font-trykker	Trykker
-font-tsukimi-rounded	丸みを帯びた端子を持つサンセリフ書体
+font-tsukimi-rounded	丸みを帯びた端子を持つ書体 Sans-serif
 font-tt2020	高度なオープンソース、超現実的な多言語タイプライターフォント
 font-tuffy	Tuffy
 font-tulpen-one	Tulpen One
@@ -1951,15 +1951,15 @@ font-twilio-sans-mono	プログラミングフォント
 font-twinkle-star	可愛くて楽しい少年向けスクリプト
 font-twitter-color-emoji	Twitter Unicode絵文字カラー OpenType-SVGフォント
 font-typographer-woodcut-initials-one	タイポグラファーの木版画のイニシャル One
-font-ubuntu	明確にするために手動でヒントを追加した Sans-serif 書体
+font-ubuntu	明確にするために手動でヒントを追加した書体 Sans-serif
 font-ubuntu-condensed	Ubuntu Condensed
 font-ubuntu-mono	Ubuntu Mono
 font-ubuntu-mono-derivative-powerline	Ubuntu Mono 派生 Powerline
 font-ubuntu-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-ubuntu-nerd-font	開発者向けのグリフ数が多いフォント
 font-uchen	Uchen
-font-udev-gothic	BIZ UD Gothic と JetBrains Mono のフォントを統合
-font-udev-gothic-nf	BIZ UD Gothic と JetBrains Mono のフォントを統合
+font-udev-gothic	BIZ UD Gothic と JetBrains Monoのフォントを統合
+font-udev-gothic-nf	BIZ UD Gothic と JetBrains Monoのフォントを統合
 font-ultra	Ultra
 font-unbounded	おそらく世界初のオンチェーンで資金提供されたフォント
 font-uncial-antiqua	Uncial Antiqua
@@ -2011,7 +2011,7 @@ font-windsong	複数の文体セットを含む長いスクリプト
 font-wire-one	Wire One
 font-wix-madefor-display	Wix Madefor Display
 font-work-sans	Work Sans
-font-xanh-mono	Mono-serif 書体、lam bao、duy dao によってデザインされました
+font-xanh-mono	Mono-serif 書体、lam bao、duy daoによってデザインされました
 font-xits	XITS
 font-xkcd	xkcd
 font-xkcd-script	xkcd-script
@@ -2039,7 +2039,7 @@ font-zcool-qingke-huangyou	ZCOOL QingKe HuangYou
 font-zcool-xiaowei	ZCOOL XiaoWei
 font-zen-antique	Zen Antique
 font-zen-antique-soft	Zen Antique Soft
-font-zen-dots	Zen フォントコレクションの一部である 3つのラテン語フォントのうちの 1 つ
+font-zen-dots	Zen フォントコレクションの一部である 3つのラテン語フォントのうちの1つ
 font-zen-kaku-gothic-antique	クラシカルだけどシンプルでスタイリッシュなバージョン
 font-zen-kaku-gothic-new	クラシカルだけどシンプルでスタイリッシュなバージョン
 font-zen-kurenaido	手書き感のある日本語フォント
