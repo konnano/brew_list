@@ -292,7 +292,7 @@ autoconf	自動構成スクリプトビルダー
 autoconf-archive	500以上の再利用可能なautoconfマクロのコレクション
 autoconf@2.13	自動構成スクリプトビルダー
 autoconf@2.69	自動構成スクリプトビルダー
-autocorrect	コピーライティングを改善するためのリンターとフォーマッター 正しいスペース CJK間の単語
+autocorrect	コピーライティングを改善するための解析ツールと初期化ツール 正しいスペース CJK間の単語
 autodiff	自動微分がC++で容易になりました
 autoenv	プロジェクトごと、ディレクトリごとのシェル環境
 autogen	自動テキストファイル発生器
@@ -2741,7 +2741,7 @@ joern	コードプロパティグラフに基づくオープンソースコー�
 john	特徴的なUNIXパスワードクラッカー
 john-jumbo	UNIXパスワードクラッカーであるjohnの拡張バージョン
 johnnydep	Pythonディストリビューションの依存関係ツリーを表示する
-joker	小さなクロージャーインタープリター リンター/フォーマッター
+joker	小さなクロージャーインタープリター 解析ツール/初期化ツール
 jolie	サービス指向プログラミング言語
 jooby-bootstrap	joobyアプリの作成を簡素化するスクリプト
 joplin-cli	同期機能を備えたメモ取りとToDoアプリケーション
@@ -3616,6 +3616,7 @@ lpeg	LuaJITの式文法の解析
 lrdf	LADSPAプラグインシステムのpluginメタデータにアクセスするためのRDFライブラリ
 lrzip	非常に高い圧縮率の圧縮プログラム
 lrzsz	ファイル書き出し用のツール zmodem/xmodem/ymodem
+ls-lint	非常に高速なファイルとディレクトリの解析ツール
 lsd	カラフルな出力、ファイルタイプアイコンなどを備えたlsのクローン
 lsdvd	DVDのコンテンツ情報を読む
 lsix	sixelグラフィックを使用してターミナルにサムネイルを表示します
@@ -4673,7 +4674,7 @@ pinentry-mac	MacでのGPGのPinentry
 pinfo	情報ドキュメント用のユーザーに親しいコンソールベースのViewer
 pinocchio	リジッドボディダイナミクスアルゴリズムを実装する効率的で高速なC++ライブラリ
 pinot	リアルタイム分散OLAPデータstore
-pint	Prometheus ルール リンター/バリデーター
+pint	Prometheus ルール 解析ツール/検証ツール
 pioneer	孤独な宇宙冒険のゲーム
 pioneers	Catanの移植クローン
 pip-audit	既知の脆弱性についてPython環境と依存関係ツリーを監査します
@@ -4835,7 +4836,7 @@ protoc-gen-go-grpc	gRPC-Goクライアントのコードを生成するProtocプ
 protoc-gen-gogo	Buffer手続き Go with Gadgets
 protoc-gen-gogofaster	Buffer手続き Go with Gadgets
 protoc-gen-grpc-web	gRPC-Webクライアントのコードを生成するProtocプラグイン
-protolint	Protocol Bufferのスタイルと規則を適用するためのプラグイン可能なリンターとフィクサー
+protolint	Protocol Bufferのスタイルと規則を適用するためのプラグイン可能な解析ツールとフィクサー
 prototool	Buffer手続きの万能ナイフ
 prover9	一次および等式論理の自動定理証明
 prowler	クラウドセキュリティのベストプラクティスを実行するためのオープンソースセキュリティツール
@@ -5221,7 +5222,7 @@ ruby@2.7	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@3.0	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@3.1	オブジェクト指向のスクリプト言語 強力/クリーン
 rubyfmt	Rubyオート整形ツール
-ruff	Rustで書かれた非常に高速なPythonリンター
+ruff	Rustで書かれた非常に高速なPython解析ツール
 run	小さなスクリプトとラッパーを簡単に管理および呼び出す
 runcocoa	コマンドラインから実行するためのツール Cocoa/Objective-C/C
 rune	Rustに埋め込み可能な動的プログラミング言語
@@ -5481,6 +5482,7 @@ sloc	コードのソース行をカウントするためのシンプルなツー
 sloccount	多くの言語でコードの行を数える
 slowhttptest	アプリケーション層のサービス拒否攻撃をシミュレートします
 slrn	強力なコンソールベースのニュースリーダー
+slsa-verifier	SLSA準拠のビルダーの出所を確認する
 slugify	ファイル名とディレクトリをWeb対応の形式に変換します
 slurm	さらに別のネットワーク負荷モニター
 smake	自動作成機能を備えたポータブル作成プログラム
@@ -5497,7 +5499,7 @@ smu	マークダウンのような構文を持つ単純なマークアップ
 smug	tmuxワークフローを自動化する
 sn0int	半自動OSINTフレームワークとパッケージマネージャー
 snag	すべてのニーズに対応する自動ビルドツール
-snakefmt	Snakemakeコードフォーマッター
+snakefmt	Snakemakeコード初期化ツール
 snakemake	Pythonicワークフローシステム
 snap	.snapファイルを操作するためのツール
 snap7	Siemens S7PLCとネイティブに連携するイーサネット通信パッケージ
@@ -5532,7 +5534,7 @@ solana	分散型アプリとマーケットプレイス向けのWebスケール�
 solargraph	Ruby言語サーバー
 solarus	アクションRPGゲームエンジン
 solc-select	複数の Solidityコンパイラバージョンを管理する
-solhint	Solidityコードのリンター
+solhint	Solidityコード解析ツール
 solid	3D空間の幾何学的オブジェクトの衝突検出ライブラリ
 solidity	契約指向プログラミング言語
 sollya	安全な浮動小数点コード開発のためのライブラリ
@@ -5576,7 +5578,7 @@ spdlog	高速C++ロギングライブラリ
 spdx-sbom-generator	golangツールを介したSBOMのCI生成をサポートします
 spdylay	SPDY手続きバージョン2、3、および3.1の実験的実装
 spectra	大規模な固有値問題のためのヘッダーのみのC++ライブラリ
-spectral-cli	JSON/YAMLリンターとサポート OpenAPI v3.1/v3.0/v2.0/AsyncAPI v2.x
+spectral-cli	JSON/YAML解析ツールとサポート OpenAPI v3.1/v3.0/v2.0/AsyncAPI v2.x
 speech-tools	エディンバラ大学のC++音声ソフトウェアライブラリ
 speedbump	変動するが予測可能なネットワーク遅延をシミュレートするためのTCPプロキシ
 speedread	シンプルな端末ベースの高速連続ビジュアル提示(RSVP)リーダー
@@ -5669,7 +5671,7 @@ sstp-client	SSTP(PPP over SSLのMicrosoftリモートアクセスソリューシ
 st	コマンドラインからの統計
 stackql	CRUDを完全にサポートする任意のリソース用のSQLインターフェース
 stanc3	Stan変換器
-standard	JavaScriptスタイルガイド リンターと自動コード修正機能付き
+standard	JavaScriptスタイルガイド 解析ツールと自動コード修正機能付き
 standardese	C++の次世代ドキュメント発生器
 stanford-corenlp	コアNLPツールのJavaパッケージ
 stanford-ner	スタンフォードNLPグループによる固有表現抽出の実装
@@ -5719,7 +5721,7 @@ stuffbin	静的ファイルとアセットを圧縮してGoバイナリに埋め
 stunnel	SSLトンネリングプログラム
 stuntman	STUN手続きの実装
 style-check	禁止されているフレーズを検索するためにラテックス形式のテキストを解析します
-stylelint	最新のCSSリンター
+stylelint	最新のCSS解析ツール
 stylish-haskell	Haskellコードの整形
 stylua	意見のあるLuaコード整形ツール
 sub2srt	字幕を.subからsubviewer.srt形式に変換します
@@ -5742,7 +5744,7 @@ svg2png	SVGからPNGへの変換器
 svgbob	アスキーダイアグラムの落書きを幸せな小さなSVGに変換します
 svgcleaner	不要なデータを削除してSVGファイルをクリーンアップします
 svgo	SVGベクターグラフィックファイルを最適化するためのNodejsベースのツール
-svlint	SystemVerilogリンター
+svlint	SystemVerilog解析ツール
 svls	SystemVerilog言語サーバー
 svt-av1	AV1エンコーダー
 svtplay-dl	https://www.svtplay.se/からビデオをダウンロードします
@@ -6654,7 +6656,7 @@ zita-convolver	高速なパーティション畳み込みエンジンライブ�
 zk	プレーンテキストのメモ取りアシスタント
 zlib	汎用で損失の無いデータ圧縮ライブラリ
 zlib-ng	次世代システム向けの最適化によるZlibの置き換え
-zlint	Web PKIの標準と要件に焦点を当てた X.509証明書リンター
+zlint	Web PKIの標準と要件に焦点を当てた X.509証明書解析ツール
 zlog	高性能Cロギングライブラリ
 zls	Zigの言語サーバー
 zmap	インターネット全体のネットワーク研究のためのネットワークスキャナー
