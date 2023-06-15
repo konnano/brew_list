@@ -757,6 +757,7 @@ chalk-cli	ターミナルストリングのスタイリングは正しく行わ�
 chamber	AWS SSMパラメータstoreを介して機密管理するためのCLI
 chapel	大規模な生産的並列コンピューティングのためのプログラミング言語
 charge	意見のある、ゼロ構成の静的サイト発生器
+charls	C++JPEG-LSライブラリの実装
 charm	Juju Charmsを管理するためのツール
 charm-tools	Juju Charmsを作成および維持するためのツール
 charmcraft	Charmsを作成してCharmhubに公開するためのツール
@@ -946,6 +947,7 @@ composer	PHPの依存関係マネージャー
 conan	C/C++の分散型オープンソースパッケージマネージャー
 conan@1	C/C++用の分散型オープンソースパッケージマネージャー
 concurrencykit	並行システムの設計と実装を支援する
+conda-lock	conda環境用の軽量ロックファイル
 conda-zsh-completion	condaのZsh補完
 conduit	データストア間でデータをストリーミングします Kafka Connectの置き換え JVM不要
 condure	接続マネージャー HTTP/WebSocket
@@ -2298,6 +2300,7 @@ grsync	rsyncのGUI
 grt	リアルタイムの機械学習のためのジェスチャ認識ツールキット
 grunt-cli	JavaScriptタスクランナー
 grunt-completion	GruntのBashとZshの補完
+grype	コンテナイメージとファイルシステムの脆弱性スキャナー
 gsar	ファイルの一般的な検索と置換
 gsasl	SASLライブラリのコマンドラインインターフェイス
 gsettings-desktop-schemas	デスクトップコンポーネントのGSettingsスキーマ
@@ -3995,7 +3998,6 @@ mprocs	複数のコマンドを並行して実行する
 mps-youtube	ターミナルベースのYouTubeプレーヤーとダウンローダー
 mpssh	Mass並列ssh
 mpv	MPlayerとmplayer2に基づくメディアプレーヤー
-mpw	Stateless/deterministic パスワードおよびIDマネージャー
 mqttui	MQTT トピックにサブスクライブするかターミナルからすばやく何かを公開します
 mr	複数リポジトリ管理ツール
 mrbayes	系統発生と進化モデルのベイズ推定
