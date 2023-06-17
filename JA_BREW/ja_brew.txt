@@ -2776,6 +2776,7 @@ jshon	シェルからJSONを 解析/読み取り/作成 します
 jsign	Windows実行可能ファイルに署名するためのツール インストーラー/スクリプト
 jslint4java	JavaScript Lint(jsl)のJavaラッパー
 jsmin	JavaScriptコードを縮小する
+jsmn	世界最速の JSON パーサー/トークナイザー
 json-c	CのJSONパーサー
 json-fortran	Fortran 2008 JSON API
 json-glib	GLibに基づくJSONのライブラリ
@@ -2794,6 +2795,7 @@ jsonschema	PythonのJSONスキーマの実装
 jsonschema2pojo	JSONスキーマ(またはJSONの例え)からJavaタイプを生成します
 jsvc	Javaアプリケーションをデーモンとして起動するラッパー
 jthread	スレッドを簡単に利用できるC++クラス
+judy	スパース動的配列を実装する最先端の Cライブラリ
 juicefs	RedisとS3上に構築されたクラウドベースの分散POSIXファイルシステム
 juise	JUNOSユーザーインターフェイススクリプト環境
 juju	DevOps管理ツール
