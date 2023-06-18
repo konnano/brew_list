@@ -1642,7 +1642,8 @@ my $re = shift;
   if( $re->{'DDD'} ){
    print STDERR " [ $re->{'INF'} ] and deps delete [y/n]:";
     exit if getc ne 'y';
-   system "brew uninstall $re->{'INF'} @DEL";
+   system "brew uninstall $re->{'INF'}";
+   system "brew uninstall $_" for @DEL;
   }
  }
 }
