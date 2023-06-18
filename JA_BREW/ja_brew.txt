@@ -3298,7 +3298,7 @@ libofx	OFXコマンド応答をサポートするライブラリ
 libogg	Oggビットストリームライブラリ
 liboil	さまざまなCPU用に最適化された単純な関数のCライブラリ
 libolm	Double Ratchet暗号化ratchetの実装
-libomemo-c	Signalのラチェットフォワードシークレットプロトコルの実装
+libomemo-c	Signalのラチェットフォワード機密プロトコルの実装
 libomp	LLVMのOpenMPランタイムライブラリ
 libopenmpt	tracked音楽ファイルをデコードするためのソフトウェアライブラリ
 libopennet	open_net()を提供します(open()と同様)
@@ -5427,6 +5427,7 @@ shpotify	MacでのSpotifyのコマンドラインインターフェイス
 shtool	GNUのポータブルシェルツール
 shtools	球面調和関数ツール
 shunit2	Bourneベースのシェルスクリプトの単体テストフレームワーク
+shush	AWS Key Management Serviceを使用して機密を暗号化および復号化する
 shyaml	コマンドラインYAMLパーサー
 sic	最低限の多重化IRCクライアント
 sickle	品質を使用したFASTQファイルのウィンドウ化された適応トリミング
@@ -6072,7 +6073,7 @@ truffle	開発環境 イーサリアムのテストフレームワークとア�
 truncate	ファイルを指定されたサイズに切り捨てます
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
 trurl	URLの解析と操作のためのコマンドラインツール
-trust-dns	RustベースのDNSクライアント　サーバー/ゾルバー
+trust-dns	RustベースのDNSクライアント サーバー/ゾルバー
 trzsz	lrzsz (rz/sz)に似たシンプルなファイル転送ツール tmuxと互換性があります
 trzsz-go	シンプルなファイル転送ツール lrzsz(rz/sz)に似ています tmuxと互換性があります
 tsduck	MPEG転送ストリームツールキット
