@@ -167,21 +167,21 @@ perl<<"EOF"
 
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n";
    while( $an1=<$dir1> ){
-    next if $an1 =~ /\s--HEAD|\s--with/;
+    next if $an1 =~ /\s*--HEAD|\s*--with/;
      $HA1{$an1} = ++$i1,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN1{$AN1} = $an1,$AN1 = 0 if $AN1 and $an1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/cna2.html" or die " cna2 $!\n";
    while( $an2=<$dir2> ){
-    next if $an2 =~ /\s--HEAD|\s--with/;
+    next if $an2 =~ /\s*--HEAD|\s*--with/;
      $HA2{$an2} = ++$i2,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN2{$AN2} = $an2,$AN2 = 0 if $AN2 and $an2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/cna3.html" or die " cna3 $!\n";
    while( $an3=<$dir3> ){
-    next if $an3 =~ /\s--HEAD|\s--with/;
+    next if $an3 =~ /\s*--HEAD|\s*--with/;
      $HA3{$an3} = ++$i3,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
@@ -282,63 +282,63 @@ perl<<"EOF"
 
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/ana1.html" or die " ana1 $!\n";
    while( $an1=<$dir1> ){
-    next if $an1 =~ /\s--HEAD|\s--with/;
+    next if $an1 =~ /\s*--HEAD|\s*--with/;
      $HA1{$an1} = ++$i1,$AN1 = $an1 if $an1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN1{$AN1} = $an1,$AN1 = 0 if $AN1 and $an1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir1;
   open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/ana2.html" or die " ana2 $!\n";
    while( $an2=<$dir2> ){
-    next if $an2 =~ /\s--HEAD|\s--with/;
+    next if $an2 =~ /\s*--HEAD|\s*--with/;
      $HA2{$an2} = ++$i2,$AN2 = $an2 if $an2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN2{$AN2} = $an2,$AN2 = 0 if $AN2 and $an2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir2;
   open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/ana3.html" or die " ana3 $!\n";
    while( $an3=<$dir3> ){
-    next if $an3 =~ /\s--HEAD|\s--with/;
+    next if $an3 =~ /\s*--HEAD|\s*--with/;
      $HA3{$an3} = ++$i3,$AN3 = $an3 if $an3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $IN3{$AN3} = $an3,$AN3 = 0 if $AN3 and $an3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir3;
   open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/req1.html" or die " req1 $!\n";
    while( $re1=<$dir4> ){
-    next if $re1 =~ /\s--HEAD|\s--with/;
+    next if $re1 =~ /\s*--HEAD|\s*--with/;
      $HA4{$re1} = ++$i4,$RE1 = $re1 if $re1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $EQ1{$RE1} = $re1,$RE1 = 0 if $RE1 and $re1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir4;
   open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/req2.html" or die " req2 $!\n";
    while( $re2=<$dir5> ){
-    next if $re2 =~ /\s--HEAD|\s--with/;
+    next if $re2 =~ /\s+--HEAD|\s*--with/;
      $HA5{$re2} = ++$i5,$RE2 = $re2 if $re2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $EQ2{$RE2} = $re2,$RE2 = 0 if $RE2 and $re2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir5;
   open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/req3.html" or die " req3 $!\n";
    while( $re3=<$dir6> ){
-    next if $re3 =~ /\s--HEAD|\s--with/;
+    next if $re3 =~ /\s*--HEAD|\s*--with/;
      $HA6{$re3} = ++$i6,$RE3 = $re3 if $re3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $EQ3{$RE3} = $re3,$RE3 = 0 if $RE3 and $re3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir6;
   open $dir7,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " err1 $!\n";
    while( $en1=<$dir7> ){
-    next if $en1 =~ /\s--HEAD|\s--with/;
+    next if $en1 =~ /\s*--HEAD|\s*--with/;
      $HA7{$en1} = ++$i7,$EN1 = $en1 if $en1 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $ER1{$EN1} = $en1,$EN1 = 0 if $EN1 and $en1 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir7;
   open $dir8,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " err2 $!\n";
    while( $en2=<$dir8> ){
-    next if $en2 =~ /\s--HEAD|\s--with/;
+    next if $en2 =~ /\s*--HEAD|\s*--with/;
      $HA8{$en2} = ++$i8,$EN2 = $en2 if $en2 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $ER2{$EN2} = $en2,$EN2 = 0 if $EN2 and $en2 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
   close $dir8;
   open $dir9,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " err3 $!\n";
    while( $en3=<$dir9> ){
-    next if $en3 =~ /\s--HEAD|\s--with/;
+    next if $en3 =~ /\s*--HEAD|\s*--with/;
      $HA9{$en3} = ++$i9,$EN3 = $en3 if $en3 =~ s|^\s*<td><a[^>]+><code>(.+)</code></a></td>\n|$1|;
       $ER3{$EN3} = $en3,$EN3 = 0 if $EN3 and $en3 =~ s|^\s*<td[^>]+>(.+)</td>\n|$1|;
    }
