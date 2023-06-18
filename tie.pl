@@ -153,9 +153,9 @@ unless( $ARGV[0] ){
              $data =~ /^\s*on_arm\s+do/ and $UNAME eq 'x86_64' ){ $SPA = $IN = 1; next;
      }elsif( my( $ha1,$ha2 ) = $data =~ /^\s*on_([^\s]+)\s+:or_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $re->{'LIN'} or eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version"; next;
-     }elsif( my( $ha3,$ha4 ) = $data =~ /^\s+on_system\s+:linux,\s+macos:\s+:(.+)_or_([^\s]+)\s+do/ ){
+     }elsif( my( $ha3,$ha4 ) = $data =~ /^\s*on_system\s+:linux,\s+macos:\s+:(.+)_or_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $re->{'MAC'} and eval "$MAC_OS{$ha3} $HAN{$ha4} $OS_Version"; next;
-     }elsif( my( $ha5 ) = $data =~ /^\s+on_([^\s]+)\s+do/ ){
+     }elsif( my( $ha5 ) = $data =~ /^\s*on_([^\s]+)\s+do/ ){
          $SPA = $IN = 1 if $MAC_OS{$ha5} and $MAC_OS{$ha5} ne $OS_Version; next;
      }
 
