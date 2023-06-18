@@ -1931,6 +1931,7 @@ gettext	GNU国際化(i18n)およびローカリゼーション(l10n)ライブラ
 getxbook	さまざまなソースから電子書籍をダウンロードするためのツール
 gexiv2	Exiv2写真メタデータライブラリのGObjectラッパー
 gf	Golangのアプリ開発フレームワーク
+gffread	GFF/GTF形式変換、領域フィルタリング、FASTA配列抽出
 gflags	command-lineフラグを処理するためのライブラリ
 gfold	Rustで書かれたGitリポジトリを追跡するのに役立ちます
 gforth	ANS Forth言語の実装
@@ -2445,6 +2446,7 @@ hiredis	Redisの最低限のクライアント
 historian	SQLiteデータベースのシェル履歴を管理するためのコマンドラインユーティリティ
 hive	Hadoopベースのデータの要約 クエリ/分析
 hivemind	Procfileベースのアプリケーションのプロセスマネージャー
+hivex	Windowsレジストリハイブファイルの内容を抽出するためのライブラリとツール
 hledger	コマンドラインによる簡単なプレーンテキストアカウンティング ターミナル/WebUI
 hlint	Haskellのソースコードの提案
 hmmer	プロファイルHMMを構築しデータベース順序に対してスキャンします
@@ -4442,6 +4444,7 @@ oras	記憶装置としてのOCIレジストリ
 orbit	CORBA 2.4準拠のオブジェクトリクエストブローカー(ORB)
 orc	Oil Runtimeコンパイラ(ORC)
 orc-tools	ORC javaコマンドラインツールとユーティリティ
+ord	インデックスブロックエクスプローラー、コマンドラインウォレット
 orgalorg	並列SSHコマンド実行ツールとファイル同期ツール
 organize-tool	ファイル管理自動化ツール
 orientdb	グラフデータベース
