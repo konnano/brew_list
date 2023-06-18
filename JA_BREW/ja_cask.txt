@@ -1067,6 +1067,7 @@ epubmdimporter	EPUBスポットライト
 epubquicklook	QuickLook生成器とSpotlightインポーター
 eqmac	システム全体のオーディオイコライザー
 equinox	ダイナミックな壁紙を作成する
+eset-cyber-security	ESETサイバーセキュリティ
 eset-cyber-security-pro	パーソナルファイアウォールやペアレンタルコントロールなどのセキュリティ
 espanso	Rustで書かれたクロスプラットフォームのテキストエキスパンダー
 espresso	才能と効率に焦点を当てたWebサイトエディター
