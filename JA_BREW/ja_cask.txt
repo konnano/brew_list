@@ -676,6 +676,7 @@ comictagger	デジタルコミックのメタデータエディター
 comma-chameleon	Comma Chameleon
 command-pad	コマンドラインツールを開始および停止し出力を監視します
 command-tab-plus	キーボード中心のアプリケーションとウィンドウ切り替え
+command-x	Finderでファイルを切り取って貼り付ける
 commander-one	2パネルのファイルマネージャー
 commandq	誤ってアプリを終了することはありません
 composercat	Composer(PHP)のグラフィカルインターフェイス
@@ -2179,7 +2180,6 @@ micro-snitch	マイクとカメラのアクティビティを監視および報�
 microblog	マイクロブログとソーシャルネットワーキングサービス
 microsoft-auto-update	さまざまなMicrosoft製品の更新を提供します
 microsoft-azure-storage-explorer	AzureStorageのエクスプローラー
-microsoft-defender	ウイルス対策ソフト
 microsoft-edge	Webブラウザー
 microsoft-excel	表計算ソフトウェア
 microsoft-office	オフィスパッケージ
