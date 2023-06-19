@@ -6119,6 +6119,7 @@ typescript	アプリケーション規模のJavaScript開発用言語
 typescript-language-server	TypeScriptラッピングtsserverの言語サーバープロトコル実装
 typespeed	正しく入力して画面上を飛んでいる単語をZapする
 typewritten	最小限のzshプロンプト
+typical	代数データ型によるデータ交換
 typos-cli	ソースコードスペルチェッカー
 typst	マークアップベースの組版システム
 tz	CLIタイムゾーンvisualizer
