@@ -394,7 +394,6 @@ bastet	ろくでなしテトリス
 bat	構文の強調表示とGit統合を備えたcat(1)のクローン
 bat-extras	batをさまざまなコマンドラインツールと統合するBashスクリプト
 batik	SVG画像のJavaベースのツールキット
-bats	BashスクリプトのTAP準拠のテストフレームワーク
 bats-core	Bash自動テストシステム
 bazaar	親しく強力な分散バージョン管理システム
 bazarr	字幕を管理およびダウンロードするための Sonarrおよび Radarrのコンパニオン
@@ -646,6 +645,7 @@ cargo-crev	cargoパッケージ マネージャーのコードレビューシス
 cargo-deny	依存関係をリンティングするCargoプラグイン
 cargo-depgraph	cargoプロジェクトの依存関係グラフを作成します
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
+cargo-generate	既存のgitリポジトリをテンプレートとして使用する
 cargo-instruments	Rustの機器トレースを簡単に生成
 cargo-llvm-lines	包括的な関数ごとにLLVM IRの行をカウントします
 cargo-make	Rustタスクランナーとビルドツール
@@ -1927,6 +1927,7 @@ get-flash-videos	さまざまなFlashベースのWebサイトからビデオを�
 get_iplayer	BBC iPlayerからテレビやラジオ番組をダウンロードするためのユーティリティ
 getdns	最新の非同期DNS API
 getmail	POP3/IMAP4/SSL をサポートする拡張可能なメール検索システム
+getmail6	POP3/IMAP4/SSL をサポートする拡張可能なメール検索システム
 gettext	GNU国際化(i18n)およびローカリゼーション(l10n)ライブラリ
 getxbook	さまざまなソースから電子書籍をダウンロードするためのツール
 gexiv2	Exiv2写真メタデータライブラリのGObjectラッパー
@@ -3864,6 +3865,7 @@ minica	小さくてシンプルな認証局
 minicom	メニュー方式のコミュニケーションプログラム
 minidjvu	DjVuマルチページエンコーダー シングルページ エンコーダー/デコーダー
 minidlna	クライアントに準拠したメディアサーバーソフトウェア DLNA/UPnP-AV
+minigraph	概念実証のseq-to-graphマッパーおよびグラフ生成機
 minikube	Kubernetesクラスターをローカルで実行する
 minimal-racket	最新のプログラミング言語 Lisp/Scheme family
 minimap2	ゲノムおよびスプライシングされたヌクレオチド配列のための多用途のペアワイズアライナー
