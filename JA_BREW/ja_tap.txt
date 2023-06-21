@@ -1031,6 +1031,7 @@ font-luxurious-script	豪華なスクリプト
 font-lxgw-bright	Ysabeau OfficeとLXGW WenKaiのフォントを統合
 font-lxgw-bright-gb	Ysabeau Officeと LXGW WenKai GBのフォントを統合
 font-lxgw-bright-tc	Ysabeau Officeと LXGW WenKai TCのフォントを統合
+font-lxgw-neoxihei	IPAex Gothic から派生した中国語のsans-serif font
 font-lxgw-wenkai	FontworksのKlee Oneから派生したオープンソースの中国語フォント
 font-lxgw-wenkai-lite	FontworksのKlee Oneから派生したオープンソースの中国語フォント
 font-lxgw-wenkai-tc	FontworksのKlee Oneから派生したオープンソースの繁体字中国語フォント
@@ -2141,6 +2142,7 @@ google-chrome-canary	Webブラウザー
 google-chrome-dev	Webブラウザー
 google-japanese-ime-dev	Google日本語入力方式エディター
 gpg-suite-nightly	メールやファイルを保護するためのツール
+graalvm-jdk17	OracleからGraalVM
 hamsket-nightly	Freeのオープンソースメッセージングおよび電子メールアプリ
 hancom-word-2014	ワードプロセッサ
 hyper-canary	Webテクノロジーに基づいて構築されたターミナル
@@ -2199,6 +2201,7 @@ openshot-video-editor-daily	クロスプラットフォームのビデオエデ�
 opera-beta	Webブラウザー
 opera-crypto-developer	Web3ブラウザ
 opera-developer	Webブラウザー
+oracle-jdk17	OracleからJDK
 papers3	あなたの個人的な研究ライブラリ
 parallels12	デスクトップ仮想化ソフトウェア
 parallels13	デスクトップ仮想化ソフトウェア
