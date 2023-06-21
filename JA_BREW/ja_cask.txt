@@ -1246,6 +1246,7 @@ fractal-bot	Fractal Audio Systems製品との間でデータを送受信する
 framer	チームが製品認識のあらゆる部分を設計するのに役立つツール
 framer-x	チームが製品認識のあらゆる部分を設計するのに役立つツール
 franz	WhatsAppのメッセージングアプリ Facebookメッセンジャー/スラック/電報など
+frappe-books	中小企業やフリーランサー向けの帳簿作成ソフトウェア
 freac	オーディオ変換器とCD Ripper
 fredm-fuse	UNIX ZXSpectrumエミュレーターFuseのポート
 free-download-manager	ダウンロード 加速/整理
@@ -1419,6 +1420,7 @@ gplates	電極テクトニクスプログラム
 gpodder	ポッドキャストクライアント
 gpxsee	GPSログファイルビューアおよび分析
 gqrx	GNURadioとQtを搭載したソフトウェア無線受信機
+graalvm-jdk	OracleからGraalVM
 grads	地球科学データを視覚化する アクセス/操作
 grafx	256色の塗装プログラム
 grammarly	テキストの文法エラーとスタイルの問題を修正するユーティリティ
@@ -2418,7 +2420,6 @@ niftyman	メニューバーから概念ツールにアクセスします
 night-owl	Twitterクライアントアプリ
 nightfall	ダークモードを切り替えるためのメニューバーユーティリティ
 nightingale	Songbirdのコミュニティフォークの作業ツリー
-nightowl	ダークモードを切り替えるユーティリティ
 nimble-commander	Dual-paneファイルマネージャー
 nimblenote	キーボードによるメモを取る
 nimbus	独立型IRCCloudデスクトップクライアント
