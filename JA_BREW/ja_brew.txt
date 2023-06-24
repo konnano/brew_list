@@ -2218,6 +2218,7 @@ gosu	JVM語用論言語
 got	バージョン管理システム
 gotags	Goのタグ発生器、ctagsと互換性があります
 gotests	ソースコードからGoテストboilerplateを自動的に生成する
+gotestsum	人に優しい go testランナー
 gotify	メッセージを gotify/server にプッシュするためのコマンドラインインターフェイス
 goto	自動補完を使用してエイリアスディレクトリに移動するためのBashツール
 gotop	gtopとvtopに触発されたターミナルベースのグラフィカルで活発なモニター
@@ -5428,6 +5429,7 @@ showkey	シンプルなキーストロークvisualizer
 shpotify	MacでのSpotifyのコマンドラインインターフェイス
 shtool	GNUのポータブルシェルツール
 shtools	球面調和関数ツール
+shub	Scrapinghubコマンドライン クライアント
 shunit2	Bourneベースのシェルスクリプトの単体テストフレームワーク
 shush	AWS Key Management Serviceを使用して機密を暗号化および復号化する
 shyaml	コマンドラインYAMLパーサー
@@ -6685,6 +6687,7 @@ zpaq	増分 ジャーナリングコマンドラインアーカイバ
 zpaqfranz	コマンドラインアーカイバとバックアップ ツールの重複排除
 zplug	zshの次世代プラグインマネージャー
 zrepl	ワンストップZFSバックアップおよびレプリケーションソリューション
+zrok	地理的スケール、OpenZiti上に構築された次世代共有プラットフォーム
 zsdx	Solarus DXのゼルダミステリー
 zsh	UNIXシェル(コマンド解釈プログラム)
 zsh-async	外部ツールを使用せずに非同期でタスクを実行する
