@@ -1030,6 +1030,7 @@ font-luxurious-script	Luxurious Script
 font-lxgw-bright	Ysabeau Office と LXGW WenKai Lite の統合フォント
 font-lxgw-bright-gb	Ysabeau Office と LXGW WenKai GB の統合フォント
 font-lxgw-bright-tc	Ysabeau Office と LXGW WenKai TC の統合フォント
+font-lxgw-neoxihei	IPAex Gothic から派生した中国語の　sans-serif font
 font-lxgw-wenkai	Fontworks の Klee One から派生したオープンソースの中国語フォント
 font-lxgw-wenkai-lite	Fontworks の Klee One から派生したオープンソースの中国語フォント
 font-lxgw-wenkai-tc	Fontworks の Klee One から派生したオープンソースの繁体字中国語フォント
