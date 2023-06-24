@@ -240,6 +240,7 @@ au-lab	デジタルオーディオミキシングアプリケーション
 audacity	マルチトラックオーディオエディターおよびレコーダー
 audio-hijack	任意のアプリケーションからのオーディオを録音します
 audiobook-builder	オーディオCDとファイルをオーディオブックに変える
+audiocupcake	オーディオブックのナレーションとポッドキャストをマスターする
 audiogridder-plugin	VST2/VST3/AU/AAXDSP サーバープラグイン
 audiogridder-server	VST2/VST3/AUDSP サーバー
 audiorelay	デバイス間でオーディオをストリーミング
