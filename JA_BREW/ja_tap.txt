@@ -2231,7 +2231,6 @@ safari-technology-preview	Webブラウザー
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
-sequel-pro-nightly	MySQL/MariaDB データベース管理プラットフォーム
 shadow-beta	オンライン仮想化コンピュータ
 signal-beta	セキュリティに焦点を当てたインスタントメッセージングアプリケーション
 sketch-beta	デジタルデザインおよびプロトタイピングプラットフォーム
