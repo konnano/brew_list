@@ -1647,7 +1647,6 @@ font-reem-kufi-fun	khaled の娘の名前でもある
 font-reem-kufi-ink	khaled の娘の名前でもある
 font-reenie-beanie	Reenie Beanie
 font-reggae-one	Reggae One
-font-rethink-sans	Rethink Sans
 font-revalia	Revalia
 font-rhodium-libre	Rhodium Libre
 font-ribeye	Ribeye
