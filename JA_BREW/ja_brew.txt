@@ -4614,7 +4614,6 @@ perltidy	Perlスクリプトをインデントして再フォーマットし読�
 peru	バージョン管理とアーカイブのための依存関係Retriever
 petsc	科学計算のためのポータブルで拡張可能なツールキット(real)
 petsc-complex	科学計算のためのポータブルで拡張可能なツールキット(複合)
-pev	PE分析ツールキット
 pex	PostgreSQLのパッケージマネージャー
 pferd	ファイルをすばやく簡単にダウンロードするためのプログラム
 pfetch	POSIX shで書かれたかなりのシステム情報ツール
@@ -5080,6 +5079,7 @@ re2c	正規表現からCベースの認識を生成する
 react-native-cli	AndroidおよびiOSのネイティブアプリを作成するためのツール
 readline	コマンドライン編集用のライブラリ
 readosm	Open Street Map入力ファイルから有効なデータを抽出します
+readpe	PE解析ツールキット
 reattach-to-user-namespace	プロセス(tmuxなど)をバックグラウンドに再接続します
 reaver	ブルートフォース攻撃を実装してパスキーを回復します WPA/WPA2
 rebar	Erlangビルドツール
