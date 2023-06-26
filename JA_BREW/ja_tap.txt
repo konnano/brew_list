@@ -1649,7 +1649,6 @@ font-reem-kufi-fun	Also the name of khaled's daughter
 font-reem-kufi-ink	Also the name of khaled's daughter
 font-reenie-beanie	Reenie Beanie
 font-reggae-one	Reggae One
-font-rethink-sans	Rethink Sans
 font-revalia	Revalia
 font-rhodium-libre	Rhodium Libre
 font-ribeye	Ribeye
