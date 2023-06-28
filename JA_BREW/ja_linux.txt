@@ -339,6 +339,8 @@ font-chewy	Chewy
 font-chiayi-city	嘉義市のカリスマ性を反映したフォント
 font-chicle	Chicle
 font-chilanka	Chilanka
+font-chiron-hei-hk	モダン、地域に依存しない伝統的な中国語の書体 sans serif
+font-chiron-sung-hk	モダン、地域に依存しない伝統的な中国語の書体 sans serif
 font-chivo	Chivo
 font-chivo-mono	細いフォントから黒までの可変フォント(斜体と一致)
 font-chokokutai	文字がファンキーな日本語表示フォント
@@ -771,6 +773,7 @@ font-im-fell-great-primer-sc	IM Fell Great Primer SC
 font-im-fell-types	IM Fell Types
 font-im-writing-nerd-font	開発者向けのグリフ数が多いフォント
 font-imbue	Variable condensed Didone font
+font-iming	TrueTypeの繁体字中国語書体
 font-impact	Impact
 font-imperial-script	すっきりとしたつながりとエレガントな外観を備えたフォーマルな筆記体フォント
 font-imprima	Imprima
@@ -1030,6 +1033,7 @@ font-luxurious-script	Luxurious Script
 font-lxgw-bright	Ysabeau Office と LXGW WenKai Lite の統合フォント
 font-lxgw-bright-gb	Ysabeau Office と LXGW WenKai GB の統合フォント
 font-lxgw-bright-tc	Ysabeau Office と LXGW WenKai TC の統合フォント
+font-lxgw-fasmart-gothic	IPAex Gothic から派生した中国語 sans-serif font
 font-lxgw-neoxihei	IPAex Gothic から派生した中国語の　sans-serif font
 font-lxgw-wenkai	Fontworks の Klee One から派生したオープンソースの中国語フォント
 font-lxgw-wenkai-lite	Fontworks の Klee One から派生したオープンソースの中国語フォント
