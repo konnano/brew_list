@@ -612,7 +612,6 @@ clips-ide	エキスパートシステムを構築するためのツール
 clipy	クリップボード拡張アプリ
 clix	CLIX
 cljstyle	Clojureコードをフォーマットするためのツール
-clock	大きな時計
 clock-bar	Macbook|時計 タッチバーの右側
 clock-signal	8ビットおよび16ビットプラットフォームの遅延を嫌うエミュレーター
 clocker	メニューバーのタイムゾーン監視
@@ -922,6 +921,7 @@ downie	さまざまなWebサイトからビデオをダウンロードします
 doxie	スキャナーハードウェア用のコンパニオンアプリ
 doxygen	ソースコードからドキュメントを生成する
 dozer	ステータスバーアイコンを非表示にするツール
+drata-agent	セキュリティ監査ソフトウェア
 drawbot	2次元グラフィックスを生成するPythonスクリプトを作成する
 drawio	Draw.ioはFreeのオンラインダイアグラムソフトウェアです
 drawpile	共同描画アプリ
@@ -2728,6 +2728,7 @@ picfindr	Freeストック画像の検索エンジンとマネージャー
 picgo	画像をアップロードするためのツール
 pichon	アイコン8の検索ユーティリティ
 piclist	クラウドストレージマネージャーツール
+picoscope	PicoScopeオシロスコープ用のテストおよび測定オシロスコープソフトウェア
 pictogram	アプリのアイコンをカスタマイズして維持する
 pictureview	画像ビューア
 pieces-cli	Pieces.appのコマンドライン ツール
@@ -3195,6 +3196,7 @@ scidvsmac	チェスツールキット
 scihubeva	Sci-Hub GUIアプリ
 scilab	数値計算用ソフトウェア
 scoot	キーボード駆動のカーソルアクチュエータ
+score	インターメディアアート向けのインタラクティブシーケンサー
 scout	シンプルなSassプロセッサ
 scrapp	クラウドストレージを備えたスクリーンショットツール
 scratch	プログラム双方向ストーリー ゲーム/アニメーション
