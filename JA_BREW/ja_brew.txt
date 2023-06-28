@@ -1010,6 +1010,7 @@ cppad	C++アルゴリズムの差別化
 cppcheck	C/C++のコードの静的分析器
 cppcms	Free高性能Web開発フレームワーク
 cppi	Cのネストを反映する前処理プログラムディレクティブをインデントします
+cppinsights	コンパイラの視点でソースコードを確認する
 cpplint	C++静的コードチェッカー
 cppman	cplusplus.comとcppreference.com C++ 98/11/14/17/20 マニュアルページ
 cppp	Cの部分前処理プログラム
@@ -4924,7 +4925,8 @@ pympress	提示用に設計されたシンプルで強力なデュアルスク�
 pymupdf	PDFツールキットとレンダラー MuPDFのPythonバインディング
 pyoxidizer	最新のPythonアプリケーションのパッケージ化および配布ツール
 pypy	PythonでのPython2の高性能実装
-pypy3	PythonでのPython3の実装
+pypy3.10	PythonでのPython3の実装
+pypy3.9	PythonでのPython3の実装
 pyqt	Qt v6のPython bindings
 pyqt-builder	PyQtを構築するためのツール
 pyqt@5	Qt v5のPython bindings
@@ -4940,6 +4942,7 @@ python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
 python-tk@3.9	Tcl/Tk へのPythonインターフェース
+python-toml	TOML用のPythonライブラリ
 python-typing-extensions	Pythonのバックポートおよび実験的な型ヒント
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
@@ -5318,6 +5321,7 @@ scons	autoconf/automake 機能を備えた従来の'make'ツールの代わり�
 scorecard	オープンソースのセキュリティヘルスmetrics
 scotch	グラフ分割用パッケージ グラフクラスタリング/スパースmatrixの順序付け
 scour	SVGファイルスクラバー
+scrapy	Webクローリングおよびスクレイピングフレームワーク
 scrcpy	Androidデバイスを表示および制御する
 screen	VT100/ANSI ターミナルエミュレーションを備えたターミナル多重装置
 screenfetch	ターミナルでASCIIアートを生成する シェル/OS情報
