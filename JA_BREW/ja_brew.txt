@@ -78,6 +78,7 @@ akamai	AkamaiのAPIを操作するためのCLIツールキット
 akka	並行構築するためのツールキット、分散およびfault tolerantアプリ
 akku	Schemeのパッケージ マネージャー
 alac	Apple Lossless Audio Codecファイル(ALAC)の基本的なデコーダー
+alass	言語に依存しない自動字幕同期
 alda	ミュージシャンのための音楽プログラミング言語
 aldo	GPLの下でリリースされたモールス信号学習ツール
 alembic	オープンコンピュータグラフィックス交換フレームワーク
@@ -5155,6 +5156,7 @@ riff	riffはKubernetes上のサービスとしての関数です
 rig	偽の名前と住所のデータを提供します
 rinetd	インターネットTCPリダイレクトサーバー
 ringojs	CommonJSベースのJavaScriptランタイム
+rio	WebGPUを搭載した Hardware-accelerated GPUターミナル エミュレータ
 ripgrep	grepやThe Silver Searcherの様な検索ツール
 ripgrep-all	複数のリッチファイルタイプを追加するripgrepのラッパー
 ripmime	MIMEエンコードされた電子メールパッケージから添付ファイルを抽出します
