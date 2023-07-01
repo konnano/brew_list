@@ -402,6 +402,7 @@ bazel	Google独自のビルドツール
 bazelisk	Bazelのユーザーに親しいランチャー
 bbe	バイナリファイルのsedのようなエディタ
 bbftp-client	大きなファイルに最適化された安全なファイル転送ソフトウェア
+bbot	OSINT自動化ツール
 bbtools	読み取りを操作するためのBrian Bushnellのツール
 bc	任意精度の数値処理言語
 bcal	記憶装置変換および数式計算機
@@ -1536,6 +1537,7 @@ erlang@21	高度に拡張性のあるリアルタイムシステムのための�
 erlang@22	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@23	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@24	高度スケーラブルなリアルタイムシステムのためのプログラミング言語
+erlang@25	拡張性の高いリアルタイムシステム用のプログラミング言語
 erofs-utils	拡張読み取り専用ファイルシステムのユーティリティ
 esbuild	非常に高速なJavaScript bundler and minifier
 eslint	JavaScript用のASTベースのパターンチェッカー
@@ -5440,6 +5442,7 @@ shunit2	Bourneベースのシェルスクリプトの単体テストフレーム
 shush	AWS Key Management Serviceを使用して機密を暗号化および復号化する
 shyaml	コマンドラインYAMLパーサー
 sic	最低限の多重化IRCクライアント
+sickchill	テレビ番組用の自動ビデオライブラリマネージャー
 sickle	品質を使用したFASTQファイルのウィンドウ化された適応トリミング
 siege	HTTP回帰テストと基準比較ユーティリティ
 sift	grepに代わる高速で強力なオープンソース
@@ -6654,6 +6657,7 @@ zanata-client	Zanata翻訳システムのコマンドラインクライアント
 zbar	バーコード読み取りツールのパッケージ
 zbctl	Zeebe CLIクライアント
 zboy	ゲームボーイエミュレータ
+zchunk	効率的なデルタのための圧縮ファイル形式
 zebra	情報管理システム
 zeek	ネットワークセキュリティモニター
 zelda-roth-se	Hylian SEのゼルダの伝説
