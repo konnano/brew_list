@@ -603,7 +603,6 @@ clementine	音楽プレーヤーとライブラリーのまとめ
 clickcharts	ダイアグラムおよびフローチャートソフトウェア
 clicker-for-netflix	最高の独立型Netflixプレーヤー
 clicker-for-youtube	独立型のYouTubeアプリ
-clickshare	ワイヤレス電話会議クライアント
 clickup	タスクの生産性プラットフォーム ドキュメント/目標/チャット
 clion	CおよびC++ IDE
 clip-studio-paint	描画とペイントのためのソフトウェア
@@ -3702,6 +3701,7 @@ thorium	Epubリーダー
 threads	焦点を絞った議論と意思決定のためのコミュニケーションツール
 threema	End-to-endの暗号化されたインスタントメッセージングアプリケーション
 threema-work	End-to-endの暗号化されたインスタントメッセージングアプリケーション
+ths	株式取引ソフトウェア
 thumbsup	ThumbsUp
 thunder	VPNおよびWiFiプロキシ
 thunderbird	カスタマイズ可能なメールクライアント
