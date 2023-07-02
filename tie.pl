@@ -304,16 +304,14 @@ unless( $ARGV[0] ){
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
-         }else{ next unless Glob_1( $ls1,$name,1 );
+         }else{ unless( $ls1 eq 'glibc' ){ next unless Glob_1( $ls1,$name,1 ); }
           if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
           } next if $ne;
-          if( $re->{'LIN'} and ( $ls1 eq 'gcc' or $ls1 eq 'glibc' ) ){
+          if( $re->{'LIN'} and $ls1 ne 'linux-headers@5.15' ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
-          }elsif( $re->{'LIN'} ){
-           $tap{"${ls1}uses_proc"} .= "$name\t";
           }elsif( $re->{'MAC'} ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
@@ -327,16 +325,14 @@ unless( $ARGV[0] ){
         if( $tap{"${ls2}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls2}uses"} }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls2 eq $mine;
-         }else{ next unless Glob_1( $ls2,$name,1 );
+         }else{ unless( $ls2 eq 'glibc' ){ next unless Glob_1( $ls2,$name,1 ); }
           if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
           } next if $ne;
-          if( $re->{'LIN'} and ( $ls2 eq 'gcc' or $ls2 eq 'glibc' ) ){
+          if( $re->{'LIN'} and $ls2 ne 'linux-headers@5.15' ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
-          }elsif( $re->{'LIN'} ){
-           $tap{"${ls2}uses_proc"} .= "$name\t";
           }elsif( $re->{'MAC'} ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
