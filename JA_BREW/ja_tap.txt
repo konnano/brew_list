@@ -162,6 +162,7 @@ font-azonix	モダンなsans-serif書体
 font-b612	B612
 font-b612-mono	B612 Mono
 font-babylonica	直立または逆傾斜のフォームによってさえぎられ強調が発生します
+font-bacasime-antique	様式的には過渡的なデザイン
 font-bad-script	Bad Script
 font-bagel-fat-one	Bagel Fat One
 font-bahiana	Bahiana
@@ -196,6 +197,7 @@ font-bayon	Bayon
 font-be-vietnam-pro	ハイテク企業やスタートアップに最適
 font-beau-rivage	太いストロークと細いストロークのコントラストが強い古典的な書体
 font-bebas-neue	Bebas Neue
+font-belanosima	1920年代の幾何学的な sans serifデザインから影響を受けたもの
 font-belgrano	Belgrano
 font-bellefair	Bellefair
 font-belleza	Belleza
@@ -2038,6 +2040,9 @@ font-yinmar	Yinmar
 font-yomogi	よもぎ
 font-yrsa	Yrsa
 font-ysabeau	Ysabeau
+font-ysabeau-infant	Ysabeau Infant
+font-ysabeau-office	Exercise in restraint
+font-ysabeau-sc	Exercise in restraint
 font-yuji-boku	新しくて楽しいデザイン
 font-yuji-hentaigana-akari	Yuji変体仮名Akari
 font-yuji-hentaigana-akebono	Yuji変体仮名Akebono
