@@ -272,8 +272,9 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
      @{$re->{'cask'}} = ( @list1,@list2 );
    }
   }
- if( @$list and ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
-                  $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} ) ){
+ if( @$list and ( ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
+                    $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} ) or
+                    $re->{'LIN'} and $re->{'USE'} and not $re->{'USES'} ) ){
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
    $re->{'PID2'} = fork;
     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
@@ -638,6 +639,7 @@ my( $re,$list ) = @_; my( %HA,@AN );
    $re->{'DMG'}{$_} ? push @cask,$_ : 0 for @{$re->{'cask'}};
     if( not $re->{'USES'} and @cask ){ push @AN,' ==> Cask',@cask;
     }elsif( $re->{'USES'} and @{$re->{'cask'}} ){ push @AN,' ==> Cask',@{$re->{'cask'}}; }
+   waitpid $re->{'PID2'},0 if $re->{'LIN'} and rmdir "$re->{'HOME'}/WAIT";
   for my $an(@AN){ Mine_1( $an,$re,0 ) }
  }
 }
@@ -2210,7 +2212,7 @@ unless( $ARGV[0] ){
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
- }
+ } $tap{'pythonalia'} = 'python@3.11' if $re->{'LIN'};
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,($in << 1) + $in );
     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
