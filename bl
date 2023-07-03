@@ -40,11 +40,11 @@ MAIN:{
  }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} =
-                            $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6;
+                            $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
                             $ref->{'DEL'} = $re->{'DEL'} = 1;
- }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1;
- }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'}= 1;
+ }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1; $re->{'PRS'} = 1 if $re->{'LIN'};
+ }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'}= 1; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = 1;
  }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = 1;
  }elsif( $AR[0] eq '-ddd'){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = $re->{'DDD'} = 1;
@@ -256,35 +256,43 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
    Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'},\$re->{'BUI'}],$cat );
   }
   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
-   Info_1( $re ) if $re->{'INF'};
-    return if $re->{'TREE'};
-  unless( $re->{'ANA'} or $re->{'COM'} or $re->{'deps'} or $re->{'PRE'} ){
-    $list = ( defined $re->{'S_OPT'} or $re->{'BL'} and ( $re->{'CAS'} or -f $re->{'LFO'} ) ) ? Dirs_1( $re->{'CEL'},1 ) :
-     ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
-       Dirs_1( $re->{'CEL'},0,$re );
-
-   @$list = $re->{'OS'}{"$re->{'USE'}uses"} ? split '\t',$re->{'OS'}{"$re->{'USE'}uses"} : () if $re->{'USE'};
-   @$list = $re->{'OS'}{"$re->{'BUI'}build"} ? split '\t',$re->{'OS'}{"$re->{'BUI'}build"} : () if $re->{'BUI'};
-    $re->{'cask'} = [] if $re->{'USE'} or $re->{'BL'} or $re->{'BUI'};
-   if( $re->{'MAC'} and $re->{'USE'} ){
-    my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
-    my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
-     @{$re->{'cask'}} = ( @list1,@list2 );
-   }
-  }
- if( @$list and ( ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
-                    $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} ) or
-                    $re->{'LIN'} and $re->{'USE'} and not $re->{'USES'} ) ){
+  if( $re->{'PRS'} ){
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
    $re->{'PID2'} = fork;
     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
- }
- if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
- }else{
-  $re->{'COM'} ? Command_1( $re ) :
-  ( $re->{'BL'} and $re->{'FOR'} and not -f $re->{'LFO'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ?
-   Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ?
-   Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
+  }
+  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
+  }else{
+   Info_1( $re ) if $re->{'INF'};
+    return if $re->{'TREE'};
+   unless( $re->{'ANA'} or $re->{'COM'} or $re->{'deps'} or $re->{'PRE'} ){
+     $list = ( defined $re->{'S_OPT'} or $re->{'BL'} and ( $re->{'CAS'} or -f $re->{'LFO'} ) ) ? Dirs_1( $re->{'CEL'},1 ) :
+             ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+               Dirs_1( $re->{'CEL'},0,$re );
+
+    @$list = $re->{'OS'}{"$re->{'USE'}uses"} ? split '\t',$re->{'OS'}{"$re->{'USE'}uses"} : () if $re->{'USE'};
+    @$list = $re->{'OS'}{"$re->{'BUI'}build"} ? split '\t',$re->{'OS'}{"$re->{'BUI'}build"} : () if $re->{'BUI'};
+    $re->{'cask'} = [] if $re->{'USE'} or $re->{'BL'} or $re->{'BUI'};
+    if( $re->{'MAC'} and $re->{'USE'} ){
+     my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
+     my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
+      @{$re->{'cask'}} = ( @list1,@list2 );
+    }
+   }
+  if( @$list and ( ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
+                     $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} ) or
+                     $re->{'LIN'} and $re->{'USE'} and not $re->{'USES'} ) ){
+   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+    $re->{'PID2'} = fork;
+     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
+  }
+  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
+  }else{
+   $re->{'COM'} ? Command_1( $re ) :
+   ( $re->{'BL'} and $re->{'FOR'} and not -f $re->{'LFO'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ?
+    Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ?
+    Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
+  }
  }
 }
 
@@ -1459,7 +1467,7 @@ sub Format_1{
  my $re = shift;
  if( $re->{'TREE'} and not $re->{'LIKE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
-  waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} == 7 and rmdir "$re->{'HOME'}/WAIT";
+  waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} > 5 and rmdir "$re->{'HOME'}/WAIT";
   $re->{'ZEN'} = $re->{'ALL'} || $re->{'EXC'} || $re->{'KXC'} || 0;
   if( $re->{'TAP'} and not $re->{'LINK'} ){
     $re->{'ZEN'} = $re->{'ZEN'} =~ /^\s{10}==>.*\n$|^\s{10}==>.*\n\s{10}==>.*\n$/ ? 0 :
@@ -1619,7 +1627,7 @@ my $re = shift;
     push @AUA,$AU;
      $AU = '';
   }
-   waitpid $re->{'PID2'},0 if $re->{'DEL'} and rmdir "$re->{'HOME'}/WAIT";
+   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
    print"$re->{'INF'}\n" if @AUA;
    print reverse @AUA if not $re->{'DD'} or -t STDOUT;
  }
