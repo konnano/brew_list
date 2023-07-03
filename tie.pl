@@ -80,7 +80,7 @@ unless( $ARGV[0] ){
    $hand =~ s|.+/(.+)\.rb|$1|;
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
- }
+ } $tap{'pythonalia'} = 'python@3.11' if $re->{'LIN'};
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,($in << 1) + $in );
     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
