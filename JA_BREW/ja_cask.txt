@@ -38,7 +38,6 @@ accurics	コードとしての基盤のセキュリティと順守
 ace-link	VLCプレーヤーでAce Streamビデオストリームを再生できるメニューバーアプリ
 acorn	シンプルさに焦点を当てた画像エディター
 acronis-true-image	フルイメージのバックアップとクローン作成ソフトウェア
-acslogo	Logo通訳
 active-trader-pro	取引プラットフォーム
 activedock	カスタマイズ可能なドック アプリケーションランチャー/ドックの交換
 activitywatch	時間監視
@@ -279,7 +278,6 @@ aws-vpn-client	AWSリソースに安全にアクセスするためのマネー�
 axure-rp	開発者向けの計画およびプロトタイピングツール
 azure-data-studio	SQL Serverでの作業を可能にするデータ管理ツール
 babeledit	翻訳エディター
-back-in-time	TimeMachineバックアップのコンテンツにアクセスする
 backblaze	データのバックアップとストレージサービス
 backblaze-downloader	Backblazeで復元されたファイルをより確実にダウンロードする
 background-music	バックグラウンドミュージック
@@ -2099,7 +2097,6 @@ mater	マテリアルデザイン
 material-colors	Mac用の素材の色
 mathcha-notebook	数学エディター
 mathpix-snipping-tool	数学と科学のためのスキャナーアプリ
-mathtype	数学の方程式をどこにでも書く
 matterhorn	Mattermost用のUnixターミナルクライアント
 mattermost	オープンソースのセルフホストSlack-alternative
 mattr-slate	Slate
@@ -2161,7 +2158,6 @@ mesasqlite	作成 SQLite3データベースの設計と変更
 meshlab	メッシュ加工システム
 messenger	メッセンジャー用のネイティブデスクトップアプリ(以前のFacebookメッセンジャー)
 messenger-native	Facebookのメッセンジャーネイティブ
-messenger-unofficial	メッセンジャー
 meta	デジタル音楽用のタグエディター
 metabase	ビジネス知能と分析
 metaimage	読むエディター 画像メタデータの書き込みと編集
@@ -2417,7 +2413,6 @@ ngrok	リバースプロキシ Localhostへの安全なintrospectableトンネ�
 nheko	Matrix手続き用のデスクトップクライアント
 nifty	Niftyプロジェクト管理プラットフォームのデスクトップアプリ
 niftyman	メニューバーから概念ツールにアクセスします
-night-owl	Twitterクライアントアプリ
 nightfall	ダークモードを切り替えるためのメニューバーユーティリティ
 nightingale	Songbirdのコミュニティフォークの作業ツリー
 nimble-commander	Dual-paneファイルマネージャー
@@ -2597,7 +2592,6 @@ orion	WebKitベースのWebブラウザ
 orka	AppleでのKubernetesとのオーケストレーション
 orka-vm-tools	Apple上の Kubernetesによるオーケストレーション
 oryoki	薄いインターフェースを備えた実験的なWebブラウザー
-osbuddy	RuneScapeツールキット
 oscar	CPAP分析レポーター
 oscilloscope	光線オシロスコープの美学を模倣する
 osculator	MIDIコントローラーとOSCコントローラーを接続する
@@ -4068,6 +4062,7 @@ whatsapp	WhatsApp用のデスクトップクライアント
 whatsize	ディスクスペースの表示と再利用に使用されるファイルシステムユーティリティ
 whatsyoursign	ファイルの暗号署名情報を表示します
 whichspace	アクティブスペースメニューバーアイコン
+whisky	SwiftUIで構築されたWineラッパー
 whoozle-android-file-transfer	Linux用のAndroidファイル転送
 widelands	Settlers IIのようなFreeのリアルタイム戦略ゲーム
 wifi-explorer	ワイヤレスネットワークのトラブルシューティング スキャン/画面
