@@ -640,6 +640,7 @@ capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
 cargo-about	クレートのすべてのライセンスのリストを生成するCargoプラグイン
 cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lockファイルを監査する
+cargo-binstall	Rustプロジェクト用のバイナリインストール
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
 cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
 cargo-c	Cのようなライブラリを構築してインストールするためのヘルパープログラム
@@ -1114,6 +1115,7 @@ cwlogs	CloudwatchLogsからログを読み取るためのCLIツール
 cxgo	CをGOに変換する
 cxxopts	軽量のC++コマンドラインオプションパーサー
 cxxtest	JUnit/CppUnit/xUnit に似たC++単体テストフレームワーク
+cycode	シークレットスキャン、SAST/SCA/IaC によってソフトウェア開発のセキュリティを強化
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
 cyral-gimme-db-token	データベースへのSSOログインにCyralを簡単に使用
 cyrus-sasl	シンプルな認証とセキュリティレイヤー
@@ -1359,6 +1361,7 @@ draco	3Dジオメトリックメッシュとポイントクラウド圧縮ライ
 drafter	ネイティブC/C++ APIブループリントパーサー
 drake	データを作成することを目的としたデータワークフローツール
 driftctl	基礎構造の流れを検出、追跡、警告する
+driftwood	秘密キーの使用状況の検証
 drill	Rustで記述されたHTTP負荷テストアプリケーション
 dromeaudio	小さなC++オーディオ操作および再生ライブラリ
 drone-cli	ドローン継続的インテグレーションサーバーのコマンドラインクライアント
@@ -4855,6 +4858,7 @@ prover9	一次および等式論理の自動定理証明
 prowler	クラウドセキュリティのベストプラクティスを実行するためのオープンソースセキュリティツール
 proxsuite	高度な近位最適化ツールボックス
 proxychains-ng	Hook先読み
+proxygen	C++ HTTPライブラリのコレクション
 proxytunnel	HTTPSプロキシを介してTCPトンネルを作成する
 prqlc	シンプルで強力なパイプライン化されたSQL置換
 prr	github のメーリングリスト/スタイルのコードレビュー
@@ -6083,12 +6087,14 @@ trivy	コンテナ画像の脆弱性スキャナー ファイルシステム/Git
 trojan-go	Goのトロイの木馬プロキシ
 truecrack	TrueCryptのブルートフォースパスワードクラッカー
 truffle	開発環境 イーサリアムのテストフレームワークとアセットパイプライン
+trufflehog	認証情報を検索して検証する
 truncate	ファイルを指定されたサイズに切り捨てます
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
 trurl	URLの解析と操作のためのコマンドラインツール
 trust-dns	RustベースのDNSクライアント サーバー/ゾルバー
 trzsz	lrzsz (rz/sz)に似たシンプルなファイル転送ツール tmuxと互換性があります
 trzsz-go	シンプルなファイル転送ツール lrzsz(rz/sz)に似ています tmuxと互換性があります
+trzsz-ssh	trzsz(trz/tsz)をサポートするシンプルな sshクライアント
 tsduck	MPEG転送ストリームツールキット
 tssh	SSH軽量管理ツール
 tsung	負荷テスト HTTP/PostgreSQL/Jabberなど
