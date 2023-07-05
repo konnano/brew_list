@@ -35,6 +35,7 @@ activemq	Apache ActiveMQ：強力なオープンソースメッセージング�
 activemq-cpp	Apache ActiveMQなどのメッセージブローカーのC++ API
 ada-url	最新のC++で記述されたWHATWG準拠の高速URLパーサー
 adamstark-audiofile	Adam StarkによるC++オーディオファイルライブラリ
+adb-enhanced	Androidのテストと開発のための万能ナイフ
 adios2	Exascaleコンピューティングプログラムで開発された次世代のADIOS
 admesh	三角形分割されたソリッドメッシュを処理します
 adns	C/C++のresolverライブラリとDNS resolverユーティリティ
@@ -3460,6 +3461,7 @@ libuvc	USBビデオデバイス用のクロスプラットフォームライブ�
 libva	ハードウェアの加速によるビデオ処理ライブラリ
 libvatek	VATek チップを制御するためのユーザーライブラリ
 libvdpau	オープンソースのビデオデコードおよび提示用APIライブラリ
+libversion	アドバンストバージョン文字列比較ライブラリ
 libvidstab	Transcodeビデオ安定化プラグイン
 libvirt	C仮想化API
 libvirt-glib	glibベースのプログラム用のLibvirtAPI
@@ -3630,6 +3632,7 @@ lowdown	シンプルマークダウントランスレータ
 lp_solve	混合整数線形計画Solver
 lpc21isp	いくつかのNXPマイクロコントローラー用のIn-circuitプログラミング(ISP)ツール
 lpeg	LuaJITの式文法の解析
+lr	ls(1)/find(1)/stat(1)/du(1) の機能を備えたファイルリストユーティリティ
 lrdf	LADSPAプラグインシステムのpluginメタデータにアクセスするためのRDFライブラリ
 lrzip	非常に高い圧縮率の圧縮プログラム
 lrzsz	ファイル書き出し用のツール zmodem/xmodem/ymodem
@@ -6538,6 +6541,7 @@ xdg-ninja	$HOMEで不要なファイルやディレクトリを確認してま�
 xdot	Graphvizのdot言語で書かれたグラフ用の対話的Viewer
 xdotool	X用の偽のキーボード/マウス入力とウィンドウ管理
 xdpyinfo	X.Org：Xサーバーに関する情報を表示するためのユーティリティ
+xe	単純なxargsと置換の適用
 xerces-c	XMLパーサーの検証
 xfig	統計の対話的な生成のための機能
 xgboost	拡張可能なポータブルで分散型の勾配ブースティングライブラリ
