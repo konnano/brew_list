@@ -476,6 +476,7 @@ bk	ターミナルEPUBリーダー
 bkt	シェルコマンドの結果をキャッシュするためのユーティリティ
 black	Pythonコード整形ツール
 blackbox	安全に保存する Git/Mercurial/Subversion
+blades	非常に高速でシンプルな静的サイ生成器
 blahtexml	方程式をMath MLに変換します
 blast	基本的なローカル調整検索ツール
 blastem	高速で正確なGenesisエミュレータ
@@ -1034,6 +1035,7 @@ cql	ブロックチェーン機能を備えた分散型SQLデータベース
 cql-proxy	DataStax cql-proxyにより Cassandraアプリはコードを変更せずに Astra DBを使用できるようになります
 cqlkit	CassandraクエリをCSVおよびJSON形式で書き出しするCLIツール
 cquery	C/C++言語サーバー
+crabz	pigzに似ていますが、Rustで
 cracklib	LibCrackパスワードチェックライブラリ
 crackpkcs	PKCS#12ファイルをクラックするMultithreaded
 crane	リモート画像とレジストリを操作するためのツール
@@ -2435,6 +2437,7 @@ hermit	ソフトウェア プロジェクト内の分離されたセルフ ブ�
 herrie	Ncursesに基づいて構築された最小なオーディオプレーヤー
 hesiod	DNS上に構築された単純な文字列検索サービスのライブラリ
 hevea	LaTeXからHTMLへの翻訳
+hex	hexdumpの先進的な解釈
 hexcurse	Ncursesベースのコンソール16進エディター
 hexedit	16進数またはASCIIでファイルを表示および編集する
 hexer	viに似たインターフェイスを備えた端末用の16進エディタ
@@ -4250,6 +4253,7 @@ nspr	システムレベルおよびlibcのような関数用のプラットフ�
 nsq	リアルタイム分散メッセージングプラットフォーム
 nss	セキュリティ対応のクライアントおよびサーバーアプリケーション用のライブラリ
 nsuds	Ncurses数独システム
+ntbtls	それほど悪くないTLSライブラリ
 ntfs-3g	FUSEのRead-write NTFSドライバー
 ntfy	PUT/POST経由で電話またはデスクトップにプッシュ通知を送信する
 ntl	C++数論ライブラリ
