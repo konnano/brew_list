@@ -144,7 +144,7 @@ angry-ip-scanner	ネットワークスキャナー
 anka-build-cloud-controller-and-registry	仮想マシン管理 GUI/API/レジストリ
 anka-virtualization	仮想マシンを管理および作成するためのCLIツール
 ankama	AnkamaのPCゲームをダウンロードするためのPortal
-ankerslicer	AnkerMake 3Dプリンター用スライサー
+ankermake	AnkerMake 3Dプリンター用スライサー
 ankerwork	ウェブカメラ&オーディオ デバイスソフトウェア
 anki	記憶力トレーニングアプリケーション
 ankiapp-anki	暗記App
@@ -618,7 +618,6 @@ clone-hero	Guitar Heroクローン
 clonk	シングルプレイヤーとマルチプレイヤーのアクションゲーム
 cloud-pbx	クラウドベースの電話システム
 cloud189	パブリッククラウドストレージサービス
-cloudapp	ビジュアルコミュニケーションプラットフォーム
 cloudash	サーバーレスアーキテクチャの監視とトラブルシューティング
 cloudcompare	CloudCompare
 cloudflare-warp	インターネットをより安全にするFreeアプリ
@@ -1179,6 +1178,7 @@ flameshot	スクリーンショットソフトウェア
 flash-decompiler-trillix	Flash逆コンパイラTrillix
 fldigi	アマチュア無線デジタルモデムアプリケーション
 fleet	ハイブリッドIDEとテキストエディター
+flexoptix	ケーブルなしでFLEXBOXに接続しトランシーバーを設定します
 flic	FlicBluetoothボタンのドライバー
 flickr-uploadr	Flickrアップローダー
 flightgear	フライト模擬装置
@@ -3678,7 +3678,6 @@ the-cheat	ゲームトレーナー
 the-clock	時計とタイムゾーンのアプリ
 the-unarchiver	アーカイブファイルを解凍します
 the-unofficial-homestuck-collection	WebコミックHomestuckのオフラインビューア
-the-watcher	ETHウォレットを監視する USD-ETH価格/ガス価格
 thebrain	マインドマッピングと個人知識ベースソフトウェア
 thedesk	PC用のクライアント Mastodon/Misskey
 themeengine	コンパイルされた.carファイルを編集するアプリ
@@ -4069,7 +4068,6 @@ wifi-explorer	ワイヤレスネットワークのトラブルシューティン
 wifi-explorer-pro	ワイヤレスネットワークのトラブルシューティング スキャン/画面
 wifispoof	コンピュータのMACアドレスを変更する
 winclone	BootCampのクローン作成とバックアップソリューション
-window-switch	永続的なリモート表示サーバーとクライアント
 windows95	Electron Windows 95
 windscribe	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
 windterm	SSH/SFTP/Shell/Telnet/Serial ターミナル
@@ -4218,6 +4216,7 @@ zerotier-one	メッシュVPNクライアント
 zesarux	ZXマシンエミュレータ
 zettelkasten	Luhmannによるノートボックス
 zettlr	オープンソースのマークダウンエディター
+zight	ビジュアルコミュニケーションプラットフォーム
 zoc	プロフェッショナルSSHクライアントおよびターミナルエミュレータ
 zoho-docs	Zoho Docsとの間でファイルを同期する
 zoho-mail	メールクライアント
