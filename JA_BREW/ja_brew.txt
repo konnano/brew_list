@@ -450,6 +450,7 @@ bibtexconv	BibTeXファイル変換器
 bibutils	参考文献変換ユーティリティ
 bic	C 解釈プログラムおよびAPIエクスプローラー
 bigloo	オブジェクトシステム、C、およびJavaインターフェイスを使用したSchemeの実装
+bilix	️libiliなどの超高速非同期ダウンロード ツール
 binaryen	WebAssemblyの基礎構造コンパイラとtoolchainライブラリ
 bind	DNS手続きの実装
 bindfs	別の場所にマウントするためのFUSEファイルシステム
@@ -687,6 +688,7 @@ cbc	混合整数線形計画Solver
 cbindgen	RustコードからCバインディングを生成するためのプロジェクト
 cbmbasic	スクリプト言語としてのコモドールBASIC V2
 cbmc	Cの有界モデルチェッカー
+cbonsai	Console Bonsaiはncursesを使用して Cで書かれたbonsaiツリー生成器
 cc65	6502Cコンパイラ
 ccache	オブジェクトファイルCachingコンパイルラッパー
 ccal	印刷または閲覧用の中国のカレンダーを作成する
@@ -1826,6 +1828,7 @@ fsw	複数のバックエンドを備えたファイル変更モニター
 fswatch	ディレクトリの変更を監視し、シェルコマンドを実行します
 ftgl	Freetype/OpenGL ブリッジ
 ftjam	Makeの代わりに使用できるビルドツール
+fuc	モダン、パフォーマンス重視のUNIXコマンド
 fuego	囲碁のゲーム用のC++ライブラリのコレクション
 fuego-firestore	Firestoreデータベースのコマンドラインクライアント
 func-e	Envoyを簡単に実行
@@ -1837,6 +1840,7 @@ fuse-zip	ZIPアーカイブを作成および操作するためのFUSEファイ�
 fuseki	SPARQLサーバー
 futhark	データ並列関数型プログラミング言語
 fuzzy-find	ディレクトリとファイル間で一致するあいまいファイル名ファインダー
+fw	ワークスペースの生産性向上
 fwknop	シングルパケット認証とポートノッキング
 fwup	構成可能な組み込みLinuxファームウェアアップデートの作成およびランナー
 fx	コマンドラインJSON処理ツール
@@ -5256,6 +5260,7 @@ run	小さなスクリプトとラッパーを簡単に管理および呼び出�
 runcocoa	コマンドラインから実行するためのツール Cocoa/Objective-C/C
 rune	Rustに埋め込み可能な動的プログラミング言語
 runit	UNIXサービスを管理するためのツールのコレクション
+runme	Runbook内でコマンドを実行します ドキュメント/README
 rure	RUstのREGexエンジンのC API
 rush	GNUの制限付きユーザーシェル
 rush-parallel	ジョブを並行して実行するためのクロスプラットフォームコマンドライン ツール
@@ -5415,6 +5420,7 @@ sftpgo	オプションのHTTP/S,FTP/S,WebDAV をサポートするフル機能�
 sgn	Shikata ga nai(仕方がない)エンコーダーが移植され、いくつかの改良が加えられました
 sgr	Splitgraph のコマンドラインクライアント、データのバージョン管理システム
 sgrep	SGML/XML/HTML を検索する
+sh4d0wup	署名キーの乱用とアップデート乱用フレームワーク
 sha1dc	SHAtteredを含むファイル内のSHA-1衝突を検出するためのツール
 sha2	ハッシュアルゴリズムの実装 SHA-256/SHA-384/SHA-512
 sha3sum	チェックサムユーティリティ Keccak/SHA-3/SHAKE/RawSHAKE
