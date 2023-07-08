@@ -1231,8 +1231,6 @@ forecast	チャプター付きポッドキャストMP3エンコーダー
 fork	GITクライアント
 forkgram-telegram	Telegram Desktopのフォーク
 forklift	Finderの交換と FTP/SFTP/WebDAV/Amazons 3クライアント
-forticlient	エンドポイント保護とクラウドサンドボックスを備えたファブリックエージェント
-forticlient-vpn	FortiClient用のFree VPNクライアント
 fotokasten	写真製品を作成して購入する
 foxglove-studio	ロボット工学のための視覚化およびデバッグツール
 foxit-pdf-editor	PDFエディター
