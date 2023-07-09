@@ -535,6 +535,7 @@ chai	システムがスリープ状態になるのを防ぐユーティリティ
 chalk	電卓ソフトウェア
 charles	Webデバッグプロキシアプリケーション
 charlessoft-timetracker	時間追跡
+chatall	ChatGPT/Bing Chat/Bard/Claude/ChatGLM などで同時にチャットできます
 chatbox	GPT-4/GPT-3.5 用デスクトップアプリ(OpenAI API)
 chatmate-for-facebook	Facebookメッセンジャークライアント
 chatmate-for-whatsapp	WhatsAppのChatMate
@@ -1013,6 +1014,7 @@ electrum	ビットコインシンクライアント
 electrum-grs	Electrum-GRS
 electrum-ltc	ライトコインウォレット
 electrumsv	ビットコインSV用のデスクトップウォレット
+elektron-overbridge	Elektronハードウェアを音楽ソフトウェアに統合
 element	Matrix協調クライアント
 elephas	パーソナルAIライティングアシスタント
 elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
@@ -3056,7 +3058,6 @@ reflect	会議用メモアプリ アイデア/ジャーナリング/研究
 reflector	ワイヤレス画面ミラーリングアプリケーション
 reflex	音楽(iTunes)およびSpotify用のメディアキーフォワーダー
 regexhibit	Perl正規表現アシスタント
-reggy	会話型な正規表現バリデーターおよびテスター
 reikey	キーボードタップを監視します スキャン/検出
 rekordbox	あなたの音楽ファイルを準備して管理するためのFreeのDjアプリ
 remarkable	観察/画面共有/整理/案件 reMarkableデバイスにファイルをダウンロードします
@@ -3192,6 +3193,7 @@ scout	シンプルなSassプロセッサ
 scrapp	クラウドストレージを備えたスクリーンショットツール
 scratch	プログラム双方向ストーリー ゲーム/アニメーション
 screaming-frog-seo-spider	SEOサイト監査ツール
+screen-studio	スクリーンレコーダーとエディター
 screencast	シンプルなスクリーンビデオキャプチャアプリケーション
 screenflick	オーディオ付きスクリーンレコーダー
 screenflow	画面録画およびビデオ編集ソフトウェア
