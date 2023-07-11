@@ -2164,6 +2164,7 @@ go-bindata	任意のファイルからGoコードを生成する小さなユー�
 go-boring	BoringCryptoでGoプログラミング言語に移行する
 go-camo	セキュアイメージプロキシサーバー
 go-critic	独断的なGoソースコードlinter
+go-feature-flag	単純、完全、軽量の機能フラグソリューション
 go-feature-flag-relay-proxy	GO機能フラグを実行するスタンドアロンサーバー
 go-jira	Goのシンプルなjiraコマンドラインクライアント
 go-jsonnet	JSONデータを定義するための構成言語の実装に移動します
