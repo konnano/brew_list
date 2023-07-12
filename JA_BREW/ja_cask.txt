@@ -1052,6 +1052,7 @@ engine-prime	DenonのエンジンOSハードウェア用の音楽管理ソフト
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
 enjoyable	マウスやキーボードのようにゲームパッドやジョイスティックを使用する
 enpass	パスワードと認証情報の管理
+ente	Ente用デスクトップクライアント
 entry	ブロックベースのコーディングプラットフォーム
 envkey	認証情報を保護し構成を同期します
 enzymex	DNAシーケンスファイルの視覚化と編集
@@ -1991,6 +1992,7 @@ lyrics-master	歌詞を見つけてダウンロードする
 lyricsx	iTunesの歌詞 Spotify/Vox/Audirvana Plus
 lyx	LaTeX植字システムに基づくオープンソースのGUIドキュメントプロセッサ
 m3unify	ファイルエクスポータおよびM3Uプレイリストクリエータ
+maa	アークナイツの日常業務をワンクリックで実行できるツール
 mac2imgur	画像とスクリーンショットをImgurにアップロードする
 macast	DLNA Media Renderer
 macbreakz	健康上の問題を防ぐための人間工学的アシスタント
