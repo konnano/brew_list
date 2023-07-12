@@ -484,6 +484,7 @@ blastem	高速で正確なGenesisエミュレータ
 blaze	大規模で限られた演算用の高性能C++数学ライブラリ
 blazeblogger	コマンドラインのCMS
 blazegraph	RDFデータモデルをサポートするグラフデータベース Sesame/Blueprint APIs
+blink	最小のx86-64-linuxエミュレータ
 blink1	コントロール点滅(1)インジケーターライト
 blis	BLASのようなライブラリインスタンス化ソフトウェアフレームワーク
 blitz	C++の多次元配列ライブラリ
@@ -524,6 +525,7 @@ bork	Bash操作の調整用応急修理
 bosh-cli	クラウドファウンドリBOSHCLI v2
 bossa	Atmel SAMマイクロコントローラ用のフラッシュユーティリティ
 botan	C++暗号化アルゴリズムとフォーマットライブラリ
+botan@2	C++の暗号化アルゴリズムと形式ライブラリ
 bottom	クロスプラットフォームのグラフィカルモニター プロセス/システム
 bower	Webパッケージマネージャー
 bowtie2	高速で高感度のgapped read aligner
@@ -1551,6 +1553,7 @@ esbuild	非常に高速なJavaScript bundler and minifier
 eslint	JavaScript用のASTベースのパターンチェッカー
 esniper	コマンドラインからのeBayオークションを狙う
 espeak	テキスト読み上げ ソフトウェア音声シンセサイザー
+espflash	esptool.pyに基づくEspressif SoC及びモジュール用のシリアルフラッシャーユーティリティ
 esphome	ESP32/ESP8266 のカスタムファームウェアの作成を非常に簡単にします
 esptool	ESP8266およびESP32連続ブートローダーユーティリティ
 etcd	共有構成とサービス検出のためのKeyValue store
@@ -4940,6 +4943,7 @@ pygobject3	GNOME Python bindings(GObjectイントロスペクションに基づ�
 pyinstaller	Pythonアプリケーションとそのすべての依存関係をバンドルする
 pyinvoke	Pythonicタスク管理とコマンド実行
 pylint	あなたを悩ませるのは単なる静的解析ツールはありません！
+pylyzer	Python用の高速静的コードアナライザーと言語サーバー
 pymol	分子可視化システム
 pympress	提示用に設計されたシンプルで強力なデュアルスクリーンPDFリーダー
 pymupdf	PDFツールキットとレンダラー MuPDFのPythonバインディング
@@ -5257,6 +5261,7 @@ ruby@3.0	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@3.1	オブジェクト指向のスクリプト言語 強力/クリーン
 rubyfmt	Rubyオート整形ツール
 ruff	Rustで書かれた非常に高速なPython解析ツール
+ruff-lsp	Ruffの言語サーバープロトコルの実装
 run	小さなスクリプトとラッパーを簡単に管理および呼び出す
 runcocoa	コマンドラインから実行するためのツール Cocoa/Objective-C/C
 rune	Rustに埋め込み可能な動的プログラミング言語
@@ -6477,6 +6482,7 @@ wolfmqtt	小さく高速なポータブルなMQTTクライアントCの実装
 wolfssl	Cで書かれた埋め込みSSLライブラリ
 woob	ブラウザ以外のWeb
 woof	Ad-hoc単一ファイルWebサーバー
+woof-doom	Woof! DoomソースポートのBoom/MBF血統の継続です
 wordgrinder	端末で実行されるUnicode対応のワード計算機
 wordle	コマンドラインでwordleを再生する
 wordnet	英語の語彙データベース
