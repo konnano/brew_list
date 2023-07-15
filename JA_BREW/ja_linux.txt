@@ -253,11 +253,13 @@ font-bona-nova	Cursive 書体
 font-bonbon	Bonbon
 font-bonheur-royale	Bonheur Royale
 font-boogaloo	Boogaloo
+font-borel	French cursive primer
 font-bowlby-one	Bowlby One
 font-bowlby-one-sc	Bowlby One SC
 font-braah-one	大胆で遊び心のあるフォント
 font-brawler	Brawler
 font-bree-serif	Bree Serif
+font-bricolage-grotesque	歴史的資料のコラージュ、技術的な決定と個人的な感情
 font-brill	Brill
 font-bruno-ace	Bruno Ace
 font-bruno-ace-sc	Bruno Ace SC
@@ -296,6 +298,7 @@ font-candal	Candal
 font-cantarell	Cantarell
 font-cantata-one	Cantata One
 font-cantora-one	Cantora One
+font-caprasimo	Based on fraunces
 font-capriola	Capriola
 font-caramel	3つのバリエーションを持つ楽しい手書きのスクリプト
 font-carattere	フォーマルな優雅さと美しさが不可欠な場所に最適
@@ -420,6 +423,7 @@ font-cutive	Cutive
 font-cutive-mono	Cutive Mono
 font-d2coding	D2 Coding
 font-daddy-time-mono-nerd-font	開発者向けのグリフ数が多いフォント
+font-dai-banna-sil	Dai Banna SIL
 font-damion	Damion
 font-dancing-script	Dancing Script
 font-dangrek	Dangrek
@@ -1006,6 +1010,7 @@ font-limelight	Limelight
 font-linden-hill	Linden Hill
 font-linux-biolinum	Linux Biolinum
 font-linux-libertine	Linux Libertine
+font-lisu-bosa	Lisu Bosa
 font-literata	Literata
 font-liu-jian-mao-cao	Liu Jian Mao Cao
 font-livvic	Livvic
@@ -1028,6 +1033,7 @@ font-luckiest-guy	Luckiest Guy
 font-luculent	Luculent
 font-lugrasimo	カリグラフィレタリングスタイル書体
 font-lumanosimo	Expressive書体
+font-lunasima	変調のないデザイン("sans serif")
 font-lusitana	Lusitana
 font-lustria	Lustria
 font-luxurious-roman	一貫性のないセリフを含む半手書きフォント
@@ -1195,6 +1201,7 @@ font-myricam	Programming font
 font-mystery-quest	Mystery Quest
 font-n-gage	N-Gage
 font-nabla	isometric computer gamesから影響を受けた得たカラーフォント、colrv1形式で構築されてます
+font-namdhinggo	Namdhinggo
 font-nanum-brush-script	Nanum Brush Script
 font-nanum-gothic	Nanum Gothic
 font-nanum-gothic-coding	Nanum Gothic Coding
@@ -1270,6 +1277,7 @@ font-noto-sans-cjk-tc	Noto Sans CJK TC
 font-noto-sans-coptic	Noto Sans Coptic
 font-noto-sans-cuneiform	Noto Sans Cuneiform
 font-noto-sans-cypriot	Noto Sans Cypriot
+font-noto-sans-cypro-minoan	歴史的なヨーロッパのキプロミノア文字のデザイン
 font-noto-sans-deseret	Noto Sans Deseret
 font-noto-sans-devanagari	Noto Sans Devanagari
 font-noto-sans-devanagari-ui	Noto Sans Devanagari UI
@@ -1412,6 +1420,7 @@ font-noto-sans-tifinagh	Noto Sans Tifinagh
 font-noto-sans-tirhuta	Noto Sans Tirhuta
 font-noto-sans-ugaritic	Noto Sans Ugaritic
 font-noto-sans-vai	Noto Sans Vai
+font-noto-sans-vithkuqi	歴史的なヨーロッパのvithkuqi 文字のデザイン
 font-noto-sans-wancho	Noto Sans Wancho
 font-noto-sans-warang-citi	Noto Sans Warang Citi
 font-noto-sans-yi	Noto Sans Yi
@@ -1438,6 +1447,7 @@ font-noto-serif-hebrew	Noto Serif Hebrew
 font-noto-serif-hk	エクストラライトからエクストラブラックまでのウェイト軸を持つ可変フォント
 font-noto-serif-jp	日本語の変調デザイン(serif)
 font-noto-serif-kannada	Noto Serif Kannada
+font-noto-serif-khitan-small-script	歴史的な東アジアの契丹小文字のデザイン
 font-noto-serif-khmer	Noto Serif Khmer
 font-noto-serif-khojki	インド語コージ文字のテキストの変調デザイン(serif)
 font-noto-serif-kr	韓国語の変調デザイン(serif)
@@ -1458,6 +1468,7 @@ font-noto-serif-telugu	Noto Serif Telugu
 font-noto-serif-thai	Noto Serif Thai
 font-noto-serif-tibetan	Noto Serif Tibetan
 font-noto-serif-toto	Noto Serif Toto
+font-noto-serif-vithkuqi	歴史的なヨーロッパのvithkuqi文字のデザイン
 font-noto-serif-yezidi	Noto Serif Yezidi
 font-noto-traditional-nushu	Noto Traditional Nushu
 font-nova-cut	Nova Cut
@@ -1653,6 +1664,7 @@ font-reem-kufi-fun	khaled の娘の名前でもある
 font-reem-kufi-ink	khaled の娘の名前でもある
 font-reenie-beanie	Reenie Beanie
 font-reggae-one	Reggae One
+font-rem	Acronym for rapid eye movementの頭字語
 font-revalia	Revalia
 font-rhodium-libre	Rhodium Libre
 font-ribeye	Ribeye
@@ -1714,6 +1726,7 @@ font-rum-raisin	Rum Raisin
 font-ruslan-display	Ruslan Display
 font-russo-one	Russo One
 font-ruthie	Ruthie
+font-ruwudu	rubutun kanoスタイルを使用するアラビア文字言語のオープンフォントファミリ
 font-rye	Rye
 font-sacramento	Sacramento
 font-sahitya	Sahitya
@@ -1888,6 +1901,7 @@ font-taprom	Taprom
 font-tauri	Tauri
 font-taviraj	Taviraj
 font-teko	Teko
+font-tektur	コンパクトな組版を可能にする高めの設定
 font-telex	Telex
 font-tenali-ramakrishna	Tenali Ramakrishna
 font-tengwar-formal-csur	CSUR に準拠した Tengwar Unicodeフォント
@@ -2010,6 +2024,7 @@ font-waptia	Ancient-biology styled font
 font-warnes	Warnes
 font-water-brush	水彩テクスチャー紙に色で満たされたラクダの毛のブラシ
 font-waterfall	Calligraphic script
+font-wavefont	バー間の距離を調整するのに便利です、1ch === 1 bar、幅
 font-wellfleet	Wellfleet
 font-wendy-one	Wendy One
 font-whisper	Whisper
