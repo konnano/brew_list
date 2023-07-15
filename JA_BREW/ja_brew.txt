@@ -998,6 +998,7 @@ corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
 cosign	コンテナ署名
 coturn	TURNおよびSTUNサーバーのFreeオープンソース実装
+couchbase-shell	Couchbase Server及びCapella用のモダンで楽しいシェル
 couchdb	Apache CouchDBデータベースサーバー
 couchdb-lucene	Luceneを使用したCouchDBドキュメントの全文検索
 couchpotatoserver	映画を自動的にダウンロードする
@@ -3719,6 +3720,7 @@ mahout	拡張性のある機械学習ライブラリの構築に役立つライ�
 mailcatcher	メールをキャッチし、夢を通して提供します
 mailcheck	多用なメールを確認してください メールボックス/maildir
 mailhog	WebおよびAPIベースのSMTPテストツール
+mailpit	Web及びAPIベースのSMTPテスト
 mailsy	一時的な電子メールアドレスをすばやく生成する
 mailutils	メール処理の万能ナイフ
 mairix	メールインデックスと検索ツール
@@ -4069,6 +4071,7 @@ musikcube	端末ベースのオーディオエンジン ライブラリ/プレ�
 mussh	Multi-host SSHラッパー
 mutt	メールユーザーエージェントの雑種(part elm、pine、mush、mhなど)
 mvnvm	Mavenバージョンマネージャー
+mvt	モバイルデバイスフォレンジックツールキット
 mvtools	動作の評価と補正用のフィルター
 mx	Graalプロジェクトの開発に使用されるコマンドラインツール
 mxnet	ディープラーニング用の柔軟で効率的なライブラリ
@@ -4152,6 +4155,7 @@ neo4j	堅牢な(完全にACID)処理属性グラフデータベース
 neofetch	高速で高度にカスタマイズ可能なシステム情報スクリプト
 neomutt	Notmuch、NNTPなどをサポートする電子メールリーダー
 neon	Cインターフェイスを備えたHTTPおよびWebDAVクライアントライブラリ
+neonctl	Neon CLI ツール
 neopop-sdl	NeoGeo Pocketエミュレーター
 neovide	Rust実用的Neovim Client
 neovim	拡張性と敏捷性に焦点を当てた野心的なVimフォーク
@@ -4722,6 +4726,7 @@ pipgrip	軽量のPIP依存関係リゾルバー
 pipx	隔離された環境でPythonパッケージからバイナリを実行する
 pit	From hellプロジェクトマネージャー(Gitと統合)
 pius	PGP個別UID署名
+pixi	パッケージ管理が簡単に
 pixie	Kubernetesアプリケーション用の可観測性ツール
 pixiewps	オンラインWi-Fi Protected Setupブルートフォースユーティリティ
 pixman	ピクセル操作用の低レベルライブラリ
@@ -5674,6 +5679,7 @@ sqlite-analyzer	SQLiteファイル内でスペースがどのように割り当�
 sqlite-utils	SQLiteデータベースを操作するためのCLIユーティリティ
 sqliteodbc	SQLiteのODBCドライバー
 sqlmap	SQLインジェクションおよびデータベースサーバーの侵入テスト
+sqlpage	Webアプリケーションフレームワーク、単純なデータベースクエリを使用したWebサイトの作成用
 sqlparse	非検証SQLパーサー
 sqls	Goで記述されたSQL言語サーバー
 sqlx-cli	RustSQLツールキットであるSQLxのコマンドラインユーティリティ
@@ -6434,6 +6440,7 @@ webkitgtk	WebKitへのGTKインターフェース
 webp	Web画像に可逆および非可逆圧縮を提供する画像形式
 webp-pixbuf-loader	WebP画像形式GdkPixbufローダー
 webpack	JavaScriptとその仲間のためのBundler
+webpod	Webサイトとアプリをどこにでも展開
 websocat	WebSocketのコマンドラインクライアント
 websocketd	Unixの方法でWebSocket
 websocketpp	WebSocket++は、クロスプラットフォームヘッダーのみのC++ライブラリです。
@@ -6491,6 +6498,7 @@ wownero	Wownero暗号通貨の公式ウォレットおよびノードソフト�
 wp-cli	WordPressのコマンドラインインターフェイス
 wp-cli-completion	WpcliのBash補完
 wpebackend-fdo	WPE WebKitのFreedesktop.orgバックエンド
+wpscan	WordPressセキュリティスキャナー
 wput	ファイルをアップロードするための小さなwgetのようなFTPクライアント
 wrangler	emacsとEclipseが統合されたErlangのRefactoringツール
 wren	小さくて高速なクラスベースの並行スクリプト言語
