@@ -1072,6 +1072,7 @@ cryptol	暗号化アルゴリズムを指定するためのドメイン固有言
 cryptominisat	高度なSAT Solver
 crystal	Rubyのような構文を使用した、高速で静的に型指定されたコンパイル型言語
 crystal-icr	Crystalプログラミング言語の対話的なコンソール
+crystalline	Crystalの言語サーバープロトコルの実装
 crytic-compile	スマートコントラクトビルドシステムの抽象化レイヤー
 cscope	ソースコードを閲覧するためのツール
 csfml	CのSMFL bindings
@@ -6682,6 +6683,7 @@ yubico-piv-tool	YubiKey PIVアプリケーション用のコマンドライン�
 yubikey-agent	YubiKeysおよびその他のPIVトークン用のシームレスなssh-agent
 yuicompressor	Yahoo! JavaScriptとCSS圧縮機
 yydecode	yEncアーカイブをデコードする
+yyjson	ANSI Cで書かれた高性能JSONライブラリ
 z	最もよく使用されるディレクトリを追跡してcdコマンドを賢くします
 z.lua	習慣を学ぶことでより速くナビゲートするのに役立つ新しいcdコマンド
 z3	高性能定理証明
