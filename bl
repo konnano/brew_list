@@ -197,7 +197,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.18_0\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.18_1\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -1503,7 +1503,7 @@ sub Format_1{
       if @{$re->{'ARR'}} and index($re->{'ARR'}[0],' ') != 0;
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
      if( index($re->{'ARR'}[$e],' ==> Formula') == 0 or index($re->{'ARR'}[$e],' ==> Cask') == 0 ){
-       ( not $re->{'KAI'} and index($re->{'ARR'}[$e],' ==> Cask/') == 0 ) ?
+       ( not $re->{'KAI'} and index($re->{'ARR'}[$e],' ==> Cask') == 0 ) ?
         print"\n$re->{'ARR'}[$e]\n" : print"$re->{'ARR'}[$e]\n"; $in = 1;
       }else{
        if( index($re->{'ARR'}[$e],'homebrew/') >=0 ){
