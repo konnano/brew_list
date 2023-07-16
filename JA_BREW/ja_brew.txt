@@ -2485,6 +2485,7 @@ hopenpgp-tools	OpenPGP関連の操作用のコマンドラインツール
 hostdb	hostlist.txtからDNSゾーンとDHCP構成を生成します
 hostess	/etc/hostsのファイルを管理するコマンドラインユーティリティ
 hotbuild	Go用のクロスプラットフォームホットコンパイルツール
+hoverfly	開発とテストのためのAPIシミュレーション
 howard-hinnant-date	<chrono>に基づく日付と時刻の操作のためのC++ライブラリ
 howdoi	コマンドラインを介した即時コーディングの回答
 hpack	Haskellパッケージの最新フォーマット
@@ -5766,6 +5767,7 @@ streamripper	Shoutcastsタイトルストリーミングによる個別のトラ
 streamvbyte	Cでの高速整数圧縮
 stress	コンピュータシステムに負荷をかけストレステストを行うためのツール
 stress-ng	さまざまな選択可能な方法でコンピュータシステムのストレステストを行う
+strip-nondeterminism	ファイルから非決定的な情報のビットを削除するツール
 strongswan	IPsecに基づくVPN
 structurizr-cli	Structurizrのコマンドラインユーティリティ
 stubby	getdnsに基づくDNSプライバシー対応スタブリゾルバーサービス
