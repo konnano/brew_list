@@ -208,23 +208,23 @@ EOF
    { math_rm; ${die:?curl h error}; }
  curl -skLo ~/.BREW_LIST/font.zip https://github.com/Homebrew/homebrew-linux-fonts/archive/master.zip ||\
    { math_rm; ${die:?curl i error}; }
- curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics-linux/install/30d/index.html ||\
+ curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
    { math_rm; ${die:?curl j error}; }
- curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics-linux/install/90d/index.html ||\
+ curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
    { math_rm; ${die:?curl k error}; }
- curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics-linux/install/365d/index.html ||\
+ curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
    { math_rm; ${die:?curl l error}; }
- curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics-linux/install-on-request/30d/index.html ||\
+ curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
    { math_rm; ${die:?curl m error}; }
- curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics-linux/install-on-request/90d/index.html ||\
+ curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
    { math_rm; ${die:?curl n error}; }
- curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics-linux/install-on-request/365d/index.html ||\
+ curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
    { math_rm; ${die:?curl o error}; }
- curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics-linux/build-error/30d/index.html ||\
+ curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
    { math_rm; ${die:?curl p error}; }
- curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics-linux/build-error/90d/index.html ||\
+ curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
    { math_rm; ${die:?curl q error}; }
- curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics-linux/build-error/365d/index.html ||\
+ curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
    { math_rm; ${die:?curl r error}; }
   fi
  unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
