@@ -358,6 +358,7 @@ babel	次世代JavaScriptを作成するためのコンパイラ
 babeld	ループ空間回避距離設定手続き
 babl	動的な、任意のピクセル形式の変換ライブラリ
 backupninja	バックアップ自動化ツール
+bacon	バックグラウンドの rustコードチェック
 bacula-fd	ネットワークバックアップソリューション
 bagit	バッグの作成、操作、および検証のためのライブラリ
 baidupcs-go	Baiduネットワークディスクのターミナルユーティリティ
@@ -1442,6 +1443,7 @@ dynare	経済モデル、特にDSGEおよびOLGモデルのプラットフォー
 dynein	DynamoDB CLI
 dynet	動的神経ネットワークツールキット
 dynomite	さまざまなkv記憶装置エンジン用の汎用ダイナモ実装
+dysk	ファイルシステムに関する情報を取得するための Linuxユーティリティ(dfに似ていますが、より優れてます)
 dzr	コマンドラインDeezer.comプレーヤー
 e2fsprogs	ext2/ext3/ext4 ファイルシステムのユーティリティ
 e2tools	読み取り/書き込み ユーティリティと ext2/3/4ファイルシステム内のファイルを操作する
@@ -1543,6 +1545,7 @@ epstool	プレビュー画像を編集しEPSファイルのバウンディング
 epubcheck	EPUBファイルを検証する バージョン2.0以降
 eralchemy	単純実体関連(ER)図の生成
 erdtree	マルチスレッドのファイルツリービジュアライザーとディスク使用状況アナライザー
+erg	Pythonエコシステムを大幅に改善できる静的型付け言語
 erigon	効率性最前線でのイーサリアム(実行クライアント)の実装
 erlang	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
 erlang@21	高度に拡張性のあるリアルタイムシステムのためのプログラミング言語
@@ -2700,6 +2703,7 @@ itex2mml	itex方程式をMathMLに変換するためのテキストフィルタ�
 itk	Insight Toolkitは、登録と分割を実行するためのツールキットです。
 itpp	数学のライブラリ 信号 コミュニケーションのクラスと機能
 itstool	XMLドキュメントをPOファイルを介して翻訳可能にする
+ittapi	インテルインスツルメンテーションアンドトレーシングテクノロジー(ITT)及びジャストインタイム(JIT)API
 ivtools	X11ベクターグラフィックサーバー
 ivy	Agile依存関係マネージャー
 ivykis	非同期I/O支援ライブラリ
@@ -4869,7 +4873,6 @@ protobuf	Buffer手続き(Googleのデータ交換形式)
 protobuf-c	Buffer手続きライブラリ
 protobuf@21	プロトコルバッファー(Googleのデータ交換形式)
 protobuf@3	プロトコルバッファ(Googleのデータ交換形式)
-protobuf@3.6	Buffer手続き(Googleのデータ交換形式)
 protoc-gen-go	Goサポート、Google Bufferの手続き
 protoc-gen-go-grpc	gRPC-Goクライアントのコードを生成するProtocプラグイン
 protoc-gen-gogo	Buffer手続き Go with Gadgets
@@ -5592,6 +5595,7 @@ solidity	契約指向プログラミング言語
 sollya	安全な浮動小数点コード開発のためのライブラリ
 solr	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
 solr@7.7	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
+solr@8.11	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
 somagic	EasyCAPのSomagic変換用のLinuxキャプチャプログラム
 somagic-tools	EasyCAPからファームウェアを抽出するためのツール
 sonar-completion	SonarのBash補完
@@ -5894,7 +5898,7 @@ tcpstat	アクティブなTCP接続監視ツール
 tcptrace	tcpdump出力を分析します
 tcptraceroute	TCPパケットを使用したtracerouteの実装
 tcptunnel	TCPポートフォワーダー
-tcsh	BerkeleyCシェルの拡張された完全に互換性のあるバージョン
+tcsh	Berkeley Cシェルの拡張された完全に互換性のあるバージョン
 tctl	一時CLI(tctl)
 td	ターミナルのToDoリスト
 tdkjs	Tixte開発キット
@@ -6458,6 +6462,7 @@ werf	Kubernetes用の一貫した配信ツール
 west	Zephyrメタツール
 wgcf	CloudflareWarpアカウントからWireGuardプロファイルを生成する
 wget	インターネットファイルRetriever
+wget2	ファイルおよび再帰的な Webサイトのダウンローダーである GNU Wgetの後継
 wgetpaste	多数のpastebinサービスへの貼り付けを自動化する
 whalebrew	Homebrew ただしDockerイメージを使用
 whatmask	ネットワーク設定ヘルパー
