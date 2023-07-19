@@ -1128,6 +1128,7 @@ fauxpas	Faux Pas
 favro	コラボレーティブ共同プランニングアプリ
 faxbot	FRITZ!BoxでFAX送信
 fbreader	ブックリーダー
+fedistar	デスクトップ用の複数列の Mastodon、Pleroma、及び Friendicaクライアント
 fedora-media-writer	Fedoraイメージをポータブルメディアファイルに書き込むためのツール
 feed-the-beast	Minecraft modダウンローダーおよびマネージャー
 feem	ローカルファイル転送
@@ -1366,6 +1367,7 @@ gitup	視覚的な相互作用に焦点を当てたGitインターフェース
 gitx	GitX
 glance	ネイティブでサポートされていないファイルのQuicklookプレビューを提供するユーティリティ
 glance-chamburr	ネイティブでサポートされていないファイルのクイックルックプレビューを提供するユーティリティ
+glaze	アートスタイル AI模倣破壊者
 glimmerblocker	HTTPベースの広告ブロッカー
 gltfquicklook	glTFファイル用のQuickLookプラグイン
 gluemotion	タイムラプス動画を作成して修正する
