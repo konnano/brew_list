@@ -4663,6 +4663,7 @@ pgformatter	PostgreSQL構文美化
 pgloader	PostgreSQLのデータ読み込みツール
 pgpdump	PGPパケットvisualizer
 pgpool-ii	PostgreSQL接続プールサーバー
+pgrok	Poor man's ngrok、マルチテナント HTTP/TCPリバーストンネルソリューション
 pgroonga	Groongaをインデックスとして使用するPostgreSQLプラグイン
 pgrouting	PostGIS/PostgreSQL データベースの地理空間設定を提供します
 pgsync	データベース間でPostgresデータを同期する
@@ -4802,6 +4803,7 @@ pomsky	正規表現言語
 pony-stable	Pony言語の依存関係マネージャー
 ponyc	オブジェクト指向 Actor-model 機能的で安全なプログラミング言語
 ponysay	Cowsay しかしponiesと
+pop	端末からメールを送信する
 popeye	Kubernetes クラスターリソースサニタイザー
 poppler	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
 poppler-qt5	PDF解釈ライブラリ(xpdf-3.0コードベースに基づく)
@@ -5041,6 +5043,7 @@ quex	字句分析を生成する
 quick-lint-js	JavaScriptコードのバグを見つける
 quickjs	小さくて埋め込み可能なJavaScriptエンジン
 quicktype	JSON、Schema、GraphQLからタイプと変換器を生成する
+quictls	QUIC APIを使用したTLS/SSLおよび暗号化ライブラリ
 quill	C++14非同期低遅延Loggingライブラリ
 quilt	一連のパッチを操作する
 quilt-installer	バニラ ランチャーの Quilt のインストーラー
