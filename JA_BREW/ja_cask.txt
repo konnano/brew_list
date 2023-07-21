@@ -1495,6 +1495,7 @@ heimdall-suite	Samsungモバイルデバイスへのフラッシュファーム�
 helium	Helium
 helo	メールテスターとデバッガー
 hepta	視覚学習のためのメモ取りツール
+herd	LaravelおよびPHP開発環境マネージャー
 hermes	Hermes
 hermit-crab	現在のアプリを離れずにシェルコマンドを実行する
 heroic	オープンソースゲームランチャー
