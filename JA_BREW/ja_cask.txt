@@ -3285,6 +3285,7 @@ shortcuts	再起動/スリープ/ログアウト/シャットダウン/ロック
 shotcut	動画編集
 shottr	スクリーンショット測定および注釈ツール
 showhiddenfiles	Finderで隠しファイルを表示
+showmeyourhotkeys	アプリケーションのメニュー項目のホットキーを表示する
 showyedge	現在の入力ソースの可視インジケータ
 shrinkit	ShrinkIt
 shupapan	Shupapan
