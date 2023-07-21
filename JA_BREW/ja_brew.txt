@@ -438,6 +438,7 @@ bettercap	ネットワーク攻撃と監視のための万能ナイフ
 betty	コマンドラインの英語のようなインターフェイス
 bfg	git-filter-branchなどのGit履歴から大きなファイルやパスワードを削除する
 bfgminer	Cで記述されたモジュラー CPU/GPU/ASIC/FPGAマイナー
+bfs	findの幅優先バージョン
 bgpdump	dumpファイルを分析するためのCライブラリ MRT/Zebra/Quagga
 bgpq3	CiscoのBGPフィルタリングの自動化 Juniper/BIRD/OpenBGPDルーター
 bgpq4	CiscoのBGPフィルタリングの自動化 Juniper/BIRD/OpenBGPDルーター
@@ -2248,6 +2249,7 @@ gotop	gtopとvtopに触発されたターミナルベースのグラフィカル
 gource	バージョン管理視覚化ツール
 govc	VMwarev Sphereのコマンドラインツール
 govendor	Goの依存関係をベンダー化するためのツール
+govulncheck	Go脆弱性データベース用のデータベースクライアントとツール
 gowsdl	WSDL2Goコード生成とそのSOAPプロキシ
 gox	クロスコンパイルツールに移動します
 gpa	GnuPGのグラフィカルユーザーインターフェイス
@@ -6178,6 +6180,7 @@ typical	代数データ型によるデータ交換
 typos-cli	ソースコードスペルチェッカー
 typst	マークアップベースの組版システム
 tz	CLIタイムゾーンvisualizer
+tzdiff	CLI(シェルスクリプト)でローカルタイムとのタイムゾーンの違いを表示します
 u-boot-tools	汎用ブートローダー
 uade	アラブ首長国連邦のエミュレーションを通じてAmigaの曲を再生する
 ubertooth	ProjectUbertoothのホストツール
