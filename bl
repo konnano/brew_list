@@ -264,7 +264,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
   }else{
    Info_1( $re ) if $re->{'INF'};
-    if( $re->{'TREE'} ){ $re->{'UNI'} = $re->{'CLO'}->(); return }
+    if( $re->{'TREE'} ){ delete $re->{'OS'}; $re->{'UNI'} = $re->{'CLO'}->(); return }
    unless( $re->{'ANA'} or $re->{'COM'} or $re->{'deps'} or $re->{'PRE'} ){
      $list = ( defined $re->{'S_OPT'} or $re->{'BL'} and ( $re->{'CAS'} or -f $re->{'LFO'} ) ) ? Dirs_1( $re->{'CEL'},1 ) :
              ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
@@ -1568,10 +1568,10 @@ sub Format_1{
 sub Format_2{
 my $re = shift;
  if( $re->{'TT'} or $re->{'DD'} ){ my( $e,$mm,@tt ) = 0;
-  for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
-   $mm = ${$re->{'UNI'}}[$i] =~ tr/|/|/;
-   if( $mm == $e or index(${$re->{'UNI'}}[$i],'(require)') >= 0 or index(${$re->{'UNI'}}[$i],'(can delete)') >= 0 ){
-    push @tt,${$re->{'UNI'}}[$i];
+  for my $uni(reverse @{$re->{'UNI'}}){
+   $mm = $uni =~ tr/|/|/;
+   if( $mm == $e or index($uni,'(require)') > 0 or index($uni,'(can delete)') > 0 ){
+    push @tt,$uni;
      $e = $mm - 1;
    }
   } @{$re->{'UNI'}} = reverse @tt;
@@ -1611,14 +1611,14 @@ my $re = shift;
       push @COU3,$name1; last;
      }
     }
-   } push @COU3,$name1 if not $re->{'DD'} and not $flag and index($name1,'(can delete)') >= 0;
+   } push @COU3,$name1 if not $re->{'DD'} and not $flag and index($name1,'(can delete)') > 0;
   }
  } $re->{'UNI'} = \@COU3 if @COU3;
 
  unless( $re->{'DDD'} ){ my( $AU,@AUA,@COU,@COU2 );
   $COU2[$_] = 0 for 0..$cou;
-  for(my $i=$#{$re->{'UNI'}};$i>=0;$i--){
-   my @AN = split '\s{3}',${$re->{'UNI'}}[$i];
+  for my $uni(reverse @{$re->{'UNI'}}){
+   my @AN = split '   ',$uni;
    for(my $i=0;$i<=@AN;$i++){
     if( $COU[$i] and $AN[$i] and ( index($AN[$i],'│') >= 0 or index($AN[$i],'|') >= 0 ) ){ $COU[$i] = 1;
     }elsif( $AN[$i] and ( index($AN[$i],'──') >= 0 or index($AN[$i],'--') >= 0 ) ){ $COU[$i] = 1;
