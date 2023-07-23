@@ -4759,6 +4759,7 @@ platformio	組み込み開発のためのプロフェッショナルな共同プ
 platypus	(Perl/Ruby/sh/Python)スクリプトからMacOSアプリケーションを作成する
 plenv	Perlバイナリマネージャー
 plod	あなたが取り組んでいるオンラインの記録を保管してください
+plog	移植可能、シンプル、拡張可能なC++ロギングライブラリ
 ploticus	スクリプト可能な立案およびグラフ作成ユーティリティ
 plotutils	2次元空間グラフィックを書き出しするためのC/C++関数ライブラリ
 plow	HTTP基準比較ツールを表示する高性能でリアルタイムのmetrics
@@ -5960,6 +5961,7 @@ terraform_landscape	Terraformの計画出力を改善する
 terraformer	既存の基礎構造からTerraformファイルを生成するCLIツール
 terraforming	既存のAWSリソースをTerraformスタイル(tf、tfstate)に転送する
 terragrunt	Terraformの薄いラッパー(ロック状態など)
+terragrunt-atlantis-config	Terragruntプロジェクト用の Atlantis構成を生成する
 terrahelp	Terraformに追加機能を提供するツール
 terrahub	Terraform自動化およびオーケストレーションツール
 terramate	変更検出とコード生成によるTerraformスタックの管理
