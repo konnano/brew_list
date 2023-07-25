@@ -1791,6 +1791,7 @@ keyboardcleantool	すべてのキーボードとタッチバーの入力をブ�
 keyboardholder	アプリケーションごとに入力方法を切り替える
 keycast	スクリーンキャストのキーストロークを記録する
 keycastr	オープンソースのキーストロークビジュアライザー
+keyclu	インストールされているアプリケーションのショートカットを見つける
 keycombiner	インスタントショートカットルックアップ
 keycue	見つける キーボードショートカットを学習して記憶する
 keyman	別の言語で入力するようにキーボードを再構成します
@@ -1935,6 +1936,7 @@ live-home-3d	Home&floorplan designer&renderer
 livebook	開発者向けのコードノートブック
 livetail	Sumologic livetail CLI
 llamachat	LLaMAモデルのクライアント
+lm-studio	ローカルLLMを検出、ダウンロード、実行する
 lmms	音楽制作ソフトウェア
 lo-rain	どこにいてもアプリの上でも雨を降らせるアプリ
 loading	ネットワークアクティビティモニター
@@ -2945,7 +2947,6 @@ qlmobi	Kindle電子書籍フォーマット用のQuick Lookプラグイン
 qlnetcdf	QLNetcdf
 qlplayground	inloop-qlplayground
 qlprettypatch	QLPrettyPatch
-qlrest	QLRest
 qlstephen	拡張子のないプレーンテキストファイル用のQuickLookプラグイン
 qlswift	QLSwift
 qlvideo	動画ファイル用のQuickLook生成器
@@ -3120,6 +3121,7 @@ ringcentral-phone	電話システムマネージャー
 rio	Hardware-accelerated GPU ターミナルエミュレータ
 ripcord	Slack(およびDiscord)用のデスクトップチャットクライアント
 ripme	さまざまなWebサイトのアルバムリッパー
+ripx	音楽ステムの分離および修復ユーティリティ
 rive	機能的なグラフィックを作成するデザインツール
 rnnoise	音声のノイズ抑制
 roam-research	ネットワーク化された思考のためのメモを取るツール
