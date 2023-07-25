@@ -3607,6 +3607,7 @@ lizard	非常に高速な減圧を備えた効率的な圧縮機
 lizard-analyzer	拡張可能な循環的複雑度アナライザー
 llama	端末ファイルマネージャー
 lldpd	IEEE 802.1ab(LLDP)の実装
+llm	コマンドラインから大規模な言語モデルにアクセスする
 llnode	node.jsアプリのデバッグ用LLDBプラグイン live/post-mortem
 llvm	次世代基礎構造コンパイラ
 llvm@11	次世代基礎構造コンパイラ
@@ -4078,6 +4079,7 @@ musepack	オーディオ圧縮フォーマットとツール
 musikcube	端末ベースのオーディオエンジン ライブラリ/プレーヤー/サーバー
 mussh	Multi-host SSHラッパー
 mutt	メールユーザーエージェントの雑種(part elm、pine、mush、mhなど)
+mvfst	QUICトランスポートプロトコルの実装
 mvnvm	Mavenバージョンマネージャー
 mvt	モバイルデバイスフォレンジックツールキット
 mvtools	動作の評価と補正用のフィルター
@@ -4973,6 +4975,7 @@ pyright	Pythonの静的型チェッカー
 pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
 python-build	単純 正しいPEP517ビルドフロントエンド
+python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
