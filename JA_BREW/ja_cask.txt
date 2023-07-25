@@ -11,6 +11,7 @@
 4k-slideshow-maker	スライドショーメーカー
 4k-stogram	Instagramの写真をダウンロード アカウント/ハッシュタグ/Locations
 4k-video-downloader	Freeのビデオダウンローダー
+4k-video-downloaderplus	4Kビデオダウンローダープラス
 4k-video-to-mp3	ビデオをMP3に変換する
 4k-youtube-to-mp3	YouTubeリンクをMP3ファイルに変換する
 4peaks	DNA配列トレースファイルの視覚化と編集
