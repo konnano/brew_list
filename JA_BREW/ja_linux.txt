@@ -15,6 +15,7 @@ font-acme	Acme
 font-actor	Actor
 font-adamina	Adamina
 font-adinatha-tamil-brahmi	Adinatha Tamil Brahmi
+font-adlam-display	ADLaM Display
 font-adobe-blank	Adobe Blank
 font-advent-pro	Webと印刷用にデザインされたモダンなフォント
 font-african-sans	African Sans
@@ -513,6 +514,7 @@ font-engagement	Engagement
 font-englebert	Englebert
 font-enriqueta	Enriqueta
 font-envy-code-r	Envy Code R
+font-envy-code-r-nerd-font	多数のグリフを含む開発者向けのフォント
 font-ephesis	カジュアルな招待状に最適な現代的なスクリプト cards/tubes/scrapbooking
 font-epilogue	ウェイト軸のある可変 Sans serif
 font-erica-one	Erica One
