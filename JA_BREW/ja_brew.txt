@@ -2894,6 +2894,7 @@ kibana	Elasticsearchの分析と検索ダッシュボード
 kibana@6	Elasticsearchの分析と検索ダッシュボード
 kickstart	新しいプロジェクトを迅速に立ち上げて実行するための雛形ツール
 kics	脆弱性を検出する コンプライアンスの問題および設定ミス
+killport	特定のポートでリッスンしているプロセスを強制終了するコマンドライン ツール
 killswitch	MacOS用のVPNキルスイッチ
 kim-api	原子間モデル(KIM)APIの知識ベース
 kimwitu++	ツリー(つまり用語)を処理するためのツール
@@ -4848,6 +4849,7 @@ premake	一度書いて Luaベースのビルドシステムをどこでもビ�
 prestd	既存または新規のPostgresアプリケーションの開発を簡素化および加速します
 prestodb	ビッグデータ用の分散SQLクエリエンジン
 prettier	コード整形ツール JavaScript/CSS/JSON/GraphQL/Markdown/YAML
+prettierd	よりきれいなデーモン
 prettyping	pingの出力を色付けして簡素化するラッパー
 primecount	高速素数計数関数プログラムと C/C++ライブラリ
 primer3	PCRプライマーを設計するためのプログラム
