@@ -3088,6 +3088,7 @@ renamer	バッチファイルリネームアプリケーション
 renpy	Pythonのビジュアルノベルエンジン
 repetier-host	3Dプリントアプリケーション
 replacicon	アプリアイコン置換ユーティリティ
+replay	タイムトラベルデバッグ
 repoz	Zero-confgitリポジトリハブ
 rescuetime	時間最適化アプリケーション
 resilio-sync	ファイル同期および共有ソフトウェア
@@ -3261,6 +3262,7 @@ sessionrestore	後で読むために多数のSafariタブを開いたままに�
 setapp	サブスクリプションで利用可能なアプリのコレクション
 sf-symbols	アプリに一貫性のある高度に構成可能なシンボルを提供するツール
 sfdx	SalesForce CLIツール
+sfm	Sing-box用のスタンドアロンクライアント、ユニバーサルプロキシプラットフォーム
 shades	Shades
 shadow	クラウドテクノロジーを搭載したゲーミングPC
 shadowsocksx	規制に従って削除
