@@ -15,6 +15,7 @@ font-acme	Acme
 font-actor	Actor
 font-adamina	Adamina
 font-adinatha-tamil-brahmi	Adinatha Tamil Brahmi
+font-adlam-display	ADLaM Display
 font-adobe-blank	Adobe Blank
 font-advent-pro	Webと印刷用に設計されたモダンなフォント
 font-african-sans	African Sans
@@ -810,6 +811,7 @@ font-instrument-serif	Instrument Serif
 font-intel-one-mono	表現力豊かな等幅フォントファミリー
 font-inter	Inter
 font-inter-tight	Inter Tight
+font-intone-mono-nerd-font	多数のグリフを含む開発者向けのフォント
 font-iosevka	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-aile	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-comfy	デフォルトとは異なるスタイルとメトリックを使用したIosevkaのカスタムビルド
