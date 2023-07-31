@@ -2101,6 +2101,7 @@ adguard-vpn-nightly	プライバシーとセキュリティのためのVPN
 adoptopenjdk8	ビルド済みのOpenJDKバイナリ
 aerial-beta	Apple TV Aerialスクリーンセーバー
 affinity-designer-beta	写真編集およびグラフィックデザインソフトウェア
+affinity-designer1	プロ仕様のグラフィックデザインソフトウェア
 affinity-photo-beta	プロフェッショナルな画像編集ソフトウェア
 alfred2	アプリケーションランチャーと生産性ソフトウェア
 alfred3	アプリケーションランチャーと生産性ソフトウェア
