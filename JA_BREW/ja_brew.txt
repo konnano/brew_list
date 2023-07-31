@@ -5336,6 +5336,7 @@ saxon-b	XSLT/XQuery 計算機
 sbcl	Steel Bank CommonLispシステム
 sbjson	SBJsonv5に基づくJSONCLIパーサーと再整形ツール
 sblim-sfcc	システムの管理性を強化するプロジェクト GNU/Linux
+sbom-tool	あらゆる種類のアーティファクトのSBOMを作成するためのスケーラブルなエンタープライズ対応ツール
 sbt	Scalaプロジェクト用のビルドツール
 sbt@0.13	Scalaプロジェクト用のビルドツール
 sbtenv	sbt環境を管理するためのコマンドラインツール
