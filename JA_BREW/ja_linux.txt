@@ -811,6 +811,7 @@ font-instrument-serif	Instrument Serif
 font-intel-one-mono	Expressive monospaced font family
 font-inter	Inter
 font-inter-tight	Inter Tight
+font-intone-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-iosevka	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-aile	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-comfy	Custom build of Iosevka with different style and metrics than the default
