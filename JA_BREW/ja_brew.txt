@@ -3345,6 +3345,7 @@ libowfat	libdjbを再実装します
 libp11	CのPKCS#11ラッパーライブラリ
 libpagemaker	Aldus/Adobe PageMakerドキュメントのファイル形式をインポートします
 libpaho-mqtt	MQTT用のEclipse Paho Cクライアントライブラリ
+libpanel	GTK4のライブラリ Dock/panel
 libpano	重なり合う画像のセットからパノラマ画像を作成する
 libpaper	紙の特性を扱うライブラリ
 libpcap	ネットワーク転送量キャプチャ用のポータブルライブラリ
@@ -3407,6 +3408,7 @@ libsecret	パスワードや秘密鍵を 保存/取得 するためのライブ�
 libserdes	Avro + Confluent SchemaRegistryのスキーマ ser/deserializer lib
 libserialport	クロスプラットフォームの連番ポートCライブラリ
 libshout	Icecastサーバーのデータおよび接続ライブラリ
+libshumate	Shumateは埋め込みマップ用のウィジェットを提供するGTKツールキットです
 libsigc++	C++のCallbackフレームワーク
 libsigc++@2	C++のCallbackフレームワーク
 libsignal-protocol-c	シグナル命令のCライブラリ
@@ -5310,6 +5312,7 @@ s3-backer	Amazon S3を介したFUSEベースの単一ファイルバッキング
 s3cmd	Amazon S3サービスのコマンドラインツール
 s3fs	Amazon S3に裏打ちされたFUSEベースのファイルシステム
 s3ql	オブジェクトstoreをブロックストレージとして使用するPOSIX準拠のFUSEファイルシステム
+s3scanner	S3互換API全体で、設定が間違っているS3バケットをスキャンします
 s4cmd	SuperS3コマンドラインツール
 s6	小さくて安全な監視ソフトウェアパッケージ
 sad	CLI 検索と置換 | Space Age seD
@@ -6252,6 +6255,7 @@ urdfdom	Unified Robot Description Format(URDF)パーサー
 urdfdom_headers	Unified Robot Description Format(URDF)パーサーのヘッダー
 urh	汎用ラジオハッカー
 uriparser	URI解析ライブラリ(厳密にRFC 3986に準拠)
+urlfinder	Webサイト上のJSファイルからURLとサブドメインを抽出する
 urlview	URLエクストラクタ/ランチャー
 urlwatch	Webページが変更されたときに通知を受け取る
 uru	複数のプラットフォームで複数のRubyを使用する
