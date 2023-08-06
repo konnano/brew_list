@@ -1032,7 +1032,7 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|' unless $re->{'PP'};
- if( not $spa and $re->{'PP'} ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT" }
+     rmdir "$re->{'HOME'}/WAIT" ? waitpid $re->{'PID2'},0 : 0 unless $spa;
 
  unless( $re->{"${brew}undel"} ){
   if( $re->{'OS'}{"${brew}deps_b"} ){
@@ -1041,10 +1041,12 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
         not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
        if( $re->{'PP'} ){
-        if( not $re->{'OS'}{"${brew}deps"} ){ Unic_1( $re,\$data,$spa.'└──',$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
-                                       }else{ Unic_1( $re,\$data,$spa.'├──',$AN,1 ); Info_1( $re,$data,$spa.'│   ',$AN,$m ) }
+        if( not $re->{'OS'}{"${brew}deps"} ){ 
+               Unic_1( $re,\$data,$spa.'└──',$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
+        }else{ Unic_1( $re,\$data,$spa.'├──',$AN,1 ); Info_1( $re,$data,$spa.'│   ',$AN,$m );
+        }
        }else{
-        Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN );
+         Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN );
        }
     }
    }
@@ -1052,10 +1054,14 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
   if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){ my( $e,$i ) = $re->{'OS'}{"${brew}deps"} =~ tr/\t/\t/;
    for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){ $i++;
     if( $re->{'PP'} ){
-     if( $i == $e ){ Unic_1( $re,\$data2,$spa.'└──',$AN ); Info_1( $re,$data2,$spa.'    ',$AN,$m );
-              }else{ Unic_1( $re,\$data2,$spa.'├──',$AN ); Info_1( $re,$data2,$spa.'│   ',$AN,$m ) }
+     if( $i == $e ){
+            Unic_1( $re,\$data2,$spa.'└──',$AN );
+            Info_1( $re,$data2,$spa.'    ',$AN,$m ) unless $data2 eq 'linux-headers@5.15';
+     }else{ Unic_1( $re,\$data2,$spa.'├──',$AN );
+            Info_1( $re,$data2,$spa.'│   ',$AN,$m ) unless $data2 eq 'linux-headers@5.15';
+     }
     }else{
-     Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN ) unless $data2 eq 'linux-headers@5.15';
+      Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN ) unless $data2 eq 'linux-headers@5.15';
     }
    }
   }
@@ -1065,9 +1071,10 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
      if( $re->{'PP'} ){
       if( $i == $e and not $re->{'OS'}{"${brew}d_cask"} ){
              Unic_1( $re,\$data3,$spa.'└──',$AN ); Info_1( $re,$data3,$spa.'    ',$AN,$m );
-      }else{ Unic_1( $re,\$data3,$spa.'├──',$AN ); Info_1( $re,$data3,$spa.'│   ',$AN,$m ) }
+      }else{ Unic_1( $re,\$data3,$spa.'├──',$AN ); Info_1( $re,$data3,$spa.'│   ',$AN,$m );
+      }
      }else{
-      Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN );
+       Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN );
      }
     }
    }
@@ -1075,10 +1082,14 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
     for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){ $i++;
      unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
       if( $re->{'PP'} ){
-       if( $i == $e ){ Unic_1( $re,\$data4,$spa.'└──',$AN ); Info_1( $re,$data4,$spa.'    ',$AN,$m );
-                }else{ Unic_1( $re,\$data4,$spa.'├──',$AN ); Info_1( $re,$data4,$spa.'│   ',$AN,$m ) }
+       if( $i == $e ){
+              Unic_1( $re,\$data4,$spa.'└──',$AN );
+              Info_1( $re,$data4,$spa.'    ',$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
+       }else{ Unic_1( $re,\$data4,$spa.'├──',$AN );
+              Info_1( $re,$data4,$spa.'│   ',$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
+       }
       }else{
-       Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN ) unless $re->{'OS'}{"${data4}so_name"};
+        Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN ) unless $re->{'OS'}{"${data4}so_name"};
       }
      }
     }
