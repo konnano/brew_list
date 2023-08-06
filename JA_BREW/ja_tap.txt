@@ -1063,7 +1063,6 @@ font-mada	Mada
 font-magra	Magra
 font-maiden-orange	Maiden Orange
 font-maitree	Maitree
-font-major-mono-display	Major Mono Display
 font-makinas4	感情のない直線形状のフォント
 font-mako	Mako
 font-mali	Mali
@@ -1679,6 +1678,7 @@ font-righteous	Righteous
 font-risque	Risque
 font-road-rage	Return to the days of grunge
 font-roboto	機械的な骨格とフォームを備えたフォントは主に幾何学的です
+font-roboto-condensed	Roboto Condensed
 font-roboto-flex	Roboto Flex
 font-roboto-mono	Roboto Mono
 font-roboto-mono-for-powerline	Roboto Mono for Powerline
@@ -2254,6 +2254,7 @@ quicktime-player7	ビデオプレーヤー
 rambox-ce	Freeのオープンソースメッセージングおよび電子メールアプ
 reflector2	ワイヤレス画面ミラーリングアプリケーション
 royal-tsx-beta	リモート管理ソリューション
+rstudio-daily	RとPythonを中心としたデータサイエンスソフトウェア
 safari-technology-preview	Webブラウザー
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
@@ -2281,6 +2282,7 @@ temurin18	Eclipse Foundation(Adoptium)のJDK
 temurin19	Eclipse Foundation(Adoptium)のJDK
 temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
+threema-beta	エンドツーエンドで暗号化されたインスタントメッセージングアプリケーション
 thunderbird-beta	Mozilla Thunderbird
 thunderbird-daily	カスタマイズ可能なメールクライアント
 tor-browser-alpha	セキュリティに重点を置いたWebブラウザー
