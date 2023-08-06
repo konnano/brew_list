@@ -43,7 +43,7 @@ MAIN:{
                             $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
                             $ref->{'DEL'} = $re->{'DEL'} = 1;
- }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1; $re->{'PRS'} = 1 if $re->{'LIN'};
+ }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'PP'} = 1 ;
  }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'TT'}= 1; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = 1;
  }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = 1;
@@ -197,7 +197,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.18_2\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.18_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -255,11 +255,11 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
    }
    Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'},\$re->{'BUI'}],$cat );
   }
-  Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
+   Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
   if( $re->{'PRS'} ){
-  $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
-   $re->{'PID2'} = fork;
-    die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
+   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+    $re->{'PID2'} = fork;
+     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
   }
   if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
   }else{
@@ -881,7 +881,8 @@ my $re = shift; my( @AN,%HA,@an,$do );
       Fork_1( $re );
    }elsif( $do ){
     $re->{'COL'} = $re->{'TREE'} = $re->{'DEL'} = 2;
-     Fork_1( $re );
+     $re->{'PP'} = 1 unless $re->{'DD'};
+      Fork_1( $re );
    }
   }
  }
@@ -993,6 +994,7 @@ sub clojur_1{ my @an; sub{ push @an,shift if @_; \@an } }
 
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
+print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN4'}++;
  my $name = $$brew;
   $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
  $name = -t STDOUT ? "$name \033[33m(require)\033[0m" : "$name (require)"
@@ -1003,6 +1005,8 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 
  unless( $re->{"$${brew}undel"} ){
   $re->{"deps$$brew"} +=
+   ( $re->{'TREE'} and $re->{'PP'} and $build ) ? print"${spa} $name [build]\n" :
+   ( $re->{'TREE'} and $re->{'PP'} ) ? print"${spa} $name\n" :
    ( $re->{'TREE'} and $build ) ? $re->{'CLO'}->("${spa}-- $name [build]\n") :
      $re->{'TREE'} ? $re->{'CLO'}->("${spa}-- $name\n") : 1;
   push @$AN,$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
@@ -1012,7 +1016,8 @@ my( $re,$brew,$spa,$AN,$build ) = @_;
 }
 
 sub Info_1{
-my( $re,$file,$spa,$AN ) = @_;
+my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
+ return if $re->{'PP'} and $re->{'KEN'} and $re->{'KEN'} < $m;
   if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
     ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) ) ){
@@ -1026,7 +1031,8 @@ my( $re,$file,$spa,$AN ) = @_;
  my $brew = $file || $re->{'INF'} || exit;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
-    $spa .= $spa ? '   |' : '|';
+    $spa .= $spa ? '   |' : '|' unless $re->{'PP'};
+ if( not $spa and $re->{'PP'} ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT" }
 
  unless( $re->{"${brew}undel"} ){
   if( $re->{'OS'}{"${brew}deps_b"} ){
@@ -1034,29 +1040,46 @@ my( $re,$file,$spa,$AN ) = @_;
     if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
         not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
-        Unic_1( $re,\$data,$spa,$AN,1 );
-         Info_1( $re,$data,$spa,$AN );
+       if( $re->{'PP'} ){
+        if( not $re->{'OS'}{"${brew}deps"} ){ Unic_1( $re,\$data,$spa.'└──',$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
+                                       }else{ Unic_1( $re,\$data,$spa.'├──',$AN,1 ); Info_1( $re,$data,$spa.'│   ',$AN,$m ) }
+       }else{
+        Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN );
+       }
     }
    }
   }
-  if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){
-   for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){
-     Unic_1( $re,\$data2,$spa,$AN );
-      Info_1( $re,$data2,$spa,$AN ) unless $data2 eq 'linux-headers@5.15';
+  if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){ my( $e,$i ) = $re->{'OS'}{"${brew}deps"} =~ tr/\t/\t/;
+   for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){ $i++;
+    if( $re->{'PP'} ){
+     if( $i == $e ){ Unic_1( $re,\$data2,$spa.'└──',$AN ); Info_1( $re,$data2,$spa.'    ',$AN,$m );
+              }else{ Unic_1( $re,\$data2,$spa.'├──',$AN ); Info_1( $re,$data2,$spa.'│   ',$AN,$m ) }
+    }else{
+     Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN ) unless $data2 eq 'linux-headers@5.15';
+    }
    }
   }
   if( $re->{'MAC'} ){
-   if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
-    for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){
-      Unic_1( $re,\$data3,$spa,$AN );
-       Info_1( $re,$data3,$spa,$AN );
+   if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){ my( $e,$i ) = $re->{'OS'}{"${brew}formula"} =~ tr/\t/\t/;
+    for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){ $i++;
+     if( $re->{'PP'} ){
+      if( $i == $e and not $re->{'OS'}{"${brew}d_cask"} ){
+             Unic_1( $re,\$data3,$spa.'└──',$AN ); Info_1( $re,$data3,$spa.'    ',$AN,$m );
+      }else{ Unic_1( $re,\$data3,$spa.'├──',$AN ); Info_1( $re,$data3,$spa.'│   ',$AN,$m ) }
+     }else{
+      Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN );
+     }
     }
    }
-   if( $re->{'OS'}{"${brew}d_cask"} ){
-    for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){
+   if( $re->{'OS'}{"${brew}d_cask"} ){ my( $e,$i ) = $re->{'OS'}{"${brew}d_cask"} =~ tr/\t/\t/;
+    for my $data4(split '\t',$re->{'OS'}{"${brew}d_cask"}){ $i++;
      unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
-      Unic_1( $re,\$data4,$spa,$AN );
-       Info_1( $re,$data4,$spa,$AN ) unless $re->{'OS'}{"${data4}so_name"};
+      if( $re->{'PP'} ){
+       if( $i == $e ){ Unic_1( $re,\$data4,$spa.'└──',$AN ); Info_1( $re,$data4,$spa.'    ',$AN,$m );
+                }else{ Unic_1( $re,\$data4,$spa.'├──',$AN ); Info_1( $re,$data4,$spa.'│   ',$AN,$m ) }
+      }else{
+       Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN ) unless $re->{'OS'}{"${data4}so_name"};
+      }
      }
     }
    }
@@ -1566,34 +1589,32 @@ sub Format_1{
 }
 
 sub Format_2{
-my $re = shift;
- if( $re->{'TT'} or $re->{'DD'} ){ my( $e,$mm,@tt ) = 0;
-  for my $uni(reverse @{$re->{'UNI'}}){
-   $mm = $uni =~ tr/|/|/;
+my $re = shift; my( $e,$mm,@tt ) = 0;
+ for my $uni(reverse @{$re->{'UNI'}}){
+  $mm = $uni =~ tr/|/|/;
    if( $mm == $e or index($uni,'(require)') > 0 or index($uni,'(can delete)') > 0 ){
     push @tt,$uni;
      $e = $mm - 1;
    }
   } @{$re->{'UNI'}} = reverse @tt;
- }
+
   my( $cou,@COU2,@COU3,@AR2,@SC,@cn,%ha ) = 0;
  $re->{'KEN'} = 0 if not $re->{'KEN'} or $re->{'KEN'} and $re->{'KEN'} !~ /^\d+$/;
   $cn[0] = $re->{'INF'};
  for my $uni(@{$re->{'UNI'}}){
-   if( $re->{'DD'} ){
-    my @bn = split '\|',$uni;
-     $bn[-1] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
-      push @{$SC[$#bn-1]},$bn[-1] : push @{$SC[$#bn-1]},0;
-       $ha{$bn[-1]}++;
-        push @cn,$bn[-1] if index($bn[-1],'(can delete)') > 0 and $ha{$bn[-1]} < 2;
-   }
-    my $an = $uni =~ tr/|/|/;
-   $uni =~ s/\|/│/g, $uni =~ s/│--/├──/g if $Locale;
-  push @COU2,$uni if $an < $re->{'KEN'} + 1;
+  if( $re->{'DD'} ){
+   my @bn = split '\|',$uni;
+    $bn[-1] =~ s/^-+\s+([^\s]+).+\(can delete\).*\n/$1/ ?
+     push @{$SC[$#bn-1]},$bn[-1] : push @{$SC[$#bn-1]},0;
+      $ha{$bn[-1]}++;
+       push @cn,$bn[-1] if index($bn[-1],'(can delete)') > 0 and $ha{$bn[-1]} < 2;
+  }  my $an = $uni =~ tr/|/|/;
+    $uni =~ s/\|/│/g, $uni =~ s/│--/├──/g if $Locale;
+   push @COU2,$uni if $an < $re->{'KEN'} + 1;
   $cou = $an if $cou < $an;
- } $re->{'UNI'} = \@COU2 if @COU2 and not $re->{'D'};
+ } $re->{'UNI'} = \@COU2 if @COU2 and not $re->{'DD'};
 
- if( $re->{'D'} ){ my %HA;
+ if( $re->{'DD'} ){ my %HA;
   for(my $i=$#SC;$i>=0;$i--){
    for my $key(sort @{$SC[$i]}){
      $HA{$key}++;
@@ -1601,17 +1622,17 @@ my $re = shift;
    }
    push @{$AR2[$i]},0 unless @{$AR2[$i]}[0];
   }
-  for my $name1(@COU2){ my $flag;
-   push @COU3,$name1 if index($name1,'(can delete)') < 0;
-    my( $eq1 ) = $name1 =~ /.*(?:├──|\|--)\s([^\s]+)\s/;
+  for my $name(@COU2){ my $flag;
+   push @COU3,$name if index($name,'(can delete)') < 0;
+    my( $eq1 ) = $name =~ /.*(?:├──|\|--)\s([^\s]+)\s/;
    for(my $i=0;$i<$re->{'KEN'};$i++){ last if $flag;
     for my $name2(@{$AR2[$i]}){
      my( $eq2 ) = $name2 =~ /([^\t\s]+)/;
      if( $eq1 eq $eq2 ){ $flag = 1;
-      push @COU3,$name1; last;
+      push @COU3,$name; last;
      }
     }
-   } push @COU3,$name1 if not $re->{'DD'} and not $flag and index($name1,'(can delete)') > 0;
+   }
   }
  } $re->{'UNI'} = \@COU3 if @COU3;
 
