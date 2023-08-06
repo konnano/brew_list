@@ -744,6 +744,7 @@ crushftp	ファイル転送サーバー
 crypter	暗号化ソフトウェア
 cryptomator	マルチプラットフォームのクライアント側クラウドファイル暗号化ツール
 cryptr	HashicorpのVaultのGUI
+crystalfetch	UUPDumpからWindowsインストーラーISOを作成するためのUI
 crystalmaker	結晶および分子構造を視覚化する
 cscreen	コマンドライン表示管理ユーティリティ
 cubicsdr	クロスプラットフォームソフトウェア無線アプリケーション
@@ -1225,6 +1226,7 @@ folding-at-home	折りたたみ用のグラフィカルインターフェイス�
 foldingtext	生産性機能を備えたMarkdownテキストエディター
 foldit	クラウドソーシングコンピューターゲーム
 folx	トレントクライアントでマネージャーをダウンロード
+font-finagler	誤動作するフォントのトラブルシューティングを支援する
 font-smoothing-adjuster	フォント平滑コントロールを再度有効にする
 fontbase	フォントマネージャー
 fontexplorer-x-pro	フォントファインダーおよびオーガナイザー
@@ -1526,6 +1528,7 @@ hostsx	ローカルホスト更新ツール
 hot	熱の問題によるCPU速度制限を表示するメニューバーアプリケーション
 hotswitch	2ストロークホットキーを使用した高速ウィンドウ切り替え
 houdahspot	ファイル検索アプリケーション
+hovrly	さまざまな都市のタイムゾーンの時間を表示および変換する
 hp-easy-start	HPプリンターをセットアップする
 hp-eprint	モバイル印刷ソリューション
 hp-prime	グラフ電卓エミュレータ
@@ -4157,6 +4160,7 @@ xdm	ダウンロード速度を上げるためのツール
 xee	画像ビューアとファイルブラウザー
 xemu	オリジナルのXboxエミュレーター
 xiami	音楽コンテンツの管理と配信
+xiaomi-cloud	写真、連絡先、メッセージ、デバイスを同期する
 ximalaya	ポッドキャスティングとオーディオ共有のためのプラットフォーム
 xit	gitバージョン管理システムのGUI
 xiv-on-mac	Wineラッパー FFXIVのセットアップツールとランチャー
@@ -4243,6 +4247,7 @@ zoom-for-it-admins	ビデオ通信および仮想会議プラットフォーム
 zotero	研究ソースを共有する 収集/整理/引用
 zprint	ClojureおよびClojurescriptのソースコードとS式を再フォーマットするためのライブラリ
 zsa-wally	ZSAキーボード用のFlashツール
+zspace	NASクライアント
 zterm	ターミナルエミュレーションプログラム
 zulip	Zulipチームチャットプラットフォーム用のデスクトップクライアント
 zulu	AzulからのOpenJDKディストリビューション
