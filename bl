@@ -137,6 +137,8 @@ MAIN:{
   }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
+   if( $Locale ){ $re->{'|'} = '│'; $re->{'|--'} = '├──'; $re->{'`--'} = '└──';
+           }else{ $re->{'|'} = '|'; $re->{'|--'} = '|--'; $re->{'`--'} = '`--'; }
   }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
   }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
@@ -1042,8 +1044,8 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
        if( $re->{'PP'} ){
         if( not $re->{'OS'}{"${brew}deps"} ){ 
-               Unic_1( $re,\$data,$spa.'└──',$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
-        }else{ Unic_1( $re,\$data,$spa.'├──',$AN,1 ); Info_1( $re,$data,$spa.'│   ',$AN,$m );
+               Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
+        }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
         }
        }else{
          Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN );
@@ -1055,10 +1057,10 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
    for my $data2(split '\t',$re->{'OS'}{"${brew}deps"}){ $i++;
     if( $re->{'PP'} ){
      if( $i == $e ){
-            Unic_1( $re,\$data2,$spa.'└──',$AN );
+            Unic_1( $re,\$data2,$spa.$re->{'`--'},$AN );
             Info_1( $re,$data2,$spa.'    ',$AN,$m ) unless $data2 eq 'linux-headers@5.15';
-     }else{ Unic_1( $re,\$data2,$spa.'├──',$AN );
-            Info_1( $re,$data2,$spa.'│   ',$AN,$m ) unless $data2 eq 'linux-headers@5.15';
+     }else{ Unic_1( $re,\$data2,$spa.$re->{'|--'},$AN );
+            Info_1( $re,$data2,$spa."$re->{'|'}   ",$AN,$m ) unless $data2 eq 'linux-headers@5.15';
      }
     }else{
       Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN ) unless $data2 eq 'linux-headers@5.15';
@@ -1070,8 +1072,8 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
     for my $data3(split '\t',$re->{'OS'}{"${brew}formula"}){ $i++;
      if( $re->{'PP'} ){
       if( $i == $e and not $re->{'OS'}{"${brew}d_cask"} ){
-             Unic_1( $re,\$data3,$spa.'└──',$AN ); Info_1( $re,$data3,$spa.'    ',$AN,$m );
-      }else{ Unic_1( $re,\$data3,$spa.'├──',$AN ); Info_1( $re,$data3,$spa.'│   ',$AN,$m );
+             Unic_1( $re,\$data3,$spa.$re->{'`--'},$AN ); Info_1( $re,$data3,$spa.'    ',$AN,$m );
+      }else{ Unic_1( $re,\$data3,$spa.$re->{'|--'},$AN ); Info_1( $re,$data3,$spa."$re->{'|'}   ",$AN,$m );
       }
      }else{
        Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN );
@@ -1083,10 +1085,10 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
      unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
       if( $re->{'PP'} ){
        if( $i == $e ){
-              Unic_1( $re,\$data4,$spa.'└──',$AN );
+              Unic_1( $re,\$data4,$spa.$re->{'`--'},$AN );
               Info_1( $re,$data4,$spa.'    ',$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
-       }else{ Unic_1( $re,\$data4,$spa.'├──',$AN );
-              Info_1( $re,$data4,$spa.'│   ',$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
+       }else{ Unic_1( $re,\$data4,$spa.$re->{'|--'},$AN );
+              Info_1( $re,$data4,$spa."$re->{'|'}   ",$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
        }
       }else{
         Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN ) unless $re->{'OS'}{"${data4}so_name"};
