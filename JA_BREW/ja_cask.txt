@@ -1993,6 +1993,7 @@ lunacy	グラフィックデザインソフトウェア
 lunar	外部ディスプレイの適応輝度
 lunar-client	Minecraft 1.7.10/1.8.9 用のModpack
 lunasea	メディアソフトウェア用のオープンソースのself-hostedリモコン
+luniistore	私の素晴らしいストーリーテラーのためのユーティリティ
 luxmark	OpenCLベンチマーク
 luyten	Procyon用のオープンソースJava逆コンパイラGUI
 lx-music	Electron&Vueをベースにした音楽アプリ
