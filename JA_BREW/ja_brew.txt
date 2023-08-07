@@ -3627,6 +3627,7 @@ luit	任意のアプリケーションとUTF-8ターミナルエミュレータ�
 lunar-date	中国の月日付ライブラリ
 lunchy	launchctlの親しいラッパー
 lunchy-go	launchctlの親しいラッパー
+lune	スタンドアロンのLuauスクリプトランタイム
 lunzip	lzipファイル用のデコンプレッサ
 lutok	Luaの軽量C++ API
 luv	luaの裸のlibuv bindings
@@ -3636,6 +3637,7 @@ lv	強力な多言語ファイル Viewer/grep
 lv2	オーディオシステム用の標準ポータブルplugins
 lwtools	Motorola6809とHitachi6309の相互開発ツール
 lxc	LXDと対話するためのCLIクライアント
+lxi-tools	ネットワーク接続されたLXI互換機器を管理するためのオープンソースツール
 lxsplit	ファイルを分割または結合するためのツール
 ly	解析 LilyPond形式のドキュメントを操作または作成する
 lychee	高速で非同期のリソースに親しいリンクチェッカー
