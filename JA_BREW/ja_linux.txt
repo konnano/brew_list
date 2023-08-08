@@ -1062,7 +1062,6 @@ font-mada	Mada
 font-magra	Magra
 font-maiden-orange	Maiden Orange
 font-maitree	Maitree
-font-major-mono-display	Major Mono Display
 font-makinas4	感情のない直線的なフォント
 font-mako	Mako
 font-mali	Mali
@@ -1677,6 +1676,7 @@ font-righteous	Righteous
 font-risque	Risque
 font-road-rage	Return to the days of grunge
 font-roboto	機械的な骨格を持つフォントで、形状は主に幾何学的なものです
+font-roboto-condensed	Roboto Condensed
 font-roboto-flex	Roboto Flex
 font-roboto-mono	Roboto Mono
 font-roboto-mono-for-powerline	Roboto Mono for Powerline
