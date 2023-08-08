@@ -1020,6 +1020,7 @@ electrum-grs	Electrum-GRS
 electrum-ltc	ライトコインウォレット
 electrumsv	ビットコインSV用のデスクトップウォレット
 elektron-overbridge	Elektronハードウェアを音楽ソフトウェアに統合
+elektron-transfer	Elektronデバイスに転送 サンプル/プリセット/サウンド/プロジェクト/ファームウェア
 element	Matrix協調クライアント
 elephas	パーソナルAIライティングアシスタント
 elephicon	PNGからApple ICNSおよびMicrosoft ICOファイルを作成する
@@ -1583,6 +1584,7 @@ ideamaker	Raise3DによるFDM 3D印刷スライサー
 idisplay	iDisplay
 idrive	クラウドバックアップおよびストレージソリューション
 ieasemusic	サードパーティのNetEaseクラウドミュージックプレーヤー
+iem-plugin-suite	VST2、LV2、スタンドアロンとして最大7次までのアンビソニックオーディオプラグイセット
 iexplorer	iOSデバイスのバックアップソフトウェアとファイルマネージャー
 ifunbox	iPhoneおよびその他のApple製品用のファイル管理ソフトウェア
 igdm	Instagram DM用のデスクトップアプリケーション
