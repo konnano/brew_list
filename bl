@@ -1387,7 +1387,7 @@ my( $list,$re,$in ) = @_;
        $re->{'LINK'} and $re->{'LINK'} == 8 and not $re->{'OS'}{"${tap}font"} ){
       $brew = 0;
    }
-  if( $re->{'BL'} and not $dirs1 or defined $re->{'S_OPT'} and
+  if( $re->{'BL'} or defined $re->{'S_OPT'} and
                      index($tap,$re->{'S_OPT'}) >= 0 and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
       unless( $re->{'OS'}{"${tap}lfont"} ){
        Tap_2( $re,\$tap ) if $re->{'FOR'};
