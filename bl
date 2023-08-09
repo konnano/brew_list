@@ -613,7 +613,7 @@ sub Size_1{
 }
 
 sub Top_1{
-my( $re,$list ) = @_; my $top;
+my( $re,$list ) = @_; my( $top,@font,@ver );
  Proc_1( $re,$list );
  for my $ls(@$list){
   next if $re->{'LIN'} and ( $ls eq 'glibc' or $ls eq 'linux-headers@5.15' );
@@ -624,9 +624,15 @@ my( $re,$list ) = @_; my $top;
      Tap_2( $re,\$bui ) if $re->{'FOR'};
       $ls .= " : $bui" if $re->{'HASH'}{$build};
     }
-   $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
+   if( $re->{'OS'}{"${ls}m_ver"} ){ push @ver,$ls;
+   }elsif( $re->{'OS'}{"${ls}lfont"} or $re->{'OS'}{"${ls}mfont"} ){ push @font,$ls;
+   }else{ $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
+   }
   }
- }
+ } $re->{'MAC'} ? Mine_1( ' ==> homebrew/cask-fonts',$re,0 ) : Mine_1( ' ==> homebrew/linux-fonts',$re,0 ) if @font;
+    Mine_1( $_,$re,0 ) for( @font );
+   Mine_1( ' ==> homebrew/cask-versions',$re,0 ) if @ver;
+    Mine_1( $_,$re,0 ) for( @ver );
   waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT";
  print "$top" if $top;
 }
@@ -1123,7 +1129,8 @@ my( $name,$re,$ls ) = @_;
    $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
   }elsif( $re->{'BR'} and $re->{'BR'} eq 'cask-fonts' ){
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
-  }else{ $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
+  }else{
+   $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
   }
  }
 }
@@ -1219,7 +1226,7 @@ my( $list,$file,$in,$re ) = @_;
             ( $re->{'LIN'} and $brew_1 eq '0' ) ? ' ==> homebrew/linux-fonts' :
               $brew_1 eq '1' ? ' ==> homebrew/cask-versions' : $brew_1;
   if( ( $re->{'BL'} or defined $re->{'S_OPT'} ) and index($brew_1,' ') == 0 ){
-    Mine_1($brew_1,$re,0);
+    Mine_1( $brew_1,$re,0 );
      $re->{'LRE'}++ if $re->{'LIN'};
       next;
   } next if $re->{'LIN'} and not $re->{'PRINT'} and index($brew_1,' ') == 0 ;
@@ -2550,10 +2557,12 @@ sub Version_1{
  $UNAME = $UNAME eq 'x86_64' ? 'intel' : 'arm';
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
-   my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
-    $tap{"${name}cask"} = $dir2;
-     my( $SPA,$CN,$IN,$CP1,$CP2,$FI ) = ( 0,0,0,0,0,1 );
-      delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
+    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(.+)\.rb|;
+     $tap{"${name}m_ver"} = 1 if $dirs eq 'homebrew-cask-versions';
+      $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
+       $tap{"${name}cask"} = $dir2;
+    my( $SPA,$CN,$IN,$CP1,$CP2,$FI ) = ( 0,0,0,0,0,1 );
+     delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( $name =~ /^font-/ and $FI ){
