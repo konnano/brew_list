@@ -372,10 +372,12 @@ sub Version_1{
  $UNAME = $UNAME eq 'x86_64' ? 'intel' : 'arm';
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
-   my( $name ) = $dir2 =~ m|.+/(.+)\.rb|;
-    $tap{"${name}cask"} = $dir2;
-     my( $SPA,$CN,$IN,$CP1,$CP2,$FI ) = ( 0,0,0,0,0,1 );
-      delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
+    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(.+)\.rb|;
+     $tap{"${name}m_ver"} = 1 if $dirs eq 'homebrew-cask-versions';
+      $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
+       $tap{"${name}cask"} = $dir2;
+    my( $SPA,$CN,$IN,$CP1,$CP2,$FI ) = ( 0,0,0,0,0,1 );
+     delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( $name =~ /^font-/ and $FI ){
