@@ -1,9 +1,9 @@
 brew list コマンド拡張版 : version 1.18_4 　[English README is here ](https://github.com/konnano/brew_list/blob/main/README.en.md)
 
 HomeBrew 4.0.0以降を新規インストールする場合は以下の環境変数を設定してインストール下さい
-
+```
 export HOMEBREW_NO_INSTALL_FROM_API=1
-
+```
 開発者向けにしないとbrew tap homebrew/core、homebrew/caskがインストールされません
 
 : 使用方法
