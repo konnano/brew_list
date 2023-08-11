@@ -181,6 +181,7 @@ apple-events	非公式のAppleイベントアプリ
 apple-hewlett-packard-printer-drivers	HPプリンタードライバー
 apple-juice	バッテリー残量などを表示するバッテリーゲージ
 applepi-baker	SDカードのバックアップと復元 USBドライブ/外付けHDD等
+applite	Homebrew用のユーザーに親しいGUIアプリ
 apppolice	実行中のプロセスのCPU使用率をすばやく制限するためのアプリ
 appstore-quickview	Quickview App...Store
 apptivate	ファイルとアプリケーションのグローバル ホットキーを作成する
@@ -454,7 +455,6 @@ brightness-sync	LG UltraFineディスプレイの明るさを同期するユー�
 brisk	レーダーを提示するアプリ
 brisync	外部ディスプレイの明るさを自動的に制御するユーティリティ
 brl-cad-mged	BRL-CAD
-brook	プロキシ/VPN クライアント
 brooklyn	Appleスペシャルイベントブルックリンで発表されたアニメーションに基づくスクリーンセーバー
 browser-deputy	あらゆるアプリケーションのコマンドパレット
 browserosaurus	オープンソースのブラウザープロンプター
@@ -484,7 +484,6 @@ cabal	チャットプラットフォームCabal用のデスクトップクライ
 cacher	コードスニペットオーガナイザー
 cad-assistant	CADアシスタント
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
-cajviewer	CAJクラウドリーディング
 cakebrew	HomebrewのGUIアプリ
 cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
@@ -531,7 +530,6 @@ celestia	宇宙を3次元で探索するための宇宙シミュレーション
 celestialteapot-runway	UML(統一モデリング言語)デザインアプリ
 cellprofiler	生物学的画像分析のためのオープンソースアプリケーション
 cemu	CEmu
-centered	生産性のためのフロー状態アプリ
 cerebro	知性を備えたオープンソースの生産性ブースター
 cernbox	CERNユーザー向けのクラウドストレージ
 chai	システムがスリープ状態になるのを防ぐユーティリティ
@@ -567,7 +565,6 @@ chronos	JIRAおよびTrello用のデスクトップクライアント
 chronosync	同期およびバックアップツール
 chronycontrol	chronydをインストールして構成します
 chrysalis	万華鏡を搭載したキーボード用のグラフィカルなconfigurator
-cider	オープンソースでコミュニティ指向のApple Musicクライアント
 cilicon	Apple Silicon上のセルフホスト型一時 CI
 cinc-workstation	Chefインフラストラクチャ管理ツール用のFree-as-in-Beer all-in-oneインストーラー
 cinch	ウィンドウ管理ツール
@@ -1353,6 +1350,7 @@ gifrocket	ビデオからGIFを作成するためのツール
 gimp	Freeのオープンソース画像エディター
 gingko	構造と内容を表示するワードプロセッサ
 gisto	(チーム)共有オプションを備えたスニペット管理デスクトップアプリケーション
+git-credential-manager	複数のホスティングプロバイダー向けのクロスプラットフォーム　Git認証情報ストレージ
 git-it	GitとGitHubを学習するためのデスクトップアプリ
 gitahead	GitAhead
 gitblade	Gitのグラフィカルクライアント
