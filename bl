@@ -1026,7 +1026,10 @@ print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN4'}++;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
- return if $re->{'PP'} and $re->{'KEN'} and $re->{'KEN'} < $m;
+ if( $m > 50 ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+  die " Deep recursion on subroutine (outdated formula) : brew upgrade\n";
+ } return if $re->{'PP'} and $re->{'KEN'} and $re->{'KEN'} < $m;
+
   if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
     ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) ) ){
@@ -1055,7 +1058,7 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
         }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
         }
        }else{
-         Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN );
+         Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN,$m );
        }
     }
    }
@@ -1070,7 +1073,7 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
             Info_1( $re,$data2,$spa."$re->{'|'}   ",$AN,$m ) unless $data2 eq 'linux-headers@5.15';
      }
     }else{
-      Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN ) unless $data2 eq 'linux-headers@5.15';
+      Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN,$m ) unless $data2 eq 'linux-headers@5.15';
     }
    }
   }
@@ -1083,7 +1086,7 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
       }else{ Unic_1( $re,\$data3,$spa.$re->{'|--'},$AN ); Info_1( $re,$data3,$spa."$re->{'|'}   ",$AN,$m );
       }
      }else{
-       Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN );
+       Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN,$m );
      }
     }
    }
@@ -1098,7 +1101,7 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
               Info_1( $re,$data4,$spa."$re->{'|'}   ",$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
        }
       }else{
-        Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN ) unless $re->{'OS'}{"${data4}so_name"};
+        Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
       }
      }
     }
