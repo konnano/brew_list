@@ -372,7 +372,7 @@ sub Version_1{
  $UNAME = $UNAME eq 'x86_64' ? 'intel' : 'arm';
   for my $dir2(@CASK){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
-    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(.+)\.rb|;
+    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(?:[^/]+/)*(.+)\.rb$|;
      $tap{"${name}m_ver"} = 1 if $dirs eq 'homebrew-cask-versions';
       $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
        $tap{"${name}cask"} = $dir2;
