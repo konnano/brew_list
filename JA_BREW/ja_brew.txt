@@ -2568,6 +2568,7 @@ imapsync	IMAPメールアカウントの移行またはバックアップ
 imath	2Dと3Dのベクターライブラリ Matrix/数学演算
 imessage-exporter	ローカルiMessageデータベースをエクスポートして検査するためのコマンドラインツール
 imessage-ruby	iMessageを送信するためのコマンドラインツール
+img2pdf	直接JPEGを含めて画像をPDFに変換する
 imgproxy	リモート画像のサイズ変更と変換のための高速で安全なサーバー
 imgur-screenshot	スクリーンショットを選択 upload to imgur. + more cool things
 imlib2	画像の読み込みと解釈のライブラリ
@@ -2814,6 +2815,7 @@ kapacitor	オープンソースの時系列データ計算機
 karchive	ファイルアーカイブの読み取り、作成、および操作
 karn	複数のGit IDを管理する
 katago	知識のない人間に提供する神経ネットワークGoエンジン
+katana	クロールおよびスパイダーリングフレームワーク
 kawa	Javaプログラミング言語(Schemeの実装)
 kcat	一般的なコマンドライン非JVMApache Kafkaプロデューサーおよびコンシューマー
 kcgi	C/C++の最低限のCGIおよびFast CGIライブラリ
@@ -3775,6 +3777,7 @@ mecab-unidic-extended	MeCab用の拡張形態分析器
 media-info	オーディオ/ビデオ の技術データとtagデータの統合表示
 mediaconch	適合性チェッカーおよび技術metadataレポーター
 mednafen	Multi-systemエミュレータ
+medusa	Go-Ethereumを利用したSolidityスマートコントラクトファザー
 meek	Tor用のブロッキング耐性のあるプラガブルトランスポート
 megacmd	mega.co.nz保管サービスのコマンドラインクライアント
 megatools	Mega.co.nzのコマンドラインクライアント
@@ -6115,6 +6118,7 @@ unac	文字列からアクセントを削除するCライブラリとコマン�
 unar	複数の形式をサポートするコマンドラインアーカイブ解除ツール
 unarj	ARJファイルアーカイバ
 unbound	検証 再帰 DNSリゾルバーのキャッシュ
+uncover	複数の検索エンジンを使用してインターネット上に公開されたホストを検出するツール
 uncrustify	ソースコード美化
 ungit	Gitを使用する最も簡単な方法 どのプラットフォームでも どこでも
 uni	コマンドライン用のUnicodeデータベースクエリツール
