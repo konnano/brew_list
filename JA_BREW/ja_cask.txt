@@ -162,6 +162,7 @@ anytype	ローカル優先でエンドツーエンドの暗号化メモ アプ�
 ao	エレガントなMicrosoft To-Doデスクトップアプリ
 apache-couchdb	マルチマスター同期データベース
 apache-directory-studio	EclipseベースのLDAPブラウザーとディレクトリクライアント
+apidog	API開発プラットフォーム
 apifox	APIドキュメントのプラットフォーム デバッグ モック/テスト
 apipost	APIドキュメントのプラットフォーム デバッグ モック/テスト
 apk-icon-editor	APKアイコンを変更するためのエディター 名前/バージョン/その他のデータ
@@ -3280,6 +3281,7 @@ shapes	ダイアグラム作成アプリ
 shapr3d	3DCADソフトウェア
 sharemouse	コンピュータ間で周辺機器を共有する
 sharepod	Sharepod
+shattered-pixel-dungeon	ランダム化されたレベル、敵、アイテムを備えた伝統的なローグライクダンジョンクローラー
 shearwater-cloud	レビュー ダイビングログデータの編集と共有
 sherlock	iOSシミュレータビジュアルデバッガ
 shiba	Linter付きのリッチマークダウンライブプレビューアプリ
