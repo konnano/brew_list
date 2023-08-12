@@ -237,6 +237,7 @@ asimov	TimeMachineバックアップから開発の依存関係を自動的に�
 asio	非同期プログラミング用のクロスプラットフォームC++ライブラリ
 ask-cli	AlexaスキルキットのCLIツール
 asn1c	ASN.1仕様をCソースコードにコンパイルします
+asnmap	ASN情報を使用して組織のネットワーク範囲を迅速にマッピング
 aspcud	パッケージ依存関係Solver
 aspectj	Javaのアスペクト指向プログラミング
 aspell	ispellよりも優れた論理を備えたスペルチェッカー
@@ -873,6 +874,7 @@ cloudflared	Cloudflareトンネルクライアント(以前のArgoトンネル)
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
 cloudformation-guard	宣言型構文を使用してCloudFormationテンプレートの整合性をチェックします
 cloudiscovery	クラウド環境でリソースを発見するのに役立ちます
+cloudlist	複数のクラウドプロバイダーのアセットをリストするツール
 cloudpan189-go	Cloud189 Webディスク用のコマンドラインクライアントツール
 cloudprober	顧客よりも先に障害を検出するアクティブ監視ソフトウェア
 clozure-cl	長い歴史を持つCommonLispの実装
@@ -4815,6 +4817,7 @@ protolint	Protocol Bufferのスタイルと規則を適用するためのプラ�
 prototool	Buffer手続きの万能ナイフ
 prover9	一次および等式論理の自動定理証明
 prowler	クラウドセキュリティのベストプラクティスを実行するためのオープンソースセキュリティツール
+proxify	HTTP/HTTPS トラフィックをキャプチャ、操作、再生するためのポータブルプロキシ
 proxsuite	高度な近位最適化ツールボックス
 proxychains-ng	Hook先読み
 proxygen	C++ HTTPライブラリのコレクション
@@ -5396,6 +5399,7 @@ shpotify	MacでのSpotifyのコマンドラインインターフェイス
 shtool	GNUのポータブルシェルツール
 shtools	球面調和関数ツール
 shub	Scrapinghubコマンドライン クライアント
+shuffledns	アクティブなブルートフォースを使用してサブドメインを列挙し、ワイルドカードを使用してサブドメインを解決します
 shunit2	Bourneベースのシェルスクリプトの単体テストフレームワーク
 shush	AWS Key Management Serviceを使用して機密を暗号化および復号化する
 shyaml	コマンドラインYAMLパーサー
