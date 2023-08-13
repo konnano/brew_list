@@ -3510,6 +3510,7 @@ starsector	オープンワールドのシングルプレイヤー宇宙戦闘お
 start	Tencentクラウドゲームプラットフォーム
 startupizer	ログインアイテムハンドラ
 staruml	ソフトウェアモデラー
+stash	Clashベースのネットワークツール
 stationtv-link	StationTV® Link
 stats	メニューバーのシステムモニター
 statusfy	ステータスバーでSpotify
