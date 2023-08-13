@@ -4007,6 +4007,7 @@ vmware-horizon-client	仮想マシンクライアント
 vnc-server	リモートデスクトップサーバーアプリケーション
 vnc-viewer	セキュリティに重点を置いたリモートデスクトップアプリケーション
 vnote	メモを取るプラットフォーム
+voicepeak	感情表現を備えた高品質な音声合成ソフトウェア
 voikkospellservice	フィンランド語のスペルチェックサービス
 volanta	パーソナルフライト監視
 volley	非同期ビデオメッセージングアプリ
