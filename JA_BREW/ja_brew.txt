@@ -1082,6 +1082,7 @@ ctemplate	C++のテンプレート言語
 ctl	デジタルカラーマネジメントのためのプログラミング言語
 ctlptl	ローカルのKubernetesクラスターを楽しく簡単にセットアップできるようにする
 ctop	コンテナmetricsのtopの様なインターフェース
+ctpv	lfファイルマネージャーの画像プレビュー
 cuba	多次元数値積分のためのライブラリ
 cubeb	クロスプラットフォーム オーディオライブラリ
 cubejs-cli	Cube.jsコマンドラインインターフェース
@@ -1115,6 +1116,7 @@ cyral-gimme-db-token	データベースへのSSOログインにCyralを簡単に
 cyrus-sasl	シンプルな認証とセキュリティレイヤー
 cython	Python言語のC機能拡張を作成するためのコンパイラ
 czg	標準化されたコミットメッセージを生成するインタラクティブなCommitizen CLI
+czkawka	複製ファイルユーティリティ
 czmq	ZeroMQの高レベルC bindings
 d2	テキストを図に変換する最新のダイアグラム/スクリプト言語
 daemon	他のプロセスをデーモンに変える
@@ -1280,6 +1282,7 @@ dnsdist	高度なDNS- DoS- および不正使用を意識したロードバラ�
 dnsmap	パッシブDNSネットワークmapper(別名 サブドメイン bruteforcer)
 dnsmasq	軽量DNSフォワーダーとDHCPサーバー
 dnsperf	ネットワークの状態をシミュレートしてDNS性能を測定する
+dnsrobocert	DNSチャレンジに基づいて Let's Encrypt SSL証明書を管理する
 dnstop	DNS転送量を分析するためのコンソールツール
 dnstracer	DNSサーバーのチェーンをソースまでトレースします
 dnstwist	typo squattingためにドメインをテストする フィッシング/企業スパイ
@@ -5118,6 +5121,7 @@ rhit	Nginxログエクスプローラー
 rich-cli	ターミナルでの派手な出力のためのコマンドラインツールボックス
 riemann	イベントストリーム計算機
 riemann-client	Riemann監視システム用のCクライアントライブラリ
+riff	どの行部分が変更されたかを強調表示する差分フィルター
 rig	偽の名前と住所のデータを提供します
 rinetd	インターネットTCPリダイレクトサーバー
 ringojs	CommonJSベースのJavaScriptランタイム
