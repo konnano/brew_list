@@ -921,6 +921,7 @@ code-minimap	高性能コードミニマップ発生器
 code-server	ブラウザからVSCodeにアクセスする
 codec2	オープンソースの音声コーデック
 codequery	コード理解/コードブラウジング/コード検索ツール
+coder	Terraformを使用してセルフホスト型開発環境をプロビジョニングするためのツール
 codespell	ソースコードとテキストファイルの一般的なスペルミスを修正
 coffeescript	派手でないJavaScript
 cog	機械学習用のコンテナ
