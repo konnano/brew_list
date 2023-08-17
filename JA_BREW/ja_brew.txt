@@ -702,6 +702,7 @@ cdb	定数データベースの作成と読み取り
 cddlib	一般的な多面体コーンの二重記述法
 cdebug	コンテナデバッグの万能ナイフ
 cdecl	英語のフレーズをCまたはC++宣言に変える
+cdi	Climate/NWP モデルデータにアクセスするための　C/Fortran インターフェイス
 cdk	Curses開発キットは、アプリの事前定義されたcursesウィジェットを提供します
 cdk8s	オブジェクト指向プログラミングを使用して、k8sネイティブアプリと抽象化を定義します
 cdktf	Terraformのクラウド開発キット
@@ -3872,6 +3873,7 @@ mit-scheme	Scheme開発ツールとランタイムライブラリ MIT/GNU
 mitie	情報抽出のためのライブラリとツール
 mitmproxy	HTTP/Sトラフィックを節約する 傍受/変更/リプレイ
 mix-completion	Elixir Mixの補完と ショートカット/色
+mjml	レスポンシブ電子メールを簡単に作成するJavaScriptフレームワーク
 mjpegtools	ビデオを録画および再生し簡単な編集を実行します
 mk-configure	GNU autotoolsの軽量代替品
 mkcert	ローカルで信頼できる開発証明書を作成するためのシンプルなツール
