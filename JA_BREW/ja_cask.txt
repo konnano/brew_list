@@ -2743,7 +2743,8 @@ piclist	クラウドストレージマネージャーツール
 picoscope	PicoScopeオシロスコープ用のテストおよび測定オシロスコープソフトウェア
 pictogram	アプリのアイコンをカスタマイズして維持する
 pictureview	画像ビューア
-pieces-cli	Pieces.appのコマンドライン ツール
+pieces-cli	Pieces.appのコマンドラインツール
+pieces-os	Pieces for Developersセットを強化する ローカルデータストア/サーバー/MLエンジン
 piezo	オーディオレコーディングアプリケーション
 pika	画面上の色のカラーピッカー
 pikopixel	ピクセルアートエディター
