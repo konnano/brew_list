@@ -3557,7 +3557,6 @@ livekit-cli	LiveKitへのコマンドラインインターフェイス
 livestreamer	ストリーミングサービスからVLCなどのプレーヤーにビデオをパイプします
 lizard	非常に高速な減圧を備えた効率的な圧縮機
 lizard-analyzer	拡張可能な循環的複雑度アナライザー
-llama	端末ファイルマネージャー
 lldpd	IEEE 802.1ab(LLDP)の実装
 llm	コマンドラインから大規模な言語モデルにアクセスする
 llnode	node.jsアプリのデバッグ用LLDBプラグイン live/post-mortem
@@ -4046,9 +4045,11 @@ mysql	オープンソースのリレーショナルデータベース管理シ�
 mysql++	MySQLのCAPIのC++ラッパー
 mysql-client	オープンソースのリレーショナルデータベース管理システム
 mysql-client@5.7	オープンソースのリレーショナルデータベース管理システム
+mysql-client@8.0	オープンソースのリレーショナルデータベース管理システム
 mysql-connector-c++	C++アプリケーション用のMySQLデータベース連結装置
 mysql-search-replace	PHPでのデータベース検索および置換スクリプト
 mysql@5.7	オープンソースのリレーショナルデータベース管理システム
+mysql@8.0	オープンソースのリレーショナルデータベース管理システム
 mysqltuner	MySQLインストールの性能と安定性を向上させる
 mytop	MySQLのTopのようなクエリモニター
 n	Nodeバージョン管理
@@ -5133,6 +5134,9 @@ ripgrep	grepやThe Silver Searcherの様な検索ツール
 ripgrep-all	複数のリッチファイルタイプを追加するripgrepのラッパー
 ripmime	MIMEエンコードされた電子メールパッケージから添付ファイルを抽出します
 ripsecrets	秘密鍵をソース コードにコミットしないようにする
+riscv64-elf-binutils	riscv64-elfクロス開発用の GNU Binutils
+riscv64-elf-gcc	riscv64-elf用の GNUコンパイラコレクション
+riscv64-elf-gdb	riscv64-elfクロス開発用の GNUデバッガー
 rizin	UNIXライクな逆エンジニアリングフレームワークとコマンドラインツールセット
 rke	Rancher Kubernetes Engine どこでも機能するKubernetesインストーラー
 rkflashtool	Rockchipデバイスをフラッシュするためのツール
@@ -5174,6 +5178,7 @@ rpki-client	OpenBSDポータブルrpki-client
 rpl	テキスト置換ユーティリティ
 rpm	UNIX標準のソフトウェアパッケージツール
 rpm2cpio	RPMパッケージをCPIOアーカイブに変換するツール
+rpmspectool	RPM仕様ファイルを処理するためのユーティリティ
 rqlite	SQLite上に構築された軽量の分散リレーショナルデータベース
 rrdtool	Round Robinデータベース
 rsc_2fa	コマンドラインでの二段階認証
@@ -6329,6 +6334,7 @@ wait_on	シェルスクリプトにkqueue(3)へのアクセスを提供します
 wakatime-cli	WakaTime APIへのコマンドラインインターフェイス
 wakeonlan	ネットワークデバイスをウェイクアップするためにマジックパケットを送信します
 wal2json	PostgreSQLチェンジセットをJSON形式に変換します
+walk	ターミナルナビゲーター
 walkmod	コード規約を適用および共有するためのJavaベースのオープンソースツール
 wallpaper	デスクトップの壁紙を管理する
 wally	Cargoから影響を受けたRobloxプロジェクト用の最新のパッケージマネージャー
