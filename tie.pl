@@ -425,7 +425,7 @@ sub Version_1{
      }elsif( $data =~ /^\s*end/ and $CN ){ $SPA = $CN = 0; next;
      }elsif( $data =~ s/^\s*version\s+[":]([^"\s]+)"?.*\n/$1/ ){
        $tap{"${name}c_version"} = $data unless $tap{"${name}c_version"};
-     }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
+     }elsif( $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
        $tap{"${name}c_desc"} = $data;
      }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}c_name"} = $data;
