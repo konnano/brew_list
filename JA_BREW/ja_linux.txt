@@ -342,6 +342,7 @@ font-comic-shanns-mono-nerd-font	開発者向けのグリフ数が多いフォ�
 font-coming-soon	Coming Soon
 font-comme	可変、ウェイト軸は細いものから黒いものまで
 font-commissioner	ほぼ古典的なプロポーションを備えた、低コントラストのヒューマニス sans-serif font
+font-commit-mono	ニュートラルなプログラミング書体
 font-computer-modern	Computer Modern
 font-conakry	Conakry
 font-consolas-for-powerline	Consolas for Powerline
