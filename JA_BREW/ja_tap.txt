@@ -342,6 +342,7 @@ font-comic-shanns-mono-nerd-font	多数のglyphsを含む開発者向けのフ�
 font-coming-soon	Coming Soon
 font-comme	可変、細いものから黒いものまでのウェイト軸
 font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストsans-serifフォント
+font-commit-mono	ニュートラルなプログラミング書体
 font-computer-modern	Computer Modern
 font-conakry	Conakry
 font-consolas-for-powerline	Consolas for Powerline
@@ -1078,7 +1079,7 @@ font-neucha	Neucha
 font-neuton	Neuton
 font-new-rocker	New Rocker
 font-new-tegomin	New Tegomin
-font-new-york	Serif font \
+font-new-york	AppleのSerif font "New York"
 font-news-cycle	News Cycle
 font-newsreader	主に画面上で継続的に読むことを目的としたオリジナルの書体
 font-nico-moji	Nico Moji
@@ -1613,11 +1614,11 @@ font-seoul-namsan-condensed	Seoul Namsan Condensed
 font-seoul-namsan-vertical	Seoul Namsan Vertical
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
-font-sf-arabic	Arabic extension of \
-font-sf-compact	Compact variant of \
-font-sf-mono	Monospaced variant of \
+font-sf-arabic	Appleによる"San Francisco"のアラビア語拡張
+font-sf-compact	Appleによる"San Francisco"のコンパクト版
+font-sf-mono	Appleによる"San Francisco"の等幅版
 font-sf-mono-for-powerline	PowerlineをサポートするためにNerdFontsパッチャーでパッチされたAppleのSFMonoフォント
-font-sf-pro	Sans-serif variant of \
+font-sf-pro	Appleによる”San Francisco"のSans-serifバージョン
 font-shadows-into-light-two	Shadows Into Light Two
 font-shalimar	平らなペン先の書道のストロークに触発された直立したスクリプト
 font-shantell-sans	Shantell Sans
@@ -1942,6 +1943,7 @@ dash2	APIドキュメントブラウザとコードスニペットマネージ�
 dash3	APIドキュメントブラウザとコードスニペットマネージャ
 dash4	APIドキュメントブラウザとコードスニペットマネージャ
 dash5	APIドキュメントブラウザとコードスニペットマネージャー
+dash6	APIドキュメントブラウザとコードスニペットマネージャー
 db-browser-for-sqlite-nightly	SQLite用のデータベースブラウザー
 deadbeef-nightly	モジュラーオーディオプレーヤー
 defold-alpha	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
