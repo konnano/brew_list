@@ -638,6 +638,7 @@ capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
 cargo-about	クレートのすべてのライセンスのリストを生成するCargoプラグイン
 cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lockファイルを監査する
+cargo-auditable	本番環境のRustバイナリを監査可能にする
 cargo-binstall	Rustプロジェクト用のバイナリインストール
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
 cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
@@ -1439,6 +1440,7 @@ easy-tag	オーディオファイルタグを表示および編集するため�
 easyengine	WordPressサイトを管理するためのコマンドラインコントロールパネル
 easyrpg-player	RPGツクール 2000/2003 ゲーム通訳
 ebook-tools	いくつかの電子ブック形式にアクセスして変換する
+ebook2cw	電子ブックをモールス信号に変換します
 ec2-ami-tools	Amazon EC2 AMIツール(Amazonマシンイメージのバンドルに役立ちます)
 ecasound	マルチトラック対応のオーディオレコーダーとエフェクト計算機
 eccodes	GRIB 1/2 とBUFR 3/4 形式のメッセージをデコードおよびエンコードします
