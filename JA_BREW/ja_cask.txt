@@ -1050,6 +1050,7 @@ endless-sky	宇宙探査 取引と戦闘ゲーム
 endnote	リファレンスマネージャー
 endurance	バッテリーの監視と管理
 energia	電子工学プロトタイピングプラットフォーム
+energiza	MacBookの充電マネージャー
 energybar	Touch Barウィジェットアプリケーション
 enfusegui	HDRイメージクリエーター
 engine-dj	DJソフトウェアセット
