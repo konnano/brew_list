@@ -2744,6 +2744,7 @@ piclist	クラウドストレージマネージャーツール
 picoscope	PicoScopeオシロスコープ用のテストおよび測定オシロスコープソフトウェア
 pictogram	アプリのアイコンをカスタマイズして維持する
 pictureview	画像ビューア
+pieces	コードスニペット、スクリーンショット、ワークフローコンテキスト
 pieces-cli	Pieces.appのコマンドラインツール
 pieces-os	Pieces for Developersセットを強化する ローカルデータストア/サーバー/MLエンジン
 piezo	オーディオレコーディングアプリケーション
