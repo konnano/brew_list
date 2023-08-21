@@ -597,7 +597,7 @@ bzr-upload	dumbサーバーの変更を段階的にアップロードするBazaa
 bzr-xmloutput	XML出力を生成するオプションを提供するBazaarプラグイン
 bzrtools	便利な追加ユーティリティを提供するBazaarプラグイン
 bzt	BlazeMeter Taurus
-c	C "スクリプト"を一度にコンパイルして実行する
+c	C スクリプトを一度にコンパイルして実行する
 c-ares	非同期DNSライブラリ
 c-blosc	Blocking、shufflingと損失の無い圧縮ライブラリ
 c-kermit	UNIXおよびVMSのスクリプト可能なネットワークの順番通信
@@ -1328,9 +1328,10 @@ docx2txt	Microsoft Officedocxドキュメントを同等のテキストドキュ
 dog	コマンドラインDNSクライアント
 doggo	人々の為のコマンドラインDNSクライアント
 doitlive	ライブ発表用に保存されたシェルコマンドを再生する
+dolphie	MySQLを監視するための機能豊富なトップツール
 dolt	データのGit
 dooit	TUI todoマネージャー
-dopewars	もともとDrug WarをベースにしたゲームのFreeリライト
+dopewars	"Drug War"をベースにしたゲームのFreeリライト
 dory	Dockerの開発プロキシ
 dos2unix	DOS/UNIX/Mac 形式間でテキストを変換する
 dosbox	DOSエミュレータ
@@ -3138,7 +3139,7 @@ libfixbuf	IPFIX手続きをCライブラリとして実装します
 libfixposix	POSIXシステムコールの薄いラッパー
 libflowmanager	パケットベースの入力によるFlow-basedの測定タスク
 libfontenc	X.Org：フォントエンコーディングライブラリ
-libforensic1394	IEEE 1394( "FireWire")インターフェースを介したライブメモリの科学調査
+libforensic1394	IEEE 1394"FireWire"インターフェースを介したライブメモリの科学調査
 libfreefare	MIFAREカード操作用のAPI
 libfreehand	Aldus/Macromedia/AdobeFreeHand ドキュメントの解釈とインポート
 libfreenect	XboxKinectデバイスのドライバーとライブラリ
@@ -5849,7 +5850,7 @@ tectonic	近代化され完全な自己完結型のTeX/LaTeXエンジン
 tee-clc	Microsoft Team Explorer Everywhereコマンドラインクライアント
 teem	科学ラスターデータ用のライブラリ
 teensy_loader_cli	Teensy USB開発ボードのコマンドライン統合
-teip	「ひとつのことをうまくする」コマンドを助けるマスキングテープ
+teip	"ひとつのことをうまくする"コマンドを助けるマスキングテープ
 tektoncd-cli	TektonCDと対話するためのCLI
 teku	イーサリアム2.0 Beacon ChainのJava実装
 telegraf	InfluxDBのサーバーレベルのメトリック収集エージェント
