@@ -46,6 +46,7 @@ advancemame	高度なビデオサポートを備えたMAME
 advancescan	AdvanceMAME/MESS ROMマネージャー
 adwaita-icon-theme	GNOMEプロジェクトのアイコン
 aerc	ターミナルで実行される電子メールクライアント
+aerleon	複数のファイアウォールプラットフォーム用のファイアウォール構成を生成する
 aescrypt	暗号化/復号化 プログラム
 aescrypt-packetizer	256ビットのAES暗号化を使用して暗号化と復号化
 aespipe	パイプのAES暗号化または復号化
@@ -2991,6 +2992,7 @@ leela-zero	知識のない人間に提供する神経ネットワークGoエン�
 leetup	Leetcodeの問題を解決するためのコマンドラインツール
 lefthook	あらゆるタイプのプロジェクトに対応する高速で強力なGit hooksマネージャー
 legit	ワークフローを簡素化するために最適化されたGitのコマンドラインインターフェイス
+legitify	GitHub/GitLab アセットの構成ミスとセキュリティリスクを 検出/修復 するツール
 lego	クライアントとACMEライブラリを暗号化しましょう
 leiningen	Clojureのビルドツール
 lemmeknow	なんでも識別する最速の方法!
@@ -3735,6 +3737,7 @@ mas	Mac AppStoreのcommand-lineインターフェイス
 mask	単純なマークダウンファイルで定義されたCLI taskランナー
 masscan	TCPポートスキャナー、5分以内にインターネット全体をスキャンします
 massdns	高性能DNS stub resolver
+massdriver	Massdriver Cloudでアプリケーションとインフラストラクチャを管理する
 massren	テキストエディタを使用して複数のファイルの名前を簡単に変更
 mat2	メタデータ匿名化ツールキット
 math-comp	Coq証明アシスタントの数学コンポーネント
@@ -4201,6 +4204,7 @@ nomino	バッチ名前変更ユーティリティ
 nopoll	オープンソースのC WebSocketツールキット
 norm	NACK指向の信頼性の高いマルチキャスト
 normalize	オーディオファイルの音量を標準レベルに調整します
+notation	OCIアーティファクトとコンテナイメージに署名及び検証するためのCLIツール
 notcurses	派手なキャラクターライブラリ グラフィックス/TUI
 noti	プロセスが完了したときに通知を送信する
 notifiers	通知を送信する簡単な方法
@@ -6012,6 +6016,7 @@ touca	回帰テストの複雑なソフトウェアワークフロー用のオ�
 tox	汎用Python virtualenv管理およびテストコマンドラインツール
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
 tpl	バイナリデータをCで保存および取得する
+tpm	tmuxのプラグインマネージャー
 tpp	Ncursesベースの提示ツール
 tproxy	TCP接続をプロキシおよび分析するCLIツール
 tracebox	ミドルボックス検出ツール
@@ -6455,6 +6460,7 @@ wsk	OpenWhiskコマンドラインインターフェイス(CLI)
 wskdeploy	Apache OpenWhiskプロジェクト展開ユーティリティ
 wslay	C WebSocketライブラリ
 wtf	一般的なインターネットの頭字語を翻訳する
+wtfis	パッシブホストネーム/ドメイン/IP ルックアップツール
 wtfutil	端末の個人情報ダッシュボード
 wumpus	古来のBASIC Hunt the Wumpusゲームの正確なクローン
 wv	Microsoft Word文書にアクセスするためのプログラム
@@ -6597,6 +6603,7 @@ yasm	NASMのモジュラーBSD再実装
 yaws	動的コンテンツ用のWebサーバー(Erlangで記述)
 yaz	ツールキット Z39.50/SRW/SRUクライアント/サーバー
 yaze-ag	さらに別のZ80エミュレーター(AGによる)
+yazi	️Rustで書かれた、非同期I/Oに基づく遅延高速ターミナルファイルマネージャー
 yazpp	Yazツールキット用のC++ API
 yconalyzer	TCP転送量分析器
 ydcv	YouDaoコンソールバージョン
