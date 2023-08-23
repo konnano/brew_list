@@ -2240,6 +2240,7 @@ parallels14	デスクトップ仮想化ソフトウェア
 parallels15	デスクトップ仮想化ソフトウェア
 parallels16	デスクトップ仮想化ソフトウェア
 parallels17	デスクトップ仮想化ソフトウェア
+parallels18	デスクトップ仮想化ソフトウェア
 pdf-expert-beta	PDFリーダー エディター/注釈
 pgadmin3	PostgreSQLの管理および開発プラットフォーム
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
