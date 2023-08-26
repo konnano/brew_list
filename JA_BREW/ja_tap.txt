@@ -2086,6 +2086,7 @@ font-zen-tokyo-zoo	Zen 東京 Zoo
 font-zeyada	Zeyada
 font-zhi-mang-xing	Zhi Mang Xing
 font-zhudou-sans	NotoSansから派生したCJK記号と句読点
+font-zhuque-fangsong	TrionesTypeによって作成されたオープンソースの中国語Fangsongフォント
 font-zilla-slab	Zilla Slab
 font-zilla-slab-highlight	Zilla Slab Highlight
 1password-beta	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
