@@ -395,6 +395,7 @@ bats-core	Bash自動テストシステム
 bazaar	親しく強力な分散バージョン管理システム
 bazarr	字幕を管理およびダウンロードするための Sonarrおよび Radarrのコンパニオン
 bazel	Google独自のビルドツール
+bazel-remote	Bazelのリモートキャッシュ
 bazelisk	Bazelのユーザーに親しいランチャー
 bbe	バイナリファイルのsedのようなエディタ
 bbftp-client	大きなファイルに最適化された安全なファイル転送ソフトウェア
@@ -716,6 +717,7 @@ cdpr	Cisco Discovery Protocol Reporter
 cdrdao	Disk-At-OnceモードでCDを録音する
 cdrtools	プリマスタリングおよびレコーディングソフトウェア CD/DVD/Blu-ray
 cdsclient	CDSデータベースを照会するためのツール
+cdxgen	プロジェクトのCycloneDXソフトウェア部品表(SBOM)を作成します
 cedille	従属ラムダ除去の計算に基づく言語
 celero	C++オーサリング基準比較 Library/Framework
 censys	Censys API のコマンドライン インターフェイス(censys.io)
@@ -923,6 +925,7 @@ code-cli	コマンドラインインターフェイスビルトインVisual Stud
 code-minimap	高性能コードミニマップ発生器
 code-server	ブラウザからVSCodeにアクセスする
 codec2	オープンソースの音声コーデック
+codelimit	リファクタリングのアラーム
 codequery	コード理解/コードブラウジング/コード検索ツール
 coder	Terraformを使用してセルフホスト型開発環境をプロビジョニングするためのツール
 codespell	ソースコードとテキストファイルの一般的なスペルミスを修正
@@ -997,6 +1000,7 @@ couchdb-lucene	Luceneを使用したCouchDBドキュメントの全文検索
 couchpotatoserver	映画を自動的にダウンロードする
 countdown	ターミナルカウントダウンタイマー
 counterfeiter	自己完結型のタイプセーフテストダブルを生成するためのツール
+counts	アドホックプロファイリング用ツール
 coursier	純粋なScalaアーティファクトフェッチ
 cowsay	ASCIIアートで構成可能な話す文字
 cp2k	量子化学および固体物理学ソフトウェアパッケージ
@@ -2203,6 +2207,7 @@ goplus	工学のためのプログラミング言語 STEM技術/データサイ�
 goproxy	Goモジュールのグローバルプロキシ
 gops	システムで現在実行されているGoプロセスを一覧表示および診断するためのツール
 gor	Goで記述されたリアルタイムHTTP転送再生ツール
+goread	ターミナル内の RSS/Atom フィード
 goredo	Go djbのやり直しの実装 扱うことが少ないMakefileの交換
 goreleaser	Goバイナリをできるだけ速く簡単に配信する
 goreman	Goで書かれたForemanクローン
@@ -2510,6 +2515,7 @@ hwatch	watchコマンドの最新代替手段
 hwloc	現代建築の階層topologyのポータブル抽象化
 hy	Pythonに埋め込まれているLispの方言
 hydra	多くのサービスをサポートするネットワークlogonクラッカー
+hyfetch	LGBTQ+プライドフラグを備えた高速で高度にカスタマイズ可能なシステム情報スクリプト
 hyperestraier	コミュニティのための全文検索システム
 hyperfine	コマンドライン基準比較ツール
 hyperkit	アプリケーションにハイパーバイザー機能を埋め込むためのツールキット
@@ -2581,6 +2587,7 @@ imath	2Dと3Dのベクターライブラリ Matrix/数学演算
 imessage-exporter	ローカルiMessageデータベースをエクスポートして検査するためのコマンドラインツール
 imessage-ruby	iMessageを送信するためのコマンドラインツール
 img2pdf	直接JPEGを含めて画像をPDFに変換する
+imgdiff	ピクセルごとの画像差分ツール
 imgproxy	リモート画像のサイズ変更と変換のための高速で安全なサーバー
 imgur-screenshot	スクリーンショットを選択 upload to imgur. + more cool things
 imlib2	画像の読み込みと解釈のライブラリ
@@ -5144,6 +5151,7 @@ ripsecrets	秘密鍵をソース コードにコミットしないようにす�
 riscv64-elf-binutils	riscv64-elfクロス開発用の GNU Binutils
 riscv64-elf-gcc	riscv64-elf用の GNUコンパイラコレクション
 riscv64-elf-gdb	riscv64-elfクロス開発用の GNUデバッガー
+risor	Go開発者とDevOpsのための高速かつ柔軟なスクリプト作成
 rizin	UNIXライクな逆エンジニアリングフレームワークとコマンドラインツールセット
 rke	Rancher Kubernetes Engine どこでも機能するKubernetesインストーラー
 rkflashtool	Rockchipデバイスをフラッシュするためのツール
@@ -5157,6 +5165,7 @@ rmlint	ファイルシステムから高速に削除するのツール dupes/oth
 rmw	コマンドラインのユーティリティ Safe-remove
 rnr	ファイルとディレクトリの名前をバッチで変更するコマンドラインツール
 rnv	Relax NGCompact構文確認の実装
+roadrunner	高性能PHPアプリケーション サーバー/ロードバランサー/プロセスマネージャ-
 roapi	コードを1行も記述しない静的データセット用の本格的なAPI
 roblox-ts	Roblox用TypeScriptからLuauへのコンパイラー
 robodoc	ソースコードドキュメントツール
