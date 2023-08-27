@@ -395,6 +395,7 @@ bats-core	Bash自動テストシステム
 bazaar	親しく強力な分散バージョン管理システム
 bazarr	字幕を管理およびダウンロードするための Sonarrおよび Radarrのコンパニオン
 bazel	Google独自のビルドツール
+bazel-diff	Gitの2つのリビジョン間でBazel Target Diffingを実行します
 bazel-remote	Bazelのリモートキャッシュ
 bazelisk	Bazelのユーザーに親しいランチャー
 bbe	バイナリファイルのsedのようなエディタ
@@ -2587,6 +2588,7 @@ imath	2Dと3Dのベクターライブラリ Matrix/数学演算
 imessage-exporter	ローカルiMessageデータベースをエクスポートして検査するためのコマンドラインツール
 imessage-ruby	iMessageを送信するためのコマンドラインツール
 img2pdf	直接JPEGを含めて画像をPDFに変換する
+imgdiet	画像の最適化とサイズ変更
 imgdiff	ピクセルごとの画像差分ツール
 imgproxy	リモート画像のサイズ変更と変換のための高速で安全なサーバー
 imgur-screenshot	スクリーンショットを選択 upload to imgur. + more cool things
@@ -2886,6 +2888,7 @@ kona	Kプログラミング言語のオープンソース実装
 kondo	ソフトウェアプロジェクトから不要なファイルを削除してディスク容量を節約します
 kopia	高速で安全なオープンソースバックアップ
 kops	Production Grade K8s インストール/アップグレード/管理
+kor	未使用のKubernetesリソースを検出するCLIツール
 kore	CでWeb APIを作成するためのWebアプリケーションフレームワーク
 kotlin	JVMの静的に型付けされたプログラミング言語
 kotlin-language-server	Language Serverの手続きを使用した エディター/IDE の高度なKotlinサポート
@@ -6024,6 +6027,7 @@ totp-cli	Goで書かれたTOTP CLIツールのような Authy/Google Authenticat
 touca	回帰テストの複雑なソフトウェアワークフロー用のオープンソースツール
 tox	汎用Python virtualenv管理およびテストコマンドラインツール
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
+toxiproxy	混乱と復元力のテストのためにネットワークとシステムの状態をシミュレートするTCPプロキ
 tpl	バイナリデータをCで保存および取得する
 tpm	tmuxのプラグインマネージャー
 tpp	Ncursesベースの提示ツール
