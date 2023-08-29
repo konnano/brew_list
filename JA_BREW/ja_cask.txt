@@ -1095,7 +1095,6 @@ exfalso	音楽タグエディター
 exifcleaner	メタデータクリーナー
 exifrenamer	デジタル写真の名前を変更するツール ムービークリップ/オーディオクリップ
 exist-db	ネイティブXMLデータベースとアプリケーションプラットフォーム
-exodus	暗号通貨資産用のデスクトップウォレット
 expandrive	クラウドストレージ用のネットワークドライブとブラウザー
 explorer	データエクスプローラー
 expo-xde	Expo開発環境(XDE)
@@ -2760,6 +2759,7 @@ pingmenu	メニューバーに現在のネットワーク遅延を表示する�
 pingnoo	オープンソースのクロスプラットフォームtraceroute/pingアナライザー
 pingplotter	ネットワーク監視ツール
 pinta	シンプルなGtk#ペイントプログラム
+piphero	任意のウィンドウをピクチャーインピクチャーするメニューバーアプリ
 pitch	共同プレゼンテーションソフトウェア
 pitchperfect	一分の隙もない
 pivy	PIVカードのクライアント
@@ -3334,6 +3334,7 @@ sim-daltonism	ビデオと画像の色覚異常模擬装置
 sim-genie	Xcodeシミュレーター機能へのより簡単なアクセス
 simpholders	SimPholders
 simple-comic	コミック 見る/読む
+simple-web-server	ローカルWebサーバーを作成する
 simpleclock	完全にSwiftで書かれたシンプルなアナログ時計のスクリーンセーバー
 simplefloatingclock	シンプルなフローティングクロック
 simplemind	クロスプラットフォームのマインドマッピングツール
@@ -3922,6 +3923,7 @@ unnaturalscrollwheels	物理的なスクロールホイールのスクロール�
 unpkg	パッケージ内のすべてのファイルを解凍する.pkgおよび.mpkgのUnarchiver
 unraid-usb-creator	UnraidをUSBドライブにインストールするためのユーティリティ
 unshaky	Appleのバタフライキーボードでのダブルキー押下のソフトウェア修正
+updf	PDFエディタ
 upm	パスワードマネージャー
 upterm	21世紀のターミナルエミュレータ
 usage	アプリケーションの使用状況を追跡します
@@ -3990,6 +3992,7 @@ virtualhereserver	ネットワーク経由で接続されたUSBデバイスに�
 virtualhostx	ローカルサーバー環境
 viscosity	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
 visit	mesh-baseの科学データの視覚化とデータ分析
+viso	画像ビューア
 visual	ARMアセンブリ言語を学ぶ
 visual-paradigm	UML2をサポートするUMLCASEツール SysMLおよびビジネスプロセスモデリング表記
 visual-paradigm-ce	オールインワンUML/SysML アジャイルのためのBPMNモデリングプラットフォーム
