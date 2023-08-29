@@ -640,15 +640,18 @@ cap-completion	CapistranoのBash補完
 capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
 cargo-about	クレートのすべてのライセンスのリストを生成するCargoプラグイン
+cargo-all-features	すべての機能フラグの組み合わせを構築およびテストするためのCargoサブコマンド
 cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lockファイルを監査する
 cargo-auditable	本番環境のRustバイナリを監査可能にする
 cargo-binstall	Rustプロジェクト用のバイナリインストール
+cargo-binutils	Rustツールチェーンに同梱されているLLVMツールを呼び出すためのCargoサブコマンド
 cargo-bloat	実行可能ファイルのスペースの大部分を占めるものを見つけます
 cargo-bundle	rust実行可能ファイルをOS固有のアプリバンドルにラップする
 cargo-c	Cのようなライブラリを構築してインストールするためのヘルパープログラム
 cargo-crev	cargoパッケージ マネージャーのコードレビューシステム
 cargo-deny	依存関係をリンティングするCargoプラグイン
 cargo-depgraph	cargoプロジェクトの依存関係グラフを作成します
+cargo-deps	Rustプロジェクトの依存関係グラフを構築するためのCargoサブコマンド
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-generate	既存のgitリポジトリをテンプレートとして使用する
 cargo-instruments	Rustの機器トレースを簡単に生成
@@ -3049,7 +3052,6 @@ libb64	Base64ライブラリ エンコーディング/デコーディング
 libbdplus	BD+システム仕様を実装します
 libbi	並列コンピューターハードウェアでのBayesian state-spaceモデル化
 libbinio	バイナリI/Oストリームクラスライブラリ
-libbitcoin	BitcoinクロスプラットフォームC++開発ツールキット
 libbitcoin-blockchain	Bitcoinブロックチェーンライブラリ
 libbitcoin-client	Bitcoinクライアントクエリライブラリ
 libbitcoin-consensus	Bitcoinコンセンサスライブラリ(オプション)
@@ -3059,6 +3061,7 @@ libbitcoin-network	Bitcoin P2Pネットワークライブラリ
 libbitcoin-node	Bitcoin Full Node
 libbitcoin-protocol	Bitcoinブロックチェーンクエリ手続き
 libbitcoin-server	Bitcoin Full Nodeとクエリサーバー
+libbitcoin-system	ビットコインクロスプラットフォーム C++開発ツールキット
 libbladerf	USB3.0スーパースピードソフトウェア無線源
 libbluray	VLCなどのメディアプレーヤー用のBlu-Rayディスク再生ライブラリ
 libbpf	libbpfスタンドアロンビルド用の自動アップストリームミラー
@@ -3736,6 +3739,7 @@ mariadb@10.6	MySQLのDrop-in代替品
 mariadb@10.7	MySQLのDrop-in代替品
 mariadb@10.8	MySQLのDrop-in代替品
 mariadb@10.9	MySQLのDrop-in代替品
+mariadb@11.0	MySQLのドロップイン代替品
 markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
@@ -4930,10 +4934,12 @@ pyside@2	Qtの公式Python bindings
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
 python-cryptography	Pythonの暗号化レシピとプリミティブ
+python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-markdown	MarkdownのPython実装
+python-packaging	Pythonパッケージのコア ユーティリティ
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
