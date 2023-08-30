@@ -160,6 +160,7 @@ apgdiff	別のPostgreSQL diffツール
 apib	HTTP性能テストツール
 apibuilder-cli	APIビルダーのクライアントを生成するためのコマンドラインインターフェイス
 apidoc	RESTful Web APIドキュメント発生器
+apify-cli	Apifyコマンドラインインターフェース
 apko	Dockerfileを使用せずにAPKパッケージから直接OCIイメージを構築する
 apktool	サードパーティのクローズドバイナリAndroidアプリを逆エンジニアリングするためのツール
 apm-bash-completion	Atomパッケージマネージャーの補完
@@ -6143,6 +6144,7 @@ ucommon	スレッド用のGNUC++ランタイムライブラリ ソケット/構�
 ucon64	ROMバックアップツールとエミュレーターの万能ナイフ
 ucspi-tcp	TCPクライアントサーバーアプリケーションを構築するためのツール
 udis86	x86用の最低限の逆アセンブラライブラリ
+udp2raw-multiplatform	udp2raw-tunnelクライアントのマルチプラットフォーム(クロスプラットフォーム)バージョン
 udptunnel	TCP接続を介してUDPパケットをトンネリングする
 udpxy	UDPからHTTPへのマルチキャスト転送量リレーデーモン
 udunits	Unidata単位変換ライブラリ
@@ -6350,6 +6352,7 @@ vulkan-tools	Vulkanユーティリティとツール
 vulkan-validationlayers	開発者がVulkan APIの正しい使用を検証できるようにするVulkanレイヤー
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
+vunnel	さまざまなソースから脆弱性データを収集するツール
 vvdec	Fraunhofer汎用ビデオデコーダ
 vvenc	Fraunhofer汎用ビデオエンコーダ
 w-calc	非常に有能な計算機
