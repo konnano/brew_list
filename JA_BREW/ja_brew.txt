@@ -876,6 +876,7 @@ cloog	Z多面体をスキャンするためのコードを生成する
 closure-compiler	JavaScript最適化コンパイラ
 closure-stylesheets	拡張CSS前処理プログラム、linterと国際化
 cloud-nuke	クラウドリソースを削除(削除)するCLIツール
+cloud-sql-proxy	Cloud SQLインスタンスに安全に接続するためのユーティリティ
 cloud-watch	Amazon CloudWatchコマンドラインツール
 cloudflare-quiche	QUICトランスポートプロトコルとHTTP/3のおいしい実装
 cloudflare-wrangler	Cloudflareワーカー向けのCLIツール
@@ -4939,7 +4940,9 @@ python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
+python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
 python-markdown	MarkdownのPython実装
+python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-packaging	Pythonパッケージのコア ユーティリティ
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
@@ -5903,6 +5906,7 @@ tern	ソフトウェア部品表(SBOM)ツール
 terracognita	既存のクラウドプロバイダーから読み取りTerraformコードを生成します
 terraform	構築するツール 変化とバージョン基礎構造
 terraform-docs	Terraformモジュールからドキュメントを生成するためのツール
+terraform-graph-beautifier	"terraform graph"出力を美しくするためのCLI
 terraform-inventory	TerraformState → AnsibleDynamicInventory
 terraform-ls	Terraform言語サーバー
 terraform-lsp	Terraformの言語サーバー手続き
