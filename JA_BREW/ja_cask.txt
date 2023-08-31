@@ -1550,6 +1550,7 @@ hydrus-network	メディアを整理するためのパーソナルbooru-styleの
 hype	アニメーション化された双方向なWebコンテンツを作成するアプリ
 hyper	Webテクノロジーに基づいて構築されたターミナル
 hyperbackupexplorer	Synology NASからのバックアップデータ
+hypercal	スケジュールとタスクを1つのビューに結び付けるプライバシー最優先のカレンダー
 hyperkey	CapsLockキーまたは修飾キーのいずれかをハイパーキーに変換します
 i1profiler	写真家やデザイナーのための自動化とクリエイティブなコントロール
 ibabel	iBabel
@@ -3454,6 +3455,7 @@ spark	Spark
 spark-ar-studio	Facebookファミリーのアプリを使用して拡張現実体験を作成および共有します
 sparkle	Cocoa開発者向けのソフトウェア更新フレームワーク
 sparkleshare	Gitリポジトリと即座に同期するツール
+sparkplate	人間が判読できるドメインを暗号化アドレスに解決するためのテストページを備えています
 sparrow	Bitcoinウォレットアプリケーション
 spatial	Improbable SpatialOSプラットフォームとの相互作用のためのバイナリ
 spatterlight	ほとんどの種類の双方向フィクションゲームファイルを再生する
