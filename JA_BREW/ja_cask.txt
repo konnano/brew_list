@@ -2341,6 +2341,7 @@ mudlet	Multi-Userダンジョンクライアント
 mullvad-browser	プライバシーを重視し追跡とフィンガープリンティングを最小限に抑えることに重点を置いたWebブラウザ
 mullvadvpn	VPNクライアント
 multi	Webサイトのグループからアプリを作成する
+multiapp	マルチプレイヤーコラボレーション
 multibit-hd	マルチビットHD
 multifirefox	複数のバージョンのFirefoxを並べて実行するランチャーユーティリティ
 multimc	マインクラフトランチャー
@@ -3097,7 +3098,6 @@ remote-desktop-manager-free	すべてのリモート接続を単一のプラッ�
 remote-wake-up	ボタンをクリックするだけでデバイスをウェイクアップ
 remotehamradio	RemoteHamRadioサービス用のデスクトップコンソールアプリ
 remoteviewer	SPICEを使用して仮想マシンに接続する
-remotion	リモートチーム向けのコミュニケーションツール
 remotix-agent	リモートデスクトップおよび監視ソリューション
 removebg	自動bulkバックグラウンド除去
 renamer	バッチファイルリネームアプリケーション
