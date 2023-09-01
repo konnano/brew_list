@@ -2991,6 +2991,7 @@ ld-find-code-refs	LaunchDarklyに機能flagコード参照を送信するため�
 ldapvi	テキストエディタでLDAPエントリを更新する
 ldc	ポータブルDプログラミング言語コンパイラ
 ldid	Mach-Oバイナリで署名ブロックを操作できます
+ldid-procursus	本物または偽物の署名をMach-Oバイナリに入れる
 ldns	Cで書かれたDNSライブラリ
 ldpl	COBOLに触発されたコンパイル型プログラミング言語
 le	ブロックおよび二項演算を備えたテキストエディタ
@@ -3225,6 +3226,7 @@ libiptcdata	libiptcdata0によって提供される仮想パッケージ
 libirecovery	USB経由で iBoot/iBSS と通信するためのライブラリとユーティリティ
 libiscsi	iscsiのクライアントライブラリとユーティリティ
 libisofs	さまざまな拡張子を持つISO-9660ファイルシステムを作成するためのライブラリ
+libjcat	Jcatファイルを読み取るためのライブラリ
 libjson-rpc-cpp	json-rpcのC++フレームワーク
 libjwt	JSON Web TokenCライブラリ
 libkate	Oggの多重化された オーディオ/ビデオ のoverlayコーデック
@@ -3509,6 +3511,7 @@ libxml++3	libxmlのC++ラッパー
 libxml++@4	libxmlのC++ラッパー
 libxml++@5	libxmlのC++ラッパー
 libxml2	GNOME XMLライブラリ
+libxmlb	圧縮されたXMLメタデータをクエリするためのライブラリ
 libxmlsec1	XMLセキュリティライブラリ
 libxmp	モジュール音楽(MOD、S3M、ITなど)を再生するためのCライブラリ
 libxmp-lite	Lite libxmp
@@ -3828,6 +3831,7 @@ mesa-glu	Mesa OpenGLユーティリティライブラリ
 mesalib-glw	OpenGL仕様のオープンソース実装
 mesheryctl	クラウドネイティブの管理プレーンであるMesheryのコマンドラインユーティリティ
 meson	高速でユーザーに親しいビルドシステム
+meson-python	Meson PEP 517 Pythonビルドバックエンド
 meta-package-manager	統合CLIを使用したすべてのパッケージマネージャーのラッパー
 metabase	ビジネス知性報告サーバー
 metalang99	C99プリプロセッサベースのメタプログラミング言語
@@ -3843,6 +3847,7 @@ mfterm	Mifare Classic1-4kタグを操作するためのターミナル
 mftrace	TeXビットマップフォントをトレースします PFA/PFB/TTFフォント
 mg	小さなEmacsのようなエディター
 mgba	ゲームボーイアドバンスエミュレータ
+mgis	MFrontの汎用インターフェイスの動作を処理するツールを提供する
 mhash	多数のハッシュアルゴリズムへの統一されたインターフェース
 mhonarc	メールからHTMLへの変換器変換器
 micro	モダンで直感的な端末ベースのテキストエディタ
@@ -4449,6 +4454,7 @@ opusfile	.opusファイルでデコードおよび捜索するためのAPI
 oq	JSON以外の形式をサポートする性能の高いポータブルjqラッパー
 or-tools	Googleのオペレーションズリサーチツール
 oras	記憶装置としてのOCIレジストリ
+orbiton	VT100によって制限される、高速で構成不要のテキストエディターとIDE
 orc	Oil Runtimeコンパイラ(ORC)
 orc-tools	ORC javaコマンドラインツールとユーティリティ
 ord	インデックスブロックエクスプローラー、コマンドラインウォレット
@@ -4935,6 +4941,7 @@ pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
+python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
@@ -4943,7 +4950,11 @@ python-lsp-server	言語サーバープロトコル用のPython言語サーバ�
 python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
 python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
+python-mutagen	オーディオメタデータを処理するためのPythonモジュール
 python-packaging	Pythonパッケージのコア ユーティリティ
+python-pycurl	libcurlへのPythonインターフェイス
+python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
+python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
