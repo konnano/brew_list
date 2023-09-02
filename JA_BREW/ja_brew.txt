@@ -2157,7 +2157,6 @@ go-bindata	任意のファイルからGoコードを生成する小さなユー�
 go-boring	BoringCryptoでGoプログラミング言語に移行する
 go-camo	セキュアイメージプロキシサーバー
 go-critic	独断的なGoソースコードlinter
-go-feature-flag	単純、完全、軽量の機能フラグソリューション
 go-feature-flag-relay-proxy	GO機能フラグを実行するスタンドアロンサーバー
 go-jira	Goのシンプルなjiraコマンドラインクライアント
 go-jsonnet	JSONデータを定義するための構成言語の実装に移動します
@@ -4954,6 +4953,7 @@ python-mutagen	オーディオメタデータを処理するためのPythonモ�
 python-packaging	Pythonパッケージのコア ユーティリティ
 python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
+python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出すための低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/Tk へのPythonインターフェース
@@ -5947,6 +5947,7 @@ texmath	LaTeX数学をMathMLに変換するためのHaskellライブラリ
 textidote	つづり LaTeXドキュメントの文法とスタイルのチェック
 textql	テキストファイル全体でSQLを実行します
 textract	さまざまな種類のファイルからテキストを抽出する
+tf-profile	Terraformの実行をプロファイルするためのCLIツール
 tfel	数値力学の材料知識に特化したコード生成ツール
 tfenv	rbenvに触発されたTerraformバージョンマネージャー
 tfk8s	KubernetesYAMLマニフェストからTerraformHCLへの変換器
