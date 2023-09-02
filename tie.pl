@@ -77,7 +77,7 @@ unless( $ARGV[0] ){
  for my $alias(@{$re->{'ALIA'}}){
   my $hand = readlink $alias;
   $alias =~ s|.+/(.+)|$1|;
-   $hand =~ s|.+/(.+)\.rb|$1|;
+   $hand =~ s|.+/(.+)\.rb$|$1|;
   $tap{"${alias}alia"} = $hand;
   $tap{"${hand}alias"} .= "$alias\t";
  } $tap{'pythonalia'} = 'python@3.11' if $re->{'LIN'};
@@ -90,7 +90,7 @@ unless( $ARGV[0] ){
    $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
    $e == $in[1] ? rmdir "$ENV{'HOME'}/.BREW_LIST/14" : 0;
   }
-  my( $name ) = $dir1 =~ m|.+/(.+)\.rb|;
+  my( $name ) = $dir1 =~ m|.+/(.+)\.rb$|;
    $tap{"${name}core"} = $dir1;
   open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
    while(my $data=<$BREW>){
@@ -426,6 +426,7 @@ sub Version_1{
      }elsif( $data =~ s/^\s*version\s+[":]([^"\s]+)"?.*\n/$1/ ){
        $tap{"${name}c_version"} = $data unless $tap{"${name}c_version"};
      }elsif( $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
+       $data =~ tr/\\//d if index($data,'\\') > 0;
        $tap{"${name}c_desc"} = $data;
      }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}c_name"} = $data;
