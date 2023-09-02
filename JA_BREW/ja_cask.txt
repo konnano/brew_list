@@ -2012,6 +2012,7 @@ lyricsx	iTunesの歌詞 Spotify/Vox/Audirvana Plus
 lyx	LaTeX植字システムに基づくオープンソースのGUIドキュメントプロセッサ
 m3unify	ファイルエクスポータおよびM3Uプレイリストクリエータ
 maa	アークナイツの日常業務をワンクリックで実行できるツール
+mac-mouse-fix	サードパーティのマウスにジェスチャー機能とスムーズなスクロールを追加するマウスユーティリティ
 mac2imgur	画像とスクリーンショットをImgurにアップロードする
 macast	DLNA Media Renderer
 macbreakz	健康上の問題を防ぐための人間工学的アシスタント
@@ -2315,7 +2316,6 @@ motu-m-series	Motu Mシリーズ(M2/M4/M6)用のオーディオインターフ�
 mountain	ボリュームの マウント/アンマウント時に通知を表示する
 mountain-duck	サーバーとクラウドストレージをディスクとしてデスクトップにマウントします
 mounty	書き込み保護されたNTFSボリュームを再マウントします
-mouse-fix	サードパーティのマウスにジェスチャー機能とスムーズなスクロールを追加するためのマウスユーティリティ
 mousepose	マウスポインタとカーソル位置を強調表示します
 movist-pro	メディアプレーヤー
 mp3gain-express	MP3Gain表現
