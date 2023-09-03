@@ -1608,6 +1608,7 @@ fail2ban	ログファイルをスキャンし悪意のある兆候を示すIPを
 fairymax	変則チェスをプレイするためのAI
 faiss	効率的な類似性検索と深い空間のclustering
 fakeroot	偽のルート環境を提供する
+falcoctl	Falcoとそのエコシステムコンポーネントを操作するためのCLIツール
 falcon	Multi-paradigmプログラミング言語とスクリプトエンジン
 fann	高速人工神経ネットワークライブラリ
 fantom	オブジェクト指向のポータブルプログラミング言語
@@ -3183,6 +3184,7 @@ libgig	GigasamplerおよびDLSのライブラリ(ダウンロード可能なサ�
 libgit2	再入可能でリンク可能なGitコアメソッドのCライブラリ
 libgit2-glib	libgit2 gitアクセスライブラリの周りのGlibラッパーライブラリ
 libgit2@1.5	再入可能でリンク可能なGitコアメソッドのCライブラリ
+libgit2@1.6	リエントラントでリンク可能なGitコアメソッドのCライブラリ
 libglade	GTK+インターフェースの構築を支援するRADツール
 libglademm	libgladeのC++ラッパー
 libgnomecanvas	高レベルの構造化グラフィックライブラリ
@@ -4796,6 +4798,7 @@ postgresql@15	オブジェクトリレーショナルデータベースシステ
 postgrest	既存のPostgreSQLデータベースから完全にRESTfulなAPIを提供します
 potrace	ビットマップをベクターグラフィックに変換する
 povray	Persistence Of Vision RAYtracer(POVRAY)
+powerlevel10k	zshのテーマ
 powerline-go	シェルの美しく便利な低遅延プロンプト
 powerman	制御(リモートおよび並列)スイッチ配電ユニット
 powerman-dockerize	Dockerコンテナでのアプリケーションの実行を簡素化するユーティリティ
@@ -4901,6 +4904,7 @@ pv	パイプを介してデータの進行状況を監視する
 pwgen	パスワード発生器
 pwnat	NATの後ろで動作するプロキシサーバー
 pwncat	Netcat FW/IDS/IPS 回避、自己注入、結び付け、および逆シェル
+pwned	'Have I been pwned?'のCLIサービス
 pwntools	GallopsledがすべてのCTFで使用するCTFフレームワーク
 pwsafe	パスワードを生成し暗号化されたパスワードデータベースを管理します
 px	人々のPSとTOP(px/ptop)
@@ -5598,6 +5602,7 @@ sourcery	Swiftのメタプログラミング、ボイラープレートコード
 sox	SOund eXchange：汎用サウンドサンプルトランスレータ
 spaceinvaders-go	Goで書かれたターミナルのスペースインベーダー
 spaceman-diff	コマンドラインからのDiff画像
+spacer	コマンド出力にスペーサーを追加するための小さなコマンドラインユーティリティ
 spaceship	宇宙飛行のためのZshプロンプト
 spack	ソフトウェアの複数のバージョンと構成を構築するパッケージマネージャー
 spades	denovoゲノム配列アセンブリ
