@@ -3139,6 +3139,7 @@ ringcentral-phone	電話システムマネージャー
 rio	Hardware-accelerated GPU ターミナルエミュレータ
 ripcord	Slack(およびDiscord)用のデスクトップチャットクライアント
 ripme	さまざまなWebサイトのアルバムリッパー
+rippling	リップリング用のMDM
 ripx	音楽ステムの分離および修復ユーティリティ
 rive	機能的なグラフィックを作成するデザインツール
 rnnoise	音声のノイズ抑制
