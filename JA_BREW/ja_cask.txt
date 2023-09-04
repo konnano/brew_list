@@ -604,6 +604,7 @@ clementine	音楽プレーヤーとライブラリーのまとめ
 clickcharts	ダイアグラムおよびフローチャートソフトウェア
 clicker-for-netflix	最高の独立型Netflixプレーヤー
 clicker-for-youtube	独立型のYouTubeアプリ
+clickhouse	列指向のデータベース管理システム
 clickup	タスクの生産性プラットフォーム ドキュメント/目標/チャット
 clion	CおよびC++ IDE
 clip-studio-paint	描画とペイントのためのソフトウェア
@@ -1502,7 +1503,7 @@ height	オールインワンのプロジェクト管理ツール
 heimdall-suite	Samsungモバイルデバイスへのフラッシュファームウェア
 helium	Helium
 helo	メールテスターとデバッガー
-hepta	視覚学習のためのメモ取りツール
+heptabase	視覚的に学習できるメモ取りツール
 herd	LaravelおよびPHP開発環境マネージャー
 hermes	Hermes
 hermit-crab	現在のアプリを離れずにシェルコマンドを実行する
