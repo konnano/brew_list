@@ -787,6 +787,7 @@ font-iming	TrueTypeの繁体字中国語書体
 font-impact	Impact
 font-imperial-script	きれいな接続とエレガントな外観の正式なスクリプトフォント
 font-imprima	Imprima
+font-inclusive-sans	Contemporary neo-grotesques
 font-inconsolata	Inconsolata
 font-inconsolata-dz-for-powerline	Inconsolata-dz for Powerline
 font-inconsolata-for-powerline	Inconsolata for Powerline
@@ -2300,6 +2301,7 @@ typora-dev	Markdownをサポートする構成可能なドキュメントエデ�
 utm-beta	QEMUを使用した仮想マシンUI
 virtualbox-beta	x86およびarm64ハードウェア用のバーチャライザー
 virtualbox6	x86ハードウェアのバーチャライザー
+virtualbuddy-beta	仮想化ツール
 visual-studio-code-insiders	コードエディター
 vivaldi-snapshot	カスタマイズと制御に焦点を当てたWebブラウザー
 vlc-nightly	オープンソースのクロスプラットフォームマルチメディアプレーヤー
