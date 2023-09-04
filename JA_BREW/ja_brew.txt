@@ -1072,6 +1072,7 @@ crush-tools	区切られたテキストデータを処理するためのコマ�
 cryfs	ファイルを暗号化してDropboxやiCloudなどに安全に保存できるようにします。
 cryptol	暗号化アルゴリズムを指定するためのドメイン固有言語
 cryptominisat	高度なSAT Solver
+cryptopp	暗号化スキームの　Free C++クラスライブラリ
 crystal	Rubyのような構文を使用した、高速で静的に型指定されたコンパイル型言語
 crystal-icr	Crystalプログラミング言語の対話的なコンソール
 crystalline	Crystalの言語サーバープロトコルの実装
@@ -1126,7 +1127,6 @@ cxxopts	軽量のC++コマンドラインオプションパーサー
 cxxtest	JUnit/CppUnit/xUnit に似たC++単体テストフレームワーク
 cycode	シークレットスキャン、SAST/SCA/IaC によってソフトウェア開発のセキュリティを強化
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
-cyral-gimme-db-token	データベースへのSSOログインにCyralを簡単に使用
 cyrus-sasl	シンプルな認証とセキュリティレイヤー
 cython	Python言語のC機能拡張を作成するためのコンパイラ
 czg	標準化されたコミットメッセージを生成するインタラクティブなCommitizen CLI
@@ -1967,6 +1967,7 @@ ghz-web	ghzのWebインターフェイス
 gi-docgen	GObject-baseのライブラリのドキュメントツール
 gibbslda	ライブラリラッピングimlib2の文脈API
 gibo	GitHubの.gitignore boilerplatesにアクセスする
+gickup	すべてのリポジトリを簡単にバックアップ
 gif2png	GIFをPNGに変換する
 gifcap	Androidデバイスからビデオをキャプチャし、GIFを作成します
 gifify	映画をGIFに変える
@@ -1976,6 +1977,7 @@ gifski	pngquantに基づく最高品質のGIFエンコーダー
 gimme	Goバージョンをインストールするためのシェルスクリプト
 gimme-aws-creds	OktaからAWS認証情報を取得するためのCLI
 ginac	数式処理システムではありません
+gismo	アイソジオメトリック解析(IGA) C++ライブラリ
 gist	要旨をアップロードするためのコマンドラインユーティリティ
 gistit	要旨を作成するためのコマンドラインユーティリティ
 git	分散型リビジョン管理システム
@@ -2051,6 +2053,7 @@ git-xargs	1つのコマンドで複数のGithubリポジトリ間で更新を行
 gitbackup	Bitbucket、GitHub、GitLabリポジトリをバックアップするためのツール
 gitbatch	gitリポジトリを1か所で管理する
 gitbucket	Scalaの提供を搭載したGitプラットフォーム
+gitea	簡単自己ホスト型オールインワンソフトウェア開発サービス
 gitfs	バージョン管理されたファイルシステム
 gitg	gitリポジトリを表示するためのGNOMEGUIクライアント
 github-keygen	ブートストラップGitHub SSH構成
@@ -6176,6 +6179,7 @@ uggconv	汎用ゲームGenieコード変換器
 ugit	gitコマンドを元に戻します あなたのダメージコントロール git buddy
 ugrep	クエリUIを備えた超高速grep あいまい検索/アーカイブ検索など
 uhd	すべてのUSRPデバイス用のハードウェアドライバー
+uhdm	ユニバーサルハードウェアデータモデル、SystemVerilogオブジェクトモデルのモデリング
 ulfius	CでのRESTアプリケーション用のHTTPフレームワーク
 ultralist	コマンドライン用のシンプルなGTDスタイルのタスク管理
 um	個人のマニュアルページを作成および保守するためのコマンドラインユーティリティ
@@ -6480,6 +6484,7 @@ woff2	Web Open Font File(WOFF)ファイルを作成および変換するため�
 wolfmqtt	小さく高速なポータブルなMQTTクライアントCの実装
 wolfssl	Cで書かれた埋め込みSSLライブラリ
 woob	ブラウザ以外のWeb
+woodpecker-cli	Woodpecker Continuous IntegrationサーバーのCLIクライアント
 woof	Ad-hoc単一ファイルWebサーバー
 woof-doom	Woof! DoomソースポートのBoom/MBF血統の継続です
 wordgrinder	端末で実行されるUnicode対応のワード計算機
