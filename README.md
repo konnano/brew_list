@@ -1,6 +1,7 @@
 brew list コマンド拡張版 : version 1.18_4
 
-HomeBrew 4.0.0以降をインストールする場合は以下の環境変数を設定してインストール下さい
+HomeBrew 4.0.0以降の場合はシェルに以下の環境変数を設定して下さい
+
 ```
 export HOMEBREW_NO_INSTALL_FROM_API=1
 ```
