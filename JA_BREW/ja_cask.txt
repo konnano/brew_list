@@ -1712,7 +1712,6 @@ jandi	JANDIコラボレーションプラットフォームのデスクトップ
 jandi-statusbar	ステータスバーのGithubコントリビューション
 jasp	統計分析アプリケーション
 jasper	GitHubの問題リーダー
-jaxx-liberty	ブロックチェーンウォレット 持ち株/暗号価格/ニュース
 jazzup	入力時に効果音を再生します
 jbrowse	Genomeブラウザー
 jclasslib-bytecode-viewer	コンパイルされたJavaクラスファイルと含まれているバイトコードのすべての側面を視覚化します
@@ -1854,6 +1853,7 @@ konica-minolta-bizhub-c759-c658-c368-c287-c3851-driver	コニカミノルタBizh
 koodo-reader	バックアップと復元をサポートするオープンソースのEpubリーダー
 kopiaui	バックアップ/復元ツール
 kotlin-native	KotlinのLLVMバックエンド
+kreya	gRPCサービスと対話するためのGUIクライアント
 krisp	オンライン会議で明確に聞こえる
 krita	Freeのオープンソースの絵画とスケッチのプログラム
 ksdiff	KaleidoscopeのAppStoreバージョン用のコマンドラインツール
@@ -2996,7 +2996,6 @@ quassel-client	Quassel IRC：快適にチャットできます。どこにでも
 quaternion	Matrix用のIMクライアント
 qudedup-extract-tool	重複排除された.qdffファイルを通常の状態に復元する
 querious	MySQLおよび互換性のあるデータベースツール
-querypie	データ分析チーム用のデータウェアハウスクライアント
 quickbooks	会計ソフトウェア
 quickbooks-online	QuickBooks
 quickboot	QuickBoot
