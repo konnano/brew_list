@@ -713,7 +713,6 @@ cornercal	CornerCal
 cornerstone	Subversionクライアント
 corona-tracker	地図とチャートを備えたコロナウイルス監視アプリ
 corretto	AmazonからのOpenJDKディストリビューション
-corsair-icue	Corsairコンポーネントおよびデバイス用のソフトウェア
 coscreen	マルチユーザー画面共有を備えた協力的ツール
 coteditor	Webページ用のプレーンテキストエディタ プログラムのソースコードなど
 couchbase-server-community	分散型NoSQLクラウドデータベース
@@ -1231,7 +1230,6 @@ folx	トレントクライアントでマネージャーをダウンロード
 font-finagler	誤動作するフォントのトラブルシューティングを支援する
 font-smoothing-adjuster	フォント平滑コントロールを再度有効にする
 fontbase	フォントマネージャー
-fontexplorer-x-pro	フォントファインダーおよびオーガナイザー
 fontforge	アウトラインおよびビットマップフォント用のフォントエディターと変換器
 fontgoggles	さまざまなフォント形式のフォントビューア
 fontlab	プロフェッショナルフォントエディター
@@ -1931,7 +1929,6 @@ lightkey	DMX照明制御
 lightproxy	Chrome DevtoolsUIを使用したホイッスルに基づくプロキシおよびデバッグツール
 lighttable	IDE
 lightworks	完全なビデオ作成パッケージ
-lincastor	リンクを開くときにWebブラウザーを選択する
 line-bot-designer	プロトタイプLINEボット
 linear	Web開発を念頭に置いた定規アプリ
 linear-linear	ソフトウェア開発を管理しバグを追跡するためのアプリ
@@ -2302,6 +2299,7 @@ mono-mdk	Microsoftの.NETFrameworkのオープンソース実装
 monodraw	テキストベースのアートを作成するためのツール
 monofocus	Todoアプリのすべてのタスクをメニューバーに保持する
 monolingual	システムから不要な言語リソースを削除するユーティリティ
+monotype	フォントファインダーとオーガナイザー
 moom	1つのディスプレイでウィンドウを移動およびズームするユーティリティ
 moonlight	GameStreamクライアント
 moose	moose
@@ -2383,7 +2381,7 @@ mysides	mysides
 mysql-connector-python	MySQLサーバーと通信するための自己完結型のPythonドライバー
 mysql-shell	双方向なJavaScript、PythonまたはSQLインターフェース
 mysqlworkbench	デザインするビジュアルツール MySQLサーバーの開発と管理
-mysteriumvpn	VPNクライアント
+mysteriumdark	VPNクライアント
 n1ghtshade	32ビットiOSデバイスの ダウングレード/脱獄を許可します
 nagbar	Nagiosのステータスバーモニター Icinga/2とThruk
 nagstamon	Nagiosステータスモニター
@@ -3594,7 +3592,6 @@ swiftdefaultappsprefpane	Swiftで書かれたRCDefaultAppsの代替品
 swiftformat-for-xcode	Swiftコードを再フォーマットするためのXcode拡張
 swiftplantumlapp	XcodeでSwiftコードのクラス図を生成して表示します
 swiftpm-catalog	Swift Package Managerパッケージを参照して検索する
-swiftstack-client	SwiftStackデータストレージおよび管理プラットフォームにアクセスする
 swifty	オフラインパスワードマネージャーツール
 swiftybeaver	SwiftyBeaver
 swimat	Swiftコード用のXcodeフォーマッタープラグイン
@@ -3983,7 +3980,6 @@ vimr	NeovimテキストエディターのGUI
 vincelwt-chatgpt	ChatGPTのメニューバーアプリ
 vine-server	VNCサーバー
 vip-access	2段階認証ソフトウェア
-vipriser	印刷可能な任意のアプリケーションからPDFを作成します
 virtual-desktop-streamer	VR仮想デスクトップストリーマー
 virtual-ii	仮想 ][
 virtualbox	x86ハードウェア用のバーチャライザー
