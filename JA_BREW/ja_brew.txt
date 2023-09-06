@@ -1592,6 +1592,7 @@ extra-cmake-modules	CMake用の追加のモジュールとスクリプト
 extract_url	電子メールまたはプレーンテキストからURLを抽出するPerlスクリプト
 exult	Ultima 7のレクリエーション
 eye-d3	.mp3ファイルのID3メタデータを操作する
+eza	lsの新しいメンテナンス済み代替品
 ezstream	Icecastストリーミングサーバーのクライアント
 f2	コマンドラインバッチ名前変更ツール
 f3	さまざまなフラッシュカードをテストする
@@ -1608,6 +1609,7 @@ fail2ban	ログファイルをスキャンし悪意のある兆候を示すIPを
 fairymax	変則チェスをプレイするためのAI
 faiss	効率的な類似性検索と深い空間のclustering
 fakeroot	偽のルート環境を提供する
+falco	Fastly用に最適化されたVCLパーサーとリンター
 falcoctl	Falcoとそのエコシステムコンポーネントを操作するためのCLIツール
 falcon	Multi-paradigmプログラミング言語とスクリプトエンジン
 fann	高速人工神経ネットワークライブラリ
@@ -2898,6 +2900,7 @@ kopia	高速で安全なオープンソースバックアップ
 kops	Production Grade K8s インストール/アップグレード/管理
 kor	未使用のKubernetesリソースを検出するCLIツール
 kore	CでWeb APIを作成するためのWebアプリケーションフレームワーク
+kosli-cli	Kosliを管理するための CLI
 kotlin	JVMの静的に型付けされたプログラミング言語
 kotlin-language-server	Language Serverの手続きを使用した エディター/IDE の高度なKotlinサポート
 kpcli	KeePassデータベースファイルへのコマンドラインインターフェイス
@@ -4945,6 +4948,7 @@ pyqt@5	Qt v5のPython bindings
 pyright	Pythonの静的型チェッカー
 pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
+pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
