@@ -71,6 +71,7 @@ affinity-publisher	プロのデスクトップ出版ソフトウェア
 after-dark-classic	Afterダーククラシックセット
 agenda	日付に焦点を当てたメモ取りアプリケーション
 agi	Android GPUインスペクター
+aifun	AIチャット＆ペイントアプリ
 aimersoft-video-converter-ultimate	ビデオ変換アプリ
 air-video-server-hd	Appleデバイスにビデオをストリーミングするためのツール
 airbuddy	AirPodsコンパニオンアプリ
@@ -1540,7 +1541,6 @@ httpie	デスクトップ用HTTPie
 hubstaff	作業時間監視
 hue-topia	Philips Hue電球の手動制御
 hugin	パノラマ写真スティッチャー
-huiontablet	Huion タブレット用ドライバー
 hummingbird	OpenVPN 3クライアント
 hush	SafariでCookieとプライバシーを侵害する追跡を受け入れるためにnagsをブロックする
 hwsensors	利用可能なハードウェアセンサーからの情報にアクセスするためのツール
@@ -3065,6 +3065,7 @@ recaf	Javaバイトコードエディター
 receiptquicklook	ReceiptQuickLook
 receipts	文書管理
 recents	ファイルランチャー
+recipeui	API の検出、テスト、共有ツール
 recordit	スクリーンキャストソフトウェア
 recovery-disk-assistant	リカバリディスクアシスタント
 rectangle	キーボードショートカットまたはスナップ領域を使用してウィンドウを移動およびサイズ変更
@@ -3185,7 +3186,6 @@ ryver	Ryver
 sabaki	囲碁とSGFエディター
 sabnzbd	バイナリニュースリーダー
 safe-exam-browser	電子評価を安全に実施するためのWebブラウザー環境
-safe-multisig	イーサリアムマルチシグウォレット
 safeincloud-password-manager	SafeInCloudパスワードマネージャー
 sage	数学ソフトウェアシステム
 saleae-logic	Saleaeのデバイスの信号解析
@@ -4262,6 +4262,7 @@ zprint	ClojureおよびClojurescriptのソースコードとS式を再フォー�
 zsa-wally	ZSAキーボード用のFlashツール
 zspace	NASクライアント
 zterm	ターミナルエミュレーションプログラム
+zui	Zed lakes データを探索するためのグラフィカルユーザーインターフェイス
 zulip	Zulipチームチャットプラットフォーム用のデスクトップクライアント
 zulu	AzulからのOpenJDKディストリビューション
 zulufx	Azul ZuluFX Java StandardEdition開発キット
