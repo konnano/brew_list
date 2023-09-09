@@ -238,6 +238,7 @@ asdf	Ruby、Node.js、Erlang などをサポートする拡張可能なバージ
 asimov	TimeMachineバックアップから開発の依存関係を自動的に除外します
 asio	非同期プログラミング用のクロスプラットフォームC++ライブラリ
 ask-cli	AlexaスキルキットのCLIツール
+asn	組織検索およびサーバーツール (ASN/IPv4/IPv6/プレフィックス/AS パス)
 asn1c	ASN.1仕様をCソースコードにコンパイルします
 asnmap	ASN情報を使用して組織のネットワーク範囲を迅速にマッピング
 aspcud	パッケージ依存関係Solver
@@ -765,6 +766,7 @@ chaiscript	C++の使いやすい埋め込みスクリプト言語
 chakra	Microsoft Edgeを強化するJavaScriptエンジンのコア部分
 chalk-cli	ターミナルストリングのスタイリングは正しく行われます
 chamber	AWS SSMパラメータstoreを介して機密管理するためのCLI
+chaoskube	Kubernetesクラスター内のランダムなポッドを定期的に強制終了します
 chapel	大規模な生産的並列コンピューティングのためのプログラミング言語
 charge	意見のある、ゼロ構成の静的サイト発生器
 charls	C++JPEG-LSライブラリの実装
@@ -884,6 +886,7 @@ cloudflare-wrangler2	Cloudflareワーカー用のCLI ツール
 cloudflared	Cloudflareトンネルクライアント(以前のArgoトンネル)
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
 cloudformation-guard	宣言型構文を使用してCloudFormationテンプレートの整合性をチェックします
+cloudfox	クラウド侵入テストのための状況認識の自動化
 cloudiscovery	クラウド環境でリソースを発見するのに役立ちます
 cloudlist	複数のクラウドプロバイダーのアセットをリストするツール
 cloudpan189-go	Cloud189 Webディスク用のコマンドラインクライアントツール
@@ -1847,6 +1850,7 @@ fuzzy-find	ディレクトリとファイル間で一致するあいまいファ
 fw	ワークスペースの生産性向上
 fwknop	シングルパケット認証とポートノッキング
 fwup	構成可能な組み込みLinuxファームウェアアップデートの作成およびランナー
+fwupd	ファームウェアアップデートデーモン
 fx	コマンドラインJSON処理ツール
 fypp	Pythonを利用したFortran前処理プログラム
 fzf	Goで記述されたコマンドラインあいまい検索ツール
@@ -2779,6 +2783,7 @@ jpegoptim	JPEGファイルを最適化するユーティリティ
 jpegrescan	JPEGファイルを可逆圧縮
 jq	軽量で柔軟なコマンドラインJSON計算機
 jql	JSONクエリ言語CLIツール
+jr	アプリケーション用に高品質のランダムデータを作成するのに役立つCLIプログラム
 jreleaser	JReleaserを使用してプロジェクトをすばやく簡単にリリースする
 jrnl	コマンドラインnote taker
 jrsonnet	Jsonnet言語のRust実装
@@ -2796,6 +2801,7 @@ json-c	CのJSONパーサー
 json-fortran	Fortran 2008 JSON API
 json-glib	GLibに基づくJSONのライブラリ
 json-table	ネストされたJSONデータをシェルで表形式のデータに変換します
+json2ts	JSONSchemaをTypeScript型宣言にコンパイルする
 json2tsv	JSONからTSVへのコンバーター
 json5	使いやすさ機能で強化されたJSON
 json_spirit	C++ JSON パーサー/発生器
@@ -5853,6 +5859,7 @@ tailwindcss-language-server	LSP for TailwindCSS
 takt	テキストベースの音楽プログラミング言語
 taktuk	リモートnodeにコマンドを展開する(潜在的に大きなset)
 tal	一致する場合は行末を揃えます
+talhelper	talosクラスタの設定ヘルパー
 talisman	機密にチェックインされるのを検出して防止するツール
 talloc	デストラクタを含む階層的な参照カウントメモリプール
 tanka	Jsonnetを使用したKubernetesの柔軟で再利用可能な簡潔な構成
