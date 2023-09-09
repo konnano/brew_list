@@ -16,7 +16,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 
  unless( $ARGV[0] ){
   $Xcode = `xcodebuild -version 2>/dev/null|\
-            sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+)/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
+            sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+).*/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
   $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
   %MAC_OS = ('ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
