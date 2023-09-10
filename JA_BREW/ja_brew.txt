@@ -3855,6 +3855,7 @@ metis	グラフと順序行列を分割するプログラム
 metricbeat	システムとサービスからmetricsを収集する
 metview	気象ワークステーションソフトウェア
 mfcuk	MiFareクラシックで一般的なツールキット
+mfem	Free/軽量/スケーラブル FEM用のC++ライブラリ
 mfoc	Nethembaによる'offline nested'攻撃の実装
 mfterm	Mifare Classic1-4kタグを操作するためのターミナル
 mftrace	TeXビットマップフォントをトレースします PFA/PFB/TTFフォント
@@ -4954,6 +4955,7 @@ pyqt@5	Qt v5のPython bindings
 pyright	Pythonの静的型チェッカー
 pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
+pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
@@ -6385,6 +6387,7 @@ vulkan-extensionlayer	ネイティブサポートが利用できない場合にV
 vulkan-headers	VulkanヘッダーファイルとAPIレジストリ
 vulkan-loader	Vulkan ICDローダー
 vulkan-tools	Vulkanユーティリティとツール
+vulkan-utility-libraries	Vulkanのユーティリティライブラリ
 vulkan-validationlayers	開発者がVulkan APIの正しい使用を検証できるようにするVulkanレイヤー
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
