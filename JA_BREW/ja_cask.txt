@@ -1510,6 +1510,7 @@ heroic	オープンソースゲームランチャー
 hex-fiend	速度に焦点を当てた16進エディター
 hey	HEYメールサービスにアクセスする
 hfsleuth	HFSleuth
+hhkb	HHKB HYBRID Type-S 及び HYBRIDモデルでキーマップのカスタマイズが可能
 hiarcs-chess-explorer	チェスデータベース 分析およびゲームプレイプログラム
 hiddenbar	メニューバー項目を非表示にするユーティリティ
 hidock	異なるディスプレイを使用する場合のカスタムDock設定を設定する
