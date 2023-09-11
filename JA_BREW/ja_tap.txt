@@ -71,7 +71,6 @@ font-amethysta	Amethysta
 font-amiko	Amiko
 font-amiri	Naskhスタイルの古典的なアラビア語書体
 font-amiri-quran	Amiri Quran
-font-amiri-quran-colored	Amiri Quran Colored
 font-amita	Amita
 font-amstelvar-alpha	Amstelvar Alpha
 font-anaheim	Anaheim
@@ -105,6 +104,7 @@ font-antonio	Antonio
 font-anuphan	ibm plex sans thaiの変更ではありません
 font-anybody	10程度 目立つか微妙
 font-aoboshi-one	Aoboshi One
+font-ar-one-sans	タイプファミリは拡張現実環境およびユーザーインターフェイスで使用するためのものです
 font-arapey	Arapey
 font-arbutus	Arbutus
 font-arbutus-slab	Arbutus Slab
@@ -1067,6 +1067,7 @@ font-mada	Mada
 font-magra	Magra
 font-maiden-orange	Maiden Orange
 font-maitree	Maitree
+font-major-mono-display	Major Mono Display
 font-makinas4	感情のない直線形状のフォント
 font-mako	Mako
 font-mali	Mali
@@ -1178,6 +1179,7 @@ font-montserrat	Montserrat
 font-montserrat-alternates	Montserrat Alternates
 font-montserrat-subrayada	Montserrat Subrayada
 font-moo-lah-lah	Moo Lah Lah
+font-mooli	フォントファミリから派生
 font-moon-dance	Moon Dance
 font-moul	Moul
 font-moulpali	Moulpali
@@ -1363,6 +1365,7 @@ font-noto-sans-nandinagari	歴史的インド語ナンディナガリー文字
 font-noto-sans-new-tai-lue	Noto Sans New Tai Lue
 font-noto-sans-newa	Noto Sans Newa
 font-noto-sans-nko	アフリカのN'Koスクリプトのテキストの調整されていないデザイン
+font-noto-sans-nko-unjoined	Noto Sans NKo Unjoined
 font-noto-sans-nushu	Noto Sans Nushu
 font-noto-sans-ogham	Noto Sans Ogham
 font-noto-sans-ol-chiki	Noto Sans Ol Chiki
@@ -1504,6 +1507,7 @@ font-oldenburg	Oldenburg
 font-ole	Ole
 font-oleo-script	Oleo スクリプト
 font-oleo-script-swash-caps	Oleo スクリプト Swash Caps
+font-onest	モダンな書体なので便利な機能がたくさんあります
 font-oooh-baby	Oooh Baby
 font-open-dyslexic	OpenDyslexic
 font-open-dyslexic-nerd-font	OpenDyslexicオタクフォントファミリ(OpenDyslexic)
@@ -1570,12 +1574,14 @@ font-pigmo00	かわいい描画スタイルの日本語フォント
 font-pigmo01	かわいい描画スタイルの日本語フォント
 font-pinyon-script	Pinyonスクリプト
 font-pirata-one	Pirata One
+font-plangothic	Plangothicは、CJK統一表意文字をカバーする sans-serif font
 font-plaster	Plaster
 font-play	Play
 font-playball	Playball
 font-playfair	Playfair
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
+font-playpen-sans	細いフォントから太いフォントまでの太さの範囲を持つ可変フォント
 font-plemol-jp	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-hs	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-nf	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
@@ -1673,6 +1679,7 @@ font-reem-kufi-ink	Also the name of khaled's daughter
 font-reenie-beanie	Reenie Beanie
 font-reggae-one	Reggae One
 font-rem	rapid eye movementの頭字語
+font-rethink-sans	Sans-serif type family
 font-revalia	Revalia
 font-rhodium-libre	Rhodium Libre
 font-ribeye	Ribeye
@@ -2060,6 +2067,7 @@ font-yeseva-one	Yeseva One
 font-yesteryear	Yesteryear
 font-yinmar	Yinmar
 font-yomogi	よもぎ
+font-young-serif	重量感のある古いスタイルの serif typeface
 font-yrsa	Yrsa
 font-ysabeau	Ysabeau
 font-ysabeau-infant	Ysabeau Infant
@@ -2246,6 +2254,7 @@ parallels18	デスクトップ仮想化ソフトウェア
 pdf-expert-beta	PDFリーダー エディター/注釈
 pgadmin3	PostgreSQLの管理および開発プラットフォーム
 picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
+playcover-community-beta	iOSアプリとゲームをサイドロードする
 postico1	PostgreSQLデータベースのGUIクライアント
 postmancanary	API開発のためのコラボレーションプラットフォーム
 powershell-preview	コマンドラインシェルとスクリプト言語
