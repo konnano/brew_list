@@ -654,6 +654,7 @@ cargo-crev	cargoパッケージ マネージャーのコードレビューシス
 cargo-deny	依存関係をリンティングするCargoプラグイン
 cargo-depgraph	cargoプロジェクトの依存関係グラフを作成します
 cargo-deps	Rustプロジェクトの依存関係グラフを構築するためのCargoサブコマンド
+cargo-docset	Rustパッケージの Dash/Zeal ドキュメントセットを生成するCargoサブコマンド
 cargo-edit	コマンドラインからCargoの依存関係を管理するためのユーティリティ
 cargo-generate	既存のgitリポジトリをテンプレートとして使用する
 cargo-instruments	Rustの機器トレースを簡単に生成
@@ -1128,6 +1129,8 @@ cweb	洗練されたドキュメンテーションシステム C/C++/Java
 cxgo	CをGOに変換する
 cxxopts	軽量のC++コマンドラインオプションパーサー
 cxxtest	JUnit/CppUnit/xUnit に似たC++単体テストフレームワーク
+cyclonedx-gomod	GoモジュールからCycloneDXソフトウェア部品表(SBOM)を作成
+cyclonedx-python	PythonプロジェクトからCycloneDXソフトウェア部品表(SBOM)を作成
 cycode	シークレットスキャン、SAST/SCA/IaC によってソフトウェア開発のセキュリティを強化
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
 cyrus-sasl	シンプルな認証とセキュリティレイヤー
