@@ -925,6 +925,7 @@ doxie	スキャナーハードウェア用のコンパニオンアプリ
 doxygen	ソースコードからドキュメントを生成する
 dozer	ステータスバーアイコンを非表示にするツール
 drata-agent	セキュリティ監査ソフトウェア
+draw-things	安定した拡散をローカルで実行する
 drawbot	2次元グラフィックスを生成するPythonスクリプトを作成する
 drawio	Draw.ioはFreeのオンラインダイアグラムソフトウェアです
 drawpile	共同描画アプリ
@@ -4116,6 +4117,8 @@ wirecast	ライブビデオストリーミング制作ツール
 wireframe-sketcher	ワイヤーフレーム作成ツール モックアップ/プロトタイプ
 wireshark	ネットワーク手続き分析
 wireshark-chmodbpf	ネットワーク手続き分析
+wiso-steuer-2022	2021年度の納税申告書
+wiso-steuer-2023	2022年度の納税申告書
 witch	アプリ、ウィンドウ、またはタブを切り替える
 wiznote	メモアプリ
 wjoy	任天堂 wiimoteドライバー
