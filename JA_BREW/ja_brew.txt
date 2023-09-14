@@ -171,6 +171,7 @@ apophenia	統計および科学計算用の Cライブラリ
 app-engine-python	Google App Engine
 apparix	ブックマークディレクトリを介したファイルシステムナビゲーション
 appium	アプリの自動化
+apprise	コマンドラインから一般的な通知サービスに通知を送信します
 appscale-tools	AppScaleを操作するためのコマンドラインツール
 appstream-glib	AppStreamメタデータを読み書きするためのヘルパーライブラリ
 apr	Apacheポータブルランタイムライブラリ
@@ -784,6 +785,7 @@ check	Cの単体テストフレームワーク
 check-jsonschema	JSONスキーマCLI
 check_postgres	Postgresデータベースを監視する
 checkbashisms	シェルスクリプトのbashismsをチェックします
+checkdmarc	SPF及びDMARC DNSレコードのコマンドラインパーサー
 checkmake	Makefilesの静的解析/分析
 checkov	IaCツールのビルド時にクラウドの設定ミスを防ぐ
 checkstyle	Javaソースをコーディング標準と照合します
@@ -2237,6 +2239,7 @@ got	バージョン管理システム
 gotags	Goのタグ発生器、ctagsと互換性があります
 gotests	ソースコードからGoテストboilerplateを自動的に生成する
 gotestsum	人に優しい go testランナー
+gotestwaf	API及びOWASP攻撃シミュレーション用ツール
 gotify	メッセージを gotify/server にプッシュするためのコマンドラインインターフェイス
 goto	自動補完を使用してエイリアスディレクトリに移動するためのBashツール
 gotop	gtopとvtopに触発されたターミナルベースのグラフィカルで活発なモニター
@@ -4052,6 +4055,7 @@ msmtp	MuttのSMTPプラグインとして使用できるSMTPクライアント
 mspdebug	MSP430 MCUで使用するデバッガー
 mstch	最新のC++を使用した{{mustache}}テンプレートの完全な実装
 mt32emu	Multi-platformソフトウェアシンセサイザー
+mtbl	不変のソートされた文字列テーブルライブラリ
 mtoc	Mach-Oから PE/COFF のバイナリ変換器
 mtools	MSDOSファイルを操作するためのツール
 mtr	単一のツールでの'traceroute'と'ping'
@@ -5126,6 +5130,7 @@ rebar3	Erlangビルドツール
 recode	文字セット(文字セット)を変換する
 recon-ng	Web偵察フレームワーク
 recoverjpeg	ファイルシステムイメージからJPEGイメージを回復するためのツール
+recoverpy	上書きまたは削除されたデータを回復するためのTUI
 recutils	人間が編集可能なプレーンテキストデータファイルを操作するためのツール
 red-tldr	red teamのスタッフがコマンドとキーポイントをすばやく見つけるのに役立ちます
 redex	Androidアプリ用のバイトコード最適化ツール
@@ -5796,6 +5801,7 @@ superlu	大規模で限られたな非対称連立方程式を解く
 supermodel	セガモデル3アーケードエミュレーター
 supertux	古典的な2Dジャンプアンドラン横スクロールゲーム
 supervisor	プロセス制御システム
+surelog	SystemVerilogプリプロセッサ、パーサー、エラボレーター、UHDMコンパイラ
 surfraw	シェルユーザーのウェブに対する革命的なフロントレイジ
 suricata	ネットワークIDS/IPSとセキュリティ監視エンジン
 svg2pdf	SVG画像をPDFファイルに表現します(Cairoを使用)
