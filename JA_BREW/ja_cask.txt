@@ -92,6 +92,7 @@ airunlock	Bluetooth経由でAndroid携帯を使用してMacBookをロックま�
 airy	YouTubeビデオとMP3ダウンローダー
 ajour	World of Warcraftアドオンマネージャー
 akiflow	毎日2時間を節約する時間ブロックプラットフォーム
+akuity	Akuity Platformの管理ツール
 alacritty	GPUで高速化されたターミナルエミュレータ
 aladin	双方向sky atlas
 alchemy	図面プロジェクトを開く
@@ -344,7 +345,6 @@ better-window-manager	より良いウィンドウマネージャー
 betterandbetter	キーボード マウスとタッチパッドのモーションジェスチャ
 betterdiscord-installer	BetterDiscordのインストーラー
 betterdisplay	ディスプレイ管理ツー
-betterdummy	カスタム解像度を実現するためのAppleシリコンMac用ダミーディスプレイ
 bettermouse	サードパーティのマウスのパフォーマンスと機能を向上させるユーティリティ
 bettertouchtool	入力デバイスをカスタマイズしコンピューターシステムを自動化するためのツール
 betterzip	アーカイブを作成および変更するためのユーティリティ
@@ -476,7 +476,6 @@ busycal	柔軟性と信頼性に焦点を当てた予定表ソフトウェア
 busycontacts	効率性に焦点を当てたコンタクトマネージャー
 butler	カスタマイズ可能な構成でタスクを配置します
 butt	ShoutcastおよびIcecastストリーミングクライアント
-butter	Melted idobata.ioクライアント
 buttercup	Javascript Secrets Vault - Multi-Platformデスクトップアプリケーション
 buzz	音声の書き起こしと翻訳
 bwana	Bwana
@@ -1200,6 +1199,7 @@ flirc	IR USBレシーバーコンフィギュレーター
 flixtools	映画の字幕をダウンロードする
 flock	ビジネスメッセージングおよびチーム協力的アプリ
 flomo	メモ取りと管理アプリ
+floorp	プライバシーを重視したFirefoxベースブラウザ
 flotato	任意のWebページをデスクトップアプリに変えるツール
 flow	タスクおよびプロジェクト管理ソフトウェア
 flrig	アマチュア無線リグ制御
@@ -1647,7 +1647,6 @@ invoker	Laravelアプリケーションを管理するためのユーティリ�
 ionic-lab	IonicLab
 ioquake3	First person shooterエンジン
 ios-app-signer	iOS アプリに(再)署名してバンドルするためのアプリ
-ios-console	iOSコンソール
 ip-in-menu-bar	メニューバーに現在のIPアドレスを表示します
 ipa-manager	IPAパレット
 ipartition	ディスクパーティションツール
@@ -2017,7 +2016,6 @@ mac2imgur	画像とスクリーンショットをImgurにアップロードす�
 macast	DLNA Media Renderer
 macbreakz	健康上の問題を防ぐための人間工学的アシスタント
 maccleaner-pro	ジャンクを削除する 不要なファイルやフォルダとコンピュータを高速化します
-maccpuid	CPUID命令で情報を表示します
 maccy	クリップボードマネージャー
 macdependency	MacDependency
 macdive	デジタルダイビングログ
@@ -2152,6 +2150,7 @@ megacmd	MEGAサービスへのコマンドラインアクセス
 megasync	コンピューターとMEGAクラウドドライブ間でファイルを同期します
 megazeux	ASCIIベースのゲーム作成システム
 meld	ビジュアル差分およびマージツール
+meld-studio	ライブストリーミング及び録画ソフトウェア
 mellel	長くて複雑なドキュメント用に構築された高度なワードプロセッサ
 mellow	ルールベースのグローバル透過プロキシクライアント
 mellowplayer	gitlabに移動しました
@@ -2731,7 +2730,6 @@ phd2	望遠鏡ガイドソフトウェア
 philips-hue-sync	スマートライトシステムを制御する
 phoenix	JavaScriptでスクリプト化可能なウィンドウとアプリマネージャー
 phoenix-slides	フルスクリーンスライドショープログラム
-phonegap	PhoneGap
 photoninja	プロフェッショナルRAW変換器
 photosrevive	古い白黒写真を自動的に色付けする
 photosweeper-x	類似または重複した写真を削除するツール
@@ -2907,6 +2905,7 @@ prowlarr	さまざまなPVRアプリのIndexer 管理/プロキシ
 prowritingaid	文法チェッカー/スタイルエディター/ライティングメンター
 proxifier	プロキシクライアント
 proximity	コンテンツ共有とビデオ会議システムの制御
+proxy-audio-device	サウンドとオーディオのコントローラー
 proxyman	モダンで直感的なHTTPデバッグプロキシアプリ
 prudent	個人および家族の元帳のための統合環境
 prusaslicer	3Dプリンター用のGコード生成器(RepRap/Makerbot/Ultimakerなど)
@@ -3413,7 +3412,6 @@ softmaker-freeoffice	オフィスパッケージ
 softorino-youtube-converter	YouTubeダウンローダーと変換器
 softraid	強力で直感的なソフトウェアRAIDユーティリティ
 softube-central	Softube製品のインストールとライセンスアクティベーション用のインストーラー
-sogouinput	フルスペルとダブルスペルをサポートする入力方式
 sol	ランチャーとコマンドパレット
 solar2d	Luaベースのゲームエンジン
 solvespace	Parametric 2d/3d CAD
@@ -3540,7 +3538,7 @@ stork	合成作業のための強力な機能を備えたメッセンジャー
 storyboarder	棒人間を描くことができるのと同じくらい速く物語を視覚化する
 strawberry	音楽プレーヤーと音楽コレクションのまとめ
 strawberry-wallpaper	イチゴの壁紙
-streamlabs-obs	オールインワンのライブストリーミングソフトウェア
+streamlabs	Streamlabsデスクトップ
 streamlink-twitch-gui	Streamlink用のマルチプラットフォームTwitch.tvブラウザー
 stremio	オープンソースメディアセンター
 stretchly	休憩時間通知アプリ
@@ -4086,6 +4084,7 @@ weektodo	プライバシーに焦点を当てWeekly planner app
 weiyun	ドキュメントのバックアップとオンライン管理
 weka	データマイニングタスク用の機械学習アルゴリズムのコレクション
 welly	BBSクライアント
+wetype	Weixinによる入力方法
 wewechat	非公式のWeChatクライアント
 wey	オープンソースのSlackデスクトップアプリ
 wezterm	GPUで高速化されたクロスプラットフォームのターミナルエミュレーターとマルチプレクサー
