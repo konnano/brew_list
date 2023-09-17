@@ -600,6 +600,7 @@ font-fugaz-one	Fugaz One
 font-fuggles	洗練された商業デザインに使用できる強力なスクリプト
 font-fuzzy-bubbles	子供のパーティーに最適
 font-fzshusong-z01	Fangzheng Shusong GBK
+font-gabarito	通常から黒までの6つのウェイトを備えた幾何学的な書体
 font-gabriela	Gabriela
 font-gaegu	Gaegu
 font-gafata	Gafata
@@ -1574,6 +1575,7 @@ font-pigmo00	かわいい描画スタイルの日本語フォント
 font-pigmo01	かわいい描画スタイルの日本語フォント
 font-pinyon-script	Pinyonスクリプト
 font-pirata-one	Pirata One
+font-pixelify-sans	小さな正方形のピクセルのグリッドを使用して各文字形を作成することによって実現されます
 font-plangothic	Plangothicは、CJK統一表意文字をカバーする sans-serif font
 font-plaster	Plaster
 font-play	Play
