@@ -557,7 +557,6 @@ bsdconv	文字セット/エンコーディング 変換ライブラリ
 bsdiff	パッチを生成してバイナリファイルに適用します
 bsdmake	MakeビルドツールのBSDバージョン
 bsdsfv	SFVユーティリティツール
-bsponmpi	MPIの上にBSPlib標準を実装します
 btfs	FUSEに基づくBitTorrentファイルシステム
 btop	リソースモニター。C++バージョンとbashtopおよびbpytopの続き
 btparse	BibTeXユーティリティライブラリ
@@ -952,6 +951,7 @@ colima	最低限のセットアップでMacOSでのContainer runtimes
 collada-dom	COLLADAデータをロードおよび保存するためのC++ライブラリ
 collectd	統計収集および監視デーモン
 collector-sidecar	Graylogを介してログコレクターを管理する
+colmap	Structure-from-Motionとマルチビューステレオ
 color-code	Freeで高度なMasterMindクローン
 colordiff	色で強調表示されたdiff(1)出力
 colormake	出力を色付けするためのラッパー
@@ -1327,7 +1327,6 @@ docker-gen	Dockerコンテナのメタデータからファイルを生成する
 docker-ls	Dockerレジストリを参照および操作するためのツール
 docker-machine	ローカルおよびクラウドプロバイダーでDockerホストを作成する
 docker-machine-completion	docker-machineの補完スクリプト
-docker-machine-driver-hyperkit	ハイパーキット用のDockerマシンドライバー
 docker-machine-driver-vmware	VMware Fusion＆Workstation docker-machineドライバー
 docker-machine-driver-vultr	Vultr Cloud用のDocker Machineドライバープラグイン
 docker-machine-nfs	DockerマシンでNFSをアクティブ化します
@@ -1366,6 +1365,7 @@ double-conversion	IEEE doublesの2進化10進および10進2進ルーチン
 doublecpp	C++でのダブルディスパッチ
 doubledown	ローカルの変更をリモートディレクトリに同期する
 dovecot	IMAP/POP3 サーバー
+dovi_tool	ビデオストリーム上のDolby Visionメタデータ用のCLIツール
 doxygen	いくつかのプログラミング言語のドキュメントを生成する
 doxymacs	Emacsでdoxygenを使用するためのElispパッケージ
 dpkg	Debianパッケージ管理システム
@@ -2399,7 +2399,6 @@ handbrake	Linux/Mac/Windows で利用可能なオープンソースのビデオt
 hapi-fhir-cli	HAPIFHIRライブラリのコマンドラインインターフェイス
 haproxy	信頼性の高い高性能ロードバランサー TCP/HTTP
 harbour	ポータブルでxBase互換のプログラミング言語
-hardlink	ハードリンクを使用してファイルコピーを置き換える
 harfbuzz	OpenTypeテキスト成形エンジン
 haruhi-dl	youtube-dlのフォーク、更新の高速で安定したストリームをもたらすことに焦点を当てています
 has	パス上のさまざまなコマンドラインツールとそのバージョンの存在を確認します
@@ -2681,7 +2680,6 @@ ircd-irc2	元のIRCサーバーデーモン
 ircii	IRCおよびICBクライアント
 ired	スクリプトで使用するように設計された最低限の16進エディタ
 iredis	自動補完と構文の強調表示を備えたRedisのターミナルクライアント
-ironcli	Iron.ioコマンドラインツールのGoバージョン
 irrlicht	リアルタイム3Dエンジン
 irrtoolset	インターネット経路ポリシーを操作するためのツール
 irssi	モジュラーIRCクライアント
@@ -2873,7 +2871,6 @@ keptn	keepn.shのCLIはアプリケーション配信用のメッセージ駆動
 kepubify	電子書籍をepubからkepubに変換する
 kerl	Erlang/OTP インスタンスの簡単な構築とインストール
 kertish-dfs	Kertishファイルシステムとクラスター管理CLI
-kestrel	分散メッセージキュー
 kettle	Pentahoデータ統合ソフトウェア
 keychain	ssh-agent(1)へのユーザーに親しいフロントエンド
 keydb	RedisのMultithreadedフォーク
@@ -3214,7 +3211,6 @@ libgphoto2	Gphoto2デジタルカメラライブラリ
 libgr	GRフレームワーク：視覚化アプリケーション用のグラフィックライブラリ
 libgrape-lite	並列グラフ処理用のC++ライブラリ
 libgrapheme	Unicode文字列ライブラリ
-libgraphqlparser	CおよびC++ APIを使用したC++のGraphQLクエリパーサー
 libgsf	構造化ファイル形式を処理するためのI/O抽象化ライブラリ
 libgsm	非可逆音声圧縮ライブラリ
 libgtop	プロセスに関する情報を移植的に取得するためのライブラリ
@@ -3957,10 +3953,10 @@ mockery	Golangの模擬コード自動生成機能
 mockolo	Swiftの効率的な模擬発生器
 mockserver	模擬HTTPサーバーとプロキシ
 moco	Maven、Gradle、Scala、およびシェル統合を備えたStubサーバー
-modd	ファイルシステムの変更に対応するための柔軟なツール
 modgit	フィルタを使用したgitリポジトリ展開用のツール。Magentoの開発に使用
 modman	Magento開発向けのモジュール展開スクリプト
 mods	コマンドラインのGPT-4
+modsecurity	Libmodsecurityは、ModSecurity v3プロジェクトコンポーネントの1つです
 modules	モジュールファイルを介したユーザーの環境の動的な変更
 moe	ISO-8859およびASCIIのコンソールテキストエディタ
 mogenerator	CoreDataモデルからObjective-CおよびSwiftクラスを生成する
@@ -4815,6 +4811,7 @@ postgresql@12	オブジェクトリレーショナルデータベースシステ
 postgresql@13	オブジェクトリレーショナルデータベースシステム
 postgresql@14	オブジェクトリレーショナルデータベースシステム
 postgresql@15	オブジェクトリレーショナルデータベースシステム
+postgresql@16	オブジェクトリレーショナルデータベースシステム
 postgrest	既存のPostgreSQLデータベースから完全にRESTfulなAPIを提供します
 potrace	ビットマップをベクターグラフィックに変換する
 povray	Persistence Of Vision RAYtracer(POVRAY)
@@ -6313,7 +6310,6 @@ vercel-cli	Vercelのコマンドラインインターフェイス
 verilator	Verilog模擬装置
 vermin	コードの実行に必要なPythonの最低バージョンを同時に検出する
 verovio	コマンドラインMEI楽譜エングレーバー
-vert	コマンドラインバージョンのテスト
 vert.x	JVMでリアクティブアプリケーションを構築するためのツールキット
 vespa-cli	Vespa.aiのコマンドラインツール
 vf	`cd`コマンドの拡張バージョン
@@ -6446,6 +6442,7 @@ wdfs	WebDAVファイルシステム
 wdiff	テキストファイル間の単語の違いを表示する
 weasyprint	HTML を PDF に変換する
 weaver	Weaverのコマンドラインツール
+web-ext	Web拡張機能の構築、実行、テストに役立つコマンドラインツール
 web100clt	NDT診断クライアントのコマンドラインバージョン
 webalizer	Webサーバーのログファイル分析器
 webarchiver	Safariの.webarchiveファイルを作成できます
