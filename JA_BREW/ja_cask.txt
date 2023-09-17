@@ -534,6 +534,7 @@ cemu	CEmu
 cerebro	知性を備えたオープンソースの生産性ブースター
 cernbox	CERNユーザー向けのクラウドストレージ
 chai	システムがスリープ状態になるのを防ぐユーティリティ
+chainner	フローチャートベースの画像処理GUI
 chalk	電卓ソフトウェア
 charles	Webデバッグプロキシアプリケーション
 charlessoft-timetracker	時間追跡
@@ -1954,7 +1955,6 @@ lo-rain	どこにいてもアプリの上でも雨を降らせるアプリ
 loading	ネットワークアクティビティモニター
 loaf	アニメーションアイコンライブラリ
 local	FlywheelによるWordPressローカル開発ツール
-localdev	Pantheonの開発インターフェース
 localizationeditor	iOSアプリローカリゼーションマネージャー
 localxpose	ローカルホストをインターネットに公開できるようにするリバースプロキシ
 locationsimulator	iOSを偽装するアプリケーション iPadOSまたはiPhoneSimulatorデバイスのLocation
@@ -2366,6 +2366,7 @@ music-remote	Music.appのリモートアプリケーション
 music-widget	ダッシュボードのiTunesウィジェットのレプリカ
 musicbrainz-picard	音楽タグ付け
 musictube	ストリーミング音楽プレーヤー
+mutedeck	通話アプリでの会議のミュート、ビデオ、録画、共有、退席を切り替えます
 mutespotifyads	MuteSpotifyAds
 mutesync	mütesync物理ボタンへのコンパニオンアプリ
 muzzle	画面共有中に困惑する通知を黙らせる
@@ -2452,7 +2453,6 @@ nocturne	暗い場所に合わせてディスプレイの色を調整します
 nodebox	視覚化とジェネレーティブデザインのためのノードベースのデータアプリケーション
 nodeclipse	Eclipseを使用したNode.jsツール
 noisebuddy	NoiseBuddy
-noisy	ホワイトノイズ生成器
 nomachine	リモートデスクトップソフトウェア
 nomachine-enterprise-client	リモートデスクトップソフトウェア
 nomad	NoMAD
@@ -2777,6 +2777,7 @@ platypus	コマンドラインスクリプトからネイティブアプリケ�
 play	4K/1080p/360° ビデオ、MP3/AAC/APE/FLAC 音楽を品質を損なうことなく再生
 playback	ビデオプレーヤー
 playcover-community	Sideload iOSアプリとゲーム
+playdate-mirror	Playdateからゲームプレイのオーディオとビデオをストリーミングするアプリケーション
 playdate-simulator	ローカル開発用のドキュメントとシミュレータ PlaydateLua/CAPI
 playmemories-home	写真やビデオを管理および編集するフリーウェア
 playonmac	Windows用に設計されたソフトウェアのインストールと使用を許可します
@@ -2811,7 +2812,6 @@ pokemon-trading-card-game-online	ポケモンTCGをオンラインでプレイ
 poker-copilot	オンラインポーカーHUDおよび追跡ソフトウェア
 pokerstars	Freeでプレイできるオンラインポーカー
 pokerth	FreeのTexas hold'emポーカー
-polar-bookshelf	統合された読書環境
 polkadot-js	PolkadotおよびSubstrateネットワークへのポータル
 pololu-avr-programmer-v2	Pololu AVR Programmer v2のドライバー
 polymail	メール生産性アプリケーション
@@ -3182,6 +3182,7 @@ runescape	Old School RuneScapeのゲームクライアント
 runjs	コードが入力されると自動評価されるJavaScriptプレイグラウンド
 runway	機械学習を活用したクリエイティブツールキット
 rustdesk	オープンソースの 仮想/リモート デスクトップアプリケーション
+rustrover	Rust IDE
 rwts-pdfwriter	ドキュメントをPDFファイルに直接印刷するためのプリンタードライバー
 ryver	Ryver
 sabaki	囲碁とSGFエディター
@@ -3436,7 +3437,6 @@ soulver-cli	Soulver計算エンジンのスタンドアロンcli
 sound-control	アプリごとのオーディオコントロール
 sound-siphon	アプリのオーディオキャプチャ
 soundboosterlite	強化されたオーディオ体験のためのアプリ
-soundcleod	非公式のSoundCloudデスクトップアプリ
 soundflower	サウンドフラワー
 soundflowerbed	Soundflowerチャネルを利用してオーディオデバイスにルーティングします
 soundsource	サウンドおよびオーディオコントローラー
@@ -3901,7 +3901,6 @@ understand	コードの視覚化と探索ツール
 unetbootin	Linux/BSD ディストリビューションをパーティションまたはUSBドライブにインストールするためのツール
 unexpectedly	クラッシュからのレポートを参照して視覚化する
 unicodechecker	Unicodeを調べて変換する
-unicopedia-plus	Unicode/Unihan 絵文字ユーティリティ
 unified-remote	ユニファイドリモート
 uniflash	マイクロコントローラ用のフラッシュツール
 uninstallpkg	PKGソフトウェアパッケージアンインストールツール
