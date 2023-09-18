@@ -461,6 +461,7 @@ binkd	TCP/IP FTN メーラー
 binutils	ネイティブ開発のためのGNUバイナリツール
 binwalk	埋め込みファイルと実行可能コードのバイナリイメージを検索します
 bioawk	生物学的データに変更されたAWK
+biome	ウェブのツールチェーン
 bioperl	生物情報科学のためのPerlツール 解析/ライフサイエンス
 biosig	生物医学信号処理およびデータ変換のためのツール
 bison	パーサ発生器
@@ -4474,6 +4475,7 @@ oras	記憶装置としてのOCIレジストリ
 orbiton	VT100によって制限される、高速で構成不要のテキストエディターとIDE
 orc	Oil Runtimeコンパイラ(ORC)
 orc-tools	ORC javaコマンドラインツールとユーティリティ
+orcania	Cでさまざまな目的に応じたさまざまな関数を備えたポットラック
 ord	インデックスブロックエクスプローラー、コマンドラインウォレット
 orgalorg	並列SSHコマンド実行ツールとファイル同期ツール
 organize-tool	ファイル管理自動化ツール
@@ -6675,6 +6677,7 @@ yazi	️Rustで書かれた、非同期I/Oに基づく遅延高速ターミナ�
 yazpp	Yazツールキット用のC++ API
 yconalyzer	TCP転送量分析器
 ydcv	YouDaoコンソールバージョン
+yder	Cアプリケーション用のロギングライブラリ
 ydiff	色付きのdiffを並べて表示し自動Pagerをサポート
 yelp-tools	MallardまたはDocBookのドキュメントの作成と編集に役立つツール
 yetris	ターミナル用にカスタマイズ可能なテトリス
