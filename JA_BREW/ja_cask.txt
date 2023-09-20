@@ -264,6 +264,7 @@ automute	現在のWi-Fiネットワークに基づいてシステムをミュー
 autopkgr	AutoPkgをインストールして構成します
 autovolume	音量を指定した音量に自動設定するツール
 autumn	Autumn
+ava	言語モデルをコンピューター上でローカルに実行する
 avast-secure-browser	プライバシーに焦点を当てたWebブラウザー
 avast-security	ウイルス対策ソフト
 avg-antivirus	ウイルス対策ソフト
@@ -628,6 +629,7 @@ cloudash	サーバーレスアーキテクチャの監視とトラブルシュ�
 cloudcompare	CloudCompare
 cloudflare-warp	インターネットをより安全にするFreeアプリ
 cloudmounter	クラウドストレージをローカルディスクとしてマウントします
+cloudnet	エンタープライズレベルのmeshVPNクラウドサービス
 cloudup	何でも瞬時に安全に共有
 cloudytabs	iCloudタブを一覧表示するメニューバーアプリケーション
 clover	1つのツールでデイリープランナー ノート/ホワイトボード/todos
@@ -3106,6 +3108,7 @@ repetier-host	3Dプリントアプリケーション
 replacicon	アプリアイコン置換ユーティリティ
 replay	タイムトラベルデバッグ
 repoz	Zero-confgitリポジトリハブ
+reqable	高度なAPIデバッグプロキシ
 rescuetime	時間最適化アプリケーション
 resilio-sync	ファイル同期および共有ソフトウェア
 resolume-arena	ビデオマッピングソフトウェア
@@ -3483,6 +3486,7 @@ spotify4bigsur	通知センターにSpotify用のウィジェットを実装し�
 spotmenu	メニューバーのSpotifyとiTunes
 spotspot	Spotifyミニプレーヤー
 springtoolsuite	Spring Boot用の次世代ツール
+spundle	スパースバンドルの 作成/サイズ変更/圧縮
 spybuster	スパイウェア対策ツール
 spyder	科学的なPython IDE
 sql-tabs	SQLタブ
@@ -3858,6 +3862,7 @@ tuxera-ntfs	ファイルシステムおよびストレージ管理ソフトウ�
 tuxguitar	マルチトラックギタータブ譜エディターおよびプレーヤー
 tv-browser	電子テレビガイド
 tvrenamer	TVリストからTVエピソードの名前を変更するユーティリティ
+twelite-stage	TWELITE無線モジュールの評価と開発ツール
 twilioquest	16ビットゲームでクラウドを保存するミッションでCrewをコーディングして導く方法を学びましょう
 twine	双方向で非線形のストーリーを伝えるためのツール
 twist	チームコミュニケーションおよび協力的ソフトウェア
