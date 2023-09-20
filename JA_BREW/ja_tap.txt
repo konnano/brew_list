@@ -2337,5 +2337,6 @@ zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
 zulu17	AzulからのOpenJDKディストリビューション
+zulu21	AzulからのOpenJDKディストリビューション
 zulu7	AzulからのOpenJDKディストリビューション
 zulu8	AzulからのOpenJDKディストリビューション
