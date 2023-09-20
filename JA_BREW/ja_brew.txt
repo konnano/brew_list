@@ -6193,6 +6193,7 @@ udp2raw-multiplatform	udp2raw-tunnelクライアントのマルチプラット�
 udptunnel	TCP接続を介してUDPパケットをトンネリングする
 udpxy	UDPからHTTPへのマルチキャスト転送量リレーデーモン
 udunits	Unidata単位変換ライブラリ
+uffizzi	k8s仮想クラスターを使用すると数か月ではなく数分でセルフサービス開発プラットフォームを実現できます
 ufraw	未確認のFlyingRAW：RAW画像処理ユーティリティ
 uftp	安全で信頼性が高く効率的なマルチキャストファイル転送プログラム
 uftrace	C/C++/Rust用の関数グラフトレーサー
