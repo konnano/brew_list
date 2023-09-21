@@ -608,6 +608,7 @@ clicker-for-netflix	最高の独立型Netflixプレーヤー
 clicker-for-youtube	独立型のYouTubeアプリ
 clickhouse	列指向のデータベース管理システム
 clickup	タスクの生産性プラットフォーム ドキュメント/目標/チャット
+clinq	インターネット経由で電話をかけるためのソフトフォン
 clion	CおよびC++ IDE
 clip-studio-paint	描画とペイントのためのソフトウェア
 clipgrab	Webサイトからビデオとオーディオをダウンロードします
@@ -1528,7 +1529,6 @@ honer	フォーカスされたウィンドウの周囲に境界線を描画す�
 honto	honto storeの電子書籍リーダー
 hookmark	重要な情報をリンクして取得する
 hookshot	ウィンドウスナップツール
-hopper-debugger-server	Hopperデバッガサーバー
 horndis	Android USBテザリングドライバー
 horos	医用画像ビューア
 hostsx	ローカルホスト更新ツール
