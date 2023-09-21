@@ -2433,6 +2433,7 @@ hebcal	コマンドラインの永続的なユダヤ暦
 heimdal	FreeのKerberos5の実装
 heksa	色付きのCLIヘキサダンパー
 helib	準同型暗号化の実装
+helidon	Helidonアプリケーション開発用のコマンドラインツール
 helix	ポストモダンのモーダルテキストエディタ
 hello	GNUコーディング標準と実践のためのモデルを提供するプログラム
 helm	Kubernetesパッケージマネージャー
@@ -3236,6 +3237,7 @@ libidn2	国際ドメイン名ライブラリ(IDNA2008、Punycode、TR46)
 libilbc	WebRTCプロジェクトのiLBCコーデックのパッケージバージョン
 libimagequant	pnquant2から抽出されたパレット量子化ライブラリ
 libimobiledevice	iOSデバイスとネイティブに通信するためのライブラリ
+libimobiledevice-glue	libimobiledeviceプロジェクト用の共通システムAPIコードを含むライブラリ
 libint	電子反発積分を効率的に計算するためのライブラリ
 libiodbc	ODBCに基づくデータベース接続レイヤー(unixodbcの代替品)
 libiptcdata	libiptcdata0によって提供される仮想パッケージ
@@ -3263,6 +3265,7 @@ liblxi	LXI互換計測器と通信するためのシンプルなC API
 liblzf	非常に小さく、非常に高速なデータ圧縮ライブラリ
 libmaa	ハッシュテーブルを含む低レベルのデータ構造 セット/リスト
 libmagic	file(1)コマンドの実装
+libmapper	メディアコントロールマッピング用の分散システム
 libmarpa	Marpa解析エンジンCライブラリ -- STABLE
 libmatio	MATLAB MATファイルの読み取りと書き込み用のCライブラリ
 libmatroska	拡張可能 オーディオ/ビデオ のオープンスタンダードコンテナフォーマット
