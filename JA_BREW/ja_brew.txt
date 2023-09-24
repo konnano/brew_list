@@ -3608,6 +3608,7 @@ llvm@12	次世代基礎構造コンパイラ
 llvm@13	次世代基礎構造コンパイラ
 llvm@14	次世代基礎構造コンパイラ
 llvm@15	次世代基礎構造コンパイラ
+llvm@16	次世代基礎構造コンパイラ
 llvm@7	次世代基礎構造コンパイラ
 llvm@8	次世代基礎構造コンパイラ
 llvm@9	次世代基礎構造コンパイラ
@@ -5868,6 +5869,7 @@ taglib	オーディオメタデータライブラリ
 tagref	コードベースの他の場所を参照してください
 tailor	Swiftのクロスプラットフォーム静的分析と静的解析ツール
 tailscale	WireGuardと2FAを使用する最も簡単で安全な方法
+tailwindcss	ユーティリティファーストCSSフレームワーク
 tailwindcss-language-server	LSP for TailwindCSS
 takt	テキストベースの音楽プログラミング言語
 taktuk	リモートnodeにコマンドを展開する(潜在的に大きなset)
