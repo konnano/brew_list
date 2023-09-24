@@ -316,6 +316,7 @@ batteries	すべてのデバイスのバッテリーを追跡する
 battery	バッテリーの充電状態を管理するためのCLI
 battery-buddy	メニューバーのデフォルトのバッテリーインジケーターの交換
 battery-report	電源装置の技術概要を作成します
+batteryboi	メニューバーのバッテリーインジケーター
 battle-net	オンラインゲームプラットフォーム
 battlescribe	卓上ウォーゲーマーのための軍隊リスト作成
 baudline	時間頻度ブラウザー
@@ -945,6 +946,7 @@ dropdmg	DMGおよびその他のアーカイブを作成する
 dropletmanager	デジタルOcean dropletマネージャー
 droplr	スクリーンショットとスクリーンレコーダー
 dropshare	ファイル共有ソリューション
+dropshelf	ドラッグ&ドロップ、ヘルパーアプリ
 dropzone	生産性アプリ
 drovio	リモートペアプログラミングおよびチーム協調ツール
 dteoh-devdocs	APIドキュメントビューア
@@ -1102,6 +1104,7 @@ exifrenamer	デジタル写真の名前を変更するツール ムービーク�
 exist-db	ネイティブXMLデータベースとアプリケーションプラットフォーム
 expandrive	クラウドストレージ用のネットワークドライブとブラウザー
 explorer	データエクスプローラー
+expo-orbit	メニューバーからビルドを起動しシミュレーターを開始します
 expo-xde	Expo開発環境(XDE)
 expressions	正規表現マネージャーアプリ
 expressscribe	Express Scribe転写ソフトウェア
