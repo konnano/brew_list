@@ -11,7 +11,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
    $OS_Version =~ s/^10\.9.*\n/10.09/;
-    $OS_Version =~ s/^(1[1-3]).+\n/$1.0/;
+    $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
@@ -19,9 +19,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
             sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+).*/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
   $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
-  %MAC_OS = ('ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
-             'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11',
-             'yosemite'=>'10.10','mavericks'=>'10.09','mountain_lion'=>'10.08','lion'=>'10.07');
+  %MAC_OS = ('sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
+             'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
      %HAN = ('newer'=>'>','older'=>'<');
 
   if( $UNAME eq 'x86_64' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
@@ -100,39 +99,41 @@ unless( $ARGV[0] ){
        next;
      }elsif( $data !~ /^\s*end/ and $KIN == 1 ){
        if( $data =~ /.*,\s+all:/ ){
-        $tap{"${name}13.0M1"}= $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}=
-        $tap{"${name}12.0"}  = $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  =
-        $tap{"${name}10.15"} = $tap{"${name}10.14"} = $tap{"${name}10.13"} =
-        $tap{"${name}10.12"} = $tap{"${name}10.11"} = $tap{"${name}10.10"} =
-        $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
+        $tap{"${name}14.0M1"}= $tap{"${name}14.0"}  = $tap{"${name}13.0M1"}=
+        $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}= $tap{"${name}12.0"}  =
+        $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  = $tap{"${name}10.15"} =
+        $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
+        $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
        }
         if( $re->{'LIN'} ){
            $data =~ s/.*x86_64_linux:.*\n/Linux/ ? $tap{"$name$data"} = 1 : next;
         }else{
-         if( not $an[0] and $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ){
+         if( not $an[0] and $data =~ s/.*arm64_sonoma:.*\n/14.0M1/ ){
            $tap{"$name$data"} = $an[0] = 1; next;
+         }elsif( not $an[1] and $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ){
+           $tap{"$name$data"} = $an[1] = 1; next;
          }elsif( not $an[2] and $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ){
            $tap{"$name$data"} = $an[2] = 1; next;
-         }elsif( not $an[4] and $data =~ s/.*arm64_big_sur:.*\n/11.0M1/ ){
-           $tap{"$name$data"} = $an[4] = 1; next;
-         }elsif( not $an[1] and $data =~ s/.*ventura:.*\n/13.0/ ){
-           $tap{"$name$data"} = $an[1] = 1; next;
-         }elsif( not $an[3] and $data =~ s/.*monterey:.*\n/12.0/ ){
+         }elsif( not $an[3] and $data =~ s/.*arm64_big_sur:.*\n/11.0M1/ ){
            $tap{"$name$data"} = $an[3] = 1; next;
-         }elsif( not $an[5] and $data =~ s/.*big_sur:.*\n/11.0/ ){
+         }elsif( not $an[4] and $data =~ s/.*sonoma:.*\n/14.0/ ){
+           $tap{"$name$data"} = $an[4] = 1; next;
+         }elsif( not $an[5] and $data =~ s/.*ventura:.*\n/13.0/ ){
            $tap{"$name$data"} = $an[5] = 1; next;
-         }elsif( not $an[6] and $data =~ s/.*catalina:.*\n/10.15/ ){
+         }elsif( not $an[6] and $data =~ s/.*monterey:.*\n/12.0/ ){
            $tap{"$name$data"} = $an[6] = 1; next;
-         }elsif( not $an[7] and $data =~ s/.*mojave:.*\n/10.14/ ){
+         }elsif( not $an[7] and $data =~ s/.*big_sur:.*\n/11.0/ ){
            $tap{"$name$data"} = $an[7] = 1; next;
-         }elsif( not $an[8] and $data =~ s/.*high_sierra:.*\n/10.13/ ){
+         }elsif( not $an[8] and $data =~ s/.*catalina:.*\n/10.15/ ){
            $tap{"$name$data"} = $an[8] = 1; next;
-         }elsif( not $an[9] and $data =~ s/.*sierra:.*\n/10.12/ ){
+         }elsif( not $an[9] and $data =~ s/.*mojave:.*\n/10.14/ ){
            $tap{"$name$data"} = $an[9] = 1; next;
-         }elsif( not $an[10] and $data =~ s/.*el_capitan:.*\n/10.11/ ){
+         }elsif( not $an[10] and $data =~ s/.*high_sierra:.*\n/10.13/ ){
            $tap{"$name$data"} = $an[10] = 1; next;
-         }elsif( not $an[11] and $data =~ s/.*yosemite:.*\n/10.10/ ){
+         }elsif( not $an[11] and $data =~ s/.*sierra:.*\n/10.12/ ){
            $tap{"$name$data"} = $an[11] = 1; next;
+         }elsif( not $an[12] and $data =~ s/.*el_capitan:.*\n/10.11/ ){
+           $tap{"$name$data"} = $an[12] = 1; next;
          }else{ next }
         }
        next;
