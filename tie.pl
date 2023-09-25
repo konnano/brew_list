@@ -10,8 +10,7 @@ chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null)
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
-   $OS_Version =~ s/^10\.9.*\n/10.09/;
-    $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
+   $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
@@ -103,7 +102,7 @@ unless( $ARGV[0] ){
         $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}= $tap{"${name}12.0"}  =
         $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  = $tap{"${name}10.15"} =
         $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-        $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
+        $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}Linux"} = 1;
        }
         if( $re->{'LIN'} ){
            $data =~ s/.*x86_64_linux:.*\n/Linux/ ? $tap{"$name$data"} = 1 : next;
