@@ -78,9 +78,8 @@ MAIN:{
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
-    $OS_Version =~ s/^10\.9.*\n/10.09/;
-     $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
-  die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-8]($|\.)/;
+    $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
+  die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-9]($|\.)/;
    $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
   $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
    $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
@@ -200,7 +199,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.18_8\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.18_9\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -2200,8 +2199,7 @@ chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null)
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
-   $OS_Version =~ s/^10\.9.*\n/10.09/;
-    $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
+   $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
@@ -2293,7 +2291,7 @@ unless( $ARGV[0] ){
         $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}= $tap{"${name}12.0"}  =
         $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  = $tap{"${name}10.15"} =
         $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-        $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}10.09"} = $tap{"${name}Linux"} = 1;
+        $tap{"${name}10.11"} = $tap{"${name}10.10"} = $tap{"${name}Linux"} = 1;
        }
         if( $re->{'LIN'} ){
            $data =~ s/.*x86_64_linux:.*\n/Linux/ ? $tap{"$name$data"} = 1 : next;
