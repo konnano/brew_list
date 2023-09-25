@@ -791,7 +791,6 @@ datazenit	Datazenit
 datovka	データメッセージにアクセスしてローカルデータベースに保存する
 datweatherdoe	メニューバー天気アプリ
 davmail	Exchangeサーバーで任意の メール/日程表クライアントを使用する
-day-o	Day-O
 db-browser-for-sqlite	SQLiteデータベース用のブラウザー
 dbeaver-community	ユニバーサルデータベースツールとSQLクライアント
 dbeaver-enterprise	ユニバーサルデータベースツールとSQLクライアント
@@ -2374,6 +2373,7 @@ musictube	ストリーミング音楽プレーヤー
 mutedeck	通話アプリでの会議のミュート、ビデオ、録画、共有、退席を切り替えます
 mutespotifyads	MuteSpotifyAds
 mutesync	mütesync物理ボタンへのコンパニオンアプリ
+muyu	作業効率と健康の両立
 muzzle	画面共有中に困惑する通知を黙らせる
 mweb-pro	マークダウンライティング ノートをつたえる静的ブログ生成機アプリ
 mx-power-gadget	Apple Mxプロセッサの電源管理と監視
