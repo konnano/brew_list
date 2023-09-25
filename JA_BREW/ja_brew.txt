@@ -481,6 +481,7 @@ black	Pythonコード整形ツール
 blackbox	安全に保存する Git/Mercurial/Subversion
 blades	非常に高速でシンプルな静的サイ生成器
 blahtexml	方程式をMath MLに変換します
+blake3	BLAKE3暗号化ハッシュ関数のC実装
 blast	基本的なローカル調整検索ツール
 blastem	高速で正確なGenesisエミュレータ
 blaze	大規模で限られた演算用の高性能C++数学ライブラリ
@@ -4283,6 +4284,7 @@ nudoku	Ncursesベースの数独ゲーム
 nuget	.NETを含むMicrosoft開発プラットフォームのパッケージマネージャー
 num-utils	コマンドラインから数値を処理するためのプログラム
 numactl	LinuxのNUMAサポート
+numbat	科学計算用の静的型付けプログラミング言語
 numcpp	Python NumpyライブラリのC++実装
 numdiff	推定ファイル比較ツール
 numpy	Pythonを使用した科学計算用パッケージ
@@ -5004,6 +5006,7 @@ pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
 pyyaml	PythonのYAMLフレームワーク
 q	CSVまたはTSVファイルでSQLを直接実行する
 qalculate-gtk	多目的デスクトップ計算機
+qalculate-qt	多目的卓上電卓
 qbe	バッグエンドコンパイラ
 qbs	複数のプラットフォーム間でプロジェクトを開発するためのビルドツール
 qca	Qt暗号化基本設計(QCA)
