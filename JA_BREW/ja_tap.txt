@@ -2115,9 +2115,9 @@ adguard-nightly	スタンドアロンの広告ブロッカー
 adguard-vpn-nightly	プライバシーとセキュリティのためのVPN
 adoptopenjdk8	ビルド済みのOpenJDKバイナリ
 aerial-beta	Apple TV Aerialスクリーンセーバー
-affinity-designer-beta	写真編集およびグラフィックデザインソフトウェア
 affinity-designer1	プロ仕様のグラフィックデザインソフトウェア
-affinity-photo-beta	プロフェッショナルな画像編集ソフトウェア
+affinity-photo1	プロ仕様の画像編集ソフトウェア
+affinity-publisher1	プロフェッショナルデスクトップパブリッシングソフトウェア
 alfred2	アプリケーションランチャーと生産性ソフトウェア
 alfred3	アプリケーションランチャーと生産性ソフトウェア
 alfred4	アプリケーションランチャーと生産性ソフトウェア
@@ -2308,6 +2308,7 @@ tor-browser-alpha	セキュリティに重点を置いたWebブラウザー
 tower2	パワーと生産性に重点を置いたGitクライアント
 transmission-nightly	オープンソースのBitTorrentクライアント
 transmit4	ファイル転送アプリケーション
+tsh13	分散インフラストラクチャを管理するチームのSSHサーバー
 tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
 typora-dev	Markdownをサポートする構成可能なドキュメントエディター
 utm-beta	QEMUを使用した仮想マシンUI
