@@ -2280,7 +2280,7 @@ unless( $ARGV[0] ){
   my( $name ) = $dir1 =~ m|.+/(.+)\.rb$|;
    $tap{"${name}core"} = $dir1;
   open my $BREW,'<',$dir1 or die " tie Info_1 $!\n";
-   while(my $data=<$BREW>){
+   while(my $data=<$BREW>){ last if $data =~ /^\s*def\s+install/;
      if( $data =~ /^\s*bottle\s+do/ ){
       $KIN = $bot = 1; next;
      }elsif( $data =~ /^\s*rebuild/ and $KIN == 1 ){
