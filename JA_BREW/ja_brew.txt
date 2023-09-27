@@ -643,6 +643,7 @@ canfigger	単純な構成ファイルパーサーライブラリ
 cap-completion	CapistranoのBash補完
 capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
+caracal	スマートコントラクト用の静的アナライザー
 cargo-about	クレートのすべてのライセンスのリストを生成するCargoプラグイン
 cargo-all-features	すべての機能フラグの組み合わせを構築およびテストするためのCargoサブコマンド
 cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lockファイルを監査する
@@ -1961,6 +1962,7 @@ gffread	GFF/GTF形式変換、領域フィルタリング、FASTA配列抽出
 gflags	command-lineフラグを処理するためのライブラリ
 gfold	Rustで書かれたGitリポジトリを追跡するのに役立ちます
 gforth	ANS Forth言語の実装
+ggshield	コード内の機密データと機密データをスキャンする
 gh	GitHubコマンドラインツール
 ghc	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.10	Glorious Glasgow Haskellコンパイルシステム
@@ -2648,6 +2650,7 @@ internetarchive	さまざまなインターネットアーカイブAPIのPython�
 intltool	ストリングツール
 inxi	フル機能のCLIシステム情報ツール
 io	小さなプロトタイプベースのプログラミング言語
+iocextract	侵害エクストラクターのデファングインジケーター
 ioctl	IoTeXブロックチェーンと対話するためのコマンドラインインターフェイス
 iodine	DNSサーバーを介してIPv4転送量をトンネリングする
 ioke	仮想マシンを対象とした動的言語
@@ -3008,6 +3011,7 @@ lcs	風刺的なコンソールベースの政治的 ロールプレイング/�
 ld-find-code-refs	LaunchDarklyに機能flagコード参照を送信するためのビルドツール
 ldapvi	テキストエディタでLDAPエントリを更新する
 ldc	ポータブルDプログラミング言語コンパイラ
+ldeep	LDAP列挙ユーティリティ
 ldid	Mach-Oバイナリで署名ブロックを操作できます
 ldid-procursus	本物または偽物の署名をMach-Oバイナリに入れる
 ldns	Cで書かれたDNSライブラリ
@@ -5701,6 +5705,7 @@ sqlmap	SQLインジェクションおよびデータベースサーバーの侵�
 sqlpage	Webアプリケーションフレームワーク、単純なデータベースクエリを使用したWebサイトの作成用
 sqlparse	非検証SQLパーサー
 sqls	Goで記述されたSQL言語サーバー
+sqlsmith	ランダムSQL生成器
 sqlx-cli	RustSQLツールキットであるSQLxのコマンドラインユーティリティ
 sqoop	Hadoopと構造化データstore間でバルクデータを転送する
 sqsmover	AWSSQSメッセージムーバー
