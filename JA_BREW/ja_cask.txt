@@ -3283,6 +3283,7 @@ session	Onionルーティングベースのメッセンジャー
 session-manager-plugin	管理対象インスタンスに接続するセッションを開始および終了するAWS CLIのプラグイン
 sessionrestore	後で読むために多数のSafariタブを開いたままにしておくのに役立ちます
 setapp	サブスクリプションで利用可能なアプリのコレクション
+sf	Salesforce CLIツール
 sf-symbols	アプリに一貫性のある高度に構成可能なシンボルを提供するツール
 sfdx	SalesForce CLIツール
 sfm	Sing-box用のスタンドアロンクライアント、ユニバーサルプロキシプラットフォーム
@@ -3543,7 +3544,6 @@ steveschow-gfxcardstatus	gfxCardStatus
 stoplight-studio	APIを設計および文書化するためのエディター
 stork	合成作業のための強力な機能を備えたメッセンジャー
 storyboarder	棒人間を描くことができるのと同じくらい速く物語を視覚化する
-strawberry	音楽プレーヤーと音楽コレクションのまとめ
 strawberry-wallpaper	イチゴの壁紙
 streamlabs	Streamlabsデスクトップ
 streamlink-twitch-gui	Streamlink用のマルチプラットフォームTwitch.tvブラウザー
@@ -3884,7 +3884,6 @@ ubar	ウィンドウマネージャーと生産性ツール
 ubersicht	コマンドを実行しその出力をデスクトップに表示します
 ubiquiti-unifi-controller	UniFiネットワークの設定、構成、管理、分析
 ubports-installer	モバイルデバイスにubportsをインストールするためのアプリケーション
-udeler	Udemyコースをダウンロードするためのデスクトップアプリケーション
 udig	uDig
 ueli	キーストロークランチャー
 uhk-agent	Ultimate Hacking Keyboardの設定アプリケーション
