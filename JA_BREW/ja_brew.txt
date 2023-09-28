@@ -5713,6 +5713,7 @@ sqtop	Squidプロキシのアクティブな接続に関する情報を表示す
 squashfs	Linuxの圧縮された読み取り専用ファイルシステム
 squashfuse	SquashfsアーカイブをマウントするためのFUSEファイルシステム
 squid	高度なCachingプロキシサーバー HTTP/HTTPS/FTP/Gopher
+squiid	Rustで書かれたモジュラー計算機
 squirrel	高レベルの手続き型オブジェクト指向プログラミング言語
 sratom	LV2 atomをRDFとの間で順番化するためのライブラリ
 sratoolkit	INSDC順序リードアーカイブ用のデータツール
