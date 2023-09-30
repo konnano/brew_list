@@ -1000,6 +1000,7 @@ eclipse-php	PHP開発者向けのEclipse IDE
 eclipse-platform	Eclipse IDE用のSDK
 eclipse-rcp	RCPおよびRAP開発者向けのEclipse IDE
 eclipse-testing	テスト用のEclipse IDE
+ecodms-client	文書管理システム
 eddie	OpenVPN UI
 edex-ui	サイエンスフィクションをテーマにしたターミナルエミュレーターとシステムモニター
 edfbrowser	EDF+/BDF+ Viewerとツールボックス
@@ -1168,6 +1169,7 @@ filepane	ファイル管理マルチツール
 final-cut-library-manager	Arctic Whiteness FinalCutライブラリマネージャー
 final-fantasy-xiv-online	ストーリー主導の大規模マルチプレイヤーオンラインロールプレイングゲーム
 finalshell	SSHツール サーバー管理およびリモートデスクトップアクセラレーションソフトウェア
+finbar	メニューバー検索ユーティリティ
 finch	オープンソースのコンテナ開発ツール
 find-any-file	ファイルファインダー
 find-empty-folders	空のフォルダを検索します
@@ -2693,6 +2695,7 @@ pastebot	生産性を向上させるワークフローアプリケーション
 patchwork	Secure Scuttlebuttを使用した分散型メッセージングおよび共有アプリ
 path-finder	ファイルマネージャー
 pathephone	分散オーディオプレーヤー
+paulxstretch	オーディオファイル用のエクストリームタイムストレッチプラグイン
 paw	APIのテストと説明に役立つHTTPクライアント
 pb	プッシュ通知を取得するための非公式のPushbulletデスクトップアプリ
 pcoipclient	VMエージェントおよびリモートワークステーションカード用のクライアント
@@ -3170,6 +3173,7 @@ rotato	試作品生成器とアニメーター3D
 rotki	ポートフォリオ追跡および会計ツール
 routebuddy	GPS対応のマッピングソフトウェア
 routeconverter	表示するGPSツール 編集/ルートを充実させ変換する/トラックとウェイポイント
+routine	生産的な人々のためのカレンダー
 rowanj-gitx	gitバージョン管理システム用のネイティブグラフィカルクライアント
 rowmote-helper	Rowmote Proリモートコントロールを備えた制御システム
 royal-tsx	リモート管理ソリューション
@@ -3676,6 +3680,7 @@ techsmith-capture	スクリーンキャプチャソフトウェア
 teensy	ファームウェアフラッシュユーティリティ
 teeworlds	Teeworlds
 telegram	速度とセキュリティに重点を置いたメッセージングアプリ
+telegram-a	Telegramメッセンジャー用のWebクライアント
 telegram-desktop	Telegramメッセンジャー用のデスクトップクライアント
 teleport-connect	クラウドインフラストラクチャ向けの開発者向けブラウザ
 tempbox	使い捨てメールクライアント
@@ -3783,6 +3788,7 @@ tla-plus-toolbox	TLA+用のIDE
 tlv	Tableau ログを操作するためのツール
 tmpdisk	RAM ディスク管理
 tnefs-enough	MicrosoftTNEFファイルからファイルを読み取って抽出します
+to-audio-converter	オーディオコンバーター
 todesk	リモートコントロールソフトウェア
 todoist	やることリスト
 todometer	メーターベースのやることリスト
