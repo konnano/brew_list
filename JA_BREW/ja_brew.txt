@@ -566,6 +566,7 @@ btpd	Bit Torrent手続きデーモン
 btrfs-progs	btrfsファイルシステムを管理するためのユーザー空間ユーティリティ
 bubblewrap	Linuxの非特権サンドボックスツール
 buf	Protocol Buffersを使用する新しい方法
+build2	C/C++ ビルドツールチェーン
 buildapp	SBCLで実行可能ファイルを作成します
 buildifier	標準的な規則でbazel BUILDファイルをフォーマットします
 buildkit	Сoncurrent,キャッシュ効率の良い、Dockerfileに依存しないビルダーツールキット
@@ -4906,6 +4907,7 @@ pstoedit	PostScriptおよびPDFファイルを編集可能なベクターグラ�
 pstree	psの出力をツリーとして表示
 psutils	PostScriptドキュメント処理ユーティリティのコレクション
 psysh	ランタイム開発者コンソール PHP用の対話型デバッガーとREPL
+pter	todo.txtファイルを管理するためのコンソールとグラフィカルUI
 ptex	Texture mappingシステム
 pth	GNUポータブルスレッド
 ptpython	高度なPython REPL
@@ -5376,6 +5378,7 @@ scons	autoconf/automake 機能を備えた従来の'make'ツールの代わり�
 scorecard	オープンソースのセキュリティヘルスmetrics
 scotch	グラフ分割用パッケージ グラフクラスタリング/スパースmatrixの順序付け
 scour	SVGファイルスクラバー
+scoutsuite	オープンソースのマルチクラウドセキュリティ監査ツール
 scrapy	Webクローリングおよびスクレイピングフレームワーク
 scrcpy	Androidデバイスを表示および制御する
 screen	VT100/ANSI ターミナルエミュレーションを備えたターミナル多重装置
