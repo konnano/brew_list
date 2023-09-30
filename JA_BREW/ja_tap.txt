@@ -2222,6 +2222,7 @@ microsoft-edge-beta	マルチプラットフォームのWebブラウザー
 microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2016	オフィススイート
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
+microsoft-openjdk17	MicrosoftからのOpenJDKディストリビューション
 miniconda2	condaの最小限のインストーラー
 mixxx-snapshot	オープンソースのDJソフトウェア
 monal-beta	チャットサーバーに安全に接続するためのツール
