@@ -4493,6 +4493,7 @@ organize-tool	ファイル管理自動化ツール
 orientdb	グラフデータベース
 ormolu	Haskellソースコードの初期化装置
 orocos-kdl	Orocos Kinematics and Dynamics C++ライブラリ
+orogene	`node_modules/` パッケージマネージャー及びユーティリティツールキット
 ortp	リアルタイム転送手続きライブラリ(RTP、RFC3550)
 ory-hydra	OpenID認定OAuth2.0サーバーおよびOpenID接続プロバイダー
 osc	Open BuildServiceと連携するためのコマンドラインインターフェイス
