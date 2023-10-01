@@ -135,7 +135,6 @@ font-arvo	Arvo
 font-arya	Arya
 font-asap	Asap
 font-asap-condensed	Asap Condensed
-font-asap-vf-beta	Asap VF Beta
 font-asar	Asar
 font-asset	Asset
 font-assistant	Assistant
@@ -1321,6 +1320,7 @@ font-noto-sans-jp	日本語用の変調されていない(“sans serif”)デ�
 font-noto-sans-kaithi	Noto Sans Kaithi
 font-noto-sans-kannada	Noto Sans Kannada
 font-noto-sans-kannada-ui	Noto Sans Kannada UI
+font-noto-sans-kawi	歴史的な東南アジアのカウィ文字のデザイン
 font-noto-sans-kayah-li	Noto Sans Kayah Li
 font-noto-sans-kharoshthi	Noto Sans Kharoshthi
 font-noto-sans-khmer	Noto Sans Khmer
@@ -1469,6 +1469,7 @@ font-noto-serif-malayalam	Noto Serif Malayalam
 font-noto-serif-myanmar	Noto Serif Myanmar
 font-noto-serif-np-hmong	Noto Serif NP Hmong
 font-noto-serif-nyiakeng-puachue-hmong	Noto Serif Nyiakeng Puachue Hmong
+font-noto-serif-old-uyghur	歴史的な中央アジアの古いウイグル文字のデザイン
 font-noto-serif-oriya	インド語のオディア(oriya)スクリプトのテキストの変調(“serif”)デザイン
 font-noto-serif-ottoman-siyaq	シヤク記数体系のアラビア語形式の変調デザイン(serif)
 font-noto-serif-sc	簡体字中国語の変調(“serif”)デザイン
