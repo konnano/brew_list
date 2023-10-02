@@ -940,6 +940,7 @@ droidid	DroidID
 drop-to-gif	Zero-clickアニメーションGIF
 dropbox	Dropboxクラウドストレージサービスのクライアント
 dropbox-capture	あなたの仕事やアイデアをビデオメッセージやスクリーンショットで共有しましょう
+dropbox-dash	ユニバーサル検索ツール
 dropbox-passwords	デバイス間で同期するパスワードマネージャー
 dropdmg	DMGおよびその他のアーカイブを作成する
 dropletmanager	デジタルOcean dropletマネージャー
@@ -1540,6 +1541,7 @@ hot	熱の問題によるCPU速度制限を表示するメニューバーアプ�
 hotswitch	2ストロークホットキーを使用した高速ウィンドウ切り替え
 houdahspot	ファイル検索アプリケーション
 hovrly	さまざまな都市のタイムゾーンの時間を表示および変換する
+hp-easy-admin	HP印刷ドライバーやスキャンドライバーを直接ダウンロードするツール
 hp-easy-start	HPプリンターをセットアップする
 hp-eprint	モバイル印刷ソリューション
 hp-prime	グラフ電卓エミュレータ
@@ -3455,6 +3457,7 @@ soundtoys	オーディオエフェクトプラグイン
 sourcenote	SourceNote
 sourcetrail	コードソースエクスプローラー
 sourcetree	Gitバージョン管理用のグラフィカルクライアント
+space-capsule	スペース管理ツール
 space-saver	ローカルのTimeMachineバックアップを削除する
 spaceid	現在選択されているスペースを示すメニューバーインジケーター
 spacelauncher	アプリ ランチャー/スイッチャー
