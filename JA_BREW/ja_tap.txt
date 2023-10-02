@@ -598,7 +598,10 @@ font-fruktur	Fruktur
 font-fugaz-one	Fugaz One
 font-fuggles	洗練された商業デザインに使用できる強力なスクリプト
 font-fuzzy-bubbles	子供のパーティーに最適
+font-fzfangsong-z02	Fangzheng Fangsong GBK
+font-fzkai-z03	Fangzheng Kaiti GBK
 font-fzshusong-z01	Fangzheng Shusong GBK
+font-fzxiaobiaosong-b05	Fangzheng Xiaobiaosong GBK
 font-gabarito	通常から黒までの6つのウェイトを備えた幾何学的な書体
 font-gabriela	Gabriela
 font-gaegu	Gaegu
