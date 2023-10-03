@@ -365,6 +365,7 @@ ballerina	ネットワーク分散アプリケーションのプログラミン�
 bam	Luaを使用してビルドプロセスを記述するビルドシステム
 bamtools	BAMデータ用のC++ APIおよびコマンドラインツールキット
 bandcamp-dl	BandcampアルバムをダウンロードするためのシンプルなPythonスクリプト
+bandicoot	GPUアクセラレーション線形代数用のC++ライブラリ
 bandit	Pythonコードのセキュリティ指向の静的分析器
 bandwhich	端末処理能力利用ツール
 baobab	Gnomeディスク使用量分析器
@@ -4377,6 +4378,7 @@ onefetch	ターミナルのGitリポジトリの概要
 onetime	one-time padsによる暗号化
 oniguruma	正規表現ライブラリ
 onioncat	TorまたはI2Pを使用してロケーションプライバシーを提供するVPNアダプター
+onionprobe	Tor Onionサービスのテスト及び監視ツール
 onlykey-agent	OnlyKeyをハードウェア SSH/GPGデバイスとして使用できるミドルウェア
 onnxruntime	MLモデルのクロスプラットフォームの高性能スコアリングエンジン
 onscripter	NScripter互換のvisual novel engine
@@ -5567,6 +5569,7 @@ smartdns	高速IP解決のためのRule-based DNSサーバー DoT/DoH/DoQをサ�
 smartmontools	SMARTハードドライブの監視
 smartypants	印刷デザインの整形
 smimesign	Gitで使用する S/MIME署名ユーティリティ
+smlfmt	Standard ML カスタムパーサー/コードフォーマッタ
 smlpkg	Standard MLライブラリおよびプログラムのパッケージマネージャー
 smpeg	SDL MPEGプレーヤーライブラリ
 smpeg2	SDL MPEGプレーヤーライブラリ
@@ -6110,6 +6113,7 @@ trader	スタートレーダー
 traefik	最新の逆プロキシ
 traefik@1	最新の逆プロキシ(v1.7)
 trafficserver	HTTP/1.1準拠のCachingプロキシサーバー
+trafilatura	Webテキスト 検出/抽出/処理
 trafshow	継続的なネットワーク転送量の表示
 traildb	ログ構造化データ用の非常に高速なデータベース
 trailscraper	AWSCloudTrailから貴重な情報を取得するためのツール
