@@ -535,6 +535,7 @@ bower	Webパッケージマネージャー
 bowtie2	高速で高感度のgapped read aligner
 box2d	ゲーム用の2D物理エンジン
 boxes	テキストの周りにボックスを描画します
+bozohttpd	小規模で安全なhttpバージョン1.1サーバー
 bpm-tools	1分あたりの拍数(BPM)を使用してオーディオファイルのテンポを検出する
 bpython	Python解釈プログラムの幻想インターフェース
 bpytop	リソースモニター Linux/OSX/FreeBSD
@@ -1242,6 +1243,7 @@ devtodo	コマンドラインタスクリスト
 dex	器用なテキストエディタ
 dex2jar	Android.dexおよびJava.classファイルを操作するためのツール
 dexter	Postgresの自動インデクサー
+dezoomify-rs	タイル画像ダウンローダー
 dfc	ファイルシステムの 空き/使用量 のグラフを色で表示します
 dfix	Dソースコードの自動アップグレードツール
 dfmt	Dソースコードの初期化装置
@@ -4983,6 +4985,7 @@ python-click	Pythonコンポーザブルコマンドラインインターフェ�
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
+python-gdbm@3.12	gdbmへのPythonインターフェイス
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
@@ -4994,15 +4997,18 @@ python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出すための低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
+python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
-python-tk@3.10	Tcl/Tk へのPythonインターフェース
+python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
+python-tk@3.12	Tcl/TkへのPythonインターフェース
 python-tk@3.9	Tcl/Tk へのPythonインターフェース
 python-toml	TOML用のPythonライブラリ
 python-typing-extensions	Pythonのバックポートおよび実験的な型ヒント
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.11	オブジェクト指向プログラミング言語 インタプリタ/対話的
+python@3.12	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.7	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.8	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.9	オブジェクト指向プログラミング言語 インタプリタ/対話的
