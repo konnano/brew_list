@@ -860,6 +860,7 @@ devonthink	ドキュメントの編集と注釈付け 収集/整理
 devpod	devcontainer.jsonに基づいて再現可能な開発者環境を作成するための UI
 devsquadron	エンタープライズグレード プロジェクト管理
 devtoys	一般的な開発タスクを容易にするために設計されたユーティリティ
+devtunnel	ローカルサービスを共有するための安全なトンネルを開発者に提供します
 devutils	開発者向けのオフラインツールボックス
 dexed	DX7FMシンセサイザー
 dhs	dylibハイジャックのスキャン
@@ -1987,7 +1988,6 @@ logmein-hamachi	LogMeIn Hamachi
 logos	聖書研究ソフトウェア
 logseq	知識の共有と管理のためのプライバシー第一のオープンソースプラットフォーム
 lookin	iOSビューのデバッグ用アプリ
-lookingglassbridge	Looking Glassアプリケーションと開発ツールに必要
 lookingglassstudio	Looking Glassで3D画像およびビデオ形式を表示および編集する
 loom	画面およびビデオ録画ソフトウェア
 loopback	ケーブルFreeオーディオルーター
