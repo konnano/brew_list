@@ -117,6 +117,7 @@ MAIN:{
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
   }
    if( $name and $AR[2] and $AR[2] eq '.' and not( $re->{'deps'} or $re->{'INF'} ) ){ $name->{'KEN'} = 1;
+   }elsif( $re->{'DAT'} and $AR[1] and $AR[1] eq '.' ){ $re->{'DAT'} = $ref->{'DAT'} = 2;
    }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2];
    }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){$name->{'KEN'} = 1}else{$re->{'dep_s'} = lc $AR[1]}
    }
@@ -1215,7 +1216,7 @@ my( $re,$ls1,$ls2 ) = @_;
      " e $ls1 $re->{'DMG'}{$ls1} != $ls2 : Cask\n"  : $re->{'FOR'} ?
      "   $ls1 $re->{'HASH'}{$ls1} < $ls2\n" : "   $ls1 $re->{'DMG'}{$ls1} != $ls2 : Cask\n";
    }else{
-    $re->{'OUT'}[$re->{'UP'}++] = "$ls1\n" unless $re->{'GZ'};
+    $re->{'OUT'}[$re->{'UP'}++] = "$ls1\n";
    }
   $re->{'GZ'} = 0;
 }
@@ -1539,8 +1540,14 @@ sub Format_1{
   }
   $re->{'FOR'} = 0 if $re->{'LINK'} and $re->{'LINK'} > 5;
  }elsif( $re->{'DAT'} ){
-  unless( -d "$re->{'HOME'}/TAP" ){ print for @{$re->{'OUT'}} }
-   $re->{'FOR'} = 0;
+   unless( -d "$re->{'HOME'}/TAP" ){ my $x;
+    for( @{$re->{'OUT'}} ){
+     if( $re->{'DAT'} == 1 ){ print;
+     }else{ next if index($_,' e ') == 0;
+      s/^\s+([^\s]+)\s+.+\n/$1 /; $x .= $_;
+     }
+    } system "brew install $x" if $x and $re->{'DAT'} == 2;
+   } $re->{'FOR'} = 0;
  }else{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
    my $leng = $re->{'LEN1'};
