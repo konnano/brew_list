@@ -4997,7 +4997,7 @@ python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
 python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-mutagen	オーディオメタデータを処理するためのPythonモジュール
-python-packaging	Pythonパッケージのコア ユーティリティ
+python-packaging	Pythonパッケージのコアユーティリティ
 python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出すための低レベルライブラリ
@@ -5007,7 +5007,7 @@ python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
 python-tk@3.12	Tcl/TkへのPythonインターフェース
-python-tk@3.9	Tcl/Tk へのPythonインターフェース
+python-tk@3.9	Tcl/TkへのPythonインターフェース
 python-toml	TOML用のPythonライブラリ
 python-typing-extensions	Pythonのバックポートおよび実験的な型ヒント
 python-yq	jqをラップするコマンドライン YAML/XML計算機
