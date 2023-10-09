@@ -837,13 +837,14 @@ my $re = shift;
 }
 
 sub Uses_1{
-my( $re,$tap,$HA,$AN ) = @_;
+my( $re,$tap,$HA,$AN,$loop ) = @_;
+ die " Uses_1 Deep recursion on subroutine\n" if $loop and $loop > 50;
  for my $ls(split '\t',$tap){
   $HA->{$ls}++;
    push @$AN,$ls if( $re->{'HASH'}{$ls} or $re->{'DMG'}{$ls} ) and $HA->{$ls} < 2;
-   Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
-   Uses_1( $re,$re->{'OS'}{"${ls}u_form"},$HA,$AN ) if $re->{'OS'}{"${ls}u_form"} and $re->{'HASH'}{$ls};
-   Uses_1( $re,$re->{'OS'}{"${ls}u_cask"},$HA,$AN ) if $re->{'OS'}{"${ls}u_cask"} and $re->{'DMG'}{$ls};
+   Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN,$loop++ ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
+   Uses_1( $re,$re->{'OS'}{"${ls}u_form"},$HA,$AN,$loop++ ) if $re->{'OS'}{"${ls}u_form"} and $re->{'HASH'}{$ls};
+   Uses_1( $re,$re->{'OS'}{"${ls}u_cask"},$HA,$AN,$loop++ ) if $re->{'OS'}{"${ls}u_cask"} and $re->{'DMG'}{$ls};
  }
 }
 
@@ -1029,7 +1030,7 @@ print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN4'}++;
 sub Info_1{
 my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
  if( $m > 50 ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
-  die " Deep recursion on subroutine (outdated formula) : brew upgrade\n";
+   die " Info_1 Deep recursion on subroutine\n";
  } return if $re->{'PP'} and $re->{'KEN'} and $re->{'KEN'} < $m;
 
   if( not $file and $re->{'FOR'} and -t STDOUT and
@@ -2499,7 +2500,7 @@ unless( $ARGV[0] ){
        for my $ls1(@HE){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
-         if( $loop ){ return if $ls1 eq $mine;
+         if( $loop ){ return if $ls1 eq $mine or $re->{'MAC'} and $mine eq 'gettext'; ###
          }else{ unless( $ls1 eq 'glibc' ){ next unless Glob_1( $ls1,$name,1 ); }
           if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
@@ -2520,7 +2521,7 @@ unless( $ARGV[0] ){
         my( $ls2 ) = $cel =~ /"full_name":\s*"([^"]+)".*/ ? $1 : next;
         if( $tap{"${ls2}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls2}uses"} }
         unless( $HA{$name} ){
-         if( $loop ){ return if $ls2 eq $mine;
+         if( $loop ){ return if $ls2 eq $mine or $re->{'MAC'} and $mine eq 'gettext'; ###
          }else{ unless( $ls2 eq 'glibc' ){ next unless Glob_1( $ls2,$name,1 ); }
           if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
