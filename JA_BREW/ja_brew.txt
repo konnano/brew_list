@@ -390,6 +390,7 @@ bash_unit	プロフェッショナル向けのBash単体テスト エンター�
 bashate	bashプログラムのコード スタイルの強調
 bashdb	Bashシェルデバッガー
 bashish	テキスト端末のテーマ環境
+bashunit	bashスクリプト用のシンプルなテストライブラリ
 basis_universal	基準汎用GPUテクスチャコーデック コマンドライン圧縮ツール
 bastet	ろくでなしテトリス
 bat	構文の強調表示とGit統合を備えたcat(1)のクローン
@@ -1973,6 +1974,7 @@ ghc@8.10	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.6	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.8	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.2	Glorious Glasgow Haskellコンパイルシステム
+ghc@9.4	Glorious Glasgow Haskellコンパイルシステム
 ghcup	汎用言語Haskellのインストーラー
 ghex	GNOME16進エディター
 ghi	コマンドラインでGitHubの問題に取り組む
@@ -2626,6 +2628,7 @@ immudb	軽量で高速な不変のデータベース
 imposm3	OpenStreetMapデータをPostgreSQL/PostGISデータベースにインポートします
 inadyn	ダイナミックDNSクライアントサポート IPv4/IPv6/SL/TLS
 include-what-you-use	CおよびC++ソースファイルの #includesを分析するためのツール
+incus	Incusと対話する為のCLIクライアン
 indicators	最新のC++の活発なインジケーター
 inetutils	ネットワークのGNUユーティリティ
 infer	静的分析器 Java/C/C++/Objective-C
@@ -4191,6 +4194,7 @@ nethack	Single-playerのroguelikeビデオゲーム
 nethacked	バグ修正されインターフェースにパッチが適用されたNethack
 nethogs	プロセスごとのネットtopツールのグループ化処理能力
 netlify-cli	Netlifyコマンドラインツール
+netlistsvg	yosys JSONネットリストからSVG回路図を描画します
 netmask	IPアドレスネットマスク生成ユーティリティ
 netpbm	画像操作
 netperf	さまざまなタイプのネットワーキングの性能基準比較
@@ -4979,6 +4983,7 @@ pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
 pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
+python-argcomplete	Python argparseのタブ補完
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
