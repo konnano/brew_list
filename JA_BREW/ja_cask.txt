@@ -2286,6 +2286,7 @@ modelio	拡張可能なモデリング環境
 modern-csv	CSVエディター
 moderndeck	素材に触発されたテーマを使用したTweetDeckの修正版
 modmove	装飾キーとマウスを使用してウィンドウを 移動/サイズ変更するユーティリティ
+modrinth	Minecraft改造プラットフォーム
 moebius	ANSIエディター
 moefe-google-translate	MoeFE Google翻訳
 mojibar	メニューバーアプリとしての絵文字サーチャー
