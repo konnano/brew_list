@@ -918,6 +918,7 @@ font-kaushan-script	Kaushan Script
 font-kavivanar	Kavivanar
 font-kavoon	Kavoon
 font-kawkab-mono	Kawkab Mono
+font-kay-pho-du	kayah li スクリプトのフォントファミリー
 font-kdam-thmor-pro	プロジェクトでラテン語対応として使用されます
 font-keania-one	Keania One
 font-kelly-slab	Kelly Slab
