@@ -2844,6 +2844,7 @@ juman	日本の形態素解析システム
 jumanpp	RNNLMに基づく日本語形態素解析器
 jump	習慣を学ぶことでファイルシステムをより速くナビゲートするのに役立ちます
 jupp	プログラマーのためのプロのスクリーンエディター
+jupyter-r	JupyterのRサポート
 jupyterlab	コードを記述して実行するための対話的な環境
 just	プロジェクト固有のコマンドを保存して実行するための便利な方法
 jvgrep	Vimの日本人ユーザーのためのGrep
@@ -4998,6 +4999,7 @@ python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-mutagen	オーディオメタデータを処理するためのPythonモジュール
 python-packaging	Pythonパッケージのコアユーティリティ
+python-psutil	Pythonでプロセスとシステムを監視するためのクロスプラットフォームライブラリ
 python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出すための低レベルライブラリ
