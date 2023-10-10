@@ -1995,6 +1995,7 @@ losslesscut	ビデオファイルとオーディオファイルを劣化無し�
 lotus	GitHubの通知を確認する
 loupedeck	Loupedeckコンソール用ソフトウェア
 love	Lua用の2Dゲームフレームワーク
+low-profile	Apple構成プロファイルのペイロードの検査に役立つユーティリティ
 lrtimelapse	時間経過編集 キーフレーム グレーディング/レンダリング
 ltspice	SPICEシミュレーションソフトウェア 回路図キャプチャ/波形ビューア
 ludwig	あなたがより良い英語を書くのを助ける文検索エンジンアプリ
