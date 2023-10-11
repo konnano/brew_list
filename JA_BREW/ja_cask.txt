@@ -1868,6 +1868,7 @@ krita	Freeのオープンソースの絵画とスケッチのプログラム
 ksdiff	KaleidoscopeのAppStoreバージョン用のコマンドラインツール
 ksnip	スクリーンショットと注釈ツール
 kstars	天文学ソフトウェア
+kuaitie	クロスプラットフォームのクラウドクリップボード同期ツール
 kube-cluster	kubeクラスター
 kube-forwarder	kubeフォワーダー
 kubecontext	Kubernetesコンテキストを管理するためのメニューバーアプリ
