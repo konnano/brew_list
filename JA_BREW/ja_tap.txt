@@ -2228,6 +2228,7 @@ microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2016	オフィススイート
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
 microsoft-openjdk17	MicrosoftからのOpenJDKディストリビューション
+microsoft-teams-classic	１ヶ所で会議、チャット、通話、コラボレーションが可能
 miniconda2	condaの最小限のインストーラー
 mixxx-snapshot	オープンソースのDJソフトウェア
 monal-beta	チャットサーバーに安全に接続するためのツール
