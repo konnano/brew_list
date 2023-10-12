@@ -3184,8 +3184,6 @@ rowmote-helper	Rowmote Proリモートコントロールを備えた制御シス
 royal-tsx	リモート管理ソリューション
 rpn-scientific	RPN関数電卓
 rq	レコード分析および変換ツール
-rrcc	RoboRockコントロールセンター
-rssowl	RSSOwl
 rstudio	RとPythonに焦点を当てたデータサイエンスソフトウェア
 rsyncosx	rsyncのGUI
 rsyncui	rsyncのGUI
@@ -3434,6 +3432,7 @@ solar2d	Luaベースのゲームエンジン
 solvespace	Parametric 2d/3d CAD
 sonarr	UsenetおよびBitTorrentユーザー向けのPVR
 sonarr-menu	Sonarrを管理するためのメニューをステータスバーに追加するユーティリティ
+songkong	自動オーディオタグエディター
 sonic-lineup	比較のための複数のオーディオファイルの迅速な視覚化
 sonic-pi	コードベースの音楽作成およびパフォーマンスツール
 sonic-robo-blast-2	DoomのDoom Legacyポートを使用して構築された3DオープンソースSonic the Hedgehogファンゲーム
