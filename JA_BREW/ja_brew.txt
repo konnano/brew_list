@@ -770,6 +770,7 @@ cgvg	コマンドラインソース ブラウジングツール
 chadwick	RetrosheetMLBの実況ファイルを解析するためのツール
 chafa	用途が広く高速なグラフィックrenderer Unicode/ASCII/ANSI
 chain-bench	CISベンチマークに基づくソフトウェアサプライチェーン監査ツール
+chainloop-cli	Chainloopと対話するためのCLI
 chaiscript	C++の使いやすい埋め込みスクリプト言語
 chakra	Microsoft Edgeを強化するJavaScriptエンジンのコア部分
 chalk-cli	ターミナルストリングのスタイリングは正しく行われます
@@ -900,6 +901,7 @@ cloudiscovery	クラウド環境でリソースを発見するのに役立ちま
 cloudlist	複数のクラウドプロバイダーのアセットをリストするツール
 cloudpan189-go	Cloud189 Webディスク用のコマンドラインクライアントツール
 cloudprober	顧客よりも先に障害を検出するアクティブ監視ソフトウェア
+cloudsplaining	AWS IAMセキュリティ評価ツール
 clozure-cl	長い歴史を持つCommonLispの実装
 clp	線形計画法Solver
 clpbar	コマンドラインプログレスバー
@@ -2242,6 +2244,7 @@ goredo	Go djbのやり直しの実装 扱うことが少ないMakefileの交換
 goreleaser	Goバイナリをできるだけ速く簡単に配信する
 goreman	Goで書かれたForemanクローン
 gosec	Golangセキュリティチェッカー
+gossip	Rustで書かれたNostr用デスクトップクライアント
 gost	GO Simple Tunnel-golangで書かれた単純なtunnel
 gostatic	高速静的サイト発生器
 gosu	JVM語用論言語
@@ -2868,6 +2871,7 @@ kamel	Apache Camel K CLI
 kanif	クラスター管理および管理ツール
 kapacitor	オープンソースの時系列データ計算機
 karchive	ファイルアーカイブの読み取り、作成、および操作
+karmadactl	KarmadaコントロールプレーンのCLI
 karn	複数のGit IDを管理する
 katago	知識のない人間に提供する神経ネットワークGoエンジン
 katana	クロールおよびスパイダーリングフレームワーク
@@ -3139,6 +3143,7 @@ libdc1394	IEEE 1394カメラ用りのAPIを提供します
 libdca	DTS Coherent Acousticsストリームをデコードするためのライブラリ
 libde265	h.265ビデオコーデックの実装を開く
 libdeflate	大幅に最適化された圧縮と解凍 DEFLATE/zlib/gzip
+libdicom	DICOM WSI読み取りライブラ
 libdill	Cでの構造化同時実行
 libdiscid	MusicBrainzおよびfreedbディスクIDを作成するためのCライブラリ
 libdivecomputer	さまざまなdiveコンピューターと通信するためのライブラリ
@@ -3853,6 +3858,7 @@ memcached	高性能の分散メモリオブジェクトcachingシステム
 memcacheq	memcacheのキューサービス
 memtester	メモリ部分システムをテストするためのユーティリティ
 menhir	OCamlプログラミング言語用のLR(1)パーサ発生器
+mentat	GPT-4を活用してコードを作成するコーディングアシスタント
 mercurial	拡張性のある分散バージョン管理システム
 mercury	プログラミング言語 論理/関数型
 mergelog	round-robin DNSの背後にあるWebサーバーからのhttpdログをマージします
@@ -4475,6 +4481,7 @@ openssl@3.0	暗号化/SSL/TLS ツールキット
 openstackclient	OpenStackのコマンドラインクライアント
 opensubdiv	オープンソースのsubdivision surfaceライブラリ
 opentelemetry-cpp	OpenTelemetry C++クライアント
+opentofu	Terraformのドロップイン代替品、コードとしてのインフラストラクチャツール
 opentracing-cpp	C++のOpenTracing API
 opentsdb	拡張性のある分散時系列データベース
 openttd	Transport Tycoon Deluxeをベースにしたシミュレーションゲーム
@@ -5338,6 +5345,7 @@ s3scanner	S3互換API全体で、設定が間違っているS3バケットをス
 s4cmd	SuperS3コマンドラインツール
 s6	小さくて安全な監視ソフトウェアパッケージ
 sad	CLI 検索と置換 | Space Age seD
+saf-cli	セキュリティ自動化フレームワーク(SAF)CLI
 safe-rm	ファイルの危険な削除を防ぐためにrmをラップします
 safeint	整数オーバーフローを管理するC++用のクラスライブラリ
 sagittarius-scheme	FreeのR6RSおよびR7RSをサポートするSchemeの実装
@@ -6548,6 +6556,7 @@ wordgrinder	端末で実行されるUnicode対応のワード計算機
 wordle	コマンドラインでwordleを再生する
 wordnet	英語の語彙データベース
 wordplay	アナグラム発生器
+wormhole-william	エンドツーエンドの暗号化されたファイル転送
 wownero	Wownero暗号通貨の公式ウォレットおよびノードソフトウェア
 wp-cli	WordPressのコマンドラインインターフェイス
 wp-cli-completion	WpcliのBash補完
