@@ -2556,7 +2556,7 @@ only-switch	システムおよびユーティリティスイッチ
 onlyoffice	ドキュメントエディター
 onyx	システムファイルの構造を確認 その他のメンテナンスを実行します。
 oolite	oolite
-opal	Opal C1用のプロフェッショナルウェブカメラソフトウェア
+opal-composer	Opal C1用のプロフェッショナルウェブカメラソフトウェア
 open-in-code	Visual StudioCodeで現在のフォルダーを開くためのFinderツールバーアプリ
 open-video-downloader	Electronとnode.jsで作成されたyoutube-dl用のクロスプラットフォームGUI
 openaudible	Audibleユーザー向けのオーディオブックマネージャー
@@ -2572,7 +2572,6 @@ opencpn	フル機能で簡潔な ChartPlotter/Navigator
 opendnsupdater	動的IPアップデータクライアント
 openemu	レトロなビデオゲームエミュレーション
 openframeworks	クリエイティブコーディング用のC++ツールキット
-openin	特定のブラウザー/アプリで リンク/ファイルを開く
 openineditor-lite	Finderで現在のディレクトリを開くためのFinderツールバーアプリ
 openinterminal	ターミナルまたはエディターで現在のディレクトリを開くためのFinderツールバーアプリ
 openinterminal-lite	ターミナルで現在のディレクトリを開くためのFinderツールバーアプリ
@@ -3461,6 +3460,7 @@ sourcetrail	コードソースエクスプローラー
 sourcetree	Gitバージョン管理用のグラフィカルクライアント
 space-capsule	スペース管理ツール
 space-saver	ローカルのTimeMachineバックアップを削除する
+spacedrive	オープンソースのクロスプラットフォームファイルエクスプローラー
 spaceid	現在選択されているスペースを示すメニューバーインジケーター
 spacelauncher	アプリ ランチャー/スイッチャー
 spaceman	メニューバーに 空き容量/仮想デスクトップを表示
