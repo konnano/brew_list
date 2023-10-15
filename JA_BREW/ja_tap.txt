@@ -2343,6 +2343,7 @@ wine-staging	Windowsアプリケーションを実行するための互換性レ
 xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 xmind-beta	マインドマップとブレインストーミングツール
 xmind8	マインドマッピングとブレーンストーミングツール
+zotero-beta	研究ソースを収集、整理、引用、共有する
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
