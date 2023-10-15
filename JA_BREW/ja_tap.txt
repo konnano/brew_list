@@ -21,6 +21,7 @@ font-advent-pro	Webと印刷用に設計されたモダンなフォント
 font-african-sans	African Sans
 font-african-serif	African Serif
 font-agave-nerd-font	Agave Nerd Font(Agave)
+font-agbalumo	シングルウェイトフォント
 font-agdasima	Big shouldersをベースに、凝縮されたアメリカンゴシックsans-serif
 font-aguafina-script	Aguafina Script
 font-ahuramzda	Ahuramzda
@@ -1019,6 +1020,7 @@ font-lilita-one	Lilita One
 font-lily-script-one	Lily Script One
 font-limelight	Limelight
 font-linden-hill	Linden Hill
+font-linefont	中小規模の折れ線グラフを描画するための可変フォント
 font-linux-biolinum	Linux Biolinum
 font-linux-libertine	Linux Libertine
 font-lisu-bosa	Lisu Bosa
@@ -1678,6 +1680,7 @@ font-red-hat-text	Red Hat Text
 font-red-rose	ポスター用に設計されたラテンのディスプレイ書体
 font-redacted	Redacted
 font-redacted-script	Redacted スクリプト
+font-reddit-sans	Reddit sans Condensed及びReddit Monoによって補完されます
 font-redhat	Red Hat
 font-redressed	Redressed
 font-reem-kufi	Reem Kufi
