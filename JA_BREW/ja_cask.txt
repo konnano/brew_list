@@ -2649,7 +2649,6 @@ overflow	ビジュアルアプリケーションランチャー
 overkill	iPhoneを接続するときにiTunesが開かないようにする
 oversight	コンピューターのマイクとWebカメラを監視します
 overt	アプリストアを開く
-owasp-zap	FreeのオープンソースWebアプリスキャナー
 owncloud	ownCloud用のデスクトップ同期クライアント
 oxygen-xml-editor	OxygenXML開発および作成を含むXML編集用のツール
 p4	これを使用して操作に即座にアクセスしシステムを完全に制御します
@@ -3138,7 +3137,6 @@ reverso	テキスト翻訳アプリケーション
 revolver-office	プロジェクト管理ツール
 rewind	画面と音声を記録して検索する
 rhino	3Dモデルクリエーター
-ricochet	匿名のピアツーピアインスタントメッセージング
 ricochet-refresh	Torを介したプライベートおよび匿名のインスタントメッセージング
 ricoh-theta	360°カメラのコンパニオン ソフトウェア
 rider	.NET IDE
@@ -4253,6 +4251,7 @@ yuna	アニメプレイヤー兼リストマネージャー
 yuque	クラウド知識ベース
 zalo	メッセージングおよび通話アプリケーション
 zandronum	DoomおよびDoomII用のマルチプレイヤー指向のポート
+zap	FreeオープンソースWebアプリスキャナー
 zappy	リモートチーム用の画面キャプチャツール
 zazu	ハッカー向けの拡張可能なオープンソースランチャー クリエイター/ダブラー
 zdoom	Doomのソースポート
