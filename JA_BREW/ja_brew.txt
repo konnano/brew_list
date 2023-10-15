@@ -745,6 +745,7 @@ certstrap	CAのブートストラップツール 証明書要求/および署名
 ceylon	チームで大規模なプログラムを作成するためのプログラミング言語
 cf	数値のタイムスタンプをフォーマットされた日時に置き換えるためのフィルター
 cf-tool	Codeforcesコンテスト用のコマンドラインツール
+cf2tf	CloudformationテンプレートからTerraform HCLコンバーターへ
 cf4ocl	OpenCLのCフレームワーク
 cfengine	IT基礎構造の管理と理解を支援する
 cffi	PythonのC外部関数インターフェイス
