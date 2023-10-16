@@ -1271,6 +1271,7 @@ diction	GNUの言葉遣いとスタイル
 diesel	RustORMディーゼルのコマンドラインツール
 diff-pdf	2つのPDFファイルを視覚的に比較します
 diff-so-fancy	diff-highlightなどを使用した見栄えの良いdiff
+diffoci	Diff、Docker及びOCIコンテナイメージ
 diffoscope	ファイル、アーカイブ、およびディレクトリの詳細な比較
 diffr	端末からのコードレビューを容易にするLCSベースのdiffハイライトツール
 diffstat	diffファイルによって導入された変更のグラフを作成します
@@ -1345,6 +1346,7 @@ docker-machine-parallels	Dockerマシン用のParallelsドライバー
 docker-slim	Dockerイメージを縮小して保護する
 docker-squash	Dockerイメージ押しつぶしツール
 dockerize	Dockerコンテナでのアプリケーションの実行を簡素化するユーティリティ
+dockly	Dockerコンテナとサービスを管理するためのイマーシブターミナルインターフェイス
 dockutil	ドックアイテムを管理するためのツール
 dockviz	Dockerデータの視覚化
 dockward	Dockerコンテナ用のポート転送ツール
@@ -2282,6 +2284,7 @@ gpsbabel	GPSウェイポイントを 変換/アップロード します トラ�
 gpsd	全地球測位システム(GPS)デーモン
 gpsim	MicrochipのPICマイクロコントローラーの模擬装置
 gptfdisk	テキストモードのパーティション分割ツール
+gptline	ネイティブiTerm2サポートを備えたChatGPTクライアント
 gptsync	GPTおよびMBRパーティションテーブル同期ツール
 gputils	GNUPICユーティリティ
 gpx	Sailfishを実行している3DプリンターのGcodeからx3gへの変換器
@@ -2470,6 +2473,7 @@ hey	HTTPロード発生器、Apache Bench(ab)の置き換え
 hfstospell	ヘルシンキFinite-Stateテクノロジーのospell
 hfsutils	Macintoshボリュームを読み書きするためのツール
 hg-fast-export	高速MercurialからGitへの変換器
+hickory-dns	RustベースのDNSクライアント、サーバー、リゾルバー
 hicolor-icon-theme	FreeDesktop.orgアイコンテーマの代替品テーマ
 hidapi	USBおよびBluetoothHIDデバイスと通信するためのライブラリ
 highlight	ソースコードを構文の強調表示を使用してフォーマットされたテキストに変換します
@@ -3326,6 +3330,7 @@ libnfnetlink	netfilter関連の通信用の低レベルライブラリ
 libnfs	NFSのCクライアントライブラリ
 libnftnl	nf_tablesサブシステムへのインターフェースを提供するNetfilterライブラリ
 libnghttp2	HTTP/2 Cライブラリ
+libnghttp3	Cで書かれたHTTP/3ライブラ
 libngspice	SPICE回路模擬装置共有ライブラリ
 libnice	GLib ICEの実装
 libnids	ネットワーク侵入検知システムのEコンポーネントを実装します
@@ -6169,7 +6174,6 @@ truffle	開発環境 イーサリアムのテストフレームワークとア�
 trufflehog	認証情報を検索して検証する
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
 trurl	URLの解析と操作のためのコマンドラインツール
-trust-dns	RustベースのDNSクライアント サーバー/ゾルバー
 trzsz	lrzsz (rz/sz)に似たシンプルなファイル転送ツール tmuxと互換性があります
 trzsz-go	シンプルなファイル転送ツール lrzsz(rz/sz)に似ています tmuxと互換性があります
 trzsz-ssh	trzsz(trz/tsz)をサポートするシンプルな sshクライアント
