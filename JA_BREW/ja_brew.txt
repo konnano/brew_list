@@ -1202,6 +1202,7 @@ dcled	気の利いた夢のUSBメッセージボードのLinuxドライバー
 dcm2niix	DICOMからNIfTIへの変換器
 dcmtk	OFFISDICOMツールキット コマンドラインユーティリティ
 dcos-cli	DC/OS クラスター管理するためのコマンドラインインターフェイス
+dcp	Docker cp が簡単に
 dcraw	デジタルカメラRAW写真デコードソフトウェア
 ddate	退屈な通常の日付を楽しいディスコーディアの日付に変換します
 ddcctl	Mac OSXコマンドラインのDDCモニターコントロール(明るさ)
@@ -4323,6 +4324,7 @@ nuxeo	企業コンテンツ管理
 nvc	VHDLコンパイラと模擬装置
 nvchecker	ソフトウェアリリースの新しいバージョンチェッカー
 nvi	44BSDによるviの再実装
+nvimpager	NeoVimをページャとして使用して、マンページや差分などを表示します
 nvm	複数のNode.jsバージョンを管理する
 nwchem	高性能計算化学ツール
 nxengine	洞窟物語の書き直し
