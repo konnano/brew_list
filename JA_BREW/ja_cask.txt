@@ -1269,6 +1269,7 @@ freac	オーディオ変換器とCD Ripper
 fredm-fuse	UNIX ZXSpectrumエミュレーターFuseのポート
 free-download-manager	ダウンロード 加速/整理
 free-gpgmail	GnuPG暗号化電子メール用のApple Mailプラグイン
+free-podcast-transcription	ポッドキャストを文字に起こす
 free-ruler	水平および垂直定規
 free42-binary	HP-42S計算機模擬装置
 free42-decimal	HP-42S計算機模擬装置
