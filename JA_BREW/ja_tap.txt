@@ -2309,6 +2309,7 @@ temurin11	Eclipse Foundation(Adoptium)のJDK
 temurin17	Eclipse Foundation(Adoptium)のJDK
 temurin18	Eclipse Foundation(Adoptium)のJDK
 temurin19	Eclipse Foundation(Adoptium)のJDK
+temurin20	JDK from the Eclipse Foundation (Adoptium)
 temurin21	JDK from the Eclipse Foundation (Adoptium)
 temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
