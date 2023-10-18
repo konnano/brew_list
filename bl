@@ -999,7 +999,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   }
 }
 
-sub clojur_1{ my @an; sub{ push @an,shift if @_; \@an } }
+sub clojur_1{ my @an; sub{ @_ ? push @an,shift : \@an } }
 
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
