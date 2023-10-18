@@ -4166,6 +4166,7 @@ write	手書き用ワードプロセッサ
 writefull	あなたの執筆に関するフィードバックを提供します
 writemapper	マインドマップを使用してテキストドキュメントを作成するのに役立つライティングツール
 writer	Fountain言語に基づくスクリーンライティングアプリ
+writerside	テクニカルライティング環境
 wwdc	WWDCライブストリームへのアクセスを許可します ビデオ/セッション
 wxmacmolplt	GAMESS用のクロスプラットフォームGUI入力発生器
 x-mirage	X-Mirage
