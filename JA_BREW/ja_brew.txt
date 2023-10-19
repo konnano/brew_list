@@ -1473,6 +1473,7 @@ easy-rsa	PKI CAを構築および管理するためのCLIユーティリティ
 easy-tag	オーディオファイルタグを表示および編集するためのアプリケーション
 easyengine	WordPressサイトを管理するためのコマンドラインコントロールパネル
 easyrpg-player	RPGツクール 2000/2003 ゲーム通訳
+eatmemory	コマンドラインからメモリを割り当てる簡単なプログラム
 ebook-tools	いくつかの電子ブック形式にアクセスして変換する
 ebook2cw	電子ブックをモールス信号に変換します
 ec2-ami-tools	Amazon EC2 AMIツール(Amazonマシンイメージのバンドルに役立ちます)
@@ -6452,7 +6453,7 @@ vunnel	さまざまなソースから脆弱性データを収集するツール
 vvdec	Fraunhofer汎用ビデオデコーダ
 vvenc	Fraunhofer汎用ビデオエンコーダ
 w-calc	非常に有能な計算機
-w3m	Pager/テキスト ベースのブラウザ
+w3m	ページャ/テキスト ベースのブラウザ
 wabt	Web Assemblyバイナリツールキット
 waffle	実行時にOpenGLAPIとウィンドウシステムを選択するためのCライブラリ
 wagyu	暗号通貨ウォレットを生成するためのRustライブラリ
