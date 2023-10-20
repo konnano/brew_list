@@ -454,6 +454,7 @@ bria	ソフトフォンアプリケーション
 bricklink-partdesigner	独自のLEGOパーツをデザインする
 bricklink-studio	LEGOの指示を作成します 建てる/表現する
 bricksmith	仮想レゴモデリング
+brickstore	BrickLinkオフライン管理ツール
 bridge	メガスキャンとメタヒューマンへのゲートウェイ
 brightness-sync	LG UltraFineディスプレイの明るさを同期するユーティリティ
 brisk	レーダーを提示するアプリ
@@ -3355,6 +3356,7 @@ simplefloatingclock	シンプルなフローティングクロック
 simplemind	クロスプラットフォームのマインドマッピングツール
 simplenote	SimplenoteのReactクライアント
 simplesynth	小さくて速いシンセ
+simplex	SimpleXプロトコル用メッセンジャー
 simplistic	SimPLISTic
 simply-fortran	Fortran開発環境
 simsim	ターミナルまたはファインダーでiOSアプリケーションフォルダーを探索するためのツール
