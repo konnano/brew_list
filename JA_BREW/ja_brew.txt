@@ -397,7 +397,6 @@ bat	構文の強調表示とGit統合を備えたcat(1)のクローン
 bat-extras	batをさまざまなコマンドラインツールと統合するBashスクリプト
 batik	SVG画像のJavaベースのツールキット
 bats-core	Bash自動テストシステム
-bazaar	親しく強力な分散バージョン管理システム
 bazarr	字幕を管理およびダウンロードするための Sonarrおよび Radarrのコンパニオン
 bazel	Google独自のビルドツール
 bazel-diff	Gitの2つのリビジョン間でBazel Target Diffingを実行します
@@ -599,14 +598,6 @@ byobu	テキストベースのウィンドウマネージャーとターミナ�
 byteman	テスト/監視/トレース のためのJavaバイトコード操作ツール
 bzip2	Freeで入手できる高品質のデータ圧縮機
 bzip3	BZip2のより優れた強力な後継
-bzr-builder	レシピに基づいてブランチを構築するためのBazaarプラグイン
-bzr-colo	BazaarのGitスタイルに共同設置されたブランチ
-bzr-externals	svn：externalsのような外部ブランチのBazaarサポート
-bzr-extmerge	Bazaarの外部マージツールのサポート
-bzr-rewrite	リビジョンの書き換えと基準をサポートするBazaarプラグイン
-bzr-upload	dumbサーバーの変更を段階的にアップロードするBazaarプラグイン
-bzr-xmloutput	XML出力を生成するオプションを提供するBazaarプラグイン
-bzrtools	便利な追加ユーティリティを提供するBazaarプラグイン
 bzt	BlazeMeter Taurus
 c	C スクリプトを一度にコンパイルして実行する
 c-ares	非同期DNSライブラリ
@@ -1019,7 +1010,6 @@ coturn	TURNおよびSTUNサーバーのFreeオープンソース実装
 couchbase-shell	Couchbase Server及びCapella用のモダンで楽しいシェル
 couchdb	Apache CouchDBデータベースサーバー
 couchdb-lucene	Luceneを使用したCouchDBドキュメントの全文検索
-couchpotatoserver	映画を自動的にダウンロードする
 countdown	ターミナルカウントダウンタイマー
 counterfeiter	自己完結型のタイプセーフテストダブルを生成するためのツール
 counts	アドホックプロファイリング用ツール
@@ -1333,13 +1323,11 @@ docker-buildx	BuildKitを使用した拡張ビルド機能用のDocker CLIプラ
 docker-clean	Dockerコンテナをクリーンアップ イメージ/ネットワーク/ボリューム
 docker-completion	Dockerの Bash/Zsh/Fish の補完
 docker-compose	Dockerを使用した分離された開発環境
-docker-compose-completion	docker-composeの補完スクリプト
 docker-credential-helper	DockerのMacOS認証情報ヘルパー
 docker-credential-helper-ecr	Amazon ECR用のDocker認証情報ヘルパー
 docker-gen	Dockerコンテナのメタデータからファイルを生成する
 docker-ls	Dockerレジストリを参照および操作するためのツール
 docker-machine	ローカルおよびクラウドプロバイダーでDockerホストを作成する
-docker-machine-completion	docker-machineの補完スクリプト
 docker-machine-driver-vmware	VMware Fusion＆Workstation docker-machineドライバー
 docker-machine-driver-vultr	Vultr Cloud用のDocker Machineドライバープラグイン
 docker-machine-nfs	DockerマシンでNFSをアクティブ化します
@@ -2195,7 +2183,6 @@ go-jsonnet	JSONデータを定義するための構成言語の実装に移動�
 go-md2man	マークダウンをroffに変換します(manページ)
 go-statik	Go実行可能ファイルにファイルを埋め込む
 go-task	Taskはよりシンプルで使いやすいことを目的としたタスク ランナー/ビルド ツールです
-go@1.15	Goプログラミング環境(1.15)
 go@1.16	Goプログラミング環境(1.16)
 go@1.17	Goプログラミング環境(1.17)
 go@1.18	シンプル/信頼性/効率的なソフトウェアを構築するためのオープンソースプログラミング言語
@@ -3182,7 +3169,6 @@ libetonyek	Apple Keynote提示の解釈とインポート
 libetpan	いくつかの命令を処理するポータブルメールライブラリ
 libev	非同期イベントライブラリ
 libevent	非同期イベントライブラリ
-libevhtp	非常に高速で安全な組み込みHTTPサーバーを簡単に作成
 libewf	Expert Witness Compression Formatをサポートするためのライブラリ
 libexif	EXIF解析ライブラリ
 libexosip	eXosip2用ツールキット
@@ -4044,7 +4030,6 @@ mpd	ミュージックプレーヤーデーモン
 mpdas	トラックをaudioscrobblerに送信するC++クライアント
 mpdecimal	10進浮動小数点演算用のライブラリ
 mpdscribble	mpdのLast.fm 報告クライアント
-mpdviz	独立型のコンソールMPD visualizer
 mpegdemux	MPEG1/2 システムストリームdemultiplexer
 mpfi	多倍長区間演算ライブラリ
 mpfr	多倍長浮動小数点計算用のCライブラリ
@@ -4713,7 +4698,6 @@ php@7.4	汎用スクリプト言語
 php@8.0	汎用スクリプト言語
 php@8.1	汎用スクリプト言語
 phpbrew	HOMEで純粋なPHPでPHPバージョンを作成および管理する
-phplint	PHP5および7プログラムの確認およびドキュメンター
 phpmd	PHP Mess Detector
 phpmyadmin	MySQLおよびMariaDBのWebインターフェース
 phpstan	PHP静的分析ツール
@@ -4975,7 +4959,6 @@ pyenv-ccache	Pythonのビルドを高速化 `ccache`のレバレッジを使用�
 pyenv-pip-migrate	あるPythonバージョンから別のバージョンへのpipパッケージの移行
 pyenv-virtualenv	virtualenvを管理するためのPyenvプラグイン
 pyenv-virtualenvwrapper	virtualenvsを管理するためのpyenvの代替品
-pyenv-which-ext	pyenvとシステムコマンドを統合する
 pyflow	Pythonのインストールおよび依存関係システム
 pygit2	libgit2 共有ライブラリへのバインド
 pygitup	より良い 'git pull'
@@ -5294,8 +5277,6 @@ rrdtool	Round Robinデータベース
 rsc_2fa	コマンドラインでの二段階認証
 rslint	非常に高速なJavaScriptおよびTypeScript静的解析
 rsnapshot	ファイルシステムスナップショットユーティリティ(rsyncに基づく)
-rssh	OpenSSHで使用するための制限付きシェル
-rsstail	RSSフィードを監視し、検出されると新しいエントリを送信します
 rst-lint	ReStructuredText静的解析ツール
 rswift	強い型を取得、画像などの自動補完されたリソース フォント/segues
 rsync	高速増分ファイル転送を提供するユーティリティ
@@ -5743,7 +5724,6 @@ sqlparse	非検証SQLパーサー
 sqls	Goで記述されたSQL言語サーバー
 sqlsmith	ランダムSQL生成器
 sqlx-cli	RustSQLツールキットであるSQLxのコマンドラインユーティリティ
-sqoop	Hadoopと構造化データstore間でバルクデータを転送する
 sqsmover	AWSSQSメッセージムーバー
 sqtop	Squidプロキシのアクティブな接続に関する情報を表示する
 squashfs	Linuxの圧縮された読み取り専用ファイルシステム
@@ -5841,7 +5821,6 @@ subfinder	サブドメイン検出ツール
 subliminal	字幕を検索してダウンロードするためのライブラリ
 subnetcalc	IPv4/IPv6サブネット計算機
 subversion	より良いCVSになるように設計されたバージョン管理システム
-subversion@1.8	バージョン管理システム
 suil	LV2プラグインUIをロードおよびラップするための軽量Cライブラリ
 suite-sparse	Sparse行列ソフトウェアのパッケージ
 sundials	非線形と微分/代数 方程式Solver
@@ -5885,7 +5864,6 @@ switch-lan-play	あなたとあなたの友達にLANのようにゲームをさ�
 switchaudio-osx	コマンドラインからMacOSオーディオソースを変更する
 sword	聖書ソフトウェアを書くためのクロスプラットフォームツール
 swtpm	libtpmsに基づくソフトウェアTPMエミュレーター
-sxiv	シンプルなX画像Viewer
 syck	YAMLを読み書きするための機能拡張
 syft	コンテナイメージからソフトウェア部品表を生成するためのCLI
 sylpheed	シンプルで軽量なメールクライアント
