@@ -65,6 +65,7 @@ aerial	Apple TV Aerialスクリーンセーバー
 aether	ピアツーピアの一時的な公開コミュニティー
 aethersx2	ARMベースのMac用のSony PlayStation 2エミュレーター
 aexol-remote-mouse	Aexolリモートマウス
+affine	ノートエディターとホワイトボード
 affinity-designer	プロのグラフィックデザインソフトウェア
 affinity-photo	プロの画像編集ソフトウェア
 affinity-publisher	プロのデスクトップ出版ソフトウェア
