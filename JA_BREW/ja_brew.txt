@@ -4656,6 +4656,7 @@ periscope	データを失うことなくファイルを整理して重複排除�
 perkeep	自分のものを永久に保管できます 生活のために
 perl	高性能で機能豊富なプログラミング言語
 perl-build	Perlビルダー
+perl-xml-parser	XMLドキュメントを解析するためのPerlモジュール
 perl@5.18	高性能で機能豊富なプログラミング言語
 perltidy	Perlスクリプトをインデントして再フォーマットし読みやすくします
 peru	バージョン管理とアーカイブのための依存関係Retriever
