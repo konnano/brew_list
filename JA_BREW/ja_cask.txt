@@ -3177,7 +3177,6 @@ roonbridge	音楽プレーヤーネットワーク拡張
 rosaimagewriter	ROSA ImageWriter
 rotato	試作品生成器とアニメーター3D
 rotki	ポートフォリオ追跡および会計ツール
-routebuddy	GPS対応のマッピングソフトウェア
 routeconverter	表示するGPSツール 編集/ルートを充実させ変換する/トラックとウェイポイント
 routine	生産的な人々のためのカレンダー
 rowanj-gitx	gitバージョン管理システム用のネイティブグラフィカルクライアント
@@ -4215,6 +4214,7 @@ xquartz	X.OrgXウィンドウシステムのオープンソースバージョン
 xrg	システムモニター
 xscope	画面上のグラフィックスとレイアウトを測定/検査/テスト するためのツール
 xscreensaver	スクリーンセーバー
+xsplit-vcam	ウェブカメラバックグラウンドツール
 xstation5	デスクトップ取引プラットフォーム
 xtool-creative-space	xToolレーザー加工機用の設計および制御ソフトウェア
 xtorrent	トレントクライアント
