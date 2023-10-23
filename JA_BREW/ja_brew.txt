@@ -4250,6 +4250,7 @@ node-sass	SassコンパイラのJavaScript実装
 node@14	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node@16	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
 node@18	ネットワークアプリケーションを構築するためにV8上に構築されたプラットフォーム
+node@20	ネットワークアプリケーションを構築するためのV8上に構築されたプラットフォーム
 node_exporter	マシンmetrics用のPrometheusエクスポーター
 nodebrew	Node.jsバージョンマネージャー
 nodeenv	Node.js仮想環境ビルダー
