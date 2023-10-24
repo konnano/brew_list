@@ -357,6 +357,7 @@ babl	動的な、任意のピクセル形式の変換ライブラリ
 backupninja	バックアップ自動化ツール
 bacon	バックグラウンドの rustコードチェック
 bacula-fd	ネットワークバックアップソリューション
+badkeys	暗号公開キーの一般的な脆弱性を見つけるツール
 bagit	バッグの作成、操作、および検証のためのライブラリ
 baidupcs-go	Baiduネットワークディスクのターミナルユーティリティ
 balena-cli	balenaCloudおよびbalena APIと対話するためのコマンドラインツール
@@ -5745,6 +5746,7 @@ sse2neon	Intel SSE組み込み関数からArm/Aarch64 NEON実装へのトラン�
 ssed	スーパーsedストリームエディター
 ssh-audit	SSHサーバーとクライアントの監査
 ssh-copy-id	リモートマシンのauthorized_keysファイルに公開鍵を追加します
+ssh-mitm	セキュリティ監査とマルウェア分析用のSSHサーバー
 ssh-permit-a38	SSHキーの集中管理と展開
 ssh-vault	SSHキーを使用して暗号化/復号化
 sshfs	SSHファイル転送手続きに基づくファイルシステムクライアント
@@ -6618,6 +6620,7 @@ xdot	Graphvizのdot言語で書かれたグラフ用の対話的Viewer
 xdotool	X用の偽のキーボード/マウス入力とウィンドウ管理
 xdpyinfo	X.Org：Xサーバーに関する情報を表示するためのユーティリティ
 xe	単純なxargsと置換の適用
+xeol	コンテナイメージ、ファイルシステム、SBOMのサポート終了ソフトウェア用のXcanner
 xerces-c	XMLパーサーの検証
 xfig	統計の対話的な生成のための機能
 xgboost	拡張可能なポータブルで分散型の勾配ブースティングライブラリ
@@ -6765,6 +6768,7 @@ zinit	柔軟で高速なZshプラグインマネージャー
 zint	50以上のシンボル体系をサポートするBarcodeエンコーディングライブラリ
 zip	圧縮およびファイルのユーティリティ パッケージ/アーカイブ
 zita-convolver	高速なパーティション畳み込みエンジンライブラリ
+zix	C99の移植性とデータ構造ライブラリ
 zk	プレーンテキストのメモ取りアシスタント
 zlib	汎用で損失の無いデータ圧縮ライブラリ
 zlib-ng	次世代システム向けの最適化によるZlibの置き換え
