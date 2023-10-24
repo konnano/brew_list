@@ -686,6 +686,7 @@ command-pad	コマンドラインツールを開始および停止し出力を�
 command-tab-plus	キーボード中心のアプリケーションとウィンドウ切り替え
 command-x	Finderでファイルを切り取って貼り付ける
 commander-one	2パネルのファイルマネージャー
+commandpost	Final Cut Proのワークフローの強化
 commandq	誤ってアプリを終了することはありません
 composercat	Composer(PHP)のグラフィカルインターフェイス
 compositor	WYSIWYG LaTeXエディター
