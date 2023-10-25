@@ -344,6 +344,7 @@ awsume	コマンドラインからAWS IAMロールを簡単に引き受けるた
 awsweeper	AWSアカウントをクリーンアップするためのCLIツール
 axel	Light UNIXダウンロードアクセラレータ
 azcopy	Azure Storageデータ転送ユーティリティ
+azion-cli	AzionサービスのCLI
 aztfexport	既存のAzureリソースをTerraform の管理下に置く
 azure-cli	Microsoft Azure CLI 2.0
 azure-storage-cpp	C++のMicrosoft Azure記憶装置 クライアントライブラリ
@@ -2399,6 +2400,7 @@ h3	六角形の階層的地理空間インデックスシステム
 hackrf	低コストのソフトウェア無線プラットフォーム
 hadolint	ベストな手法を検証するためのスマートなDockerfile静的解析ツール
 hadoop	大規模なデータセットの分散処理のためのフレームワーク
+haiti	ハッシュタイプ識別子
 halibut	さらに別でFreeのドキュメント準備システム
 halide	高速でポータブルなデータ並列計算のための言語
 hamlib	アマチュア無線制御ライブラリ
@@ -5613,6 +5615,7 @@ snowflake	Flashproxyに触発されたWebRTCを使用したプラガブルトラ
 snownews	テキストモードRSSニュースリーダー
 snowpack	最新のWeb用に設計されたフロントエンドビルドツール
 sntop	ホストをポーリングして接続を判別するCursesベースのユーティリティ
+snyk-cli	プロジェクトをスキャンしてセキュリティの脆弱性を監視します
 snzip	snappyに基づく圧縮/解凍ツール
 so	StackOverflowのターミナルインターフェース
 soapyrtlsdr	SoapySDR RTL-SDRサポートモジュール
@@ -6030,6 +6033,7 @@ theora	オープンビデオ圧縮形式
 thors-serializer	C++の宣言型順番化ライブラリ(JSON/YAML)
 thrax	文法を限定状態トランスデューサにコンパイルするためのツール
 threadweaver	マルチスレッドプログラミングのヘルパー
+three-body	Rustで書かれた三体プログラミング言語
 threemux	i3に触発されたターミナル多重装置
 thrift	scalableな多言語サービス開発のためのフレームワーク
 thrift@0.9	scalableな多言語サービス開発のためのフレームワーク
