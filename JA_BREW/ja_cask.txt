@@ -312,6 +312,7 @@ bartender	メニューバーアイコンオーガナイザー
 base	作成するアプリ デザイン/SQLite3データベースファイルを編集および参照する
 basecamp	リモートで作業するためのオールインワンツールキット
 basictex	完全な TeXLive/MacTeXの代替としてのコンパクトなTeXディストリビューション
+batchoutput-pdf	PDF印刷を自動化する
 bathyscaphe	2チャンネルブラウザー
 batteries	すべてのデバイスのバッテリーを追跡する
 battery	バッテリーの充電状態を管理するためのCLI
