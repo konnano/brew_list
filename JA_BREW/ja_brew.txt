@@ -344,7 +344,7 @@ awsume	コマンドラインからAWS IAMロールを簡単に引き受けるた
 awsweeper	AWSアカウントをクリーンアップするためのCLIツール
 axel	Light UNIXダウンロードアクセラレータ
 azcopy	Azure Storageデータ転送ユーティリティ
-azion-cli	AzionサービスのCLI
+azion	AzionサービスのCLI
 aztfexport	既存のAzureリソースをTerraform の管理下に置く
 azure-cli	Microsoft Azure CLI 2.0
 azure-storage-cpp	C++のMicrosoft Azure記憶装置 クライアントライブラリ
@@ -507,6 +507,7 @@ bmake	NetBSD make(1)のポータブルバージョン
 bmon	インターフェイス処理能力モニター
 bnd	OSGiバンドルの万能ナイフ
 bnfc	BNF変換器
+bob	neovimバージョンマネージャー
 bochs	C++オープンソースのIA-32(x86)PCエミュレーター
 bogofilter	統計分析によるメールフィルター
 bombadillo	増え続ける手順のリスト用に設計された非Webブラウザ
@@ -2147,7 +2148,6 @@ gnome-themes-extra	GNOMEデスクトップ環境用の追加テーマ
 gnu-apl	プログラミング言語APLのGNU実装
 gnu-barcode	テキスト文字列を印刷されたバーに変換する
 gnu-chess	チェスプレイプログラム
-gnu-cobol	COBOL85およびCOBOL2002標準の多くを実装します
 gnu-complexity	Cソースの複雑さを測定します
 gnu-getopt	コマンドラインオプション解析ユーティリティ
 gnu-go	囲碁のゲームをします
@@ -2161,6 +2161,7 @@ gnu-time	時間ユーティリティのGNU実装
 gnu-typist	GNUタイピングチューター
 gnu-units	GNU単位変換ツール
 gnu-which	whichユーティリティのGNU実装
+gnucobol	多くの方言固有の拡張機能をサポートするCOBOL85-202xコンパイラ
 gnumeric	GNOMEスプレッドシートアプリケーション
 gnunet	分散型で安全なプライバシー保護アプリケーションのフレームワーク
 gnupg	GNU Pretty Good Privacy(PGP)パッケージ
@@ -4620,6 +4621,7 @@ pcapplusplus	C++ネットワークsniffing パケット解析とcraftingフレ�
 pcb	対話的プリント回路基板エディタ
 pcb2gcode	PCBsの分離/設定 のためのコマンドラインツール
 pce	PCエミュレーター
+pciutils	PCIユーティリティ
 pcl	2D/3D画像および点群処理用のライブラリ
 pcp	📦 libp2pに基づくコマンドラインピアツーピアデータ転送ツール
 pcre	Perl互換の正規表現ライブラリ
@@ -5180,6 +5182,7 @@ regina-rexx	Rexxの通訳
 regipy	オフラインレジストリハイブ解析ツール
 regldg	正規表現文法言語辞書発生器
 regula	Open Policy Agent/Rego を使用して基礎構造をコードテンプレートとしてチェックします
+rekor-cli	Rekorと対話するためのCLI
 release-it	バージョン管理とパッケージ公開に関連するタスクを自動化する汎用CLIツール
 rem	OSXLeminders.appデータベースにアクセスするためのコマンドラインツール
 remake	改善されたエラー処理/トレース/デバッガー を備えたGNU Make
@@ -5754,6 +5757,7 @@ ssh-permit-a38	SSHキーの集中管理と展開
 ssh-vault	SSHキーを使用して暗号化/復号化
 sshfs	SSHファイル転送手続きに基づくファイルシステムクライアント
 sshguard	SSHに対するブルートフォース攻撃から保護する
+sshportal	SSH及びTelnet、堅牢サーバー
 sshs	SSHのグラフィカルコマンドラインクライアント
 sshtrix	SSHログインクラッカー
 sshuttle	貧乏人のVPNとして機能するプロキシサーバー
@@ -5948,7 +5952,6 @@ tea	Giteaサーバーと対話するためのコマンドラインツール
 tealdeer	Rustでのtldrの非常に高速な実装
 teapot	テーブルエディターとプランナー
 tectonic	近代化され完全な自己完結型のTeX/LaTeXエンジン
-tee-clc	Microsoft Team Explorer Everywhereコマンドラインクライアント
 teem	科学ラスターデータ用のライブラリ
 teensy_loader_cli	Teensy USB開発ボードのコマンドライン統合
 teip	"ひとつのことをうまくする"コマンドを助けるマスキングテープ
