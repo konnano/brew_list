@@ -14,6 +14,7 @@ abcmidi	abc記譜ファイルをMIDIファイルに変換します
 abduco	端末からプログラムを分離しセッション管理を提供します
 abi-compliance-checker	C/C++ライブラリの下位互換性をチェックするためのツール API/ABI
 abi-dumper	DWARFデバッグ情報を含むELFオブジェクトのABIをダンプします
+abi3audit	Pythonパッケージをスキャンして、abi3違反と不整合を検出します
 abnfgen	ABFN文法に一致するランダムなドキュメントをすばやく生成します
 abook	muttをサポートするアドレスブック
 abricate	コンティグの耐性と不良要素を見つける
@@ -282,6 +283,7 @@ aubio	オーディオ信号から注釈を抽出する
 audacious	GTK+をベースにしたFreeで高度なオーディオプレーヤー
 audiofile	多くの一般的なオーディオファイル形式の読み取りと書き込み
 auditbeat	監査データの軽量Shipper
+auditwheel	クロスディストリビューション、Linux 車輪の監査と再ラベル付け
 augeas	構成編集ツールとAPI
 augustus	真核生物のゲノム配列の遺伝子を予測する
 aurora	Beanstalkdキューサーバーコンソール
@@ -2251,6 +2253,7 @@ gotestwaf	API及びOWASP攻撃シミュレーション用ツール
 gotify	メッセージを gotify/server にプッシュするためのコマンドラインインターフェイス
 goto	自動補完を使用してエイリアスディレクトリに移動するためのBashツール
 gotop	gtopとvtopに触発されたターミナルベースのグラフィカルで活発なモニター
+gotpm	TPM 2.0を使用するためのCLI
 gource	バージョン管理視覚化ツール
 govc	VMwarev Sphereのコマンドラインツール
 govendor	Goの依存関係をベンダー化するためのツール
@@ -4567,6 +4570,7 @@ paket	NuGetとGitリポジトリをサポートする.NETの依存関係マネ�
 pam-reattach	ユーザーのGUI(Aqua)セッションに再接続するためのPAMモジュール
 pam-u2f	PAMでU2F準拠のオーセンティケータを使用する簡単な方法を提供します
 pam_yubico	Yubico接続認証モジュール
+pan	テキストとバイナリの両方に優れたUsenetニュースリーダー
 pandemics	簡略化されたフレームワークでマークダウンドキュメントを変換します
 pandoc	マークアップ形式変換の万能ナイフ
 pandoc-crossref	番号付けと相互参照のためのPandocフィルター
@@ -5525,6 +5529,7 @@ sift	grepに代わる高速で強力なオープンソース
 signal-cli	WhisperSystems/libsignal-service-java のCLIとdbusインターフェース
 signify-osx	暗号で署名しファイルを検証する
 sigrok-cli	論理分析などを使用するためのSigrokコマンドラインインターフェイス
+sigstore	Pythonパッケージの共同設計ツール
 sile	TeXに触発された最新の植字システム
 silicon	ソースコードの美しい画像を作成する
 silk	転送量分析ツールのコレクション
@@ -6436,6 +6441,7 @@ vulkan-loader	Vulkan ICDローダー
 vulkan-tools	Vulkanユーティリティとツール
 vulkan-utility-libraries	Vulkanのユーティリティライブラリ
 vulkan-validationlayers	開発者がVulkan APIの正しい使用を検証できるようにするVulkanレイヤー
+vulsio-gost	ローカルCVE、トラッカー及ぶ通知システム
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
 vunnel	さまざまなソースから脆弱性データを収集するツール
