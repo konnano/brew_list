@@ -1257,6 +1257,7 @@ forecast	チャプター付きポッドキャストMP3エンコーダー
 fork	GITクライアント
 forkgram-telegram	Telegram Desktopのフォーク
 forklift	Finderの交換と FTP/SFTP/WebDAV/Amazons 3クライアント
+fossa	ゼロ構成のポリグロット依存関係分析ツール
 fotokasten	写真製品を作成して購入する
 foxglove-studio	ロボット工学のための視覚化およびデバッグツール
 foxit-pdf-editor	PDFエディター
