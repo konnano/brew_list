@@ -14,7 +14,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
-  $Xcode = `xcodebuild -version 2>/dev/null|\
+  $Xcode = `(xcodebuild -version 2>/dev/null||
+            /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -version 2>/dev/null)|
             sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+).*/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
   $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
