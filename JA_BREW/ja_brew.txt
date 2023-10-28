@@ -669,6 +669,7 @@ cargo-release	Cargoサブコマンド `release`: rust crateの解放に関する
 cargo-udeps	Cargo.tomlで未使用の依存関係を検索する
 cargo-watch	Cargoプロジェクトのソースを監視します
 cargo-zigbuild	zigをリンカーとしてCargoプロジェクトをコンパイルする
+cariddi	エンドポイント、シークレット、APIキー、ファイル拡張子、トークンなどをスキャンしま
 carla	Audioプラグインホストサポート LADSPA、LV2、VST2/3、SF2など
 carrot2	検索結果クラスタリングエンジン
 carthage	Cocoaの分散型依存関係マネージャー
@@ -772,6 +773,7 @@ chaiscript	C++の使いやすい埋め込みスクリプト言語
 chakra	Microsoft Edgeを強化するJavaScriptエンジンのコア部分
 chalk-cli	ターミナルストリングのスタイリングは正しく行われます
 chamber	AWS SSMパラメータstoreを介して機密管理するためのCLI
+changie	リリースを準備するための自動変更ログツール
 chaoskube	Kubernetesクラスター内のランダムなポッドを定期的に強制終了します
 chapel	大規模な生産的並列コンピューティングのためのプログラミング言語
 charge	意見のある、ゼロ構成の静的サイト発生器
@@ -1093,6 +1095,7 @@ csfml	CのSMFL bindings
 csmith	C99標準に準拠したランダムなCプログラムを生成します
 csound	音響および音楽コンピューティングシステム
 cspice	ロボット宇宙科学ミッションのための観測幾何学システム
+csprecon	コンテンツセキュリティポリシーを使用して新しいターゲットドメインを検出する
 css-crush	拡張可能なPHPベースのCSS前処理プログラム
 csshx	Terminal.appのクラスターsshツール
 cstore_fdw	Postgresを使用した分析用の列指向store
@@ -1652,6 +1655,7 @@ faudio	オープンプラットフォーム向けの精度重視のXAudio再実�
 fauna-shell	FaunaDBの対話的シェル
 faust	リアルタイム信号処理のための関数型プログラミング言語
 fava	複式簿記ソフトウェアBeancountのWebインターフェイス
+favirecon	favicon.icoを使用してターゲット偵察フェーズを改善します
 fb-client	https://paste.xinu.atのシェルスクリプトクライアント
 fb303	サービスから情報をクエリするためのThrift関数
 fblog	小さなコマンドラインJSONログViewer
@@ -2038,6 +2042,7 @@ git-integration	git統合ブランチを管理する
 git-interactive-rebase-tool	Gitの対話的な基準のネイティブに続くエディター
 git-lfs	大きなファイルをバージョン管理するためのGit機能拡張
 git-machete	Gitリポジトリ オーガナイザー&リベース ワークフロー自動化ツール
+git-mediate	マージ競合の解決に役立つユーティリティ
 git-multipush	1つのコマンドで複数のリモートにブランチをプッシュする
 git-now	gitの軽量で一時的なコミット
 git-number	gitでファイルを処理するために数字を使用する
@@ -2089,6 +2094,7 @@ gitlint	git commitメッセージのLinting
 gitmoji	コミットメッセージで絵文字を使用するための対話的コマンドラインツール
 gitoxide	慣用的/効率的 Gitの高速で安全なpure Rust実装
 gitql	Gitクエリ言語
+gitsign	Sigstoreを使用したキーレスGit署名
 gitslave	スーパープロジェクトとして1つの関連するリポジトリのグループを作成します
 gitter-cli	端末用の非常にシンプルなGitterクライアント
 gitui	燃えるように高速なターミナル rustで書かれたgit用のUI
@@ -2802,6 +2808,7 @@ jpeg-xl	静止画圧縮用の新しいファイル形式
 jpeginfo	JPEG/JFIF ファイルの情報を出力し整合性をテストします
 jpegoptim	JPEGファイルを最適化するユーティリティ
 jpegrescan	JPEGファイルを可逆圧縮
+jprq	パブリックルーターにすぐに接続
 jq	軽量で柔軟なコマンドラインJSON計算機
 jql	JSONクエリ言語CLIツール
 jr	アプリケーション用に高品質のランダムデータを作成するのに役立つCLIプログラム
@@ -5395,6 +5402,7 @@ schema-evolution-manager	postgresqlデータベーススキーマの移行を管
 schemathesis	仕様を備えたWebアプリケーションのテストツール
 scheme48	Schemeバイトコードインタプリタ
 schroedinger	Diracコーデックの高速実装
+scilla	DNS、サブドメイン、ポート、ディレクトリ列挙ツール
 scip	混合整数計画法および混合整数非線形計画法のソルバー
 scipy	数学のためのソフトウェア 理科/エンジニアリング
 scm-manager	Gitを管理する Mercurial/HTTPを介したSubversionリポジトリ
@@ -6524,6 +6532,7 @@ whalebrew	Homebrew ただしDockerイメージを使用
 whatmask	ネットワーク設定ヘルパー
 whatmp3	FLACからmp3トレントを作成するための小さなスクリプト
 when	小さな個人カレンダー
+whisper-cpp	C/C++でのOpenAIのWhisperモデルのポート
 whistle	Websocketデバッグプロキシ HTTP/HTTP2/HTTPS
 whois	ドメイン名やその他のインターネットリソースの検索ツール
 widelands	Settlers IIのようなFreeのリアルタイム戦略ゲーム
