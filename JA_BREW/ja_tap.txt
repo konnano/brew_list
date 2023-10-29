@@ -18,6 +18,7 @@ font-adinatha-tamil-brahmi	Adinatha Tamil Brahmi
 font-adlam-display	ADLaM Display
 font-adobe-blank	Adobe Blank
 font-advent-pro	Webと印刷用に設計されたモダンなフォント
+font-afacad	Afacad
 font-african-sans	African Sans
 font-african-serif	African Serif
 font-agave-nerd-font	Agave Nerd Font(Agave)
@@ -729,6 +730,8 @@ font-hasklig	等幅合字のコードフォント
 font-hasklug-nerd-font	Hasklugオタクフォント(Hasklig)
 font-headland-one	Headland One
 font-heavy-data-nerd-font	HeavyData Nerd Font(Heavy Data)
+font-hedvig-letters-sans	そうでないときは完璧
+font-hedvig-letters-serif	そうでないときは完璧
 font-heebo	Heebo
 font-henny-penny	Henny Penny
 font-hepta-slab	Hepta Slab
@@ -905,6 +908,7 @@ font-kaisei-opti	モダンな和文書体
 font-kaisei-tokumin	読みやすさを維持しながらさらに大胆な書体としての力を発揮するように設計されています
 font-kaiso	現代の幻想的な日本語フォント
 font-kalam	Kalam
+font-kalnia	Kalnia
 font-kameron	Kameron
 font-kanit	Kanit
 font-kanjistrokeorders	6500字以上の漢字の書き順図 180以上のかな記号とラテン文字
