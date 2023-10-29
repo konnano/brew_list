@@ -1081,6 +1081,7 @@ crowdin	cloudin.comでリソースを管理できるコマンドラインツー�
 cruft	テンプレートからプロジェクトを作成し、その後の作業を維持するユーティリティ
 crun	高速で軽量なフル機能のOCIランタイムとCライブラリ
 crunch	ワードリスト発生器
+crunchy-cli	Crunchyroll用のコマンドラインダウンローダー
 crush-tools	区切られたテキストデータを処理するためのコマンドラインツール
 cryfs	ファイルを暗号化してDropboxやiCloudなどに安全に保存できるようにします。
 cryptol	暗号化アルゴリズムを指定するためのドメイン固有言語
@@ -6318,6 +6319,7 @@ uutils-coreutils	GNUcoreutilsのクロスプラットフォームRustリライ�
 uutils-findutils	GNU findutilsのクロスプラットフォームRustリライト
 uuu	汎用アップデートユーティリティ mfgtools3.0。NXPI.MXチップイメージ展開ツール
 uvg266	オープンソースのVVC/H.266エンコーダー
+uvicorn	ASGI Webサーバー
 uwsgi	ホスティングサービスを構築するためのフルスタック
 v	Z for vim
 v2ray	ネットワーク制限をバイパスするプロキシを構築するためのプラットフォーム
