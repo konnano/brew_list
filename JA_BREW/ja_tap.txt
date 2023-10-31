@@ -617,6 +617,7 @@ font-gandhi-sans	Gandhi Sans
 font-gantari	すべてのキャラクターが調和して見えるように設計されています
 font-gasoek-one	Gasoek One
 font-gayathri	Gayathri
+font-geist	Sans-serif書体
 font-geist-mono	コードを表す場所で使用するために設計された等幅書体
 font-gelasio	Gelasio
 font-gemunu-libre	Gemunu Libre
