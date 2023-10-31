@@ -2634,6 +2634,7 @@ imgdiff	ピクセルごとの画像差分ツール
 imgproxy	リモート画像のサイズ変更と変換のための高速で安全なサーバー
 imgur-screenshot	スクリーンショットを選択 upload to imgur. + more cool things
 imlib2	画像の読み込みと解釈のライブラリ
+immer	C++で書かれた永続的かつ不変のデータ構造のライブラリ
 immortal	OSにとらわれない(*nix)クロスプラットフォーム管理
 immudb	軽量で高速な不変のデータベース
 imposm3	OpenStreetMapデータをPostgreSQL/PostGISデータベースにインポートします
@@ -2968,7 +2969,6 @@ kubent	非推奨のAPIの使用についてクラスターを簡単に確認す�
 kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋めるためのコマンドのコレクション
 kubernetes-cli	Kubernetesコマンドラインインターフェース
-kubernetes-cli@1.22	Kubernetesコマンドラインインターフェース
 kubernetes-service-catalog-client	OSBAPIを使用してk8sでサービスを利用する
 kubescape	NSAおよびCISAによる硬化ガイダンスに従ったKubernetesテスト
 kubeseal	一方向に暗号化された機密Kubernetesコントローラーとツール
@@ -4614,6 +4614,7 @@ passpie	ターミナルからのログイン認証情報を管理する
 passwdqc	パスワード/パスフレーズ の強度チェックおよび施行ツールセット
 pastebinit	コマンドラインからpastebinに送る
 pastel	色分析/変換/操作 を生成するコマンドラインツール
+patch-package	壊れたnodeモジュールを即座に修正する
 patchelf	動的ELF実行可能ファイルを変更する
 patchutils	パッチファイルを操作するプログラムの小さなコレクション
 pax	Portable Archive交換アーカイブツール
@@ -5535,6 +5536,7 @@ sickchill	テレビ番組用の自動ビデオライブラリマネージャー
 sickle	品質を使用したFASTQファイルのウィンドウ化された適応トリミング
 siege	HTTP回帰テストと基準比較ユーティリティ
 sift	grepに代わる高速で強力なオープンソース
+sigma-cli	pySigmaに基づくCLI
 signal-cli	WhisperSystems/libsignal-service-java のCLIとdbusインターフェース
 signify-osx	暗号で署名しファイルを検証する
 sigrok-cli	論理分析などを使用するためのSigrokコマンドラインインターフェイス
@@ -6835,6 +6837,7 @@ zssh	SSHを介した対話的なファイル転送
 zstd	Zstandardはリアルタイム圧縮アルゴリズムです
 zsxd	Solarus XDのゼルダミステリー
 zsync	ファイル転送プログラム
+zug	トランスデューサを提供する、C++ライブラリ
 zurl	ZeroMQインターフェースを備えたHTTPおよびWebSocketクライアントワーカー
 zx	より良いスクリプトを書くためのツール
 zxcc	UNIXでのクロスコンパイルおよび CP/Mツール用の CP/M2/3エミュレーター
