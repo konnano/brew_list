@@ -1110,6 +1110,7 @@ font-mate	Mate
 font-mate-sc	Mate SC
 font-material-design-icons-webfont	マテリアルデザインアイコンのWebフォント
 font-material-icons	Material Icons
+font-material-symbols	可変フォントとしてマテリアルデザインの原則に基づいたアイコン
 font-maven-pro	Maven Pro
 font-maven-pro-vf-beta	Maven Pro VF Beta
 font-mclaren	McLaren
