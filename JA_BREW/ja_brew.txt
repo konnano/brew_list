@@ -1156,6 +1156,7 @@ daemonlogger	ネットワークパケットロガーとソフトタップデー�
 daemontools	UNIXサービスを管理するためのツールのコレクション
 dafny	検証対応プログラミング言語
 dagger	CI/CD パイプライン用のポータブル開発キット
+daktilo	キーを押すたびにタイプライターの音を再生します
 dante	SOCKSサーバーとクライアント RFC 1928および関連標準を実装
 daq	ネットワーク侵入防止および検出システム
 dar	バックアップディレクトリツリーとファイル
@@ -2996,6 +2997,7 @@ lab	GitLabのGitラッパー
 lablgtk	gtk+へのObjectiveCamlインターフェース
 lacework-cli	Laceworkを管理するためのCLI
 ladspa-sdk	Linuxオーディオ開発者向けのシンプルなプラグイン
+lager	単指向性データフローアーキテクチャを使用した価値指向設計のためのC++ライブラリ
 lame	高品質のMPEGオーディオレイヤーIII(MP3)エンコーダー
 lammps	分子動力学模擬装置
 languagetool	スタイルと文法チェッカー
@@ -4802,6 +4804,7 @@ plzip	データ圧縮機
 pmccabe	C/C++コードのMcCabe-styleの循環的複雑度を計算します
 pmd	Java/JavaScript などのソースコード分析器
 pmdmini	PC-88/98PMDチップチューン形式で音楽を再生します
+pmix	HPC環境用のプロセス管理インターフェイス
 pms	ncursesベースのMPDクライアントであるPracticalMusic Search
 pmtiles	作成用の単一ファイル実行可能ツール PMTilesアーカイブの読み取りとアップロード
 pnetcdf	OpenMPIライブラリを使用した科学データ用の並列netCDFライブラリ
