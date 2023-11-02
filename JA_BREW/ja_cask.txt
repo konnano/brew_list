@@ -854,6 +854,7 @@ detexify	LaTeX手書き記号認識
 devbook	開発者向けの検索エンジン
 devcleaner	さまざまなXcodeキャッシュに使用されている数十ギガバイトのストレージを再利用します
 devdocs	DevDocs.io用のフル機能のデスクトップアプリ
+deveco-studio	HarmonyOS及びOpenHarmony用の開発プラットフォーム
 developerexcuses	開発者はスクリーンセーバーを許します
 deviceinfo	デバイス情報を表示する
 devilutionx	最新のオペレーティングシステム用のDiabloビルド
@@ -2198,6 +2199,7 @@ messenger-native	Facebookのメッセンジャーネイティブ
 meta	デジタル音楽用のタグエディター
 metabase	ビジネス知能と分析
 metaimage	読むエディター 画像メタデータの書き込みと編集
+metamer	16個のSpotlight拡張属性に対応したアクセス可能なメタデータエディター
 metashape	デジタル画像を処理し3D空間データを生成します
 metashapepro	デジタル画像を処理し3D空間データを生成します
 metasploit	侵入テストフレームワーク
