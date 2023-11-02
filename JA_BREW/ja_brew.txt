@@ -3991,6 +3991,7 @@ modgit	フィルタを使用したgitリポジトリ展開用のツール。Mage
 modman	Magento開発向けのモジュール展開スクリプト
 mods	コマンドラインのGPT-4
 modsecurity	Libmodsecurityは、ModSecurity v3プロジェクトコンポーネントの1つです
+modsurfer	WebAssemblyバイナリの検証、監査、調査
 modules	モジュールファイルを介したユーザーの環境の動的な変更
 moe	ISO-8859およびASCIIのコンソールテキストエディタ
 mogenerator	CoreDataモデルからObjective-CおよびSwiftクラスを生成する
