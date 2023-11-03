@@ -1472,6 +1472,8 @@ grisbi	個人財務管理プログラム
 groestlcoin-core	Groestlcoin クライアント/ウォレット
 growlnotify	通知システム
 grs-bluewallet	Groestlcoinウォレット/Lightningウォレット
+gstreamer-development	オープンソースのマルチメディアフレームワーク
+gstreamer-runtime	オープンソースのマルチメディアフレームワーク
 gswitch	使用するグラフィックカードを設定する
 gtkwave	GTK+ ベースのウェーブビューア
 guijs	JSプロジェクトを管理するためのグラフィカルインターフェイス
@@ -2379,6 +2381,7 @@ musaicfm	SpotifyまたはLast.fmのプロファイルデータに基づいてア
 muse	TouchBarをサポートするオープンソースのSpotifyコントローラー
 museeks	音楽プレーヤー
 musescore	オープンソースの楽譜作成ソフトウェア
+music-decoy	音楽アプリブロッカーユーティリティ
 music-manager	Google Playミュージックマネージャー
 music-miniplayer	iTunes MiniPlayerのレプリカ
 music-remote	Music.appのリモートアプリケーション
