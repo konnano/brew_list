@@ -1231,6 +1231,7 @@ dep	依存関係管理ツールに移動
 dependency-check	OWASP依存関係チェック
 deployer	一般的なフレームワークをサポートするPHPで記述された展開ツール
 depqbf	定量化されたブール式(QBF)のSolver
+der-ascii	リバーシブル DER及びBER プリティプリンタ
 derby	Apache DerbyはJVMで実行される組み込みリレーショナルデータベースです。
 desk	シェルの軽量ワークスペースマネージャー
 desktop-file-utils	デスクトップエントリを操作するためのコマンドラインユーティリティ
@@ -2099,6 +2100,7 @@ gitql	Gitクエリ言語
 gitsign	Sigstoreを使用したキーレスGit署名
 gitslave	スーパープロジェクトとして1つの関連するリポジトリのグループを作成します
 gitter-cli	端末用の非常にシンプルなGitterクライアント
+gittuf	Gitリポジトリのセキュリティ層
 gitui	燃えるように高速なターミナル rustで書かれたgit用のUI
 gitup	複数のgitリポジトリを一度に更新する
 gitversion	Gitを使用したプロジェクトの簡単な意味にversioning
@@ -5138,6 +5140,7 @@ rasqal	RDFクエリライブラリ
 ratfor	Rational Fortran
 rats	セキュリティのための大まかな監査ツール
 rav1e	最速で最も安全なAV1ビデオエンコーダー
+raven	CI/CDのリスク分析と脆弱性の列挙
 rawgl	別世界のために書き直されたエンジン
 raxml-ng	RAxML次世代：より速く/使いやすく/より柔軟
 raylib	ビデオゲームプログラミングを学ぶためのシンプルで使いやすいライブラリ
@@ -5923,6 +5926,7 @@ taglib	オーディオメタデータライブラリ
 tagref	コードベースの他の場所を参照してください
 tailor	Swiftのクロスプラットフォーム静的分析と静的解析ツール
 tailscale	WireGuardと2FAを使用する最も簡単で安全な方法
+tailspin	ログファイルハイライタ
 tailwindcss	ユーティリティファーストCSSフレームワーク
 tailwindcss-language-server	LSP for TailwindCSS
 takt	テキストベースの音楽プログラミング言語
