@@ -6098,6 +6098,7 @@ tkdiff	グラフィカルなサイドバイサイドdiffユーティリティ
 tkey-ssh-agent	TKeyセキュリティスティックで使用するSSHエージェント
 tl-expected	C++11/14/17 std::expectedと機能的なスタイルの拡張
 tldr	簡素化されたコミュニティ主導のマニュアルページ
+tlrc	Rustで書かれた公式tldrクライアント
 tlsx	TLSベースのデータ収集に重点を置いた高速で構成可能なTLSグラバー
 tlx	洗練されたC++データ構造のコレクション アルゴリズム/ヘルパー
 tm	knativeオブジェクトを操作するためのTriggerMeshCLI
