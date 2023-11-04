@@ -680,7 +680,6 @@ cask	Emacsの依存関係管理
 cassandra	結果整合性のある分散型Key-Value store
 cassandra-cpp-driver	C/C++ドライバー Apache CassandraのDataStax
 cassandra-reaper	Cassandraの管理インターフェース
-cassandra@2.1	分散型Key-Value store
 cassandra@2.2	結果整合性のある分散型Key-Valueデータベース
 cassandra@3	結果整合性のある分散型Key-Value store
 cassowary	Goで記述された最新のクロスプラットフォームHTTP負荷テストツール
@@ -1586,7 +1585,6 @@ ettercap	switched LAN用の多目的 探知/遮断/運搬
 euler-py	Pythonで記述されたProject Eulerコマンドラインツール
 eureka	ターミナルを離れることなくアイデアを入力して保存するCLIツール
 eva	電卓REPL bc(1)と同様
-eventql	大規模なイベント分析のためのデータベース
 evernote-backup	Backup & export すべてのEvernoteノートとノートブック
 evernote2md	Evernote.enexファイルをMarkdownに変換します
 evince	GNOMEドキュメントViewer
@@ -2670,6 +2668,7 @@ intercal	難解なパロディープログラミング言語
 interface99	C99のフル機能のインターフェイス
 internetarchive	さまざまなインターネットアーカイブAPIのPythonラッパー
 intltool	ストリングツール
+invoice	コマンドラインの請求書生成機
 inxi	フル機能のCLIシステム情報ツール
 io	小さなプロトタイプベースのプログラミング言語
 iocextract	侵害エクストラクターのデファングインジケーター
@@ -4529,6 +4528,7 @@ ory-hydra	OpenID認定OAuth2.0サーバーおよびOpenID接続プロバイダ�
 osc	Open BuildServiceと連携するためのコマンドラインインターフェイス
 osc-cli	Outscale APIへの連結装置を提供する公式のOutscale CLI
 oscats	コンピュータの適応型テストシステム
+osctrl-cli	高速かつ効率的なosquery管理
 osi	Open Solverインターフェース
 osinfo-db	仮想化provisioningツール用のオペレーティングシステムOsinfoデータベース
 osinfo-db-tools	libosinfoデータベースファイルを管理するためのツール
@@ -4876,6 +4876,7 @@ pre-commit	多言語の事前コミットフックを管理するためのフレ
 precomp	より良い圧縮を実現するためのコマンドラインプリコンプレッサ
 prefixsuffix	GUIバッチ名前変更ユーティリティ
 premake	一度書いて Luaベースのビルドシステムをどこでもビルドできます
+presenterm	ターミナルスライドショーツール
 prestd	既存または新規のPostgresアプリケーションの開発を簡素化および加速します
 prestodb	ビッグデータ用の分散SQLクエリエンジン
 prettier	コード整形ツール JavaScript/CSS/JSON/GraphQL/Markdown/YAML
@@ -5196,6 +5197,7 @@ redo	djbのやり直しを実装します。
 redpen	技術文書の作成者を支援する校正ツール
 redshift	周囲の状況に応じて画面の色温度を調整します
 redstore	Redlandを搭載した軽量RDFトリプルstore
+redwax-tool	ユニバーサル証明書変換ツール
 reg	Dockerレジストリv2コマンドラインクライアント
 regex-opt	Perl互換の正規表現最適化ツール
 regina-rexx	Rexxの通訳
@@ -6146,7 +6148,6 @@ toxcore	Toxピアツーピアネットワークプロトコルを実装するC�
 toxiproxy	混乱と復元力のテストのためにネットワークとシステムの状態をシミュレートするTCPプロキ
 tpl	バイナリデータをCで保存および取得する
 tpm	tmuxのプラグインマネージャー
-tpp	Ncursesベースの提示ツール
 tproxy	TCP接続をプロキシおよび分析するCLIツール
 tracebox	ミドルボックス検出ツール
 tracker	効率的な検索エンジンとトリプルstoreであるライブラリとデーモン
@@ -6380,6 +6381,7 @@ vermin	コードの実行に必要なPythonの最低バージョンを同時に�
 verovio	コマンドラインMEI楽譜エングレーバー
 vert.x	JVMでリアクティブアプリケーションを構築するためのツールキット
 vespa-cli	Vespa.aiのコマンドラインツール
+vet	オープンソースの依存関係をポリシーに基づいて精査する
 vf	`cd`コマンドの拡張バージョン
 vfuse	VMwareFusionで使用するために起動可能なDMGイメージを変換する
 vgmstream	ビデオゲームからストリーミングされたオーディオ形式を再生するためのライブラリ
@@ -6559,7 +6561,6 @@ wildmidi	シンプルなソフトウェアMIDIプレーヤー
 willgit	William'sの多方面のgitツール
 wimlib	作成するライブラリ 引用 WindowsImagingファイルを変更します
 winetricks	Wineの問題に対する自動回避策
-winexe	リモートWindowsコマンド executor
 wiredtiger	データ管理のための高性能NoSQL拡張可能プラットフォーム
 wireguard-go	WireGuardのUserspace Go実装
 wireguard-tools	WireGuard安全なネットワークトンネル用のツール
