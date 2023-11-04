@@ -2272,6 +2272,7 @@ mission-control-plus	Mission Controlでウィンドウを管理する
 missive	チームの受信トレイとチャットツール
 mist	ファームウェアとインストーラーを自動的にダウンロードするユーティリティ
 mit-app-inventor	Android エミュレーター
+mitmproxy	HTTP/S トラフィックの、傍受、変更、再生、保存
 mixed-in-key	DJと音楽プロデューサーのための調和的ミキシング
 mixed-in-key-live	キーライブでミックス
 mixin	暗号通貨ウォレット
