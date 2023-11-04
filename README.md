@@ -1,4 +1,4 @@
-brew list コマンド拡張版 : version 1.18_4
+brew list コマンド拡張版 : version 1.19_2
 
 HomeBrew 4.0.0以降の場合はシェルに以下の環境変数を設定して下さい
 
