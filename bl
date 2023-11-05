@@ -200,7 +200,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.19_2\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.19_3\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -710,7 +710,7 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
      ( not @AN and $re->{'NOT'} ) ? $mine .= "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
        not( @AN or $re->{'NOT'} ) ? $mine .= "$ls   Not require dependencies...\t: $key\n" : 0;
      unless( $re->{'KEN'} ){
-      -t STDOUT ? print" \033[36m$key\033[0m : depends\n" : print" $key : depends\n" if @AN;
+      -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n" if @AN;
        Format_1( $re ) if @AN;
         print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN and not $re->{'dep_s'};
      }
