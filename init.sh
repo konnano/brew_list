@@ -5,9 +5,8 @@
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  echo Not support OS; exit 1
 elif [[ $NAME = Darwin ]];then
- VER=$(sw_vers -productVersion|\
- sed -E 's/^(1[1-3]).*/\1.0/;s/^(10\.)(1[0-5]).*/\1\2/;s/^(10\.)([1-9])($|\.).*/\10\2/')
- [[ 10.09 > $VER ]] && echo Use Tiger Brew && exit 1
+ VER=$(sw_vers -productVersion|sed -E 's/^(1[1-4]).*/\1.0/;s/^(10\.)(1[0-5]).*/\1\2/')
+ [[ 10.10 > $VER ]] && echo Use Tiger Brew && exit 1
 fi
 
  LINK=$1;
