@@ -736,8 +736,10 @@ cereal	C++11順番化用ライブラリ
 ceres-solver	大規模な最適化のためのC++ライブラリ
 cern-ndiff	数値diffツール
 certbot	Let'sEncryptから証明書を取得してHTTPSを自動有効化するツール
+certgraph	証明書の代替名のグラフをクロールする
 certigo	さまざまな形式の証明書を調べて検証するユーティリティ
 certstrap	CAのブートストラップツール 証明書要求/および署名付き証明書
+certsync	ゴールデン証明書を使用してNTDSをダンプし、ハッシュをUnPAC
 ceylon	チームで大規模なプログラムを作成するためのプログラミング言語
 cf	数値のタイムスタンプをフォーマットされた日時に置き換えるためのフィルター
 cf-tool	Codeforcesコンテスト用のコマンドラインツール
@@ -752,6 +754,7 @@ cfn-format	AWS CloudFormationテンプレートをフォーマットするため
 cfn-lint	CloudFormation仕様に対してCloudFormationテンプレートを検証します
 cfonts	コンソール用のSexy ANSI fonts
 cfr-decompiler	さらに別のJavaデコンパイラ
+cfripper	CloudFormationテンプレートのセキュリティ問題を分析するための、ライブラリ及びCLIツール
 cfssl	CloudFlareのPKIツールキット
 cfv	さまざまなファイル(.sfv, .csv, .crc, .torrentなど)をテストして作成します
 cgal	計算幾何学アルゴリズムライブラリ
