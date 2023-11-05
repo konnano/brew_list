@@ -680,7 +680,6 @@ cask	Emacsの依存関係管理
 cassandra	結果整合性のある分散型Key-Value store
 cassandra-cpp-driver	C/C++ドライバー Apache CassandraのDataStax
 cassandra-reaper	Cassandraの管理インターフェース
-cassandra@2.2	結果整合性のある分散型Key-Valueデータベース
 cassandra@3	結果整合性のある分散型Key-Value store
 cassowary	Goで記述された最新のクロスプラットフォームHTTP負荷テストツール
 castget	コマンドラインポッドキャストおよびRSSエンクロージャダウンローダー
@@ -1347,6 +1346,7 @@ docker-machine-nfs	DockerマシンでNFSをアクティブ化します
 docker-machine-parallels	Dockerマシン用のParallelsドライバー
 docker-slim	Dockerイメージを縮小して保護する
 docker-squash	Dockerイメージ押しつぶしツール
+dockerfile-language-server	Node、TypeScript、VSCode、を利用したDockerfile用の言語サーバ
 dockerize	Dockerコンテナでのアプリケーションの実行を簡素化するユーティリティ
 dockly	Dockerコンテナとサービスを管理するためのイマーシブターミナルインターフェイス
 dockutil	ドックアイテムを管理するためのツール
@@ -1548,7 +1548,6 @@ envchain	環境変数で認証情報を保護する
 envconsul	ConsulおよびVaultからの環境変数を使用してプロセスを起動します
 envd	AI/MLの再現可能な開発環境
 envoy	クラウドネイティブの高性能プロキシ エッジ/ミドル/サービス
-envoy@1.18	クラウドネイティブの高性能プロキシ エッジ/ミドル/サービス
 envv	シェルに依存しない環境変数の処理
 enzyme	LLVMの高性能自動微分
 eot-utils	フォントを OTF/TTF からEOT形式に変換するためのツール
@@ -4322,7 +4321,6 @@ numbat	科学計算用の静的型付けプログラミング言語
 numcpp	Python NumpyライブラリのC++実装
 numdiff	推定ファイル比較ツール
 numpy	Pythonを使用した科学計算用パッケージ
-numpy@1.16	Pythonを使用した科学計算用パッケージ
 nuraft	レプリケーションライブラリとしての Raftコアロジックの C++実装
 nushell	GitHub時代のモダンなシェル
 nut	ネットワークUPSツール：さまざまなパワーデバイスのサポート
