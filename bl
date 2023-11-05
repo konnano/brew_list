@@ -709,10 +709,10 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
        }
      ( not @AN and $re->{'NOT'} ) ? $mine .= "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
        not( @AN or $re->{'NOT'} ) ? $mine .= "$ls   Not require dependencies...\t: $key\n" : 0;
-     unless( $re->{'KEN'} ){
-      -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n" if @AN;
-       Format_1( $re ) if @AN;
-        print '_' x $re->{'LENG'},"\n" if -t STDOUT and @AN and not $re->{'dep_s'};
+     if( @AN and not $re->{'KEN'} ){
+      -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n";
+       Format_1( $re );
+        print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'dep_s'};
      }
     $re->{"deps$_"} = $re->{'LEN1'} = 0 for @AN;
    @AN = @{$re->{'ARR'}} = ();
