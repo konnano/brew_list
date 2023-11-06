@@ -2156,7 +2156,6 @@ calibre4	電子書籍管理ソフトウェア
 carbon-copy-cloner5	ハードディスクのバックアップとクローン作成ユーティリティ
 charles-applejava	Webデバッグプロキシアプリケーション
 chromedriver-beta	Google Chrome用のWebアプリの自動テスト
-clashx-pro	clashに基づくGUIを備えたルールベースのカスタムプロキシ
 cleanmymac3	ディスクから不要なファイルとフォルダーを削除するツール
 corretto11	AmazonからのOpenJDKディストリビューション
 corretto17	AmazonからのOpenJDKディストリビューション
