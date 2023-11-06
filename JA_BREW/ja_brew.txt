@@ -289,6 +289,7 @@ augustus	真核生物のゲノム配列の遺伝子を予測する
 aurora	Beanstalkdキューサーバーコンソール
 austin	CPythonのPythonフレームスタックsampler
 authoscope	スクリプト可能なネットワーク認証クラッカー
+authz0	自動認可テストツール
 autobench	自動Webサーバー基準比較ツール
 autocannon	Node.jsで記述された高速 HTTP/1.1ベンチマークツール
 autocode	すべての言語のコード自動化 ライブラリ/フレームワーク
@@ -372,6 +373,7 @@ bandcamp-dl	Bandcampアルバムをダウンロードするためのシンプル
 bandicoot	GPUアクセラレーション線形代数用のC++ライブラリ
 bandit	Pythonコードのセキュリティ指向の静的分析器
 bandwhich	端末処理能力利用ツール
+bao	BLAKE3検証済みストリーミングの実装
 baobab	Gnomeディスク使用量分析器
 bar	シェルスクリプトのプログレスバーを提供する
 bareos-client	Bareosのクライアント(バックアップアーカイブ リカバリオープンソース)
@@ -3277,6 +3279,7 @@ libiscsi	iscsiのクライアントライブラリとユーティリティ
 libisofs	さまざまな拡張子を持つISO-9660ファイルシステムを作成するためのライブラリ
 libjcat	Jcatファイルを読み取るためのライブラリ
 libjson-rpc-cpp	json-rpcのC++フレームワーク
+libjuice	UDPインタラクティブ接続確立(ICE)ライブラリ
 libjwt	JSON Web TokenCライブラリ
 libkate	Oggの多重化された オーディオ/ビデオ のoverlayコーデック
 libkeccak	Keccak-ファミリハッシュライブラリ
@@ -5022,6 +5025,7 @@ python-gdbm@3.12	gdbmへのPythonインターフェイス
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
+python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-mutagen	オーディオメタデータを処理するためのPythonモジュール
