@@ -593,8 +593,6 @@ cityofzion-neon	NEOブロックチェーン用ライトウォレット
 ckan	Kerbal Space ProgramのMod管理ソリューション
 ckb-next	RGBドライバー
 clamxav	ウイルス対策およびマルウェアスキャナー
-clash-for-windows	Clashに基づくGUI
-clashx	クラッシュに基づくGUIを備えたルールベースのカスタムプロキシ
 classicftp	FTPファイル転送ソフトウェア
 classroom-assistant	学生リポジトリを一括で複製するためのツール
 classroom-mode-for-minecraft	Minecraft Education Editionの教室管理アプリ
