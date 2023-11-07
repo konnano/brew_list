@@ -162,6 +162,7 @@ apib	HTTP性能テストツール
 apibuilder-cli	APIビルダーのクライアントを生成するためのコマンドラインインターフェイス
 apidoc	RESTful Web APIドキュメント発生器
 apify-cli	Apifyコマンドラインインターフェース
+apkleaks	APKファイルをスキャンして URI エンドポイント/シークレット を探しています
 apko	Dockerfileを使用せずにAPKパッケージから直接OCIイメージを構築する
 apktool	サードパーティのクローズドバイナリAndroidアプリを逆エンジニアリングするためのツール
 apm-bash-completion	Atomパッケージマネージャーの補完
@@ -174,6 +175,7 @@ apparix	ブックマークディレクトリを介したファイルシステム
 appium	アプリの自動化
 apprise	コマンドラインから一般的な通知サービスに通知を送信します
 appscale-tools	AppScaleを操作するためのコマンドラインツール
+appstream	AppStreamメタデータを操作するためのツールとライブラリ
 appstream-glib	AppStreamメタデータを読み書きするためのヘルパーライブラリ
 apr	Apacheポータブルランタイムライブラリ
 apr-util	apr手引きライブラリ、Apache PortableRuntimeライブラリ
@@ -515,6 +517,7 @@ bob	neovimバージョンマネージャー
 bochs	C++オープンソースのIA-32(x86)PCエミュレーター
 bogofilter	統計分析によるメールフィルター
 bombadillo	増え続ける手順のリスト用に設計された非Webブラウザ
+bomber	ソフトウェア部品表をスキャンしてセキュリティの脆弱性を検出します
 bond	スキーマ化されたデータを操作するためのクロスプラットフォームフレームワーク
 bonnie++	ファイルシステムとハードドライブの基準比較パッケージ
 bookloupe	Project Gutenberg対象ファイルの一般的なフォーマットエラーを一覧表示します
@@ -3425,6 +3428,7 @@ librsvg	Cairoを使用してSVGファイルを解釈するライブラリ
 librsync	rsync remote-delta アルゴリズムを実装するライブラリ
 librtlsdr	ちゃちなSDRとしてRealtek DVB-Tドングルを使用する
 librttopo	RTトポロジライブラリ
+libsail	人間用の小型で高速な画像デコード、ライブラリがありません(マシン用ではありません)
 libsais	高速線形時間サフィックス配列 LCPアレイとBwtの構築
 libsamplerate	オーディオデータのサンプルレート変換用のライブラリ
 libsass	SassコンパイラのC実装
@@ -3953,7 +3957,6 @@ miruo	Pretty-print TCPセッション モニター/分析
 mist-cli	macOS ファームウェア/インストーラーを自動的にダウンロードする Macコマンドラインツール
 mit-scheme	Scheme開発ツールとランタイムライブラリ MIT/GNU
 mitie	情報抽出のためのライブラリとツール
-mitmproxy	HTTP/Sトラフィックを節約する 傍受/変更/リプレイ
 mix-completion	Elixir Mixの補完と ショートカット/色
 mjml	レスポンシブ電子メールを簡単に作成するJavaScriptフレームワーク
 mjpegtools	ビデオを録画および再生し簡単な編集を実行します
@@ -4517,6 +4520,7 @@ oq	JSON以外の形式をサポートする性能の高いポータブルjqラ�
 or-tools	Googleのオペレーションズリサーチツール
 oras	記憶装置としてのOCIレジストリ
 orbiton	VT100によって制限される、高速で構成不要のテキストエディターとIDE
+orbuculum	Arm Cortex-M SWO/SWV デマルチプレクサとポストプロセス
 orc	Oil Runtimeコンパイラ(ORC)
 orc-tools	ORC javaコマンドラインツールとユーティリティ
 orcania	Cでさまざまな目的に応じたさまざまな関数を備えたポットラック
@@ -5019,6 +5023,7 @@ python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
 python-cryptography	Pythonの暗号化レシピとプリミティブ
+python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
@@ -5418,6 +5423,7 @@ schema-evolution-manager	postgresqlデータベーススキーマの移行を管
 schemathesis	仕様を備えたWebアプリケーションのテストツール
 scheme48	Schemeバイトコードインタプリタ
 schroedinger	Diracコーデックの高速実装
+scikit-image	Pythonによる画像処理
 scilla	DNS、サブドメイン、ポート、ディレクトリ列挙ツール
 scip	混合整数計画法および混合整数非線形計画法のソルバー
 scipy	数学のためのソフトウェア 理科/エンジニアリング
