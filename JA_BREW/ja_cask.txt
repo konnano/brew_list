@@ -2636,6 +2636,7 @@ origin	PCゲームをプレイし友達とつながる
 orion	WebKitベースのWebブラウザ
 orka	AppleでのKubernetesとのオーケストレーション
 orka-vm-tools	Apple上の Kubernetesによるオーケストレーション
+orka3	Apple上のKubernetesを使用したオーケストレーション
 oryoki	薄いインターフェースを備えた実験的なWebブラウザー
 oscar	CPAP分析レポーター
 oscilloscope	光線オシロスコープの美学を模倣する
@@ -4293,7 +4294,6 @@ zotero	研究ソースを共有する 収集/整理/引用
 zprint	ClojureおよびClojurescriptのソースコードとS式を再フォーマットするためのライブラリ
 zsa-wally	ZSAキーボード用のFlashツール
 zspace	NASクライアント
-zterm	ターミナルエミュレーションプログラム
 zui	Zed lakes データを探索するためのグラフィカルユーザーインターフェイス
 zulip	Zulipチームチャットプラットフォーム用のデスクトップクライアント
 zulu	AzulからのOpenJDKディストリビューション
