@@ -605,6 +605,7 @@ cleanmymac-zh	中国語版ディスクから不要なファイルやフォルダ
 cleanshot	画面キャプチャツール
 cleartext	テキストエディター
 clementine	音楽プレーヤーとライブラリーのまとめ
+clibor	クリップボードマネージャー
 clickcharts	ダイアグラムおよびフローチャートソフトウェア
 clicker-for-netflix	最高の独立型Netflixプレーヤー
 clicker-for-youtube	独立型のYouTubeアプリ
@@ -1825,6 +1826,7 @@ keycombiner	インスタントショートカットルックアップ
 keycue	見つける キーボードショートカットを学習して記憶する
 keyman	別の言語で入力するようにキーボードを再構成します
 keymanager	証明書マネージャー
+keymapp	ZSAキーボードファームウェアフラッシャー
 keypad-layout	Ctrlキーとテンキーを使用してウィンドウレイアウトを制御するユーティリティ
 keysafe	Apple キーチェーン ファイルの読み取りと復号化
 keyshot	リアルタイム 3D レンダリング
@@ -3782,7 +3784,6 @@ time-to-leave	勤務時間を記録しオフィスを離れる時間になると
 time-tracker	時間追跡app
 timecamp	TimeCampソフトウェアのクライアントアプリケーション-時間の追跡とタスクの変更
 timelane	Timelane
-timely	Timely
 timemachineeditor	TimeMachineのデフォルトのバックアップ間隔を変更するユーティリティ
 timemator	自動時間追跡アプリケーション
 timer	ストップウォッチ/目覚まし時計/時計ユーティリティ
