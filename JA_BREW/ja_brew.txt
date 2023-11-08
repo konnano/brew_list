@@ -5216,6 +5216,7 @@ redshift	周囲の状況に応じて画面の色温度を調整します
 redstore	Redlandを搭載した軽量RDFトリプルstore
 redwax-tool	ユニバーサル証明書変換ツール
 reg	Dockerレジストリv2コマンドラインクライアント
+regclient	GoのDocker及びOCI Registry Client、及びそれらのライブラリを使用したツール
 regex-opt	Perl互換の正規表現最適化ツール
 regina-rexx	Rexxの通訳
 regipy	オフラインレジストリハイブ解析ツール
