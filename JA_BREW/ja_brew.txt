@@ -71,6 +71,7 @@ aichat	ChatGPT cli
 aicommits	AIを使用してgitコミットメッセージを書き込みます
 aida-header	データ分析の抽象インターフェースは、物理分析のインターフェースを定義します
 aide	ファイルとディレクトリの整合性チェッカー
+ain	端末用HTTP APIクライアント
 aircrack-ng	多くの新機能を備えた次世代のaircrack
 airshare	ローカルネットワークでのクロスプラットフォームコンテンツ共有
 airspy	ソフトウェア無線用のドライバーとツール
@@ -87,6 +88,7 @@ alerter	コマンドラインからMacOSにユーザーアラート通知を送�
 alexjs	鈍感で思いやりのない文章をキャッチ
 algernon	Pure Go WebサーバーとLua、Markdown、HTTP/2とテンプレートをサポート
 algol68g	Algol68コンパイラ-インタプリタ
+ali	HTTP負荷を生成し、結果をリアルタイムでプロットしま
 aliddns	Aliyun(Alibaba Cloud)ddns for golang
 align	テキスト列の配置フィルター
 aliyun-cli	AlibabaCloudの汎用コマンドラインインターフェイス
@@ -1273,6 +1275,7 @@ dhex	diffモードなどを備えたNcursesベースの高度な16進エディ�
 di	高度なdfのようなディスク情報ユーティリティ
 dialog	シェルスクリプトからユーザーに親しいメッセージボックスを表示する
 diamond	加速されたBLAST互換のローカル連続aligner
+dicebear	CLI for DiceBear - デザイナーと開発者のためのアバターライブラリ
 diceware	覚えておくべきパスフレーズ
 dict	辞書サーバー手続き(RFC2229)クライアント
 diction	GNUの言葉遣いとスタイル
@@ -2317,6 +2320,7 @@ graphene	グラフィックデータ型の薄層
 graphicsmagick	画像処理ツールコレクション
 graphite2	non-Romanスクリプトのスマートフォントrenderer
 graphql-cli	一般的なGraphQL開発ワークフローのコマンドラインツール
+graphqlviz	GraphQLサーバースキーマビジュアライザ
 graphqurl	自動補完を使用したGraphQL用のCurl サブスクリプション/GraphiQL
 graphqxl	大規模でスケーラブルなGraphQLサーバーサイドスキーマを作成するための言語
 graphviz	AT＆Tおよびベル研究所のdotグラフ視覚化ソフトウェア
@@ -3866,6 +3870,7 @@ mecab-unidic	MeCabのMorphological分析器
 mecab-unidic-extended	MeCab用の拡張形態分析器
 media-info	オーディオ/ビデオ の技術データとtagデータの統合表示
 mediaconch	適合性チェッカーおよび技術metadataレポーター
+mediamtx	依存関係のないリアルタイムメディアサーバーとメディアプロキシ
 mednafen	Multi-systemエミュレータ
 medusa	Go-Ethereumを利用したSolidityスマートコントラクトファザー
 meek	Tor用のブロッキング耐性のあるプラガブルトランスポート
@@ -4282,6 +4287,7 @@ node_exporter	マシンmetrics用のPrometheusエクスポーター
 nodebrew	Node.jsバージョンマネージャー
 nodeenv	Node.js仮想環境ビルダー
 nodenv	複数のNodeJSバージョンを管理する
+noir	ソースコードからの攻撃可視化検出器
 nomad	分散型で高可用性のデータセンター対応スケジューラ
 nomino	バッチ名前変更ユーティリティ
 nopoll	オープンソースのC WebSocketツールキット
@@ -4736,6 +4742,7 @@ phpmyadmin	MySQLおよびMariaDBのWebインターフェース
 phpstan	PHP静的分析ツール
 phpunit	PHPのプログラマー指向のテストフレームワーク
 phrase-cli	Phrase APIと対話するためのツール
+phylum-cli	Phylum APIのコマンドラインインターフェイス
 physfs	さまざまなアーカイブへの抽象的なアクセスを提供するライブラリ
 pianobar	https://pandora.comのコマンドラインプレーヤー
 pianod	複数の制御インターフェースを備えたPandoraクライアント
