@@ -1846,6 +1846,7 @@ frei0r	ビデオエフェクト用の最低限のプラグインAPI
 fribidi	UnicodeBiDiアルゴリズムの実装
 frobtads	TADSインタプリタとコンパイラ
 frotz	Infocom-styleの相互の作用のフィクションプレーヤー
+frozen	ヘッダーのみ、C++14ユーザー向けのgperfに代わるconstexpr
 frpc	ローカルサーバーをインターネットに公開する高速逆プロキシのクライアントアプリ
 frps	ローカルサーバーをインターネットに公開する高速逆プロキシのサーバーアプリ
 frugal	拡張性のあるマイクロサービスを作成するためのクロス言語コード発生器
@@ -5567,6 +5568,7 @@ sift	grepに代わる高速で強力なオープンソース
 sigma-cli	pySigmaに基づくCLI
 signal-cli	WhisperSystems/libsignal-service-java のCLIとdbusインターフェース
 signify-osx	暗号で署名しファイルを検証する
+signmykey	自動化されたSSH認証局
 sigrok-cli	論理分析などを使用するためのSigrokコマンドラインインターフェイス
 sigstore	Pythonパッケージの共同設計ツール
 sile	TeXに触発された最新の植字システム
