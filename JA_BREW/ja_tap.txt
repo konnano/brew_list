@@ -1171,6 +1171,7 @@ font-moirai-one	Moirai One
 font-molengo	Molengo
 font-molle	Molle
 font-mona-sans	GitHubの可変フォントMona Sans
+font-monaspace	コード用フォントのスーパーファミリー
 font-monda	Monda
 font-monocraft	Minecraftで使用される書体に基づくプログラミング フォント
 font-monocraft-nerd-font	Nerdグリフを追加するパッチが適用されたMinecraft書体に影響された等幅フォント
