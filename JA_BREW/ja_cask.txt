@@ -468,6 +468,7 @@ browserosaurus	オープンソースのブラウザープロンプター
 browserstacklocal	ローカルホストとステージングWebサイトをテストします
 bruno	APIを探索およびテストするためのオープンソースIDE
 btcpayserver-vault	Webアプリケーションがhardware walletにアクセスできるようにするアプリ
+btp	SAPビジネステクノロジープラットフォーム用のCLI
 bubo	壊れたBluetoothヘッドセットコントロールを修正
 buckets	予算編成ツール
 bugdom	Pangea Softwareのバグをテーマにした3Dアクション/アドベンチャー ゲーム
@@ -3036,7 +3037,6 @@ quicklookapk	Androidパッケージ用のQuick Lookプラグイン
 quicklookase	Adobe Swatch Exchangeファイル用のQuickLook生成器
 quicknfo	QuickNFO
 quicksilver	生産性アプリケーション
-quickwords	quickワード
 quiet-reader	気を散らさずに記事やテキストのハイライトを読む
 quik	GoProの写真とビデオにアクセスして編集する
 quip	チームが生きたドキュメントを作成するためのツール
@@ -3178,6 +3178,7 @@ rocket	目の不自由な人向けに最適化された絵文字picker
 rocket-chat	Rocket.Chatの公式デスクトップクライアント
 rocket-typist	一般的なフレーズのテキストエキスパンダー
 rocks-n-diamonds	アーケードスタイルのゲーム
+rode-central	RØDEコンパニオンアプリ
 rode-connect	ポッドキャスティングソフトウェア
 rodeo	Python用データサイエンスIDE
 roku-remote-tool	Rokuリモートツール
