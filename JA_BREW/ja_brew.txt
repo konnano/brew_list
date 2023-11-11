@@ -543,6 +543,7 @@ bossa	Atmel SAMマイクロコントローラ用のフラッシュユーティ�
 botan	C++暗号化アルゴリズムとフォーマットライブラリ
 botan@2	C++の暗号化アルゴリズムと形式ライブラリ
 bottom	クロスプラットフォームのグラフィカルモニター プロセス/システム
+bounceback	レッドチーム運用セキュリティのためのステルスリダイレクター
 bower	Webパッケージマネージャー
 bowtie2	高速で高感度のgapped read aligner
 box2d	ゲーム用の2D物理エンジン
@@ -777,6 +778,7 @@ chadwick	RetrosheetMLBの実況ファイルを解析するためのツール
 chafa	用途が広く高速なグラフィックrenderer Unicode/ASCII/ANSI
 chain-bench	CISベンチマークに基づくソフトウェアサプライチェーン監査ツール
 chainloop-cli	Chainloopと対話するためのCLI
+chainsaw	Windowsフォレンジックアーティファクトを迅速に検索して追跡
 chaiscript	C++の使いやすい埋め込みスクリプト言語
 chakra	Microsoft Edgeを強化するJavaScriptエンジンのコア部分
 chalk-cli	ターミナルストリングのスタイリングは正しく行われます
@@ -868,6 +870,7 @@ clfft	OpenCLで記述されたFFT関数
 clhep	高エネルギー物理学のためのクラスライブラリ
 cli11	C++11のシンプルで直感的なコマンドラインパーサー
 cli53	Amazon Route53のコマンドラインツール
+cliam	Bitwarden Secrets Manager CLI
 clib	Cプログラミングのパッケージマネージャー
 click	Kubernetesのコマンドライン対話的コントローラー
 clickhouse-cpp	ClickHouseのC++クライアントライブラリ
@@ -4734,7 +4737,6 @@ php	汎用スクリプト言語
 php-code-sniffer	コーディング標準を確認してください PHP/JavaScript/CSS
 php-cs-fixer	PHPコーディング標準の問題を自動的に修正するツール
 php-cs-fixer@2	PHPコーディング標準の問題を自動的に修正するツール
-php@7.4	汎用スクリプト言語
 php@8.0	汎用スクリプト言語
 php@8.1	汎用スクリプト言語
 phpbrew	HOMEで純粋なPHPでPHPバージョンを作成および管理する
@@ -5216,6 +5218,7 @@ redpen	技術文書の作成者を支援する校正ツール
 redshift	周囲の状況に応じて画面の色温度を調整します
 redstore	Redlandを搭載した軽量RDFトリプルstore
 redwax-tool	ユニバーサル証明書変換ツール
+reflex	ファイルが変更されたときにコマンドを実行する
 reg	Dockerレジストリv2コマンドラインクライアント
 regclient	GoのDocker及びOCI Registry Client、及びそれらのライブラリを使用したツール
 regex-opt	Perl互換の正規表現最適化ツール
@@ -5731,6 +5734,7 @@ speedtest-cli	https://speedtest.net処理能力テストのコマンドライン
 speex	音声用に設計されたオーディオコーデック
 speexdsp	Speexオーディオ処理ライブラリ
 spek	音響スペクトラムアナライザ
+spglib	結晶の対称性を見つけて処理するための、Cライブラリ
 sphinx	全文検索エンジン
 sphinx-doc	高度で美しいドキュメントを作成するためのツール
 spice-gtk	SPICEのGTKクライアント/ライブラリ
