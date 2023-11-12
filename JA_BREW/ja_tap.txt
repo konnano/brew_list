@@ -971,9 +971,6 @@ font-lalezar	Lalezar
 font-lancelot	Lancelot
 font-langar	非公式で遊び心のある文字形式に基づくワンウェイトlatin/gurmukhi表示フォント
 font-langdon	Langdon
-font-lao-muang-don	Lao Muang Don
-font-lao-muang-khong	Lao Muang Khong
-font-lao-sans-pro	Lao Sans Pro
 font-last-resort	専用フォント Unicode文字のタイプを表すglyphsを提供する
 font-last-resort-high-efficiency	Unicode文字のタイプを表すglyphsを提供する
 font-lateef	Lateef
@@ -1110,7 +1107,6 @@ font-mate	Mate
 font-mate-sc	Mate SC
 font-material-design-icons-webfont	マテリアルデザインアイコンのWebフォント
 font-material-icons	Material Icons
-font-material-symbols	可変フォントとしてマテリアルデザインの原則に基づいたアイコン
 font-maven-pro	Maven Pro
 font-maven-pro-vf-beta	Maven Pro VF Beta
 font-mclaren	McLaren
@@ -1803,11 +1799,6 @@ font-sedgwick-ave	Sedgwick Ave
 font-sedgwick-ave-display	Sedgwick Ave Display
 font-sen	Sen
 font-send-flowers	年配の視聴者に適しています
-font-seoul-hangang	Seoul Hangang
-font-seoul-hangang-condensed	Seoul Hangang Condensed
-font-seoul-namsan	Seoul Namsan
-font-seoul-namsan-condensed	Seoul Namsan Condensed
-font-seoul-namsan-vertical	Seoul Namsan Vertical
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
 font-sf-arabic	Appleによる"San Francisco"のアラビア語拡張
