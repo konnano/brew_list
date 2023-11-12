@@ -1994,6 +1994,7 @@ ghc@8.6	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.8	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.2	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.4	Glorious Glasgow Haskellコンパイルシステム
+ghc@9.6	Glorious Glasgow Haskellコンパイルシステム
 ghcup	汎用言語Haskellのインストーラー
 ghex	GNOME16進エディター
 ghi	コマンドラインでGitHubの問題に取り組む
