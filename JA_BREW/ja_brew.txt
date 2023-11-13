@@ -1639,6 +1639,7 @@ fabric-completion	FabricのBash補完
 fabric-installer	vanillaランチャー構造のインストーラー
 fades	Pythonスクリプトのvirtualenvsを自動的に処理します
 fail2ban	ログファイルをスキャンし悪意のある兆候を示すIPを禁止する
+faircamp	オーディオプロデューサー向けの静的サイト生成機
 fairymax	変則チェスをプレイするためのAI
 faiss	効率的な類似性検索と深い空間のclustering
 fakeroot	偽のルート環境を提供する
@@ -2681,6 +2682,7 @@ install-peerdeps	peerDepsを自動的にインストールするCLI
 instalooter	Instagramのプロフィールから関連付けられている写真やビデオをダウンロードする
 instead	シンプルなテキストアドベンチャーの通訳
 intercal	難解なパロディープログラミング言語
+intercept	静的アプリケーションセキュリティテスト(SAST)ツール
 interface99	C99のフル機能のインターフェイス
 internetarchive	さまざまなインターネットアーカイブAPIのPythonラッパー
 intltool	ストリングツール
@@ -5035,16 +5037,20 @@ python-certifi	Python用 Mozilla CAバンドル
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
+python-filelock	Pythonのプラットフォームに依存しないファイルロック
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
+python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
 python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
+python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
 python-mutagen	オーディオメタデータを処理するためのPythonモジュール
+python-networkx	Pythonによるネットワーク分析
 python-packaging	Pythonパッケージのコアユーティリティ
 python-psutil	Pythonでプロセスとシステムを監視するためのクロスプラットフォームライブラリ
 python-pycurl	libcurlへのPythonインターフェイス
@@ -5052,6 +5058,7 @@ python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出すための低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
+python-sympy	記号数学用のPythonライブラリ
 python-tabulate	Pythonで表形式のデータをきれいに印刷する
 python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
