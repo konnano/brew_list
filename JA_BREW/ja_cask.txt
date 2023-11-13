@@ -774,7 +774,6 @@ cyberghost-vpn	VPNクライアント
 cycling74-max	独自の双方向ソフトウェアを作成するための柔軟なスペース
 dadroit-json-viewer	JSONビューア
 daedalus-mainnet	Cardanoブロックチェーン上のadaの暗号通貨ウォレット
-daedalus-testnet	Cardano Testnetブロックチェーンのテストada用の暗号通貨ウォレット
 daisydisk	ディスクスペースビジュアライザー
 dangerzone	潜在的に危険なPDFまたはOfficeドキュメントを安全なPDFに変換する
 darktable	写真ワークフローアプリケーションとRaw開発
@@ -844,6 +843,7 @@ deluge	BitTorrentクライアント
 dendroscope	rootの系統treeとネットワークのための双方向なビューア
 denemo	楽譜作成プログラム
 descript	オーディオおよびビデオエディタ
+deskpad	画面共有用の仮想モニター
 deskreen	Webブラウザーを備えたデバイスをセカンダリ画面に変えます
 desktoppr	デスクトップ画像を設定するためのコマンドラインツール
 desktoputility	便利なシステムタスクへのクイックアクセス
@@ -929,6 +929,7 @@ double-commander	ファイルマネージャー
 doubletwist	USBまたはWiFi経由で同期 音楽/ビデオ/写真
 doughnut	ポッドキャストクライアント
 douyin	音楽ショートビデオを作成するためのソーシャル ソフトウェア
+douyin-chat	Douyinのチャットクライアント
 downie	さまざまなWebサイトからビデオをダウンロードします
 doxie	スキャナーハードウェア用のコンパニオンアプリ
 doxygen	ソースコードからドキュメントを生成する
@@ -1730,6 +1731,7 @@ jandi	JANDIコラボレーションプラットフォームのデスクトップ
 jandi-statusbar	ステータスバーのGithubコントリビューション
 jasp	統計分析アプリケーション
 jasper	GitHubの問題リーダー
+jazz2-resurrection	Jazz Jackrabbit 2ゲームエンジンのオープンソース再実装
 jazzup	入力時に効果音を再生します
 jbrowse	Genomeブラウザー
 jclasslib-bytecode-viewer	コンパイルされたJavaクラスファイルと含まれているバイトコードのすべての側面を視覚化します
@@ -1933,6 +1935,7 @@ letter-opener	winmail.datファイルをMail.appに直接表示します
 lg-onscreen-control	接続されている全てのLGモニター情報を表示します
 libcblite	CおよびC++用のCouchbase Liteライブラリ(エンタープライズ版)
 libcblite-community	CおよびC ++用のCouchbaseLiteライブラリ（コミュニティエディション）
+libndi	NDI SDK
 librecad	CADアプリケーション
 libreoffice	オフィスパッケージ
 libreoffice-language-pack	LibreOfficeの代替言語のコレクション
@@ -3200,7 +3203,6 @@ rsyncosx	rsyncのGUI
 rsyncui	rsyncのGUI
 rubymine	Ruby on Rails IDE
 rubymotion	Rubyでクロスプラットフォームのネイティブアプリを作成する
-runcat-plugins-manager	RunCatを有効にしてCPU温度を表示する
 runelite	Old School RuneScapeのクライアント
 runescape	Old School RuneScapeのゲームクライアント
 runjs	コードが入力されると自動評価されるJavaScriptプレイグラウンド
