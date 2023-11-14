@@ -472,6 +472,7 @@ binkd	TCP/IP FTN メーラー
 binutils	ネイティブ開発のためのGNUバイナリツール
 binwalk	埋め込みファイルと実行可能コードのバイナリイメージを検索します
 bioawk	生物学的データに変更されたAWK
+biodiff	生物学のアライメントアルゴリズムを使用した16進差分ビューア
 biome	ウェブのツールチェーン
 bioperl	生物情報科学のためのPerlツール 解析/ライフサイエンス
 biosig	生物医学信号処理およびデータ変換のためのツール
@@ -487,6 +488,7 @@ bittwist	Libcapベースのイーサネットパケット発生器
 bitwarden-cli	すべてのデバイスの安全でFreeのパスワードマネージャー
 bitwise	ncursesのターミナルベースのビットmanipulator
 bk	ターミナルEPUBリーダー
+bkcrack	Biham及びKocherの既知の平文攻撃を使用して従来のzip暗号化を解読する
 bkt	シェルコマンドの結果をキャッシュするためのユーティリティ
 black	Pythonコード整形ツール
 blackbox	安全に保存する Git/Mercurial/Subversion
@@ -5364,6 +5366,7 @@ ruby@3.1	オブジェクト指向のスクリプト言語 強力/クリーン
 rubyfmt	Rubyオート整形ツール
 ruff	Rustで書かれた非常に高速なPython解析ツール
 ruff-lsp	Ruffの言語サーバープロトコルの実装
+ruler	Exchangeサービスを乱用するツール
 run	小さなスクリプトとラッパーを簡単に管理および呼び出す
 runcocoa	コマンドラインから実行するためのツール Cocoa/Objective-C/C
 rune	Rustに埋め込み可能な動的プログラミング言語
