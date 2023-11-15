@@ -1545,6 +1545,7 @@ honer	フォーカスされたウィンドウの周囲に境界線を描画す�
 honto	honto storeの電子書籍リーダー
 hookmark	重要な情報をリンクして取得する
 hookshot	ウィンドウスナップツール
+hoppscotch	オープンソースAPI開発エコシステム
 horndis	Android USBテザリングドライバー
 horos	医用画像ビューア
 hostsx	ローカルホスト更新ツール
