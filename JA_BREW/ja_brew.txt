@@ -243,6 +243,7 @@ asciitex	数学方程式のASCIIアート表現を生成する
 asdf	Ruby、Node.js、Erlang などをサポートする拡張可能なバージョンマネージャー
 asimov	TimeMachineバックアップから開発の依存関係を自動的に除外します
 asio	非同期プログラミング用のクロスプラットフォームC++ライブラリ
+asitop	Apple Silicon用パフォーマンス監視CLIツール
 ask-cli	AlexaスキルキットのCLIツール
 asn	組織検索およびサーバーツール (ASN/IPv4/IPv6/プレフィックス/AS パス)
 asn1c	ASN.1仕様をCソースコードにコンパイルします
@@ -1783,6 +1784,7 @@ fluxctl	Kubernetes GitOpsオペレーターであるWeaveFluxにアクセスす�
 flvmeta	Adobe Flashビデオファイル(FLV)を操作する
 flvstreamer	フラッシュおよびRTMPサーバーからオーディオとビデオをストリーミング
 flyctl	fly.ioサービス用のコマンドラインツール
+flyscrape	スタンドアロンでスクリプト可能なWebスクレイパー
 flyway	移行を制御するためのデータベースバージョン管理
 fmdiff	SubversionとMercurialのdiffコマンドとしてFileMergeを使用します
 fmpp	FreeMarkerテンプレートを使用したテキストファイル前処理ツール
