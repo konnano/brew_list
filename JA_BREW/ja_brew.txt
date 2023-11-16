@@ -1969,6 +1969,7 @@ geocode-glib	gecodingおよび逆gecoding用のGNOMEライブラリ
 geogram	幾何学的アルゴリズムのプログラミングライブラリ
 geographiclib	C++地理ライブラリ
 geoip	このライブラリは、GeoIP Legacy形式(dat)です。
+geoip2fast	GeoIP2 国/ASN ルックアップ ツール
 geoipupdate	GeoIP2およびGeoIPレガシーデータベースの自動更新
 geometry	最小限で完全にカスタマイズ可能で構成可能なzshプロンプトテーマ
 geomview	対話的3D表示プログラム
@@ -3945,6 +3946,7 @@ millet	標準 ML(SML)用の言語サーバー
 mimalloc	コンパクトな汎用メモリ割り当て
 mimic	CMUFliteに基づく軽量のテキスト読み上げエンジン
 mimirtool	Grafana Mimirとやり取りするためのCLI
+minder	Stacklok の Minderプラットフォームと対話するためのCLI
 minetest	Freeのオープンソースvoxelゲームエンジンとゲーム
 mingw-w64	必要最低限のGNU for WindowsおよびGCCクロスコンパイラー
 minica	小さくてシンプルな認証局
@@ -4677,6 +4679,7 @@ pdf2djvu	PDFファイルからDjVuファイルを作成する
 pdf2image	PDFを画像に変換する
 pdf2json	PDFからJSONおよびXMLへの変換器
 pdf2svg	SVGへのPDF変換器
+pdfalyzer	PDF分析ツールキット
 pdfcpu	Goで書かれたPDF計算機
 pdfcrack	PDFファイルパスワードクラッカー
 pdfgrep	正規表現に一致する文字列をPDFで検索する
@@ -6606,6 +6609,7 @@ wiremock-standalone	HTTPベースのAPI用の模擬装置
 wireshark	グラフィカルネットワーク分析とキャプチャツール
 wirouter_keyrec	サポートされているルーターからデフォルトのWPAパスフレーズを回復する
 with-readline	GNUReadlineを任意のプログラムで使用できるようにする
+witness	ソフトウェア成果物の出所を、自動化、正規化、検証します
 wla-dx	さらに別のクロスアセンブラーパッケージ
 wllvm	プログラム全体のLLVMビットコードファイルを構築するためのツールキット
 wmctrl	UNIX/LinuxコマンドラインツールからEWMH/NetWMと対話する
