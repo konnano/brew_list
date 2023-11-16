@@ -64,6 +64,7 @@ MAIN:{
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
+ }elsif( $AR[0] eq '-m'  ){ m_search();
  }else{  Died_1();
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
@@ -402,6 +403,55 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
   closedir $dir_2;
  }
  $bn;
+}
+
+sub m_search{
+ print STDERR "\x1B[?25l";
+  print"\033[0;0H";
+   printf"\033[2J";
+ my( $i,$co,@an ) = ( 0,1 );
+ $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
+ $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
+  system "stty -echo -icanon eol \001";
+   while(1){ my $nu = 0;
+    my $rs = chr(1);
+    my( $st,$ti ) = select $rs,undef,undef,0.01;
+     _pri_1( $co,\@an );
+    $nu = getc if $st;
+    $co = $co == 54 ? 1 : ++$co if $nu eq chr(32);
+    $co = $co == 1 ? 54 : --$co if $nu eq chr(127);
+     if( $nu eq chr(10) ){
+      print STDERR "\x1B[?25h";
+      print"\033[0;0H";
+      print"\033[2J";
+       my( $ca,$na ) = split '_',$an[$co];
+       ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
+       ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';                   
+       $co = ( $ca eq 'l' and $na eq 'l' ) ?
+       `bl -l /^l\\(?\\!ib\\)/` : `bl -$ca /^$na/`;
+      open my $pipe,'|-','less -S' or die " can't \n";
+       print $pipe $co;
+      close $pipe;
+     last }
+    if($nu eq 'q'){ print"\033[0;0H"; print STDERR "\x1B[?25h"; last }
+    print "\033[0;0H";
+   }
+
+   sub _pri_1{
+    my( $co,$an ) = @_; my $s = ' 'x25;
+    print" Space down : Delete up : Enter less : Q exit\n";
+    print" \033[1mFormula  $s  Cask\033[0m\n";
+     for(my $i=1;$i<@$an/2;$i++){
+      if( $$an[$co] eq $$an[$i] ){
+       print" \033[33m$$an[$i]\033[0m ) << $s  $$an[$i+27] ..  \n";
+      }elsif( $$an[$co] eq $$an[$i+27] ){
+       print" $$an[$co-27] .. $s    \033[33m$$an[$co]\033[0m ) <<\n";
+      }elsif( 27 >= $i ){
+       print"\r $$an[$i] .. $s    $$an[$i+27] ..  \n";
+      }
+     }
+   }
+ exit;
 }
 
 sub Proc_1{
