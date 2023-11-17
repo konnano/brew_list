@@ -64,7 +64,7 @@ MAIN:{
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
-# }elsif( $AR[0] eq '-m'  ){ m_search();
+# }elsif( $AR[0] eq '-m'  ){ m_search( $re );
  }else{  Died_1();
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
@@ -261,7 +261,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
   if( $re->{'PRS'} ){
-   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
     $re->{'PID2'} = fork;
      die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
   }
@@ -286,7 +286,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   if( @$list and ( ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
                      $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} ) or
                      $re->{'LIN'} and $re->{'USE'} and not $re->{'USES'} ) ){
-   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
     $re->{'PID2'} = fork;
      die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
   }
@@ -406,52 +406,59 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 }
 
 sub m_search{
- print STDERR "\x1B[?25l";
-  print"\033[0;0H";
-   printf"\033[2J";
- my( $i,$co,@an ) = ( 0,1 );
+ $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H","\033[2J","\033[?25h";system"stty sane";exit };
+ my $re = shift;
+ my( $i,$co,@an ) = ( 0,$re->{'CON'} || 1 );
+ my $nam = $re->{'MAC'} ? 54 : 27;
  $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
  $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
-  system "stty -echo -icanon eol \001";
+  my( $line,$cols ) = split ' ',`stty size`;
+  die" Terminal size is small\n" if $cols < 45;
+  $line = $line > 29 ? 27 : $line-3;
+  system"stty -echo -icanon eol \001";
+  print"\033[?25l","\033[0;0H","\033[2J";
    while(1){ my $nu = 0;
     my $rs = chr(1);
     my( $st,$ti ) = select $rs,undef,undef,0.01;
-     _pri_1( $co,\@an );
+     _pri_1( $co,$line,\@an );
     $nu = getc if $st;
-    $co = $co == 54 ? 1 : ++$co if $nu eq chr(32);
-    $co = $co == 1 ? 54 : --$co if $nu eq chr(127);
+    $co = $co == $nam ? 1 : ++$co if $nu eq chr(32) or $nu eq 'h';
+    $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'l';
+    $re->{'CON'} = $co;
      if( $nu eq chr(10) ){
-      print STDERR "\x1B[?25h";
-      print"\033[0;0H";
-      print"\033[2J";
+      print"\0331B[?25h","\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$an[$co];
        ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
        ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';                   
        $co = ( $ca eq 'l' and $na eq 'l' ) ?
        `bl -l /^l\\(?\\!ib\\)/` : `bl -$ca /^$na/`;
+       $SIG{'INT'} = $SIG{'QUIT'} =  sub{};
       open my $pipe,'|-','less -S' or die " can't \n";
        print $pipe $co;
       close $pipe;
      last }
-    if($nu eq 'q'){ print"\033[0;0H"; print STDERR "\x1B[?25h"; last }
-    print "\033[0;0H";
+     print"\033[0;0H";
+    if($nu eq 'q'){
+     print"\033[0;0H","\033[2J","\033[?25h";
+     system "stty sane"; exit
+    }
    }
 
    sub _pri_1{
-    my( $co,$an ) = @_; my $s = ' 'x25;
-    print" Space down : Delete up : Enter less : Q exit\n";
-    print" \033[1mFormula  $s  Cask\033[0m\n";
-     for(my $i=1;$i<@$an/2;$i++){
+    my( $co,$line,$an ) = @_; my $s = ' 'x27;
+    print" Space down : Delete up : Enter less : \033[33mQ exit\033[0m\n";
+    print" \033[1mFormula $s Cask\033[0m\n";
+     for(my $i=1;$i<=$line;$i++){
       if( $$an[$co] eq $$an[$i] ){
-       print" \033[33m$$an[$i]\033[0m ) << $s  $$an[$i+27] ..  \n";
+       print" \033[33m$$an[$i]\033[0m ) <<$s $$an[$i+27] ..  \n";
       }elsif( $$an[$co] eq $$an[$i+27] ){
-       print" $$an[$co-27] .. $s    \033[33m$$an[$co]\033[0m ) <<\n";
+       print" $$an[$co-27] .. $s  \033[33m$$an[$co]\033[0m ) <<\n";
       }elsif( 27 >= $i ){
-       print"\r $$an[$i] .. $s    $$an[$i+27] ..  \n";
+       print"\r $$an[$i] .. $s  $$an[$i+27] ..  \n";
       }
      }
    }
- exit;
+  m_search( $re );
 }
 
 sub Proc_1{
@@ -908,7 +915,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
 
  unless( @an ){ @AN = ();
   unless( $re->{'CAS'} ){
-   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
+   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h" };
     $re->{'PID2'} = fork;
      die " Dele Not fork : $!\n" unless defined $re->{'PID2'};
   }
