@@ -64,7 +64,7 @@ MAIN:{
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
- }elsif( $AR[0] eq '-m'  ){ m_search();
+# }elsif( $AR[0] eq '-m'  ){ m_search();
  }else{  Died_1();
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
