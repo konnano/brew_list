@@ -408,16 +408,17 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 sub m_search{
  $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H","\033[2J","\033[?25h";system"stty sane";exit };
  my $re = shift;
- my( $i,$co,@an ) = ( 0,$re->{'CON'} || 1 );
+ my( $i,$co,@an ) = ( 0,$re->{'CON'}||1 );
  my $nam = $re->{'MAC'} ? 54 : 27;
  $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
  $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
   my( $line,$cols ) = split ' ',`stty size`;
-  die" Terminal size is small\n" if $cols < 45;
-  $line = $line > 29 ? 27 : $line-3;
+  die" Terminal size(width) is small\n" if $cols < 45;
+  $line = $line > 29 ? 27 : $line - 4;
   system"stty -echo -icanon eol \001";
-  print"\033[?25l","\033[0;0H","\033[2J";
+  print"\033[0;0H","\033[2J","\033[?25l";
    while(1){ my $nu = 0;
+    print"  ### Terminal size(height) is small ###\n" if $line < 27;
     my $rs = chr(1);
     my( $st,$ti ) = select $rs,undef,undef,0.01;
      _pri_1( $co,$line,\@an );
@@ -426,14 +427,14 @@ sub m_search{
     $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'l';
     $re->{'CON'} = $co;
      if( $nu eq chr(10) ){
-      print"\0331B[?25h","\033[0;0H","\033[2J";
+       print"\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$an[$co];
        ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
-       ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';                   
-       $co = ( $ca eq 'l' and $na eq 'l' ) ?
+       ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
+       $co = ( $an[$co] eq 'l_l' ) ?
        `bl -l /^l\\(?\\!ib\\)/` : `bl -$ca /^$na/`;
        $SIG{'INT'} = $SIG{'QUIT'} =  sub{};
-      open my $pipe,'|-','less -S' or die " can't \n";
+      open my $pipe,'|-','less -S' or die " can't exec command\n";
        print $pipe $co;
       close $pipe;
      last }
@@ -446,14 +447,14 @@ sub m_search{
 
    sub _pri_1{
     my( $co,$line,$an ) = @_; my $s = ' 'x27;
-    print" Space down : Delete up : Enter less : \033[33mQ exit\033[0m\n";
+    print" Space down : Delete up : Enter less : \033[1mq exit\033[0m\n";
     print" \033[1mFormula $s Cask\033[0m\n";
      for(my $i=1;$i<=$line;$i++){
       if( $$an[$co] eq $$an[$i] ){
        print" \033[33m$$an[$i]\033[0m ) <<$s $$an[$i+27] ..  \n";
       }elsif( $$an[$co] eq $$an[$i+27] ){
        print" $$an[$co-27] .. $s  \033[33m$$an[$co]\033[0m ) <<\n";
-      }elsif( 27 >= $i ){
+      }else{
        print"\r $$an[$i] .. $s  $$an[$i+27] ..  \n";
       }
      }
