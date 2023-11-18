@@ -64,7 +64,7 @@ MAIN:{
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
-# }elsif( $AR[0] eq '-m'  ){ m_search( $re );
+ }elsif( $AR[0] eq '-m'  ){ m_search( $re );
  }else{  Died_1();
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
@@ -216,7 +216,7 @@ sub Died_1{
   -dd\t:  uninstall, unnecessary formula, display tree and order, second argument not uninstall Formula
   -ddd\t:  All deps uninstall, second argument not uninstall Formula
   -is\t:  Display in order of size\n  -g\t:  Independent formula
-  -ai\t:  Analytics Data ( no argument, or argument [1-8] )\n";
+  -ai\t:  Analytics Data ( no argument, or argument [1-8] )\n  -m\t:  Another search,less\n";
  if( $^O eq 'darwin' ){
   print"   Only mac : Cask
   -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
@@ -431,11 +431,11 @@ sub m_search{
        my( $ca,$na ) = split '_',$an[$co];
        ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
        ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
-       $co = ( $an[$co] eq 'l_l' ) ?
+       my $bl = ( $an[$co] eq 'l_l' ) ?
        `bl -l /^l\\(?\\!ib\\)/` : `bl -$ca /^$na/`;
-       $SIG{'INT'} = $SIG{'QUIT'} =  sub{};
+       $SIG{'INT'} = $SIG{'QUIT'} = sub{};
       open my $pipe,'|-','less -S' or die " can't exec command\n";
-       print $pipe $co;
+       print $pipe $bl;
       close $pipe;
      last }
      print"\033[0;0H";
