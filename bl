@@ -425,8 +425,7 @@ sub m_search{
     $nu = getc if $st;
     $co = $co == $nam ? 1 : ++$co if $nu eq chr(32) or $nu eq 'h';
     $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'l';
-    $re->{'CON'} = $co;
-     if( $nu eq chr(10) ){
+     if( $nu eq chr(10) ){ $re->{'CON'} = $co;
        print"\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$an[$co];
        ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
