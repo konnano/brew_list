@@ -216,7 +216,7 @@ sub Died_1{
   -dd\t:  uninstall, unnecessary formula, display tree and order, second argument not uninstall Formula
   -ddd\t:  All deps uninstall, second argument not uninstall Formula
   -is\t:  Display in order of size\n  -g\t:  Independent formula
-  -ai\t:  Analytics Data ( no argument, or argument [1-8] )\n  -m\t:  Another search,less\n";
+  -ai\t:  Analytics Data ( no argument, or argument [1-8] )\n  -m\t:  Another search,`less`\n";
  if( $^O eq 'darwin' ){
   print"   Only mac : Cask
   -c\t:  cask list : First argument Formula search : Second argument '.' Full-text search
