@@ -30,6 +30,7 @@ acl2	コンピュータシステムをモデル化できる論理およびプロ
 acme	複数の環境向けのクロスアセンブラ
 acpica	ACPI仕様のOSに依存しない実装
 act	GitHubアクションをローカルで実行する 🚀
+action-validator	GitHubアクション及びワークフロー、YAMLファイル、を検証するツール
 actionlint	GitHub Actionsワークフローファイルの静的チェッカー
 activemq	Apache ActiveMQ：強力なオープンソースメッセージングサーバー
 activemq-cpp	Apache ActiveMQなどのメッセージブローカーのC++ API
@@ -104,6 +105,7 @@ alpine	ニュースとメールエージェント
 alpscore	物理シミュレーション用のアプリケーションとライブラリ
 alsa-lib	LinuxオペレーティングシステムにオーディオおよびMIDI機能を提供します
 alure	OpenALアプリケーションで一般的なタスクを管理する
+amass	詳細な攻撃対象領域のマッピングと資産の検出
 amazon-ecs-cli	開発用のクラスターとタスクを管理するためのAmazon ECSのCLI
 amber	Crystal Webフレームワーク ベアメタルのパフォーマンス、生産性と幸福
 amdatu-bootstrap	OSGi開発のブートストラップ
@@ -345,6 +347,7 @@ aws-sso-util	AWS SSOの荒削りな部分を滑らかにします(一時的に�
 aws-vault	開発環境でAWSの認証情報を安全に保存してアクセスする
 aws2-wrap	現在のAWS SSOクレデンシャルをエクスポートする、またはそれらを使用してサブプロセスを実行するスクリプト
 awscli	公式のAmazon AWSコマンドラインインターフェース
+awscli-local	LocalStackで使用する、awsコマンドラインインターフェイスの薄いラッパー
 awscli@1	公式のAmazon AWSコマンドラインインターフェース
 awscurl	Curlの様にシンプルにAWSリソースにアクセス
 awslogs	AWS Cloud Watchログを読み取るためのシンプルなコマンドラインツール
@@ -990,7 +993,7 @@ conan@1	C/C++用の分散型オープンソースパッケージマネージャ�
 concurrencykit	並行システムの設計と実装を支援する
 conda-lock	conda環境用の軽量ロックファイル
 conda-zsh-completion	condaのZsh補完
-conduit	データストア間でデータをストリーミングします Kafka Connectの置き換え JVM不要
+conduit	データ貯蔵間でデータをストリーミングします Kafka Connectの置き換え、JVM不要
 condure	接続マネージャー HTTP/WebSocket
 confd	テンプレートを使用してローカルアプリケーション構成ファイルを管理する
 configen	Xcodeプロジェクトで使用するための構成ファイルコード発生器
@@ -2925,6 +2928,7 @@ kepubify	電子書籍をepubからkepubに変換する
 kerl	Erlang/OTP インスタンスの簡単な構築とインストール
 kertish-dfs	Kertishファイルシステムとクラスター管理CLI
 kettle	Pentahoデータ統合ソフトウェア
+kew	コマンドライン音楽プレーヤー
 keychain	ssh-agent(1)へのユーザーに親しいフロントエンド
 keydb	RedisのMultithreadedフォーク
 keyring	Pythonからシステムキーリングサービスにアクセスする簡単な方法
@@ -4559,6 +4563,7 @@ osctrl-cli	高速かつ効率的なosquery管理
 osi	Open Solverインターフェース
 osinfo-db	仮想化provisioningツール用のオペレーティングシステムOsinfoデータベース
 osinfo-db-tools	libosinfoデータベースファイルを管理するためのツール
+oslo	OpenSLO仕様用のCLIツール
 osm	Open Service Mesh(OSM)
 osm-gps-map	OpenStreetMap地図を埋め込むためのGTK+ライブラリ
 osm-pbf	PBFに関連するツール(XML形式の代替品)
@@ -4646,6 +4651,7 @@ passpie	ターミナルからのログイン認証情報を管理する
 passwdqc	パスワード/パスフレーズ の強度チェックおよび施行ツールセット
 pastebinit	コマンドラインからpastebinに送る
 pastel	色分析/変換/操作 を生成するコマンドラインツール
+patat	Pandocを使用した端末ベースのプレゼンテーション
 patch-package	壊れたnodeモジュールを即座に修正する
 patchelf	動的ELF実行可能ファイルを変更する
 patchutils	パッチファイルを操作するプログラムの小さなコレクション
@@ -5039,16 +5045,20 @@ pyside@2	Qtの公式Python bindings
 pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-argcomplete	Python argparseのタブ補完
+python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
 python-cryptography	Pythonの暗号化レシピとプリミティブ
+python-cycler	構成可能なスタイルサイクル
+python-dateutil	標準Python日時機能の便利な拡張機能
 python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
 python-filelock	Pythonのプラットフォームに依存しないファイルロック
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
 python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
+python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC++実装
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
@@ -5281,6 +5291,7 @@ rhash	ファイルのハッシュ合計を計算および検証するための�
 rhino	JavaScriptエンジン
 rhit	Nginxログエクスプローラー
 rich-cli	ターミナルでの派手な出力のためのコマンドラインツールボックス
+richgo	go test出力をテキスト装飾で強化する
 riemann	イベントストリーム計算機
 riemann-client	Riemann監視システム用のCクライアントライブラリ
 riff	どの行部分が変更されたかを強調表示する差分フィルター
@@ -5443,6 +5454,7 @@ scalastyle	コマンドラインからscalastyleを実行する
 scale2x	リアルタイムグラフィック効果
 scalingo	ScalingoのPaaSを操作するためのCLI
 scamper	高度なtracerouteおよびネットワーク測定ユーティリティ
+scarb	Cairoパッケージマネージャー
 scc	複雑さとCOCOMO estimatesを備えた高速で正確なコードカウンター
 sccache	コンパイララッパーとして使用され可能な場合はコンパイルを回避します
 scdoc	小さなマニュアルページ発生器
@@ -5555,10 +5567,12 @@ shapelib	ArcViewシェープファイルを読み書きするためのライブ�
 shared-mime-info	一般的なMIMEタイプのデータベース
 shc	シェルスクリプトコンパイラ
 sheldon	高速で構成可能なシェルプラグインマネージャー
+shell2http	HTTPサーバー経由でシェルコマンドを実行する
 shellcheck	(ba)shスクリプト用の静的分析およびlintツール
 shellharden	変数の引用を 奨励/修正 するBash構文ハイライト
 shellinabox	コマンドラインツールをWebベースのターミナルエミュレータに転送する
 shellshare	ライブターミナル放送
+shellspec	Dash、bash、ksh、zsh、及び全てのPOSIXシェル用のBDD単体テストフレームワーク
 shelltestrunner	コマンドラインプログラムをテストするためのポータブルコマンドラインツール
 shellz	カスタムshellzを追跡および制御するための小さなユーティリティ
 shfmt	シェルスクリプトのソースコードを自動フォーマットする
@@ -5621,6 +5635,7 @@ sjk	Swiss Java Knife
 sk	rustあいまい検索ツール！
 skaffold	簡単で再現性のあるKubernetes開発
 skaffold@1.39	簡単で反復可能なKubernetes開発
+skate	個人キー値貯蔵
 skeema	MySQLおよびMariaDBの宣言型の純粋なSQLスキーマ管理
 ski	ジェットエンジンのskiで致命的なYetiを回避する
 skinny	ScalaのフルスタックWebアプリフレームワーク
@@ -5641,6 +5656,7 @@ slirp4netns	非特権ネットワーク名前空間のユーザーモードネ�
 slither-analyzer	Python3で書かれたSolidity静的解析フレームワーク
 sloc	コードのソース行をカウントするためのシンプルなツール
 sloccount	多くの言語でコードの行を数える
+sloth	プロメテウスSLO生成機
 slowhttptest	アプリケーション層のサービス拒否攻撃をシミュレートします
 slrn	強力なコンソールベースのニュースリーダー
 slsa-verifier	SLSA準拠のビルダーの出所を確認する
@@ -5733,7 +5749,7 @@ spades	denovoゲノム配列アセンブリ
 spago	PureScriptパッケージマネージャーとビルドツール
 spandsp	テレフォニー用のDSP関数ライブラリ
 spark	シェルのSparklines
-sparkey	定数Key-Valueストア 頻繁な読み取り/まれな書き込みの使用に最適
+sparkey	定数Key-Value貯蔵 頻繁な読み取り/まれな書き込み、の使用に最適
 sparse	静的Cコード分析ツール
 spatialindex	空間インデックスを開発するための一般的なフレームワーク
 spatialite-gui	SpatiaLiteをサポートするGUIツール
@@ -5789,6 +5805,7 @@ sqlcipher	256ビットのAES暗号化を提供するSQLite機能拡張
 sqlcmd	Microsoft SQL Serverコマンドラインインターフェイス
 sqldiff	SQLiteデータベース間の違いを表示します
 sqlfluff	人々のためのSQL静的解析ツールと自動整形ツール
+sqlfmt	幅を認識した出力を備えた SQL フォーマッタ
 sqlite	SQLiteのコマンドラインインターフェイス
 sqlite-analyzer	SQLiteファイル内でスペースがどのように割り当てられているかを分析します
 sqlite-utils	SQLiteデータベースを操作するためのCLIユーティリティ
@@ -5796,7 +5813,6 @@ sqliteodbc	SQLiteのODBCドライバー
 sqlmap	SQLインジェクションおよびデータベースサーバーの侵入テスト
 sqlpage	Webアプリケーションフレームワーク、単純なデータベースクエリを使用したWebサイトの作成用
 sqlparse	非検証SQLパーサー
-sqls	Goで記述されたSQL言語サーバー
 sqlsmith	ランダムSQL生成器
 sqlx-cli	RustSQLツールキットであるSQLxのコマンドラインユーティリティ
 sqsmover	AWSSQSメッセージムーバー
@@ -6053,6 +6069,7 @@ terraform	構築するツール 変化とバージョン基礎構造
 terraform-docs	Terraformモジュールからドキュメントを生成するためのツール
 terraform-graph-beautifier	"terraform graph"出力を美しくするためのCLI
 terraform-inventory	TerraformState → AnsibleDynamicInventory
+terraform-local	TerraformアプリケーションをLocalStackに直接デプロイするためのCLIラッパー
 terraform-ls	Terraform言語サーバー
 terraform-lsp	Terraformの言語サーバー手続き
 terraform-provider-libvirt	libvirtを使用しLinux KVMにTerraformを提供する
