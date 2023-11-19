@@ -752,6 +752,7 @@ font-hind-vadodara	Hind Vadodara
 font-holtwood-one-sc	Holtwood One SC
 font-homemade-apple	自家製リンゴ
 font-homenaje	Homenaje
+font-honk	taresh vohraとチームek typeによって行われました
 font-hubballi	非公式で親しみやすい外観のMonolinear書体
 font-hubot-sans	GitHubのバリアブルフォントHubot Sans
 font-humor-sans	Humor Sans
@@ -1649,6 +1650,7 @@ font-public-sans	Public Sans
 font-puppies-play	遊び心のある流れを与えるコネクタを備えた楽しく弾力のあるスクリプト
 font-puritan	Puritan
 font-purple-purse	Purple Purse
+font-pushster	Pushster
 font-qahiri	Qahiri
 font-quando	Quando
 font-quantico	Quantico
@@ -1839,6 +1841,7 @@ font-sintony	Sintony
 font-sirin-stencil	Sirin Stencil
 font-sitara	Sitara
 font-six-caps	Six Caps
+font-sixtyfour	Sixtyfour
 font-skranji	Skranji
 font-slabo-13px	Slabo 13px
 font-slabo-27px	Slabo 27px
@@ -2063,6 +2066,7 @@ font-windsong	複数の文体セットを含む細長いスクリプト
 font-wire-one	Wire One
 font-wix-madefor-display	Wix Madefor ディスプレイ
 font-work-sans	Work Sans
+font-workbench	Workbench
 font-xanh-mono	lambaoとduydaoによってデザインされたMono-serif書体
 font-xits	数学的および科学的出版のための時代のような書体
 font-xkcd	xkcd
@@ -2230,6 +2234,7 @@ mi-beta	テキストエディター
 microsoft-edge-beta	マルチプラットフォームのWebブラウザー
 microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2016	オフィススイート
+microsoft-office-2019	Officeセット
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
 microsoft-openjdk17	MicrosoftからのOpenJDKディストリビューション
 microsoft-teams-classic	１ヶ所で会議、チャット、通話、コラボレーションが可能
