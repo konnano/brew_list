@@ -24,21 +24,21 @@ MAIN:{
   $^O eq 'linux' ? $re->{'LIN'} = 1 : die " Not support OS\n";
 
  my @AR = @ARGV; my $name;
-  Died_1() unless $AR[0];
+  Died_1( $re ) unless $AR[0];
  if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
  }elsif( $AR[0] eq '-i'  ){ $name = $re;  $re->{'PRINT'} = 1;
- }elsif( $AR[0] eq '-c'  ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-ct' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-fc' ){ $name = $re;  $re->{'LIST'}  = $re->{'FTD'}  = 1; Died_1() if $re->{'MAC'};
+ }elsif( $AR[0] eq '-c'  ){ $name = $ref; $ref->{'LIST'} = 1; Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'}= 1; Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ct' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-fc' ){ $name = $re;  $re->{'LIST'}  = $re->{'FTD'}  = 1; Died_1( $re ) if $re->{'MAC'};
  }elsif( $AR[0] eq '-ctp'){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = $ref->{'LINK'} = 8;
-                            Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-p'  ){ $name = $ref; $ref->{'PRE'}  = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
+                            Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-p'  ){ $name = $ref; $ref->{'PRE'}  = $ref->{'TAP'} = 1; Died_1( $re ) if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = 3;
- }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1( $re ) if $re->{'LIN'};
  }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} =
                             $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
@@ -48,7 +48,7 @@ MAIN:{
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = 1;
  }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = 1;
  }elsif( $AR[0] eq '-ddd'){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = $re->{'DDD'} = 1;
- }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'} = 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'} = 1; Died_1( $re ) if $re->{'LIN'};
  }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'}  = 1;
  }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'}  = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = $re->{'USE'} = 1;
@@ -65,7 +65,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }elsif( $AR[0] eq '-m'  ){ m_search( $re );
- }else{  Died_1();
+ }else{  Died_1( $re );
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
  if( $re->{'LIN'} ){
@@ -130,15 +130,15 @@ MAIN:{
       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) or not -d $re->{'HOME'} ){
        $re->{'NEW'}++; Init_1( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
-   $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : defined $AR[1] ? lc $AR[1] : Died_1();
+   $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : defined $AR[1] ? lc $AR[1] : Died_1( $re );
     $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
      $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ s|^/(.+)/$|$1| ? $re->{'STDI'} : "\Q$re->{'STDI'}\E";
       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
 
-  }elsif( $re->{'USE'} ){ $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1();
-  }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1();
-  }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
-  }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'USE'} ){ $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
+  }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
+  }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1( $re );
+  }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
    if( $Locale ){ $re->{'|'} = '│'; $re->{'|--'} = '├──'; $re->{'`--'} = '└──';
            }else{ $re->{'|'} = '|'; $re->{'|--'} = '|--'; $re->{'`--'} = '`--'; }
   }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
@@ -189,6 +189,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
+  my $re = shift;
   my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_jp\.utf-?8$/i;
   my $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
@@ -201,7 +202,8 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
 
-  print"  Enhanced brew list : version 1.19_3\n   Option\n  -new\t:  creat new cache
+   $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off';
+  print"  Enhanced brew list : version 1.19_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -225,7 +227,8 @@ sub Died_1{
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( no argument, or argument 1,2 )
   -ctp\t:  Font quickLook preview list\n  -p\t:  Font quickLook preview : p mark only ( unstable )\n";
  }else{ print"  -fc\t:  Font list : First argument Formula search : Second argument '.' Full-text search\n"; }
- die $Lang;
+  die $Lang;
+ $re->{'MAC'} ? system "printf '\033[?7h' " : system 'setterm -linewrap on';
 }
 
 sub Init_1{
@@ -406,25 +409,36 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 }
 
 sub m_search{
- $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H","\033[2J","\033[?25h";system"stty sane";exit };
  my $re = shift;
  my( $i,$co,@an ) = ( 0,$re->{'CON'}||1 );
  my $nam = $re->{'MAC'} ? 54 : 27;
  $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
  $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
-  my( $line,$cols ) = split ' ',`stty size`;
-  die" Terminal size(width) is small\n" if $cols < 45;
-  $line = $line > 29 ? 27 : $line - 4;
+  ( $re->{'LINES'},$re->{'COLS'} ) = split ' ',`stty size` unless $re->{'LINES'};
+   if( not $re->{'SP'} and 45 > $re->{'COLS'} ){
+    $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off';
+     for(my $sp=0;$sp<=45-$re->{'COLS'};$sp++){ $re->{'SP'} = $sp }
+   }
+ $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H","\033[2J","\033[?25h";
+               $re->{'MAC'} ? system "printf '\033[?7h' " : system 'setterm -linewrap on' if $re->{'SP'};
+               system'stty sane'; exit };
+  $re->{'ST'} ||= 1;
+  $re->{'LI'} = $re->{'LINES'} > 29 ? 27 : $re->{'LINES'} - 3 unless $re->{'LI'};
   system"stty -echo -icanon eol \001";
   print"\033[0;0H","\033[2J","\033[?25l";
    while(1){ my $nu = 0;
-    print"  ### Terminal size(height) is small ###\n" if $line < 27;
     my $rs = chr(1);
     my( $st,$ti ) = select $rs,undef,undef,0.01;
-     _pri_1( $co,$line,\@an );
+     _pri_1( $co,$re,\@an );
     $nu = getc if $st;
     $co = $co == $nam ? 1 : ++$co if $nu eq chr(32) or $nu eq 'h';
     $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'l';
+     my $com = $co > 27 ? $co - 27 : $co;
+      if( 30 > $re->{'LI'} ){
+       if( 27 > $re->{'LI'} and $com > $re->{'LI'} ){ $re->{'ST'}++; $re->{'LI'}++ }
+       if( $re->{'ST'} and $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
+       if( 28 == $com ){ $re->{'LI'} = $re->{'LI'} - $re->{'ST'} + 1; $re->{'ST'} = 1; }
+      }
      if( $nu eq chr(10) ){ $re->{'CON'} = $co;
        print"\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$an[$co];
@@ -440,15 +454,16 @@ sub m_search{
      print"\033[0;0H";
     if($nu eq 'q'){
      print"\033[0;0H","\033[2J","\033[?25h";
-     system "stty sane"; exit
+     $re->{'MAC'} ? system "printf '\033[?7h' " : system 'setterm -linewrap on' if $re->{'SP'};
+     system'stty sane'; exit
     }
    }
 
    sub _pri_1{
-    my( $co,$line,$an ) = @_; my $s = ' 'x27;
-    print" Space down : Delete up : Enter less : \033[1mq exit\033[0m\n";
+    my( $co,$re,$an ) = @_; my $s = ' 'x ( 27 - ( $re->{'SP'}||0 )); my $i = $re->{'ST'};
+    print" \033[1mQ exit\033[0m : Space down : Delete up : Enter less\n";
     print" \033[1mFormula $s Cask\033[0m\n";
-     for(my $i=1;$i<=$line;$i++){
+     for(;$i<=$re->{'LI'};$i++){
       if( $$an[$co] eq $$an[$i] ){
        print" \033[33m$$an[$i]\033[0m ) <<$s $$an[$i+27] ..  \n";
       }elsif( $$an[$co] eq $$an[$i+27] ){
