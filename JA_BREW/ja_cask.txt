@@ -1082,7 +1082,7 @@ eobcanka	チェコ国民IDカードアプリ
 epic	プライベートで安全なWebブラウザー
 epic-games	*Epic Games* ゲームのランチャー
 epichrome	独立型アプリのように機能するWebベースのアプリケーションを作成するためのツール
-epilogue-operator	コンピューターでゲームボーイカートリッジを再生および管理する
+epilogue-playback	コンピュータ上でゲームボーイカートリッジを再生および管理する
 epoccam	お使いの携帯電話をWebカメラに変える
 epoch-flip-clock	Epoch Flip Clockスクリーンセーバー
 epub-to-pdf	epub-2-pdf
@@ -2669,6 +2669,8 @@ overflow	ビジュアルアプリケーションランチャー
 overkill	iPhoneを接続するときにiTunesが開かないようにする
 oversight	コンピューターのマイクとWebカメラを監視します
 overt	アプリストアを開く
+ovito	科学データの視覚化および分析ソフトウェア
+ovito-pro	科学データの視覚化および分析ソフトウェア
 owncloud	ownCloud用のデスクトップ同期クライアント
 oxygen-xml-editor	OxygenXML開発および作成を含むXML編集用のツール
 p4	これを使用して操作に即座にアクセスしシステムを完全に制御します
