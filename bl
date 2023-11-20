@@ -427,7 +427,7 @@ sub m_search{
   $re->{'ST'} ||= 1;
   unless( $re->{'LI'} ){
    $re->{'LI'} = $re->{'LINES'} > 29 ? 27 : $re->{'LINES'} - 3;
-    system"stty -echo -icanon eol \001";
+    system"stty -echo -icanon";
   }
   print"\033[0;0H","\033[2J","\033[?25l";
    while(1){ my $nu = 0;
