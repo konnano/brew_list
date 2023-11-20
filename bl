@@ -435,8 +435,10 @@ sub m_search{
     my( $st,$ti ) = select $rs,undef,undef,0.01;
      _pri_1( $co,$re );
       $nu = getc if $st;
-    $co = $co == $re->{'NA'} ? 1 : ++$co if $nu eq chr(32) or $nu eq 'h';
-    $co = $co == 1 ? $re->{'NA'} : --$co if $nu eq chr(127) or $nu eq 'l';
+    $co = $co == $re->{'NA'} ? 1 : ++$co if $nu eq chr(32) or $nu eq 'j';
+    $co = $co == 1 ? $re->{'NA'} : --$co if $nu eq chr(127) or $nu eq 'k';
+    $co += 27 if $co < 28 and $nu eq 'l';
+    $co -= 27 if $co > 27 and $nu eq 'h';
      my $com = $co > 27 ? $co - 27 : $co;
           if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++ 
       }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
