@@ -48,7 +48,7 @@ adapter	ビデオ、オーディオ、画像を変換します
 adguard	独立型の広告ブロッカー
 adguard-vpn	プライバシーとセキュリティのためのVPN
 adium	インスタントメッセージングアプリケーション
-adobe-acrobat-pro	ポータブルドキュメント形式でファイルを印刷および管理する 意見/作成/操作
+adobe-acrobat-pro	ポータブルドキュメント形式でファイルをプリント及び管理する 意見/作成/操作
 adobe-acrobat-reader	PDFドキュメントにコメントする 表示/印刷
 adobe-air	アプリケーションやゲームの開発に使用されるフレームワーク
 adobe-connect	仮想会議クライアント
@@ -312,7 +312,7 @@ bartender	メニューバーアイコンオーガナイザー
 base	作成するアプリ デザイン/SQLite3データベースファイルを編集および参照する
 basecamp	リモートで作業するためのオールインワンツールキット
 basictex	完全な TeXLive/MacTeXの代替としてのコンパクトなTeXディストリビューション
-batchoutput-pdf	PDF印刷を自動化する
+batchoutput-pdf	PDFプリントを自動化する
 bathyscaphe	2チャンネルブラウザー
 batteries	すべてのデバイスのバッテリーを追跡する
 battery	バッテリーの充電状態を管理するためのCLI
@@ -380,7 +380,7 @@ bitmessage	P2P通信手続き
 bitrix24	ビジネス向けのオンラインワークスペース
 bitwarden	デスクトップパスワードとログインVault
 bitwig-studio	デジタルオーディオワークステーション
-black-ink	ダウンロード/解答 クロスワードパズルを印刷します
+black-ink	ダウンロード/解決 クロスワードパズルをプリントします
 black-light	画面に特別な視覚効果を適用します
 black-light-pro	スケジュールの色の効果
 blackhole-16ch	仮想オーディオドライバー
@@ -758,7 +758,7 @@ cscreen	コマンドライン表示管理ユーティリティ
 cubicsdr	クロスプラットフォームソフトウェア無線アプリケーション
 cuda-z	CUDA対応のGPUとGPGPUに関する基本情報を表示する
 cumulus	メニューバーにあるSound Cloudプレーヤー
-cura-lulzbot	3D印刷ソリューション
+cura-lulzbot	3Dプリントソリューション
 curio	メモ取りと整理のアプリ
 curiosity	SwiftUI Redditクライアント
 curseforge	アドオンとMODをダウンロードして管理します
@@ -1553,9 +1553,9 @@ hot	熱の問題によるCPU速度制限を表示するメニューバーアプ�
 hotswitch	2ストロークホットキーを使用した高速ウィンドウ切り替え
 houdahspot	ファイル検索アプリケーション
 hovrly	さまざまな都市のタイムゾーンの時間を表示および変換する
-hp-easy-admin	HP印刷ドライバーやスキャンドライバーを直接ダウンロードするツール
+hp-easy-admin	HPプリンタードライバーやスキャンドライバーを直接ダウンロードするツール
 hp-easy-start	HPプリンターをセットアップする
-hp-eprint	モバイル印刷ソリューション
+hp-eprint	モバイルプリントソリューション
 hp-prime	グラフ電卓エミュレータ
 hstracker	Hearthstoneのデッキ監視およびデッキマネージャー
 html-mangareader	完全な連続スクロールを備えた軽量のオフラインCBZ/CBRおよび画像ビューア
@@ -1604,7 +1604,7 @@ icq	メッセンジャーアプリケーション
 id3-editor	MP3およびAIFFID3タグエディター
 idafree	バイナリコード分析ツール
 idagio	クラシック音楽ストリーミングアプリ
-ideamaker	Raise3DによるFDM 3D印刷スライサー
+ideamaker	Raise3DによるFDM 3Dプリントスライサー
 idisplay	iDisplay
 idrive	クラウドバックアップおよびストレージソリューション
 ieasemusic	サードパーティのNetEaseクラウドミュージックプレーヤー
@@ -2402,7 +2402,7 @@ muzzle	画面共有中に困惑する通知を黙らせる
 mweb-pro	マークダウンライティング ノートをつたえる静的ブログ生成機アプリ
 mx-power-gadget	Apple Mxプロセッサの電源管理と監視
 my-budget	予算編成ツール
-my-image-garden	写真編集および印刷ツール
+my-image-garden	写真編集及びプリントツール
 mycard	遊戯王! 完全なカードシミュレーター
 mycloud	スイスのクラウドストレージデスクトップアプリ
 mycrypto	イーサリアムウォレットマネージャー
@@ -2662,7 +2662,7 @@ otx	Mach-O逆アセンブラ
 outguess	Outguess
 outline	アプリを取ることに注意してください
 outline-manager	Shadowsocksを搭載したOutlineサーバーを作成および管理するためのツール
-output-factory	AdobeInDesignからの印刷とエクスポートを自動化します
+output-factory	AdobeInDesignからのプリントとエクスポートを自動化します
 outset	outset
 overdrive-media-console	電子書籍を入手 オーディオブックとあなたの地元の図書館からのビデオ
 overflow	ビジュアルアプリケーションランチャー
@@ -2889,7 +2889,7 @@ praat	コンピューターで音声学をする
 pref-setter	plistファイルを編集する
 preference-manager	ビデオエディタの設定をロックして復元する ごみ/バックアップ
 preferencecleaner	設定ファイルを削除するタスクを簡素化するユーティリティ
-preform	3D印刷のセットアップ、管理、および監視
+preform	3D印刷のセットアップ、管理、及び監視
 prefs-editor	'defaults'コマンドのグラフィカルユーザーインターフェイス
 prepros	Web開発コンパニオン
 presentation	PDFスライド用のツール
