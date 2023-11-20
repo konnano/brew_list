@@ -233,7 +233,7 @@ arttime	端末用の 時計、タイマー、タイムマネージャ、ASCII+�
 arturo	効率的なスクリプティングのためのシンプルでモダンでポータブルなプログラミング言語
 arx-libertatis	ArxFatalisのクロスプラットフォームのオープンソースポート
 arxiv_latex_cleaner	arXivに送信するLaTeXコードをクリーンアップします
-as-tree	パスのリストをパスのツリーとして印刷する 🌳
+as-tree	パスのリストをパスのツリーとしてプリントする 🌳
 ascii	ASCIIイディオム名と 8進数/10進数 のコードポイント形式を一覧表示します
 ascii2binary	テキストをバイナリに変換して戻す
 asciidoc	多数のテキストファイルのフォーマット フォーマット/翻訳
@@ -389,7 +389,7 @@ baresip	モジュラーSIPユーザーエージェント
 bartib	コマンドライン用の単純時間追跡
 bartycrouch	Stringsファイルを段階的に 更新/翻訳 します
 bas55	ECMA-55で定義されている最低限のBASICプログラミング言語解釈プログラム
-base16384	バイナリファイルを印刷可能なutf16beにエンコードする
+base16384	バイナリファイルをプリント出来るutf16beにエンコードする
 base64	base64ファイルのエンコードとデコード
 base91	base91ファイルをエンコードおよびデコードするユーティリティ
 basex	軽量XMLデータベース計算機 XPath/XQuery
@@ -700,7 +700,7 @@ castget	コマンドラインポッドキャストおよびRSSエンクロージ
 castxml	Cファミリの抽象構文ツリーXML出力
 cataclysm	Cataclysm Roguelike Fork/変換
 catch2	最新/C++ネイティブ/ヘッダーのみ/テストフレームワーク
-catimg	端末でのめちゃくちゃ速い画像印刷
+catimg	端末でのめちゃくちゃ速い画像プリント
 cattle	Brainfuck言語ツールキット
 cava	ALSAのコンソールベースのオーディオvisualizer
 cayley	FreebaseとKnowledgeGraphに触発されたグラフデータベース
@@ -711,7 +711,7 @@ cbmc	Cの有界モデルチェッカー
 cbonsai	Console Bonsaiはncursesを使用して Cで書かれたbonsaiツリー生成器
 cc65	6502Cコンパイラ
 ccache	オブジェクトファイルCachingコンパイルラッパー
-ccal	印刷または閲覧用の中国のカレンダーを作成する
+ccal	プリントまたは閲覧用の中国のカレンダーを作成する
 ccat	catと似ていますが、構文が強調表示されたコンテンツを表示します
 ccd2iso	CloneCD画像をISO画像に変換する
 ccextractor	Free GPLライセンスのクローズドキャプションツール
@@ -883,7 +883,7 @@ clickhouse-cpp	ClickHouseのC++クライアントライブラリ
 clickhouse-odbc	データソースとしてClickHouseにアクセスするための公式ODBCドライバーの実装
 cliclick	マウスとキーボードのイベントをエミュレートするためのツール
 clifm	コマンドラインインターフェイスファイルマネージャー
-clinfo	OpenCLプラットフォームとデバイスに関する情報を印刷する
+clinfo	OpenCLプラットフォームとデバイスに関する情報をプリントする
 cling	C++解釈プログラム
 clingo	論理プログラムを接地して解決するASPシステム
 clip	コマンドラインから高品質のグラフを作成する
@@ -1139,8 +1139,8 @@ cucumber-ruby	ルビーのきゅうり
 cue	テキストベースの動的構成を検証および定義する
 cuetools	.cueおよび.tocファイルのユーティリティ
 cunit	Cの軽量単体テストフレームワーク
-cups	一般的なUNIX印刷システム
-curaengine	C++ 3D印刷GCode発生器
+cups	一般的なUNIXプリントシステム
+curaengine	C++ 3DプリントGCode発生器
 curl	HTTP、HTTPS、またはFTPサーバーからファイルを取得します
 curlcpp	CURL用のオブジェクト指向C++ラッパー(libcurl)
 curlftpfs	FUSEとlibcurlに基づいてFTPホストにアクセスするためのファイルシステム
@@ -1708,7 +1708,7 @@ fetch	コミットからアセットをダウンロードする ブランチも�
 fetch-crl	証明書失効リスト(CRL)を取得する
 fetchmail	メールをフェッチするためのクライアント POP/IMAP/ETRN/ODMR対応サーバー
 fex	強力なフィールド抽出ツール
-ffe	フラットファイル構造を解析しさまざまな形式で印刷します
+ffe	フラットファイル構造を解析しさまざまな形式でプリントします
 fff	bashで書かれたシンプルなファイルマネージャー
 ffind	より親しい検索
 ffmpeg	オーディオとビデオ 再生/録音/変換/ストリーミング
@@ -1728,7 +1728,7 @@ ficy	ストリームgrabber suite Icecast/Shoutcast
 field3d	voxelデータをディスクおよびメモリに保存するためのライブラリ
 fifechan	ゲーム用に設計されたC++ GUIライブラリ
 fig2dev	xfigによって生成された図を他の形式に変換します
-figlet	バナーのようなプログラムは、文字列をASCIIアートとして印刷します
+figlet	バナーのようなプログラムは、文字列をASCIIアートとしてプリントします
 file-formula	ファイルの種類を判別するためのユーティリティ
 file-roller	GNOMEアーカイブマネージャー
 filebeat	ログファイルをElasticsearchまたはLogstashに送信するためのファイルハーベスタ
@@ -1806,7 +1806,7 @@ fontconfig	XWindows用のXMLベースのフォント構成API
 fontforge	コマンドラインアウトラインとビットマップフォント エディタ/変換
 fonts-encodings	libfontencのフォントエンコーディングテーブル
 fonttools	フォントを操作するためのライブラリ
-fop	PDFまたはPSドキュメントを作成するためのXSL-FO印刷整形ツール
+fop	PDFまたはPSドキュメントを作成するためのXSL-FOプリント整形ツール
 forcecli	Force.comへのコマンドラインインターフェイス
 ford	最新のFortranプログラム用の自動ドキュメント発生器
 forego	Procfileベースのアプリケーション管理のためのGoのForeman
@@ -1923,7 +1923,7 @@ gawk	GNU awkユーティリティ
 gaze	コマンドを実行する
 gbdfed	ビットマップフォントエディタ
 gcab	Windowsインストーラー(.MSI)ツール
-gcal	カレンダーを計算して印刷するためのプログラム
+gcal	カレンダーを計算してプリントするためのプログラム
 gcalcli	コマンドラインからGoogleカレンダーに簡単にアクセスできます
 gcc	GNUコンパイラコレクション
 gcc@10	GNUコンパイラコレクション
@@ -2130,7 +2130,7 @@ gitwatch	ファイルまたはフォルダーを監視し変更をgitリポジ�
 giza	cairoに構築された C/Fortran 用の科学立案ライブラリ
 gjs	GNOMEのJavaScript bindings
 gkrellm	拡張可能なGTKシステム監視アプリケーション
-gl2ps	OpenGLからPostScriptへの印刷ライブラリ
+gl2ps	OpenGLからPostScriptへのプリントライブラリ
 glab	オープンソースのGitLabコマンドラインツール
 glade	GTK+およびGNOME環境用のRADツール
 glances	top/htop 代替品
@@ -2152,7 +2152,7 @@ glkterm	ターミナルウィンドウGlkライブラリ
 glktermw	UnicodeをサポートするターミナルウィンドウGlkライブラリ
 glm	グラフィックソフトウェア用のC++数学ライブラリ
 global	ソースコードtagシステム
-globe	現在明るい地球の側面のASCIIグラフィックを印刷します
+globe	現在明るい地球の側面のASCIIグラフィックをプリントします
 globjects	OpenGLオブジェクトを厳密にラップするC++ライブラリ
 glog	アプリケーションレベルのログライブラリ
 glooctl	Envoy-Powered APIゲートウェイ
@@ -2180,7 +2180,7 @@ gnome-latex	GNOMEデスクトップのLaTeXエディター
 gnome-recipes	公式のGNOMEレシピ
 gnome-themes-extra	GNOMEデスクトップ環境用の追加テーマ
 gnu-apl	プログラミング言語APLのGNU実装
-gnu-barcode	テキスト文字列を印刷されたバーに変換する
+gnu-barcode	テキスト文字列をプリントされたバーに変換する
 gnu-chess	チェスプレイプログラム
 gnu-complexity	Cソースの複雑さを測定します
 gnu-getopt	コマンドラインオプション解析ユーティリティ
@@ -4072,7 +4072,7 @@ mp3val	MPEGオーディオストリーム検証用プログラム
 mp3wrap	2つ以上のmp3ファイルを1つの大きなファイルにWrapする
 mp4v2	MP4ファイルの 読み取り/作成/変更
 mpack	MIMEメールのpackingとunpacking
-mpage	多くから1ページの印刷ユーティリティ
+mpage	多くから1ページのプリントユーティリティ
 mpc	mpdのコマンドライン音楽プレーヤークライアント
 mpck	MP3ファイルにエラーがないか確認してください
 mpd	ミュージックプレーヤーデーモン
@@ -4691,7 +4691,7 @@ pdfcrack	PDFファイルパスワードクラッカー
 pdfgrep	正規表現に一致する文字列をPDFで検索する
 pdfpc	PDFファイルのマルチモニターをサポートするPresenterコンソール
 pdfsandwich	スキャンしたファイルからOCR PDFを合成する
-pdftilecut	PDFページを小さなページに分割して、印刷できるようにします
+pdftilecut	PDFページを小さなページに分割して、プリント出来るようにします
 pdftk-java	Javaでのpdftkのポート
 pdftohtml	PDFファイルをHTMLおよびXML形式に変換するユーティリティ
 pdftoipe	任意のPDFファイルを読み取りIpeで読み取り可能なXMLファイルを生成します
@@ -4847,7 +4847,7 @@ pmtiles	作成用の単一ファイル実行可能ツール PMTilesアーカイ�
 pnetcdf	OpenMPIライブラリを使用した科学データ用の並列netCDFライブラリ
 png++	libpngライブラリのC++ラッパー
 png2ico	PNGからアイコンへの変換器
-pngcheck	情報を印刷しファイルを確認します PNG/JNG/MNG
+pngcheck	情報をプリントしファイルを確認します PNG/JNG/MNG
 pngcrush	PNGファイル用の最適化ツール
 pngnq	PNG画像を最適化するためのツール
 pngpaste	PNGをファイルに貼り付けます
@@ -5081,7 +5081,7 @@ python-pytz	クロスプラットフォームのタイムゾーン用のPython�
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	gitまたは、hgメタデータからPythonパッケージのバージョンを抽出します
 python-sympy	記号数学用のPythonライブラリ
-python-tabulate	Pythonで表形式のデータをきれいに印刷する
+python-tabulate	Pythonで表形式のデータをきれいにプリントする
 python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
 python-tk@3.12	Tcl/TkへのPythonインターフェース
@@ -5158,7 +5158,7 @@ quill	C++14非同期低遅延Loggingライブラリ
 quilt	一連のパッチを操作する
 quilt-installer	バニラ ランチャーの Quilt のインストーラー
 quotatool	コマンドラインからディスク割り当てを編集する
-quran	ターミナルでコーランの章と詩を印刷する
+quran	ターミナルでコーランの章と詩をプリントする
 quvi	ビデオのダウンロードURLを解析する
 qwt	技術的アプリケーション用のQtウィジェット
 qwt-qt5	技術的アプリケーション用のQtウィジェット
@@ -5428,7 +5428,7 @@ sail	WordPressアプリケーションを提供しDigitalOceanに展開するた
 saldl	速度と早期プレビュー用に最適化されたCLIダウンローダー
 salt	動的基礎構造通信バス
 salt-lint	SaltStackのベストプラクティスを確認してください
-samba	SMB/CIFSファイル 印刷/UNIX用のログインサーバー
+samba	SMB/CIFSファイル プリント/UNIX用のログインサーバー
 sambamba	SAM/BAM データを操作するためのツール
 saml2aws	ログインしてSAML IDPを使用してAWSの一時的な認証情報を取得します
 sampler	シェルコマンド実行用ツール 視覚化/アラート
@@ -5649,7 +5649,7 @@ skktools	SKK辞書メンテナンスツール
 skopeo	リモートイメージレジストリを操作する
 skylighting	KDEXML構文記述を使用した柔軟な構文ハイライト
 skymaker	偽の天体画像を生成します
-sl	lsの代わりにslと入力すると、蒸気機関車が印刷されます
+sl	lsの代わりにslと入力すると、蒸気機関車がプリントされます
 slackcat	スニペットをSlackに投稿するためのコマンドラインユーティリティ
 slacknimate	Slackメッセージのテキストアニメーション
 slashem	NethackのFork/変換
@@ -5673,7 +5673,7 @@ smali	AndroidのJavaVM実装用のアセンブラー/逆アセンブラー
 smap	shodan.ioを利用した Nmapのドロップイン置換
 smartdns	高速IP解決のためのRule-based DNSサーバー DoT/DoH/DoQをサポート
 smartmontools	SMARTハードドライブの監視
-smartypants	印刷デザインの整形
+smartypants	プリントデザインの整形
 smimesign	Gitで使用する S/MIME署名ユーティリティ
 smlfmt	Standard ML カスタムパーサー/コードフォーマッタ
 smlpkg	Standard MLライブラリおよびプログラムのパッケージマネージャー
@@ -6061,7 +6061,7 @@ tepl	GNOMEテキストエディタの製品ライン
 tere	ターミナルファイルエクスプローラー
 term	指定されたディレクトリでターミナルを開きます(オプションでコマンドを実行します)
 termbox	テキストベースのユーザーインターフェイスを作成するためのライブラリ
-termcolor	色付きメッセージを印刷するためのヘッダーのみのC++ライブラリ
+termcolor	色付きメッセージをプリントするためのヘッダーのみのC++ライブラリ
 terminal-notifier	コマンドラインからMacOSユーザー通知を送信する
 terminalimageviewer	ブロックグラフィック文字を使用して端末に画像を表示する
 terminator	1つのウィンドウに複数のGNOME端末
@@ -6385,7 +6385,7 @@ usbutils	USBデバイスに関する詳細情報を一覧表示します
 userspace-rcu	ユーザースペースRCU用のライブラリ(read-copy-update)
 utf8cpp	ポータブルな方法でC++を使用したUTF-8
 utf8proc	UTF-8Unicodeデータを処理するためのクリーンなCライブラリ
-utftex	TeXライクな構文を使用してmonospaceフォントで数学をきれいに印刷します
+utftex	TeXライクな構文を使用してmonospaceフォントで数学をきれいにプリントします
 uthash	ハッシュテーブルなどのCマクロ
 util-linux	Linuxユーティリティのコレクション
 util-macros	X.Org：他のxorgパッケージを構築するために使用されるautoconfマクロのセット
