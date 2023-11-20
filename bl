@@ -415,8 +415,8 @@ sub m_search{
    $re->{'NA'} = $re->{'MAC'} ? 54 : 27;
     $re->{'AR'}[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
      $re->{'AR'}[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
+    ( $re->{'LINES'},$re->{'COLS'} ) = split ' ',`stty size`;
   }
-  ( $re->{'LINES'},$re->{'COLS'} ) = split ' ',`stty size` unless $re->{'LINES'};
    if( 45 > $re->{'COLS'} and not $re->{'SP'} ){
     $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off';
      for(my $sp=0;$sp<=46-$re->{'COLS'};$sp++){ $re->{'SP'} = $sp }
