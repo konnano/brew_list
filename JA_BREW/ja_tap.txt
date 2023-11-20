@@ -17,7 +17,7 @@ font-adamina	Adamina
 font-adinatha-tamil-brahmi	Adinatha Tamil Brahmi
 font-adlam-display	ADLaM Display
 font-adobe-blank	Adobe Blank
-font-advent-pro	Webと印刷用に設計されたモダンなフォント
+font-advent-pro	Webとプリント用に設計されたモダンなフォント
 font-afacad	Afacad
 font-african-sans	African Sans
 font-african-serif	African Serif
@@ -712,7 +712,7 @@ font-hack	Hack
 font-hack-nerd-font	Hackオタクフォント(Hack)
 font-hackgen	HackとGenJyuu-Gothicで構成される日本語プログラミングフォント
 font-hackgen-nerd	HackとGenJyuu-Gothicで構成される日本語プログラミングフォント
-font-hahmlet	あらゆる種類の植字に最適 印刷または画面
+font-hahmlet	あらゆる種類の植字に最適、プリントまたはスクリーン
 font-halant	Halant
 font-hammersmith-one	Hammersmith One
 font-han-nom-a	HAN NOM A
@@ -1712,7 +1712,7 @@ font-roboto-flex	Roboto Flex
 font-roboto-mono	Roboto Mono
 font-roboto-mono-for-powerline	Roboto Mono for Powerline
 font-roboto-mono-nerd-font	RobotoMonoオタクフォント(RobotoMono)
-font-roboto-serif	印刷媒体での読み取りと作業も同様に快適です
+font-roboto-serif	プリント媒体での読み取りと作業も同様に快適です
 font-roboto-slab	Roboto Slab
 font-rochester	Rochester
 font-rock-3d	Rock 3D
