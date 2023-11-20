@@ -203,7 +203,7 @@ sub Died_1{
    # Then brew uninstall brew_list\n";
 
    $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off';
-  print"  Enhanced brew list : version 1.19_4\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.19_5\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -410,43 +410,44 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 
 sub m_search{
  my $re = shift;
- my( $i,$co,@an ) = ( 0,$re->{'CON'}||1 );
- my $nam = $re->{'MAC'} ? 54 : 27;
- $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
- $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
+ my( $i,$co ) = ( 0,$re->{'CON'}||1 );
+  unless( $re->{'NA'} ){
+   $re->{'NA'} = $re->{'MAC'} ? 54 : 27;
+    $re->{'AR'}[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
+     $re->{'AR'}[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
+  }
   ( $re->{'LINES'},$re->{'COLS'} ) = split ' ',`stty size` unless $re->{'LINES'};
-   if( not $re->{'SP'} and 45 > $re->{'COLS'} ){
+   if( 45 > $re->{'COLS'} and not $re->{'SP'} ){
     $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off';
-     for(my $sp=0;$sp<=45-$re->{'COLS'};$sp++){ $re->{'SP'} = $sp }
+     for(my $sp=0;$sp<=46-$re->{'COLS'};$sp++){ $re->{'SP'} = $sp }
    }
  $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H","\033[2J","\033[?25h";
                $re->{'MAC'} ? system "printf '\033[?7h' " : system 'setterm -linewrap on' if $re->{'SP'};
                system'stty sane'; exit };
   $re->{'ST'} ||= 1;
-  $re->{'LI'} = $re->{'LINES'} > 29 ? 27 : $re->{'LINES'} - 3 unless $re->{'LI'};
-  system"stty -echo -icanon eol \001";
+  unless( $re->{'LI'} ){
+   $re->{'LI'} = $re->{'LINES'} > 29 ? 27 : $re->{'LINES'} - 3;
+    system"stty -echo -icanon eol \001";
+  }
   print"\033[0;0H","\033[2J","\033[?25l";
    while(1){ my $nu = 0;
     my $rs = chr(1);
     my( $st,$ti ) = select $rs,undef,undef,0.01;
-     _pri_1( $co,$re,\@an );
-    $nu = getc if $st;
-    $co = $co == $nam ? 1 : ++$co if $nu eq chr(32) or $nu eq 'h';
-    $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'l';
+     _pri_1( $co,$re );
+      $nu = getc if $st;
+    $co = $co == $re->{'NA'} ? 1 : ++$co if $nu eq chr(32) or $nu eq 'h';
+    $co = $co == 1 ? $re->{'NA'} : --$co if $nu eq chr(127) or $nu eq 'l';
      my $com = $co > 27 ? $co - 27 : $co;
-      if( 30 > $re->{'LI'} ){
-       if( 27 > $re->{'LI'} and $com > $re->{'LI'} ){ $re->{'ST'}++; $re->{'LI'}++ }
-       if( $re->{'ST'} and $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
-       if( 28 == $com ){ $re->{'LI'} = $re->{'LI'} - $re->{'ST'} + 1; $re->{'ST'} = 1; }
-      }
+          if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++ 
+      }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
      if( $nu eq chr(10) ){ $re->{'CON'} = $co;
-       print"\033[0;0H","\033[2J";
-       my( $ca,$na ) = split '_',$an[$co];
-       ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
-       ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
-       my $bl = ( $an[$co] eq 'l_l' ) ?
+        print"\033[0;0H","\033[2J";
+       my( $ca,$na ) = split '_',$re->{'AR'}[$co];
+         ( $ca,$na ) = ( 'l','lib' ) if $re->{'AR'}[$co] eq 'lib';
+         ( $ca,$na ) = ( 'c','\\\\d' ) if $re->{'AR'}[$co] eq 'num';
+       my $bl = ( $re->{'AR'}[$co] eq 'l_l' ) ?
        `bl -l /^l\\(?\\!ib\\)/` : `bl -$ca /^$na/`;
-       $SIG{'INT'} = $SIG{'QUIT'} = sub{};
+        $SIG{'INT'} = $SIG{'QUIT'} = sub{};
       open my $pipe,'|-','less -S' or die " can't exec command\n";
        print $pipe $bl;
       close $pipe;
@@ -454,22 +455,22 @@ sub m_search{
      print"\033[0;0H";
     if($nu eq 'q'){
      print"\033[0;0H","\033[2J","\033[?25h";
-     $re->{'MAC'} ? system "printf '\033[?7h' " : system 'setterm -linewrap on' if $re->{'SP'};
-     system'stty sane'; exit
+      $re->{'MAC'} ? system "printf '\033[?7h' " : system 'setterm -linewrap on' if $re->{'SP'};
+       system'stty sane'; exit
     }
    }
 
    sub _pri_1{
-    my( $co,$re,$an ) = @_; my $s = ' 'x ( 27 - ( $re->{'SP'}||0 )); my $i = $re->{'ST'};
+    my( $co,$re ) = @_; my $s = ' 'x ( 27 - ( $re->{'SP'}||0 )); my $i = $re->{'ST'};
     print" \033[1mQ exit\033[0m : Space down : Delete up : Enter less\n";
     print" \033[1mFormula $s Cask\033[0m\n";
      for(;$i<=$re->{'LI'};$i++){
-      if( $$an[$co] eq $$an[$i] ){
-       print" \033[33m$$an[$i]\033[0m ) <<$s $$an[$i+27] ..  \n";
-      }elsif( $$an[$co] eq $$an[$i+27] ){
-       print" $$an[$co-27] .. $s  \033[33m$$an[$co]\033[0m ) <<\n";
+      if( $re->{'AR'}[$co] eq $re->{'AR'}[$i] ){
+        print" \033[33m$re->{'AR'}[$i]\033[0m ) <<$s $re->{'AR'}[$i+27] ..  \n";
+      }elsif( $re->{'AR'}[$co] eq $re->{'AR'}[$i+27] ){
+        print" $re->{'AR'}[$co-27] .. $s  \033[33m$re->{'AR'}[$co]\033[0m ) <<\n";
       }else{
-       print"\r $$an[$i] .. $s  $$an[$i+27] ..  \n";
+        print"\r $re->{'AR'}[$i] .. $s  $re->{'AR'}[$i+27] ..  \n";
       }
      }
    }
