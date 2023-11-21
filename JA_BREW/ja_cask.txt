@@ -1652,7 +1652,6 @@ instatus-out	メニューバーでサービスを監視する
 insync	GoogleドライブとOneDriveファイルを管理する
 integrity	壊れたリンクをチェックするWebサイトをスキャンするツール
 intel-haxm	ハードウェア支援仮想化エンジン(ハイパーバイザー)
-intel-power-gadget	Intel Coreプロセッサで有効になっている電力使用量監視ツール
 intel-psxe-ce-c-plus-plus	ソフトウェア開発ツール
 intellidock	ドックがウィンドウと重なっているときにドックを非表示にします
 intellij-idea	JetBrainsによるJava IDE
@@ -2291,7 +2290,6 @@ mkvtools	MKVビデオを作成および編集するためのアプリ
 mmex	お金の管理アプリケーション
 mmhmm	仮想ビデオプレゼンテーションソフトウェア
 mmhmm-studio	仮想ビデオプレゼンテーションソフトウェア
-mnemosyne	フラッシュカードツール
 mob	Mob
 mobirise	No-code Webサイトクリエーター
 mobster	Pair and mobプログラミングタイマー
