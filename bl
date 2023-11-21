@@ -438,12 +438,17 @@ sub m_search{
      if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
          $key = $ge eq 'B' ? 1 : $ge eq 'A' ? 2 : $ge eq 'C' ? 3 : $ge eq 'D' ? 4 : 0 }
          $key = $nu eq chr(2) ? 5 : $nu eq chr(6) ? 6 : $key;
+
     $co = $co == $re->{'NA'} ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
     $co = $co == 1 ? $re->{'NA'} : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
-    $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
-    $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
-    $co = $co > 27 ? 28 :  1 if $key == 5;
-    $co = $co < 28 ? 27 : 54 if $key == 6;
+    if( $re->{'MAC'} ){
+      $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
+      $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
+      $co = $co > 27 ? 28 :  1 if $key == 5;
+      $co = $co < 28 ? 27 : 54 if $key == 6;
+    }else{
+      $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
+    }
      my $com = $co > 27 ? $co - 27 : $co;
           if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++ 
       }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
