@@ -96,8 +96,8 @@ MAIN:{
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die " export HOMEBREW_NO_INSTALL_FROM_API=1\n" unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
-    my $Lc = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null`;
-     $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
+    my $Lc = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'S_M'};
+      $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
   if( $re->{'JA'} ){
    die " \033[31mNot connected\033[0m\n"
     if system 'curl -k https://formulae.brew.sh/formula >/dev/null 2>&1';
@@ -129,6 +129,7 @@ MAIN:{
   if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) or not -d $re->{'HOME'} ){
        $re->{'NEW'}++; Init_1( $re );
+  }elsif( $re->{'S_M'} ){ m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : defined $AR[1] ? lc $AR[1] : Died_1( $re );
     $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
@@ -145,7 +146,6 @@ MAIN:{
   }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
-  }elsif( $re->{'S_M'} ){ m_search( $re );
   }
   if( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
