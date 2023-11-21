@@ -64,7 +64,7 @@ MAIN:{
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
- }elsif( $AR[0] eq '-m'  ){ m_search( $re );
+ }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }else{  Died_1( $re );
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
@@ -145,6 +145,7 @@ MAIN:{
   }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
+  }elsif( $re->{'S_M'} ){ m_search( $re );
   }
   if( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
    for(my $i=2;$i<@AR;$i++){
@@ -448,10 +449,10 @@ sub m_search{
       $co = $co < 28 ? 27 : 54 if $key == 6;
     }else{
       $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
-    }
-     my $com = $co > 27 ? $co - 27 : $co;
+    } my $com = $co > 27 ? $co - 27 : $co;
           if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++ 
       }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
+
      if( $nu eq chr(10) ){ $re->{'CON'} = $co;
         print"\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$re->{'AR'}[$co];
