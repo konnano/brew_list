@@ -1951,6 +1951,7 @@ gdm	Go Dependency Manager(gdm)
 gdmap	フォルダの使用スペースを検査するツール
 gdrive	GoogleドライブCLIクライアント
 gdrive-downloader	gdriveフォルダーまたはファイルを簡単にダウンロードする シェルftw
+gdrive@2	GoogleドライブCLIクライアント
 gdu	Goで記述されたコンソールインターフェイスを備えたディスク使用量分析器
 gearman	他のマシンまたはプロセスに作業をファームアウトするためのアプリケーションフレームワーク
 gebug	Dockerized Goアプリケーションをより適切にデバッグする
@@ -2687,6 +2688,7 @@ insect	物理単位をサポートする高精度関数電卓
 inspectrum	オフライン無線信号分析器
 inspircd	モジュラーC++インターネットRelay Chatデーモン
 install-peerdeps	peerDepsを自動的にインストールするCLI
+instaloader	インスタグラムからメディアをダウンロードする
 instalooter	Instagramのプロフィールから関連付けられている写真やビデオをダウンロードする
 instead	シンプルなテキストアドベンチャーの通訳
 intercal	難解なパロディープログラミング言語
@@ -5777,6 +5779,7 @@ sphinx	全文検索エンジン
 sphinx-doc	高度で美しいドキュメントを作成するためのツール
 spice-gtk	SPICEのGTKクライアント/ライブラリ
 spice-protocol	SPICE手続きのヘッダー
+spicetify-cli	Spotifyクライアントをカスタマイズするためのコマンドラインツール
 spidermonkey	JavaScript-Cエンジン
 spidermonkey@78	JavaScript-Cエンジン
 spigot	コマンドラインストリーミングの正確な実際の計算機
@@ -6519,7 +6522,6 @@ vtable-dumper	共有ライブラリ内の仮想テーブルの内容を一覧表
 vtclock	テキストモードのフルスクリーンデジタル時計
 vte3	GNOMEターミナルで使用されるターミナルエミュレータウィジェット
 vtk	3Dコンピュータグラフィックス用のツールキット 画像処理/視覚化
-vtk@8.2	3Dコンピュータグラフィックス用のツールキット 画像処理/視覚化
 vttest	VT100互換端末の互換性をテストします
 vue-cli	Vue.js開発のための標準ツール
 vulkan-extensionlayer	ネイティブサポートが利用できない場合にVulkan機能を提供するレイヤー
