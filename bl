@@ -203,7 +203,7 @@ sub Died_1{
    # Then brew uninstall brew_list\n";
 
    $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off';
-  print"  Enhanced brew list : version 1.19_5\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.19_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -430,15 +430,20 @@ sub m_search{
     system"stty -echo -icanon";
   }
   print"\033[0;0H","\033[2J","\033[?25l";
-   while(1){ my $nu = 0;
+   while(1){ my( $nu,$key ) = ( 0,0 );
     my $rs = chr(1);
     my( $st,$ti ) = select $rs,undef,undef,0.01;
      _pri_1( $co,$re );
       $nu = getc if $st;
-    $co = $co == $re->{'NA'} ? 1 : ++$co if $nu eq chr(32) or $nu eq 'j';
-    $co = $co == 1 ? $re->{'NA'} : --$co if $nu eq chr(127) or $nu eq 'k';
-    $co += 27 if $co < 28 and $nu eq 'l';
-    $co -= 27 if $co > 27 and $nu eq 'h';
+     if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
+         $key = $ge eq 'B' ? 1 : $ge eq 'A' ? 2 : $ge eq 'C' ? 3 : $ge eq 'D' ? 4 : 0 }
+         $key = $nu eq chr(2) ? 5 : $nu eq chr(6) ? 6 : $key;
+    $co = $co == $re->{'NA'} ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
+    $co = $co == 1 ? $re->{'NA'} : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
+    $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
+    $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
+    $co = $co > 27 ? 28 :  1 if $key == 5;
+    $co = $co < 28 ? 27 : 54 if $key == 6;
      my $com = $co > 27 ? $co - 27 : $co;
           if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++ 
       }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
