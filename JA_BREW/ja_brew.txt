@@ -812,6 +812,7 @@ checkmake	Makefilesの静的解析/分析
 checkov	IaCツールのビルド時にクラウドの設定ミスを防ぐ
 checkstyle	Javaソースをコーディング標準と照合します
 cheops	チェス対戦相手模擬装置
+cherrybomb	仕様を検証するために設計されたツール
 cherrytree	リッチテキストと構文の強調表示を特徴とする階層的なメモ取りアプリケーション
 chezmoi	複数の異なるマシン間でdotfileを安全に管理します
 chezscheme	Chez Scheme言語の実装
