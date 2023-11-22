@@ -1,3 +1,4 @@
+font-0xproto-nerd-font	開発者向けのグリフ数が多いフォント
 font-3270	IBM 3270
 font-3270-nerd-font	3270オタクフォント(3270)
 font-437-plus	DOS時代のIBMPCおよび互換機からのクラシックテキストモードフォントのコレクション
@@ -315,6 +316,7 @@ font-cascadia-code-pl	Powerline記号が埋め込まれたCascadiaコードの�
 font-cascadia-mono	合字のないCascadiaコードのバージョン
 font-cascadia-mono-pl	糸結びがなく、Powerlineが埋め込まれたCascadiaコードのバージョン
 font-caskaydia-cove-nerd-font	CaskaydiaCove Nerdフォント(Caskaydiaコード)
+font-caskaydia-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-castoro	北米ビーバーにちなんで名付けられました castor canadensis
 font-castoro-titling	Castoro Titling
 font-catamaran	Catamaran
@@ -380,6 +382,7 @@ font-coming-soon	Coming Soon
 font-comme	可変、細いものから黒いものまでのウェイト軸
 font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストsans-serifフォント
 font-commit-mono	ニュートラルなプログラミング書体
+font-commit-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-computer-modern	Computer Modern
 font-conakry	Conakry
 font-concert-one	Concert One
@@ -425,6 +428,7 @@ font-cute-font	Cute Font
 font-cutive	Cutive
 font-cutive-mono	Cutive Mono
 font-d2coding	D2 Coding
+font-d2coding-nerd-font	開発者向けのグリフ数が多いフォント
 font-daddy-time-mono-nerd-font	DaddyTimeMonoオタクフォント(DaddyTimeMono)
 font-dai-banna-sil	Dai Banna SIL
 font-damion	Damion
@@ -619,6 +623,7 @@ font-gasoek-one	Gasoek One
 font-gayathri	Gayathri
 font-geist	Sans-serif書体
 font-geist-mono	コードを表す場所で使用するために設計された等幅書体
+font-geist-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-gelasio	Gelasio
 font-gemunu-libre	Gemunu Libre
 font-genjyuugothic	Gen Jyuu Gothic
@@ -852,6 +857,7 @@ font-iosevka-ss16	Sans-serif/slab-serif/monospace/quasi‑proportional 書体フ
 font-iosevka-ss17	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-ss18	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-term-nerd-font	多数のglyphsを含む開発者向けのフォント
+font-iosevka-term-slab-nerd-font	開発者向けのグリフ数が多いフォント
 font-ipaexfont	IPAex Fonts
 font-ipafont	IPA Fonts
 font-ipamjmincho	IPAmj明朝
@@ -1101,6 +1107,7 @@ font-marmelad	Marmelad
 font-martel	Martel
 font-martel-sans	Martel Sans
 font-martian-mono	Evil Martians の等幅フォント
+font-martian-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-marvel	Marvel
 font-masinahikan	Masinahikan
 font-masinahikan-dene	Masinahikan Dene
@@ -1170,6 +1177,7 @@ font-molengo	Molengo
 font-molle	Molle
 font-mona-sans	GitHubの可変フォントMona Sans
 font-monaspace	コード用フォントのスーパーファミリー
+font-monaspace-nerd-font	開発者向けのグリフ数が多いフォント
 font-monda	Monda
 font-monocraft	Minecraftで使用される書体に基づくプログラミング フォント
 font-monocraft-nerd-font	Nerdグリフを追加するパッチが適用されたMinecraft書体に影響された等幅フォント
