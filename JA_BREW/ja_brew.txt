@@ -5108,6 +5108,7 @@ q	CSVまたはTSVファイルでSQLを直接実行する
 qalculate-gtk	多目的デスクトップ計算機
 qalculate-qt	多目的卓上電卓
 qbe	バッグエンドコンパイラ
+qbittorrent-cli	Goで書かれた、qBittorrentのコマンドラインインターフェイス
 qbs	複数のプラットフォーム間でプロジェクトを開発するためのビルドツール
 qca	Qt暗号化基本設計(QCA)
 qcachegrind	CachegrindとCalltreeによって生成されたデータを視覚化する
@@ -6050,6 +6051,7 @@ teip	"ひとつのことをうまくする"コマンドを助けるマスキン�
 tektoncd-cli	TektonCDと対話するためのCLI
 teku	イーサリアム2.0 Beacon ChainのJava実装
 telegraf	InfluxDBのサーバーレベルのメトリック収集エージェント
+telegram-downloader	Golangで書かれた、Telegram Messenger ダウンローダー/ツール
 teleport	分散基礎構造を管理するチーム向けの最新のSSHサーバー
 teller	Goに組み込まれた開発者向けの秘密管理ツール
 telnet	TELNET手続きのユーザーインターフェイス
@@ -6107,6 +6109,7 @@ texmath	LaTeX数学をMathMLに変換するためのHaskellライブラリ
 textidote	つづり LaTeXドキュメントの文法とスタイルのチェック
 textql	テキストファイル全体でSQLを実行します
 textract	さまざまな種類のファイルからテキストを抽出する
+texttest	テキストベースの承認テスト用ツール
 tf-profile	Terraformの実行をプロファイルするためのCLIツール
 tfel	数値力学の材料知識に特化したコード生成ツール
 tfenv	rbenvに触発されたTerraformバージョンマネージャー
