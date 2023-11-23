@@ -130,6 +130,7 @@ ansible-lint	実践と行動についてAnsibleプレイブックをチェック
 ansible@2.9	展開の自動化 構成/アップグレード
 ansible@6	自動展開 構成/アップグレード
 ansible@7	導入/構成/アップグレード を自動化する
+ansible@8	導入、構成、アップグレード、を自動化する
 ansifilter	ANSIコードを削除するか、HTML、(La)Tex、RTF、またはBBCodeに変換します
 ansilove	ANSI/ASCII アートからPNGへの変換器
 ansiweather	ANSIカラーとUnicode記号を使用した端末の天気予報
@@ -5071,10 +5072,12 @@ python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-matplotlib	静的、アニメーション化、インタラクティブビジュアライゼーション、を作成するためのPythonライブラリ
 python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
+python-msgpack	Python用のMessagePackシリアライザーの実装
 python-mutagen	オーディオメタデータを処理するためのPythonモジュール
 python-networkx	Pythonによるネットワーク分析
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
+python-pbr	Pythonビルドの妥当性
 python-pluggy	シンプルなプロダクション対応プラグインシステム
 python-psutil	Pythonでプロセスとシステムを監視するためのクロスプラットフォームライブラリ
 python-pycurl	libcurlへのPythonインターフェイス
@@ -5784,6 +5787,7 @@ spice-protocol	SPICE手続きのヘッダー
 spicetify-cli	Spotifyクライアントをカスタマイズするためのコマンドラインツール
 spidermonkey	JavaScript-Cエンジン
 spidermonkey@78	JavaScript-Cエンジン
+spidermonkey@91	JavaScript-C エンジン
 spigot	コマンドラインストリーミングの正確な実際の計算機
 spim	MIPS32模擬装置
 spin	マルチスレッドソフトウェアの効率的な検証ツール
