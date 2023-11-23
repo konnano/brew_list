@@ -126,8 +126,8 @@ MAIN:{
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
 
-  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or
-      $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) or not -d $re->{'HOME'} ){
+  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $re->{'HOME'} or
+                      $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
        $re->{'NEW'}++; Init_1( $re );
   }elsif( $re->{'S_M'} ){ m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
@@ -433,7 +433,7 @@ sub m_search{
   print"\033[0;0H","\033[2J","\033[?25l";
    while(1){ my( $nu,$key ) = ( 0,0 );
     my $rs = chr(1);
-    my( $st,$ti ) = select $rs,undef,undef,0.01;
+    my $st = select $rs,undef,undef,0.01;
      _pri_1( $co,$re );
       $nu = getc if $st;
      if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
@@ -450,7 +450,7 @@ sub m_search{
     }else{
       $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
     } my $com = $co > 27 ? $co - 27 : $co;
-          if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++ 
+          if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++
       }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
 
      if( $nu eq chr(10) ){ $re->{'CON'} = $co;
