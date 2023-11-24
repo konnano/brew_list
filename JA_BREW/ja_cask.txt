@@ -1014,6 +1014,7 @@ edex-ui	サイエンスフィクションをテーマにしたターミナルエ
 edfbrowser	EDF+/BDF+ Viewerとツールボックス
 editaro	テキストエディター
 edrawmind	マインドマッピングソフトウェア
+effect-house	TikTok用の鮮やかなARエフェクトを作成する
 egnyte	Egnyteクラウドストレージサービスのクライアント
 eiskaltdcpp	ダイレクトコネクトおよびADC手続きを使用したファイル共有
 ejector	メニューバーにEjectアイコンを追加します
@@ -2050,6 +2051,7 @@ macfuse	ファイルシステム統合
 macgamestore	ゲームを購入/ダウンロード/ゲームプレイ
 macgdbp	実行中のPHPアプリケーションのライブで双方向なデバッグ
 macgesture	グローバルなマウスジェスチャーを設定するユーティリティ
+macgpt	会話モードとインラインモードでChatGPTに簡単にアクセスできるメニューバーアプリ
 machacha	アーカイブを小さな部分に分割し要求に応じて結合します
 machg	MacHg
 machoexplorer	Mach-O実行可能ファイルエクスプローラー
@@ -2254,6 +2256,7 @@ mimestream	Gmail用のネイティブアプリのメールクライアント
 min	プライバシーを保護する最小限のブラウザー
 mindforger	思考力のあるノートブックとマークダウンIDE
 mindjet-mindmanager	マインドマッピングツール
+mindmac	ChatGPTクライアント
 minecraft	サンドボックス建設ビデオゲーム
 minecraft-server	Minecraftマルチプレイヤーサーバーを実行する
 minecraftpe	Minecraftの教育版
@@ -2532,7 +2535,6 @@ nvs	Node.jsのバージョンとフォークを切り替えるためのクロス
 nwjs	すべてのNode.jsモジュールをDOMおよびWebワーカーから直接呼び出します
 nzbget	効率に焦点を当てたUsenetダウンローダー
 nzbvortex	パフォーマンスと使いやすさのために最適化されたNZBクライアント
-oak9	oak9のセキュリティコンプライアンスSaaS製品のコンポーネント
 objectivesharpie	Objective-Cコードから始まるC#インターフェイスを生成するために使用されるツール
 objektiv	Objektiv
 obs	ライブストリーミングと画面録画用のオープンソースソフトウェア
@@ -2926,6 +2928,7 @@ prosys-opc-ua-browser	OPCUAサーバーからのデータを参照して視覚�
 protege	Ontologyエディタ
 protoio-overflow	双方向なユーザーフロー図を作成する
 protokol	MIDI/OSC モニター
+proton-drive	プロトンドライブのクライアン
 protonmail-bridge	ProtonMailをIMAPおよびSMTP手続きをサポートする電子メールクライアントにブリッジします
 protonmail-import-export	電子メールを安全なProtonMail受信トレイにインポートするかオフラインバックアップを作成します
 protonvpn	セキュリティに重点を置いたVPNクライアント
@@ -3790,6 +3793,7 @@ time-tracker	時間追跡app
 timecamp	TimeCampソフトウェアのクライアントアプリケーション-時間の追跡とタスクの変更
 timelane	Timelane
 timemachineeditor	TimeMachineのデフォルトのバックアップ間隔を変更するユーティリティ
+timemachinestatus	Time Machine情報を表示するメニューバーアプリ
 timemator	自動時間追跡アプリケーション
 timer	ストップウォッチ/目覚まし時計/時計ユーティリティ
 timestamp	メニューバーの時計を改善
