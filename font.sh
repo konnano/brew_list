@@ -100,7 +100,7 @@ perl<<"EOF"
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }else{
-    chomp( $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
+    chomp( $MY_BREW = `dirname \$(dirname \$(command -v brew) )` );
     $VERS = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
      $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
    }
@@ -227,10 +227,10 @@ EOF
  curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
    { math_rm; ${die:?curl r error}; }
   fi
- unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
+ unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
 
 perl<<"EOF"
-   chomp( $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
+   chomp( $MY_BREW = `dirname \$(dirname \$(command -v brew) )` );
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
      $LFOD = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-linux-fonts";
 
