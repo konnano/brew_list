@@ -3177,6 +3177,7 @@ libcroco	GNOMEのCSS解析および操作ツールキット
 libcsv	ANSI C89のCSVライブラリ
 libcue	CのCue sheetパーサーライブラリ
 libcuefile	CUEファイルを操作するためのライブラリ
+libcyaml	YAMLの読み取りと書き込みのための、Cライブラリ
 libcython	Python言語のC拡張機能を作成するためのコンパイラ
 libdaemon	UNIXデーモンの作成を容易にするCライブラリ
 libdap	科学データネットワーキングのフレームワーク
@@ -5060,6 +5061,7 @@ python-click	Pythonコンポーザブルコマンドラインインターフェ�
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
+python-distlib	いくつかのPythonパッケージング標準(PEP)を実装するライブラリ
 python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
 python-filelock	Pythonのプラットフォームに依存しないファイルロック
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
@@ -5106,6 +5108,7 @@ python-toml	TOML用のPythonライブラリ
 python-trove-classifiers	PyPI上の分類器の正規ソース
 python-typing-extensions	Pythonのバックポートおよび実験的な型ヒント
 python-urllib3	スレッドセーフな接続プーリング、ファイルポストなどを備えたHTTPライブラリ
+python-websocket-client	Python用WebSocketクライアント
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.11	オブジェクト指向プログラミング言語 インタプリタ/対話的
@@ -5305,6 +5308,7 @@ resty	パイプラインで使用できるコマンドラインRESTクライア�
 resvg	SVGレンダリングツールとライブラリ
 retdec	LLVMに基づくリターゲット可能なマシンコード逆コンパイラ
 rethinkdb	リアルタイムWeb用のオープンソースデータベース
+retry	コマンドが成功するまでコマンドを繰り返します
 revive	Go用の高速で美しい静的解析ツール 構成可能/拡張可能/柔軟
 rex	リモートサーバー上でコマンドを実行するコマンドラインツール
 rfcmarkup	HTMLマークアップとインターネットドラフトおよびRFCへのリンクを追加する
