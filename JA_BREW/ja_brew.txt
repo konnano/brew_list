@@ -4760,6 +4760,7 @@ php-cs-fixer	PHPコーディング標準の問題を自動的に修正するツ�
 php-cs-fixer@2	PHPコーディング標準の問題を自動的に修正するツール
 php@8.0	汎用スクリプト言語
 php@8.1	汎用スクリプト言語
+php@8.2	汎用スクリプト言語
 phpbrew	HOMEで純粋なPHPでPHPバージョンを作成および管理する
 phpmd	PHP Mess Detector
 phpmyadmin	MySQLおよびMariaDBのWebインターフェース
@@ -5049,6 +5050,7 @@ pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
 pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
+python-abseil	Abseil共通ライブラリ(Python)
 python-argcomplete	Python argparseのタブ補完
 python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
@@ -5063,6 +5065,7 @@ python-filelock	Pythonのプラットフォームに依存しないファイル�
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
+python-hatch-vcs	好みのVCSでバージョン管理するためのHatchプラグイン
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
 python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
@@ -5070,6 +5073,7 @@ python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC+
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
+python-magic	libmagicのPythonラッパー
 python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
@@ -5081,6 +5085,7 @@ python-networkx	Pythonによるネットワーク分析
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
 python-pbr	Pythonビルドの妥当性
+python-platformdirs	適切なプラットフォーム固有のディレクトリを決定するためのPythonパッケージ
 python-pluggy	シンプルなプロダクション対応プラグインシステム
 python-ply	Python Lex & Yacc
 python-psutil	Pythonでプロセスとシステムを監視するためのクロスプラットフォームライブラリ
@@ -5088,6 +5093,7 @@ python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出すための低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
+python-requests	Python HTTP for Humans
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	gitまたは、hgメタデータからPythonパッケージのバージョンを抽出します
 python-sympy	記号数学用のPythonライブラリ
@@ -5698,6 +5704,7 @@ sn0int	半自動OSINTフレームワークとパッケージマネージャー
 snag	すべてのニーズに対応する自動ビルドツール
 snakefmt	Snakemakeコード初期化ツール
 snakemake	Pythonicワークフローシステム
+snakeviz	Pythonプロファイラ出力用のWebベースのビューア
 snap	.snapファイルを操作するためのツール
 snap7	Siemens S7PLCとネイティブに連携するイーサネット通信パッケージ
 snapcast	同期マルチルームオーディオプレーヤー
