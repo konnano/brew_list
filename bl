@@ -5,7 +5,7 @@ use Encode;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$Locale,%JA );
-chomp(my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null`);
+chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew) )` );
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -95,7 +95,8 @@ MAIN:{
    $ref->{'FDIR'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
-   die " export HOMEBREW_NO_INSTALL_FROM_API=1\n" unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
+   die "echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)\n"
+   unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
     my $Lc = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'S_M'};
       $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
   if( $re->{'JA'} ){
@@ -204,7 +205,7 @@ sub Died_1{
    # Then brew uninstall brew_list\n";
 
    $re->{'MAC'} ? system "printf '\033[?7l' " : system 'setterm -linewrap off';
-  print"  Enhanced brew list : version 1.19_6\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.19_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -1992,7 +1993,7 @@ perl<<"EOF"
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }else{
-    chomp( $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
+    chomp( $MY_BREW = `dirname \$(dirname \$(command -v brew) )` );
     $VERS = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
      $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
    }
@@ -2119,10 +2120,10 @@ EOF
  curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
    { math_rm; ${die:?curl r error}; }
   fi
- unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 3 error}; }
+ unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
 
 perl<<"EOF"
-   chomp( $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
+   chomp( $MY_BREW = `dirname \$(dirname \$(command -v brew) )` );
     $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
      $LFOD = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-linux-fonts";
 
@@ -2287,7 +2288,7 @@ use Fcntl ':DEFAULT';
 
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
-chomp( my $MY_BREW = `dirname \$(dirname \$(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null` );
+chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew) )` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
