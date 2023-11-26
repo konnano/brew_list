@@ -149,7 +149,6 @@ font-atma	Atma
 font-atomic-age	Atomic Age
 font-aubrey	Aubrey
 font-audiowide	Audiowide
-font-aurulent-nerd-font	多数のグリフを含む開発者向けのフォント
 font-aurulent-sans-mono-nerd-font	AurulentSansMonoオタクフォント(Aurulent Sans Mono)
 font-autour-one	Autour One
 font-average	Average
@@ -1741,13 +1740,18 @@ font-rozha-one	Rozha One
 font-rubik	Rubik
 font-rubik-80s-fade	Rubik 80s Fade
 font-rubik-beastly	グーグルフォントに基づくrubik by hubert and fischer, meir sadan and cyreal
+font-rubik-broken-fax	Rubik壊れたファックス
 font-rubik-bubbles	Rubik Bubbles
 font-rubik-burned	Rubik Burned
 font-rubik-dirt	Rubik Dirt
 font-rubik-distressed	Rubik Distressed
+font-rubik-doodle-shadow	Rubik落書きの影
+font-rubik-doodle-triangles	Rubik落書きの三角形
 font-rubik-gemstones	Rubik Gemstones
 font-rubik-glitch	Rubik Glitch
 font-rubik-iso	Rubik Iso
+font-rubik-lines	Rubikライン
+font-rubik-maps	Rubikマップ
 font-rubik-marker-hatch	Rubik Marker Hatch
 font-rubik-maze	Rubik Maze
 font-rubik-microbe	Rubik Microbe
@@ -1756,6 +1760,7 @@ font-rubik-moonrocks	Rubik Moonrocks
 font-rubik-one	Rubik One
 font-rubik-pixels	Rubik Pixels
 font-rubik-puddles	Rubik Puddles
+font-rubik-scribble	Rubik落書き
 font-rubik-spray-paint	Rubik Spray Paint
 font-rubik-storm	Rubik Storm
 font-rubik-vinyl	Rubik Vinyl
