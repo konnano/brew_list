@@ -5060,6 +5060,7 @@ python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
+python-configobj	構成ファイルの読み取り、書き込み、検証
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
@@ -5094,6 +5095,7 @@ python-pbr	Pythonビルドの妥当性
 python-platformdirs	適切なプラットフォーム固有のディレクトリを決定するためのPythonパッケージ
 python-pluggy	シンプルなプロダクション対応プラグインシステム
 python-ply	Python Lex & Yacc
+python-prompt-toolkit	Pythonで強力な対話型CLIを構築するためのライブラリ
 python-psutil	Pythonでプロセスとシステムを監視するためのクロスプラットフォームライブラリ
 python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
@@ -5101,6 +5103,7 @@ python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルド�
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-regex	reを置き換える代替正規表現モジュール
 python-requests	Python HTTP for Humans
+python-requests-oauthlib	OAuthlibによるPythonリクエストのサポート
 python-rich	リッチテキスト、テーブル、プログレスバー、構文ハイライト、マークダウン、をレンダリングします
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	gitまたは、hgメタデータからPythonパッケージのバージョンを抽出します
