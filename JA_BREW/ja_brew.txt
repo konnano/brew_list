@@ -3170,6 +3170,7 @@ libclc	OpenCL Cプログラミング言語のライブラリ要件の実装
 libcmph	Cの最低限の完全なハッシュライブラリ
 libcoap	軽量のアプリケーション-リソースに制約のあるデバイスの手続き
 libconfig	構成ファイル処理ライブラリ
+libconfini	さらに別のINIパーサー
 libcouchbase	CouchbaseのCライブラリ
 libcouchbase@2	CouchbaseのCライブラリ
 libcpuid	x86CPU検出および特徴抽出用の小さなCライブラリ
@@ -5053,6 +5054,7 @@ pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-abseil	Abseil共通ライブラリ(Python)
 python-argcomplete	Python argparseのタブ補完
+python-attrs	BoilerplateのないPythonクラス
 python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
@@ -5067,6 +5069,7 @@ python-filelock	Pythonのプラットフォームに依存しないファイル�
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
+python-hatch-fancy-pypi-readme	Hatch付きの豪華なPyPI README
 python-hatch-vcs	好みのVCSでバージョン管理するためのHatchプラグイン
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
@@ -5084,6 +5087,7 @@ python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
 python-msgpack	Python用のMessagePackシリアライザーの実装
 python-mutagen	オーディオメタデータを処理するためのPythonモジュール
 python-networkx	Pythonによるネットワーク分析
+python-oauthlib	OAuth1及びOAuth2用のPythonフレームワーク
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
 python-pbr	Pythonビルドの妥当性
@@ -5095,7 +5099,9 @@ python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成するためのPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出すための低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
+python-regex	reを置き換える代替正規表現モジュール
 python-requests	Python HTTP for Humans
+python-rich	リッチテキスト、テーブル、プログレスバー、構文ハイライト、マークダウン、をレンダリングします
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	gitまたは、hgメタデータからPythonパッケージのバージョンを抽出します
 python-sympy	記号数学用のPythonライブラリ
@@ -5108,6 +5114,7 @@ python-toml	TOML用のPythonライブラリ
 python-trove-classifiers	PyPI上の分類器の正規ソース
 python-typing-extensions	Pythonのバックポートおよび実験的な型ヒント
 python-urllib3	スレッドセーフな接続プーリング、ファイルポストなどを備えたHTTPライブラリ
+python-wcwidth	端末に表示されるUnicode文字列の幅を測定します
 python-websocket-client	Python用WebSocketクライアント
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
@@ -5237,6 +5244,7 @@ rc	AT＆T Plan9シェルの実装
 rclone	クラウドストレージ用のRsync
 rcm	RCファイル(dotfile)管理
 rcs	GNUリビジョン管理システム
+rdap	登録データアクセスプロトコルのコマンドラインクライアント
 rdate	リモートホストからシステムの日付を設定する
 rdb	Redis RDB パーサー
 rdfind	コンテンツに基づいて重複ファイルを検索します(ファイル名ではありません)
