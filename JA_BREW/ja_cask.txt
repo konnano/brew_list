@@ -354,6 +354,7 @@ bettertouchtool	入力デバイスをカスタマイズしコンピューター�
 betterzip	アーカイブを作成および変更するためのユーティリティ
 betwixt	Chrome DevToolsネットワークパネルに基づくWebデバッグプロキシ
 beyond-compare	ファイルとフォルダを比較する
+bezel	iOS画面出力レコーダー
 bfxr	コンピュータゲームの効果音を作る
 bibdesk	参考文献の編集と管理
 big-mean-folder-machine	ファイル/フォルダ 管理ユーティリティ
@@ -3884,6 +3885,7 @@ tuck	ウィンドウマネージャー
 tuist	Xcodeプロジェクトを大規模に作成/維持/操作する
 tunein	Freeのインターネットラジオ
 tuneinstructor	Tune•インストラクター
+tunetag	オーディオファイル用のID3及びメタデータエディター
 tunnelbear	安全なインターネットアクセスとプライベートブラウジングのためのVPNクライアント
 tunnelblick	FreeのオープンソースOpenVPNクライアント
 tuple	リモートペアプログラミングアプリ
