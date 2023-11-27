@@ -5055,10 +5055,15 @@ pystring	Pythonの文字列クラスメソッドのインターフェイス用 C
 python-abseil	Abseil共通ライブラリ(Python)
 python-argcomplete	Python argparseのタブ補完
 python-attrs	BoilerplateのないPythonクラス
+python-boto3	AWS SDK for Python
+python-botocore	boto 3の低レベルのデータ駆動型コア
 python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
+python-cachetools	拡張可能なメモ化コレクションとデコレーター
 python-certifi	Python用 Mozilla CAバンドル
+python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
+python-cli-helpers	一般的なCLIタスク用のPythonヘルパー
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
 python-configobj	構成ファイルの読み取り、書き込み、検証
 python-cryptography	Pythonの暗号化レシピとプリミティブ
@@ -5075,6 +5080,7 @@ python-hatch-vcs	好みのVCSでバージョン管理するためのHatchプラ�
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
 python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
+python-jmespath	JMESPathはJSO のクエリ言語です
 python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC++実装
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
@@ -5105,6 +5111,7 @@ python-regex	reを置き換える代替正規表現モジュール
 python-requests	Python HTTP for Humans
 python-requests-oauthlib	OAuthlibによるPythonリクエストのサポート
 python-rich	リッチテキスト、テーブル、プログレスバー、構文ハイライト、マークダウン、をレンダリングします
+python-s3transfer	Python用Amazon S3転送マネージャー
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	gitまたは、hgメタデータからPythonパッケージのバージョンを抽出します
 python-sympy	記号数学用のPythonライブラリ
@@ -5119,6 +5126,7 @@ python-typing-extensions	Pythonのバックポートおよび実験的な型ヒ�
 python-urllib3	スレッドセーフな接続プーリング、ファイルポストなどを備えたHTTPライブラリ
 python-wcwidth	端末に表示されるUnicode文字列の幅を測定します
 python-websocket-client	Python用WebSocketクライアント
+python-xlsxwriter	Excel XLSXファイルを作成するためのPythonモジュール
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.11	オブジェクト指向プログラミング言語 インタプリタ/対話的
