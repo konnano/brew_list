@@ -71,7 +71,7 @@ MAIN:{
  if( $re->{'LIN'} ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
-    $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
+    $MY_BREW = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
      $re->{'LFOD'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-linux-fonts";
   $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
    $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
@@ -410,16 +410,17 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 }
 
 sub m_search{
- exit unless -t STDOUT;
-  my $re = shift;
-  my( $i,$co ) = ( 0,$re->{'CON'}||1 );
-   unless( $re->{'NA'} ){
-    $re->{'NA'} = $re->{'MAC'} ? 54 : 27;
-     $re->{'AR'}[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
-     $re->{'AR'}[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
-     ( $re->{'ROWS'},$re->{'COLS'} ) = split ' ',`stty size`;
-       $re->{'MENU'} = `printf " Q exit : Space down : Delete up : Enter less\n"|cut -b 1-$re->{'COLS'}`;
-   }
+ my $re = shift;
+ my( $i,$co ) = ( 0,$re->{'CON'}||1 );
+  unless( $re->{'NA'} ){
+   $re->{'NA'} = $re->{'MAC'} ? 54 : 27;
+    $re->{'AR'}[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
+    $re->{'AR'}[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
+    ( $re->{'ROWS'},$re->{'COLS'} ) = split ' ',`stty size`;
+      $re->{'MENU'} = `printf " Q exit : Space down : Delete up : Enter less\n"|cut -b 1-$re->{'COLS'}`;
+      $re->{'COMA'} = 1 if `command -v bl` eq "$MY_BREW/bin/bl\n";
+  }  exit unless -t STDOUT and $re->{'COMA'};
+
    $re->{'SP'} = 46 - $re->{'COLS'} if 45 > $re->{'COLS'} and not $re->{'SP'};
    $re->{'ST'} ||= 1;
   unless( $re->{'LI'} ){
@@ -446,7 +447,7 @@ sub m_search{
       $co = $co < 28 ? 27 : 54 if $key == 6;
     }else{
       $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
-    } my $com = $co > 27 ? $co - 27 : $co;
+    }  my $com = $co > 27 ? $co - 27 : $co;
           if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++
       }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
 
