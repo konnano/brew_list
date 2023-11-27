@@ -28,7 +28,6 @@ ableton-live-intro	サウンドと音楽のエディター
 ableton-live-lite	サウンドと音楽のエディター
 ableton-live-standard	サウンドと音楽のエディター
 ableton-live-suite	サウンドと音楽のエディター
-abricotine	インラインプレビュー付きのマークダウンエディター
 abscissa	立案ソフトウェア
 abstract	スケッチファイルをサポートする協力的デザインツール
 abyssoft-teleport	仮想KVM
@@ -638,7 +637,6 @@ cloudmounter	クラウドストレージをローカルディスクとしてマ�
 cloudnet	エンタープライズレベルのmeshVPNクラウドサービス
 cloudup	何でも瞬時に安全に共有
 cloudytabs	iCloudタブを一覧表示するメニューバーアプリケーション
-clover	1つのツールでデイリープランナー ノート/ホワイトボード/todos
 clover-configurator	Clover EFIブートローダー構成ヘルパー
 cmake	構築するツールのファミリー ソフトウェアのテストとパッケージ化
 cmd-eikana	⌘英かな
@@ -864,7 +862,6 @@ devolo-cockpit	構成およびネットワーク監視ソフトウェア
 devonagent	Webをより効率的に検索するのに役立つツール
 devonthink	ドキュメントの編集と注釈付け 収集/整理
 devpod	devcontainer.jsonに基づいて再現可能な開発者環境を作成するための UI
-devsquadron	エンタープライズグレード プロジェクト管理
 devtoys	一般的な開発タスクを容易にするために設計されたユーティリティ
 devtunnel	ローカルサービスを共有するための安全なトンネルを開発者に提供します
 devutils	開発者向けのオフラインツールボックス
