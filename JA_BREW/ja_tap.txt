@@ -2229,6 +2229,7 @@ java6	Javaプログラミング言語のレガシーランタイム
 julia-lts	テクニカルコンピューティングのためのプログラミング言語
 julia-nightly	テクニカルコンピューティングのためのプログラミング言語
 kaleidoscope2	テキストと画像のファイルまたはフォルダの違いを見つけてマージする
+kaleidoscope3	テキストおよび画像ファイルまたはフォルダー内の相違点を特定してマージします。
 keepassxc-beta	パスワードマネージャーアプリ
 keepassxc-snapshot	パスワードマネージャーアプリ
 keka-beta	File archiver
