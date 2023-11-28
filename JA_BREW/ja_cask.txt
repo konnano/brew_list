@@ -1533,6 +1533,7 @@ hfsleuth	HFSleuth
 hhkb	HHKB HYBRID Type-S 及び HYBRIDモデルでキーマップのカスタマイズが可能
 hiarcs-chess-explorer	チェスデータベース 分析およびゲームプレイプログラム
 hiddenbar	メニューバー項目を非表示にするユーティリティ
+hides	現在開いているアプリ以外のすべてのアプリを非表示にするアプリ
 hidock	異なるディスプレイを使用する場合のカスタムDock設定を設定する
 hightop	メニューバーを介したファイルアクセス
 historyhound	ブラウザーの履歴とブックマークのキーワード検索
@@ -2164,6 +2165,7 @@ mediahuman-audio-converter	Audio変換器
 mediahuman-youtube-downloader	YouTubeビデオダウンローダー
 mediainfo	ビデオおよびオーディオファイルの技術データとタグデータを表示する
 mediainfoex	Finderコンテキストメニューにファイル情報を表示する
+mediamate	音量、明るさ、再生コントロール、のUIの置き換え
 mediathekview	ドイツ語のオンラインマルチメディアライブラリを管理します オーストリアとスイスの公共放送
 medibangpaintpro	デジタルアートとコミックを作成する
 medis	Redisの最新のGUI
@@ -2232,7 +2234,7 @@ microsoft-openjdk	MicrosoftからのOpenJDKディストリビューション
 microsoft-outlook	メールクライアント
 microsoft-powerpoint	プレゼンテーションソフトウェア
 microsoft-remote-desktop	リモートデスクトップクライアント
-microsoft-teams	会う/チャット/電話 たった1か所で強調
+microsoft-teams	会う/チャット/電話 1ケ所で会議
 microsoft-word	ワードプロセッサ
 middle	トラックパッドとマジックマウスのミドルクリックを追加
 middleclick	トラックパッド機能を拡張するユーティリティ
@@ -4218,6 +4220,7 @@ ximalaya	ポッドキャスティングとオーディオ共有のためのプ�
 xit	gitバージョン管理システムのGUI
 xiv-on-mac	Wineラッパー FFXIVのセットアップツールとランチャー
 xld	劣化無しオーディオデコーダー
+xliff-editor	ローカリゼーションファイルエディター
 xlplayer	ビデオプレーヤー
 xmind	マインドマッピングとbrainstormingツール
 xmplify	XMLエディター
