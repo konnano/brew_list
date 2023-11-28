@@ -1384,6 +1384,7 @@ dolphie	MySQLを監視するための機能豊富なトップツール
 dolt	データのGit
 dooit	TUI todoマネージャー
 dopewars	"Drug War"をベースにしたゲームのFreeリライト
+doppler	Doppler secretsと設定を操作するためのCLI
 dory	Dockerの開発プロキシ
 dos2unix	DOS/UNIX/Mac 形式間でテキストを変換する
 dosbox	DOSエミュレータ
@@ -2318,7 +2319,7 @@ gptline	ネイティブiTerm2サポートを備えたChatGPTクライアント
 gptsync	GPTおよびMBRパーティションテーブル同期ツール
 gputils	GNUPICユーティリティ
 gpx	Sailfishを実行している3DプリンターのGcodeからx3gへの変換器
-gqlplus	OracleSQLクライアントであるsqlplusのDrop-in置換
+gqlplus	OracleSQLクライアントであるsqlplusのドロップイン置換
 gqview	画像ブラウザ
 grace	X11のWYSIWYG2D立案ツール
 gradle	GroovyおよびKotlinDSLに基づくオープンソースのビルド自動化ツール
@@ -4163,7 +4164,7 @@ mysql-client	オープンソースのリレーショナルデータベース管�
 mysql-client@5.7	オープンソースのリレーショナルデータベース管理システム
 mysql-client@8.0	オープンソースのリレーショナルデータベース管理システム
 mysql-connector-c++	C++アプリケーション用のMySQLデータベース連結装置
-mysql-search-replace	PHPでのデータベース検索および置換スクリプト
+mysql-search-replace	PHPでのデータベース検索及び置換スクリプト
 mysql@5.7	オープンソースのリレーショナルデータベース管理システム
 mysql@8.0	オープンソースのリレーショナルデータベース管理システム
 mysqltuner	MySQLインストールの性能と安定性を向上させる
@@ -5053,7 +5054,9 @@ pyside@2	Qtの公式Python bindings
 pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-abseil	Abseil共通ライブラリ(Python)
+python-anytree	さまざまなプラグインを備えた強力で軽量なPythonツリーデータ構造
 python-argcomplete	Python argparseのタブ補完
+python-asn1crypto	パフォーマンスを重視したPython ASN.1ライブラリ
 python-attrs	BoilerplateのないPythonクラス
 python-boto3	AWS SDK for Python
 python-botocore	boto 3の低レベルのデータ駆動型コア
@@ -5065,10 +5068,13 @@ python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
 python-cli-helpers	一般的なCLIタスク用のPythonヘルパー
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
+python-colorama	クロスプラットフォームの色付きターミナルテキスト
+python-configargparse	argparseのドロップイン置換
 python-configobj	構成ファイルの読み取り、書き込み、検証
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
+python-dicttoxml	Python辞書またはその他のネイティブ データ型を有効なXML文字列に変換します
 python-distlib	いくつかのPythonパッケージング標準(PEP)を実装するライブラリ
 python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
 python-filelock	Pythonのプラットフォームに依存しないファイルロック
@@ -5081,6 +5087,7 @@ python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
 python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
 python-jmespath	JMESPathはJSO のクエリ言語です
+python-json5	JSON5データ形式のPython実装
 python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC++実装
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
@@ -5088,13 +5095,16 @@ python-lxml	libxml2及びlibxsltライブラリのPythonバインディング
 python-magic	libmagicのPythonラッパー
 python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
+python-markdown-it-py	markdown-itのPythonポート。マークダウン解析、正しく終了
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-matplotlib	静的、アニメーション化、インタラクティブビジュアライゼーション、を作成するためのPythonライブラリ
+python-mdurl	markdown-it用のURLユーティリティ(Pythonポート)
 python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
 python-msgpack	Python用のMessagePackシリアライザーの実装
 python-mutagen	オーディオメタデータを処理するためのPythonモジュール
 python-networkx	Pythonによるネットワーク分析
 python-oauthlib	OAuth1及びOAuth2用のPythonフレームワーク
+python-openapi3	Python3 OpenAPI 3仕様パーサ
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
 python-pbr	Pythonビルドの妥当性
@@ -5116,6 +5126,7 @@ python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビル�
 python-setuptools-scm	gitまたは、hgメタデータからPythonパッケージのバージョンを抽出します
 python-sympy	記号数学用のPythonライブラリ
 python-tabulate	Pythonで表形式のデータをきれいにプリントする
+python-termcolor	端末出力のANSIカラー形式
 python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
 python-tk@3.12	Tcl/TkへのPythonインターフェース
@@ -5712,7 +5723,7 @@ slugify	ファイル名とディレクトリをWeb対応の形式に変換しま
 slurm	さらに別のネットワーク負荷モニター
 smake	自動作成機能を備えたポータブル作成プログラム
 smali	AndroidのJavaVM実装用のアセンブラー/逆アセンブラー
-smap	shodan.ioを利用した Nmapのドロップイン置換
+smap	shodan.ioを利用したNmapのドロップイン置換
 smartdns	高速IP解決のためのRule-based DNSサーバー DoT/DoH/DoQをサポート
 smartmontools	SMARTハードドライブの監視
 smartypants	プリントデザインの整形
@@ -5870,6 +5881,7 @@ sqsmover	AWSSQSメッセージムーバー
 sqtop	Squidプロキシのアクティブな接続に関する情報を表示する
 squashfs	Linuxの圧縮された読み取り専用ファイルシステム
 squashfuse	SquashfsアーカイブをマウントするためのFUSEファイルシステム
+squealer	Gitリポジトリまたはファイルシステムをスキャンしてコミット履歴内の機密を探します
 squid	高度なCachingプロキシサーバー HTTP/HTTPS/FTP/Gopher
 squiid	Rustで書かれたモジュラー計算機
 squirrel	高レベルの手続き型オブジェクト指向プログラミング言語
