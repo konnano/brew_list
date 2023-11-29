@@ -661,6 +661,7 @@ codelite	C/C++/PHP/Node.js 用のIDE
 codeql	セマンティックコード分析エンジン
 coderunner	多言語プログラミングエディター
 codespace	Code snippetマネージャー
+codewhisperer	コマンドライン用のAIを活用した生産性向上ツール
 codux	コンポーネントのスタイルとレイアウトを視覚的に編集するために構築されたReact IDE
 coffitivity-offline	Ambientサウンド生成器
 cog	オーディオプレイヤー
@@ -1461,6 +1462,7 @@ graphql-ide	GraphQL APIを探索するためのIDE
 graphql-playground	より良い開発ワークフローのためのGraphQLIDE
 graphsketcher	グラフ描画とデータ立案アプリ
 gray	アプリごとに明るいまたは暗い外観を設定するツール
+greenery	暗号通貨の簿記および会計ウォレット
 greenfoot	Javaでオブジェクト指向を教える
 gretl	計量経済分析用のソフトウェアパッケージ
 grid	ウィンドウマネージャー
@@ -2154,6 +2156,7 @@ mcbopomofo	注音符号(北京語の発音記号)の入力方法
 mcedit	Minecraftワールドエディター
 mcgimp	再コンパイルされたGIMPインストール
 mcreator	Minecraft Java Editionのmodを作成するために使用されるソフトウェア
+mdb-accdb-viewer	Microsoft Accessデータベースを開く
 mdimagesizemdimporter	mdImageSize
 mdrp	DVDコンテンツをリッピングしてコピーするユーティリティ
 mds	IntelとAppleのシリコンMacを数秒で導入
