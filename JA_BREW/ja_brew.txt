@@ -266,7 +266,6 @@ asuka	NCursesを使用してRustで記述されたGeminiプロジェクトクラ
 asymptote	強力な空間記述グラフィックス言語
 asyncapi	すべてのAsyncAPIツールのオールインワンCLI
 asyncplusplus	C++11の並行性フレームワーク
-at-spi2-atk	Accessibility Toolkit GTK+モジュール
 at-spi2-core	D-Busat-spiの手続き定義とデーモン
 ata	端末のChatGPT
 atari800	Atari8ビットマシンエミュレーター
@@ -274,7 +273,6 @@ atasm	UnixのAtari MAC/65 互換アセンブラ
 aterm	ツリーのようなADT交換の注釈付き用語
 atf	自動テストフレームワーク
 athenacli	AWS AthenaサービスのCLIツール
-atk	GNOME近接性ツールキット
 atkmm	ATK近接性ツールキットライブラリの公式C++インターフェイス
 atkmm@2.28	ATK近接性ツールキットライブラリの公式C++インターフェイス
 atlantis	Terraformプルリクエスト自動化ツール
@@ -2276,6 +2274,7 @@ goread	ターミナル内の RSS/Atom フィード
 goredo	Go djbのやり直しの実装 扱うことが少ないMakefileの交換
 goreleaser	Goバイナリをできるだけ速く簡単に配信する
 goreman	Goで書かれたForemanクローン
+goresym	Goシンボル回復ツール
 gosec	Golangセキュリティチェッカー
 gossip	Rustで書かれたNostr用デスクトップクライアント
 gost	GO Simple Tunnel-golangで書かれた単純なtunnel
@@ -3198,6 +3197,7 @@ libdivsufsort	軽量のサフィックスソートライブラリ
 libdmtx	Data Matrixライブラリ
 libdmx	X.Org：X Window System DMX(Distributed Multihead X)拡張ライブラリ
 libdnet	ポータブル低レベルネットワークライブラリ
+libdpp	C++ Discord APIボットライブラリ
 libdrawtext	OpenGLでのanti-aliasedテキスト解釈用のライブラリ
 libdrm	ダイレクト解釈マネージャーにアクセスするためのライブラリ
 libdshconfig	分散シェルライブラリ
@@ -3819,17 +3819,18 @@ marcli	MARC(ISO 2709)ファイルを解析する
 mariadb	MySQLのDrop-in代替品
 mariadb-connector-c	Cアプリケーション用のMariaDBデータベース連結装置
 mariadb-connector-odbc	業界標準のODBCAPIを使用するデータベースドライバー
-mariadb@10.10	MySQLのDrop-in代替品
-mariadb@10.11	MySQLのDrop-in代替品
-mariadb@10.2	MySQLのDrop-in代替品
-mariadb@10.3	MySQLのDrop-in代替品
-mariadb@10.4	MySQLのDrop-in代替品
-mariadb@10.5	MySQLのDrop-in代替品
-mariadb@10.6	MySQLのDrop-in代替品
-mariadb@10.7	MySQLのDrop-in代替品
-mariadb@10.8	MySQLのDrop-in代替品
-mariadb@10.9	MySQLのDrop-in代替品
+mariadb@10.10	MySQLのドロップイン代替品
+mariadb@10.11	MySQLのドロップイン代替品
+mariadb@10.2	MySQLのドロップイン代替品
+mariadb@10.3	MySQLのドロップイン代替品
+mariadb@10.4	MySQLのドロップイン代替品
+mariadb@10.5	MySQLのドロップイン代替品
+mariadb@10.6	MySQLのドロップイン代替品
+mariadb@10.7	MySQLのドロップイン代替品
+mariadb@10.8	MySQLのドロップイン代替品
+mariadb@10.9	MySQLのドロップイン代替品
 mariadb@11.0	MySQLのドロップイン代替品
+mariadb@11.1	MySQLのドロップイン代替品
 markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLIおよびMarkdownファイルのlintツール
@@ -5076,6 +5077,7 @@ python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
 python-dicttoxml	Python辞書またはその他のネイティブ データ型を有効なXML文字列に変換します
 python-distlib	いくつかのPythonパッケージング標準(PEP)を実装するライブラリ
+python-distro	Linux OSプラットフォーム情報API
 python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
 python-filelock	Pythonのプラットフォームに依存しないファイルロック
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
