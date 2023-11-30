@@ -2704,7 +2704,6 @@ io	小さなプロトタイプベースのプログラミング言語
 iocextract	侵害エクストラクターのデファングインジケーター
 ioctl	IoTeXブロックチェーンと対話するためのコマンドラインインターフェイス
 iodine	DNSサーバーを介してIPv4転送量をトンネリングする
-ioke	仮想マシンを対象とした動的言語
 ioping	I/Oレイテンシをリアルタイムで監視するツール
 ios-class-guard	Mach-O実行可能ファイルのObjective-C難読化ツール
 ios-deploy	コマンドラインからiPhoneアプリをインストールしてデバッグする
@@ -3267,8 +3266,6 @@ libgit2@1.5	再入可能でリンク可能なGitコアメソッドのCライブ�
 libgit2@1.6	リエントラントでリンク可能なGitコアメソッドのCライブラリ
 libglade	GTK+インターフェースの構築を支援するRADツール
 libglademm	libgladeのC++ラッパー
-libgnomecanvas	高レベルの構造化グラフィックライブラリ
-libgnomecanvasmm	libgnomecanvasのC++ラッパー
 libgnt	テキストモードのグラフィカルユーザーインターフェイスを作成するためのNCursesツールキット
 libgosu	2Dゲーム開発ライブラリ
 libgpg-error	すべてのGnuPGコンポーネントに共通のエラー値
@@ -3496,7 +3493,6 @@ libsquish	DXT標準で画像を圧縮するためのライブラリ
 libssh	CライブラリSSHv1/SSHv2クライアントおよびサーバー手続き
 libssh2	SSH2手続きを実装するCライブラリ
 libstatgrab	システムに関する統計へのクロスプラットフォームアクセスを提供します
-libstfl	端末用のcurses-basedのwidgetセットを実装するライブラリ
 libstrophe	CのXMPPライブラリ
 libstxxl	ビッグデータセット用のSTLのC++実装
 libsvg	SVGファイル用のライブラリ
@@ -4613,7 +4609,6 @@ packetbeat	ネットワークデータ用の軽量Shipper
 packetq	PCAPファイルへのSQLのようなフロントエンド
 packmol	分子動力学シミュレーションのためのPackingの最適化
 packr	静的ファイルをGoバイナリに埋め込む簡単な方法
-pacman4console	コンソール用のパックマン
 pacmc	Minecraftパッケージマネージャーおよびランチャー
 pacparser	プロキシ自動設定(PAC)ファイルを解析するためのライブラリ
 pacvim	ゲームを介してVimコマンドを学ぶ
@@ -5856,7 +5851,6 @@ spotifyd	Spotifyデーモン
 spr	個別の修正可能でリベース可能なコミットのプルリクエストをGitHubに送信します
 spring-completion	SpringのBash補完
 spring-loaded	実行中のJVMでクラスのリロードを有効にするJavaエージェント
-spring-roo	Java開発者向けの迅速なアプリケーション開発ツール
 sproxy	'siege-friendly'作法でURLを収集するHTTPプロキシサーバー
 sql-language-server	SQL用言語サーバー
 sql-lint	クエリでエラーをDBから戻し健全性チェックを行うSQL静的解析
