@@ -1463,6 +1463,7 @@ font-noto-serif-armenian	Noto Serif Armenian
 font-noto-serif-balinese	Noto Serif Balinese
 font-noto-serif-bengali	Noto Serif Bengali
 font-noto-serif-cjk	Noto Serif CJK
+font-noto-serif-cjk-hk	言語固有のOTF繁体字中国語—香港(繁體中文—香港)
 font-noto-serif-cjk-jp	Noto Serif CJK JP
 font-noto-serif-cjk-kr	Noto Serif CJK KR
 font-noto-serif-cjk-sc	Noto Serif CJK SC
@@ -2150,7 +2151,6 @@ alfred4	アプリケーションランチャーと生産性ソフトウェア
 anaconda2	データサイエンスプラットフォーム
 android-studio-preview-beta	Androidアプリケーションを構築するためのツール
 android-studio-preview-canary	Androidアプリケーションを構築するためのツール
-anki-beta	記憶力トレーニングアプリケーション
 arduino-ide-nightly	電子工学プロトタイピングプラットフォーム
 arduino-nightly	電子プロトタイピングプラットフォーム
 arq5	マルチクラウドバックアップアプリケーション
