@@ -130,7 +130,7 @@ MAIN:{
   if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $re->{'HOME'} or
                       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
        $re->{'NEW'}++; Init_1( $re );
-  }elsif( $re->{'S_M'} ){ m_search( $re );
+  }elsif( $re->{'S_M'} ){ $MY_BREW =~ s|(.+)/Homebrew$|$1| if $re->{'LIN'}; m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
    $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : defined $AR[1] ? lc $AR[1] : Died_1( $re );
     $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
@@ -416,22 +416,29 @@ sub m_search{
    $re->{'NA'} = $re->{'MAC'} ? 54 : 27;
     $re->{'AR'}[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
     $re->{'AR'}[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
-    ( $re->{'ROWS'},$re->{'COLS'} ) = split ' ',`stty size`;
-      $re->{'MENU'} = `printf " Q exit : Space down : Delete up : Enter less\n"|cut -b 1-$re->{'COLS'}`;
-      $re->{'COMA'} = 1 if `command -v bl` eq "$MY_BREW/bin/bl\n";
-  }  exit unless -t STDOUT and $re->{'COMA'};
-
-   $re->{'SP'} = 46 - $re->{'COLS'} if 45 > $re->{'COLS'} and not $re->{'SP'};
-   $re->{'ST'} ||= 1;
-  unless( $re->{'LI'} ){
-   $re->{'LI'} = $re->{'ROWS'} > 29 ? 27 : $re->{'ROWS'} - 3;
-    system"stty -echo -icanon";
+     exit unless -t STDOUT and `which bl` eq "$MY_BREW/bin/bl\n";
   }
+  ( $re->{'ROWS'},$re->{'COLS'} ) = split ' ',`stty size`;
+    $re->{'MENU'} = `printf " Q exit : Space down : Delete up : Enter less\n"|cut -b 1-$re->{'COLS'}`;
+    $re->{'SP'} = 46 - $re->{'COLS'} if 45 > $re->{'COLS'};
+
+  $re->{'LI'} ||= $re->{'ROWS'} > 29 ? 27 : $re->{'ROWS'} - 4;
+   system"stty -echo -icanon" unless $re->{'ST'};
+    $re->{'ST'} ||= 1;
   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit };
   print"\033[0;0H\033[2J\033[?25l";
    while(1){ my( $nu,$key ) = ( 0,0 );
+    my( $rows,$cols ) = split ' ',`stty size`;
+     if( $rows != $re->{'ROWS'} or $cols != $re->{'COLS'} ){
+           if( $re->{'LI'} == $re->{'CON'} - 1 ){ $re->{'LI'} = $re->{'CON'}; --$re->{'ST'}
+       }elsif( $re->{'LI'} -  $re->{'ST'} < $rows - 4 ){ $re->{'LI'} < 27 ? ++$re->{'LI'} : --$re->{'ST'};
+       }else{  $re->{'LI'} =  $re->{'LI'} > $rows - 4 ? --$re->{'LI'} :
+                            ( $re->{'LI'} < 27 and $re->{'LI'} < $rows - 4 ) ? ++$re->{'LI'} : $re->{'LI'};
+       } $re->{'CON'} = $co;
+      m_search( $re );
+     }
     my $rs = chr(1);
-    my $st = select $rs,undef,undef,0.01;
+    my $st = select $rs,undef,undef,0.05;
      _pri_1( $co,$re );
       $nu = getc if $st;
      if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
@@ -447,11 +454,11 @@ sub m_search{
       $co = $co < 28 ? 27 : 54 if $key == 6;
     }else{
       $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
-    }  my $com = $co > 27 ? $co - 27 : $co;
-          if( $re->{'LI'} < $com ){ $re->{'ST'}++; $re->{'LI'}++
-      }elsif( $re->{'ST'} > $com ){ $re->{'ST'}--; $re->{'LI'}-- }
+    }  $re->{'CON'} = $co > 27 ? $co - 27 : $co;
+          if( $re->{'LI'} < $re->{'CON'} ){ $re->{'ST'}++; $re->{'LI'}++
+      }elsif( $re->{'ST'} > $re->{'CON'} ){ $re->{'ST'}--; $re->{'LI'}-- }
 
-     if( $nu eq chr(10) ){ $re->{'CON'} = $co;
+     if( $nu eq chr(10) ){
         print"\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$re->{'AR'}[$co];
          ( $ca,$na ) = ( 'l','lib' ) if $re->{'AR'}[$co] eq 'lib';
@@ -479,7 +486,7 @@ sub m_search{
         print"\r $re->{'AR'}[$i] .. $s  $re->{'AR'}[$i+27] ..  \n";
       }
      }
-   }
+   } $re->{'CON'} = $co;
   m_search( $re );
 }
 
