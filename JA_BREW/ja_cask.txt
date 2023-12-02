@@ -127,6 +127,7 @@ amazon-workdocs-drive	完全に管理 安全なエンタープライズストレ
 amazon-workspaces	クラウドネイティブの永続デスクトップ仮想化
 amd-power-gadget	パワー管理 AMDプロセッサ用のモニタリング/VirtualSMCプラグイン
 amethyst	xmonadに似た自動タイル型ウィンドウマネージャー
+amie	カレンダーとタスクマネージャー
 amitv87-pip	常にトップウィンドウのプレビュー
 amm	Aria2メニューバーモニター
 ammonite	タグビジュアライザーと検索ユーティリティ
