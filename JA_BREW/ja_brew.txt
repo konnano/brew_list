@@ -838,6 +838,7 @@ chrpath	ELFバイナリのrpathを編集するためのツール
 chruby	Ruby環境ツール
 chruby-fish	Fishシェルで動作するchrubyの周りの薄いラッパー
 chuck	並行したオンザフライのオーディオプログラミング言語
+cidr	CIDR範囲に対してさまざまなアクションを実行するためのCLI
 cidr2range	CIDRをIP範囲に変換します
 cidrmerge	ネットワーク除外とマージするCIDR
 cifer	Cでの古典的な暗号クラッキングの自動化に取り組む
@@ -4389,6 +4390,7 @@ ocaml	MLファミリーの汎用プログラミング言語
 ocaml-findlib	OCamlライブラリマネージャー
 ocaml-num	任意精度演算用のOCamlレガシーNumライブラリ
 ocaml-zarith	任意精度演算用のOCamlライブラリ
+ocaml@4	MLファミリの汎用プログラミング言語
 ocamlbuild	OCamlの汎用ビルドツール
 oci-cli	Oracle Cloud Infrastructure CLI
 ocl-icd	OpenCL ICDローダー
@@ -5774,6 +5776,7 @@ solhint	Solidityコード解析ツール
 solid	3D空間の幾何学的オブジェクトの衝突検出ライブラリ
 solidity	契約指向プログラミング言語
 sollya	安全な浮動小数点コード開発のためのライブラリ
+solo2-cli	Solo 2セキュリティキーを更新して使用するためのCLI
 solr	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
 solr@7.7	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
 solr@8.11	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
