@@ -5,7 +5,7 @@ use Fcntl ':DEFAULT';
 
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
-chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew) )` );
+chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew))` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
