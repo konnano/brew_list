@@ -1503,6 +1503,7 @@ hancom-word	ワードプロセッサ
 handbrake	オープンソースのビデオトランスコーダー
 handbrakebatch	HandBrakeBatch
 handshaker	Androidデバイスを管理するためのアプリ
+hapigo	アプリケーションランチャーと生産性向上ソフトウェア
 happygrep	happygrep
 happymac	見守る システムの速度を低下させるバックグラウンドプロセスを一時停止および再開します
 haptic-touch-bar	触覚タッチバー
@@ -4160,6 +4161,7 @@ wireshark	ネットワーク手続き分析
 wireshark-chmodbpf	ネットワーク手続き分析
 wiso-steuer-2022	2021年度の納税申告書
 wiso-steuer-2023	2022年度の納税申告書
+wiso-steuer-2024	2023年度の納税申告書
 witch	アプリ、ウィンドウ、またはタブを切り替える
 wiznote	メモアプリ
 wjoy	任天堂 wiimoteドライバー
