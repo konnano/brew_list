@@ -459,6 +459,7 @@ bricklink-studio	LEGOの指示を作成します 建てる/表現する
 bricksmith	仮想レゴモデリング
 brickstore	BrickLinkオフライン管理ツール
 bridge	メガスキャンとメタヒューマンへのゲートウェイ
+brightintosh	画面の明るさを高めるユーティリティ
 brightness-sync	LG UltraFineディスプレイの明るさを同期するユーティリティ
 brisk	レーダーを提示するアプリ
 brisync	外部ディスプレイの明るさを自動的に制御するユーティリティ
@@ -523,6 +524,7 @@ carbide-create	CNCルーター用CAD/CAMソフトウェア
 carbon-copy-cloner	ハードディスクのバックアップとクローン作成ユーティリティ
 cardhop	連絡先マネージャー
 cardinal	仮想モジュラーシンセサイザープラグイン
+cardo-update	PacktalkとFreecom、バイク用インターコムをアップデートする
 cardpresso	プロのカード制作のためのカードソフトウェアツール
 caret	Caret
 cashnotify	メニューバーからStripeアカウントとPaypalアカウントを監視します
@@ -2446,6 +2448,8 @@ navicat-for-sql-server	SQLサーバー用のデータベース管理および開
 navicat-for-sqlite	SQLite用のデータベース管理および開発ツール
 navicat-premium	データベース管理および開発ツール
 navicat-premium-essentials	データベース管理および開発ツール
+navigraph-charts	フライトシミュレーション用のプロフェッショナルな最新のJeppesenチャートにアクセス
+navigraph-simlink	NavigraphアカウントをFlight Simulatorにリンクする
 ncar-ncl	科学データの分析と視覚化のための通訳言語
 ndm	Node.jsパッケージマネージャー(NPM)のデスクトップマネージャー
 neat	デスクトップとメニューバーでのGitHubとリニアの通知
@@ -2551,6 +2555,7 @@ obsbot-webcam	OBSBOT TinyおよびMeetシリーズの構成およびファーム
 obsidian	プレーンテキストのマークダウンファイルのローカルフォルダの上で機能する知識ベース
 ocenaudio	オーディオエディター
 oclint	静的ソースコード分析ツール
+october	Koboのハイライトを取得し、Readwiseと同期するためのGUI
 octomouse	OctoMouse
 odbc-manager	ODBC管理
 odrive	クラウドストレージを統合するためのツール 同期/共有可能/暗号化
@@ -3292,6 +3297,7 @@ sekey	SeKey
 selfcontrol	気が散るWebサイトへの自分のアクセスをブロックする
 semeru-jdk-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semulov	メニューバーからマウントされたボリュームとマウントされていないボリュームにアクセスします
+senabluetoothdevicemanager	SENAデバイスのマネージャー
 sencha	Sencha Ext JSの生産性とパフォーマンスの最適化ツール
 send-anywhere	ファイル共有アプリ
 send-to-kindle	MacからKindleに個人文書を送信するためのツール
