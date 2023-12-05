@@ -1241,6 +1241,7 @@ focus-booster	時間監視
 focusatwill	パーソナライズされたフォーカスミュージック
 focused	マークダウンライティングアプリ
 focusrite-control	Focusriteインターフェースコントローラー
+focusrite-control-2	第4世代以降のデバイス用のFocusriteインターフェイスコントローラー
 focusrite-saffire-mixcontrol	Focusrite製品のソフトウェア
 fog	非公式のovercast.fmポッドキャストアプリ
 folder-colorizer	フォルダーアイコン エディター&マネージャー
@@ -2542,6 +2543,7 @@ nvalt	アプリを取ることに注意してください
 nvidia-geforce-now	クラウドゲームプラットフォーム
 nvs	Node.jsのバージョンとフォークを切り替えるためのクロスプラットフォームツール
 nwjs	すべてのNode.jsモジュールをDOMおよびWebワーカーから直接呼び出します
+nx-studio	写真やビデオの表示、処理、編集の為のNikonセット
 nzbget	効率に焦点を当てたUsenetダウンローダー
 nzbvortex	パフォーマンスと使いやすさのために最適化されたNZBクライアント
 objectivesharpie	Objective-Cコードから始まるC#インターフェイスを生成するために使用されるツール
