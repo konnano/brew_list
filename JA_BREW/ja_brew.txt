@@ -61,7 +61,7 @@ aftman	Robloxのツールチェーン マネージャー Foremanの放蕩続編
 afuse	FUSEを使用してユーザースペースに実装された自動マウントファイルシステム
 agda	依存型関数型プログラミング言語
 age	シンプルでモダンに安全なファイル暗号化
-age-plugin-yubikey	YubiKeysなどの年齢およびPIVトークンを使用してファイルを暗号化するためのプラグイ
+age-plugin-yubikey	YubiKeysなどの年齢およびPIVトークンを使用してファイルを暗号化する為のプラグイン
 agedu	無駄なディスクスペースを追跡するためのUnixユーティリティ
 agg	AsciicastからGIFへのコンバーター
 aggregate	プレフィックスのリストを最適化してリストの長さを短縮します
@@ -986,7 +986,6 @@ comby	多くの言語間でコードを変更するためのツール
 commandbox	CFML組み込みサーバー/パッケージマネージャー/およびアプリスキャフォールディングツール
 commitizen	ルールをコミットして伝達する標準的な方法を定義します
 commitlint	コミット規則に従ってコミットメッセージをリントする
-compface	X-Face形式との間で変換
 compiledb	Make-baseのビルドシステム用のClangコンパイルデータベースを生成する
 composer	PHPの依存関係マネージャー
 conan	C/C++の分散型オープンソースパッケージマネージャー
@@ -4181,7 +4180,7 @@ nano	FreeのPicoテキストエディタ(GNU)代替品
 nanoflann	KDツリーを使用した最近傍検索用のヘッダーのみのライブラリ
 nanomsg	Cのソケットライブラリ
 nanomsgxx	C++11のNanomsg bindings
-nanopb-generator	Bufferメッセージをエンコードおよびデコードする手続きのCライブラリ
+nanopb	プロトコル バッファメッセージをエンコード及びデコードする為の、Cライブラリ
 nanorc	改善されたNano構文ハイライトファイル
 nap	端末のコードスニペット
 narwhal	アプリケーションを構築するための汎用JavaScriptプラットフォーム
@@ -6794,7 +6793,7 @@ xkeyboardconfig	X Window Systemのキーボード構成データベース
 xlearn	高性能で簡単な拡張性のある機械学習パッケージ
 xlispstat	Lispに基づく統計データサイエンス環境
 xlslib	コードでExcel.xlsファイルを構築するためのC++/Cライブラリ
-xlsxio	.xlsxファイルから値を読み取ったり、.xlsxファイルに値を書き込んだりするための Cライブラリ
+xlsxio	.xlsxファイルから値を読み取ったり、.xlsxファイルに値を書き込んだりする為の、Cライブラリ
 xmake	Luaに基づくクロスプラットフォームビルドユーティリティ
 xml-coreutils	テキスト処理のための強力な対話的システム
 xml-security-c	XMLの主要なセキュリティ標準の実装
