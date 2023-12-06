@@ -1174,6 +1174,7 @@ daemontools	UNIXサービスを管理するためのツールのコレクショ�
 dafny	検証対応プログラミング言語
 dagger	CI/CD パイプライン用のポータブル開発キット
 daktilo	キーを押すたびにタイプライターの音を再生します
+dalfox	自動化に重点を置いたXSSスキャナーとユーティリティ
 dante	SOCKSサーバーとクライアント RFC 1928および関連標準を実装
 daq	ネットワーク侵入防止および検出システム
 dar	バックアップディレクトリツリーとファイル
@@ -4695,6 +4696,7 @@ pdfcpu	Goで書かれたPDF計算機
 pdfcrack	PDFファイルパスワードクラッカー
 pdfgrep	正規表現に一致する文字列をPDFで検索する
 pdfpc	PDFファイルのマルチモニターをサポートするPresenterコンソール
+pdfrip	マルチスレッドPDFパスワードクラッキングユーティリティ
 pdfsandwich	スキャンしたファイルからOCR PDFを合成する
 pdftilecut	PDFページを小さなページに分割して、プリント出来るようにします
 pdftk-java	Javaでのpdftkのポート
@@ -6864,6 +6866,7 @@ yarn	JavaScriptパッケージマネージャー
 yarn-completion	YarnのBash補完
 yash	さらに別のシェル：POSIX準拠のコマンドラインシェル
 yasm	NASMのモジュラーBSD再実装
+yatas	AWS/GCP、インフラストラクチャの構成ミスやセキュリティの問題を監査するツール
 yaws	動的コンテンツ用のWebサーバー(Erlangで記述)
 yaz	ツールキット Z39.50/SRW/SRUクライアント/サーバー
 yaze-ag	さらに別のZ80エミュレーター(AGによる)
