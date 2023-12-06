@@ -2513,6 +2513,7 @@ notable	マークダウンベースのメモ取りアプリ that doesn't suck
 notch-simulator	MacBookProのノッチをシミュレートする
 notebooks	ワードプロセッサ
 notedup	Evernote InternationalからEvernoteへのデータ転送
+notes-better	マークダウンとkanbanの為のシンプルなメモアプリ
 notesnook	プライバシー重視のメモ作成アプリ
 noti	Androidデバイスからの通知を表示するユーティリティ
 notion	書くアプリ 予定/協調/整理
@@ -4109,6 +4110,7 @@ wasabi-wallet	プライバシーに焦点を当てたビットコインウォレ
 watchfacestudio	Wear OSのウォッチフェイスを作成するためのグラフィックオーサリングツール
 waterfox	Webブラウザー
 waterfox-classic	Webブラウザー
+wave	ターミナルエミュレータ
 wavebox	Webブラウザー
 waves-central	Waves製品をインストールしてアクティブ化するクライアント
 wavesurfer	サウンドの視覚化と操作のためのツール
