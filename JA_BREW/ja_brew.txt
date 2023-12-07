@@ -976,7 +976,6 @@ colfer	バイナリデータ交換用のスキーマコンパイラ
 colima	最低限のセットアップでMacOSでのContainer runtimes
 collada-dom	COLLADAデータをロードおよび保存するためのC++ライブラリ
 collectd	統計収集および監視デーモン
-collector-sidecar	Graylogを介してログコレクターを管理する
 colmap	Structure-from-Motionとマルチビューステレオ
 color-code	Freeで高度なMasterMindクローン
 colordiff	色で強調表示されたdiff(1)出力
@@ -5338,6 +5337,7 @@ resty	パイプラインで使用できるコマンドラインRESTクライア�
 resvg	SVGレンダリングツールとライブラリ
 retdec	LLVMに基づくリターゲット可能なマシンコード逆コンパイラ
 rethinkdb	リアルタイムWeb用のオープンソースデータベース
+retire	既知の脆弱性を持つJavaScriptライブラリの使用を検出するスキャナ
 retry	コマンドが成功するまでコマンドを繰り返します
 revive	Go用の高速で美しい静的解析ツール 構成可能/拡張可能/柔軟
 rex	リモートサーバー上でコマンドを実行するコマンドラインツール
