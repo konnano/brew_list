@@ -1300,6 +1300,7 @@ font-noto-sans-cham	Noto Sans Cham
 font-noto-sans-cherokee	Noto Sans Cherokee
 font-noto-sans-chorasmian	歴史的な中東コラスミアン文字のデザイン
 font-noto-sans-cjk	Noto Sans CJK
+font-noto-sans-cjk-hk	言語固有のOTF繁体字中国語—香港(繁體中文—香港)
 font-noto-sans-cjk-jp	Noto Sans CJK JP
 font-noto-sans-cjk-kr	Noto Sans CJK KR
 font-noto-sans-cjk-sc	Noto Sans CJK SC
@@ -1375,6 +1376,11 @@ font-noto-sans-miao	Noto Sans Miao
 font-noto-sans-modi	Noto Sans Modi
 font-noto-sans-mongolian	Noto Sans Mongolian
 font-noto-sans-mono	Noto Sans Mono
+font-noto-sans-mono-cjk-hk	言語固有の等幅OTF繁体字中国語—香港(繁體中文—香港)
+font-noto-sans-mono-cjk-jp	言語固有の等幅OTF日本語(日本語)
+font-noto-sans-mono-cjk-kr	言語固有の等幅OTF韓国語(한국어)
+font-noto-sans-mono-cjk-sc	言語固有の等幅OTF簡体字中国語(简体中文)
+font-noto-sans-mono-cjk-tc	言語固有の等幅OTF繁体字中国語—台湾(繁體中文—臺灣)
 font-noto-sans-mro	Noto Sans Mro
 font-noto-sans-multani	Noto Sans Multani
 font-noto-sans-myanmar	Noto Sans Myanmar
@@ -1750,6 +1756,7 @@ font-rubik-doodle-shadow	Rubik落書きの影
 font-rubik-doodle-triangles	Rubik落書きの三角形
 font-rubik-gemstones	Rubik Gemstones
 font-rubik-glitch	Rubik Glitch
+font-rubik-glitch-pop	Rubik Glitch Pop
 font-rubik-iso	Rubik Iso
 font-rubik-lines	Rubikライン
 font-rubik-maps	Rubikマップ
