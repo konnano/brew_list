@@ -3271,6 +3271,7 @@ screenflick	オーディオ付きスクリーンレコーダー
 screenflow	画面録画およびビデオ編集ソフトウェア
 screenfocus	複数の画面を管理するためのツール
 screens	使いやすさに焦点を当てたリモートアクセスソフトウェア
+screens-assist	画面共有リンク
 screens-connect	リモートデスクトップソフトウェア
 scribus	Freeのオープンソースページレイアウトプログラム
 script-debugger	AppleScriptに完全に焦点を合わせた統合開発環境
@@ -4027,6 +4028,7 @@ videostream	パソコンからChromecastにメディアをストリーミング�
 vidl	youtube-dlのGUIフロントエンド
 vieb	Vimに影響されたElectronブラウザ
 vienna	RSSとAtomリーダー
+vimcal	カレンダー
 vimediamanager	ムービーのデジタルアーティファクトを管理する/テレビとアニメのコレクション
 vimr	NeovimテキストエディターのGUI
 vincelwt-chatgpt	ChatGPTのメニューバーアプリ
