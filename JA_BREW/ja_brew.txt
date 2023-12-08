@@ -200,6 +200,7 @@ archivemount	libarchiveを使用してアーカイブにアクセスするため
 archiver	クロスプラットフォームのマルチフォーマットアーカイブユーティリティ
 arduino-cli	Arduinoコマンドラインインターフェース
 ares	暗号化されたテキストの自動デコード
+argc	bashスクリプトに基づいて、cliを簡単に作成して使用する
 argo	Kubernetesのコンテナネイティブワークフローで作業の完了
 argocd	KubernetesのGitOps継続的デリバリー
 argocd-autopilot	ArgoCDをインストールしてGitOpsリポジトリを管理するための意見のある方法
@@ -1411,6 +1412,7 @@ drake	データを作成することを目的としたデータワークフロ�
 driftctl	基礎構造の流れを検出、追跡、警告する
 driftwood	秘密キーの使用状況の検証
 drill	Rustで記述されたHTTP負荷テストアプリケーション
+drogon	最新のC++Webアプリケーションフレームワーク
 dromeaudio	小さなC++オーディオ操作および再生ライブラリ
 drone-cli	ドローン継続的インテグレーションサーバーのコマンドラインクライアント
 dronedb	航空データストレージ用の無料のオープンソースソフトウェア
@@ -4458,6 +4460,7 @@ open-mesh	polygonal meshesを表現および操作するための汎用データ
 open-mpi	高性能メッセージ経過ライブラリ
 open-ocd	On-chip debugging、in-systemプログラミング、boundary-scanテスト
 open-scene-graph	3Dグラフィックツールキット
+open-simh	マルチシステムコンピュータシミュレータ
 open-sp	SGMLパーサー
 open-tyrian	Tyrianのオープンソースポート
 open-zwave	選択したZ-WavePCコントローラーと接続するライブラリ
