@@ -680,6 +680,7 @@ cargo-make	Rustタスクランナーとビルドツール
 cargo-nextest	Rustの次世代テストランナー
 cargo-outdated	Rustの依存関係が古くなったときに表示するためのCargoサブコマンド
 cargo-release	Cargoサブコマンド `release`: rust crateの解放に関するすべて
+cargo-sweep	Cargoによって生成された未使用のビルドファイルをクリーンアップするためのユーティリティ
 cargo-udeps	Cargo.tomlで未使用の依存関係を検索する
 cargo-watch	Cargoプロジェクトのソースを監視します
 cargo-zigbuild	zigをリンカーとしてCargoプロジェクトをコンパイルする
@@ -5300,6 +5301,7 @@ redis@6.2	永続的なKey-Valueデータベース、内蔵ネットインター�
 redland	RDFライブラリ
 redo	djbのやり直しを実装します。
 redpen	技術文書の作成者を支援する校正ツール
+redress	Goコンパイラでコンパイルされ取り除かれたGoバイナリを分析するためのツール
 redshift	周囲の状況に応じて画面の色温度を調整します
 redstore	Redlandを搭載した軽量RDFトリプルstore
 redwax-tool	ユニバーサル証明書変換ツール
