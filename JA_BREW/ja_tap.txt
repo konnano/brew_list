@@ -1412,6 +1412,7 @@ font-noto-sans-pahawh-hmong	Noto Sans Pahawh Hmong
 font-noto-sans-palmyrene	Noto Sans Palmyrene
 font-noto-sans-pau-cin-hau	Noto Sans Pau Cin Hau
 font-noto-sans-phags-pa	Noto Sans Phags Pa
+font-noto-sans-phagspa	歴史的な中央アジアのphags-pa文字テキストのSans-serif
 font-noto-sans-phoenician	Noto Sans Phoenician
 font-noto-sans-psalter-pahlavi	Noto Sans Psalter Pahlavi
 font-noto-sans-rejang	Noto Sans Rejang
