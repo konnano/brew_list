@@ -1,11 +1,12 @@
 #!/bin/bash
  NAME=$(uname)
- MY_BREW=$(dirname $(dirname $(which brew 2>/dev/null) 2>/dev/null) 2>/dev/null) ||\
+ MY_BREW=$(dirname $(dirname $(command -v brew) 2>/dev/null) 2>/dev/null) ||\
   { echo -e "\033[31m Not installed HOME BREW\033[00m"; exit 1; }
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  echo Not support OS; exit 1
 elif [[ $NAME = Darwin ]];then
- VER=$(sw_vers -productVersion|sed -E 's/^(1[1-4]).*/\1.0/;s/^(10\.)(1[0-5]).*/\1\2/')
+ VER=$(sw_vers -productVersion|
+       sed -E 's/^(1[1-4]).*/\1.0/;s/^(10\.1)([0-5]).*/\1\2/;s/^(10\.)([1-9])\..*/\10\2/')
  [[ 10.10 > $VER ]] && echo Use Tiger Brew && exit 1
 fi
 
