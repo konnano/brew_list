@@ -3894,6 +3894,7 @@ trivial	多くのプロトコルをサポートするシンプルなファイル
 trojanx	グレートファイアウォールをバイパスするメカニズム
 trolcommander	muCommanderファイルマネージャーのフォーク
 tropy	研究写真管理
+truhu	ディスプレイ調整ユーティリティ
 trunk-io	Trunkランチャー
 tsh	分散インフラストラクチャを管理するチーム向けのSSHサーバー
 ttscoff-mmd-quicklook	MMD-QuickLook
