@@ -2140,6 +2140,7 @@ glade	GTK+およびGNOME環境用のRADツール
 glances	top/htop 代替品
 glassfish	JavaEEアプリケーションサーバー
 glbinding	OpenGLAPIのC++ bindings
+glbinding@2	OpenGL APIのC++バインディング
 gleam	✨ Erlang VM用の静的に型付けされた言語
 glew	OpenGL拡張Wranglerライブラリ
 glfw	OpenGLアプリケーション用のMulti-platformライブラリ
@@ -4247,7 +4248,6 @@ netcdf-cxx	NetCDF用のC++ライブラリとユーティリティ
 netcdf-fortran	NetCDF用のFortranライブラリとユーティリティ
 netdata	metricsを使用してインフラストラクチャの問題を診断する 視覚化/アラーム
 nethack	Single-playerのroguelikeビデオゲーム
-nethacked	バグ修正されインターフェースにパッチが適用されたNethack
 nethogs	プロセスごとのネットtopツールのグループ化処理能力
 netlify-cli	Netlifyコマンドラインツール
 netlistsvg	yosys JSONネットリストからSVG回路図を描画します
