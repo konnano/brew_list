@@ -411,20 +411,20 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 
 sub m_search{
  my $re = shift;
- my( $i,$co ) = ( 0,$re->{'CON'}||1 );
-  unless( $re->{'NA'} ){
+ my $co = $re->{'CON'}||1;
+  unless( $re->{'NA'} ){ my $i = 0;
    $re->{'NA'} = $re->{'MAC'} ? 54 : 27;
     $re->{'AR'}[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
     $re->{'AR'}[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
      exit unless -t STDOUT and `which bl` eq "$MY_BREW/bin/bl\n";
+     system"stty -echo -icanon";
   }
   ( $re->{'ROWS'},$re->{'COLS'} ) = split ' ',`stty size`;
     $re->{'MENU'} = `printf " Q exit : Space down : Delete up : Enter less\n"|cut -b 1-$re->{'COLS'}`;
     $re->{'SP'} = 46 - $re->{'COLS'} if 45 > $re->{'COLS'};
 
   $re->{'LI'} ||= $re->{'ROWS'} > 29 ? 27 : $re->{'ROWS'} - 4;
-   system"stty -echo -icanon" unless $re->{'ST'};
-    $re->{'ST'} ||= 1;
+  $re->{'ST'} ||= 1;
   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit };
   print"\033[0;0H\033[2J\033[?25l";
    while(1){ my( $nu,$key ) = ( 0,0 );
