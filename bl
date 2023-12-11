@@ -420,7 +420,7 @@ sub m_search{
      system"stty -echo -icanon";
   }
   ( $re->{'ROWS'},$re->{'COLS'} ) = split ' ',`stty size`;
-    $re->{'MENU'} = `printf " Q exit : Space down : Delete up : Enter less\n"|cut -b 1-$re->{'COLS'}`;
+    $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$re->{'COLS'})."\n";
     $re->{'SP'} = 46 - $re->{'COLS'} if 45 > $re->{'COLS'};
 
   $re->{'LI'} ||= $re->{'ROWS'} > 29 ? 27 : $re->{'ROWS'} - 4;
