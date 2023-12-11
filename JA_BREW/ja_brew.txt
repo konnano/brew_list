@@ -823,6 +823,7 @@ chicken	Schemeプログラミング言語のコンパイラ
 chinadns-c	ChinaDNSからCへのポート：中国語のDNSの不規則性を修正
 chipmunk	Cで記述された2D剛体物理ライブラリ
 chisel	iOSアプリのデバッグを支援するLLDBコマンドのコレクション
+chisel-tunnel	HTTP経由の高速TCP/UDPトンネル
 chkrootkit	ルートキット検出器
 chmlib	Microsoftのファイルを処理するためのライブラリ ITSS/CHM
 chocolate-doom	Doomの正確なソースポート
@@ -1304,6 +1305,7 @@ digitemp	1線式ネットで温度センサーを読み取る
 dirac	さまざまな解像度を対象とした汎用ビデオコーデック
 direnv	$PWDに基づく環境変数の Load/unload
 direvent	ファイルシステムディレクトリ内のイベントを監視します
+direwolf	ソフトウェア "soundcard" AX.25 パケットモデム/TNC 及び APRS エンコーダ/デコーダ
 dirt	実験サンプルの再生
 discount	MarkdownのC実装
 diskonaut	ターミナルビジュアルディスクスペースナビゲーター
