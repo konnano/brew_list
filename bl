@@ -5,7 +5,7 @@ use Encode;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$Locale,%JA );
-chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew))` );
+chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew) 2>/dev/null) 2>/dev/null` );
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
