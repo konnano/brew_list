@@ -1335,6 +1335,7 @@ ganttproject	Ganttチャートとプロジェクト管理アプリケーショ�
 gaphor	UML/SysML モデリングツール
 garagesale	eBayリストを管理する
 gargoyle	双方向フィクションプレーヤーのIOレイヤー
+garmin-basecamp	3Dマッピングアプリケーション
 garmin-express	地図とソフトウェアを更新しGarmin Connectと同期してデバイスを登録する
 gas-mask	ホストファイルエディター/マネージャー
 gather	仮想ビデオ通話スペース
