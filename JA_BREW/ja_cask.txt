@@ -2671,6 +2671,7 @@ oso-cloud	OSOクラウドと対話するためのツール
 osp-tracker	物理教育のためのビデオ分析およびモデリングツール
 osquery	SQLを利用したオペレーティングシステムのインストルメンテーションと分析
 oss-browser	OSS(オブジェクトストレージサービス)用のグラフィカルな管理ツール
+ossapp	統合パッケージマネージャー
 osu	リズムゲーム
 osxfuse	ファイルシステム統合
 otto-matic	Pangea Softwareのサイエンスフィクション3Dアクション/アドベンチャーゲーム
@@ -3710,7 +3711,6 @@ td-agent	Fluentd配布パッケージ
 tdr-kotelnikov	範囲制御と柔軟性を組み合わせた広帯域ダイナミクスプロセッサ
 tdr-nova	パラレルダイナミックイコライザー
 tdr-vos-slickeq	音楽の柔軟性と非の打ちどころのないサウンドのために設計されたミキシングイコライザー
-tea	統合パッケージマネージャー
 teacode	開発者向けのテキスト拡張アプリ
 teambition	Teambition
 teamspeak-client	音声通信クライアント
