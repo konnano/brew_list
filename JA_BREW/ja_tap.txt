@@ -1827,7 +1827,10 @@ font-send-flowers	年配の視聴者に適しています
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
 font-sf-arabic	Appleによる"San Francisco"のアラビア語拡張
+font-sf-armenian	Appleによる"San Francisco"アルメニア語拡張
 font-sf-compact	Appleによる"San Francisco"のコンパクト版
+font-sf-georgian	Appleによる"San Francisco"グルジア語拡張
+font-sf-hebrew	Appleによる"San Francisco"のヘブライ語拡張
 font-sf-mono	Appleによる"San Francisco"の等幅版
 font-sf-mono-for-powerline	PowerlineをサポートするためにNerdFontsパッチャーでパッチされたAppleのSFMonoフォント
 font-sf-pro	Appleによる”San Francisco"のSans-serifバージョン
