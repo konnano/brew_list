@@ -1633,7 +1633,7 @@ sub Format_1{
       s/^\s+([^\s]+)\s+.+\n/$1 /; $x .= $_;
      }
     } system "brew install $x" if $x and $re->{'DAT'} == 2;
-   } $re->{'FOR'} = 0;
+   } $re->{'FOR'} = 0 if $re->{'MAC'};
  }else{
   if( -t STDOUT ){ my( $ls,$sl,$ss,$ze );
    my $leng = $re->{'LEN1'};
