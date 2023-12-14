@@ -3106,6 +3106,7 @@ react-proto	開発と設計のためのReactアプリケーションプロトタ
 react-studio	アプリ設計環境
 reactotron	React JSおよびReact Nativeプロジェクトを検査するためのデスクトップアプリ
 readdle-spark	メールクライアント
+reader	記事を保存して読んだり、重要な内容をハイライトしたり、レビュー用にメモを整理したりできます
 readmoreading	繁体字中国語電子書籍サービス
 readwise-ibooks	Apple BooksからReadwiseにハイライトをインポートする
 readyapi	自動APIテストプラットフォーム
