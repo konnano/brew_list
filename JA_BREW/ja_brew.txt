@@ -5009,6 +5009,7 @@ pure	綺麗で最低限で速いZSHプロンプト
 pure-ftpd	安全で効率的なFTPサーバー
 purescript	JavaScriptにコンパイルされる強く紐付けされたプログラミング言語
 purescript-language-server	PureScript用言語サーバー プロトコル サーバー
+purr	Android logcat出力を表示及び検索するための多機能 zsh CLIツール
 pushpin	リアルタイムWebサービスの逆プロキシ
 putmail	sendmailコマンドを置き換えるように設計されたMTAまたはSMTPクライアント
 putmail-queue	putmailのキューパッケージ
@@ -5486,7 +5487,6 @@ safeint	整数オーバーフローを管理するC++用のクラスライブラ
 sagittarius-scheme	FreeのR6RSおよびR7RSをサポートするSchemeの実装
 sail	WordPressアプリケーションを提供しDigitalOceanに展開するためのCLIツールキット
 saldl	速度と早期プレビュー用に最適化されたCLIダウンローダー
-salt	動的基礎構造通信バス
 salt-lint	SaltStackのベストプラクティスを確認してください
 samba	SMB/CIFSファイル プリント/UNIX用のログインサーバー
 sambamba	SAM/BAM データを操作するためのツール
