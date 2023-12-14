@@ -410,43 +410,43 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 }
 
 sub m_search{
- my $re = shift;
- my $co = $re->{'CON'}||1;
-  unless( $re->{'NA'} ){ my $i = 0;
-   $re->{'NA'} = $re->{'MAC'} ? 54 : 27;
-    $re->{'AR'}[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
-    $re->{'AR'}[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
+ my $re = shift; my( $nam,$cont,@an );
+ while(1){
+ my $co = $cont||1;
+  unless( $nam ){ my $i = 0;
+   $nam = $re->{'MAC'} ? 54 : 27;
+    $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
+    $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for('num','a'..'z');
      exit unless -t STDOUT and `which bl` eq "$MY_BREW/bin/bl\n";
      system"stty -echo -icanon";
   }
-  ( $re->{'ROWS'},$re->{'COLS'} ) = split ' ',`stty size`;
-    $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$re->{'COLS'})."\n";
-    $re->{'SP'} = 46 - $re->{'COLS'} if 45 > $re->{'COLS'};
+    my( $ROWS,$COLS ) = split ' ',`stty size`;
+    $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
+    $re->{'SP'} = 46 - $COLS if 45 > $COLS;
 
-  $re->{'LI'} ||= $re->{'ROWS'} > 29 ? 27 : $re->{'ROWS'} - 4;
+  $re->{'LI'} ||= $ROWS > 29 ? 27 : $ROWS - 4;
   $re->{'ST'} ||= 1;
   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit };
   print"\033[0;0H\033[2J\033[?25l";
    while(1){ my( $nu,$key ) = ( 0,0 );
     my( $rows,$cols ) = split ' ',`trap 'exit 1' 1 2 3;stty size`;
-     if( $rows != $re->{'ROWS'} or $cols != $re->{'COLS'} ){
-           if( $re->{'LI'} == $re->{'CON'} - 1 ){ $re->{'LI'} = $re->{'CON'}; --$re->{'ST'}
+     if( $rows != $ROWS or $cols != $COLS ){
+           if( $re->{'LI'} == $cont - 1 ){ $re->{'LI'} = $cont; --$re->{'ST'}
        }elsif( $re->{'LI'} -  $re->{'ST'} < $rows - 4 ){ $re->{'LI'} < 27 ? ++$re->{'LI'} : --$re->{'ST'};
        }else{  $re->{'LI'} =  $re->{'LI'} > $rows - 4 ? --$re->{'LI'} :
                             ( $re->{'LI'} < 27 and $re->{'LI'} < $rows - 4 ) ? ++$re->{'LI'} : $re->{'LI'};
-       } $re->{'CON'} = $co;
-      m_search( $re );
+       } last
      }
     my $rs = chr(1);
     my $st = select $rs,undef,undef,0.05;
-     _pri_1( $co,$re );
+     _pri_1( $co,$re,\@an );
       $nu = getc if $st;
      if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
          $key = $ge eq 'B' ? 1 : $ge eq 'A' ? 2 : $ge eq 'C' ? 3 : $ge eq 'D' ? 4 : 0 }
          $key = $nu eq chr(2) ? 5 : $nu eq chr(6) ? 6 : $key;
 
-    $co = $co == $re->{'NA'} ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
-    $co = $co == 1 ? $re->{'NA'} : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
+    $co = $co == $nam ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
+    $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
     if( $re->{'MAC'} ){
       $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
       $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
@@ -454,16 +454,16 @@ sub m_search{
       $co = $co < 28 ? 27 : 54 if $key == 6;
     }else{
       $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
-    }  $re->{'CON'} = $co > 27 ? $co - 27 : $co;
-          if( $re->{'LI'} < $re->{'CON'} ){ $re->{'ST'}++; $re->{'LI'}++
-      }elsif( $re->{'ST'} > $re->{'CON'} ){ $re->{'ST'}--; $re->{'LI'}-- }
+    }  $cont = $co > 27 ? $co - 27 : $co;
+          if( $re->{'LI'} < $cont ){ $re->{'ST'}++; $re->{'LI'}++
+      }elsif( $re->{'ST'} > $cont ){ $re->{'ST'}--; $re->{'LI'}-- }
 
      if( $nu eq chr(10) ){
         print"\033[0;0H","\033[2J";
-       my( $ca,$na ) = split '_',$re->{'AR'}[$co];
-         ( $ca,$na ) = ( 'l','lib' ) if $re->{'AR'}[$co] eq 'lib';
-         ( $ca,$na ) = ( 'c','\\\\d' ) if $re->{'AR'}[$co] eq 'num';
-       my $bl = ( $re->{'AR'}[$co] eq 'l_l' ) ?
+       my( $ca,$na ) = split '_',$an[$co];
+         ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
+         ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
+       my $bl = ( $an[$co] eq 'l_l' ) ?
        `bl -l /^l\\(?\\!ib\\)/` : `bl -$ca /^$na/`;
         $SIG{'INT'} = $SIG{'QUIT'} = sub{};
       open my $pipe,'|-','less -S' or die " can't exec command\n";
@@ -473,21 +473,21 @@ sub m_search{
      print"\033[0;0H";
     if( $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
    }
-
-   sub _pri_1{
-    my( $co,$re ) = @_; my $s = ' 'x ( 27 - ( $re->{'SP'}||0 )); my $i = $re->{'ST'};
-    print"$re->{'MENU'} \033[1mFormula $s Cask\033[0m\n";
-     for(;$i<=$re->{'LI'};$i++){
-      if( $re->{'AR'}[$co] eq $re->{'AR'}[$i] ){
-        print" \033[33m$re->{'AR'}[$i]\033[0m ) <<$s $re->{'AR'}[$i+27] ..  \n";
-      }elsif( $re->{'AR'}[$co] eq $re->{'AR'}[$i+27] ){
-        print" $re->{'AR'}[$co-27] .. $s  \033[33m$re->{'AR'}[$co]\033[0m ) <<\n";
-      }else{
-        print"\r $re->{'AR'}[$i] .. $s  $re->{'AR'}[$i+27] ..  \n";
-      }
+  $cont = $co;
+ }
+  sub _pri_1{
+   my( $co,$re,$an ) = @_; my $s = ' 'x ( 27 - ( $re->{'SP'}||0 )); my $i = $re->{'ST'};
+   print"$re->{'MENU'} \033[1mFormula $s Cask\033[0m\n";
+    for(;$i<=$re->{'LI'};$i++){
+     if( $an->[$co] eq $an->[$i] ){
+       print" \033[33m$an->[$i]\033[0m ) <<$s $an->[$i+27] ..  \n";
+     }elsif( $an->[$co] eq $an->[$i+27] ){
+       print" $an->[$co-27] .. $s  \033[33m$an->[$co]\033[0m ) <<\n";
+     }else{
+       print"\r $an->[$i] .. $s  $an->[$i+27] ..  \n";
      }
-   } $re->{'CON'} = $co;
-  m_search( $re );
+    }
+  } 
 }
 
 sub Proc_1{
