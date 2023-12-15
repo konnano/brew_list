@@ -423,7 +423,6 @@ sub m_search{
     my( $ROWS,$COLS ) = split ' ',`stty size`;
     $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
     $re->{'SP'} = 46 - $COLS if 45 > $COLS;
-
   $re->{'LI'} ||= $ROWS > 29 ? 27 : $ROWS - 4;
   $re->{'ST'} ||= 1;
   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit };
@@ -469,6 +468,7 @@ sub m_search{
       open my $pipe,'|-','less -S' or die " can't exec command\n";
        print $pipe $bl;
       close $pipe;
+      $re->{'LI'} = $re->{'ST'} = 0;
      last }
      print"\033[0;0H";
     if( $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
