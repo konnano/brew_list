@@ -410,9 +410,9 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 }
 
 sub m_search{
- my $re = shift; my( $nam,$cont,@an );
+ my $re = shift; my( $cont,$nam,@an ) = 1;
  while(1){
- my $co = $cont||1;
+ my $co = $cont;
   unless( $nam ){ my $i = 0;
    $nam = $re->{'MAC'} ? 54 : 27;
     $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for(0,'a'..'l','lib','m'..'z');
