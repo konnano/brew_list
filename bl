@@ -468,7 +468,8 @@ sub m_search{
       open my $pipe,'|-','less -S' or die " can't exec command\n";
        print $pipe $bl;
       close $pipe;
-      $re->{'LI'} = $re->{'ST'} = 0;
+      ( $rows,$cols ) = split ' ',`stty size`;
+       $re->{'LI'} = $re->{'ST'} = 0 if $rows != $ROWS or $cols != $COLS;
      last }
      print"\033[0;0H";
     if( $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
