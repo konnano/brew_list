@@ -4525,6 +4525,7 @@ openrct2	RollerCoaster Tycoon 2のオープンソースの再実装
 openrtsp	コマンドラインRTSPクライアント
 opensaml	セキュリティ成立マークアップ言語のライブラリ
 opensc	スマートカード用のツールとライブラリ
+opensca-cli	OpenSCAはセキュリティ研究者と開発者のためのサプライチェーンセキュリティツールです
 opensearch	オープンソースの分散型およびRESTful検索エンジン
 opensearch-dashboards	OpenSearchのオープンソースの視覚化ダッシュボード
 openshift-cli	OpenShiftコマンドラインインターフェースツール
