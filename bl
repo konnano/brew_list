@@ -410,7 +410,7 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
 }
 
 sub m_search{
- my $re = shift; my( $cont,$nam,@an ) = 1;
+ my $re = shift; my( $cont,$nam,$rows,$cols,@an ) = 1;
  while(1){
  my $co = $cont;
   unless( $nam ){ my $i = 0;
@@ -420,7 +420,7 @@ sub m_search{
      exit unless -t STDOUT and `which bl` eq "$MY_BREW/bin/bl\n";
      system"stty -echo -icanon";
   }
-    my( $ROWS,$COLS ) = split ' ',`stty size`;
+    my( $ROWS,$COLS ) = ( $rows,$cols) = _term();
     $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
     $re->{'SP'} = 46 - $COLS if 45 > $COLS;
   $re->{'LI'} ||= $ROWS > 29 ? 27 : $ROWS - 4;
@@ -428,7 +428,7 @@ sub m_search{
   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit };
   print"\033[0;0H\033[2J\033[?25l";
    while(1){ my( $nu,$key ) = ( 0,0 );
-    my( $rows,$cols ) = split ' ',`trap 'exit 1' 1 2 3;stty size`;
+    ( $rows,$cols ) = _term();
      if( $rows != $ROWS or $cols != $COLS ){
            if( $re->{'LI'} == $cont - 1 ){ $re->{'LI'} = $cont; --$re->{'ST'}
        }elsif( $re->{'LI'} -  $re->{'ST'} < $rows - 4 ){ $re->{'LI'} < 27 ? ++$re->{'LI'} : --$re->{'ST'};
@@ -440,6 +440,7 @@ sub m_search{
     my $st = select $rs,undef,undef,0.05;
      _pri_1( $co,$re,\@an );
       $nu = getc if $st;
+     if( $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
      if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
          $key = $ge eq 'B' ? 1 : $ge eq 'A' ? 2 : $ge eq 'C' ? 3 : $ge eq 'D' ? 4 : 0 }
          $key = $nu eq chr(2) ? 5 : $nu eq chr(6) ? 6 : $key;
@@ -468,14 +469,14 @@ sub m_search{
       open my $pipe,'|-','less -S' or die " can't exec command\n";
        print $pipe $bl;
       close $pipe;
-      ( $rows,$cols ) = split ' ',`stty size`;
+      ( $rows,$cols ) = _term();
        $re->{'LI'} = $re->{'ST'} = 0 if $rows != $ROWS or $cols != $COLS;
      last }
      print"\033[0;0H";
-    if( $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
    }
   $cont = $co;
  }
+
   sub _pri_1{
    my( $co,$re,$an ) = @_; my $s = ' 'x ( 27 - ( $re->{'SP'}||0 )); my $i = $re->{'ST'};
    print"$re->{'MENU'} \033[1mFormula $s Cask\033[0m\n";
@@ -488,7 +489,21 @@ sub m_search{
        print"\r $an->[$i] .. $s  $an->[$i+27] ..  \n";
      }
     }
-  } 
+  }
+  sub _term{
+   my( $rows,$cols );
+   print"\e7\e[999;999H\e[6n\e8";
+    my $esc = getc;
+    my $si .= getc; $si .= getc; $si .= getc; $si .= getc;
+       $si .= getc; goto GO if substr($si,-1) eq 'R';
+       $si .= getc; goto GO if substr($si,-1) eq 'R';
+       $si .= getc; goto GO if substr($si,-1) eq 'R';
+       $si .= getc; goto GO if substr($si,-1) eq 'R';
+       $si .= getc; goto GO if substr($si,-1) eq 'R';
+    GO:{ ( $rows,$cols ) = $si =~ /^\[(\d+);(\d+)R$/ }
+    ( $rows,$cols ) = split ' ',`trap 'exit 1' 1 2 3;stty size` unless $rows and $cols;
+   $rows,$cols;
+  }
 }
 
 sub Proc_1{
