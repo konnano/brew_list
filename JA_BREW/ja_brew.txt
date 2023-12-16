@@ -4104,7 +4104,6 @@ mplayer	UNIXムービープレーヤー
 mplayershell	MacOSでのMPlayerのビジュアル技能の向上
 mpop	POP3クライアント
 mprocs	複数のコマンドを並行して実行する
-mps-youtube	ターミナルベースのYouTubeプレーヤーとダウンローダー
 mpssh	Mass並列ssh
 mpv	MPlayerとmplayer2に基づくメディアプレーヤー
 mqttui	MQTT トピックにサブスクライブするかターミナルからすばやく何かを公開します
@@ -6886,6 +6885,7 @@ yder	Cアプリケーション用のロギングライブラリ
 ydiff	色付きのdiffを並べて表示し自動Pagerをサポート
 yelp-tools	MallardまたはDocBookのドキュメントの作成と編集に役立つツール
 yetris	ターミナル用にカスタマイズ可能なテトリス
+yewtube	ターミナルベースのYouTubeプレーヤー及びダウンローダー
 yh	jqだけができる色をもたらすYAMLシンタックスハイライト
 yj	YAML/TOML/JSON/HCL間で変換するCLI
 ykclient	YubiCloudに対してYubiKeyOTPを検証するためのライブラリ
