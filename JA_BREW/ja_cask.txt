@@ -1230,10 +1230,10 @@ fluor	アクティブなアプリケーションに応じてfnキーの動作を
 flutter	モバイル向けアプリケーションを構築するためのUIツールキット Web/デスクトップ
 flux	画面の色温度コントローラー
 fly	Concourse CIの公式CLIツール
-fly-key	ショートカットのワンクリック表示
 flycast	Dreamcast、NaomiとAtomiswaveエミュレーター
 flycut	開発者向けクリップボードマネージャー
 flying-carpet	一時的wifiを介したファイル転送
+flykey	ワンクリックでショートカットを表示
 fmail	Fastmailの非公式ネイティブアプリケーション
 fmail2	Fastmail用の非公式(軽量)ネイティブアプリケーション
 fman	Cisdem PDFManagerUltimate
@@ -3239,6 +3239,7 @@ sabnzbd	バイナリニュースリーダー
 safe-exam-browser	電子評価を安全に実施するためのWebブラウザー環境
 safeincloud-password-manager	SafeInCloudパスワードマネージャー
 sage	数学ソフトウェアシステム
+sakura	SAKURAFrpのランチャー
 saleae-logic	Saleaeのデバイスの信号解析
 sameboy	Cで書かれたゲームボーイとゲームボーイカラーエミュレーター
 samsung-dex	一部のSamsungデバイスをデスクトップのようなエクスペリエンスに拡張します
