@@ -400,6 +400,7 @@ blobsaver	SHSHブロブを自動的に保存するためのGUI
 blockbench	boxyモデルとピクセルアートtexture用の3Dモデルエディター
 blockblock	一般的な永続性のLocationsを監視します
 blockstack	ブロックスタック
+blockstream-green	マルチプラットフォームのビットコインとリキッドウォレット
 blocs	ビジュアルWebデザインソフトウェア
 bloodhound	ドメイン管理者のSix Degrees
 bloomrpc	GRPCサービス用のGUIクライアント
@@ -3241,6 +3242,7 @@ safeincloud-password-manager	SafeInCloudパスワードマネージャー
 sage	数学ソフトウェアシステム
 sakura	SAKURAFrpのランチャー
 saleae-logic	Saleaeのデバイスの信号解析
+salt	自動化およびインフラストラクチャ管理エンジン
 sameboy	Cで書かれたゲームボーイとゲームボーイカラーエミュレーター
 samsung-dex	一部のSamsungデバイスをデスクトップのようなエクスペリエンスに拡張します
 samsung-portable-ssd-t7	Samsung外部ストレージドライブ(T7 シリーズ)用のソフトウェア
