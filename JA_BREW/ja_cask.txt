@@ -1021,6 +1021,7 @@ editaro	テキストエディター
 edrawmind	マインドマッピングソフトウェア
 effect-house	TikTok用の鮮やかなARエフェクトを作成する
 egnyte	Egnyteクラウドストレージサービスのクライアント
+egovframedev	Webベースの公共サービス開発の為の韓国によるオープンソースフレームワーク
 eiskaltdcpp	ダイレクトコネクトおよびADC手続きを使用したファイル共有
 ejector	メニューバーにEjectアイコンを追加します
 elan	オーディオおよびビデオ録画用の注釈ツール
