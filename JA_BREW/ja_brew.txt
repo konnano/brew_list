@@ -1247,7 +1247,6 @@ demumble	より強力なシンボルデマングラー(c++filt風)
 deno	JavaScriptとTypeScriptの安全なランタイム
 denominator	DNSクラウドを操作するためのポータブルJavaライブラリ
 density	超高速圧縮ライブラリ
-dep	依存関係管理ツールに移動
 dependency-check	OWASP依存関係チェック
 deployer	一般的なフレームワークをサポートするPHPで記述された展開ツール
 depqbf	定量化されたブール式(QBF)のSolver
@@ -1398,6 +1397,7 @@ dotdrop	ドットファイルを一度保存して、どこにでも展開しま
 dotenv-linter	Rustで記述された.envファイル用の高速静的解析ツール
 dotnet	.NET Core
 dotnet@6	.NET Core
+dotter	Rustで書かれたDotfileマネージャーとテンプレーター
 double-conversion	IEEE doublesの2進化10進および10進2進ルーチン
 doublecpp	C++でのダブルディスパッチ
 doubledown	ローカルの変更をリモートディレクトリに同期する
