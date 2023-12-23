@@ -1832,6 +1832,7 @@ kextviewr	現在ロードされているすべてのkextを表示する
 key-codes	任意のキーの組み合わせについて、キーコード、Unicode値、および修飾キーの状態を表示します
 keybase	End-to-end暗号化ソフトウェア
 keyboard-cleaner	デスクトップシールドとキーストロークインターセプター
+keyboard-cowboy	キーボードショートカットユーティリティ
 keyboard-maestro	自動化ソフトウェア
 keyboardcleantool	すべてのキーボードとタッチバーの入力をブロックします
 keyboardholder	アプリケーションごとに入力方法を切り替える
@@ -2036,6 +2037,7 @@ lunasea	メディアソフトウェア用のオープンソースのself-hosted�
 luniistore	私の素晴らしいストーリーテラーのためのユーティリティ
 luxmark	OpenCLベンチマーク
 luyten	Procyon用のオープンソースJava逆コンパイラGUI
+lw-scanner	レース編みインラインスキャナー
 lx-music	Electron&Vueをベースにした音楽アプリ
 lycheeslicer	レジン3Dプリンター用スライサー
 lyn	メディアブラウザとビューア
