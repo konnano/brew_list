@@ -1470,7 +1470,7 @@ sub Tap_1{ no warnings 'regexp';
 my( $list,$re,$in ) = @_;
  unless( $re->{'CAS'} and defined $re->{'S_OPT'} or $re->{'MAC'} and $re->{'BL'} or $re->{'LRE'} ){
   my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
-   my $mem = ( defined $re->{'L_OPT'} and index($tap,$re->{'L_OPT'}) >= 0 ) ? 1 : 0;
+   my $mem = ( defined $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/ ) ? 1 : 0;
     my( $dirs1 )=( $re->{'FTD'} and $re->{'OS'}{"${tap}core"} ) ? $re->{'OS'}{"${tap}core"} =~ m|.+/(homebrew-[^/]+)/.+| :
                    $re->{'OS'}{"${tap}cask"} ? $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+| : '';
 
