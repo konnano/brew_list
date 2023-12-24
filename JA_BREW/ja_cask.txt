@@ -1541,6 +1541,7 @@ hermit-crab	現在のアプリを離れずにシェルコマンドを実行す�
 heroic	オープンソースゲームランチャー
 hex-fiend	速度に焦点を当てた16進エディター
 hey	HEYメールサービスにアクセスする
+heynote	開発者専用のスクラッチパッド
 hfsleuth	HFSleuth
 hhkb	HHKB HYBRID Type-S 及び HYBRIDモデルでキーマップのカスタマイズが可能
 hiarcs-chess-explorer	チェスデータベース 分析およびゲームプレイプログラム
@@ -3199,6 +3200,7 @@ rippling	リップリング用のMDM
 ripx	音楽ステムの分離および修復ユーティリティ
 rive	機能的なグラフィックを作成するデザインツール
 rnnoise	音声のノイズ抑制
+roam	バーチャルオフィス
 roam-research	ネットワーク化された思考のためのメモを取るツール
 roaringapps	RoaringApps
 robo-3t	MongoDB管理ツール
