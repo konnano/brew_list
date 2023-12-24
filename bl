@@ -1499,7 +1499,7 @@ my( $list,$re,$in ) = @_;
       $brew = 0;
    }
   if( $re->{'BL'} and not $dirs1 or defined $re->{'S_OPT'} and
-                     index($tap,$re->{'S_OPT'}) >= 0 and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
+                     $tap =~ /$re->{'S_OPT'}/ and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
       unless( $re->{'OS'}{"${tap}lfont"} ){
        Tap_2( $re,\$tap ) if $re->{'FOR'};
         $re->{'BL'} ? Mine_1( $tap,$re,0 ) : Mine_1( $tap,$re,1 ); }
