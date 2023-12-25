@@ -741,6 +741,7 @@ cpuinfo	CPUメーターメニューバーアプリ
 cr	XML/CSS ベースの電子書籍リーダー
 craft	ネイティブドキュメントエディタ
 craftmanager	Craftツールを最新の状態に保つのに役立ちます
+creality-print	幾つかのCreality FDM 3Dプリンター用のスライサー及びクラウドサービス
 creality-slicer	すべてのCreality FDM 3Dプリンター用のスライサー
 create-recovery-partition-installer	リカバリパーティションインストーラーの作成
 createuserpkg	CreateUserPkg
