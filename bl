@@ -120,7 +120,7 @@ MAIN:{
   }
    if( $name and $AR[2] and $AR[2] eq '.' and not( $re->{'deps'} or $re->{'INF'} ) ){ $name->{'KEN'} = 1;
    }elsif( $re->{'DAT'} and $AR[1] and $AR[1] eq '.' ){ $re->{'DAT'} = $ref->{'DAT'} = 2;
-   }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2];
+   }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2] =~ /^\d+$/ ? $AR[2] : 0;
    }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){$name->{'KEN'} = 1}else{$re->{'dep_s'} = lc $AR[1]}
    }
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
