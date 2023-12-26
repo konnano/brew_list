@@ -1218,7 +1218,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	最低限のsans serif書体 表示とテキストの体裁のために設計されています
+font-mulish	最低限のsans serif書体 表示とテキストの体裁の為に設計されています
 font-murecho	9つの実用的なウェイトと可変フォントで利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1950,9 +1950,9 @@ font-suwannaphum	Suwannaphum
 font-swanky-and-moo-moo	Swanky and Moo Moo
 font-symbols-only-nerd-font	オタクフォントアイコンだけ、シンボルフォントのみ
 font-syncopate	Syncopate
-font-syne	もともとアートセンター'Synesthésie'のために設計された書体
+font-syne	もともとアートセンター'Synesthésie'の為に設計された書体
 font-syne-mono	コントロールを手放す別の見方
-font-syne-tactile	もともとアートセンター'Synesthésie'のために設計されました
+font-syne-tactile	もともとアートセンター'Synesthésie'の為に設計されました
 font-tai-heritage-pro	通常の太字のウェイトで利用可能 OpenTypeとグラファイトレンダリングの両方で
 font-tajawal	Tajawal
 font-takaoex	TakaoEx
