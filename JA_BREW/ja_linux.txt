@@ -162,7 +162,7 @@ font-azeret-mono	Martin Vácha/Daniel Quisekによるデザイン
 font-azonix	モダンな書体 sans-serif
 font-b612	B612
 font-b612-mono	B612 Mono
-font-babylonica	直立または後傾した形状によって中断され、中断された応力が与えられます
+font-babylonica	直立/後傾した形状によって中断され、中断された応力が与えられます
 font-bacasime-antique	様式的には過渡的なデザイン
 font-bad-script	Bad Script
 font-bagel-fat-one	Bagel Fat One
@@ -1193,7 +1193,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	ディスプレイとテキストのタイポグラフィーの両方のために設計された書体 Minimalist sans serif
+font-mulish	ディスプレイとテキストのタイポグラフィーの両方の為に設計された書体 Minimalist sans serif
 font-murecho	9つの実用的なウェイトと可変フォントとして利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1894,9 +1894,9 @@ font-suwannaphum	Suwannaphum
 font-swanky-and-moo-moo	Swanky and Moo Moo
 font-symbols-only-nerd-font	開発者向けのグリフ数が多いフォント
 font-syncopate	Syncopate
-font-syne	アートセンター Synesthésieのためにデザインされた書体
+font-syne	アートセンター Synesthésieの為にデザインされた書体
 font-syne-mono	コントロールを手放すことについての別の見方
-font-syne-tactile	アートセンター Synesthésieのためにデザインされました
+font-syne-tactile	アートセンター Synesthésieの為にデザインされました
 font-tai-heritage-pro	通常のウェイトと太字のウェイトがあり、オープンタイプとグラファイトの両方のレンダリングが可能
 font-tajawal	Tajawal
 font-takaoex	TakaoEx
