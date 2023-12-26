@@ -217,7 +217,7 @@ ariang	AriaNgよりも優れたaria2デスクトップフロントエンド
 ark-desktop-wallet	マルチプラットフォームARKデスクトップウォレット
 arkiwi	ファイルアーカイバ
 armory	Pythonベースのビットコインソフトウェア
-around	エネルギーのために設計されたビデオ通話 アイデア/行動
+around	エネルギーの為に設計されたビデオ通話 アイデア/行動
 arq	マルチクラウドバックアップアプリケーション
 arq-cloud-backup	Arqクラウドバックアップ
 arrsync	ユーティリティrsyncのグラフィカルフロントエンド
@@ -788,7 +788,7 @@ darwindumper	DarwinDumper
 dash	APIドキュメントブラウザーとコードsnippetマネージャー
 dash-dash	Dash - 暗号通貨の再発明
 dashcam-viewer	View videos GPSデータ ダッシュカムとアクションカムによって記録されたG-forceデータ
-dat	人間のために構築されたピアツーピアデータ共有アプリ
+dat	人間の為に構築されたピアツーピアデータ共有アプリ
 data-integration	エンドツーエンドのデータ統合及び分析プラットフォーム
 data-rescue	データ回復ソフトウェア
 data-science-studio	大規模な機械学習の為の迅速な実験と運用化
@@ -1961,7 +1961,7 @@ licecap	アニメーションスクリーンキャプチャアプリケーショ
 license-control-center	eLicenserコントロールセンター
 licensed	ソフトウェアライセンスマネージャー
 liclipse	軽量エディター Eclipseのテーマ設定と使いやすさの向上
-lidarr	Sonarrのような見た目と匂いが音楽のために作られました
+lidarr	Sonarrのような見た目と匂いが音楽の為に作られました
 lifesize	クラウドコンタクトとビデオ会議
 lightform	Lightformデバイス用のARプロジェクション及びオーディオ反応性ソフトウェア
 lightgallery	ライトギャラリー
@@ -2556,7 +2556,7 @@ nvs	Node.jsのバージョンとフォークを切り替える為のクロスプ
 nwjs	すべてのNode.jsモジュールをDOM及びWebワーカーから直接呼び出します
 nx-studio	写真やビデオの表示、処理、編集の為のNikonセット
 nzbget	効率に焦点を当てたUsenetダウンローダー
-nzbvortex	パフォーマンスと使いやすさのために最適化されたNZBクライアント
+nzbvortex	パフォーマンスと使いやすさの為に最適化されたNZBクライアント
 objectivesharpie	Objective-Cコードから始まるC#インターフェイスを生成するために使用されるツール
 objektiv	Objektiv
 obs	ライブストリーミングと画面録画用のオープンソースソフトウェア
@@ -2982,7 +2982,7 @@ pure-writer	Androidアプリのデスクトップバージョン
 purei-play	PlayStation 2エミュレーター
 purevpn	VPN クライアント
 pusher	NWPusher
-pushplaylabs-sidekick	現代の仕事のために設計されたブラウザー
+pushplaylabs-sidekick	現代の仕事の為に設計されたブラウザー
 putio-adder	Put.IO Adder
 puush	puush
 puzzles	シングルプレイヤーパズルゲームを実装する小さなコンピュータプログラムのコレクション
@@ -3693,7 +3693,7 @@ sysex-librarian	SysExライブラリアン
 tabby	ターミナルエミュレータ SSH/シリアルクライアント
 table-tool	CSVファイルエディター
 tableau	データ視覚化ソフトウェア
-tableau-prep	分析のためにデータをクリーンアップします 混合/形状
+tableau-prep	分析の為にデータをクリーンアップします 混合/形状
 tableau-public	探索 データの視覚化をオンラインで作成して公開します
 tableau-reader	TableauDesktopに組み込まれているデータの視覚化を開いて操作します
 tablecruncher	軽量CSVエディター
@@ -3721,7 +3721,7 @@ tau	プロファイリング/トレースツールキット
 td-agent	Fluentd配布パッケージ
 tdr-kotelnikov	範囲制御と柔軟性を組み合わせた広帯域ダイナミクスプロセッサ
 tdr-nova	パラレルダイナミックイコライザー
-tdr-vos-slickeq	音楽の柔軟性と非の打ちどころのないサウンドのために設計されたミキシングイコライザー
+tdr-vos-slickeq	音楽の柔軟性と非の打ちどころのないサウンドの為に設計されたミキシングイコライザー
 teacode	開発者向けのテキスト拡張アプリ
 teambition	Teambition
 teamspeak-client	音声通信クライアント
@@ -4176,7 +4176,7 @@ windows95	Electron Windows 95
 windscribe	安全なインターネットアクセスとプライベートブラウジングの為のVPNクライアント
 windterm	SSH/SFTP/Shell/Telnet/Serial ターミナル
 wine-stable	Windowsアプリケーションを実行する為の互換性レイヤー
-wing-personal	学生や愛好家のために設計されたFreeのPython IDE
+wing-personal	学生や愛好家の為に設計されたFreeのPython IDE
 wings3d	高度な分割モデラー
 wintertime	バッテリーを節約するためにバックグラウンドで実行されているアプリをフリーズするユーティリティ
 winx-hd-video-converter	HDビデオ変換器
@@ -4282,7 +4282,7 @@ yandex-music-unofficial	Yandex ミュージック非公式
 yate	メディアファイルタグエディター
 yattee	代替のプライバシーに優しいYouTubeフロントエンド
 yealink-meeting	ビデオコミュニケーション及び仮想会議プラットフォーム
-yed	ダイアグラムを手動で作成するか分析のために外部データをインポートします
+yed	ダイアグラムを手動で作成するか分析の為に外部データをインポートします
 yemuzip	YemuZip
 yep	ドキュメントマネージャー
 yesplaymusic	サードパーティのNetEaseクラウドプレーヤー
