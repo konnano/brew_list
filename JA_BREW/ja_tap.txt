@@ -1,7 +1,7 @@
 font-0xproto-nerd-font	開発者向けのグリフ数が多いフォント
 font-3270	IBM 3270
 font-3270-nerd-font	3270オタクフォント(3270)
-font-437-plus	DOS時代のIBMPCおよび互換機からのクラシックテキストモードフォントのコレクション
+font-437-plus	DOS時代のIBMPC及び互換機からのクラシックテキストモードフォントのコレクション
 font-abeezee	ABeeZee
 font-abel	Abel
 font-abhaya-libre	Abhaya Libre
@@ -10,7 +10,7 @@ font-aboriginal-sans	LanguageGeek アボリジニ Sans Serif
 font-aboriginal-serif	Aboriginal Serif
 font-abril-fatface	Abril Fatface
 font-abyssinica-sil	Abyssinica SIL
-font-academicons	学者のためのスペシャリストアイコンフォント
+font-academicons	学者の為のスペシャリストアイコンフォント
 font-aclonica	Aclonica
 font-acme	Acme
 font-actor	Actor
@@ -80,7 +80,7 @@ font-anaheim	Anaheim
 font-andada-pro	Organic-slab serifハイブリッドスタイルとテキスト用ミディアムコントラストタイプ
 font-andagii	Andagii
 font-andale-mono	Andale Mono
-font-andika	読み書き用に設計および最適化されたSans-serifフォントファミリ
+font-andika	読み書き用に設計及び最適化されたSans-serifフォントファミリ
 font-andron-scriptor-web	Andron Scriptor Web
 font-anek-bangla	Anek Bangla
 font-anek-devanagari	Anek Devanagari
@@ -107,7 +107,7 @@ font-antonio	Antonio
 font-anuphan	ibm plex sans thaiの変更ではありません
 font-anybody	10程度 目立つか微妙
 font-aoboshi-one	Aoboshi One
-font-ar-one-sans	タイプファミリは拡張現実環境およびユーザーインターフェイスで使用するためのものです
+font-ar-one-sans	タイプファミリは拡張現実環境及びユーザーインターフェイスで使用する為のものです
 font-arapey	Arapey
 font-arbutus	Arbutus
 font-arbutus-slab	Arbutus Slab
@@ -273,7 +273,7 @@ font-buenard	Buenard
 font-bukyvede-bold	BukyVede Bold
 font-bukyvede-italic	BukyVede Italic
 font-bukyvede-regular	BukyVede Regular
-font-bungee	縦型および多色タイポグラフィ用のフォント
+font-bungee	縦型及び多色タイポグラフィ用のフォント
 font-bungee-color	米国を拠点とする書体デザイナー、デビッド・ジョナサン・ロスが率いる
 font-bungee-hairline	Bungee Hairline
 font-bungee-inline	Bungee Inline
@@ -558,7 +558,7 @@ font-federo	Federo
 font-felipa	Felipa
 font-fenix	Fenix
 font-festive	Festive
-font-figtree	Webやモバイルアプリで使用するためのクリーンで親しい幾何学的なsans serif font
+font-figtree	Webやモバイルアプリで使用する為のクリーンで親しい幾何学的なsans serif font
 font-finger-paint	Finger Paint
 font-finlandica	Finlandica
 font-fira-code	プログラミング合字付きのfree等幅フォント
@@ -617,7 +617,7 @@ font-galdeano	Galdeano
 font-galindo	Galindo
 font-gamja-flower	Gamja Flower
 font-gandhi-sans	Gandhi Sans
-font-gantari	すべてのキャラクターが調和して見えるように設計されています
+font-gantari	すべてのキャラクターが調和して見える様に設計されています
 font-gasoek-one	Gasoek One
 font-gayathri	Gayathri
 font-geist	Sans-serif書体
@@ -723,7 +723,7 @@ font-han-nom-a	HAN NOM A
 font-hanalei	Hanalei
 font-hanalei-fill	Hanalei Fill
 font-hanamina	HanaMinA
-font-handjet	ハンドジェットプリンターでうまく機能するように調整されたフォント
+font-handjet	ハンドジェットプリンターでうまく機能する様に調整されたフォント
 font-handlee	Handlee
 font-hanken-grotesk	アルフレド・マルコ・プラディル率いる
 font-hannari	Hannari
@@ -912,7 +912,7 @@ font-kadwa	Kadwa
 font-kaisei-decol	漢字と同じ要素でデザインされたストロークの終わりにある小さな点
 font-kaisei-harunoumi	Kaisei 春の海
 font-kaisei-opti	モダンな和文書体
-font-kaisei-tokumin	読みやすさを維持しながらさらに大胆な書体としての力を発揮するように設計されています
+font-kaisei-tokumin	読みやすさを維持しながらさらに大胆な書体としての力を発揮する様に設計されています
 font-kaiso	現代の幻想的な日本語フォント
 font-kalam	Kalam
 font-kalnia	Kalnia
@@ -944,7 +944,7 @@ font-kimberella	kimberellaに触発された古代生物学スタイルのフォ
 font-kings	3セットのフォントファミリーに基づく kings honor/kings quest/kings dominion
 font-kirang-haerang	Kirang Haerang
 font-kite-one	Kite One
-font-kiwi-maru	日常や俗語の表現を視覚化するための書体
+font-kiwi-maru	日常や俗語の表現を視覚化する為の書体
 font-klee-one	Klee One
 font-knewave	Knewave
 font-ko-pub-batang	Ko Pub Batang
@@ -1029,7 +1029,7 @@ font-lilita-one	Lilita One
 font-lily-script-one	Lily Script One
 font-limelight	Limelight
 font-linden-hill	Linden Hill
-font-linefont	中小規模の折れ線グラフを描画するための可変フォント
+font-linefont	中小規模の折れ線グラフを描画する為の可変フォント
 font-linux-biolinum	Linux Biolinum
 font-linux-libertine	Linux Libertine
 font-lisu-bosa	Lisu Bosa
@@ -1615,9 +1615,9 @@ font-playfair-display-sc	Playfair Display SC
 font-playpen-sans	細いフォントから太いフォントまでの太さの範囲を持つ可変フォント
 font-playwrite-co	Playwrite CO
 font-playwrite-fr-trad	Playwrite FR Trad
-font-plemol-jp	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
-font-plemol-jp-hs	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
-font-plemol-jp-nf	IBM Plex MonoおよびIBM Plex Sans JPから合成された日本語プログラミングフォント
+font-plemol-jp	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
+font-plemol-jp-hs	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
+font-plemol-jp-nf	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plus-jakarta-sans	用途が広いmodern type family
 font-podkova	Podkova
 font-podkova-vf-beta	Podkova VF Beta
@@ -1935,7 +1935,7 @@ font-strait	Strait
 font-strong	Strong
 font-style-script	外観がカジュアルからフォーマルまでさまざまな直立したスクリプト
 font-stylish	Stylish
-font-sudo	プログラマーおよびコマンドラインユーザー向けのフォント
+font-sudo	プログラマー及びコマンドラインユーザー向けのフォント
 font-sue-ellen-francisco	Sue Ellen Francisco
 font-suez-one	Suez One
 font-sulphur-point	Sulphur Point
@@ -1996,7 +1996,7 @@ font-tilt-neon	Tilt Neon
 font-tilt-prism	Tilt Prism
 font-tilt-warp	Tilt Warp
 font-times-new-roman	Times New Roman
-font-times-newer-roman	Times New Romanと同じように見えますが、文字の幅が5〜10％広くなっています
+font-times-newer-roman	Times New Romanと同じ様に見えますが、文字の幅が5〜10％広くなっています
 font-timmana	Timmana
 font-tinos	Tinos
 font-tinos-nerd-font	Tinos Nerd Font(Tinos)
@@ -2095,7 +2095,7 @@ font-wix-madefor-display	Wix Madefor ディスプレイ
 font-work-sans	Work Sans
 font-workbench	Workbench
 font-xanh-mono	lambaoとduydaoによってデザインされたMono-serif書体
-font-xits	数学的および科学的出版のための時代のような書体
+font-xits	数学及び科学出版向けのタイムライクな書体
 font-xkcd	xkcd
 font-xkcd-script	xkcd-script
 font-yaldevi	Designed by sol matas
@@ -2150,9 +2150,9 @@ ableton-live-intro10	サウンドと音楽のエディター
 ableton-live-lite10	サウンドと音楽のエディター
 ableton-live-standard10	サウンドと音楽のエディター
 ableton-live-suite10	サウンドと音楽のエディター
-ableton-live-suite9	サウンドおよび音楽エディター
+ableton-live-suite9	サウンドと音楽のエディター
 adguard-nightly	スタンドアロンの広告ブロッカー
-adguard-vpn-nightly	プライバシーとセキュリティのためのVPN
+adguard-vpn-nightly	プライバシーとセキュリティの為のVPN
 adoptopenjdk8	ビルド済みのOpenJDKバイナリ
 aerial-beta	Apple TV Aerialスクリーンセーバー
 affinity-designer1	プロ仕様のグラフィックデザインソフトウェア
@@ -2162,8 +2162,8 @@ alfred2	アプリケーションランチャーと生産性ソフトウェア
 alfred3	アプリケーションランチャーと生産性ソフトウェア
 alfred4	アプリケーションランチャーと生産性ソフトウェア
 anaconda2	データサイエンスプラットフォーム
-android-studio-preview-beta	Androidアプリケーションを構築するためのツール
-android-studio-preview-canary	Androidアプリケーションを構築するためのツール
+android-studio-preview-beta	Androidアプリケーションを構築する為のツール
+android-studio-preview-canary	Androidアプリケーションを構築する為のツール
 arduino-ide-nightly	電子工学プロトタイピングプラットフォーム
 arduino-nightly	電子プロトタイピングプラットフォーム
 arq5	マルチクラウドバックアップアプリケーション
@@ -2194,10 +2194,10 @@ db-browser-for-sqlite-nightly	SQLite用のデータベースブラウザー
 deadbeef-nightly	モジュラーオーディオプレーヤー
 defold-alpha	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
 defold-beta	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
-discord-canary	音声およびテキストチャットソフトウェア
-discord-development	音声およびテキストチャットソフトウェア
-discord-ptb	音声およびテキストチャットソフトウェア
-docker-edge	コンテナ化されたアプリケーションとマイクロサービスを構築して共有するためのアプリ
+discord-canary	音声及びテキストチャットソフトウェア
+discord-development	音声及びテキストチャットソフトウェア
+discord-ptb	音声及びテキストチャットソフトウェア
+docker-edge	コンテナ化されたアプリケーションとマイクロサービスを構築して共有する為のアプリ
 dolphin-beta	ゲームキューブやWiiのゲームが遊べるエミュレーター
 dolphin-dev	ゲームキューブとWiiのゲームが遊べるエミュレーター
 dotnet-preview	開発者プラットフォーム
@@ -2213,7 +2213,7 @@ firefox-cn	中国語版Firefox
 firefox-developer-edition	Webブラウザー
 firefox-esr	Webブラウザー
 firefox-nightly	Webブラウザー
-folding-at-home-beta	科学研究のためのタンパク質特定構造シミュレーション
+folding-at-home-beta	科学研究の為のタンパク質特定構造シミュレーション
 forklift2	Finderの代替品と FTP/SFTP/WebDAV/Amazon s3クライアント
 forklift3	Finderの代替、FTP、SFTP、WebDAV、Amazon s3 クライアント
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等
@@ -2224,13 +2224,13 @@ google-chrome-beta	Webブラウザー
 google-chrome-canary	Webブラウザー
 google-chrome-dev	Webブラウザー
 google-japanese-ime-dev	Google日本語入力方式エディター
-gpg-suite-nightly	メールやファイルを保護するためのツール
+gpg-suite-nightly	メールやファイルを保護する為のツール
 graalvm-jdk17	OracleからGraalVM
-hamsket-nightly	Freeのオープンソースメッセージングおよび電子メールアプリ
+hamsket-nightly	Freeのオープンソースメッセージング及び電子メールアプリ
 hancom-word-2014	ワードプロセッサ
 hyper-canary	Webテクノロジーに基づいて構築されたターミナル
-inso-beta	CLI HTTPおよびGraphQLクライアント
-insomnia-alpha	HTTPおよびGraphQLクライアント
+inso-beta	CLI HTTP及びGraphQLクライアント
+insomnia-alpha	HTTP及びGraphQLクライアント
 intellij-idea-ce19	Java開発用IDE-コミュニティ版
 intellij-idea19	JVM言語用のIDE
 istat-menus5	iStatsメニュー
@@ -2239,10 +2239,10 @@ iterm2-legacy	Appleターミナルアプリの代替ターミナルエミュレ�
 iterm2-nightly	Appleターミナルアプリの代替ターミナルエミュレータ
 java-beta	Javaプログラミング言語用の早期アクセス開発キット
 java6	Javaプログラミング言語のレガシーランタイム
-julia-lts	テクニカルコンピューティングのためのプログラミング言語
-julia-nightly	テクニカルコンピューティングのためのプログラミング言語
+julia-lts	テクニカルコンピューティングの為のプログラミング言語
+julia-nightly	テクニカルコンピューティングの為のプログラミング言語
 kaleidoscope2	テキストと画像のファイルまたはフォルダの違いを見つけてマージする
-kaleidoscope3	テキストおよび画像ファイルまたはフォルダー内の相違点を特定してマージします。
+kaleidoscope3	テキスト及び画像ファイルまたはフォルダー内の相違点を特定してマージします
 keepassxc-beta	パスワードマネージャーアプリ
 keepassxc-snapshot	パスワードマネージャーアプリ
 keka-beta	File archiver
@@ -2255,7 +2255,7 @@ libreoffice-still-language-pack	LibreOfficeの代替言語のコレクション
 little-snitch4	ホストベースのアプリケーションファイアウォール
 local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
 macfuse-dev	ファイルシステム統合
-macloggerdx-beta	アマチュア無線ロギングおよびリグ制御ソフトウェア
+macloggerdx-beta	アマチュア無線ロギング及びリグ制御ソフトウェア
 mailmate-beta	IMAPメールクライアント
 mi-beta	テキストエディター
 microsoft-edge-beta	マルチプラットフォームのWebブラウザー
@@ -2267,20 +2267,20 @@ microsoft-openjdk17	MicrosoftからのOpenJDKディストリビューション
 microsoft-teams-classic	１ヶ所で会議、チャット、通話、コラボレーションが可能
 miniconda2	condaの最小限のインストーラー
 mixxx-snapshot	オープンソースのDJソフトウェア
-monal-beta	チャットサーバーに安全に接続するためのツール
+monal-beta	チャットサーバーに安全に接続する為のツール
 mongodb-compass-beta	MongoDBのGUI
 mono-mdk-for-visual-studio	Microsoftの.NETFrameworkのオープンソース実装
 morpheus-beta	多細胞システム生物学のモデリング環境
 mullvadvpn-beta	VPNクライアント
 mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
-navicat-premium15	データベース管理および開発ツール
+navicat-premium15	データベース管理及び開発ツール
 netnewswire-beta	FreeのオープンソースRSSリーダー
 obs-beta	ライブストリーミングと画面録画用のオープンソースソフトウェア
 olympus	Everest(ビデオゲームCeleste用のModローダー) インストーラー/マネージャー
 omegat-latest	翻訳メモリツール
 omnifocus2	編成重視のスケジューリングアプリ
 omnigraffle6	ビジュアルコミュニケーションソフトウェア
-omniplan3	プロジェクト計画および管理ソフトウェア
+omniplan3	プロジェクト計画及び管理ソフトウェア
 openemu-experimental	レトロなビデオゲームエミュレーション
 openra-playtest	Westwoodゲーム用のリアルタイムストラテジーゲームエンジン
 openscad-snapshot	プログラム可能なソリッド3D CADモデラー
@@ -2298,36 +2298,36 @@ parallels16	デスクトップ仮想化ソフトウェア
 parallels17	デスクトップ仮想化ソフトウェア
 parallels18	デスクトップ仮想化ソフトウェア
 pdf-expert-beta	PDFリーダー エディター/注釈
-pgadmin3	PostgreSQLの管理および開発プラットフォーム
-picoscope-beta	PicoScope oscilloscops用のテストおよび測定オシロスコープソフトウェア
+pgadmin3	PostgreSQLの管理及び開発プラットフォーム
+picoscope-beta	PicoScope oscilloscops用のテスト及び測定オシロスコープソフトウェア
 playcover-community-beta	iOSアプリとゲームをサイドロードする
 postico1	PostgreSQLデータベースのGUIクライアント
-postmancanary	API開発のためのコラボレーションプラットフォーム
+postmancanary	API開発の為のコラボレーションプラットフォーム
 powershell-preview	コマンドラインシェルとスクリプト言語
 powershell6	コマンドラインシェルとスクリプト言語
-processing2	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶための言語
-processing3	コーディング方法を学習するための柔軟なソフトウェア スケッチブックと言語
-propresenter-beta	ライブイベントのプレゼンテーションおよび制作アプリケーション
-propresenter6	ライブイベントのプレゼンテーションおよび制作アプリケーション
+processing2	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶ為の言語
+processing3	コーディング方法を学習する為の柔軟なソフトウェア スケッチブックと言語
+propresenter-beta	ライブイベントのプレゼンテーション及び制作アプリケーション
+propresenter6	ライブイベントのプレゼンテーション及び制作アプリケーション
 qbittorrent-lt20	libtorrent-rasterbar 2.0.xに基づくqBitorrentのエディション
 qgis-ltr	地理情報システム
-qt-creator-dev	アプリケーション開発のためのIDE
+qt-creator-dev	アプリケーション開発の為のIDE
 quicktime-player7	ビデオプレーヤー
-rambox-ce	Freeのオープンソースメッセージングおよび電子メールアプ
+rambox-ce	Freeのオープンソースメッセージング及び電子メールアプ
 reflector2	ワイヤレス画面ミラーリングアプリケーション
 royal-tsx-beta	リモート管理ソリューション
 rstudio-daily	RとPythonを中心としたデータサイエンスソフトウェア
 safari-technology-preview	Webブラウザー
-semeru-jdk11-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
+semeru-jdk11-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
-semeru-jdk8-open	OpenJDKクラスライブラリとEclipseOpenJ9 JVMを備えた本番環境対応のJDK
+semeru-jdk8-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 shadow-beta	オンライン仮想化コンピュータ
 signal-beta	セキュリティに焦点を当てたインスタントメッセージングアプリケーション
-sketch-beta	デジタルデザインおよびプロトタイピングプラットフォーム
+sketch-beta	デジタルデザイン及びプロトタイピングプラットフォーム
 skype-preview	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype7	ビデオ チャット/音声通話/インスタントメッセージング アプリケーション
-slack-beta	チームコミュニケーションおよび協力ソフトウェア
-slicer-preview	医用画像処理および視覚化システム
+slack-beta	チームコミュニケーション及び協力ソフトウェア
+slicer-preview	医用画像処理及び視覚化システム
 smcfancontrol-beta	内蔵ファンの最低速度を設定します
 sonarr-beta	sonarr-beta
 sonos-s1-controller	Gen 1 Sonos製品のコントローラー
@@ -2358,7 +2358,7 @@ tsh13	分散インフラストラクチャを管理するチームのSSHサー�
 tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
 typora-dev	Markdownをサポートする構成可能なドキュメントエディター
 utm-beta	QEMUを使用した仮想マシンUI
-virtualbox-beta	x86およびarm64ハードウェア用のバーチャライザー
+virtualbox-beta	x86及びarm64ハードウェア用のバーチャライザー
 virtualbox6	x86ハードウェアのバーチャライザー
 virtualbuddy-beta	仮想化ツール
 visual-studio-code-insiders	コードエディター
@@ -2372,12 +2372,12 @@ vmware-fusion7	仮想マシンの 作成/管理/実行
 vmware-fusion8	仮想マシンの 作成/管理/実行
 vox2	外部ソースからのハイレゾ(Hi-Res)音楽用の音楽プレーヤー
 vscodium-insiders	コードエディタ
-wezterm-nightly	GPUで高速化されたクロスプラットフォームターミナルエミュレーターおよびマルチプレクサー
+wezterm-nightly	GPUで高速化されたクロスプラットフォームターミナルエミュレーター及びマルチプレクサー
 whatsapp-beta	WhatsAppのデスクトップクライアント
 whatsapp-legacy	WhatsApp用のデスクトップクライアント
 whoozle-android-file-transfer-nightly	Androidファイル転送
-wine-devel	Windowsアプリケーションを実行するための互換性レイヤー
-wine-staging	Windowsアプリケーションを実行するための互換性レイヤー
+wine-devel	Windowsアプリケーションを実行する為の互換性レイヤー
+wine-staging	Windowsアプリケーションを実行する為の互換性レイヤー
 xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 xmind-beta	マインドマップとブレインストーミングツール
 xmind8	マインドマッピングとブレーンストーミングツール
