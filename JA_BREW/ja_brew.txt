@@ -2919,7 +2919,7 @@ kapacitor	オープンソースの時系列データ計算機
 karchive	ファイルアーカイブの読み取り、作成、操作
 karmadactl	KarmadaコントロールプレーンのCLI
 karn	複数のGit IDを管理する
-katago	知識のない人間に提供する神経ネットワークGoエンジン
+katago	人間が提供する知識を使用しないニューラルネットワークGoエンジン
 katana	クロール及びスパイダーリングフレームワーク
 kawa	Javaプログラミング言語(Schemeの実装)
 kcat	一般的なコマンドライン非JVMApache Kafkaプロデューサー及びコンシューマー
@@ -3085,7 +3085,7 @@ leapp-cli	クラウドクレデンシャルマネージャーCLI
 leaps	Golangで書かれた共同Webベースのテキスト編集サービス
 ledger	コマンドライン 複式簿記ツール
 ledit	対話的なコマンドのラインエディタ
-leela-zero	知識のない人間に提供する神経ネットワークGoエンジン
+leela-zero	人間が提供する知識を使用しないニューラルネットワークGoエンジン
 leetup	Leetcodeの問題を解決する為のコマンドラインツール
 lefthook	あらゆるタイプのプロジェクトに対応する高速で強力なGit hooksマネージャー
 legit	ワークフローを簡素化するために最適化されたGitのコマンドラインインターフェイス
