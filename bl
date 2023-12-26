@@ -132,11 +132,10 @@ MAIN:{
        $re->{'NEW'}++; Init_1( $re );
   }elsif( $re->{'S_M'} ){ $MY_BREW =~ s|(.+)/Homebrew$|$1| if $re->{'LIN'}; m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
-   $re->{'STDI'} = $name->{'KEN'} ? $AR[1] : defined $AR[1] ? lc $AR[1] : Died_1( $re );
-    $name->{'L_OPT'} = ( $name->{'KEN'} and -d "$ENV{'HOME'}/.JA_BREW" ) ? decode 'utf-8',$re->{'STDI'} :
-     $name->{'KEN'} ? $re->{'STDI'} : $re->{'STDI'} =~ m|^/(.+)/$| ? $1 : "\Q$re->{'STDI'}\E";
-      $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
-       $name->{'L_OPT'} = "\Q$name->{'L_OPT'}\E" if $name->{'KEN'};
+    $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 ) ?
+     ($name->{'CODE'} = find_encoding('utf-8'),$name->{'CODE'}->decode($AR[1])) : defined $AR[1] ? lc $AR[1] : Died_1( $re );
+      $name->{'L_OPT'} = $re->{'STDI'} =~ m|^/(.+)/$| ? $1 : "\Q$re->{'STDI'}\E";
+       $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
 
   }elsif( $re->{'USE'} ){ $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
   }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
@@ -1042,32 +1041,40 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
     no warnings 'closed';
-   if( $re->{'FOR'} or $re->{'DEP'} ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " === Not exist brew JA_file ===\n";
+   if( $re->{'FOR'} or $re->{'DEP'} ){ my $JA;
+    ( $re->{'KEN'} and $Locale == 2 ) ?
+    ( open $JA,'<:utf8',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " === Not exist brew JA_file ===\n" ) :
+    ( open $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_brew.txt" or print " === Not exist brew JA_file ===\n" ) ;
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
      }
     close $JA;
    }
-   if( $re->{'CAS'} and ( not $re->{'TAP'} or $re->{'DEP'} ) ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " === Not exist cask JA_file ===\n";
+   if( $re->{'CAS'} and ( not $re->{'TAP'} or $re->{'DEP'} ) ){ my $JA;
+    ( $re->{'KEN'} and $Locale == 2 ) ?
+    ( open $JA,'<:utf8',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " === Not exist cask JA_file ===\n" ) :
+    ( open $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_cask.txt" or print " === Not exist cask JA_file ===\n" ) ;
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
      }
     close $JA;
    }
-   if( ( $re->{'FDIR'} or $re->{'VERS'} ) and ( $re->{'TAP'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " === Not exist tap JA_file ===\n";
+   if( ( $re->{'FDIR'} or $re->{'VERS'} ) and ( $re->{'TAP'} or $re->{'PRINT'} or $re->{'DEP'} ) ){ my $JA;
+    ( $re->{'KEN'} and $Locale == 2 ) ?
+    ( open $JA,'<:utf8',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " === Not exist tap JA_file ===\n" ) :
+    ( open $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_tap.txt" or print " === Not exist tap JA_file ===\n" ) ;
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
      }
     close $JA;
    }
-   if( $re->{'FTD'} or $re->{'LFOD'} and $re->{'PRINT'} ){
-    open my $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_linux.txt" or print " === Not exist linux JA_file ===\n";
+   if( $re->{'FTD'} or $re->{'LFOD'} and $re->{'PRINT'} ){ my $JA;
+    ( $re->{'KEN'} and $Locale == 2 ) ?
+    ( open $JA,'<:utf8',"$ENV{'HOME'}/.JA_BREW/ja_linux.txt" or print " === Not exist linux JA_file ===\n" ) :
+    ( open $JA,'<',"$ENV{'HOME'}/.JA_BREW/ja_linux.txt" or print " === Not exist linux JA_file ===\n" ) ;
      while(<$JA>){
      my( $name,$desc ) = split '\t';
       chomp( $JA{$name} = $desc );
@@ -1266,10 +1273,9 @@ my( $re,$mem,$dir ) = @_;
   if( $re->{'KEN'} and defined $re->{'L_OPT'} ){
    my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
    my( $brew ) = split '\t',$mee;
-   my $name = -d "$ENV{'HOME'}/.JA_BREW" ? encode 'utf-8',$re->{'L_OPT'} : $re->{'L_OPT'};
-    if( index($mee,' ==>') == 0 or $mee =~ /$name/i ){
+    if( index($mee,' ==>') == 0 or $mee =~ /$re->{'L_OPT'}/i ){
      if( index($mee,' ==> ') != 0 and index($mee,'Not Formula') < 0 ){ $re->{'DN'}++;
-        $mee =~ s/($name)/\033[33m$1\033[0m/ig if -t STDOUT;
+        $mee =~ s/($re->{'L_OPT'})/\033[33m$1\033[0m/ig if -t STDOUT;
      } $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
       $re->{'KXC'} .= "$top$mee\n";
     }
@@ -1631,7 +1637,7 @@ sub Format_1{
      print"\033[?7l" if -t STDOUT;
     ( $re->{'LINK'} > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
     ( $re->{'LINK'} > 5 and $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
-    print $re->{'ZEN'};
+    ( $re->{'KEN'} and $Locale == 2 ) ? print $re->{'CODE'}->encode($re->{'ZEN'}) : print $re->{'ZEN'};
     $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
     $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
     $re->{'KXC'} ? print " item $re->{'DN'} : install $re->{'DI'}\n" : 0;
