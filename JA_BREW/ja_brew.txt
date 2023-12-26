@@ -715,7 +715,6 @@ ccache	オブジェクトファイルCachingコンパイルラッパー
 ccal	プリントまたは閲覧用の中国のカレンダーを作成する
 ccat	catと似ていますが、構文が強調表示されたコンテンツを表示します
 ccd2iso	CloneCD画像をISO画像に変換する
-ccextractor	Free GPLライセンスのクローズドキャプションツール
 ccfits	cfitsioライブラリへのオブジェクト指向インターフェース
 ccheck	TAP出力を使用して、コマンドラインからX509証明書の有効期限を確認します
 ccls	言語サーバー C/C++/ObjC
@@ -1429,7 +1428,7 @@ dsocks	*BSD/MacOS のSOCKSクライアントラッパー
 dspdfviewer	ラテックスビーマー用のデュアルスクリーンPDF Viewer
 dsq	JSONに対してSQLクエリを実行する為のCLIツール CSV/Excel/寄木細工など
 dssim	RGBA構造的類似性Rustの実装
-dstack	再現性とコラボレーションのために設計されたMLワークフローオーケストレーションシステム
+dstack	再現性とコラボレーションの為に設計されたMLワークフローオーケストレーションシステム
 dstask	Gitを利用したパーソナルタスクトラッカー
 dsvpn	Dead Simple VPN
 dtach	画面のデタッチ機能をエミュレートします
@@ -1836,7 +1835,7 @@ fpc	Free Pascal： multi-architecture Pascalコンパイラ
 fpdns	指紋DNSサーバーのバージョン
 fping	複数のホストが稼働しているかどうかを確認する為のスクリプト可能なpingプログラム
 fplll	浮動小数点演算を使用した格子アルゴリズム
-fpp	パイプ入力を受け入れ、選択のためにファイルを提示するCLIプログラム
+fpp	パイプ入力を受け入れ、選択の為にファイルを提示するCLIプログラム
 fprettify	最新のFortranソースコード用のAuto-formatter
 fprobe	LibpcapベースのNetFlow調査
 fq	性能に最適化された仲介メッセージキュー
@@ -1986,7 +1985,7 @@ geomview	対話的3D表示プログラム
 geos	Geometryエンジン
 geoserver	地理空間データを共有及び編集する為のJavaサーバー
 geph4	全体的なフィルタリングに対処する為の基本インターネット検閲回避システム
-gerbil-scheme	システムプログラミングのために設計されたSchemeの方言
+gerbil-scheme	システムプログラミングの為に設計されたSchemeの方言
 gerbv	Gerber(RS-274X)viewer
 gerrit-tools	Gerritコードレビューを容易にするツール
 get-flash-videos	さまざまなFlashベースのWebサイトからビデオをダウンロードまたは再生します
@@ -2086,7 +2085,7 @@ git-recent	最新のローカルgitブランチを参照してください。
 git-remote-codecommit	AWS Code Commitと対話する為のGit Remote Helper
 git-remote-gcrypt	GPGで暗号化されたgitリモート
 git-remote-hg	GitとMercurialの間の透過的な双方向ブリッジ
-git-review	レビューのためにgitブランチをgerritに送信します
+git-review	レビューの為にgitブランチをgerritに送信します
 git-revise	簡単で効率的なメモリ内の基準と修正の為の基準の代替品
 git-secret	gitリポジトリ内にプライベートデータを保存する為のBashツール
 git-secrets	機密情報をgitリポジトリにコミットすることを防ぎます
@@ -3837,7 +3836,7 @@ markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLI及びMarkdownファイルのlintツール
 markdownlint-cli2	Markdown/CommonMark ファイルをリンティングする為の高速で柔軟な構成ベースのCLI
-marked	速さのために構築されたマークダウンパーサーとコンパイラ
+marked	速さの為に構築されたマークダウンパーサーとコンパイラ
 marksman	Markdownの言語サーバープロトコル
 marp-cli	マープマークダウンファイルを静的に画像を変換、HTML/CSS、PDF、PPT
 mas	Mac AppStoreのcommand-lineインターフェイス
@@ -4431,7 +4430,7 @@ ol	Lispの純粋関数方言
 ola	照明点灯の基本設計の為の情報制御
 ollama	大規模言語モデル(LLM)を 作成/実行/共有 する
 olsrd	最適化されたリンク状態設定手続きの実装
-omake	拡張性のために設計されたシステムを構築する 移植/簡潔
+omake	拡張性の為に設計されたシステムを構築する 移植/簡潔
 omega	Xapian上に構築されたウェブサイトのパッケージ検索エンジン
 omega-rpg	古典的なRoguelikeゲーム
 omniorb	omniORBのIOR及びネーミングサービスユーティリティ
@@ -4643,7 +4642,7 @@ par	電子メールの段落リフロー
 par2	Parchive：データ回復用の等価アーカイブボリュームセット
 parallel	シェルコマンド並列化ユーティリティ
 parallel-hashmap	ヘッダーのみ/高速 メモリに親しいC++ハッシュマップ及びbtreeコンテナーのファミリー
-pari	数論における高速計算のために設計された数式処理システム
+pari	数論における高速計算の為に設計された数式処理システム
 pari-elldata	PARI/GP用のJE Cremona楕円曲線データ
 pari-galdata	PARI/GP用のGalois分解方程式データ
 pari-galpol	PARI/GP用のGalois多項式データベース
@@ -4723,7 +4722,7 @@ percona-server	Drop-in MySQLの代替品
 percona-toolkit	MySQLのコマンドラインツール MariaDB/システムタスク
 percona-xtrabackup	InnoDB及びXtraDBデータベース用のオープンソースHot Backupツール
 periscope	データを失うことなくファイルを整理して重複排除します
-perkeep	自分のものを永久に保管できます 生活のために
+perkeep	自分のものを永久に保管できます 生活の為に
 perl	高性能で機能豊富なプログラミング言語
 perl-build	Perlビルダー
 perl-xml-parser	XMLドキュメントを解析する為のPerlモジュール
@@ -5250,7 +5249,7 @@ ratfor	Rational Fortran
 rats	セキュリティの為の大まかな監査ツール
 rav1e	最速で最も安全なAV1ビデオエンコーダー
 raven	CI/CDのリスク分析と脆弱性の列挙
-rawgl	別世界のために書き直されたエンジン
+rawgl	別世界の為に書き直されたエンジン
 raxml-ng	RAxML次世代：より速く/使いやすく/より柔軟
 raylib	ビデオゲームプログラミングを学ぶ為のシンプルで使いやすいライブラリ
 rbenv	Rubyバージョンマネージャー
@@ -6256,7 +6255,7 @@ tokei	コードをすばやくカウントできるプログラム
 tokyo-cabinet	軽量データベースライブラリ
 tokyo-dystopia	軽量全文検索システム
 tomcat	JavaサーブレットとJavaServerPagesの実装
-tomcat-native	Tomcatが動作のためにネイティブリソースを使用できる様にします
+tomcat-native	Tomcatが動作の為にネイティブリソースを使用できる様にします
 tomcat@7	JavaサーブレットとJavaServerPagesの実装
 tomcat@8	JavaサーブレットとJavaServerPagesの実装
 tomcat@9	JavaサーブレットとJavaServerPagesの実装
@@ -6275,7 +6274,7 @@ totp-cli	Goで書かれたTOTP CLIツールのような Authy/Google Authenticat
 touca	回帰テストの複雑なソフトウェアワークフロー用のオープンソースツール
 tox	汎用Python virtualenv管理及びテストコマンドラインツール
 toxcore	Toxピアツーピアネットワークプロトコルを実装するCライブラリ
-toxiproxy	混乱と復元力のテストのためにネットワークとシステムの状態をシミュレートするTCPプロキ
+toxiproxy	混乱と復元力のテストの為にネットワークとシステムの状態をシミュレートするTCPプロキ
 tpl	バイナリデータをCで保存/取得する
 tpm	tmuxのプラグインマネージャー
 tproxy	TCP接続をプロキシ及び分析するCLIツール
@@ -6930,7 +6929,7 @@ zero-install	分散型クロスプラットフォームソフトウェアイン�
 zeromq	高性能の非同期メッセージングライブラリ
 zet	和集合を見つける為のCLIユーティリティ 交差とファイルの違いを設定します
 zf	ファイル名の一致を優先するコマンドラインファジーファインダー
-zig	堅牢性のために設計されたプログラミング言語 最適性/明快
+zig	堅牢性の為に設計されたプログラミング言語 最適性/明快
 zile	テキストエディタ開発キット
 zim	Wikiページのコレクションを維持するために使用されるグラフィカルテキストエディタ
 zimg	拡大縮小 色空間変換/ディザリングライブラリ
