@@ -1356,6 +1356,7 @@ gearboy	Gearboy
 gearsystem	Gearsystem
 geburtstagschecker	GeburtstagsChecker
 geekbench	コンピュータシステムのパフォーマンスを測定する為のツール
+geekbench-ml	AIワークロードのパフォーマンスを評価するためのクロスプラットフォームAIベンチマーク
 geektool	デスクトップカスタマイズツール
 gemini	重複した類似のファイルを見つけて削除するディスクスペースクリーナー
 geneious-prime	生物情報科学ソフトウェアプラットフォーム
@@ -2579,6 +2580,7 @@ oka-unarchiver	Free アンアーカイバー
 okta-advanced-server-access	ID/アクセス管理
 old-school-runescape	Old School RuneScapeのゲームクライアント
 olive	Non-linearビデオエディター
+ollama	大規模な言語モデルをローカルで立ち上げて実行する
 omegat	翻訳メモリ ツール
 omnidazzle	画面とマウスポインタの領域を強調表示するプラグインのセット
 omnidb	データベース管理用のWebツール
@@ -3606,6 +3608,7 @@ storyboarder	棒人間を描くことができるのと同じくらい速く物�
 strawberry-wallpaper	イチゴの壁紙
 streamlabs	Streamlabsデスクトップ
 streamlink-twitch-gui	Streamlink用のマルチプラットフォームTwitch.tvブラウザー
+streammusic	セルフホスト音楽サービスと互換性のある音楽クライアント
 stremio	オープンソースメディアセンター
 stretchly	休憩時間通知アプリ
 stringsfile	StringsFile QuickLookプラグイン
