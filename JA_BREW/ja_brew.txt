@@ -3593,7 +3593,7 @@ libxls	C/C++からバイナリExcelファイルを読み取る
 libxlsxwriter	Excel XLSXファイルを作成する為のCライブラリ
 libxmi	2D空間グラフィックスをrasterizingする為のC/C++関数ライブラリ
 libxml++	libxmlのC++ラッパー
-libxml++3	libxmlのC++ラッパー
+libxml++@3	libxmlのC++ラッパー
 libxml++@4	libxmlのC++ラッパー
 libxml++@5	libxmlのC++ラッパー
 libxml2	GNOME XMLライブラリ
@@ -6161,6 +6161,7 @@ testssl	TLS/SSL暗号と欠陥のサポートをチェックするツール
 tetra	Tetragonインスタンスを 観察/管理/トラブルシューティングする為のTetragon CLI
 texapp	TTYtterに基づくApp.netクライアント
 texi2html	TeXinfoファイルをHTMLに変換する
+texi2mdoc	Texinfoデータをmdoc入力に変換する
 texinfo	GNUプロジェクトの公式ドキュメント形式
 texlab	LaTeXのLanguage Server手続きの実装
 texlive	TeX植字システムのFreeソフトウェア配布
