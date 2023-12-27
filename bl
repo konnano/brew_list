@@ -132,7 +132,7 @@ MAIN:{
        $re->{'NEW'}++; Init_1( $re );
   }elsif( $re->{'S_M'} ){ $MY_BREW =~ s|(.+)/Homebrew$|$1| if $re->{'LIN'}; m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
-    $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 ) ?
+    $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
      ($name->{'CODE'}=find_encoding('utf-8'),$name->{'CODE'}->decode($AR[1])) : defined $AR[1] ? lc $AR[1] : Died_1( $re );
       $name->{'L_OPT'} = $re->{'STDI'} =~ m|^/(.+)/$| ? $1 : "\Q$re->{'STDI'}\E";
        $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
@@ -1642,7 +1642,8 @@ sub Format_1{
      print"\033[?7l" if -t STDOUT;
     ( $re->{'LINK'} > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
     ( $re->{'LINK'} > 5 and $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
-    ( $re->{'KEN'} and $Locale == 2 ) ? print $re->{'CODE'}->encode($re->{'ZEN'}) : print $re->{'ZEN'};
+    ( $re->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
+      print $re->{'CODE'}->encode($re->{'ZEN'}) : print $re->{'ZEN'};
     $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
     $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
     $re->{'KXC'} ? print " item $re->{'DN'} : install $re->{'DI'}\n" : 0;
