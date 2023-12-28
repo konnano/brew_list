@@ -621,7 +621,7 @@ font-gantari	すべてのキャラクターが調和して見える様に設計�
 font-gasoek-one	Gasoek One
 font-gayathri	Gayathri
 font-geist	Sans-serif書体
-font-geist-mono	コードを表す場所で使用するために設計された等幅書体
+font-geist-mono	コードを表す場所で使用する為に設計された等幅書体
 font-geist-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-gelasio	Gelasio
 font-gemunu-libre	Gemunu Libre
@@ -1834,7 +1834,7 @@ font-sf-compact	Appleによる"San Francisco"のコンパクト版
 font-sf-georgian	Appleによる"San Francisco"グルジア語拡張
 font-sf-hebrew	Appleによる"San Francisco"のヘブライ語拡張
 font-sf-mono	Appleによる"San Francisco"の等幅版
-font-sf-mono-for-powerline	PowerlineをサポートするためにNerdFontsパッチャーでパッチされたAppleのSFMonoフォント
+font-sf-mono-for-powerline	Powerlineをサポートする為にNerdFontsパッチャーでパッチされたAppleのSFMonoフォント
 font-sf-pro	Appleによる”San Francisco"のSans-serifバージョン
 font-shadows-into-light	Shadows Into Light
 font-shadows-into-light-two	Shadows Into Light Two
@@ -2032,7 +2032,7 @@ font-twilio-sans-mono	プログラミングフォント
 font-twinkle-star	キュートで楽しいjuvenileスクリプト
 font-twitter-color-emoji	Twitterカラー絵文字
 font-typographer-woodcut-initials-one	タイポグラファーの木版画のイニシャル one
-font-ubuntu	明確にするために手動でヒントを与えられたsans-serif書体
+font-ubuntu	明確にする為に手動でヒントを与えられたsans-serif書体
 font-ubuntu-condensed	Ubuntu Condensed
 font-ubuntu-mono	Ubuntu Mono
 font-ubuntu-mono-derivative-powerline	Ubuntu Mono derivative Powerline
