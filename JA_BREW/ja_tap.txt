@@ -242,7 +242,7 @@ font-black-and-white-picture	黒と白の画像
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
 font-blackout	Blackout
-font-blaka	現在、グーグルクローム(バージョン98以降)のようないくつかのアプリケーションに限定されています
+font-blaka	現在、グーグルクローム(バージョン98以降)の様な幾つかのアプリケーションに限定されています
 font-blaka-hollow	Blaka Hollow
 font-blaka-ink	Blaka Ink
 font-blex-mono-nerd-font	BlexMonoオタクフォント(IBM Plex Mono)
@@ -642,7 +642,7 @@ font-genyogothic	GenYoGothic
 font-genyomin	GenYoMin
 font-geo	Geo
 font-geologica	Geologica
-font-georama	いくつかの幅とウェイトで利用可能なオリジナルの書体
+font-georama	幾つかの幅とウェイトで利用可能なオリジナルの書体
 font-georgia	Georgia
 font-geostar	Geostar
 font-geostar-fill	Geostar Fill
@@ -1128,7 +1128,7 @@ font-meie-script	Meie Script
 font-meltho	Meltho Fonts
 font-mengshen-regular	同綴異義語をサポートするオープンソースのピンインフォント
 font-menlo-for-powerline	Menlo for Powerline
-font-meow-script	6つのスタイルセットのいくつかの代替フォームを備えたMonolineフォント
+font-meow-script	6つのスタイルセットの幾つかの代替フォームを備えたMonolineフォント
 font-merge-one	Merge One
 font-merienda	Merienda
 font-merriweather	Merriweather
