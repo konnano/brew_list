@@ -1,6 +1,6 @@
 font-3270	IBM 3270
 font-3270-nerd-font	開発者向けのグリフ数が多いフォント
-font-437-plus	DOS時代のIBM PCおよび互換機のクラシックテキストモードフォントのコレクション
+font-437-plus	DOS時代のIBM PC及び互換機のクラシックテキストモードフォントのコレクション
 font-abeezee	ABeeZee
 font-abel	Abel
 font-abhaya-libre	Abhaya Libre
@@ -78,7 +78,7 @@ font-anaheim	Anaheim
 font-andada-pro	有機的なslab、serif、ハイブリッド、テキストのスタイルと中間のコントラストのタイプ
 font-andagii	Andagii
 font-andale-mono	Andale Mono
-font-andika	読み書き用途向けに設計および最適化された Sans-serif font family
+font-andika	読み書き用途向けに設計/最適化された Sans-serif font family
 font-andron-scriptor-web	Andron Scriptor Web
 font-anek-bangla	Anek Bangla
 font-anek-devanagari	Anek Devanagari
@@ -162,7 +162,7 @@ font-azeret-mono	Martin Vácha/Daniel Quisekによるデザイン
 font-azonix	モダンな書体 sans-serif
 font-b612	B612
 font-b612-mono	B612 Mono
-font-babylonica	直立/後傾した形状によって中断され、中断された応力が与えられます
+font-babylonica	直立または後傾した形状によって中断され、中断された応力が与えられます
 font-bacasime-antique	様式的には過渡的なデザイン
 font-bad-script	Bad Script
 font-bagel-fat-one	Bagel Fat One
@@ -272,7 +272,7 @@ font-buenard	Buenard
 font-bukyvede-bold	BukyVede Bold
 font-bukyvede-italic	BukyVede Italic
 font-bukyvede-regular	BukyVede Regular
-font-bungee	縦書きおよび多色タイポグラフィ用のフォント
+font-bungee	縦書き/多色タイポグラフィ用のフォント
 font-bungee-color	米国を拠点とする書体デザイナー、デビッド・ジョナサン・ロスが率いる
 font-bungee-hairline	Bungee Hairline
 font-bungee-inline	Bungee Inline
@@ -630,7 +630,7 @@ font-genyogothic	GenYoGothic
 font-genyomin	GenYoMin
 font-geo	Geo
 font-geologica	Geologica
-font-georama	いくつかの幅と太さのオリジナル書体が利用可能
+font-georama	幾つかの幅と太さのオリジナル書体が利用可能
 font-georgia	Georgia
 font-geostar	Geostar
 font-geostar-fill	Geostar Fill
@@ -996,7 +996,7 @@ font-libre-barcode-39	Libre Barcode 39
 font-libre-barcode-39-extended	Libre Barcode 39 Extended
 font-libre-barcode-39-extended-text	Libre Barcode 39 Extended Text
 font-libre-barcode-39-text	Libre Barcode 39 Text
-font-libre-barcode-ean13-text	ドイツのニュルンベルクに拠点を置くフォントおよびWeb開発者、lasse fister が率いる
+font-libre-barcode-ean13-text	ドイツのニュルンベルクに拠点を置くフォント/Web開発者、lasse fisterが率いる
 font-libre-baskerville	Libre Baskerville
 font-libre-bodoni	Libre Bodoni
 font-libre-caslon-display	Libre Caslon Display
@@ -1193,7 +1193,7 @@ font-mukta-mahee	Mukta Mahee
 font-mukta-malar	Mukta Malar
 font-mukta-vaani	Mukta Vaani
 font-mukti-narrow	Mukti Narrow
-font-mulish	ディスプレイとテキストのタイポグラフィーの両方の為に設計された書体 Minimalist sans serif
+font-mulish	ディスプレイとテキストのタイポグラフィーの両方のために設計された書体 Minimalist sans serif
 font-murecho	9つの実用的なウェイトと可変フォントとして利用可能
 font-museo	Museo
 font-museomoderno	MuseoModerno
@@ -1894,9 +1894,9 @@ font-suwannaphum	Suwannaphum
 font-swanky-and-moo-moo	Swanky and Moo Moo
 font-symbols-only-nerd-font	開発者向けのグリフ数が多いフォント
 font-syncopate	Syncopate
-font-syne	アートセンター Synesthésieの為にデザインされた書体
+font-syne	アートセンター Synesthésieのためにデザインされた書体
 font-syne-mono	コントロールを手放すことについての別の見方
-font-syne-tactile	アートセンター Synesthésieの為にデザインされました
+font-syne-tactile	アートセンター Synesthésieのためにデザインされました
 font-tai-heritage-pro	通常のウェイトと太字のウェイトがあり、オープンタイプとグラファイトの両方のレンダリングが可能
 font-tajawal	Tajawal
 font-takaoex	TakaoEx
