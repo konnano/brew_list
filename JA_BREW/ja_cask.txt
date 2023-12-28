@@ -110,7 +110,7 @@ all-in-one-messenger	さまざまなメッセージングプラットフォー�
 alloy	ソフトウェアモデリングの為のプログラミング言語
 almighty	設定と微調整Configurator
 alpha	AppleのCocoaフレームワークに基づくテキストエディタ
-alt-tab	Windowsのようなalt-tabを有効にする
+alt-tab	Windowsの様なalt-tabを有効にする
 altair-graphql-client	GraphQLクライアント
 altdeploy	AltDeploy
 alternote	Evernote用のメモ取りアプリ
@@ -180,7 +180,7 @@ appcode	Swift/Objective-C/C/C++ 開発用のIDE
 appdelete	アプリのアンインストーラー
 appflowy	オープンソースプロジェクトと知識管理ツール
 appgate-sdp-client	安全なネットワークアクセスの為のソフトウェア定義の境界
-appgrid	Vimのようなホットキーを備えたウィンドウマネージャー
+appgrid	Vimの様なホットキーを備えたウィンドウマネージャー
 appium	Appium自動化サーバーへのグラフィカルフロントエンド
 appium-inspector	モバイルアプリのGUI検査
 apple-events	非公式のAppleイベントアプリ
@@ -1962,7 +1962,7 @@ licecap	アニメーションスクリーンキャプチャアプリケーショ
 license-control-center	eLicenserコントロールセンター
 licensed	ソフトウェアライセンスマネージャー
 liclipse	軽量エディター Eclipseのテーマ設定と使いやすさの向上
-lidarr	Sonarrのような見た目と匂いが音楽の為に作られました
+lidarr	Sonarrの様な見た目と匂いが音楽の為に作られました
 lifesize	クラウドコンタクトとビデオ会議
 lightform	Lightformデバイス用のARプロジェクション及びオーディオ反応性ソフトウェア
 lightgallery	ライトギャラリー
@@ -2908,7 +2908,7 @@ power-manager	タスクを自動化し電力管理を改善するユーティリ
 powerpanel	UPSシステムの管理と制御
 powerphotos	写真ライブラリを整理する為のツール
 powershell	コマンドラインシェルとスクリプト言語
-ppduck	いくつかの画像圧縮アルゴリズムを統合します
+ppduck	幾つかの画像圧縮アルゴリズムを統合します
 pppc-utility	PPPCペイロードを含む構成プロファイルを作成します
 ppsspp	PSPエミュレーター
 praat	コンピューターで音声学をする
@@ -3078,7 +3078,7 @@ quit-all	1つ、又はすべてのアプリをすばやく終了する
 quiterss	Freeのニュースフィードリーダー
 quitter	非アクティブな期間が経過するとアプリを自動的に非表示/終了します
 quodlibet	音楽プレーヤー及び音楽ライブラリマネージャー
-qutebrowser	PyQt5に基づくキーボード駆動のVimのようなブラウザー
+qutebrowser	PyQt5に基づくキーボード駆動のVimの様なブラウザー
 qv2ray	広範な手続きをサポートするV2Ray GUIクライアント
 qview	画像ビューア
 qwerty-fr	QWERTYベースのレイアウト タイプEU言語/ギリシャ語/算数/通貨など
@@ -3253,7 +3253,7 @@ sakura	SAKURAFrpのランチャー
 saleae-logic	Saleaeのデバイスの信号解析
 salt	自動化及びインフラストラクチャ管理エンジン
 sameboy	Cで書かれたゲームボーイとゲームボーイカラーエミュレーター
-samsung-dex	一部のSamsungデバイスをデスクトップのようなエクスペリエンスに拡張します
+samsung-dex	一部のSamsungデバイスをデスクトップの様なエクスペリエンスに拡張します
 samsung-portable-ssd-t7	Samsung外部ストレージドライブ(T7 シリーズ)用のソフトウェア
 sanesidebuttons	サイドボタンのシステム全体のナビゲーション機能を有効にします
 santa	バイナリ認証システム
@@ -4137,7 +4137,7 @@ wavesurfer	サウンドの視覚化と操作の為のツール
 wch-ch34x-usb-serial-driver	USBシリアルドライバー
 weakauras-companion	Wago.ioからオーラを更新しそれらの定期的なバックアップを作成します
 webcamoid	Webcamoid
-webcatalog	デスクトップアプリのようなWebアプリを実行する為のツール
+webcatalog	デスクトップアプリの様なWebアプリを実行する為のツール
 webex	ビデオ通信及び仮想会議プラットフォーム
 webex-meetings	ビデオ通信及び仮想会議プラットフォーム
 webots	ロボットのシミュレーションに使用されるオープンソースのデスクトップアプリケーション
@@ -4170,7 +4170,7 @@ whatsyoursign	ファイルの暗号署名情報を表示します
 whichspace	アクティブスペースメニューバーアイコン
 whisky	SwiftUIで構築されたWineラッパー
 whoozle-android-file-transfer	Linux用のAndroidファイル転送
-widelands	Settlers IIのようなFreeのリアルタイム戦略ゲーム
+widelands	Settlers IIの様なFreeのリアルタイム戦略ゲーム
 wifi-explorer	ワイヤレスネットワークのトラブルシューティング スキャン/画面
 wifi-explorer-pro	ワイヤレスネットワークのトラブルシューティング スキャン/画面
 wifispoof	コンピュータのMACアドレスを変更する
