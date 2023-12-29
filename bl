@@ -1,8 +1,6 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Encode;
-use NDBM_File;
 use Fcntl ':DEFAULT';
 my( $OS_Version,$Locale,%JA );
 chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew) 2>/dev/null) 2>/dev/null` );
@@ -102,7 +100,7 @@ MAIN:{
 
   if( $re->{'JA'} ){
    die " \033[31mNot connected\033[0m\n"
-    if system 'curl -k https://formulae.brew.sh >/dev/null 2>&1';
+    if system 'ping -c1 formulae.brew.sh >/dev/null 2>&1';
    die " Not ja_JP.UTF-8 Locale\n" if $Locale < 2;
     -d "$ENV{'HOME'}/.JA_BREW" ?
      print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW';
@@ -134,7 +132,7 @@ MAIN:{
   }elsif( $re->{'S_M'} ){ $MY_BREW =~ s|(.+)/Homebrew$|$1| if $re->{'LIN'}; m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
     $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
-     ($name->{'CODE'}=find_encoding('utf-8'),$name->{'CODE'}->decode($AR[1])) : defined $AR[1] ? lc $AR[1] : Died_1( $re );
+     ( utf8::decode($AR[1]), $AR[1] ) : defined $AR[1] ? lc $AR[1] : Died_1( $re );
       $name->{'L_OPT'} = $re->{'STDI'} =~ m|^/(.+)/$| ? $1 : "\Q$re->{'STDI'}\E";
        $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
 
@@ -237,7 +235,7 @@ sub Init_1{
 my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
  if( $re->{'NEW'} ){
   die " \033[31mNot connected\033[0m\n"
-   if system 'curl -k https://formulae.brew.sh >/dev/null 2>&1';
+   if system 'ping -c1 formulae.brew.sh >/dev/null 2>&1';
     system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
      print STDERR " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
@@ -382,7 +380,7 @@ my $re = shift;
  }
 }
 
-sub DB_2{
+sub DB_2{ require NDBM_File;
  my $re = shift;
  tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",O_RDONLY,0 or die " Not read DBM $!\n";
  $re->{'OS'} = \%tap;
@@ -1273,7 +1271,7 @@ my( $re,$mem,$dir ) = @_;
   if( $re->{'KEN'} and defined $re->{'L_OPT'} ){
    my( $top,$mee ) = $re->{'MEM'} =~ /^(.{9})(.+)/;
    my( $brew,$vers,$hont ) = split '\t',$mee;
-    if( index($mee,' ==>') == 0 or 
+    if( index($mee,' ==>') == 0 or
         $brew =~ /$re->{'L_OPT'}/i or $vers =~ /$re->{'L_OPT'}/i or $hont and $hont =~ /$re->{'L_OPT'}/i){
      if( index($mee,' ==> ') != 0 and index($mee,'Not Formula') < 0 ){ $re->{'DN'}++;
       if( -t STDOUT ){
@@ -1643,7 +1641,7 @@ sub Format_1{
     ( $re->{'LINK'} > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
     ( $re->{'LINK'} > 5 and $re->{'LINK'} < 8 and $re->{'CAS'} ) ? print" ==> Casks\n" : 0 if $re->{'LINK'};
     ( $re->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
-      print $re->{'CODE'}->encode($re->{'ZEN'}) : print $re->{'ZEN'};
+    ( utf8::encode($re->{'ZEN'}), print $re->{'ZEN'} ) : print $re->{'ZEN'};
     $re->{'ALL'} ? print " item $re->{'AN'} : install $re->{'IN'}\n" :
     $re->{'EXC'} ? print " item $re->{'BN'} : install $re->{'CN'}\n" :
     $re->{'KXC'} ? print " item $re->{'DN'} : install $re->{'DI'}\n" : 0;
