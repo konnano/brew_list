@@ -1153,13 +1153,15 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
      rmdir "$re->{'HOME'}/WAIT" ? waitpid $re->{'PID2'},0 : 0 unless $spa;
 
  unless( $re->{"${brew}undel"} ){
-  if( $re->{'OS'}{"${brew}deps_b"} ){
-   for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){
+  if( $re->{'OS'}{"${brew}deps_b"} ){ my $i = $re->{'OS'}{"${brew}deps_b"} =~ tr/\t/\t/;
+   for my $data(split '\t',$re->{'OS'}{"${brew}deps_b"}){ $i--;
     if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
         not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
        if( $re->{'PP'} ){
-        if( not $re->{'OS'}{"${brew}deps"} ){
+        if( $i and not $re->{'OS'}{"${brew}deps"} ){
+               Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
+        }elsif( not $re->{'OS'}{"${brew}deps"} ){
                Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
         }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
         }
