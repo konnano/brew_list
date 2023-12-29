@@ -2170,7 +2170,7 @@ arq5	マルチクラウドバックアップアプリケーション
 atom-beta	クロスプラットフォームのテキストエディター
 atom-nightly	クロスプラットフォームのテキストエディター
 azure-data-studio-insiders	SQLServerでの作業を可能にするデータ管理ツール
-blender-lts	Freeのオープンソース3D作成スイート
+blender-lts	Freeのオープンソース3D作成セット
 brave-browser-beta	プライバシーに焦点を当てたWebブラウザー
 brave-browser-dev	プライバシーに焦点を当てたWebブラウザー
 brave-browser-nightly	プライバシーに焦点を当てたWebブラウザー
@@ -2250,7 +2250,7 @@ keyboard-maestro8	キーボードMaestro
 kitty-nightly	GPU-basedターミナルエミュレータ
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
 lando-edge	Docker上に構築されたローカル開発環境とDevOpsツール
-libreoffice-still	Freeのクロスプラットフォームオフィススイート
+libreoffice-still	Freeのクロスプラットフォームオフィスセット
 libreoffice-still-language-pack	LibreOfficeの代替言語のコレクション
 little-snitch4	ホストベースのアプリケーションファイアウォール
 local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
@@ -2260,7 +2260,7 @@ mailmate-beta	IMAPメールクライアント
 mi-beta	テキストエディター
 microsoft-edge-beta	マルチプラットフォームのWebブラウザー
 microsoft-edge-dev	マルチプラットフォームのWebブラウザー
-microsoft-office-2016	オフィススイート
+microsoft-office-2016	オフィスセット
 microsoft-office-2019	Officeセット
 microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
 microsoft-openjdk17	MicrosoftからのOpenJDKディストリビューション
