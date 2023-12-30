@@ -1936,7 +1936,6 @@ lbry	分散型ファイル共有及び支払いネットワークであるLBRY�
 league-displays	Leagueディスプレイ
 league-of-legends	マルチプレイヤーオンラインバトルアリーナゲーム
 leanote	Leanote
-leap-motion	LeapMotion
 leapp	クラウド認証情報マネージャー
 lectrote	Electronシェルのインタラクティブフィクションインタプリタ
 ledger-live	複数の暗号通貨を維持する為のウォレットデスクトップアプリケーション
@@ -1964,6 +1963,7 @@ licensed	ソフトウェアライセンスマネージャー
 liclipse	軽量エディター Eclipseのテーマ設定と使いやすさの向上
 lidarr	Sonarrの様な見た目と匂いが音楽の為に作られました
 lifesize	クラウドコンタクトとビデオ会議
+lightburn	laser cutters用のレイアウト/編集/制御ソフトウェア
 lightform	Lightformデバイス用のARプロジェクション及びオーディオ反応性ソフトウェア
 lightgallery	ライトギャラリー
 lighting	通知センターウィジェットを介してLIFXライトを制御するツール
@@ -2609,6 +2609,7 @@ openbb-terminal	オープンソースの投資調査端末
 openbci	OpenBCIハードウェアに接続し 生理学的データを視覚化してストリーミングします
 openboard	双方向ホワイトボードアプリケーション
 openboardview	.brdファイルのファイルビューアー
+opencat	ネイティブAIチャットクライアン
 openconnect-gui	GitLabミラー-グラフィカルOpenConnectクライアント(ベータフェーズ)
 opencore-configurator	OpenCoreEFIブートローダー構成ヘルパー
 opencore-patcher	サポートされていないMacの現在の機能を挿入/パッチするブートローダー
@@ -2879,7 +2880,6 @@ polypane	野心的な開発者の為のブラウザー
 polyphone	楽器を素早くデザインする為のサウンドフォントエディタ
 pomatez	Pomodoroタイマー
 pomello	TrelloカードをPomodoroタスクに変えます
-pomodone	Pomodoro時間追跡
 pomotodo	クリエイター向けの時間管理アプリ
 pomotroid	時計アプリケーション
 pongsaver	自分自身に対してPongのゲームをプレイするスクリーンセーバー
@@ -3224,6 +3224,7 @@ roonbridge	音楽プレーヤーネットワーク拡張
 rosaimagewriter	ROSA ImageWriter
 rotato	試作品生成器とアニメーター3D
 rotki	ポートフォリオ追跡及び会計ツール
+roundpie	Pomodoro時間追跡
 routeconverter	表示するGPSツール 編集/ルートを充実させ変換する/トラックとウェイポイント
 routine	生産的な人々の為のカレンダー
 rowanj-gitx	gitバージョン管理システム用のネイティブグラフィカルクライアント
