@@ -5,7 +5,7 @@ use Fcntl ':DEFAULT';
 
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
-chomp( my $MY_BREW = `dirname \$(dirname \$(command -v brew))` );
+chomp( my $MY_BREW = `command -v brew|sed -E 's/.{9}\$//'` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -51,7 +51,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
    $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
-    $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
+    $MY_BREW = "$MY_BREW/Homebrew" if -d "$MY_BREW/Homebrew";
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
    Dirs_1( "$MY_BREW/Library/Taps",1,0 );
