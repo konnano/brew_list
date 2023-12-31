@@ -202,7 +202,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.20_3\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.20_4\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -234,7 +234,7 @@ sub Init_1{
 my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
  if( $re->{'NEW'} ){ my $op = $re->{'MAC'} ? '-t1' : '-w1';
   die " \033[31mNot connected\033[0m\n"
-   if system "ping $op -c1 -t1 formulae.brew.sh >/dev/null 2>&1";
+   if system "ping $op -c1 formulae.brew.sh >/dev/null 2>&1";
     system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
      print STDERR " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
