@@ -95,14 +95,15 @@ if [[ $2 ]];then
    unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
 
+   export Perl_B=$(command -v brew|sed -E 's/.{9}$//')
+   export Perl_U=$(uname -m)
 perl<<"EOF"
-   if( `uname -m` eq "x86_64\n" and -d '/usr/local/Homebrew' ){
+   if( $ENV{'Perl_U'} eq x86_64 and -d '/usr/local/Homebrew' ){
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }else{
-    chomp( $MY_BREW = `dirname \$(dirname \$(command -v brew))` );
-    $VERS = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
-     $FDIR = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
+    $VERS = 1 if -d "$ENV{Perl_B}/Library/Taps/homebrew/homebrew-cask-versions";
+     $FDIR = 1 if -d "$ENV{Perl_B}/Library/Taps/homebrew/homebrew-cask-fonts";
    }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ next if $hand1 =~ /^\./;
@@ -228,11 +229,10 @@ EOF
    { math_rm; ${die:?curl r error}; }
   fi
  unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
-
+ export Perl_B=$(command -v brew|sed -E 's/.{9}$//')
 perl<<"EOF"
-   chomp( $MY_BREW = `dirname \$(dirname \$(command -v brew))` );
-    $MY_BREW = -d "$MY_BREW/Homebrew" ? $MY_BREW.'/Homebrew' : $MY_BREW;
-     $LFOD = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-linux-fonts";
+    $ENV{Perl_B} = "$ENV{Perl_B}/Homebrew" if -d "$ENV{Perl_B}/Homebrew";
+     $LFOD = 1 if -d "$ENV{Perl_B}/Library/Taps/homebrew/homebrew-linux-fonts";
 
    opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " DIR3 $!\n";
     for $hand3( readdir($dir3) ){ next if $hand3 =~ /^\./;
