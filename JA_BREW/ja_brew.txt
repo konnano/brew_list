@@ -153,7 +153,6 @@ apache-archiva	Artifactリポジトリマネージャーのビルド
 apache-arrow	ビッグデータを高速化する様に設計された列型インメモリ分析レイヤー
 apache-arrow-glib	Apache ArrowのGLib bindings
 apache-brooklyn-cli	Apache Brooklynコマンドラインインターフェイス
-apache-ctakes	EMR臨床テキストから情報を抽出する為のNLPシステム
 apache-drill	Hadoopの為のSchema-free SQLクエリエンジン NoSQL/クラウドストレージ
 apache-flink	Scalableバッチ/ストリームデータ処理
 apache-geode	高速データ処理の為のIn-memory Data Grid
@@ -271,7 +270,6 @@ at-spi2-core	D-Busat-spiの手続き定義とデーモン
 ata	端末のChatGPT
 atari800	Atari8ビットマシンエミュレーター
 atasm	UnixのAtari MAC/65 互換アセンブラ
-aterm	ツリーの様なADT交換の注釈付き用語
 atf	自動テストフレームワーク
 athenacli	AWS AthenaサービスのCLIツール
 atkmm	ATK近接性ツールキットライブラリの公式C++インターフェイス
@@ -817,7 +815,6 @@ cherrybomb	仕様を検証する為に設計されたツール
 cherrytree	リッチテキストと構文の強調表示を特徴とする階層的なメモ取りアプリケーション
 chezmoi	複数の異なるマシン間でdotfileを安全に管理します
 chezscheme	Chez Scheme言語の実装
-chgems	Ruby gemsのChroot
 chibi-scheme	C言語拡張として使用する為の小さなSchemeの足跡
 chicken	Schemeプログラミング言語のコンパイラ
 chinadns-c	ChinaDNSからCへのポート：中国語のDNSの不規則性を修正
@@ -906,7 +903,6 @@ clojure-lsp	ClojureのLanguage Server(LSP)
 clojurescript	JSコンパイラへのClojure
 cloog	Z多面体をスキャンする為のコードを生成する
 closure-compiler	JavaScript最適化コンパイラ
-closure-stylesheets	拡張CSS前処理プログラム、linterと国際化
 cloud-nuke	クラウドリソースを削除(削除)するCLIツール
 cloud-sql-proxy	Cloud SQLインスタンスに安全に接続する為のユーティリティ
 cloud-watch	Amazon CloudWatchコマンドラインツール
@@ -2678,7 +2674,6 @@ include-what-you-use	C/C++ソースファイルの #includesを分析する為�
 incus	Incusと対話する為のCLIクライアン
 indicators	最新のC++の活発なインジケーター
 inetutils	ネットワークのGNUユーティリティ
-infer	静的分析器 Java/C/C++/Objective-C
 influxdb	データベース 時系列/イベント/metrics
 influxdb-cli	InfluxDBv2でリソースを管理する為のCLI
 influxdb@1	データベース 時系列/イベント/metrics
@@ -4469,7 +4464,6 @@ open-zwave	選択したZ-WavePCコントローラーと接続するライブラ�
 open62541	OPC UAのオープンソース実装
 openai-whisper	汎用音声認識モデル
 openal-soft	OpenAL3DオーディオAPIの実装
-openalpr	自動ナンバープレート認識ライブラリ
 openapi-generator	クライアントを生成する OpenAPI仕様(v2/v3)のサーバーとドキュメント
 openblas	最適化されたBLASライブラリ
 opencascade	3Dモデル化及び数値シミュレーションソフトウェア CAD/CAM/CAE
@@ -4795,7 +4789,6 @@ pike	動的プログラミング言語
 piknik	ネットワーク経由で色々 コピー/貼り付け
 pillar	Cassandraデータstoreの移行を管理する
 pillow	親しいPILフォーク(Python Imaging Library)
-pilosa	データセット間でクエリを実行する分散Bitmapインデックス
 pinboard-notes-backup	Pinboardに保存したメモを効率的にバックアップします
 pinentry	Assuan手続きを利用したパスフレーズ入力ダイアログ
 pinentry-mac	MacでのGPGのPinentry
@@ -5158,7 +5151,6 @@ pytouhou	Touhou6エンジンのLibre実装
 pyvim	純粋なPython Vimクローン
 pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
 pyyaml	PythonのYAMLフレームワーク
-q	CSV/TSVファイルでSQLを直接実行する
 qalculate-gtk	多目的デスクトップ計算機
 qalculate-qt	多目的卓上電卓
 qbe	バッグエンドコンパイラ
@@ -5562,7 +5554,6 @@ sdb	CDBに基づくハッシュテーブル Ondisk/メモリ
 sdcc	Intel8051用のANSICコンパイラ マキシム80DS390/ZilogZ80
 sdcv	StarDictコンソールバージョン
 sdedit	連続図表を非常に高速に生成する為のツール
-sdf	構文定義形式：文法の高レベルの説明
 sdl12-compat	舞台裏でSDL2.0を使用するSDL1.2互換性レイヤー
 sdl2	オーディオへの低レベルのアクセス キーボード/マウス/ジョイスティック/グラフィックス
 sdl2_gfx	SDL2グラフィックス描画プリミティブ及びその他のサポート機能
@@ -5998,7 +5989,6 @@ suricata	ネットワークIDS/IPSとセキュリティ監視エンジン
 svg2pdf	SVG画像をPDFファイルに表現します(Cairoを使用)
 svg2png	SVGからPNGへの変換器
 svgbob	アスキーダイアグラムの落書きを幸せな小さなSVGに変換します
-svgcleaner	不要なデータを削除してSVGファイルをクリーンアップします
 svgo	SVGベクターグラフィックファイルを最適化する為のNodejsベースのツール
 svlint	SystemVerilog解析ツール
 svls	SystemVerilog言語サーバー
@@ -6354,7 +6344,6 @@ tut	Vimに影響されたキーを使用したMastodonのTUI
 tvnamer	thetvdb.comからのデータを使用する自動TVエピソードファイルの名前変更
 twarc	TwitterJSONをアーカイブする為のコマンドラインツールとPythonライブラリ
 tweak	コマンドライン ncursesライブラリベースの16進エディタ
-twemcache	memcachedのTwitterフォーク
 twine	PyPIと対話するためのユーティリティ
 twm	Xウィンドウシステムのタブウィンドウマネージャー
 two-lame	最適化されたMPEGオーディオレイヤー2(MP2)エンコーダー
