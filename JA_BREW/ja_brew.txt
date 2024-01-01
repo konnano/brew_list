@@ -122,7 +122,6 @@ angle-grinder	コマンドラインでログファイルをスライス/diceし�
 angular-cli	AngularのCLIツール
 animdl	アニメのダウンローダーとストリーマー
 anime-downloader	お気に入りのアニメをダウンロード
-anjuta	GNOME統合開発環境
 ansible	展開の自動化 構成/アップグレード
 ansible-cmdb	Ansibleファクトから静的HTML概要ページを生成します
 ansible-language-server	Ansibleファイル用の言語サーバー
@@ -2445,6 +2444,7 @@ hadoop	大規模なデータセットの分散処理の為のフレームワー�
 haiti	ハッシュタイプ識別子
 halibut	さらに別でFreeのドキュメント準備システム
 halide	高速でポータブルなデータ並列計算の為の言語
+halp	CLIツール: CLIツールに関するヘルプを表示します
 hamlib	アマチュア無線制御ライブラリ
 handbrake	Linux/Mac/Windows で利用可能なオープンソースのビデオtranscoder
 hapi-fhir-cli	HAPIFHIRライブラリのコマンドラインインターフェイス
@@ -2531,6 +2531,7 @@ homeshick	bashで記述されたGit dotfile同期装置
 homeworlds	BinaryHomeworldsのゲーム用のC++フレームワーク
 honcho	Procfileベースのアプリケーションを管理する為のForemanのPythonクローン
 hopenpgp-tools	OpenPGP関連の操作用のコマンドラインツール
+hopscotch-map	hopscotch hashingを使用した高速ハッシュマップとハッシュセットの、C++実装
 hostdb	hostlist.txtからDNSゾーンとDHCP構成を生成します
 hostess	/etc/hostsのファイルを管理するコマンドラインユーティリティ
 hotbuild	Go用のクロスプラットフォームホットコンパイルツール
@@ -3376,6 +3377,7 @@ libnids	ネットワーク侵入検知システムのEコンポーネントを�
 libnl	ネットリンクライブラリーセット
 libnotify	デスクトップ通知を通知デーモンに送信するライブラリ
 libnova	天体力学 位置天文学と宇宙力学ライブラリ
+libnsbmp	BMP/ICO画像ファイル形式のデコードライブラリ
 libnsl	NIS(YP)/NIS+のパブリッククライアントインターフェイス
 libntlm	MicrosoftのNTLM認証を実装します
 libnxml	解析用のCライブラリ 書き込み/XMLファイルの作成
@@ -4252,6 +4254,7 @@ netmask	IPアドレスネットマスク生成ユーティリティ
 netpbm	画像操作
 netperf	さまざまなタイプのネットワーキングの性能基準比較
 netris	テトリスのネットワーク化された変種
+netsurf-buildsystem	NetSurfプロジェクトによって共有されるMakefile
 nettle	低レベルの暗号化ライブラリ
 nettoe	コンソール用の三目並べの様なゲーム
 networkit	大規模ネットワーク性能分析ツールキット
@@ -5976,6 +5979,7 @@ subfinder	サブドメイン検出ツール
 subliminal	字幕を検索してダウンロードする為のライブラリ
 subnetcalc	IPv4/IPv6サブネット計算機
 subversion	より良いCVSになる様に設計されたバージョン管理システム
+sugarjar	Git/GitHubエクスペリエンスを向上させるヘルパーユーティリティ
 suil	LV2プラグインUIをロード及びラップする為の軽量Cライブラリ
 suite-sparse	Sparse行列ソフトウェアのパッケージ
 sundials	非線形と微分/代数 方程式Solver
@@ -6278,7 +6282,6 @@ tracy	リアルタイム ナノ秒解像度のフレームプロファイラー
 tradcpp	K＆RスタイルのCプリプロセッサ
 trader	スタートレーダー
 traefik	最新の逆プロキシ
-traefik@1	最新の逆プロキシ(v1.7)
 trafficserver	HTTP/1.1準拠のCachingプロキシサーバー
 trafilatura	Webテキスト 検出/抽出/処理
 trafshow	継続的なネットワーク転送量の表示
