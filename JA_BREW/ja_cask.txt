@@ -2019,7 +2019,7 @@ logmein-hamachi	LogMeIn Hamachi
 logos	聖書研究ソフトウェア
 logseq	知識の共有と管理の為のプライバシー第一のオープンソースプラットフォーム
 lookin	iOSビューのデバッグ用アプリ
-lookingglassstudio	Looking Glassで3D画像及びビデオ形式を表示および編集する
+lookingglassstudio	Looking Glassで3D画像及びビデオ形式を表示/編集する
 loom	画面/ビデオ 録画ソフトウェア
 loopback	ケーブルFreeオーディオルーター
 losslesscut	ビデオファイルとオーディオファイルを劣化無しでトリミング
@@ -2565,7 +2565,7 @@ obs-advanced-scene-switcher	OBS Studioの自動シーンスイッチャー
 obs-ndi	OBS Studio用のNewTek NDI統合
 obs-virtualcam	OBSバーチャルカメラ
 obs-websocket	WebSocketを介したOBS Studioのリモートコントロール
-obsbot-webcam	OBSBOT Tiny及びMeetシリーズの構成およびファームウェア更新ユーティリティ
+obsbot-webcam	OBSBOT Tiny及びMeetシリーズの構成及びファームウェア更新ユーティリティ
 obsidian	プレーンテキストのマークダウンファイルのローカルフォルダの上で機能する知識ベース
 ocenaudio	オーディオエディター
 oclint	静的ソースコード分析ツール
@@ -2642,6 +2642,7 @@ openshot-video-editor	クロスプラットフォームのビデオエディタ�
 opensim	Swiftで書かれたSimPholdersのオープンソース代替
 opensong	プレゼンテーションソフトウェア
 opensoundmeter	オーディオシステムをリアルタイムでチューニングする為のサウンド測定アプリケーション
+openthesaurus-deutsch	Apple辞書のドイツ語辞典
 opentoonz	オープンソースのフル機能の2Dアニメーション作成ソフトウェア
 openttd	オープンソースの輸送シミュレーションゲーム
 openvanilla	一般的な入力方法を提供します
