@@ -408,7 +408,7 @@ bat	構文の強調表示とGit統合を備えたcat(1)のクローン
 bat-extras	batをさまざまなコマンドラインツールと統合するBashスクリプト
 batik	SVG画像のJavaベースのツールキット
 bats-core	Bash自動テストシステム
-bazarr	字幕を管理及びダウンロードする為の Sonarrおよび Radarrのコンパニオン
+bazarr	字幕を管理及びダウンロードする為の Sonarr/Radarrのコンパニオン
 bazel	Google独自のビルドツール
 bazel-diff	Gitの2つのリビジョン間でBazel Target Diffingを実行します
 bazel-remote	Bazelのリモートキャッシュ
@@ -1338,7 +1338,7 @@ dnsrobocert	DNSチャレンジに基づいて Let's Encrypt SSL証明書を管�
 dnstop	DNS転送量を分析する為のコンソールツール
 dnstracer	DNSサーバーのチェーンをソースまでトレースします
 dnstwist	typo squatting為にドメインをテストする フィッシング/企業スパイ
-dnsviz	DNS及びDNSSECの動作を分析および視覚化する為のツール
+dnsviz	DNS/DNSSECの動作を分析および視覚化する為のツール
 dnsx	DNSクエリ/解決ツール
 doc8	Sphinxドキュメントのスタイルチェッカー
 docbook	技術文書の標準SGML表現システム
@@ -1818,7 +1818,7 @@ forgit	ターミナルでのインタラクティブなgitコマンド
 fork-cleaner	GitHubアカウントの古くて非アクティブなフォークをクリーンアップします
 form	記号操作システム
 format-udf	ブロックデバイスをUDFにフォーマットする為のBashスクリプト
-fortio	HTTP及びgRPC負荷テストおよび視覚化ツールとサーバー
+fortio	HTTP/gRPC負荷テスト及び視覚化ツールとサーバー
 fortls	Fortran言語サーバー
 fortran-language-server	Fortran用言語サーバー
 fortune	悪名高い電子フォーチュンクッキー発生器
@@ -2111,7 +2111,7 @@ gitfs	バージョン管理されたファイルシステム
 gitg	gitリポジトリを表示する為のGNOMEGUIクライアント
 github-keygen	ブートストラップGitHub SSH構成
 github-markdown-toc	GitHub README.mdの簡単な目次作成(移動中)
-github-release	Githubでリリースを作成及び編集します(およびアーティファクトをアップロードします)
+github-release	Githubでリリースを作成及び編集します(及びアーティファクトをアップロードします)
 gitlab-ci-local	gitlabパイプラインをシェルexecutor又はドッカーexecutorとしてローカルで実行する
 gitlab-gem	RubyクライアントとGitLabAPIのCLI
 gitlab-runner	公式GitLabCIランナー
@@ -2237,7 +2237,7 @@ gobuster	Goで書かれたDNS bustingツール ディレクトリ/ファイル
 gocloc	少し速いLoCカウンター
 gocr	光学式文字認識(OCR)、画像をテキストに変換します
 gocryptfs	Goで記述された暗号化され隠されたファイルシステム
-goctl	Web及びRPCサービスのサーバー側およびクライアント側のコードを生成します
+goctl	Web及びRPCサービスのサーバー側及びクライアント側のコードを生成します
 goenv	GOバージョン管理
 goffice	数値スプレッドシートプログラム
 gofish	クロスプラットフォームシステムパッケージマネージャー
@@ -2378,7 +2378,7 @@ gsasl	SASLライブラリのコマンドラインインターフェイス
 gsettings-desktop-schemas	デスクトップコンポーネントのGSettingsスキーマ
 gsl	C/C++の数値ライブラリ
 gsmartcontrol	smartctlのグラフィカルユーザーインターフェイス
-gsoap	C/C++のSOAP stubおよび骨格コンパイラ
+gsoap	C/C++のSOAP stub及び骨格コンパイラ
 gspell	GTK+アプリケーションにスペルチェックを実装する為の柔軟なAPI
 gssdp	SSDPを介したリソースの検出とアナウンスの為のGUPnPライブラリ
 gssh	Groovy DSLに基づくSSH自動化ツール
@@ -6113,7 +6113,7 @@ teller	Goに組み込まれた開発者向けの秘密管理ツール
 telnet	TELNET手続きのユーザーインターフェイス
 telnetd	TELNETサーバー
 template-glib	GLibのGNOMEテンプレートライブラリ
-temporal	Temporal Server及びUIを実行および操作する為のコマンドラインインターフェイス
+temporal	Temporal Server及びUIを実行/操作する為のコマンドラインインターフェイス
 temporal_tables	テンポラルテーブルPostgreSQL機能拡張
 tendermint	任意のプログラミング言語のアプリケーション用のBFT状態マシンレプリケーション
 tengo	Goの高速スクリプト言語
@@ -6763,7 +6763,7 @@ xcb-util-cursor	XCBカーソルライブラリ(libXcursorの代わり)
 xcb-util-image	XlibのXImage及びXShmImageのXCBポート
 xcb-util-keysyms	標準のX定数とキーコードとの間の変換
 xcb-util-renderutil	XRender機能拡張の便利な機能
-xcb-util-wm	EWMH/ICCCMのクライアントおよびウィンドウマネージャーヘルパー
+xcb-util-wm	EWMH/ICCCMのクライアント及びウィンドウマネージャーヘルパー
 xcbeautify	xcodebuildの小さな美化ツール
 xcdiff	xcodeprojファイルを比較するツール
 xcenv	Xcodeバージョンマネージャー
