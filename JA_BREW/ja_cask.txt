@@ -1379,7 +1379,6 @@ ghost-browser	Webブラウザー
 ghosttile	実行中のアプリケーションをDockから非表示にする
 gifcapture	GifCapture
 gifox	画面を記録するアプリ
-gifrocket	ビデオからGIFを作成する為のツール
 gimp	Freeのオープンソース画像エディター
 gingko	構造と内容を表示するワードプロセッサ
 gisto	(チーム)共有オプションを備えたスニペット管理デスクトップアプリケーション
@@ -2753,7 +2752,6 @@ paw	APIのテストと説明に役立つHTTPクライアント
 pb	プッシュ通知を取得する為の非公式のPushbulletデスクトップアプリ
 pcoipclient	VMエージェント及びリモートワークステーションカード用のクライアント
 pd	マルチメディア用のビジュアルプログラミング言語
-pd-extended	Pd拡張
 pd-l2ork	コンピュータ音楽及びマルチメディアアプリケーションのプログラミング環境
 pdf-converter-master	PDF変換マスター
 pdf-expert	PDFリーダー/エディター/注釈
@@ -2813,6 +2811,7 @@ pieces-os	Pieces for Developersセットを強化する ローカルデータス
 piezo	オーディオレコーディングアプリケーション
 pika	画面上の色のカラーピッカー
 pikopixel	ピクセルアートエディター
+pile	デジタルジャーナリングアプリ
 pine	ネイティブマークダウンエディター
 pineapple	Pineapple
 pinegrow	Webエディター
@@ -3090,7 +3089,6 @@ racket	Lisp/Scheme ファミリーの最新のプログラミング言語
 radar	メニューバーから重要な指標を確認する
 radarr	Couchpotatoの映画で作業するSonarrのフォーク
 radiant-player	Google Playミュージックのアプリラッパー
-radicle-upstream	コード協調用のp2pスタックであるRadicle用のデスクトップクライアント
 radio-silence	ネットワークモニターとファイアウォール
 raindropio	オールインワンのブックマークマネージャー
 rambox	Freeのオープンソースメッセージング及び電子メールアプリ
@@ -3526,7 +3524,6 @@ sparkle	Cocoa開発者向けのソフトウェア更新フレームワーク
 sparkleshare	Gitリポジトリと即座に同期するツール
 sparkplate	人間が判読できるドメインを暗号化アドレスに解決する為のテストページを備えています
 sparrow	Bitcoinウォレットアプリケーション
-spatial	Improbable SpatialOSプラットフォームとの相互作用の為のバイナリ
 spatterlight	ほとんどの種類の双方向フィクションゲームファイルを再生する
 spechtlite	ルールベースのプロキシ
 spectacle	ウィンドウの移動とサイズ変更が簡単
@@ -3814,7 +3811,6 @@ tidgi	個人知識ベースアプリ
 tiger-trade	取引プラットフォーム
 tigerjython	Jythonベースの教育プログラミング環境
 tigervnc-viewer	マルチプラットフォームVNCクライアント及びサーバー
-tikz-editor	TikZエディター
 tikzit	PGF/TikZ ダイアグラムエディター
 tiled	柔軟なレベルエディター
 tiles	ウィンドウマネージャー
