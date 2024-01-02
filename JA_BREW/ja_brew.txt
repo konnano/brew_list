@@ -2832,6 +2832,7 @@ joplin-cli	同期機能を備えたメモ取りとToDoアプリケーション
 jose	Javascriptオブジェクトの署名と暗号化のC言語実装
 joshua	統計的機械翻訳デコーダー
 joshuto	Rustで書かれたRanger-likeターミナルファイルマネージャー
+jot	端末の迅速なメモ管理
 jove	Viの様なメモリを備えたEmacsスタイルのエディタ CPU/サイズ定義
 jp	JSONデータからのデッドシンプルターミナルプロット
 jp2a	JPG画像をASCIIに変換する
@@ -3556,6 +3557,7 @@ libvorbis	Vorbis一般オーディオ圧縮コーデック
 libvpx	VP8/VP9 ビデオコーデック
 libvterm	VT220/xtermターミナルエミュレータを実装するC99ライブラリ
 libwandevent	イベント駆動型プログラムを開発する為のAPI
+libwapcaplet	文字列抑留ライブラリ
 libwbxml	WBXMLドキュメントを解析及びエンコードする為のライブラリとツール
 libwebm	WebMコンテナ
 libwebsockets	C websocketsサーバーライブラリ
@@ -5545,7 +5547,6 @@ scriptcs	C#を記述して実行する為のツール
 scriptisto	コンパイル済み言語でスクリプトを作成する為の言語に依存しない"shebang interpreter"
 scrollkeeper	スクロールキーパーの移行パッケージ
 scrub	データ回復を阻止する為に磁気メディアにパターンを書き込みます
-scry	Crystalプログラミング言語用のコード分析サーバー
 scrypt	メモリハードパスワード機能を使用してファイルを暗号化/復号化します
 scs	演算子分割による円錐の最適化
 scummvm	グラフィックアドベンチャーゲームの通訳
