@@ -2292,7 +2292,6 @@ gotop	gtopとvtopに触発されたターミナルベースのグラフィカル
 gotpm	TPM 2.0を使用する為のCLI
 gource	バージョン管理視覚化ツール
 govc	VMwarev Sphereのコマンドラインツール
-govendor	Goの依存関係をベンダー化する為のツール
 govulncheck	Go脆弱性データベース用のデータベースクライアントとツール
 gowsdl	WSDL2Goコード生成とそのSOAPプロキシ
 gox	クロスコンパイルツールに移動します
@@ -3549,7 +3548,6 @@ libvisual	オーディオ視覚化ツールとライブラリ
 libvisual-plugins	オーディオ視覚化ツールとライブラリ
 libvisual-projectm	LibvisualのprojectMサポート用の可視化プラグイン
 libvmaf	multi-methodフュージョンに基づく知覚ビデオ品質評価
-libvnc	VNCサーバー/クライアントを簡単に実装する為のクロスプラットフォームCライブラリ
 libvncserver	VNCサーバー及びクライアントライブラリ
 libvo-aacenc	VisualOnAACエンコーダライブラリ
 libvoikko	言語ソフトウェアとフィンランド語辞書
@@ -3986,6 +3984,7 @@ minizip-ng	minizip1.x互換性レイヤーを備えたZipファイル操作ラ�
 mint	Swiftコマンドラインツールパッケージをインストールして実行する依存関係マネージャー
 minuit2	関数最小化の為の物理分析ツール
 miruo	Pretty-print TCPセッション モニター/分析
+mise	Polyglotランタイムマネージャー(asdf Rustクローン)
 mist-cli	macOS ファームウェア/インストーラーを自動的にダウンロードする Macコマンドラインツール
 mit-scheme	Scheme開発ツールとランタイムライブラリ MIT/GNU
 mitie	情報抽出の為のライブラリとツール
@@ -5434,7 +5433,6 @@ rtmpdump	RTMPストリーミングメディアをダウンロードする為の�
 rtorrent	libtorrent-rakshasaに基づくNcursesBitTorrentクライアント
 rtptools	RTPデータを処理する為のツールのセット
 rttr	C++リフレクションライブラリ
-rtx	Polyglot ランタイム マネージャー(asdf rustクローン)
 rubberband	オーディオタイム伸張ツールとライブラリ
 ruby	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby-build	さまざまなRubyバージョンと実装をインストールします
@@ -6497,6 +6495,7 @@ veclibfort	AppleのvecLibに対するGNU Fortranの互換性
 vectorscan	高性能正規表現マッチングライブラリ
 vecx	Vectrexエミュレーター
 vegeta	HTTP負荷テストツールとライブラリ
+veilid	さまざまなデータを簡単に共有できるピアツーピアネットワーク
 velero	Kubernetesリソースと永続ボリュームの災害からの回復
 vera++	C++ソースコード用のプログラム可能なツール
 verapdf	業界でサポートされているオープンソースのPDF/A検証
