@@ -1746,6 +1746,7 @@ jandi	JANDIコラボレーションプラットフォームのデスクトップ
 jandi-statusbar	ステータスバーのGithubコントリビューション
 jasp	統計分析アプリケーション
 jasper	GitHubの問題リーダー
+jaspersoft-studio	JasperReports用のEclipseベースのレポート開発ツール
 jazz2-resurrection	Jazz Jackrabbit 2ゲームエンジンのオープンソース再実装
 jazzup	入力時に効果音を再生します
 jbrowse	Genomeブラウザー
@@ -3800,7 +3801,6 @@ thunderbird	カスタマイズ可能なメールクライアント
 thyme	タスクタイマー
 ti-connect-ce	グラフ電卓のTI-84Plusファミリ用の接続ソフトウェア
 ti-smartview-ce-for-the-ti-84-plus-family	TI-84 Plusファミリ用のTI SmartView CEエミュレータソフトウェア
-tibco-jaspersoft-studio	JasperReports用のEclipseベースのレポート開発ツール
 tic80	作る為のファンタジーコンピュータ 小さなゲームをプレイして共有する
 tickeys	入力時に音声フィードバックを生成する為のユーティリティ
 ticktick	やること&タスクリストマネージャー
