@@ -95,8 +95,8 @@ if [[ $2 ]];then
    unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
 
-   export Perl_B=$(command -v brew|sed -E 's/.{9}$//')
-   export Perl_U=$(uname -m)
+   export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
+   export Perl_U=$(echo ${MACHTYPE%%-*})
 perl<<"EOF"
    if( $ENV{'Perl_U'} eq x86_64 and -d '/usr/local/Homebrew' ){
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
@@ -229,7 +229,7 @@ EOF
    { math_rm; ${die:?curl r error}; }
   fi
  unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
- export Perl_B=$(command -v brew|sed -E 's/.{9}$//')
+ export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
 perl<<"EOF"
     $ENV{Perl_B} = "$ENV{Perl_B}/Homebrew" if -d "$ENV{Perl_B}/Homebrew";
      $LFOD = 1 if -d "$ENV{Perl_B}/Library/Taps/homebrew/homebrew-linux-fonts";
