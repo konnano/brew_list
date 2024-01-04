@@ -1378,6 +1378,7 @@ doggo	人々の為のコマンドラインDNSクライアント
 doitlive	ライブ発表用に保存されたシェルコマンドを再生する
 dolphie	MySQLを監視する為の機能豊富なトップツール
 dolt	データのGit
+doltgres	Postgres用Dolt
 dooit	TUI todoマネージャー
 dopewars	"Drug War"をベースにしたゲームのFreeリライト
 doppler	Doppler secretsと設定を操作する為のCLI
@@ -6588,6 +6589,7 @@ vulkan-loader	Vulkan ICDローダー
 vulkan-tools	Vulkanユーティリティとツール
 vulkan-utility-libraries	Vulkanのユーティリティライブラリ
 vulkan-validationlayers	開発者がVulkan APIの正しい使用を検証できる様にするVulkanレイヤー
+vulkan-volk	Vulkan APIのメタローダー
 vulsio-gost	ローカルCVE、トラッカー及ぶ通知システム
 vultr	Vultrのコマンドラインツール
 vulture	死んだPythonコードを見つける
