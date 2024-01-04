@@ -72,7 +72,7 @@ MAIN:{
      $re->{'LFOD'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-linux-fonts";
   $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
    $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
-    $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
+    $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
@@ -2368,7 +2368,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
+   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
     $MY_BREW = "$MY_BREW/Homebrew" if -d "$MY_BREW/Homebrew";
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
