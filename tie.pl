@@ -3,9 +3,9 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
-chomp( my $MY_BREW = `command -v brew|sed -E 's/.{9}\$//'` );
+my $UNAME = `echo \${MACHTYPE%%-*}` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
+chomp( my $MY_BREW = `command -v brew|sed 's|/bin/brew\$||'` );
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
