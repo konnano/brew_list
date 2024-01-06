@@ -461,7 +461,7 @@ biber	BibLaTeXのバックエンド計算機
 bibtex2html	BibTeXからHTMLへの変換器
 bibtexconv	BibTeXファイル変換器
 bibutils	参考文献変換ユーティリティ
-bic	C 解釈プログラム及びAPIエクスプローラー
+bic	C解釈プログラム及びAPIエクスプローラー
 bigloo	オブジェクトシステム、C、Javaインターフェイスを使用したSchemeの実装
 bilix	️libiliなどの超高速非同期ダウンロード ツール
 binaryen	WebAssemblyの基礎構造コンパイラとtoolchainライブラリ
@@ -578,7 +578,7 @@ bsdiff	パッチを生成してバイナリファイルに適用します
 bsdmake	MakeビルドツールのBSDバージョン
 bsdsfv	SFVユーティリティツール
 btfs	FUSEに基づくBitTorrentファイルシステム
-btop	リソースモニター。C++バージョンとbashtop及びbpytopの続き
+btop	リソースモニター、C++バージョンとbashtop及びbpytopの続き
 btparse	BibTeXユーティリティライブラリ
 btpd	Bit Torrent手続きデーモン
 btrfs-progs	btrfsファイルシステムを管理する為のユーザー空間ユーティリティ
@@ -1084,7 +1084,7 @@ crf++	連続データを セグメント化/ラベル付け する為の条件�
 crfsuite	条件付きランダムフィールドの高速実装
 cri-tools	Kubelet Container Runtime Interface(CRI)のCLI及び検証ツール
 crispy-doom	ChocolateDoomに基づく制限を削除する拡張解像度のDoomソースポート
-criterion	21世紀のクロスプラットフォームC及びC++ユニットテストフレームワーク
+criterion	21世紀のクロスプラットフォーム、C/C++ユニットテストフレームワーク
 crm114	調査/並べ替え ログ/データストリームのフィルタリングまたは変更
 croaring	C(C++)での轟音ビットマップ
 croc	あるコンピュータから別のコンピュータに物を安全に送る
@@ -1338,7 +1338,7 @@ dnsrobocert	DNSチャレンジに基づいて Let's Encrypt SSL証明書を管�
 dnstop	DNS転送量を分析する為のコンソールツール
 dnstracer	DNSサーバーのチェーンをソースまでトレースします
 dnstwist	typo squatting為にドメインをテストする フィッシング/企業スパイ
-dnsviz	DNS/DNSSECの動作を分析および視覚化する為のツール
+dnsviz	DNS/DNSSECの動作を分析及び視覚化する為のツール
 dnsx	DNSクエリ/解決ツール
 doc8	Sphinxドキュメントのスタイルチェッカー
 docbook	技術文書の標準SGML表現システム
@@ -1556,7 +1556,7 @@ enchive	暗号化された個人のアーカイブ
 enet	UDPの上にネットワーク通信層を提供します
 enex2notion	Evernote ENEXファイルを Notionにインポートする
 enigma	OxydとRock'n'Rollに触発されたパズルゲーム
-enkits	並列プログラムを作成する為のC及びC++タスクスケジューラ
+enkits	並列プログラムを作成する為の、C/C++タスクスケジューラ
 enpass-cli	Enpassコマンドラインクライアント
 enscript	テキストを変換して Postscript/HTML/RTF 構文を強調表示します
 ensmallen	効率的な数学的最適化の為の柔軟なC++ライブラリ
@@ -2549,7 +2549,7 @@ hspell	Free ヘブライ言語プロジェクト
 hss	対話的な並列SSHクライアント
 hstr	Bashとzshの履歴のbox提案
 ht	実行可能ファイルの Viewer/editor/analyzer
-html-xml-utils	HTML及びXMLファイルを操作する為のツール
+html-xml-utils	HTML/XMLファイルを操作する為のツール
 html2text	高度なHTMLからテキストへの変換器
 htmlcleaner	Javaで書かれたHTMLパーサー
 htmlcompressor	HTML/XMLを縮小する
@@ -2903,6 +2903,7 @@ k2tf	KubernetesYAMLからTerraformHCLへの変換器
 k3d	DockerでLab's k3sランチャーを実行する為の小さなヘルパー
 k3sup	ローカル/リモートのVM上にk3sクラスターを作成するユーティリティ
 k6	GoとJavaScriptを使用した最新の負荷テストツール
+k8sgpt	簡単な英語でのk8sクラスターの、スキャン/診断/問題の優先順位付け
 k9s	クラスターをスタイリッシュに管理する為のKubernetes CLI！
 kafka	オープンソースの分散イベントストリーミングプラットフォーム
 kahip	Karlsruhe高品質パーティショニング
@@ -4021,7 +4022,7 @@ mmsrip	MMS：//手続きのクライアント
 mmtabbarview	PSMTabBarControlの最新のview-basedの書き換え
 mmv	複数のファイルを 移動/コピー/追加/リンク
 moar	人々の使用に便利なPager
-moarvm	NQP及びRakudo Perl6の仮想マシン
+moarvm	NQP/Rakudo Perl6の仮想マシン
 mobiledevice	Appleのプライベート(クローズド)モバイルデバイスフレームワークのCLI
 moc	ターミナルベースの音楽プレーヤー
 mockery	Golangの模擬コード自動生成機能
@@ -4412,7 +4413,7 @@ octosql	さまざまなファイル形式やデータベースのデータを分
 ode	関節式剛体力学の模擬検証
 odin	シンプル、性能、最新のシステムに焦点を当てたプログラミング言語
 odo	コマンドライン用の原子走行距離計
-odo-dev	Kubernetes及びOpenShift用の開発者向けCLI
+odo-dev	Kubernetes/OpenShift用の開発者向けCLI
 odpi	ドライバ/アプリケーション用のOracleデータベース・プログラミング・インタフェース
 odt2txt	OpenDocumentファイルをプレーンテキストに変換する
 offlineimap	2つのリポジトリ間でメールを同期します
@@ -4693,7 +4694,7 @@ pdal	ポイントデータ抽象化ライブラリ
 pdf-diff	2つのPDFファイルの違いを視覚化するツール
 pdf2djvu	PDFファイルからDjVuファイルを作成する
 pdf2image	PDFを画像に変換する
-pdf2json	PDFからJSON及びXMLへの変換器
+pdf2json	PDFからJSON/XMLへの変換器
 pdf2svg	SVGへのPDF変換器
 pdfalyzer	PDF分析ツールキット
 pdfcpu	Goで書かれたPDF計算機
@@ -4704,7 +4705,7 @@ pdfrip	マルチスレッドPDFパスワードクラッキングユーティリ�
 pdfsandwich	スキャンしたファイルからOCR PDFを合成する
 pdftilecut	PDFページを小さなページに分割して、プリント出来る様にします
 pdftk-java	Javaでのpdftkのポート
-pdftohtml	PDFファイルをHTML及びXML形式に変換するユーティリティ
+pdftohtml	PDFファイルをHTML/XML形式に変換するユーティリティ
 pdftoipe	任意のPDFファイルを読み取りIpeで読み取り可能なXMLファイルを生成します
 pdm	PEP582をサポートする最新のPythonパッケージマネージャー
 pdns	信頼出来るネームサーバー
@@ -4769,7 +4770,7 @@ php@8.1	汎用スクリプト言語
 php@8.2	汎用スクリプト言語
 phpbrew	HOMEで純粋なPHPでPHPバージョンを作成及び管理する
 phpmd	PHP Mess Detector
-phpmyadmin	MySQL及びMariaDBのWebインターフェース
+phpmyadmin	MySQL/MariaDBのWebインターフェース
 phpstan	PHP静的分析ツール
 phpunit	PHPのプログラマー指向のテストフレームワーク
 phrase-cli	Phrase APIと対話する為のツール
@@ -5481,7 +5482,7 @@ sad	CLI 検索と置換 | Space Age seD
 saf-cli	セキュリティ自動化フレームワーク(SAF)CLI
 safe-rm	ファイルの危険な削除を防ぐ為にrmをラップします
 safeint	整数オーバーフローを管理するC++用のクラスライブラリ
-sagittarius-scheme	FreeのR6RS及びR7RSをサポートするSchemeの実装
+sagittarius-scheme	FreeのR6RS/R7RSをサポートするSchemeの実装
 sail	WordPressアプリケーションを提供しDigitalOceanに展開する為のCLIツールキット
 saldl	速度と早期プレビュー用に最適化されたCLIダウンローダー
 salt-lint	SaltStackのベストプラクティスを確認してください
@@ -6435,6 +6436,7 @@ urdfdom_headers	Unified Robot Description Format(URDF)パーサーのヘッダ�
 urh	汎用ラジオハッカー
 uriparser	URI解析ライブラリ(厳密にRFC 3986に準拠)
 urlfinder	Webサイト上のJSファイルからURLとサブドメインを抽出する
+urlscan	電子メールメッセージ又はファイル内のURLを表示/選択します
 urlview	URLエクストラクタ/ランチャー
 urlwatch	Webページが変更されたときに通知を受け取る
 uru	複数のプラットフォームで複数のRubyを使用する
