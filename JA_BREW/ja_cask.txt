@@ -1572,7 +1572,7 @@ hp-easy-start	HPプリンターをセットアップする
 hp-eprint	モバイルプリントソリューション
 hp-prime	グラフ電卓エミュレータ
 hstracker	Hearthstoneのデッキ監視及びデッキマネージャー
-html-mangareader	完全な連続スクロールを備えた軽量のオフラインCBZ/CBR及び画像ビューア
+html-mangareader	完全な連続スクロールを備えた軽量のオフラインCBZ/CBR/画像ビューア
 http-toolkit	HTTP（S）デバッグプロキシ/分析/クライアント
 httpie	デスクトップ用HTTPie
 hubstaff	作業時間監視
@@ -2068,7 +2068,6 @@ macfuse	ファイルシステム統合
 macgamestore	ゲームを購入/ダウンロード/ゲームプレイ
 macgdbp	実行中のPHPアプリケーションのライブで双方向なデバッグ
 macgesture	グローバルなマウスジェスチャーを設定するユーティリティ
-macgpt	会話モードとインラインモードでChatGPTに簡単にアクセスできるメニューバーアプリ
 machacha	アーカイブを小さな部分に分割し要求に応じて結合します
 machg	MacHg
 machoexplorer	Mach-O実行可能ファイルエクスプローラー
@@ -3576,7 +3575,7 @@ squirrelsql	JDBC準拠のデータベースの構造を表示する為のグラ�
 ssdreporter-free	SSDヘルスモニタリングツール
 ssh-config-editor	OpenSSH sshクライアント構成ファイルを管理する為のツール
 ssh-tunnel-manager	SSHトンネルマネージャー
-ssokit	TCP及びUDPデバッグツール
+ssokit	TCP/UDPデバッグツール
 stack	ファイルを保存、表示、共有する為の個人用オンラインハードドライブ
 stack-stack	すべての生産性アプリを1か所から管理する為のワークスペース
 stand	1時間に1回立ち上がる様に通知します
@@ -4116,6 +4115,7 @@ vysor	スマートフォンをミラーリングして制御する
 wacom-inkspace	Wacomインクスペース
 wacom-tablet	ワコムタブレットのリソース
 wail	Webアーカイブ統合レイヤー：ワンクリックのユーザー主導の保存
+wakatime	自動時間追跡のためのシステムトレイアプリ
 wallpaper-wizard	調整可能な壁紙アプリケーション
 waltr	Appleデバイス用のメディア直接転送ツール
 waltr-heic-converter	HEICからJPEGへの画像変換器をドラッグアンドドロップします
