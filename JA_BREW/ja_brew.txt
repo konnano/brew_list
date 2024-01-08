@@ -1116,6 +1116,7 @@ csshx	Terminal.appのクラスターsshツール
 cstore_fdw	Postgresを使用した分析用の列指向store
 csview	CLIの高性能CSV Viewer
 csvkit	CSVに変換して操作する為の一連のコマンドラインツール
+csvlens	コマンドラインCSVビューア
 csvprintf	CSVファイルを解析する為のコマンドラインユーティリティ
 csvq	csvのSQLの様なクエリ言語
 csvtk	Golangのクロスプラットフォームで効率的かつ実用的なツールキット CSV/TSV
@@ -2952,6 +2953,7 @@ killswitch	MacOS用のVPNキルスイッチ
 kim-api	原子間モデル(KIM)APIの知識ベース
 kimwitu++	ツリー(つまり用語)を処理する為のツール
 kind	DockerでローカルKubernetesクラスターを実行する
+kiota	OpenAPIベースの、HTTPクライアントコード生成器
 kitchen-completion	kitchenのBash補完
 kitchen-sync	ダンプ及びリロードすることなく、データベースを高速で効率的に同期します
 kitex	マイクロサービス用のGolang RPCフレームワーク
