@@ -1061,7 +1061,8 @@ elpass	パスワードマネージャー
 emacs	テキストエディター
 emacsclient	emacsでのorg-captureを容易にする Chrome/Firefox拡張機能
 emailchemy	メールの移行、変換、アーカイブ　ソフトウェア
-emby-server	ほぼすべてのデバイスにアプリを搭載したパーソナルメディアサーバー
+emby	embyメディアサーバーのクライアント
+embyserver	ほぼすべてのデバイスにアプリを備えたパーソナルメディアサーバー
 emclient	メールクライアント
 eme	マークダウンエディター
 emmetapp	ウィンドウマネージャーとウィンドウサイズ変更ツールのタイリングとスタッキング
@@ -1589,6 +1590,7 @@ hyperbackupexplorer	Synology NASからのバックアップデータ
 hypercal	スケジュールとタスクを1つのビューに結び付けるプライバシー最優先のカレンダー
 hyperkey	CapsLockキー/修飾キーのいずれかをハイパーキーに変換します
 i1profiler	写真家やデザイナーの為の自動化とクリエイティブなコントロール
+ia-presenter	Markdownドキュメントからプレゼンテーションスライドを作成する
 ibabel	iBabel
 ibackup	バックアップユーティリティ
 ibackup-viewer	iPhoneバックアップからデータを抽出する
@@ -1802,6 +1804,7 @@ jumpshare	ファイル共有/画面録画 とスクリーンショットキャ�
 jupyter-notebook-ql	JupyterノートブックQuick Look
 jupyter-notebook-viewer	Jupyterノートブックをレンダリングするユーティリティ
 jupyterlab	JupyterLab用のデスクトップアプリケーション
+jyutping	広東語のジュッピン入力方法
 kactus	デザイナーの為の真のバージョン管理ツール
 kakapo	オープンソースの常用サウンドミキサー
 kaku	Kaku
@@ -2919,6 +2922,7 @@ preform	3D印刷のセットアップ、管理、監視
 prefs-editor	'defaults'コマンドのグラフィカルユーザーインターフェイス
 prepros	Web開発コンパニオン
 presentation	PDFスライド用のツール
+prettyclean	使いやすいディスク クリーンアップ ツール
 pretzel	クリエイター向けのDMCA-safe音楽
 prezi-classic	PreziプレゼンテーションSaaS用のデスクトップクライアント
 prezi-next	プレゼンテーションソフトウェア
