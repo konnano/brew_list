@@ -4207,6 +4207,7 @@ ncc	Node.jsプロジェクトを単一のファイルにコンパイルします
 ncdc	NCurses直接接続
 ncdu	Ncursesのディスク使用量
 ncftp	高度なユーザーインターフェイスを備えたFTPクライアント
+ncmdump	Netease Cloud Musicのncmファイルを、mp3/flacファイルに変換します
 ncmpc	Curses Music Player Daemon(MPD)クライアント
 ncmpcpp	Music PlayerDaemonのNcursesベースのクライアント
 ncnn	高性能神経ネットワーク推論フレームワーク
@@ -5446,6 +5447,7 @@ ruby@2.6	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@2.7	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@3.0	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@3.1	オブジェクト指向のスクリプト言語 強力/クリーン
+ruby@3.2	オブジェクト指向のスクリプト言語 強力/クリーン
 rubyfmt	Rubyオート整形ツール
 ruff	Rustで書かれた非常に高速なPython解析ツール
 ruff-lsp	Ruffの言語サーバープロトコルの実装
