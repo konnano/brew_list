@@ -571,7 +571,6 @@ brogue	Roguelikeゲーム
 brook	クロスプラットフォームの強力な暗号化と検出できないプロキシ ゼロ構成
 broot	ディレクトリツリーを表示及びナビゲートする新しい方法
 brotli	Googleによる汎用で損失の無い圧縮アルゴリズム
-browser	HTMLをブラウザにパイプする
 brpc	より良いRPCフレームワーク
 bsdconv	文字セット/エンコーディング 変換ライブラリ
 bsdiff	パッチを生成してバイナリファイルに適用します
@@ -598,7 +597,6 @@ bundler-completion	BundlerのBash補完
 bundletool	Androidアプリバンドルを操作する為のコマンドラインツール
 bup	バックアップツール
 bupstash	簡単で効率的な暗号化されたバックアップ
-burl	curl(1)の便利なショートカットを提供するシェルスクリプトラッパー
 burp	ネットワークのバックアップと復元
 burst	基数ソート 遅延範囲と反復子など Boost の様なヘッダーのみのライブラリ
 busted	エレガントなLua単体テスト
@@ -5249,7 +5247,9 @@ rargs	パターンマッチングをサポートするxargs + awkの様なユー
 rarian	ドキュメントメタデータライブラリ
 rasqal	RDFクエリライブラリ
 ratfor	Rational Fortran
+rathole	NATトラバーサル用のリバースプロキシ
 rats	セキュリティの為の大まかな監査ツール
+rattler-build	ユニバーサルcondaパッケージビルダー
 rav1e	最速で最も安全なAV1ビデオエンコーダー
 raven	CI/CDのリスク分析と脆弱性の列挙
 rawgl	別世界の為に書き直されたエンジン
@@ -5939,6 +5939,7 @@ staticcheck	Goプログラミング言語の最先端の静的解析ツール
 statik	開発者向けのPythonベースの汎用静的Webサイト発生器
 statix	nixプログラミング言語のヒントと提案
 stdman	cppreference.comからのフォーマットされたC++ stdlibのマニュアルページ
+steamguard-cli	steamguardのCLI
 steampipe	SQLを使用してクラウドサービスを即座にクエリする
 stella	Atari 2600VCSエミュレーター
 stellar-core	Stellar(XLM)ネットワークのバックボーン
@@ -6940,6 +6941,7 @@ zimg	拡大縮小 色空間変換/ディザリングライブラリ
 zinit	柔軟で高速なZshプラグインマネージャー
 zint	50以上のシンボル体系をサポートするBarcodeエンコーディングライブラリ
 zip	圧縮及びファイルのユーティリティ パッケージ/アーカイブ
+zipkin	Zipkin形式で記述されたトレースを収集して視覚化する
 zita-convolver	高速なパーティション畳み込みエンジンライブラリ
 zix	C99の移植性とデータ構造ライブラリ
 zk	プレーンテキストのメモ取りアシスタント
