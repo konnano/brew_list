@@ -196,6 +196,7 @@ appzapper	不要なアプリケーションとそのサポートファイルを�
 aptakube	モダン 軽量でマルチクラスターのKubernetesデスクトップクライアント
 aptanastudio	Aptana Studio
 aptible	Aptible Deployのコマンドラインツール 監査対応のアプリ導入プラットフォーム
+aqua	テスト作成環境
 aqua-data-studio	データ管理と視覚分析を備えたデータベースIDE
 aquamacs	GNU Emacsに基づくテキストエディター
 aquaskk	AquaSKK
@@ -2145,6 +2146,7 @@ mark-text	テキストをマークする
 markdown-service-tools	マークダウン形式のテキストのサービスのコレクション
 markdownmdimporter	Markdown Spotlightプラグイン
 marked	Markdownのプレビューア MultiMarkdown及びその他のテキストマークアップ言語
+markedit	マークダウンエディタ
 markright	ライブプレビュー付きの電子駆動マークダウンエディター
 mars	MipsアセンブリとRuntimeミュレーター
 marsedit	書く為のツール ブログのプレビューと公開
@@ -3707,6 +3709,7 @@ tableflip	マークダウンファイルを編集するアプリ
 tableplus	リレーショナルデータベース用のネイティブGUIツール
 tabtopus	WebブラウザータブURLエクスポータ
 tabula	PDFファイル内に閉じ込められたデータテーブルを解放する為のツール
+taccy	アプリケーションの署名とプライバシーの問題のトラブルシューティング
 tachidesk-sorayomi	マンガリーダー
 tad	表形式のデータを表示及び分析する為のデスクトップアプリケーション
 tag	音楽タグエディター
