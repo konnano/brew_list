@@ -2232,6 +2232,7 @@ hyper-canary	Webテクノロジーに基づいて構築されたターミナル
 inso-beta	CLI HTTP及びGraphQLクライアント
 insomnia-alpha	HTTP及びGraphQLクライアント
 intellij-idea-ce19	Java開発用IDE-コミュニティ版
+intellij-idea-eap	IntelliJ IDEA早期アクセスプログラム
 intellij-idea19	JVM言語用のIDE
 istat-menus5	iStatsメニュー
 iterm2-beta	Appleターミナルアプリの代替ターミナルエミュレータ
