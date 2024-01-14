@@ -620,6 +620,7 @@ c-kermit	UNIX及びVMSのスクリプト可能なネットワークの順番通�
 c10t	Minecraftの地図作成ツール
 c2048	2048のコンソールバージョン
 c2rust	CコードをRustに移行する
+c3c	C3言語用コンパイラ
 c7n	クラウドセキュリティの為のRuleエンジン コスト最適化/ガバナンス
 ca-certificates	Mozilla CA証明書store
 cabal-install	Cabal及びHackageのコマンドラインインターフェイス
@@ -2486,6 +2487,7 @@ helidon	Helidonアプリケーション開発用のコマンドラインツー�
 helix	ポストモダンのモーダルテキストエディタ
 hello	GNUコーディング標準と実践の為のモデルを提供するプログラム
 helm	Kubernetesパッケージマネージャー
+helm-ls	Helm用の言語サーバー
 helmfile	Kubernetes展開するHelm チャート
 helmify	Kubernetes yamlからHelmチャートを作成する
 helmsman	コードツールとしてのHelmチャート
