@@ -1512,6 +1512,7 @@ font-noto-serif-toto	Noto Serif Toto
 font-noto-serif-vithkuqi	歴史的なヨーロッパの vithkuqi文字のデザイン
 font-noto-serif-yezidi	Noto Serif Yezidi
 font-noto-traditional-nushu	Noto Traditional Nushu
+font-noto-znamenny-musical-notation	Noto Znamenny 楽譜
 font-nova-cut	Nova Cut
 font-nova-flat	Nova Flat
 font-nova-mono	Nova Mono
@@ -1656,6 +1657,10 @@ font-profontx	ProFontX
 font-proggy-clean-tt-nerd-font	ProggyCleanTT オタクフォントファミリー(ProggyCleanTT)
 font-prompt	Prompt
 font-prosto-one	Prosto One
+font-protest-guerrilla	strikeのStencilバージョン
+font-protest-revolution	抗議革命
+font-protest-riot	抗議暴動
+font-protest-strike	堅実だが穏やかな、sans serif書体
 font-proza-libre	Proza Libre
 font-pt-mono	PT Mono
 font-pt-sans	PT Sans
