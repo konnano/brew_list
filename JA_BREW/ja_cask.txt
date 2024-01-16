@@ -2569,7 +2569,7 @@ obs-advanced-scene-switcher	OBS Studioの自動シーンスイッチャー
 obs-ndi	OBS Studio用のNewTek NDI統合
 obs-virtualcam	OBSバーチャルカメラ
 obs-websocket	WebSocketを介したOBS Studioのリモートコントロール
-obsbot-webcam	OBSBOT Tiny及びMeetシリーズの構成及びファームウェア更新ユーティリティ
+obsbot-center	OBSBOT Tiny/Meetシリーズ用の設定及びファームウェア更新ユーティリティ
 obsidian	プレーンテキストのマークダウンファイルのローカルフォルダの上で機能する知識ベース
 ocenaudio	オーディオエディター
 oclint	静的ソースコード分析ツール
@@ -3352,6 +3352,7 @@ sfdx	SalesForce CLIツール
 sfm	Sing-box用のスタンドアロンクライアント、ユニバーサルプロキシプラットフォーム
 shades	Shades
 shadow	クラウドテクノロジーを搭載したゲーミングPC
+shadow-bot	ロボットによるプロセスオートメーションへの応用
 shadowsocksx	規制に従って削除
 shadowsocksx-ng	ShadowsocksX-NG
 shadowsocksx-ng-r	次世代のShadowsocksX
@@ -4338,6 +4339,7 @@ zesarux	ZXマシンエミュレータ
 zettelkasten	Luhmannによるノートボックス
 zettlr	オープンソースのマークダウンエディター
 zight	ビジュアルコミュニケーションプラットフォーム
+znote	メモを取るアプリ
 zoc	プロフェッショナルSSHクライアント及びターミナルエミュレータ
 zoho-docs	Zoho Docsとの間でファイルを同期する
 zoho-mail	メールクライアント
