@@ -650,7 +650,6 @@ camellia	Cで書かれた画像処理と画像認識ライブラリ
 camlp-streams	Camlp4とCamlp5で使用するストリームとGenlexライブラリ
 camlp5	OCaml 前処理プログラムとpretty-printer
 canfigger	単純な構成ファイルパーサーライブラリ
-cap-completion	CapistranoのBash補完
 capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
 caracal	スマートコントラクト用の静的アナライザー
@@ -2061,6 +2060,7 @@ git-fresh	gitリポジトリを最新の状態に保つ為のユーティリテ�
 git-ftp	Gitを利用したFTPクライアント
 git-game	誰がどのコミットを行ったかを推測する為のgit用ゲーム
 git-gerrit	Gerritコードレビューヘルパースクリプト
+git-grab	ドメインとパスごとに編成された標準の場所に、Gitリポジトリのクローンを作成します
 git-gui	gitリビジョン管理システムのTcl/Tk UI
 git-hooks-go	Gitフックマネージャー
 git-hound	機密データのコミットを防ぐGitプラグイン
@@ -3382,6 +3382,7 @@ libnl	ネットリンクライブラリーセット
 libnotify	デスクトップ通知を通知デーモンに送信するライブラリ
 libnova	天体力学 位置天文学と宇宙力学ライブラリ
 libnsbmp	BMP/ICO画像ファイル形式のデコードライブラリ
+libnsgif	GIF画像ファイル形式のデコードライブラリ
 libnsl	NIS(YP)/NIS+のパブリッククライアントインターフェイス
 libntlm	MicrosoftのNTLM認証を実装します
 libnxml	解析用のCライブラリ 書き込み/XMLファイルの作成
@@ -5430,6 +5431,7 @@ rst-lint	ReStructuredText静的解析ツール
 rswift	強い型を取得、画像などの自動補完されたリソース フォント/segues
 rsync	高速増分ファイル転送を提供するユーティリティ
 rsync-time-backup	rsyncを使用した端末のTimeMachineスタイルのバックアップ
+rsyncy	rsyncの、ステータス/進行状況バー
 rsyslog	強化されたマルチスレッドsyslogd
 rtags	clangフロントエンドを備えたctagsの様なソースコード相互参照
 rtaudio	リアルタイムオーディオ入力/出力用のAPI
@@ -5593,6 +5595,7 @@ selenium-server	テスト目的のブラウザ自動化
 semgrep	コードベースのバグやアンチパターンを簡単に検出して防止します
 semtag	gitのセマンティックタグ付けスクリプト
 sendemail	SMTPメールを送信する為の電子メールプログラム
+senpai	最新の端末IRCクライアント
 sentencepiece	無監督テキストトークナイザーとデトークンライザー
 seqkit	Golangでの FASTA/Qファイル操作の為のクロスプラットフォーム/超高速ツールキット
 seqtk	FASTA/Q形式で配列を処理する為のツールキット
@@ -6156,6 +6159,7 @@ terragrunt-atlantis-config	Terragruntプロジェクト用の Atlantis構成を�
 terrahelp	Terraformに追加機能を提供するツール
 terrahub	Terraform自動化及びオーケストレーションツール
 terramate	変更検出とコード生成によるTerraformスタックの管理
+terrapin-scanner	Terrapin攻撃の脆弱性スキャナー
 terrascan	基礎構造全体の整合性及びセキュリティ違反をコードとして検出する
 tesseract	OCR(光学式文字認識)エンジン
 tesseract-lang	Tesseractの追加言語サポートを有効にします
@@ -6269,6 +6273,7 @@ tomee-plus	TomEE WebプロファイルとJAX-RSのすべてに加えて、
 tomee-webprofile	All-Apache Java EE 7Webプロファイルスタック
 toml-test	TOML パーサー用の言語に依存しないテストセット
 toml11	最新のC++用のTOML
+tomlplusplus	C++17用のヘッダーのみの。TOML構成ファイル パーサー及びシリアライザー
 toot	Mastodon CLI＆TUI
 topgit	Gitパッチキューマネージャー
 topgrade	すべてのものをアップグレードする
