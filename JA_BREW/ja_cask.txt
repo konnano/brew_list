@@ -553,7 +553,6 @@ charles	Webデバッグプロキシアプリケーション
 charlessoft-timetracker	時間追跡
 chatall	ChatGPT/Bing Chat/Bard/Claude/ChatGLM などで同時にチャットできます
 chatbox	GPT-4/GPT-3.5 用デスクトップアプリ(OpenAI API)
-chatmate-for-facebook	Facebookメッセンジャークライアント
 chatmate-for-whatsapp	WhatsAppのChatMate
 chatology	チャットマネージャーとメッセージ検索ソフトウェア
 chatterino	https://twitch.tvのチャットクライアント
@@ -751,7 +750,6 @@ creepy	位置情報OSINTツール
 crescendo	リアルタイムイベントビューア
 criptext	プライバシーを中心に構築されたメールサービス
 cro-mag-rally	Pangea Softwareの先史時代をテーマにした3Dレーシングゲーム
-cron	専門家やチームの為の日程表
 cronnix	CronniX
 crossover	Windowsソフトウェアを実行する為のツール
 crosspack-avr	AtmelのAVR®マイクロコントローラーの開発環境
@@ -925,6 +923,7 @@ dockx	ドックとメニューバーにコンテンツを表示する
 dogecoin	暗号通貨
 doll	メニューバーのドックからアプリのバッジを表示するユーティリティ
 dolphin	ゲームキューブとWiiのゲームをプレイするエミュレーター
+domzilla-caffeine	システムがスリープ状態になるのを防ぐユーティリティ
 doomsday-engine	Doomの拡張ソースポート Heretic/Hexen
 doppler	音楽プレーヤー
 dosbox	DOSを使用したx86用エミュレーター
@@ -2532,6 +2531,7 @@ notes-better	マークダウンとkanbanの為のシンプルなメモアプリ
 notesnook	プライバシー重視のメモ作成アプリ
 noti	Androidデバイスからの通知を表示するユーティリティ
 notion	書くアプリ 予定/協調/整理
+notion-calendar	プロフェッショナルとチーム向けのカレンダー
 notion-enhanced	オールインワンの生産性ワークスペースnotion.soのエンハンサー/カスタマイザー
 noto	シンプルなプレーンテキストエディター
 notunes	iTunesやApple Musicの起動を妨げるシンプルなアプリケーション
@@ -3787,6 +3787,7 @@ the-unarchiver	アーカイブファイルを解凍します
 the-unofficial-homestuck-collection	WebコミックHomestuckのオフラインビューア
 thebrain	マインドマッピングと個人知識ベースソフトウェア
 thedesk	PC用のクライアント Mastodon/Misskey
+theiaide	IDEフレームワーク
 themeengine	コンパイルされた.carファイルを編集するアプリ
 there	チーム内の人々の現地時間を表示するツール
 therm	優れたデフォルトと最小限の機能を持つことを目的としたiTerm2のフォーク
