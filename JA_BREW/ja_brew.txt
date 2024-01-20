@@ -3494,6 +3494,7 @@ libsoxr	高品質の1次元サンプルレート変換ライブラリ
 libspatialite	SQLiteに空間SQL機能を追加します
 libspectre	Postscriptドキュメントを解釈する為の小さなライブラリ
 libspectrum	ZXSpectrumエミュレーターのサポートライブラリ
+libspelling	GTK4用のスペルチェックライブラリ
 libspiro	曲線の描画を簡素化するライブラリ
 libspnav	3Dconnexionの3D入力デバイスに接続する為のクライアントライブラリ
 libspng	PNG形式のファイルを読み書きする為のCライブラリ
