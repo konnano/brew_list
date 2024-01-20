@@ -3919,6 +3919,7 @@ truhu	ディスプレイ調整ユーティリティ
 trunk-io	Trunkランチャー
 tsh	分散インフラストラクチャを管理するチーム向けのSSHサーバー
 ttscoff-mmd-quicklook	MMD-QuickLook
+ttu-base-suite	Teradataクライアントツールのコレクション
 tuck	ウィンドウマネージャー
 tuist	Xcodeプロジェクトを大規模に作成/維持/操作する
 tunein	Freeのインターネットラジオ
