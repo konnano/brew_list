@@ -5542,6 +5542,7 @@ scip	混合整数計画法及び混合整数非線形計画法のソルバー
 scipy	数学の為のソフトウェア 理科/エンジニアリング
 scm-manager	Gitを管理する Mercurial/HTTPを介したSubversionリポジトリ
 scmpuff	一般的なgitコマンドに番号付きのショートカットを追加します
+scnlib	最新のC++用のScanf
 scons	autoconf/automake 機能を備えた従来の'make'ツールの代わりに使用する
 scorecard	オープンソースのセキュリティヘルスmetrics
 scotch	グラフ分割用パッケージ グラフクラスタリング/スパースmatrixの順序付け
