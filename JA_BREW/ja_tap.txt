@@ -1616,6 +1616,7 @@ font-playfair-display-sc	Playfair Display SC
 font-playpen-sans	細いフォントから太いフォントまでの太さの範囲を持つ可変フォント
 font-playwrite-co	Playwrite CO
 font-playwrite-fr-trad	Playwrite FR Trad
+font-playwrite-gb-s	Playwrite GB S
 font-plemol-jp	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-hs	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-nf	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
@@ -1637,8 +1638,6 @@ font-poprumcute	現代の昭和風の日本語フォント
 font-port-lligat-sans	Port Lligat Sans
 font-port-lligat-slab	Port Lligat Slab
 font-porter-sans-block	Porter Sans Block
-font-post-no-bills-colombo	Post No Bills Colombo
-font-post-no-bills-jaffna	Post No Bills Jaffna
 font-potta-one	ブラシレタリングに触発された文字形式を特徴とするシングルスタイルフォントファミリ
 font-powerline-symbols	Powerline Symbols
 font-pragati-narrow	Pragati Narrow
