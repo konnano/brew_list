@@ -1662,6 +1662,7 @@ inloop-qlplayground	inloop-qlplayground
 input-source-pro	多言語ユーザー向けのツール
 inso	CLIHTTP/GraphQL クライアント
 insomnia	HTTP/GraphQL クライアント
+insomnium	HTTP及びGraphQLクライアント
 inssider	遅いwifiを無効化する
 insta360-studio	ビデオと写真の編集
 install-disk-creator	起動可能なシステムインストールディスクを作成するユーティリティ
