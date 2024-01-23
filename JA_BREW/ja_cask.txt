@@ -2052,6 +2052,7 @@ lynkeos	天文Webカメラ画像処理ソフトウェア
 lynx	クロスプラットフォームのプレゼンテーションと生産性アプリ
 lynxlet	ターミナルウィンドウでLynxを起動する
 lyrics-master	歌詞を見つけてダウンロードする
+lyricsfinder	歌詞を検索してダウンロードする
 lyricsx	iTunesの歌詞 Spotify/Vox/Audirvana Plus
 lyx	LaTeX植字システムに基づくオープンソースのGUIドキュメントプロセッサ
 m3unify	ファイルエクスポータ及びM3Uプレイリストクリエータ
