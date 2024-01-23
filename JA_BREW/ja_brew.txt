@@ -3642,6 +3642,7 @@ lighttpd	足跡の小さなメモリ、柔軟なWebサーバー
 lilv	LV2プラグインを使用するCライブラリ
 lilypond	音楽彫刻プログラム
 lima	Linux仮想マシン
+limesuite	LimeSDRのデバイスドライバーユーティリティとインターフェイス層
 lincity-ng	都市シミュレーションゲーム
 link-grammar	Carnegie Mellon Universityのリンク文法パーサー
 linkerd	linkerdと対話する為のコマンドラインユーティリティ
