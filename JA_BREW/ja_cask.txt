@@ -379,6 +379,7 @@ bisq	分散型ビットコイン交換ネットワーク
 bit-fiddle	10進数に変換します 16進数/2進数/ASCII文字
 bit-slicer	ユニバーサルゲームトレーナー
 bitbar	メニューバーに任意のスクリプト又はプログラムからの出力を表示するユーティリティ
+bitbox	最新のスイス製ハードウェアウォレットでコインを保護
 bitcoin-core	ビットコインクライアントとウォレット
 bitmessage	P2P通信手続き
 bitrix24	ビジネス向けのオンラインワークスペース
@@ -478,6 +479,7 @@ btp	SAPビジネステクノロジープラットフォーム用のCLI
 bubo	壊れたBluetoothヘッドセットコントロールを修正
 buckets	予算編成ツール
 bugdom	Pangea Softwareのバグをテーマにした3Dアクション/アドベンチャー ゲーム
+bugdom2	Pangea Softwareによるバグをテーマにした 3D アクション/アドベンチャー ゲームの続編
 buildsettingextractor	Xcodeビルド設定エクストラクタ
 bunch	自動化ツール
 bunqcommunity-bunq	bunq APIの非公式デスクトップアプリケーション
@@ -2495,6 +2497,7 @@ nifty	Niftyプロジェクト管理プラットフォームのデスクトップ
 niftyman	メニューバーから概念ツールにアクセスします
 nightfall	ダークモードを切り替える為のメニューバーユーティリティ
 nightingale	Songbirdのコミュニティフォークの作業ツリー
+nightshade	AIモデルの学習に適さない画像を作成するツール
 nimble-commander	Dual-paneファイルマネージャー
 nimblenote	キーボードによるメモを取る
 nimbus	独立型IRCCloudデスクトップクライアント
