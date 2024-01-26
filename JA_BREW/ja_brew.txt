@@ -4514,6 +4514,7 @@ openjdk@11	Javaプログラミング言語用の開発キット
 openjdk@17	Javaプログラミング言語用の開発キット
 openjdk@8	Javaプログラミング言語用の開発キット
 openjpeg	JPEG-2000画像操作用ライブラリ
+openjph	JPEG2000 Part-15(又は JPH/HTJ2K)のオープンソース実装
 openkim-models	kim-apiと互換性のあるすべてのOpenKIMモデル
 openldap	ディレクトリソフトウェアのオープンソースパッケージ
 openliberty-jakartaee8	Javaの軽量オープンフレームワーク(Jakarta EE 8)
