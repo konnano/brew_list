@@ -94,10 +94,12 @@ font-anek-tamil	Anek Tamil
 font-anek-telugu	Anek Telugu
 font-angkor	Angkor
 font-anka-coder	Anka/Coder
+font-annapurna-sil	デヴァナガリ文字を使用するシステムをサポートするUnicodeベースのフォント
 font-annie-use-your-telescope	Annie Use Your Telescope
 font-anonymice-nerd-font	Anonymice Nerd Font(Anonymous Pro)
 font-anonymice-powerline	Anonymice Powerline
 font-anonymous-pro	Anonymous Pro
+font-anta	特にグラフィック デザインだけでなく、ブランディング プロジェクトにも適しています
 font-antic	Antic
 font-antic-didone	Antic Didone
 font-antic-slab	Antic Slab
@@ -869,6 +871,7 @@ font-italiana	Italiana
 font-italianno	Italianno
 font-itim	Itim
 font-jaapokki	Jaapokki
+font-jacquarda-bastarda-9	Jacquarda Bastarda 9
 font-jacques-francois	Jacques Francois
 font-jacques-francois-shadow	Jacques Francois Shadow
 font-jaldi	Jaldi
@@ -1146,6 +1149,7 @@ font-metropolis	モダンで幾何学的な書体
 font-miama	Miama
 font-miao-unicode	MiaoUnicode
 font-michroma	Michroma
+font-micro-5	プロジェクトのどこにでも収まる小さな書体
 font-migmix-1m	MigMix 1M
 font-migmix-1p	MigMix 1P
 font-migmix-2m	MigMix 2M
