@@ -6183,6 +6183,7 @@ textql	テキストファイル全体でSQLを実行します
 textract	さまざまな種類のファイルからテキストを抽出する
 texttest	テキストベースの承認テスト用ツール
 tf-profile	Terraformの実行をプロファイルする為のCLIツール
+tfautomv	Terraformの移動ブロックを自動的に生成して簡単にリファクタリングを実現
 tfel	数値力学の材料知識に特化したコード生成ツール
 tfenv	rbenvに触発されたTerraformバージョンマネージャー
 tfk8s	KubernetesYAMLマニフェストからTerraformHCLへの変換器
