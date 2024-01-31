@@ -2132,6 +2132,8 @@ font-yusei-magic	手書き文字をベースにした視認性の高いフォン
 font-zcool-kuaile	ZCOOL KuaiLe
 font-zcool-qingke-huangyou	ZCOOL QingKe HuangYou
 font-zcool-xiaowei	ZCOOL XiaoWei
+font-zed-mono	Iosevka に基づく準プロポーショナル等幅フォント
+font-zed-sans	Iosevka に基づく準プロポーショナルsans-serifフォント
 font-zen-antique	Zen Antique
 font-zen-antique-soft	Zen Antique Soft
 font-zen-dots	zenフォントコレクションの3つのラテンフォントの1つ
