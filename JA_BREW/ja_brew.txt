@@ -2620,6 +2620,7 @@ ice	包括的なRPCフレームワーク
 icecast	ストリーミングMP3オーディオサーバー
 icecream	ビルド負荷を共有する為の中央スケジューラーを備えた分散コンパイラー
 icemon	Icecream GUIモニター
+icloudpd	iCloudから写真をダウンロードするツール
 icon	汎用プログラミング言語
 icon-naming-utils	デスクトップアイコンテーマのアイコン名を処理するスクリプト
 iconsur	MacOS BigSurアダプティブアイコン発生器
