@@ -612,6 +612,7 @@ cleaneronepro	オールインワンクリーナーアプリ
 cleanmymac	ディスクから不要なファイルやフォルダを削除するツール
 cleanmymac-zh	中国語版ディスクから不要なファイルやフォルダを削除するツール
 cleanshot	画面キャプチャツール
+cleanupbuddy	キーボードとトラックパッドをきれいにする
 cleartext	テキストエディター
 clementine	音楽プレーヤーとライブラリーのまとめ
 clibor	クリップボードマネージャー
@@ -998,6 +999,7 @@ eaglefiler	ファイルを整理する 電子メールをアーカイブする W
 ealeksandrov-cd-to	ターミナルで現在のディレクトリを開く為のFinderツールバーアプリ
 ears	インスタントオーディオス切り替え
 easy-move-plus-resize	修飾キーとマウスドラッグを使用した移動とサイズ変更をサポートするユーティリティ
+easydevo	コーディング用に構築されたエレガントなツール
 easydict	辞書と翻訳アプリ
 easyeda	PCB設計ツール
 easyfind	ファイルを探す フォルダ又は任意のファイルの内容
