@@ -1227,6 +1227,7 @@ ddgr	ターミナルからのDuckDuckGo
 ddh	高速複製ファイルファインダー
 ddns-go	シンプルで使いやすいDDNS
 ddrescue	GNUデータ回復ツール
+deadfinder	壊れたリンクを見つけます
 deark	古い形式のファイル変換ユーティリティ
 debianutils	Debianに固有のその他のユーティリティ
 debugbreak	プログラムでデバッガに侵入する
@@ -1777,6 +1778,7 @@ flow	JavaScriptの静的型チェッカー
 flow-cli	Flowアプリケーションを構築する為のユーティリティを提供するコマンドラインインターフェイス
 flow-tools	NetFlowデータ報告の収集、送信、処理、生成
 flowgrind	iperf/netperfに似たTCP測定ツール
+flowpipe	クラウドスクリプトエンジン
 fltk	クロスプラットフォームのC++ GUIツールキット
 fluent-bit	高速で軽量のログとmetrics計算機
 fluid-synth	SoundFont2仕様に基づくリアルタイムソフトウェアシンセサイザー
@@ -2260,7 +2262,6 @@ google-benchmark	C++ microbenchmark サポートライブラリ
 google-java-format	Google Javaスタイルに準拠する様にJavaソースコードを再フォーマットします
 google-sparsehash	非常にメモリ効率の高いhash_mapの実装
 google-sql-tool	一般的なSQLステートメントを実行する為のコマンドラインツール
-googler	コマンドラインからのGoogle検索とニュース
 googletest	Googleテスト/模擬フレームワーク
 goolabs	日本語を形態学的に分析する為のコマンドラインツール
 goose	データベース移行の為のGo Languageのコマンドラインインターフェース
@@ -2450,7 +2451,6 @@ hapi-fhir-cli	HAPIFHIRライブラリのコマンドラインインターフェ�
 haproxy	信頼性の高い高性能ロードバランサー TCP/HTTP
 harbour	ポータブルでxBase互換のプログラミング言語
 harfbuzz	OpenTypeテキスト成形エンジン
-haruhi-dl	youtube-dlのフォーク、更新の高速で安定したストリームをもたらすことに焦点を当てています
 has	パス上のさまざまなコマンドラインツールとそのバージョンの存在を確認します
 hashcash	denial-of-service(DoS)攻撃に対抗する為のProof-of-workアルゴリズム
 hashcat	世界最速かつ最先端のパスワード回復ユーティリティ
@@ -4132,6 +4132,7 @@ mspdebug	MSP430 MCUで使用するデバッガー
 mstch	最新のC++を使用した{{mustache}}テンプレートの完全な実装
 mt32emu	Multi-platformソフトウェアシンセサイザー
 mtbl	不変のソートされた文字列テーブルライブラリ
+mtm	マイクロターミナルマルチプレクサ
 mtoc	Mach-Oから PE/COFF のバイナリ変換器
 mtools	MSDOSファイルを操作する為のツール
 mtr	単一のツールでの'traceroute'と'ping'
