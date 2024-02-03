@@ -2180,6 +2180,7 @@ arq5	マルチクラウドバックアップアプリケーション
 atom-beta	クロスプラットフォームのテキストエディター
 atom-nightly	クロスプラットフォームのテキストエディター
 azure-data-studio-insiders	SQLServerでの作業を可能にするデータ管理ツール
+beyond-compare-beta	ファイルとフォルダーを比較する
 blender-lts	Freeのオープンソース3D作成セット
 brave-browser-beta	プライバシーに焦点を当てたWebブラウザー
 brave-browser-dev	プライバシーに焦点を当てたWebブラウザー
@@ -2392,6 +2393,7 @@ wine-staging	Windowsアプリケーションを実行する為の互換性レイ
 xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 xmind-beta	マインドマップとブレインストーミングツール
 xmind8	マインドマッピングとブレーンストーミングツール
+zed-preview	マルチプレイヤーコードエディター
 zotero-beta	研究ソースを収集、整理、引用、共有する
 zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
