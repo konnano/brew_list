@@ -2408,6 +2408,7 @@ multiviewer-for-f1	F1TVの非公式デスクトップクライアント
 mumble	オープンソース/低遅延 ゲーム用の高品質ボイスチャットソフトウェア
 mumu	Mumu
 mumu-x	GPT-3 AIを利用した同義語を利用して絵文字や記号を検索します
+mumuplayer	Androidエミュレータ
 munki	ソフトウェアインストールマネージャー
 munkiadmin	Munkiリポジトリを管理する為のツール
 mural	ビジュアルオンライン協力的プラットフォーム
@@ -2548,6 +2549,7 @@ novabench	コンピューターのパフォーマンスをすばやくテスト�
 now-tv-player	ビデオストリーミングサービスプレーヤー
 noxappplayer	モバイルゲームをプレイする為のAndroidエミュレーター
 nozbe	プロジェクト管理アプリ
+nrfutil	Nordic Semiconductor製品用の統合CLIユーティリティ
 nrlquaker-winbox	MikroTik Winbox
 nslogger	最新の柔軟なロギングツール
 nsregextester	NSRegexTester
