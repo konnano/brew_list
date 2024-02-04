@@ -2044,6 +2044,7 @@ luminance-hdr	HDRイメージングのワークフローを提供します
 lunacy	グラフィックデザインソフトウェア
 lunar	外部ディスプレイの適応輝度
 lunar-client	Minecraft 1.7.10/1.8.9 用のModpack
+lunarbar	メニューバーの旧暦
 lunasea	メディアソフトウェア用のオープンソースのself-hostedリモコン
 luniistore	私の素晴らしいストーリーテラーの為のユーティリティ
 luxmark	OpenCLベンチマーク
