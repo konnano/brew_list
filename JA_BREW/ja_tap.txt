@@ -952,6 +952,7 @@ font-klee-one	Klee One
 font-knewave	Knewave
 font-ko-pub-batang	Ko Pub Batang
 font-kodchasan	Kodchasan
+font-kode-mono	Kode Mono
 font-koh-santepheap	本文用のKhmerフォント
 font-koho	KoHo
 font-kokoro	心
