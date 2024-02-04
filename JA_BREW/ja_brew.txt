@@ -5997,6 +5997,7 @@ subliminal	字幕を検索してダウンロードする為のライブラリ
 subnetcalc	IPv4/IPv6サブネット計算機
 subversion	より良いCVSになる様に設計されたバージョン管理システム
 sugarjar	Git/GitHubエクスペリエンスを向上させるヘルパーユーティリティ
+sui	Moveプログラミング言語を活用した次世代スマートコントラクトプラットフォーム
 suil	LV2プラグインUIをロード及びラップする為の軽量Cライブラリ
 suite-sparse	Sparse行列ソフトウェアのパッケージ
 sundials	非線形と微分/代数 方程式Solver
