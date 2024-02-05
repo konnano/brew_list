@@ -2476,7 +2476,7 @@ unless( $ARGV[0] ){
      }
 
       if( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
-         $data =~ s/^(\d\.)/0$1/;
+          $data = "0$data" if index($data,'.') == 1;
          if( $re->{'MAC'} and $data gt $Xcode ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
@@ -2493,7 +2493,7 @@ unless( $ARGV[0] ){
            $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
          } next;
       }elsif( $data =~ s/^\s*depends_on\s+xcode:\s*"([^"]+)".*\n/$1/ ){
-        $data =~ s/^(\d\.)/0$1/;
+          $data = "0$data" if index($data,'.') == 1;
          if( $re->{'MAC'} and $data gt $Xcode ){
            $tap{"${name}un_xcode"} = 1;
             $tap{"$name$OS_Version2"} = 0;
