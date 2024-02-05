@@ -2332,7 +2332,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  unless( $ARGV[0] ){
   $Xcode = `CC=\$(xcode-select -p);cat \${CC%/*}/version.plist 2>/dev/null|
             sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;}'`||0;
-  $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
+  $re->{'CLANG'} = `/usr/bin/clang --version|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
   %MAC_OS = ('sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
              'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
