@@ -247,6 +247,7 @@ asimov	TimeMachineバックアップから開発の依存関係を自動的に�
 asio	非同期プログラミング用のクロスプラットフォームC++ライブラリ
 asitop	Apple Silicon用パフォーマンス監視CLIツール
 ask-cli	AlexaスキルキットのCLIツール
+asmfmt	Goアセンブラーフォーマッタ
 asn	組織検索及びサーバーツール (ASN/IPv4/IPv6/プレフィックス/AS パス)
 asn1c	ASN.1仕様をCソースコードにコンパイルします
 asnmap	ASN情報を使用して組織のネットワーク範囲を迅速にマッピング
@@ -1897,6 +1898,7 @@ fx	コマンドラインJSON処理ツール
 fypp	Pythonを利用したFortran前処理プログラム
 fzf	Goで記述されたコマンドラインあいまい検索ツール
 fzy	高度な採点アルゴリズムを備えた高速でシンプルなあいまいテキストセレクター
+g-ls	強力なクロスプラットフォームのls
 g2	親しいgitクライアント
 g2o	グラフ最適化の一般的なフレームワーク
 g3log	非同期でクラッシュセーフで使いやすいロガー
@@ -2486,6 +2488,7 @@ helidon	Helidonアプリケーション開発用のコマンドラインツー�
 helix	ポストモダンのモーダルテキストエディタ
 hello	GNUコーディング標準と実践の為のモデルを提供するプログラム
 helm	Kubernetesパッケージマネージャー
+helm-docs	Helmチャートのマークダウンドキュメントを自動生成するツール
 helm-ls	Helm用の言語サーバー
 helmfile	Kubernetes展開するHelm チャート
 helmify	Kubernetes yamlからHelmチャートを作成する
@@ -2952,6 +2955,7 @@ killport	特定のポートでリッスンしているプロセスを強制終�
 killswitch	MacOS用のVPNキルスイッチ
 kim-api	原子間モデル(KIM)APIの知識ベース
 kimwitu++	ツリー(つまり用語)を処理する為のツール
+kin	正常なPBXProjファイル
 kind	DockerでローカルKubernetesクラスターを実行する
 kiota	OpenAPIベースの、HTTPクライアントコード生成器
 kitchen-completion	kitchenのBash補完
