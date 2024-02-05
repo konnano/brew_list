@@ -507,6 +507,7 @@ sub m_search{
        $si .= getc; last if substr($si,-1) eq 'R';
    }
     my( $rows,$cols ) = $si =~ /^\[(\d+);(\d+)R$/;
+   ( $rows,$cols ) = split ' ',`stty size` unless $rows and $cols;
    $rows,$cols;
   }
 }
