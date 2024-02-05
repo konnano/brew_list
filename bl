@@ -94,7 +94,7 @@ MAIN:{
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die "echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)\n"
    unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
-    my $Lc = $ENV{LC_ALL} || $ENV{LC_CTYPE} || $ENV{LANG} || 0 unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'S_M'};
+    my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'} || 0 unless $re->{'BL'} or $re->{'S_OPT'} or $re->{'S_M'};
      $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
 
   if( $re->{'JA'} ){ my $op = $re->{'MAC'} ? '-t1' : '-w1';
@@ -202,7 +202,7 @@ sub Died_1{
    "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
    # Then brew uninstall brew_list\n";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.20_5\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.20_6\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -506,8 +506,7 @@ sub m_search{
        $si .= getc; last if substr($si,-1) eq 'R';
        $si .= getc; last if substr($si,-1) eq 'R';
    }
-     my( $rows,$cols ) = $si =~ /^\[(\d+);(\d+)R$/;
-   ( $rows,$cols ) = split ' ',`trap 'exit 1' 1 2 3;stty size` unless $rows and $cols;
+    my( $rows,$cols ) = $si =~ /^\[(\d+);(\d+)R$/;
    $rows,$cols;
   }
 }
@@ -2030,8 +2029,8 @@ perl<<"EOF"
     $VERS = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
      $FDIR = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
    }else{
-    $VERS = 1 if -d "$ENV{Perl_B}/Library/Taps/homebrew/homebrew-cask-versions";
-     $FDIR = 1 if -d "$ENV{Perl_B}/Library/Taps/homebrew/homebrew-cask-fonts";
+    $VERS = 1 if -d "$ENV{'Perl_B'}/Library/Taps/homebrew/homebrew-cask-versions";
+     $FDIR = 1 if -d "$ENV{'Perl_B'}/Library/Taps/homebrew/homebrew-cask-fonts";
    }
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
     for $hand1( readdir($dir1) ){ next if $hand1 =~ /^\./;
@@ -2159,8 +2158,8 @@ EOF
  unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
  export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
 perl<<"EOF"
-    $ENV{Perl_B} = "$ENV{Perl_B}/Homebrew" if -d "$ENV{Perl_B}/Homebrew";
-     $LFOD = 1 if -d "$ENV{Perl_B}/Library/Taps/homebrew/homebrew-linux-fonts";
+    $ENV{Perl_B} = "$ENV{'Perl_B'}/Homebrew" if -d "$ENV{'Perl_B'}/Homebrew";
+     $LFOD = 1 if -d "$ENV{'Perl_B'}/Library/Taps/homebrew/homebrew-linux-fonts";
 
    opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " DIR3 $!\n";
     for $hand3( readdir($dir3) ){ next if $hand3 =~ /^\./;
@@ -2323,8 +2322,7 @@ use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
 my $UNAME = `echo \${MACHTYPE%%-*}` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-chomp( my $MY_BREW = `command -v brew|sed 's|/bin/brew\$||'` );
-
+chomp( my $MY_BREW = `CO=\$(command -v brew);echo \${CO%/bin/brew}` );
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
@@ -2332,9 +2330,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
-  $Xcode = `(xcodebuild -version 2>/dev/null||
-            /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -version 2>/dev/null)|
-            sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+).*/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
+  $Xcode = `CC=\$(xcode-select -p);cat \${CC%/*}/version.plist 2>/dev/null|
+            sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;}'`||0;
   $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
   %MAC_OS = ('sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
@@ -2368,7 +2365,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
+   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
     $MY_BREW = "$MY_BREW/Homebrew" if -d "$MY_BREW/Homebrew";
  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
   Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
