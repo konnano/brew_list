@@ -5,8 +5,7 @@ use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
 my $UNAME = `echo \${MACHTYPE%%-*}` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-chomp( my $MY_BREW = `command -v brew|sed 's|/bin/brew\$||'` );
-
+chomp( my $MY_BREW = `CO=\$(command -v brew);echo \${CO%/bin/brew}` );
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
@@ -14,9 +13,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
  unless( $ARGV[0] ){
-  $Xcode = `(xcodebuild -version 2>/dev/null||
-            /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -version 2>/dev/null)|
-            sed -E '/Xcode/!d;s/[^0-9]+([0-9.]+).*/\\1/;s/^([1-9]\\.)/0\\1/'` || 0;
+  $Xcode = `CC=\$(xcode-select -p);cat \${CC%/*}/version.plist 2>/dev/null|
+            sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;}'`||0;
   $re->{'CLANG'} = `/usr/bin/clang --version 2>/dev/null|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
  }
   %MAC_OS = ('sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
