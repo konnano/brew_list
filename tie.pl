@@ -5,7 +5,8 @@ use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
 my $UNAME = `echo \${MACHTYPE%%-*}` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-chomp( my $MY_BREW = `CO=\$(command -v brew);echo \${CO%/bin/brew}` );
+open my $K,'<',"$ENV{'HOME'}/.BREW_LIST/path.txt" or die" path $!\n"; my $MY_BREW = <$K>; close $K;
+
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
