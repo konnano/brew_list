@@ -68,9 +68,9 @@ MAIN:{
  if( $re->{'LIN'} ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
-    $MY_BREW = "$MY_BREW/Homebrew" if -d "$MY_BREW/Homebrew";
-     $re->{'LFOD'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-linux-fonts";
-  $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
+    my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
+     $re->{'LFOD'} = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
+  $re->{'TAP_S'} = "$MY_HOME/Library/Taps";
    $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
     $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
  }else{
@@ -93,9 +93,13 @@ MAIN:{
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die "echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)\n"
-   unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
-    my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'} || 0;
-     $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
+    unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
+     my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'} || 0;
+      $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
+  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $HOME or
+                      $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
+      $re->{'NEW'}++; Init_1( $re );
+  } open my $K,'>',"$HOME/path.txt" or die" path $!\n"; print $K $MY_BREW; close $K;
 
   if( $re->{'JA'} ){ my $op = $re->{'MAC'} ? '-t1' : '-w1';
    die " \033[31mNot connected\033[0m\n"
@@ -125,10 +129,7 @@ MAIN:{
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
 
-  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $re->{'HOME'} or
-                      $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
-       $re->{'NEW'}++; Init_1( $re );
-  }elsif( $re->{'S_M'} ){ $MY_BREW =~ s|(.+)/Homebrew$|$1| if $re->{'LIN'}; m_search( $re );
+  if( $re->{'S_M'} ){ m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
     $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
      ( utf8::decode($AR[1]), $AR[1] ) : defined $AR[1] ? lc $AR[1] : Died_1( $re );
@@ -2023,7 +2024,8 @@ if [[ $2 ]];then
    unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
 
-   export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
+   export Perl_B=$(cat ~/.BREW_LIST/path.txt 2>/dev/null)
+   [[ ! $Perl_B ]] && { math_rm; ${die:?cat_path error}; }
    export Perl_U=$(echo ${MACHTYPE%%-*})
 perl<<"EOF"
    if( $ENV{'Perl_U'} eq x86_64 and -d '/usr/local/Homebrew' ){
@@ -2157,7 +2159,8 @@ EOF
    { math_rm; ${die:?curl r error}; }
   fi
  unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
- export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
+ export Perl_B=$(cat ~/.BREW_LIST/path.txt 2>/dev/null)
+ [[ ! $Perl_B ]] && { math_rm; ${die:?cat_path error}; }
 perl<<"EOF"
     $ENV{Perl_B} = "$ENV{'Perl_B'}/Homebrew" if -d "$ENV{'Perl_B'}/Homebrew";
      $LFOD = 1 if -d "$ENV{'Perl_B'}/Library/Taps/homebrew/homebrew-linux-fonts";
@@ -2323,7 +2326,8 @@ use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
 my $UNAME = `echo \${MACHTYPE%%-*}` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-chomp( my $MY_BREW = `CO=\$(command -v brew);echo \${CO%/bin/brew}` );
+open my $K,'<',"$ENV{'HOME'}/.BREW_LIST/path.txt" or die" path $!\n"; my $MY_BREW = <$K>; close $K;
+
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
