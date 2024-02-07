@@ -1513,6 +1513,7 @@ hackolade	RDBMSでのNoSQLデータベース、ストレージ形式、REST API�
 hakuneko	HakuNeko
 hammerspoon	デスクトップ自動化アプリケーション
 hancock	Hancoc
+hancom-docs	ワードプロセッサ
 hancom-word	ワードプロセッサ
 handbrake	オープンソースのビデオトランスコーダー
 handbrakebatch	HandBrakeBatch
