@@ -739,6 +739,7 @@ cdrtools	プリマスタリング及びレコーディングソフトウェア C
 cdsclient	CDSデータベースを照会する為のツール
 cdxgen	プロジェクトのCycloneDXソフトウェア部品表(SBOM)を作成します
 cedille	従属ラムダ除去の計算に基づく言語
+cekit	Container進化キット
 celero	C++オーサリング基準比較 Library/Framework
 censys	Censys API のコマンドライン インターフェイス(censys.io)
 center-im	テキストモードのmulti-protocol即時メッセージング クライアント
@@ -6097,7 +6098,6 @@ tasksh	Taskwarriorコマンドのシェルラッパー
 taskwarrior-tui	taskwarriorのターミナルユーザーインターフェイス
 tass64	65xxシリーズ計算機のMulti Pass最適化Macro Assembler
 tbb	C++での並列処理への豊富で完全なアプローチ
-tbb@2020	C++での並列処理への豊富で完全なアプローチ
 tbls	データベースを文書化する為のCIに親しいツール
 tbox	Glibの様なマルチプラットフォームCライブラリ
 tcc	小さなCコンパイラ
