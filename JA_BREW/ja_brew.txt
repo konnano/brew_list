@@ -2644,6 +2644,7 @@ ifacemaker	構造体メソッドからインターフェースを生成する
 ifstat	ネットワークインターフェイスの処理能力を報告するツール
 iftop	インターフェイスの処理能力使用量を表示します
 ifuse	iOSデバイスのFUSEモジュール
+ignite	Ignite CLIを使用して暗号化アプリケーションを構築、起動、保守します
 igraph	ネットワーク分析パッケージ
 igv	対話的な解析Viewer
 ii	必要最低限のIRCクライアント
@@ -3017,6 +3018,7 @@ kubescape	NSA/CISAによる硬化ガイダンスに従ったKubernetesテスト
 kubeseal	一方向に暗号化された機密Kubernetesコントローラーとツール
 kubesess	複数の kubernetesクラスターを同時に管理する
 kubespy	Kubernetesリソースをリアルタイムで監視する為のツール
+kubetui	Kubernetesリソースの監視と探索の為のTUIツール
 kubeval	Kubernetes構成ファイルを検証し複数のKubernetesバージョンをサポートします
 kubevela	Kubernetesとオープンアプリケーションモデルに基づくアプリケーションプラットフォーム
 kubevious	Kubernetesの構成ミスと違反を検出して防止します
