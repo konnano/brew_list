@@ -94,7 +94,7 @@ MAIN:{
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die "echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)\n"
     unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
-     my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'} || 0;
+     my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'};
       $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
   if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $HOME or
                       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
