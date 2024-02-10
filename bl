@@ -21,21 +21,21 @@ MAIN:{
   $^O eq 'linux' ? $re->{'LIN'} = 1 : die " Not support OS\n";
 
  my @AR = @ARGV; my $name;
-  Died_1( $re ) unless $AR[0];
+  Died_1() unless $AR[0];
  if( $AR[0] eq '-l' ){      $name = $re;  $re->{'LIST'}  = 1;
  }elsif( $AR[0] eq '-i'  ){ $name = $re;  $re->{'PRINT'} = 1;
- }elsif( $AR[0] eq '-c'  ){ $name = $ref; $ref->{'LIST'} = 1; Died_1( $re ) if $re->{'LIN'};
- }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'}= 1; Died_1( $re ) if $re->{'LIN'};
- }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1( $re ) if $re->{'LIN'};
- }elsif( $AR[0] eq '-ct' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1( $re ) if $re->{'LIN'};
- }elsif( $AR[0] eq '-fc' ){ $name = $re;  $re->{'LIST'}  = $re->{'FTD'}  = 1; Died_1( $re ) if $re->{'MAC'};
+ }elsif( $AR[0] eq '-c'  ){ $name = $ref; $ref->{'LIST'} = 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ci' ){ $name = $ref; $ref->{'PRINT'}= 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ct' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-fc' ){ $name = $re;  $re->{'LIST'}  = $re->{'FTD'}  = 1; Died_1() if $re->{'MAC'};
  }elsif( $AR[0] eq '-ctp'){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = $ref->{'LINK'} = 8;
-                            Died_1( $re ) if $re->{'LIN'};
- }elsif( $AR[0] eq '-p'  ){ $name = $ref; $ref->{'PRE'}  = $ref->{'TAP'} = 1; Died_1( $re ) if $re->{'LIN'};
+                            Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-p'  ){ $name = $ref; $ref->{'PRE'}  = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = 3;
- }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1( $re ) if $re->{'LIN'};
- }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} =
                             $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
@@ -45,7 +45,7 @@ MAIN:{
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = 1;
  }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = 1;
  }elsif( $AR[0] eq '-ddd'){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'D'} = $re->{'DD'} = $re->{'DDD'} = 1;
- }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'} = 1; Died_1( $re ) if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'}  = 1;
  }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'}  = 1;
  }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = $re->{'USE'} = 1;
@@ -62,7 +62,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
- }else{  Died_1( $re );
+ }else{  Died_1();
  }
   my $UNAME = `echo \${MACHTYPE%%-*}` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
  if( $re->{'LIN'} ){
@@ -132,14 +132,13 @@ MAIN:{
   if( $re->{'S_M'} ){ m_search( $re );
   }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
     $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
-     ( utf8::decode($AR[1]), $AR[1] ) : defined $AR[1] ? lc $AR[1] : Died_1( $re );
+     ( utf8::decode($AR[1]), $AR[1] ) : defined $AR[1] ? lc $AR[1] : Died_1();
       $name->{'L_OPT'} = $re->{'STDI'} =~ m|^/(.+)/$| ? $1 : "\Q$re->{'STDI'}\E";
        $re->{'S_OPT'} = $ref->{'S_OPT'} = $name->{'L_OPT'} if $re->{'S_OPT'};
-
-  }elsif( $re->{'USE'} ){ $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
-  }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
-  }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1( $re );
-  }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1( $re );
+  }elsif( $re->{'USE'} ){ $re->{'USE'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
+  }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
    if( $Locale ){ $re->{'|'} = '│'; $re->{'|--'} = '├──'; $re->{'`--'} = '└──';
            }else{ $re->{'|'} = '|'; $re->{'|--'} = '|--'; $re->{'`--'} = '`--'; }
   }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
@@ -190,20 +189,18 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
-  my $re = shift;
-  my $LC = `printf \$LC_ALL \$LC_CTYPE \$LANG 2>/dev/null` =~ /ja_jp\.utf-?8$/i;
+  my $LC = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'};
+  $LC = $LC =~ /^ja_jp\.utf-?8$/i ? 1 : 0;
+  my $brew = -f "$MY_BREW/opt/brew_list/bin/bl" ? '# Then, brew uninstall brew_list' : "# rm $MY_BREW/bin/bl";
   my $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
-   # Uninstall rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl
-   # Then brew uninstall brew_list\n" :
+   # Uninstall : rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
     ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # Japanese Language -JA option
-   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
-   # Then brew uninstall brew_list\n" :
-   "\n   # Uninstall rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl
-   # Then brew uninstall brew_list\n";
+   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
+   "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.20_6\n   Option\n  -new\t:  creat new cache
+  print"  Enhanced brew list : version 1.20_7\n   Option\n  -new\t:  creat new cache
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -227,7 +224,7 @@ sub Died_1{
   -cd\t:  Display required list casks\n  -ac\t:  Analytics Data ( no argument, or argument 1,2 )
   -ctp\t:  Font quickLook preview list\n  -p\t:  Font quickLook preview : p mark only ( unstable )\n";
  }else{ print"  -fc\t:  Font list : First argument Formula search : Second argument '.' Full-text search\n"; }
-  print $Lang;
+  print "$Lang\n";
   print"\033[?7h" if -t STDOUT; exit;
 }
 
