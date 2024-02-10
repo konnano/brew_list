@@ -296,6 +296,7 @@ austin	CPythonのPythonフレームスタックsampler
 authoscope	スクリプト可能なネットワーク認証クラッカー
 authz0	自動認可テストツール
 autobench	自動Webサーバー基準比較ツール
+autobrr	torrentsとusenetの最新の使いやすいダウンロード自動化
 autocannon	Node.jsで記述された高速 HTTP/1.1ベンチマークツール
 autocode	すべての言語のコード自動化 ライブラリ/フレームワーク
 autoconf	自動構成スクリプトビルダー
@@ -3798,6 +3799,7 @@ madplay	MPEGオーディオデコーダー
 mafft	高速Fourier変換による多角的な調整
 mage	Goを使用したビルドツール Make/rake-like
 magic-wormhole	コンピュータ間で安全にデータを転送します
+magic-wormhole.rs	新しい機能と機能強化を備えたMagic WormholeのRust実装
 magic_enum	最新のC++の列挙型(文字列へ、文字列から、反復へ)の静的リフレクション
 mahout	拡張性のある機械学習ライブラリの構築に役立つライブラリ
 mailcatcher	メールをキャッチし、夢を通して提供します
