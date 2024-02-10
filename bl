@@ -189,8 +189,7 @@ my( $name,$re,$ref ) = @_;
 }
 
 sub Died_1{
-  my $LC = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'};
-  $LC = $LC =~ /^ja_jp\.utf-?8$/i ? 1 : 0;
+  my $LC = ( $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'} ) =~ /^ja_jp\.utf-?8$/i;
   my $brew = -f "$MY_BREW/opt/brew_list/bin/bl" ? '# Then, brew uninstall brew_list' : "# rm $MY_BREW/bin/bl";
   my $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
