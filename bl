@@ -2,18 +2,15 @@
 use strict;
 use warnings;
 use Fcntl ':DEFAULT';
-my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1();
+my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1() || die " brew path not found\n";
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
- my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],
-             'CEL'=>'/usr/local/Cellar','BIN'=>'/usr/local/opt',
-             'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt",'LEN4'=>1,
-             'TAP_S'=>'/usr/local/Homebrew/Library/Taps','CLO' => clojur_1(),
+ my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],'LEN4'=>1,
+             'HOME'=>$HOME,'TXT'=>"$HOME/brew.txt",'CLO' => clojur_1(),
              'CAN'=>"$HOME/ana.txt",'SPA'=>' 'x9,'LFO'=>"$HOME/font.zip" };
 
- my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],
-             'CEL'=>'/usr/local/Caskroom','LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
+ my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
              'HOME'=>$HOME,'TXT'=>"$HOME/cask.txt",'CAN'=>"$HOME/cna.txt",
              'Q_TAP'=>"$HOME/Q_TAP.txt",'SPA'=>' 'x9,'LFO'=>"$HOME/font.zip" };
 
@@ -69,33 +66,29 @@ MAIN:{
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
     my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
-     $re->{'LFOD'} = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
-  $re->{'TAP_S'} = "$MY_HOME/Library/Taps";
-   $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
-    $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
+  $re->{'LFOD'} = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
+   $re->{'TAP_S'} = "$MY_HOME/Library/Taps";
+    $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
+     $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
     $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-9]($|\.)/;
    $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
-  $ref->{'VERS'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions';
-   $ref->{'FDIR'} = 1 if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
- }
-
- if( $re->{'MAC'} and ( $UNAME eq 'arm64' or not -d '/usr/local/Homebrew' ) ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
     $ref->{'CEL'} = "$MY_BREW/Caskroom";
-     $re->{'TAP_S'} = "$MY_BREW/Library/Taps";
-  $ref->{'VERS'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-versions";
-   $ref->{'FDIR'} = 1 if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
+     my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
+  $re->{'TAP_S'} = "$MY_HOME/Library/Taps";
+   $ref->{'VERS'} = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions";
+    $ref->{'FDIR'} = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts";
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die "echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)\n"
     unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
      my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'};
-      $Locale = ( $Lc and $Lc =~ /ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
+      $Locale = ( $Lc and $Lc =~ /^ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
   if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $HOME or
                       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
       $re->{'NEW'}++; Init_1( $re );
