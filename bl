@@ -402,7 +402,7 @@ sub Path_1{ my $brew;
   opendir my $dir,$path or die " Path $!\n";
   for my $ls(sort readdir $dir){
    if( $ls eq 'brew' ){
-    $brew = substr $path,0,-4;
+    ( $brew ) = $path =~ m|(.+)/s?bin$|;
     $i++; last;
    } last if index($ls,'c') == 0;
   } last if $i;
