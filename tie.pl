@@ -303,7 +303,7 @@ unless( $ARGV[0] ){
        for my $ls1(@HE){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
-         if( $loop ){ return if $ls1 eq $mine or $re->{'MAC'} and $mine eq 'gettext'; ###
+         if( $loop ){ return if $ls1 eq $mine;
          }else{ unless( $ls1 eq 'glibc' ){ next unless Glob_1( $ls1,$name,1 ); }
           if( $tap{"${ls1}alias"} and $tap{"${name}deps"} ){
            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
@@ -324,7 +324,7 @@ unless( $ARGV[0] ){
         my( $ls2 ) = $cel =~ /"full_name":\s*"([^"]+)".*/ ? $1 : next;
         if( $tap{"${ls2}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls2}uses"} }
         unless( $HA{$name} ){
-         if( $loop ){ return if $ls2 eq $mine or $re->{'MAC'} and $mine eq 'gettext'; ###
+         if( $loop ){ return if $ls2 eq $mine;
          }else{ unless( $ls2 eq 'glibc' ){ next unless Glob_1( $ls2,$name,1 ); }
           if( $tap{"${ls2}alias"} and $tap{"${name}deps"} ){
            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
