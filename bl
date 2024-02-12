@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-use Fcntl ':DEFAULT';
 my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1() || die " brew path not found\n";
 
 MAIN:{
@@ -371,7 +370,7 @@ my $re = shift;
 
 sub DB_2{ require NDBM_File;
  my $re = shift;
- tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",O_RDONLY,0 or die " Not read DBM $!\n";
+ tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",0,0 or die " Not read DBM $!\n";
  $re->{'OS'} = \%tap;
 }
 
