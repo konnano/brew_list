@@ -608,6 +608,7 @@ classroom-mode-for-minecraft	Minecraft Education Editionの教室管理アプリ
 clay	人々をよりよく覚える為のプライベートrolodex
 clean-me	ログ用のシステムクリーナー キャッシュなど
 cleanapp	SyniumソフトウェアCleanApp
+cleanclip	クリップボードマネージャー
 cleaneronepro	オールインワンクリーナーアプリ
 cleanmymac	ディスクから不要なファイルやフォルダを削除するツール
 cleanmymac-zh	中国語版ディスクから不要なファイルやフォルダを削除するツール
@@ -621,7 +622,6 @@ clicker-for-netflix	最高の独立型Netflixプレーヤー
 clicker-for-youtube	独立型のYouTubeアプリ
 clickhouse	列指向のデータベース管理システム
 clickup	タスクの生産性プラットフォーム ドキュメント/目標/チャット
-clinq	インターネット経由で電話をかける為のソフトフォン
 clion	C/C++ IDE
 clip-studio-paint	描画とペイントの為のソフトウェア
 clipgrab	Webサイトからビデオとオーディオをダウンロードします
@@ -1303,6 +1303,7 @@ freemind	Javaで書かれたマインドマッピングソフトウェア
 freenettray	Freenetを制御する為のメニューバーアプリケーション
 freeorion	ターン制の宇宙帝国と銀河の征服ゲーム
 freeplane	マインドマッピング及び知識管理ソフトウェア
+freeshow	プレゼンテーションソフト
 freesmug-chromium	Chromeの非互換性の問題を解決する為に構築されたGoogle Chromium
 freesurfer	知的MRI画像を処理及び分析する為のオープンソースソフトウェアパッケージ
 freetube	プライバシーに焦点を当てたYouTubeプレーヤー
@@ -3432,6 +3433,7 @@ simsim	ターミナル/ファインダーでiOSアプリケーションフォル
 singularity	Second LifeとOpenSimのクライアント
 sioyek	研究論文や技術書を読む為に設計されたPDFビューア
 sip	収集 色を整理して共有する
+sipgate-clinq	インターネット経由で電話をかけるためのソフトフォン
 sipgate-softphone	コンピューターで電話をかける
 sirimote	Apple TV SiriRemoteでコンピュータを制御する
 sitala	Drum samplerプラグインと独立型アプリ
@@ -4015,6 +4017,7 @@ unraid-usb-creator	UnraidをUSBドライブにインストールする為のユ�
 unshaky	Appleのバタフライキーボードでのダブルキー押下のソフトウェア修正
 updf	PDFエディタ
 upm	パスワードマネージャー
+upscayl	AI画像アップスケーラー
 upterm	21世紀のターミナルエミュレータ
 usage	アプリケーションの使用状況を追跡します
 usb-overdrive	USB/Bluetoothデバイスドライバー
