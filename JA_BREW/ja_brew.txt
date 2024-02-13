@@ -1396,6 +1396,7 @@ dotdrop	ドットファイルを一度保存して、どこにでも展開しま
 dotenv-linter	Rustで記述された.envファイル用の高速静的解析ツール
 dotnet	.NET Core
 dotnet@6	.NET Core
+dotslash	簡素化された実行可能ファイルの展開
 dotter	Rustで書かれたDotfileマネージャーとテンプレーター
 double-conversion	IEEE doublesの2進化10進及び10進2進ルーチン
 doublecpp	C++でのダブルディスパッチ
@@ -2995,6 +2996,7 @@ ksops	SOPS暗号化リソース用の柔軟なKustomizeプラグイン
 kstart	キータブを使用して認証できるkinitの修正バージョン
 ksync	ローカルシステムとkubernetesクラスター間でファイルを同期する
 kt-connect	kubernetes開発環境とより効率的に統合する為のツールキット
+ktfmt	Kotlinコードフォーマッタ
 ktlint	整形ツール内蔵のAnti-bikeshedding Kotlin静的解析ツール
 ktmpl	KubernetesマニフェストのParameterizedされたテンプレート
 ktoblzcheck	German bankの為のライブラリ
@@ -4074,6 +4076,7 @@ mono	クロスプラットフォーム、オープンソースの.NET開発フ�
 mono-libgdiplus	Windows以外のオペレーティングシステムでのGDI+互換API
 monolith	完全なWebページを単一のHTMLファイルとして保存する為のCLIツール
 montage	FITS画像をカスタムモザイクに組み立てる為のツールキット
+moon	Rustで書かれたWebエコシステム用のタスクランナー及びリポジトリ管理ツール
 moon-buggy	月を超えてドライブ
 moreutils	昔のUNIXに誰も書いていなかったツールコレクション
 morse	QSO発生器とモールス信号トレーナー
@@ -4974,6 +4977,7 @@ proof-general	定理証明の為のEmacsベースの包括的インターフェ�
 proper	QuickCheckに触発されたErlang用の属性ベースのテストツール
 proselint	散文の為の静的解析ツール
 proteinortho	異なる種類のOrthologous Genesの検出
+proto	プラグイン可能な多言語バージョンマネージャー
 protobuf	Buffer手続き(Googleのデータ交換形式)
 protobuf-c	Buffer手続きライブラリ
 protobuf@21	プロトコルバッファー(Googleのデータ交換形式)
@@ -5598,6 +5602,7 @@ sdl_ttf	SDLアプリケーションでTrueTypeフォントを使用する為の�
 sdlpop	プリンスオブペルシャのオープンソースポート
 sdns	プライバシーは重要 速い dnssecをサポートする再帰DNSリゾルバーサーバー
 seal	使いやすい準同型暗号化ライブラリ
+seam	このユーティリティを使用するとSeamリソースを制御できます
 search-that-hash	ハッシュAPIを検索して、ハッシュをすばやくクラックします
 seaweedfs	高速分散保管システム
 sec	さまざまな種類のイベント処理の為のイベント相関ツール
