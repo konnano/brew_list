@@ -4,8 +4,9 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
-my $UNAME = `echo \${MACHTYPE%%-*}` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
+my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $MY_BREW = $ENV{'Perl_B'} || `CO=\$(command -v brew);printf \${CO%/bin/brew}`;
+my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
@@ -21,40 +22,26 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
   %MAC_OS = ('sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
              'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
      %HAN = ('newer'=>'>','older'=>'<');
-
-  if( $UNAME eq 'x86_64' and -d '/usr/local/Homebrew' ){ $re->{'CEL'} = '/usr/local/Cellar';
-    $re->{'FON'} = '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts';
-     $re->{'COM'} = '/usr/local/share/zsh/site-functions';
-   unless( $ARGV[0] ){
-    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks',0,1 )
-    if -d '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks';
-     Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula',0,0 );
-      Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Aliases',0,0 );
-       Dirs_1( '/usr/local/Homebrew/Library/Taps',1,0 );
-   }
-    Dirs_1( '/usr/local/Homebrew/Library/Taps/homebrew',1,1 );
-  }else{ $re->{'CEL'} = "$MY_BREW/Cellar";
-     $re->{'FON'} = "$MY_BREW/Library/Taps/homebrew/homebrew-cask-fonts";
-      $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   unless( $ARGV[0] ){
-    Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks",0,1 )
-    if -d "$MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks";
-     Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
-      Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
-       Dirs_1( "$MY_BREW/Library/Taps",1,0 );
-   }
-    Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
+  $re->{'FON'} = "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts";
+   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
+    $re->{'CEL'} = "$MY_BREW/Cellar";
+  unless( $ARGV[0] ){
+   Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks",0,1 )
+   if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks";
+    Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
+     Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+      Dirs_1( "$MY_HOME/Library/Taps",1,0 );
   }
+   Dirs_1( "$MY_HOME/Library/Taps/homebrew",1,1 );
  rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 }else{ $re->{'LIN'} = 1;
  $re->{'CEL'} = "$MY_BREW/Cellar";
   $re->{'COM'} = "$MY_BREW/share/zsh/site-functions";
-   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'LinuxM1';
-    $MY_BREW = "$MY_BREW/Homebrew" if -d "$MY_BREW/Homebrew";
- Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
-  Dirs_1( "$MY_BREW/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
-   Dirs_1( "$MY_BREW/Library/Taps",1,0 );
-    Dirs_1( "$MY_BREW/Library/Taps/homebrew",1,1 );
+   $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
+ Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
+  Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+   Dirs_1( "$MY_HOME/Library/Taps",1,0 );
+    Dirs_1( "$MY_HOME/Library/Taps/homebrew",1,1 );
 }
 
 sub Dirs_1{
@@ -462,10 +449,9 @@ unless( $ARGV[0] ){
   @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
  if( $re->{'MAC'} ){
   for(@CASK){
-   last unless m[$MY_BREW/Homebrew/Library/Taps/homebrew/homebrew-cask/Casks/|
-                 $MY_BREW/Library/Taps/homebrew/homebrew-cask/Casks/]x;
-   my( $name ) = m|.+/(.+)\.rb|;
-    $ACA .= "$name \\\n";
+   last unless m|$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks/|o;
+    my( $name ) = m|.+/(.+)\.rb|;
+     $ACA .= "$name \\\n";
   }
   @CASK = sort grep{ s|.+/(.+)\.rb|$1| }@CASK;
  }
@@ -512,8 +498,7 @@ unless( $ARGV[0] ){
    $TIN .= "$ca \\\n" if $tap{"${ca}formula"} or $tap{"${ca}d_cask"};
    $UAA .= "$ca \\\n" if $tap{"${ca}u_cask"} or  $tap{"${ca}u_form"};
   }
-   my $glo = -d '/usr/local/Caskroom' ? '/usr/local/Caskroom' : "$MY_BREW/Caskroom";
-  for my $gs(glob "$glo/*"){ my $ls;
+  for my $gs(glob "$MY_BREW/Caskroom/*"){ my $ls;
    $gs =~ s|.+/(.+)|$1|;
    if( $tap{"${gs}d_cask"} ){
     $HAU{$_}++ for split '\t',$tap{"${gs}d_cask"};
