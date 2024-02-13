@@ -261,7 +261,7 @@ aural	Winampに触発されたオーディオプレーヤー
 aurora-hdr	フィルタ付きHDRフォトエディター バッチ処理など
 auryo	Soundcloud用の非公式デスクトップアプリ
 authy	二段階認証ソフトウェア
-autodesk-fusion360	統合された CAD/CAM/CAE/PCB ソフトウェア
+autodesk-fusion	統合された、CAD/CAM/CAE/PCBソフトウェア
 autodmg	システムインストーラーから展開可能なシステムイメージを作成する為のアプリ
 autofirma	デジタル署名エディター/バリデーター
 automute	現在のWi-Fiネットワークに基づいてシステムをミュート又はミュート解除します
@@ -2598,6 +2598,7 @@ okta-advanced-server-access	ID/アクセス管理
 old-school-runescape	Old School RuneScapeのゲームクライアント
 olive	Non-linearビデオエディター
 ollama	大規模な言語モデルをローカルで立ち上げて実行する
+ollamac	Ollamaモデルと対話する
 omegat	翻訳メモリ ツール
 omnidazzle	画面とマウスポインタの領域を強調表示するプラグインのセット
 omnidb	データベース管理用のWebツール
