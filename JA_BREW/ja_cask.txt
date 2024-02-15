@@ -1393,6 +1393,7 @@ git-credential-manager	複数のホスティングプロバイダー向けのク
 git-it	GitとGitHubを学習する為のデスクトップアプリ
 gitahead	GitAhead
 gitblade	Gitのグラフィカルクライアント
+gitbutler	既存のワークフロー上で同時ブランチを行うためのGitクライアント
 gitdock	すべてのGitLabアクティビティを1か所に表示します
 gitee	GitHubのステータスバーアプリケーション
 gitfiend	Gitクライアント
@@ -1597,6 +1598,7 @@ hyperbackupexplorer	Synology NASからのバックアップデータ
 hypercal	スケジュールとタスクを1つのビューに結び付けるプライバシー最優先のカレンダー
 hyperkey	CapsLockキー/修飾キーのいずれかをハイパーキーに変換します
 i1profiler	写真家やデザイナーの為の自動化とクリエイティブなコントロール
+ia-markdown-dictionary	Dictionary.appのマークダウン辞書
 ia-presenter	Markdownドキュメントからプレゼンテーションスライドを作成する
 ibabel	iBabel
 ibackup	バックアップユーティリティ
@@ -3025,6 +3027,7 @@ qcad	2Dでのコンピュータ支援製図用のFreeのオープンソースア
 qcma	Qcma
 qctools	ビデオファイルの視聴覚分析とフィルタリング
 qdesktop	Webサイトをデスクトップの背景として設定するアプリ
+qdirstat	ディスク使用率ビジュアライザ
 qdslrdashboard	ニコンを制御する為のアプリケーション キヤノン/ソニーのカメラ
 qfinder-pro	NAS管理アプリケーション
 qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
