@@ -44,7 +44,6 @@ adplug	Freeのハードウェアに依存しないAdLibサウンドプレーヤ�
 adr-tools	基本設計決定レコードを操作する為のCLIツール
 adr-viewer	アーキテクチャ決定記録用に読みやすいWebページを生成する
 advancecomp	ファイルの再圧縮ユーティリティ .PNG/.MNG/.ZIP/.GZ
-advancemame	高度なビデオサポートを備えたMAME
 advancescan	AdvanceMAME/MESS ROMマネージャー
 adwaita-icon-theme	GNOMEプロジェクトのアイコン
 aerc	ターミナルで実行される電子メールクライアント
@@ -2219,7 +2218,7 @@ gnuski	Skifreeのオープンソースクローン
 gnustep-base	汎用ライブラリー 非グラフィカルなObjectiveCオブジェクト
 gnustep-make	基本的なGNUstep Makefile
 gnutls	GNUトランスポート層セキュリティ(TLS)ライブラリ
-go	シンプルで信頼性が高く効率的なソフトウェアを構築する為のオープンソースプログラミング言語
+go	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 go-bindata	任意のファイルからGoコードを生成する小さなユーティリティ
 go-boring	BoringCryptoでGoプログラミング言語に移行する
 go-camo	セキュアイメージプロキシサーバー
@@ -2235,6 +2234,7 @@ go@1.17	Goプログラミング環境(1.17)
 go@1.18	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 go@1.19	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 go@1.20	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
+go@1.21	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 goaccess	Apache Webサーバーのログ分析と対話的Viewer
 goawk	Goで記述されたPOSIX準拠のAWK解釈プログラム
 gobackup	データベースやファイルをクラウドストレージにバックアップする為のCLIツール
@@ -4687,6 +4687,7 @@ patat	Pandocを使用した端末ベースのプレゼンテーション
 patch-package	壊れたnodeモジュールを即座に修正する
 patchelf	動的ELF実行可能ファイルを変更する
 patchutils	パッチファイルを操作するプログラムの小さなコレクション
+pawk	Python ラインプロセッサ(AWKなど)
 pax	Portable Archive交換アーカイブツール
 pax-construct	OSGiプロジェクトを高速にセットアップと開発する為のツール
 pax-runner	OSGiバンドルを提供する為のツール
@@ -6489,6 +6490,7 @@ uudeview	スマートマルチファイルマルチパートデコーダー
 uutils-coreutils	GNUcoreutilsのクロスプラットフォームRustリライト
 uutils-findutils	GNU findutilsのクロスプラットフォームRustリライト
 uuu	汎用アップデートユーティリティ mfgtools3.0。NXPI.MXチップイメージ展開ツール
+uv	Rustで書かれた非常に高速なPythonパッケージインストーラー及びリゾルバー
 uvg266	オープンソースのVVC/H.266エンコーダー
 uvicorn	ASGI Webサーバー
 uwsgi	ホスティングサービスを構築する為のフルスタック
@@ -6806,6 +6808,7 @@ xcenv	Xcodeバージョンマネージャー
 xcinfo	利用可能なXcodeバージョンに関する情報を取得してインストールする為のツール
 xclip	コマンドラインからX11クリップボードにアクセスする
 xclogparser	Xcodeで使用されるSLF連続化形式を解析する為のツール
+xcode-build-server	Xcodeをsourcekit-lspと統合するためのサーバープロトコル実装を構築する
 xcode-kotlin	KotlinネイティブXcodeプラグイン
 xcodegen	スペックファイルとフォルダ構造からXcodeプロジェクトを生成します
 xcodes	Xcodeの複数のバージョンをインストールして切り替える為の最適なコマンドラインツール
