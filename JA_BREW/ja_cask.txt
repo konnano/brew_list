@@ -1751,6 +1751,7 @@ jameica	SWT-UIを含むJavaで記述されたアプリケーションプラッ�
 james	Webデバッグプロキシアプリケーション
 jamf-migrator	JamfProサーバー間でデータをきめ細かく移行する為のツール
 jami	分散型インスタントメッセンジャーとソフトフォン
+jamie	AIを活用した会議メモ
 jamkazam	低遅延のリハーサル 妨害/パフォーマンス
 jamovi	統計ソフトウェア
 jamulus	友達とオンラインで音楽を再生する
