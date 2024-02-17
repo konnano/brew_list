@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1() || die " brew path not found\n";
+ my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -60,7 +61,6 @@ MAIN:{
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }else{  Died_1();
  }
-  my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
  if( $re->{'LIN'} ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
@@ -92,7 +92,6 @@ MAIN:{
                       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
       $re->{'NEW'}++; Init_1( $re );
   }
-
   if( $re->{'JA'} ){ my $op = $re->{'MAC'} ? '-t1' : '-w1';
    die " \033[31mNot connected\033[0m\n"
     if system "ping $op -c1 formulae.brew.sh >/dev/null 2>&1";
@@ -371,7 +370,8 @@ my $re = shift;
 sub DB_2{ require NDBM_File;
  my $re = shift;
  tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",0,0 or die " Not read DBM $!\n";
- $re->{'OS'} = \%tap;
+  $re->{'NEW'}++, Init_1( $re ) if $UNAME ne $tap{'UNAME'};
+   $re->{'OS'} = \%tap;
 }
 
 sub Dirs_1{
@@ -2360,6 +2360,7 @@ my( $dir,$ls,$cask ) = @_;
 
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
 tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
+ $tap{'UNAME'} = $UNAME;
 unless( $ARGV[0] ){
  for my $alias(@{$re->{'ALIA'}}){
   my $hand = readlink $alias;
