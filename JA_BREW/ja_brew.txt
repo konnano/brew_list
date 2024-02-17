@@ -4552,8 +4552,8 @@ openshift-cli	OpenShiftコマンドラインインターフェースツール
 openslide	スライド全体の画像を読み取る為のCライブラリ (別名 仮想スライド)
 openslp	サービスロケーション手続きの実装
 openssh	OpenBSDのFreeライセンスSSH接続ツール
-openssl@1.1	暗号化と SSL/TLS ツールキット
-openssl@3	暗号化と SSL/TLS ツールキット
+openssl@1.1	暗号化/SSL/TLS ツールキット
+openssl@3	暗号化/SSL/TLS ツールキット
 openssl@3.0	暗号化/SSL/TLS ツールキット
 openstackclient	OpenStackのコマンドラインクライアント
 opensubdiv	オープンソースのsubdivision surfaceライブラリ
@@ -5274,6 +5274,7 @@ rats	セキュリティの為の大まかな監査ツール
 rattler-build	ユニバーサルcondaパッケージビルダー
 rav1e	最速で最も安全なAV1ビデオエンコーダー
 raven	CI/CDのリスク分析と脆弱性の列挙
+rawdog	llmsでコードを生成および実行する為のCLIツール
 rawgl	別世界の為に書き直されたエンジン
 raxml-ng	RAxML次世代：より速く/使いやすく/より柔軟
 raylib	ビデオゲームプログラミングを学ぶ為のシンプルで使いやすいライブラリ
