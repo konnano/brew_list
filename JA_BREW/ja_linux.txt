@@ -1138,6 +1138,7 @@ font-merienda	Merienda
 font-merriweather	Merriweather
 font-merriweather-sans	Merriweather Sans
 font-mervale-script	Mervale Script
+font-meslo-for-powerlevel10k	Powerlevel10k用にカスタマイズされた等幅フォント
 font-meslo-for-powerline	Meslo for Powerline
 font-meslo-lg	Meslo LG
 font-meslo-lg-dz	Meslo LGフォントのドットゼロのバリアント
