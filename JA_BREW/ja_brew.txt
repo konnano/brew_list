@@ -2351,6 +2351,7 @@ gravity	埋め込み可能なプログラミング言語
 grayskull	Condaのレシピジェネレーター
 grc	ログファイルとコマンド出力の色付け
 greed	消費のゲーム
+greenmask	PostgreSQLダンプ及び難読化ツール
 grep	GNU grep/egrep/fgrep
 grepcidr	IPv4に一致するIPアドレスをフィルタリングする仕様 CIDR/ネットワーク
 grepip	grep互換のインターフェイスでIPv4とIPv6アドレスをフィルタリングします
@@ -4339,6 +4340,7 @@ nomino	バッチ名前変更ユーティリティ
 nopoll	オープンソースのC WebSocketツールキット
 norm	NACK指向の信頼性の高いマルチキャスト
 normalize	オーディオファイルの音量を標準レベルに調整します
+noseyparker	テキストデータとGit履歴から秘密と機密情報を検索します
 notation	OCIアーティファクトとコンテナイメージに署名及び検証する為のCLIツール
 notcurses	派手なキャラクターライブラリ グラフィックス/TUI
 noti	プロセスが完了したときに通知を送信する
