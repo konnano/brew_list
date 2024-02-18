@@ -1,8 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1() || die " brew path not found\n";
- my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
+my( $MY_BREW,$OS_Version,$Locale,$UNAME,%JA ) = Path_1() || die " brew path not found\n";
 
 MAIN:{
  my $HOME = "$ENV{'HOME'}/.BREW_LIST";
@@ -56,11 +55,13 @@ MAIN:{
  }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'} = 1;
  }elsif( $AR[0] eq '-'   ){ $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
- }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} =$re->{'S_OPT'}= 1;
+ }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} = $re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }else{  Died_1();
  }
+  $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
+   unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} and not $re->{'S_O'};
  if( $re->{'LIN'} ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
@@ -68,13 +69,13 @@ MAIN:{
   $re->{'LFOD'} = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
    $re->{'TAP_S'} = "$MY_HOME/Library/Taps";
     $re->{'Q_TAP'} = "$HOME/Q_TAP.txt";
-     $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
+     $OS_Version = ( $UNAME and $UNAME eq 'x86_64' ) ? 'Linux' : 'Linux_arm';
  }else{
   $OS_Version =  `sw_vers -productVersion`;
    $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
     $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
   die " Use Tiger Brew\n" if $OS_Version =~ /^10\.[0-9]($|\.)/;
-   $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
+   $OS_Version = "${OS_Version}M1" if $UNAME and $UNAME eq 'arm64';
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
     $ref->{'CEL'} = "$MY_BREW/Caskroom";
@@ -230,8 +231,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
  }
   if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} and not $re->{'COL'} ){
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
-    DB_2( $re ) unless $re->{'BL'} or $re->{'MAC'} and defined $re->{'S_OPT'} or $re->{'COM'};
-     DB_2( $re ) if $re->{'S_O'};
+    DB_2( $re ) unless $re->{'BL'} or $re->{'COM'} or defined $re->{'S_OPT'} and not $re->{'S_O'};
   }
   if( $re->{'INF'} and not $re->{'COL'} or
       $re->{'USE'} or $re->{'dep_s'} or $re->{'ana'} or $re->{'use'} or $re->{'BUI'} ){
