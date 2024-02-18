@@ -4264,6 +4264,7 @@ nest	Python3 bindingsを備えた神経シミュレーションツール(NEST)(P
 nestopia-ue	NESエミュレータ
 net-snmp	IPv4/IPv6を使用してSNMPを実装します v1/v2c/v3
 net-tools	Linuxネットワーキングベースツール
+netaddr	ネットワークアドレス操作ライブラリ
 netcat	ネットワーク接続を管理する為のユーティリティ
 netcdf	配列指向の科学データ用のライブラリとデータ形式
 netcdf-cxx	NetCDF用のC++ライブラリとユーティリティ
@@ -5416,6 +5417,7 @@ rnr	ファイルとディレクトリの名前をバッチで変更するコマ�
 rnv	Relax NGCompact構文確認の実装
 roadrunner	高性能PHPアプリケーション サーバー/ロードバランサー/プロセスマネージャ-
 roapi	コードを1行も記述しない静的データセット用の本格的なAPI
+robin-map	高速ハッシュマップとハッシュセットの、C++実装
 roblox-ts	Roblox用TypeScriptからLuauへのコンパイラー
 robodoc	ソースコードドキュメントツール
 robot-framework	受け入れテストの為のオープンソーステストフレームワーク
