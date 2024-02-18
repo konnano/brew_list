@@ -10,7 +10,7 @@ my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
-  $OS_Version =~ s/^(10\.1[0-5]).*\n/$1/;
+  $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
    $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
 
