@@ -368,7 +368,7 @@ my $re = shift;
 
 sub DB_2{ require NDBM_File;
  my $re = shift;
- tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",0,0 or die " Not read DBM $!\n";
+  tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",0,0 or die " Not read DBM $!\n";
    $re->{'OS'} = \%tap;
 }
 
@@ -394,14 +394,14 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
  $bn;
 }
 
-sub Path_1{ my $brew;
- for my $path(split ':',$ENV{'PATH'}){ my $i;
+sub Path_1{ my( $brew,$i );
+ for my $path(split ':',$ENV{'PATH'}){
   opendir my $dir,$path or die " Path $!\n";
   for my $ls(sort readdir $dir){
    if( $ls eq 'brew' ){
     $brew = substr $path,0,-4;
-    $i++; last;
-   } last if index($ls,'c') == 0;
+     $i++; last;
+   } last if substr($ls,0,1) ge 'c';
   } last if $i;
  } $brew;
 }
