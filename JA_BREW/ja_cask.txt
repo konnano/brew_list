@@ -931,6 +931,7 @@ domzilla-caffeine	システムがスリープ状態になるのを防ぐユー�
 doomsday-engine	Doomの拡張ソースポート Heretic/Hexen
 doppler	音楽プレーヤー
 dosbox	DOSを使用したx86用エミュレーター
+dosbox-staging	DOSゲームエミュレータ
 dosbox-x	DOSBoxプロジェクトのフォーク
 doteditor	DotEditor
 dotnet	開発者向けプラットフォーム
@@ -1078,6 +1079,7 @@ enclave	構成なしでプライベートネットワークを安全に構築す
 encryptme	VPN/暗号化ソフトウェア
 encryptr	ゼロ知識クラウドベースのパスワードマネージャー
 endless-sky	宇宙探査 取引と戦闘ゲーム
+endless-sky-high-dpi	Endless Sky用の、High-DPIプラグイン
 endnote	リファレンスマネージャー
 endurance	バッテリーの監視と管理
 energia	電子工学プロトタイピングプラットフォーム
@@ -1213,6 +1215,7 @@ fiscript	FiScript
 fishing-funds	メニューバーに中国のファンドのリアルタイムトレンドを表示する
 fission	オーディオエディター
 fitbit-os-simulator	Fitbit用のアプリと文字盤を作成する
+fixkey	キーボードを中心とした執筆用、AIコパイロット
 fl-studio	デジタルオーディオ制作アプリケーション
 flacon	オープンソースオーディオファイルエンコーダ
 flame	iPhone/iPodtouch 用のランデブーサービスブラウザー
