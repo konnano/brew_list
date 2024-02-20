@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
-my( $MY_BREW,$OS_Version,$Locale,$UNAME,%JA ) = Path_1() || die " brew path not found\n";
+my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1() || die " brew path not found\n";
 
 MAIN:{
  my $home = "$ENV{'HOME'}/.BREW_LIST";
@@ -60,7 +60,7 @@ MAIN:{
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }else{  Died_1();
  }
-  $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
+  my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
    unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} and not $re->{'S_O'};
  if( $re->{'LIN'} ){
   $re->{'CEL'} = "$MY_BREW/Cellar";
@@ -69,12 +69,12 @@ MAIN:{
   $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts";
    $re->{'TAP_S'} = "$repo/Library/Taps";
     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
-     $OS_Version = ( $UNAME and $UNAME eq 'x86_64' ) ? 'Linux' : 'Linux_arm';
+     $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
  }else{
   unless( $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} ){
    $OS_Version =  `sw_vers -productVersion`;
     die " Use Tiger Brew\n" unless $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
-     $OS_Version = "${OS_Version}M1" if $UNAME and $UNAME eq 'arm64';
+     $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
   } $re->{'CEL'} = "$MY_BREW/Cellar";
      $re->{'BIN'} = "$MY_BREW/opt";
       $ref->{'CEL'} = "$MY_BREW/Caskroom";
