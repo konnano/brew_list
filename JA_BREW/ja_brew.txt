@@ -1569,6 +1569,7 @@ entr	ファイルが変更されたときに任意のコマンドを実行する
 envchain	環境変数で認証情報を保護する
 envconsul	Consul及びVaultからの環境変数を使用してプロセスを起動します
 envd	AI/MLの再現可能な開発環境
+envio	環境変数を管理する為の最新の安全なCLIツール
 envoy	クラウドネイティブの高性能プロキシ エッジ/ミドル/サービス
 envv	シェルに依存しない環境変数の処理
 enzyme	LLVMの高性能自動微分
@@ -2143,6 +2144,7 @@ glab	オープンソースのGitLabコマンドラインツール
 glade	GTK+/GNOME環境用のRADツール
 glances	top/htop 代替品
 glassfish	JavaEEアプリケーションサーバー
+glasskube	Kubernetesの為のMissing Package Manager
 glbinding	OpenGLAPIのC++ bindings
 glbinding@2	OpenGL APIのC++バインディング
 gleam	✨ Erlang VM用の静的に型付けされた言語
@@ -5901,6 +5903,7 @@ sql-migrate	Go用SQLスキーマ移行ツール
 sql-translator	構造化データ定義の操作(SQLなど)
 sqlancer	DBMSでの論理バグの検出
 sqlbench	1つ以上のSQLクエリの実行時間を測定して比較します
+sqlboiler	データベーススキーマに合わせた、Go ORMを生成する
 sqlc	SQLから安全なGo型を生成する
 sqlcipher	256ビットのAES暗号化を提供するSQLite機能拡張
 sqlcmd	Microsoft SQL Serverコマンドラインインターフェイス
