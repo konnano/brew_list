@@ -37,6 +37,7 @@ accordance	聖書研究ソフトウェア
 accurics	コードとしての基盤のセキュリティと順守
 ace-link	VLCプレーヤーでAce Streamビデオストリームを再生できるメニューバーアプリ
 acorn	シンプルさに焦点を当てた画像エディター
+acreom	開発者向けの個人的な知識ベース
 acronis-true-image	フルイメージのバックアップとクローン作成ソフトウェア
 active-trader-pro	取引プラットフォーム
 activedock	カスタマイズ可能なドック アプリケーションランチャー/ドックの交換
@@ -916,6 +917,7 @@ djview	DjVuビューアとブラウザプラグイン
 dmenu-mac	キーボードのみのアプリケーションランチャー
 dmg-canvas	様式化されたディスクイメージが簡単に
 dmidiplayer	マルチプラットフォームMIDIファイルプレーヤー
+dnsmonitor	DNSアクティビティを監視する
 do-not-disturb	オープンソースの物理アクセス(別名 'evil maid')攻撃検出器
 docker	コンテナ化されたアプリケーションとマイクロサービスを構築して共有する為のアプリ
 docker-toolbox	Dockerツールボックス
