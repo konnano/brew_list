@@ -125,7 +125,6 @@ ansible	展開の自動化 構成/アップグレード
 ansible-cmdb	Ansibleファクトから静的HTML概要ページを生成します
 ansible-language-server	Ansibleファイル用の言語サーバー
 ansible-lint	実践と行動についてAnsibleプレイブックをチェックします
-ansible@2.9	展開の自動化 構成/アップグレード
 ansible@6	自動展開 構成/アップグレード
 ansible@7	導入/構成/アップグレード を自動化する
 ansible@8	導入、構成、アップグレード、を自動化する
@@ -176,7 +175,6 @@ app-engine-python	Google App Engine
 apparix	ブックマークディレクトリを介したファイルシステムナビゲーション
 appium	アプリの自動化
 apprise	コマンドラインから一般的な通知サービスに通知を送信します
-appscale-tools	AppScaleを操作する為のコマンドラインツール
 appstream	AppStreamメタデータを操作する為のツールとライブラリ
 appstream-glib	AppStreamメタデータを読み書きする為のヘルパーライブラリ
 apr	Apacheポータブルランタイムライブラリ
@@ -753,7 +751,6 @@ certstrap	CAのブートストラップツール 証明書要求/署名付き証
 certsync	ゴールデン証明書を使用してNTDSをダンプし、ハッシュをUnPAC
 ceylon	チームで大規模なプログラムを作成する為のプログラミング言語
 cf	数値のタイムスタンプをフォーマットされた日時に置き換える為のフィルター
-cf-tool	Codeforcesコンテスト用のコマンドラインツール
 cf2tf	CloudformationテンプレートからTerraform HCLコンバーターへ
 cf4ocl	OpenCLのCフレームワーク
 cfengine	IT基礎構造の管理と理解を支援する
@@ -844,7 +841,6 @@ cifer	Cでの古典的な暗号クラッキングの自動化に取り組む
 cig	gitリポジトリの状態をチェックする為のCLIアプリ
 cilium-cli	Ciliumを実行しているKubernetesクラスターを インストール/管理/修繕 する為のCLI
 cimg	画像処理用のC++ツールキット
-ciphey	自動復号化/復号化ツール
 circleci	CircleCI環境をローカルで再現できます
 circumflex	ターミナルのハッカーニュース
 citus	PostgreSQLベースの分散型RDBMS
@@ -4255,6 +4251,7 @@ neomutt	Notmuch、NNTPなどをサポートする電子メールリーダー
 neon	Cインターフェイスを備えたHTTP/WebDAVクライアントライブラリ
 neonctl	Neon CLI ツール
 neopop-sdl	NeoGeo Pocketエミュレーター
+neosync	Neosyncとインターフェースの為のCLI
 neovide	Rust実用的Neovim Client
 neovim	拡張性と敏捷性に焦点を当てた野心的なVimフォーク
 neovim-qt	NeoVim GUI, in Qt5
@@ -5087,23 +5084,14 @@ pyside	Qtの公式Python bindings
 pyside@2	Qtの公式Python bindings
 pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
-python-abseil	Abseil共通ライブラリ(Python)
-python-anytree	さまざまなプラグインを備えた強力で軽量なPythonツリーデータ構造
 python-argcomplete	Python argparseのタブ補完
-python-asn1crypto	パフォーマンスを重視したPython ASN.1ライブラリ
 python-attrs	BoilerplateのないPythonクラス
-python-boto3	AWS SDK for Python
-python-botocore	boto 3の低レベルのデータ駆動型コア
 python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
-python-cachetools	拡張可能なメモ化コレクションとデコレーター
 python-certifi	Python用 Mozilla CAバンドル
 python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
-python-cli-helpers	一般的なCLIタスク用のPythonヘルパー
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
-python-colorama	クロスプラットフォームの色付きターミナルテキスト
-python-configargparse	argparseのドロップイン置換
 python-configobj	構成ファイルの読み取り、書き込み、検証
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
@@ -5121,7 +5109,6 @@ python-hatch-vcs	好みのVCSでバージョン管理する為のHatchプラグ�
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
 python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
-python-jmespath	JMESPathはJSO のクエリ言語です
 python-json5	JSON5データ形式のPython実装
 python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC++実装
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
@@ -5139,7 +5126,6 @@ python-msgpack	Python用のMessagePackシリアライザーの実装
 python-mutagen	オーディオメタデータを処理する為のPythonモジュール
 python-networkx	Pythonによるネットワーク分析
 python-oauthlib	OAuth1/OAuth2用のPythonフレームワーク
-python-openapi3	Python3 OpenAPI 3仕様パーサ
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
 python-pbr	Pythonビルドの妥当性
@@ -5156,12 +5142,10 @@ python-regex	reを置き換える代替正規表現モジュール
 python-requests	Python HTTP for Humans
 python-requests-oauthlib	OAuthlibによるPythonリクエストのサポート
 python-rich	リッチテキスト、テーブル、プログレスバー、構文ハイライト、マークダウン、をレンダリングします
-python-s3transfer	Python用Amazon S3転送マネージャー
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	git/hgメタデータからPythonパッケージのバージョンを抽出します
 python-sympy	記号数学用のPythonライブラリ
 python-tabulate	Pythonで表形式のデータをきれいにプリントする
-python-termcolor	端末出力のANSIカラー形式
 python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
 python-tk@3.12	Tcl/TkへのPythonインターフェース
