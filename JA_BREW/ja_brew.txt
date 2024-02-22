@@ -4901,6 +4901,7 @@ pod2man	Perlドキュメント発生器
 podiff	2つのPOファイルのテキスト情報を比較する
 podman	OCIコンテナとポッドを管理する為のツール
 podman-compose	dockerの代替-podmanを使用して作成
+podman-tui	Podmanターミナルユーザーインターフェイス
 podofo	PDFファイル形式で動作するライブラリ
 podsync	YouTube/Vimeoチャンネルを回す ユーザー/プレイリストをポッドキャストフィードに
 poetry	Pythonパッケージ管理ツール
@@ -5085,19 +5086,15 @@ pyside@2	Qtの公式Python bindings
 pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-argcomplete	Python argparseのタブ補完
-python-attrs	BoilerplateのないPythonクラス
 python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-certifi	Python用 Mozilla CAバンドル
 python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
-python-configobj	構成ファイルの読み取り、書き込み、検証
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
-python-dicttoxml	Python辞書又はその他のネイティブ データ型を有効なXML文字列に変換します
-python-distlib	幾つかのPythonパッケージング標準(PEP)を実装するライブラリ
 python-distro	Linux OSプラットフォーム情報API
 python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
 python-filelock	Pythonのプラットフォームに依存しないファイルロック
@@ -5109,7 +5106,6 @@ python-hatch-vcs	好みのVCSでバージョン管理する為のHatchプラグ�
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
 python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
-python-json5	JSON5データ形式のPython実装
 python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC++実装
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
@@ -5129,10 +5125,8 @@ python-oauthlib	OAuth1/OAuth2用のPythonフレームワーク
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
 python-pbr	Pythonビルドの妥当性
-python-platformdirs	適切なプラットフォーム固有のディレクトリを決定する為のPythonパッケージ
 python-pluggy	シンプルなプロダクション対応プラグインシステム
 python-ply	Python Lex & Yacc
-python-prompt-toolkit	Pythonで強力な対話型CLIを構築する為のライブラリ
 python-psutil	Pythonでプロセスとシステムを監視する為のクロスプラットフォームライブラリ
 python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成する為のPythonライブラリ
@@ -5140,8 +5134,6 @@ python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルド�
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-regex	reを置き換える代替正規表現モジュール
 python-requests	Python HTTP for Humans
-python-requests-oauthlib	OAuthlibによるPythonリクエストのサポート
-python-rich	リッチテキスト、テーブル、プログレスバー、構文ハイライト、マークダウン、をレンダリングします
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	git/hgメタデータからPythonパッケージのバージョンを抽出します
 python-sympy	記号数学用のPythonライブラリ
@@ -5154,9 +5146,6 @@ python-toml	TOML用のPythonライブラリ
 python-trove-classifiers	PyPI上の分類器の正規ソース
 python-typing-extensions	Pythonのバックポート及び実験的な型ヒント
 python-urllib3	スレッドセーフな接続プーリング、ファイルポストなどを備えたHTTPライブラリ
-python-wcwidth	端末に表示されるUnicode文字列の幅を測定します
-python-websocket-client	Python用WebSocketクライアント
-python-xlsxwriter	Excel XLSXファイルを作成する為のPythonモジュール
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.11	オブジェクト指向プログラミング言語 インタプリタ/対話的
