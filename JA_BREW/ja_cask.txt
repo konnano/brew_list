@@ -1881,6 +1881,7 @@ kindle	電子書籍を読んだり同期したりする為のインターフェ�
 kindle-comic-converter	電子ブックリーダー用のコミックとマンガの変換
 kindle-comic-creator	Kindleコミッククリエーター
 kindle-previewer	Kindle電子書籍のプレビューと監査
+kit	スクリプトを作成して実行する
 kitematic	Docker Container管理用のビジュアルユーザーインターフェイス
 kitty	GPUベースのターミナルエミュレータ
 kiwi-for-gmail	フル機能のデスクトップオフィス生産性アプリの様にGmailを強化します
