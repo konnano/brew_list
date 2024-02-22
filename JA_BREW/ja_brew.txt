@@ -3832,7 +3832,7 @@ mapnik	地図アプリケーションを開発する為のツールキット
 mapproxy	Webマッププロキシの高速化
 mapserver	空間データと対話的な地図アプリをウェブに公開する
 marcli	MARC(ISO 2709)ファイルを解析する
-mariadb	MySQLのDrop-in代替品
+mariadb	MySQLのドロップイン代替品
 mariadb-connector-c	Cアプリケーション用のMariaDBデータベース連結装置
 mariadb-connector-odbc	業界標準のODBCAPIを使用するデータベースドライバー
 mariadb@10.10	MySQLのドロップイン代替品
@@ -3847,6 +3847,7 @@ mariadb@10.8	MySQLのドロップイン代替品
 mariadb@10.9	MySQLのドロップイン代替品
 mariadb@11.0	MySQLのドロップイン代替品
 mariadb@11.1	MySQLのドロップイン代替品
+mariadb@11.2	MySQLのドロップイン代替品
 markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLI及びMarkdownファイルのlintツール
