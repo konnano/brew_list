@@ -100,28 +100,20 @@ perl<<"EOF"
     $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions";
      $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts";
 
-   opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " DIR1 $!\n";
-    for $hand1( readdir($dir1) ){ next if $hand1 =~ /^\./;
-      $hand1 =~ s/(.+)\.rb$/$1/;
-       if( $FDIR ){
-        push @file1,"$hand1\n";
-       }else{ $i1 = 1;
-        push @file1,"homebrew/cask-fonts/$hand1\n";
+    @tap = (['cask-fonts','file1','FDIR','i1'],['cask-versions','file2','VERS','i2']);
+   for $tap( @tap ){
+    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-$tap->[0]-master/Casks" or die " DIR $!\n";
+     for $hand(readdir $dir){ next if $hand =~ /^\./;
+      $hand =~ s/(.+)\.rb$/$1/;
+       if( ${$tap->[2]} ){
+        push @{$tap->[1]},"$hand\n";
+       }else{ ${$tap->[3]} = 1;
+        push @{$tap->[1]},"homebrew/$tap->[0]/$hand\n";
        }
+     }
+    closedir $dir;
+    @{$tap->[1]} = sort @{$tap->[1]};
    }
-   closedir $dir1;
-    @file1 = sort @file1;
-   opendir $dir2,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-versions-master/Casks" or die " DIR2 $!\n";
-    for $hand2( readdir($dir2) ){ next if $hand2 =~ /^\./;
-      $hand2 =~ s/(.+)\.rb$/$1/;
-       if( $VERS ){
-        push @file2,"$hand2\n";
-       }else{ $i2 = 1;
-        push @file2,"homebrew/cask-versions/$hand2\n";
-       }
-    }
-   closedir $dir2;
-    @file2 = sort @file2;
 
    ( $i1 and $i2 ) ? push @file,"3\n",@file1,@file2 :
     $i1 ? push @file,"4\n1\n",@file2,@file1 :
@@ -161,21 +153,14 @@ perl<<"EOF"
     print $FILE3 @file4;
    close $FILE3;
 
+   @cna = (['cna1','HA1','IN1'],['cna2','HA2','IN2'],['cna3','HA3','IN3']);
    local $/;
-  open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n";
-   $an1 = <$dir1>; close $dir1;
-  @an1 = $an1 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i1=0;$i1<@an1;$i1+=2){ $HA1{$an1[$i1]} = ++$e1; $IN1{$an1[$i1]} = $an1[$i1+1] }
-
-  open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/cna2.html" or die " cna2 $!\n";
-   $an2 = <$dir2>; close $dir2;
-  @an2 = $an2 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i2=0;$i2<@an2;$i2+=2){ $HA2{$an2[$i2]} = ++$e2; $IN2{$an2[$i2]} = $an2[$i2+1] }
-
-  open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/cna3.html" or die " cna3 $!\n";
-   $an3 = <$dir3>; close $dir3;
-  @an3 = $an3 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i3=0;$i3<@an3;$i3+=2){ $HA3{$an3[$i3]} = ++$e3; $IN3{$an3[$i3]} = $an3[$i3+1] }
+  for $ha( @cna ){ $e = 0;
+   open $dir,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " cna1 $!\n";
+    $an = <$dir>; close $dir;
+   @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
+    for($i=0;$i<@an;$i+=2){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
+  }
 
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
@@ -225,7 +210,7 @@ perl<<"EOF"
     $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
 
    opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " DIR3 $!\n";
-    for $hand3( readdir($dir3) ){ next if $hand3 =~ /^\./;
+    for $hand3(readdir $dir3){ next if $hand3 =~ /^\./;
       $hand3 =~ s/(.+)\.rb$/$1/;
        if( $LFOD ){
         push @file3,"$hand3\n";
@@ -270,51 +255,16 @@ perl<<"EOF"
     print $FILE2 @file1;
    close $FILE2;
 
+   @ana = (['ana1','HA1','IN1'],['ana2','HA2','IN2'],['ana3','HA3','IN3'],
+           ['req1','HA4','EQ1'],['req2','HA5','EQ2'],['req3','HA6','EQ3'],
+           ['err1','HA7','ER1'],['err2','HA8','ER2'],['err3','HA9','ER3']);
    local $/;
-  open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/ana1.html" or die " ana1 $!\n";
-   $an1 = <$dir1>; close $dir1;
-  @an1 = $an1 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i1=0;$i1<@an1;$i1+=2){ $HA1{$an1[$i1]} = ++$e1; $IN1{$an1[$i1]} = $an1[$i1+1] }
-
-  open $dir2,'<',"$ENV{'HOME'}/.BREW_LIST/ana2.html" or die " ana2 $!\n";
-   $an2 = <$dir2>; close $dir2;
-  @an2 = $an2 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i2=0;$i2<@an2;$i2+=2){ $HA2{$an2[$i2]} = ++$e2; $IN2{$an2[$i2]} = $an2[$i2+1] }
-
-  open $dir3,'<',"$ENV{'HOME'}/.BREW_LIST/ana3.html" or die " ana3 $!\n";
-   $an3 = <$dir3>; close $dir3;
-  @an3 = $an3 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i3=0;$i3<@an3;$i3+=2){ $HA3{$an3[$i3]} = ++$e3; $IN3{$an3[$i3]} = $an3[$i3+1] }
-
-  open $dir4,'<',"$ENV{'HOME'}/.BREW_LIST/req1.html" or die " req1 $!\n";
-   $an4 = <$dir4>; close $dir4;
-  @an4 = $an4 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i4=0;$i4<@an4;$i4+=2){ $HA4{$an4[$i4]} = ++$e4; $EQ1{$an4[$i4]} = $an4[$i4+1] }
-
-  open $dir5,'<',"$ENV{'HOME'}/.BREW_LIST/req2.html" or die " req2 $!\n";
-   $an5 = <$dir5>; close $dir5;
-  @an5 = $an5 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i5=0;$i5<@an5;$i5+=2){ $HA5{$an5[$i5]} = ++$e5; $EQ2{$an5[$i5]} = $an5[$i5+1] }
-
-  open $dir6,'<',"$ENV{'HOME'}/.BREW_LIST/req3.html" or die " req3 $!\n";
-   $an6 = <$dir6>; close $dir6;
-  @an6 = $an6 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i6=0;$i6<@an6;$i6+=2){ $HA6{$an6[$i6]} = ++$e6; $EQ3{$an6[$i6]} = $an6[$i6+1] }
-
-  open $dir7,'<',"$ENV{'HOME'}/.BREW_LIST/err1.html" or die " err1 $!\n";
-   $an7 = <$dir7>; close $dir7;
-  @an7 = $an7 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i7=0;$i7<@an7;$i7+=2){ $HA7{$an7[$i7]} = ++$e7; $ER1{$an7[$i7]} = $an7[$i7+1] }
-
-  open $dir8,'<',"$ENV{'HOME'}/.BREW_LIST/err2.html" or die " err2 $!\n";
-   $an8 = <$dir8>; close $dir8;
-  @an8 = $an8 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i8=0;$i8<@an8;$i8+=2){ $HA8{$an8[$i8]} = ++$e8; $ER2{$an8[$i8]} = $an8[$i8+1] }
-
-  open $dir9,'<',"$ENV{'HOME'}/.BREW_LIST/err3.html" or die " err3 $!\n";
-   $an9 = <$dir9>; close $dir9;
-  @an9 = $an9 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-   for($i9=0;$i9<@an9;$i9+=2){ $HA9{$an9[$i9]} = ++$e9; $ER3{$an9[$i9]} = $an9[$i9+1] }
+  for $ha( @ana ){ $e = 0;
+   open $dir,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " ana1 $!\n";
+    $an = <$dir>; close $dir;
+   @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
+    for($i=0;$i<@an;$i+=2){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
+  }
 
   for($in1=0;$in1<@ANA;$in1++){
    $fom[$in1]  = $ANA[$in1];
