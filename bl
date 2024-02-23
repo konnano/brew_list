@@ -66,10 +66,10 @@ MAIN:{
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
     my $repo = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
-  $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts";
-   $re->{'TAP_S'} = "$repo/Library/Taps";
-    $re->{'Q_TAP'} = "$home/Q_TAP.txt";
-     $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
+  $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm' unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'};
+   $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts";
+    $re->{'TAP_S'} = "$repo/Library/Taps";
+     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
  }else{
   unless( $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} ){
    $OS_Version =  `sw_vers -productVersion`;
@@ -1028,7 +1028,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
        $e++ if $tap =~ /^[01]$/;
         push @{$tap[$e]},$tap;
       }else{
-        push @{$file},$tap;
+        push @{$file},$tap unless $re->{'LIN'} and not $re->{'FTD'};
       }
     }
    close $TAP;
@@ -2076,7 +2076,7 @@ perl<<"EOF"
     print $FILE3 @file4;
    close $FILE3;
 
-  local $/;
+   local $/;
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n";
    $an1 = <$dir1>; close $dir1;
   @an1 = $an1 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
