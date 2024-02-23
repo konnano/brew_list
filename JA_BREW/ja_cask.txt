@@ -1798,6 +1798,7 @@ joinme	join.me
 joker	JokeriOSカーネルキャッシュ処理ユーティリティ
 jollysfastvnc	どこからでもコンピュータを高速かつ安全に制御
 joplin	同期機能を備えたメモ取りとToDoアプリケーション
+jordanbaird-ice	メニューバーマネージャー
 joshjon-nocturnal	薄暗い夜勤メニューバーアプリ
 josm	OpenStreetMap用の拡張可能なエディター
 journey	日記アプリ
@@ -2723,6 +2724,7 @@ outset	outset
 overdrive-media-console	電子書籍を入手 オーディオブックとあなたの地元の図書館からのビデオ
 overflow	ビジュアルアプリケーションランチャー
 overkill	iPhoneを接続するときにiTunesが開かない様にする
+overlayed	最新、オープンソース、Freeボイスチャットオーバーレイ
 oversight	コンピューターのマイクとWebカメラを監視します
 overt	アプリストアを開く
 ovito	科学データの視覚化及び分析ソフトウェア
