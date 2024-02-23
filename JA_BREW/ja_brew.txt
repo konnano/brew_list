@@ -125,7 +125,6 @@ ansible	展開の自動化 構成/アップグレード
 ansible-cmdb	Ansibleファクトから静的HTML概要ページを生成します
 ansible-language-server	Ansibleファイル用の言語サーバー
 ansible-lint	実践と行動についてAnsibleプレイブックをチェックします
-ansible@6	自動展開 構成/アップグレード
 ansible@7	導入/構成/アップグレード を自動化する
 ansible@8	導入、構成、アップグレード、を自動化する
 ansifilter	ANSIコードを削除するか、HTML/(La)Tex/RTF/BBCodeに変換します
@@ -1272,6 +1271,7 @@ dhall	Dhall言語の通訳
 dhall-bash	DhallをBashにコンパイルする
 dhall-json	DhalltoJSONコンパイラとDhalltoYAMLコンパイラ
 dhall-lsp-server	DhallのLanguage Server Protocol(LSP)サーバー
+dhall-toml	Dhall/Toml の変換
 dhall-yaml	DhallとYAMLの間で変換する
 dhcpdump	デバッグ目的でDHCP転送量を監視する
 dhcping	dhcp-requestを実行して、dhcp-serverが実行されているかどうかを確認します
@@ -5122,7 +5122,6 @@ python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
 python-msgpack	Python用のMessagePackシリアライザーの実装
 python-mutagen	オーディオメタデータを処理する為のPythonモジュール
 python-networkx	Pythonによるネットワーク分析
-python-oauthlib	OAuth1/OAuth2用のPythonフレームワーク
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
 python-pbr	Pythonビルドの妥当性
@@ -5969,7 +5968,6 @@ stone-soup	Dungeon Crawl Stone Soup：ローグライクゲーム
 storj-uplink	StorjネットワークのアップリンクCLI
 storm	データストリームを処理する為の分散型リアルタイム計算システム
 stormlib	BlizzardMPQアーカイブを処理する為のライブラリ
-stormssh	ssh接続を管理する為のコマンドラインツール
 stormssh-completion	storm-sshの補完
 stow	単一のディレクトリツリー(例：/usr/local)の下でソフトウェアを正しく整理する
 stp	単純な定理証明 ビットベクトル用の効率的なSMTソルバー
