@@ -161,7 +161,7 @@ perl<<"EOF"
     print $FILE3 @file4;
    close $FILE3;
 
-  local $/;
+   local $/;
   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/cna1.html" or die " cna1 $!\n";
    $an1 = <$dir1>; close $dir1;
   @an1 = $an1 =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
