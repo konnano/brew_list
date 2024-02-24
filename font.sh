@@ -102,8 +102,8 @@ perl<<"EOF"
 
     @tap = (['cask-fonts','file1','FDIR','i1'],['cask-versions','file2','VERS','i2']);
    for $tap( @tap ){
-    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-$tap->[0]-master/Casks" or die " DIR $!\n";
-     for $hand(readdir $dir){ next if $hand =~ /^\./;
+    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-$tap->[0]-master/Casks" or die " TAP DIR $!\n";
+     for $hand(readdir $dir){ next if index($hand,'.') == 0;
       $hand =~ s/(.+)\.rb$/$1/;
        if( ${$tap->[2]} ){
         push @{$tap->[1]},"$hand\n";
@@ -129,8 +129,8 @@ EOF
 
   if [[ $2 = 1 ]];then
 perl<<"EOF"
-   open $FILE2,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " FILE2 $!\n";
-    while($brew=<$FILE2>){
+   open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " CASK FILE 1 $!\n";
+    while($brew=<$FILE1>){
      if( $brew =~ s|^\s*<td><a href[^>]+>(.+)</a></td>\n|$1| ){
       $tap1 = $brew; next;
      }elsif( not $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
@@ -145,19 +145,19 @@ perl<<"EOF"
       $test = 0;
      }
        push @ANA,$tap1 if $tap1;
-      push @file4,"$tap1\t$tap3\t$tap2\n" if $tap1;
+      push @file1,"$tap1\t$tap3\t$tap2\n" if $tap1;
      $tap1 = $tap2 = $tap3 = '';
     }
+   close $FILE1;
+   open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " CASK FILE 2 $!\n";
+    print $FILE2 @file1;
    close $FILE2;
-   open $FILE3,'>',"$ENV{'HOME'}/.BREW_LIST/cask.txt" or die " FILE5 $!\n";
-    print $FILE3 @file4;
-   close $FILE3;
 
    @cna = (['cna1','HA1','IN1'],['cna2','HA2','IN2'],['cna3','HA3','IN3']);
    local $/;
   for $ha( @cna ){ $e = 0;
-   open $dir,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " cna1 $!\n";
-    $an = <$dir>; close $dir;
+   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " cna1 $!\n";
+    $an = <$dir1>; close $dir1;
    @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
     for($i=0;$i<@an;$i+=2){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
   }
@@ -171,9 +171,9 @@ perl<<"EOF"
    $fom[$in1] .= $IN2{$ANA[$in1]} ? "\t$IN2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $IN3{$ANA[$in1]} ? "\t$IN3{$ANA[$in1]}\n" : "\t\n";
   }
-  open $dir4,'>',"$ENV{'HOME'}/.BREW_LIST/cna.txt" or die " cna4 $!\n";
-   print $dir4 @fom;
-  close $dir4;
+  open $dir2,'>',"$ENV{'HOME'}/.BREW_LIST/cna.txt" or die " cna2 $!\n";
+   print $dir2 @fom;
+  close $dir2;
  rmdir "$ENV{'HOME'}/.BREW_LIST/9";
 EOF
   (( $? != 0 )) && math_rm 1 && ${die:?perl 2 error}
@@ -209,28 +209,28 @@ perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
     $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
 
-   opendir $dir3,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " DIR3 $!\n";
-    for $hand3(readdir $dir3){ next if $hand3 =~ /^\./;
-      $hand3 =~ s/(.+)\.rb$/$1/;
+   opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " LINUX DIR $!\n";
+    for $hand1(readdir $dir1){ next if index($hand1,'.') == 0;
+      $hand1 =~ s/(.+)\.rb$/$1/;
        if( $LFOD ){
-        push @file3,"$hand3\n";
-       }else{ $i3 = 1;
-        push @file3,"homebrew/linux-fonts/$hand3\n";
+        push @file1,"$hand1\n";
+       }else{ $i1 = 1;
+        push @file1,"homebrew/linux-fonts/$hand1\n";
        }
     }
-   closedir $dir3;
-    @file3 = sort @file3;
-     $i3 ? push @file4,"3\n",@file3 : push @file4,"4\n0\n",@file3;
+   closedir $dir1;
+    @file1 = sort @file1;
+     $i1 ? push @file2,"3\n",@file1 : push @file2,"4\n0\n",@file1;
 
-   open $FILE4,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " LFO FILE $!\n";
-    print $FILE4 @file4;
-   close $FILE4;
+   open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " LINUX FILE $!\n";
+    print $FILE1 @file2;
+   close $FILE1;
 EOF
  fi
 
  if [[ $2 = 1 ]];then
 perl<<"EOF"
-  open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " FILE6 $!\n";
+  open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " BREW FILE 1 $!\n";
    while($brew=<$FILE1>){
     if( $brew =~ s|^\s*<td><a href[^>]+>(.+)</a></td>\n|$1| ){
      $tap1 = $brew; next;
@@ -251,7 +251,7 @@ perl<<"EOF"
    }
   close $FILE1;
   @file1 = sort @file1;
-   open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE7 $!\n";
+   open $FILE2,'>',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " BREW FILE 2 $!\n";
     print $FILE2 @file1;
    close $FILE2;
 
@@ -260,8 +260,8 @@ perl<<"EOF"
            ['err1','HA7','ER1'],['err2','HA8','ER2'],['err3','HA9','ER3']);
    local $/;
   for $ha( @ana ){ $e = 0;
-   open $dir,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " ana1 $!\n";
-    $an = <$dir>; close $dir;
+   open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " ana1 $!\n";
+    $an = <$dir1>; close $dir1;
    @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
     for($i=0;$i<@an;$i+=2){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
   }
@@ -287,9 +287,9 @@ perl<<"EOF"
    $fom[$in1] .= $ER2{$ANA[$in1]} ? "\t$ER2{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $ER3{$ANA[$in1]} ? "\t$ER3{$ANA[$in1]}\n" : "\t\n";
   }
-  open $dirs,'>',"$ENV{'HOME'}/.BREW_LIST/ana.txt" or die " ana4 $!\n";
-   print $dirs @fom;
-  close $dirs;
+  open $dir2,'>',"$ENV{'HOME'}/.BREW_LIST/ana.txt" or die " ana2 $!\n";
+   print $dir2 @fom;
+  close $dir2;
  rmdir "$ENV{'HOME'}/.BREW_LIST/10";
 EOF
  (( $? != 0 )) && math_rm 1 && ${die:?perl 3 error}
