@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK,%HA );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $MY_BREW = $ENV{'Perl_B'} || `CO=\$(command -v brew);printf \${CO%/bin/brew}`;
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
@@ -45,12 +45,13 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }
 
 sub Dirs_1{
-my( $dir,$ls,$cask ) = @_;
+my( $dir,$ls,$cask,$HA ) = @_;
  opendir my $DIR,$dir or die " DIR $!\n";
-  for my $an(sort readdir $DIR){ next if $an =~ /^\./; $HA{$an}++ if not $cask and $an =~ /\.rb$/;
-   next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/;
-    next if not $cask and $an =~ /\.rb$/ and $HA{$an} > 1;
-   ( -d "$dir/$an" ) ? Dirs_1( "$dir/$an",$ls,$cask ) : ( -l "$dir/$an" ) ? push @{$re->{'ALIA'}},"$dir/$an" :
+  for my $an(sort readdir $DIR){ next if index($an,'.') == 0;
+   $HA->{$an}++ if not $cask and $an =~ /\.rb$/;
+    next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/ or
+                    $HA->{$an} and $HA->{$an} > 1;
+   ( -d "$dir/$an" ) ? Dirs_1( "$dir/$an",$ls,$cask,$HA ) : ( -l "$dir/$an" ) ? push @{$re->{'ALIA'}},"$dir/$an" :
    ( $cask and $an =~ /\.rb$/ ) ? push @CASK,"$dir/$an" : ( $an =~ /\.rb$/ ) ? push @BREW,"$dir/$an" : 0;
   }
  closedir $DIR;
