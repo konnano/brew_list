@@ -2552,6 +2552,7 @@ notebooks	ワードプロセッサ
 notedup	Evernote InternationalからEvernoteへのデータ転送
 notes-better	マークダウンとkanbanの為のシンプルなメモアプリ
 notesnook	プライバシー重視のメモ作成アプリ
+notesollama	Ollamaを介したApple NotesのLLMサポート
 noti	Androidデバイスからの通知を表示するユーティリティ
 notion	書くアプリ 予定/協調/整理
 notion-calendar	プロフェッショナルとチーム向けのカレンダー
