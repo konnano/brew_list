@@ -1504,6 +1504,7 @@ ecl	埋め込み可能なCommon Lisp
 ecm	CDイメージファイルを作成して圧縮率を高めます
 ecoji	データを絵文字としてエンコード(デコード)します
 ed	従来のUNIXラインエディタ
+edbrowse	コマンドラインエディタとWebブラウザ
 edencommon	Watchman及びEden プロジェクトの共有ライブラリ
 editorconfig	複数のエディター間で一貫したコーディングスタイルを維持する
 editorconfig-checker	ファイルが.editorconfigと調和していることを確認する為のツール
@@ -4029,6 +4030,7 @@ mlogger	コマンドラインからsyslogにログインします
 mlpack	拡張性のあるC++機械学習ライブラリ
 mlt	創造/管理 マルチトラックコンポジションを実行します オーディオ/ビデオ
 mlton	プログラム全体 Standard MLの最適化コンパイラ
+mlx	Appleシリコン用のアレイフレームワーク
 mm-common	GTK+/GNOMEパッケージのC++インターフェース用のユーティリティを構築する
 mmark	IETF向けのGoの強力なマークダウン計算機
 mmctl	Mattermostサーバー用のリモートCLIツール
@@ -5918,6 +5920,7 @@ ssh-vault	SSHキーを使用して暗号化/復号化
 ssh3	HTTP/3を使用した、より高速で機能豊富なセキュアシェル
 sshfs	SSHファイル転送手続きに基づくファイルシステムクライアント
 sshguard	SSHに対するブルートフォース攻撃から保護する
+sshpass	非対話型、SSHパスワード認証
 sshportal	SSH、Telnet、堅牢サーバー
 sshs	SSHのグラフィカルコマンドラインクライアント
 sshtrix	SSHログインクラッカー
@@ -6605,6 +6608,7 @@ vue-cli	Vue.js開発の為の標準ツール
 vulkan-extensionlayer	ネイティブサポートが利用できない場合にVulkan機能を提供するレイヤー
 vulkan-headers	VulkanヘッダーファイルとAPIレジストリ
 vulkan-loader	Vulkan ICDローダー
+vulkan-profiles	Vulkanプロファイル用のツール
 vulkan-tools	Vulkanユーティリティとツール
 vulkan-utility-libraries	Vulkanのユーティリティライブラリ
 vulkan-validationlayers	開発者がVulkan APIの正しい使用を検証できる様にするVulkanレイヤー
