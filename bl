@@ -547,10 +547,13 @@ my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2
 sub Leng_1{
 my( $spa,$name ) = @_;
  my $len = length $$name;
-  substr $$name,$spa-4,$len,'...' if $spa < $len;
- my $spa1 = ( $spa -length $$name ) >> 1;
-  $$name = ' 'x$spa1.$$name.' 'x$spa1;
-   $$name = ' '.$$name if length $$name < $spa;
+  if( $spa < $len ){
+   substr $$name,$spa-4,$len,'...';
+  }else{
+   my $sp = ( $spa -$len ) >> 1;
+    $$name = ' 'x$sp.$$name.' 'x$sp;
+  }
+ $$name = ' '.$$name if length $$name < $spa;
 }
 
 sub Ana_1{
