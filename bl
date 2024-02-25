@@ -1612,7 +1612,7 @@ sub Format_1{
     $re->{'ZEN'} =~ /^(\s{10}==>.*\n[^=]+)\s{10}==>.*\n$/ ? $1 :
     $re->{'ZEN'} =~ /^\s{10}==>.*\n(\s{10}==>.*\n[^=]+)$/ ? $1 : $re->{'ZEN'} if $re->{'EXC'} or $re->{'KXC'};
   }
-    $re->{'ZEN'} =~ s/[^\n]+item \d.+item \d\K|[^\n]+item \d[^\n]*\n//s if $re->{'TAP'};
+    $re->{'ZEN'} =~ s/[^\n]+item \d.+item \d\K|[^\n]+item \d[^\n]*\n//s if $re->{'TAP'} or $re->{'LIN'} and $re->{'PRINT'};
      $re->{'ZEN'} = 0 if $re->{'KEN'} and $re->{'DN'} == 0;
   if( $re->{'ZEN'} ){
      print"\033[?7l" if -t STDOUT;
