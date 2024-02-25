@@ -1084,6 +1084,7 @@ font-ma-shan-zheng	Ma Shan Zheng
 font-macondo	Macondo
 font-macondo-swash-caps	Macondo Swash Caps
 font-mada	Mada
+font-madimi-one	Madimi One
 font-magra	Magra
 font-maiden-orange	Maiden Orange
 font-maitree	Maitree
@@ -1538,6 +1539,7 @@ font-office-code-pro	Office Code Pro
 font-offside	Offside
 font-ofl-sorts-mill-goudy-tt	OFL Sorts Mill Goudy TT
 font-oi	さまざまな言語で使用される間投詞
+font-ojuju	極光から大胆まで、さまざまな絞りで特徴を発揮
 font-old-standard-tt	Old Standard TT
 font-oldenburg	Oldenburg
 font-ole	Ole
@@ -1955,6 +1957,7 @@ font-syncopate	Syncopate
 font-syne	アートセンター Synesthésieのためにデザインされた書体
 font-syne-mono	コントロールを手放すことについての別の見方
 font-syne-tactile	アートセンター Synesthésieのためにデザインされました
+font-tac-one	Project from afrotype
 font-tai-heritage-pro	通常のウェイトと太字のウェイトがあり、オープンタイプとグラファイトの両方のレンダリングが可能
 font-tajawal	Tajawal
 font-takaoex	TakaoEx
@@ -2104,6 +2107,10 @@ font-yaldevi	Designed by sol matas
 font-yaldevi-colombo	Yaldevi Colombo
 font-yanone-kaffeesatz	Yanone Kaffeesatz
 font-yantramanav	Yantramanav
+font-yarndings-12	Yarndings 12
+font-yarndings-12-charted	Yarndings 12 Charted
+font-yarndings-20	Yarndings 20
+font-yarndings-20-charted	Yarndings 20 Charted
 font-yatra-one	Yatra One
 font-yellowtail	Yellowtail
 font-yeon-sung	Yeon Sung
