@@ -1038,10 +1038,10 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
    my @brew = $re->{'DEP'} ? ('brew','cask','tap') :
-            ( $re->{'FTD'} or $re->{'LFOD'} and $re->{'PRINT'} ) ? ('brew','linux') :
+            ( $re->{'LFOD'} and $re->{'PRINT'} ) ? ('brew','linux') : $re->{'FTD'} ? ('linux') :
             ( $re->{'CAS'} and not $re->{'TAP'} and ( $re->{'FDIR'} or $re->{'VERS'} ) and $re->{'PRINT'} ) ?
               ('cask','tap') : $re->{'FOR'} ? ('brew') : ( $re->{'CAS'} and not $re->{'TAP'} ) ? ('cask') :
-            ( ( $re->{'FDIR'} or $re->{'VERS'} ) and ( $re->{'TAP'} or $re->{'PRINT'} ) ) ? ('tap') : ();
+            ( ( $re->{'FDIR'} or $re->{'VERS'} ) and $re->{'TAP'} ) ? ('tap') : ();
     no warnings 'closed'; my $JA;
    for my $ha( @brew ){
     ( $re->{'KEN'} and $Locale == 2 ) ?
