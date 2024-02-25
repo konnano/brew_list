@@ -610,7 +610,7 @@ sub Ana_1{
   close $dir;
    my $tput = `tput cols`;
     my $line = $tput >= 84 ? 83 : $tput - 2;
-     my $spa = $tput >= 84 ? 43 : ($tput - 41) > 0 ? $tput - 41 : 0;
+     my $spa = $tput >= 84 ? 43 : $tput > 41 ? $tput - 41 : 0;
       my $size = $tput >= 84 ? ($tput - 84) >> 1 : 0;
    my @line = $Locale ? ( '│','┬','┴','┼','─','├','┤','┌','┐','└','┘' ):
                         ( '|','-','-','-','-',' ',' ',' ',' ',' ',' ' );
@@ -674,7 +674,7 @@ sub Size_1{
    my $an = @data ? \@data : $list;
     exit unless @$an;
      my $tput = `tput cols`;
-      my $spa = $tput >= 88 ? 40 : ($tput - 48) > 0 ? $tput - 48 : 0;
+      my $spa = $tput >= 88 ? 40 : $tput > 48 ? $tput - 48 : 0;
    for(my $i=0;$i<@$an;$i++){
     @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
      if( $i & 1 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
@@ -760,7 +760,7 @@ sub Brew_2{
 my $re = shift; my( $ls,@an,%ha );
  exit if defined $re->{'use'} and not $re->{'HASH'}{$re->{'use'}};
  my $tput = `tput cols`;
-  my $spa = $tput >= 66 ? 44 : ($tput - 22) > 0 ? $tput - 22 : 0;
+  my $spa = $tput >= 66 ? 44 : $tput > 22 ? $tput - 22 : 0;
  if( $re->{'use'} ){
   Uses_1( $re,$re->{'use'},\%ha,\@an) ;
    if( @an ){
