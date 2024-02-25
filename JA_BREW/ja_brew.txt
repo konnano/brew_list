@@ -2031,6 +2031,7 @@ gifsicle	GIF 画像/アニメ 作成/編集
 gifski	pngquantに基づく最高品質のGIFエンコーダー
 gimme	Goバージョンをインストールする為のシェルスクリプト
 gimme-aws-creds	OktaからAWS認証情報を取得する為のCLI
+gimmecert	ローカルで生成されたCAを使用して、X.509サーバー証明書とクライアント証明書を迅速に発行します
 ginac	数式処理システムではありません
 gismo	アイソジオメトリック解析(IGA) C++ライブラリ
 gist	要旨をアップロードする為のコマンドラインユーティリティ
