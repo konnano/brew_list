@@ -838,6 +838,7 @@ deckset	Markdownからのプレゼンテーション
 decloner	高速で信頼性の高い重複ファイルファインダー
 deco	React Nativeアプリケーションを構築する為のIDE
 decrediton	信頼できる自律デジタル通貨の為のウォレットGUI
+deelay	遅延プラグイン
 deeper	Finderや他のアプリの隠し機能を有効/無効にするツール
 deepgit	ソースコードの履歴を調査する為のツール
 deepl	テキストを理解して翻訳する様にAIをトレーニングします
@@ -3347,6 +3348,7 @@ security-growler	セキュリティグローラー
 securityspy	マルチカメラCCTVソフトウェア
 segger-embedded-studio-for-arm	組み込みシステム向けIDE
 segger-jlink	Segger J-Linkデバッグプローブ用のソフトウェア及びドキュメントパック
+segger-ozone	Segger Ozone J-Linkデバッガー用のソフトウェア及びドキュメントパック
 sejda-pdf	PDFエディター
 sekey	SeKey
 selfcontrol	気が散るWebサイトへの自分のアクセスをブロックする
