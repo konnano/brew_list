@@ -5104,7 +5104,6 @@ python-filelock	Pythonのプラットフォームに依存しないファイル�
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
-python-hatch-fancy-pypi-readme	Hatch付きの豪華なPyPI README
 python-hatch-vcs	好みのVCSでバージョン管理する為のHatchプラグイン
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
@@ -5116,10 +5115,8 @@ python-lxml	libxml2/libxsltライブラリのPythonバインディング
 python-magic	libmagicのPythonラッパー
 python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
-python-markdown-it-py	markdown-itのPythonポート。マークダウン解析、正しく終了
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-matplotlib	静的、アニメーション化、インタラクティブビジュアライゼーション、を作成する為のPythonライブラリ
-python-mdurl	markdown-it用のURLユーティリティ(Pythonポート)
 python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
 python-msgpack	Python用のMessagePackシリアライザーの実装
 python-mutagen	オーディオメタデータを処理する為のPythonモジュール
@@ -6144,7 +6141,6 @@ terminalimageviewer	ブロックグラフィック文字を使用して端末に
 terminator	1つのウィンドウに複数のGNOME端末
 termius	termius.com(別名serverauditor.com)のCLIツール
 termrec	端末出力のビデオを録画する
-termshare	クライアント/Webを介した対話または表示専用の端末共有
 termshark	Wiresharkに触発されたtsharkのターミナルUI
 tern	ソフトウェア部品表(SBOM)ツール
 terracognita	既存のクラウドプロバイダーから読み取りTerraformコードを生成します
