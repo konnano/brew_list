@@ -5099,13 +5099,10 @@ python-click	Pythonコンポーザブルコマンドラインインターフェ�
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
-python-distro	Linux OSプラットフォーム情報API
-python-docopt	あなたを笑顔にするPythonのコマンドライン引数パーサー
 python-filelock	Pythonのプラットフォームに依存しないファイルロック
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
-python-hatch-vcs	好みのVCSでバージョン管理する為のHatchプラグイン
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
 python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
@@ -5119,12 +5116,10 @@ python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-matplotlib	静的、アニメーション化、インタラクティブビジュアライゼーション、を作成する為のPythonライブラリ
 python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
-python-msgpack	Python用のMessagePackシリアライザーの実装
 python-mutagen	オーディオメタデータを処理する為のPythonモジュール
 python-networkx	Pythonによるネットワーク分析
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
-python-pbr	Pythonビルドの妥当性
 python-pluggy	シンプルなプロダクション対応プラグインシステム
 python-ply	Python Lex & Yacc
 python-psutil	Pythonでプロセスとシステムを監視する為のクロスプラットフォームライブラリ
@@ -5132,7 +5127,6 @@ python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成する為のPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出す為の低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
-python-regex	reを置き換える代替正規表現モジュール
 python-requests	Python HTTP for Humans
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	git/hgメタデータからPythonパッケージのバージョンを抽出します
