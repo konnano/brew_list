@@ -68,7 +68,7 @@ unless( $ARGV[0] ){
   $tap{"${hand}alias"} .= "$alias\t";
  } $tap{'pythonalia'} = 'python@3.11' if $re->{'LIN'};
   my( $in,$e ) = @BREW >> 2;
-   my @in = ( $in << 1,($in << 1) + $in );
+   my @in = ( $in << 1,$in * 3 );
     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
  for my $dir1(@BREW){ my( $bot,@an );
   if( $re->{'MAC'} ){ $e++;
