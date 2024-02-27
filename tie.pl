@@ -47,7 +47,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 sub Dirs_1{
 my( $dir,$ls,$cask,$HA ) = @_;
  opendir my $DIR,$dir or die " DIR $!\n";
-  for my $an(sort readdir $DIR){ next if index($an,'.') == 0;
+  for my $an( sort readdir $DIR ){ next if index($an,'.') == 0;
    $HA->{$an}++ if not $cask and $an =~ /\.rb$/;
     next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/ or
                     $HA->{$an} and $HA->{$an} > 1;
@@ -60,7 +60,7 @@ my( $dir,$ls,$cask,$HA ) = @_;
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
 tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
- for my $alias(@{$re->{'ALIA'}}){
+ for my $alias( @{$re->{'ALIA'}} ){
   my $hand = readlink $alias;
   $alias =~ s|.+/(.+)|$1|;
    $hand =~ s|.+/(.+)\.rb$|$1|;
@@ -70,7 +70,7 @@ unless( $ARGV[0] ){
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,$in * 3 );
     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
- for my $dir1(@BREW){ my( $bot,@an );
+ for my $dir1( @BREW ){ my( $bot,@an );
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
    $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
@@ -255,7 +255,7 @@ unless( $ARGV[0] ){
 
  if( $re->{'MAC'} ){ my %HA;
   rmdir "$ENV{'HOME'}/.BREW_LIST/15";
-  for(@{$re->{'OS'}}){
+  for( @{$re->{'OS'}} ){
    my( $name,$data,$ls ) = split ',';
    if( not $ls and $MAC_OS{$tap{"${data}USE_OS"}} <= $OS_Version ){
     $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
@@ -268,7 +268,7 @@ unless( $ARGV[0] ){
 
  sub Uses_1{
  my( $name,$HA ) = @_;
-  for my $ls(split '\t',$name){
+  for my $ls( split '\t',$name ){
    $HA->{$ls}++;
    if( $HA->{$ls} < 2 ){
     $tap{"$ls$OS_Version2"} = 0 if $tap{"$ls$OS_Version2"};
@@ -281,14 +281,14 @@ unless( $ARGV[0] ){
  sub Glob_1{
  my( $brew,$mine,$loop ) = @_;
   my @GLOB = $brew ? glob "$re->{'CEL'}/$brew/*" : glob "$re->{'CEL'}/*/*";
-  for my $glob(@GLOB){ my($name) = $glob =~ m|$re->{'CEL'}/([^/]+)/.*|;
+  for my $glob( @GLOB ){ my($name) = $glob =~ m|$re->{'CEL'}/([^/]+)/.*|;
    if( -f "$glob/INSTALL_RECEIPT.json" ){ my $in;
     open my $CEL,'<',"$glob/INSTALL_RECEIPT.json" or die " GLOB $!\n";
      while(my $cel=<$CEL>){
       unless( $cel =~ /\n/ ){
        $cel =~ s/.+"runtime_dependencies":\[([^]]*)].+/$1/;
        my @HE = $cel =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
-       for my $ls1(@HE){ my( %HA,%AL,$ne );
+       for my $ls1( @HE ){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
          if( $loop ){ return if $ls1 eq $mine;
@@ -340,7 +340,7 @@ sub Version_1{
  my @ls1 = split '\.|-|_',$_[0];
  $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
  my $i = 0;
-  for(;$i<@ls2;$i++){
+  for( ;$i<@ls2;$i++ ){
    if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
      if( $ls1[$i] gt $ls2[$i] ){ return 1;
      }elsif( $ls1[$i] lt $ls2[$i] ){ return;
@@ -358,7 +358,7 @@ sub Version_1{
  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
  my( $in,$e ) = ( @CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
  $UNAME = $UNAME eq 'x86_64' ? 'intel' : 'arm';
-  for my $dir2(@CASK){ my $ver;
+  for my $dir2( @CASK ){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
     my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(?:[^/]+/)*(.+)\.rb$|;
      $tap{"${name}m_ver"} = 1 if $dirs eq 'homebrew-cask-versions';
@@ -423,7 +423,7 @@ sub Version_1{
    close $BREW;
   }
  }else{
-  for my $dir3(@CASK){
+  for my $dir3( @CASK ){
    my( $name ) = $dir3 =~ m|.+/(.+)\.rb|;
     $tap{"${name}cask"} = $dir3; $tap{"${name}lfont"} = 1;
    open my $BREW,'<',$dir3 or die " tie Info_3 $!\n";
@@ -449,7 +449,7 @@ unless( $ARGV[0] ){
    my( $TIN,$UAA,$AIA,$ACA,$BUI );
   @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
  if( $re->{'MAC'} ){
-  for(@CASK){
+  for( @CASK ){
    last unless m|$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks/|o;
     my( $name ) = m|.+/(.+)\.rb|;
      $ACA .= "$name \\\n";
@@ -458,7 +458,7 @@ unless( $ARGV[0] ){
  }
 
   my( $COU,$IN ) = ( 0,0 );
- for(my $i=0;$i<@BREW;$i++){
+ for( my $i=0;$i<@BREW;$i++ ){
   $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
   $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
   $AIA .= "$BREW[$i] \\\n";
@@ -468,7 +468,7 @@ unless( $ARGV[0] ){
       ( $re->{'MAC'} and not $tap{"${b1}un_xcode"} or $re->{'LIN'} and not $tap{"${b1}un_Linux"} );
     }
    }
-   for(;$COU<@LIST;$COU++){
+   for( ;$COU<@LIST;$COU++ ){
     my( $ls1,$ls2,$ls3 ) = split '\t',$LIST[$COU];
      $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]f_version"}, last if $BREW[$i] lt $ls1;
       if( $BREW[$i] eq $ls1 ){
@@ -478,7 +478,7 @@ unless( $ARGV[0] ){
       }
    }
    if( $re->{'MAC'} ){
-     for(;$IN<@CASK;$IN++){
+     for( ;$IN<@CASK;$IN++ ){
       last if $BREW[$i] lt $CASK[$IN];
        if($BREW[$i] eq $CASK[$IN]){
         $tap{"$CASK[$IN]so_name"} = 1;
@@ -487,7 +487,7 @@ unless( $ARGV[0] ){
      }
    }
  } my( $COM,$DEP,@TRE,%HAU );
-  for my $br(glob "$re->{'CEL'}/*"){
+  for my $br( glob "$re->{'CEL'}/*" ){
    $br =~ s|.+/(.+)|$1|;
    if( $tap{"${br}deps"} ){ push @TRE,$br;
     $HAU{$_}++ for split '\t',$tap{"${br}deps"};
@@ -495,11 +495,11 @@ unless( $ARGV[0] ){
    } $COM .= "$br \\\n";
   }
  if( $re->{'MAC'} ){
-  for my $ca(@CASK){
+  for my $ca( @CASK ){
    $TIN .= "$ca \\\n" if $tap{"${ca}formula"} or $tap{"${ca}d_cask"};
    $UAA .= "$ca \\\n" if $tap{"${ca}u_cask"} or  $tap{"${ca}u_form"};
   }
-  for my $gs(glob "$MY_BREW/Caskroom/*"){ my $ls;
+  for my $gs( glob "$MY_BREW/Caskroom/*" ){ my $ls;
    $gs =~ s|.+/(.+)|$1|;
    if( $tap{"${gs}d_cask"} ){
     $HAU{$_}++ for split '\t',$tap{"${gs}d_cask"};
