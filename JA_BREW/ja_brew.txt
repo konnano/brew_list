@@ -512,6 +512,7 @@ bltool	backloggery.comとのコマンドライン対話の為のツール
 bluepill	複数の模擬装置を使用してUI実行するiOSのテストツール
 bluetoothconnector	Bluetoothデバイスの接続と切断
 blueutil	Bluetoothパワーと検出可能な状態を 取得/設定 します
+bluez	Linux用Bluetoothプロトコルスタック
 bmake	NetBSD make(1)のポータブルバージョン
 bmon	インターフェイス処理能力モニター
 bnd	OSGiバンドルの万能ナイフ
