@@ -170,6 +170,7 @@ ao	エレガントなMicrosoft To-Doデスクトップアプリ
 apache-couchdb	マルチマスター同期データベース
 apache-directory-studio	EclipseベースのLDAPブラウザーとディレクトリクライアント
 apidog	API開発プラットフォーム
+apidog-europe	ヨーロッパでホストされるAPI開発プラットフォーム
 apifox	APIドキュメントのプラットフォーム デバッグ モック/テスト
 apipost	APIドキュメントのプラットフォーム デバッグ モック/テスト
 apk-icon-editor	APKアイコンを変更する為のエディター 名前/バージョン/その他のデータ
@@ -2383,6 +2384,7 @@ morpheus	多細胞システム生物学のモデリング環境
 mos	スクロールをスムーズにしマウスのスクロール方向を個別に設定します
 mosaic	アプリのサイズ変更と再配置
 moscow-ml	StandardMLの軽量実装
+motion	To-doリストとプロジェクト管理アプリ
 motrix	オープンソースのダウンロードマネージャー
 motu-m-series	Motu Mシリーズ(M2/M4/M6)用のオーディオインターフェイスドライバー
 mountain	ボリュームの マウント/アンマウント時に通知を表示する
@@ -4339,6 +4341,7 @@ yojimbo	簡単で信頼できる情報オーガナイザー
 youdaodict	Youdao 辞典
 youdaonote	マルチプラットフォームノートアプリケーション
 youku	中国のビデオストリーミング及び共有プラットフォーム
+youlean-loudness-meter	ラウドネスメーター
 youll-never-take-me-alive	暗号化されたデータの保護を強化するユーティリティ
 yousician	楽器学習ツール
 youtrack-workflow	YouTrackのワークフローを作成及び編集します
