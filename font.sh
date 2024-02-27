@@ -103,7 +103,7 @@ perl<<"EOF"
     @tap = (['cask-fonts','file1','FDIR','i1'],['cask-versions','file2','VERS','i2']);
    for $tap( @tap ){
     opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-$tap->[0]-master/Casks" or die " TAP DIR $!\n";
-     for $hand(readdir $dir){ next if index($hand,'.') == 0;
+     for $hand( readdir $dir ){ next if index($hand,'.') == 0;
       $hand =~ s/(.+)\.rb$/$1/;
        if( ${$tap->[2]} ){
         push @{$tap->[1]},"$hand\n";
@@ -159,10 +159,10 @@ perl<<"EOF"
    open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " cna1 $!\n";
     $an = <$dir1>; close $dir1;
    @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-    for($i=0;$i<@an;$i+=2){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
+    for( $i=0;$i<@an;$i+=2 ){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
   }
 
-  for($in1=0;$in1<@ANA;$in1++){
+  for( $in1=0;$in1<@ANA;$in1++ ){
    $fom[$in1]  = $ANA[$in1];
    $fom[$in1] .= $HA1{$ANA[$in1]} ? "\t$HA1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA2{$ANA[$in1]} ? "\t$HA2{$ANA[$in1]}" : "\t";
@@ -210,7 +210,7 @@ perl<<"EOF"
     $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
 
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " LINUX DIR $!\n";
-    for $hand1(readdir $dir1){ next if index($hand1,'.') == 0;
+    for $hand1( readdir $dir1 ){ next if index($hand1,'.') == 0;
       $hand1 =~ s/(.+)\.rb$/$1/;
        if( $LFOD ){
         push @file1,"$hand1\n";
@@ -263,10 +263,10 @@ perl<<"EOF"
    open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " ana1 $!\n";
     $an = <$dir1>; close $dir1;
    @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-    for($i=0;$i<@an;$i+=2){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
+    for( $i=0;$i<@an;$i+=2 ){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
   }
 
-  for($in1=0;$in1<@ANA;$in1++){
+  for( $in1=0;$in1<@ANA;$in1++ ){
    $fom[$in1]  = $ANA[$in1];
    $fom[$in1] .= $HA1{$ANA[$in1]} ? "\t$HA1{$ANA[$in1]}" : "\t";
    $fom[$in1] .= $HA2{$ANA[$in1]} ? "\t$HA2{$ANA[$in1]}" : "\t";
