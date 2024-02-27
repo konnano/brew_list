@@ -407,14 +407,15 @@ sub Path_1{ my( $brew,$i );
 }
 
 sub m_search{
- my $re = shift; my( $cont,$nam,$rows,$cols,@an ) = 1;
+ my $re = shift; my( $cont,$nam,$rows,$cols,@an,$bl ) = 1;
  while(1){
  my $co = $cont;
   unless( $nam ){ my $i = 0;
    $nam = $re->{'MAC'} ? 54 : 27;
     $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
-    $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' );
-     exit unless -t STDOUT and Path_1;
+     $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' );
+   exit unless -t STDOUT and Path_1;
+    $bl = (caller 0)[1];
      system"stty -echo -icanon";
   }
     my( $ROWS,$COLS ) = ( $rows,$cols) = _term();
@@ -456,7 +457,7 @@ sub m_search{
          ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
          ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
        my $bl = ( $an[$co] eq 'l_l' ) ?
-       `bl -l /^l\\(?\\!ib\\)/` : `bl -$ca /^$na/`;
+       `$bl -l /^l\\(?\\!ib\\)/` : `$bl -$ca /^$na/`;
         $SIG{'INT'} = $SIG{'QUIT'} = sub{};
       open my $pipe,'|-','less -S' or die " can't exec command\n";
        print $pipe $bl;
