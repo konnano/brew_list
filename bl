@@ -407,19 +407,15 @@ sub Path_1{ my( $brew,$i );
 }
 
 sub m_search{
- my $re = shift; my( $cont,$nam,$rows,$cols,@an,$bl ) = 1;
+ my $re = shift; my( $co,$bl,$nam,$rows,$cols,@an ) = ( 0,__FILE__ );
+  $nam = $re->{'MAC'} ? 54 : 27;
+   $an[$co++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
+    $an[$co++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' );
+  exit unless -t STDOUT and Path_1; $co = 1;
+   system"stty -echo -icanon";
  while(1){
- my $co = $cont;
-  unless( $nam ){ my $i = 0;
-   $nam = $re->{'MAC'} ? 54 : 27;
-    $an[$i++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
-     $an[$i++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' );
-   exit unless -t STDOUT and Path_1;
-    $bl = (caller 0)[1];
-     system"stty -echo -icanon";
-  }
-    my( $ROWS,$COLS ) = ( $rows,$cols) = _term();
-    $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
+  my( $ROWS,$COLS ) = ( $rows,$cols) = _term();
+   $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
     $re->{'SP'} = 46 - $COLS if 45 > $COLS;
   $re->{'LI'} ||= $ROWS > 30 ? 27 : $ROWS - 4;
   $re->{'ST'} ||= 1;
@@ -447,7 +443,7 @@ sub m_search{
       $co = $co < 28 ? 27 : 54 if $key == 6;
     }else{
       $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
-    }  $cont = $co > 27 ? $co - 27 : $co;
+    } my $cont = $co > 27 ? $co - 27 : $co;
           if( $re->{'LI'} < $cont ){ $re->{'ST'}++; $re->{'LI'}++
       }elsif( $re->{'ST'} > $cont ){ $re->{'ST'}--; $re->{'LI'}-- }
 
@@ -467,7 +463,6 @@ sub m_search{
      last }
      print"\033[0;0H";
    }
-  $cont = $co;
  }
 
   sub _pri_1{
@@ -965,9 +960,9 @@ my $re = shift; my( @AN,%HA,@an,$do );
      my @list1 = sort @AN;
    for my $brew( @list1 ){
     next if $re->{'LIN'} and ( $brew eq 'glibc' or $brew eq 'linux-headers@5.15' );
-    exit unless $re->{$brew};
-     my @list2 = sort @{$re->{$brew}};
-     my $i = 0; my $e = 0;
+     exit unless $re->{$brew};
+      my @list2 = sort @{$re->{$brew}};
+       my( $i,$e ) = ( 0,0 );
      for( ;$i<@list2;$i++ ){ my $flag;
       next if $list2[$i] eq $brew or $list2[$i] eq $re->{'INF'};
        for( ;$e<@list1;$e++ ){
