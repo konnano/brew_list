@@ -3740,6 +3740,7 @@ lsdvd	DVDのコンテンツ情報を読む
 lsix	sixelグラフィックを使用してターミナルにサムネイルを表示します
 lsof	開いているファイルを一覧表示するユーティリティ
 lsusb	Linuxのlsusbコマンドと同じ様に、USBデバイスを一覧表示します
+lsusb-laniksj	Linuxのlsusbコマンドと同様に、USBデバイスを一覧表示します
 lsyncd	ローカルディレクトリをリモートターゲットと同期する
 ltc-tools	リニアタイムコード(LTC)を処理する為のツール
 ltex-ls	ラテックスをサポートするLanguageToolのLSP Markdown/その他
@@ -4685,6 +4686,7 @@ parrot	オープンソース仮想マシン(Perl6など)
 partio	3Dグラフィックス用の細かいライブラリ
 pass	パスワードマネージャー
 pass-git-helper	Passとやり取りするGit認証情報ヘルパー
+pass-import	ほとんどの既存のパスワードマネージャーからデータをインポートする為のパス拡張子
 pass-otp	ワンタイムパスワードトークンを管理する為のPass拡張
 passenger	Ruby用サーバー PythonとApache/NGINXを介したNode.jsアプリ
 passpie	ターミナルからのログイン認証情報を管理する
@@ -5111,7 +5113,6 @@ python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC+
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2/libxsltライブラリのPythonバインディング
-python-magic	libmagicのPythonラッパー
 python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
@@ -5124,7 +5125,6 @@ python-pathspec	ファイルパスの gitignoreスタイルパターンマッチ
 python-pluggy	シンプルなプロダクション対応プラグインシステム
 python-ply	Python Lex & Yacc
 python-psutil	Pythonでプロセスとシステムを監視する為のクロスプラットフォームライブラリ
-python-pycurl	libcurlへのPythonインターフェイス
 python-pyparsing	PEGパーサーを作成する為のPythonライブラリ
 python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出す為の低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
