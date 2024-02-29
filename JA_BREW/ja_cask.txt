@@ -3966,7 +3966,7 @@ turbo-boost-switcher	Intel CPU TurboBoost機能を有効/無効にします
 turbovnc-viewer	リモートディスプレイシステム
 turtl	安全な共同ノートブック
 tusk	洗練されたEvernoteデスクトップアプリ
-tutanota	メールクライアント
+tuta-mail	メールクライアント
 tuxera-ntfs	ファイルシステム及びストレージ管理ソフトウェア
 tuxguitar	マルチトラックギタータブ譜エディター及びプレーヤー
 tv-browser	電子テレビガイド
