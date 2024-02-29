@@ -871,7 +871,10 @@ font-italiana	Italiana
 font-italianno	Italianno
 font-itim	Itim
 font-jaapokki	Jaapokki
+font-jacquard-12	Jacquard 12
+font-jacquard-12-charted	Jacquard 12 Charted
 font-jacquarda-bastarda-9	Jacquarda Bastarda 9
+font-jacquarda-bastarda-9-charted	Jacquarda Bastarda 9 Charted
 font-jacques-francois	Jacques Francois
 font-jacques-francois-shadow	Jacques Francois Shadow
 font-jaldi	Jaldi
@@ -1716,6 +1719,7 @@ font-red-hat-text	Red Hat Text
 font-red-rose	ポスター用にデザインされたラテン表示書体
 font-redacted	Redacted
 font-redacted-script	Redacted Script
+font-reddit-mono	reddit sans及びreddit sansの圧縮によって補完されます
 font-reddit-sans	Reddit sans Condensed及びReddit Monoによって補完されます
 font-redhat	Geometric sans-serif 書体
 font-redressed	Redressed
