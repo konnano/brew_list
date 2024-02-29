@@ -32,6 +32,7 @@ acpica	ACPI仕様のOSに依存しない実装
 act	GitHubアクションをローカルで実行する 🚀
 action-validator	GitHubアクション及びワークフロー、YAMLファイル、を検証するツール
 actionlint	GitHub Actionsワークフローファイルの静的チェッカー
+actions-batch	GitHub Actions上に構築されたタイムシェアリングスーパーコンピューター
 activemq	Apache ActiveMQ：強力なオープンソースメッセージングサーバー
 activemq-cpp	Apache ActiveMQなどのメッセージブローカーのC++ API
 ada-url	最新のC++で記述されたWHATWG準拠の高速URLパーサー
@@ -667,6 +668,7 @@ cargo-depgraph	cargoプロジェクトの依存関係グラフを作成します
 cargo-deps	Rustプロジェクトの依存関係グラフを構築する為のCargoサブコマンド
 cargo-docset	Rustパッケージの Dash/Zeal ドキュメントセットを生成するCargoサブコマンド
 cargo-edit	コマンドラインからCargoの依存関係を管理する為のユーティリティ
+cargo-fuzz	ファジング用のコマンドラインヘルパー
 cargo-generate	既存のgitリポジトリをテンプレートとして使用する
 cargo-instruments	Rustの機器トレースを簡単に生成
 cargo-llvm-cov	LLVMソースベースのコードカバレッジを簡単に使用する為のCargoサブコマンド
@@ -2322,6 +2324,7 @@ gpsd	全地球測位システム(GPS)デーモン
 gpsim	MicrochipのPICマイクロコントローラーの模擬装置
 gptfdisk	テキストモードのパーティション分割ツール
 gptline	ネイティブiTerm2サポートを備えたChatGPTクライアント
+gptscript	自然言語でLLMアプリを開発する
 gptsync	GPT及びMBRパーティションテーブル同期ツール
 gputils	GNUPICユーティリティ
 gpx	Sailfishを実行している3DプリンターのGcodeからx3gへの変換器
@@ -4790,6 +4793,7 @@ pgvector	Postgres用のオープンソースのベクトル類似性検索
 pgweb	WebベースのPostgreSQLデータベースブラウザ
 pgxnclient	PostgreSQL拡張ネットワークのコマンドラインクライアント
 phive	Pharのインストール及び検証環境(PHIVE)
+phodav	libsoup(RFC 4918)を使用したWebDavサーバーの実装
 phoneinfoga	電話番号の情報収集フレームワーク
 phoon	月のASCIIアートを介して現在又は指定の時期を表示します
 phoronix-test-suite	オープンソースの自動ソフトウェア テスト/基準比較
@@ -5666,6 +5670,7 @@ sickchill	テレビ番組用の自動ビデオライブラリマネージャー
 sickle	品質を使用したFASTQファイルのウィンドウ化された適応トリミング
 siege	HTTP回帰テストと基準比較ユーティリティ
 sift	grepに代わる高速で強力なオープンソース
+sigi	整理が苦手な端末愛好家のための整理ツール
 sigma-cli	pySigmaに基づくCLI
 signal-cli	WhisperSystems/libsignal-service-java のCLIとdbusインターフェース
 signify-osx	暗号で署名しファイルを検証する
@@ -6377,6 +6382,7 @@ typewritten	最小限のzshプロンプト
 typical	代数データ型によるデータ交換
 typos-cli	ソースコードスペルチェッカー
 typst	マークアップベースの組版システム
+typstfmt	タイプスト用フォーマッタ
 tz	CLIタイムゾーンvisualizer
 tzdiff	CLI(シェルスクリプト)でローカルタイムとのタイムゾーンの違いを表示します
 u-boot-tools	汎用ブートローダー
@@ -6583,6 +6589,7 @@ vowpal-wabbit	オンライン学習アルゴリズム
 vpcs	IP経由をテストする為のVirtualPC模擬装置
 vpn-slice	簡単で安全なスプリットトンネルVPNセットアップの為のVpncスクリプトの置き換え
 vramsteg	コマンドラインアプリケーションにプログレスバーを追加する
+vrc-get	VRChatパッケージマネージャーのコマンドラインクライアントのオープンソース代替品
 vroom	配車ルートオープンソース最適化マシン
 vrpn	バーチャルリアリティ周辺機器ネットワーク
 vsce	パッケージング用のツール VSCode拡張機能の公開と管理
