@@ -552,6 +552,7 @@ bowtie2	高速で高感度のgapped read aligner
 box2d	ゲーム用の2D物理エンジン
 boxes	テキストの周りにボックスを描画します
 bozohttpd	小規模で安全なhttpバージョン1.1サーバー
+bpftop	実行中のeBPFプログラムの動的なリアルタイムビュー
 bpm-tools	1分あたりの拍数(BPM)を使用してオーディオファイルのテンポを検出する
 bpython	Python解釈プログラムの幻想インターフェース
 bpytop	リソースモニター Linux/OSX/FreeBSD
@@ -3025,6 +3026,7 @@ kubernetes-service-catalog-client	OSBAPIを使用してk8sでサービスを利�
 kubescape	NSA/CISAによる硬化ガイダンスに従ったKubernetesテスト
 kubeseal	一方向に暗号化された機密Kubernetesコントローラーとツール
 kubesess	複数の kubernetesクラスターを同時に管理する
+kubeshark	Kubernetesネットワークをリアルタイムで可視化するAPIトラフィックアナライザー
 kubespy	Kubernetesリソースをリアルタイムで監視する為のツール
 kubetui	Kubernetesリソースの監視と探索の為のTUIツール
 kubeval	Kubernetes構成ファイルを検証し複数のKubernetesバージョンをサポートします
@@ -3415,6 +3417,7 @@ libopennet	open_net()を提供します(open()と同様)
 liboping	ICMPエコー要求を生成する為のCライブラリ
 libopusenc	.opusファイルを作成する為の便利なライブラリ
 liboqs	量子安全暗号化の為のライブラリ
+liborigin	OriginLab OPJプロジェクトファイルを読み取るためのライブラリ
 libosinfo	オペレーティングシステム情報データベース
 libosip	eXosip2スタックの実装
 libosmium	OpenStreetMapデータを操作する為の高速で柔軟なC++ライブラリ
@@ -3905,6 +3908,7 @@ mdk	GNU MIX開発キット
 mdless	ターミナルでマークダウンファイルの書式設定及び強調表示されたビューを提供します
 mdp	コマンドラインベースのマークダウン提示ツール
 mdr	diffを読みやすくする
+mdsh	Markdownシェルプリプロセッサ
 mdt	コマンドラインマークダウンtodoリストマネージャー
 mdv	Style付きターミナルマークダウンViewer
 mdxmini	X68000MDXチップチューン形式で音楽を再生します
@@ -4040,6 +4044,7 @@ mlx	Appleシリコン用のアレイフレームワーク
 mm-common	GTK+/GNOMEパッケージのC++インターフェース用のユーティリティを構築する
 mmark	IETF向けのGoの強力なマークダウン計算機
 mmctl	Mattermostサーバー用のリモートCLIツール
+mmdbinspect	1つ以上の.mmdbデータベースで1つ以上のIP/ネットワークのレコードを検索します
 mmix	Donald Knuthによって設計された64ビットRISC基本設計
 mmseqs2	非常に高速な連続検索とclusteringの為のソフトウェアパッケージ
 mmsrip	MMS：//手続きのクライアント
@@ -4326,6 +4331,7 @@ nkf	ネットワーク漢字コード変換フィルター(NKF)
 nload	リアルタイムコンソールネットワーク使用状況モニター
 nlohmann-json	最新のC++のJSON
 nlopt	非線形最適化の為のライブラリ Free/オープンソース
+nmail	Linux及びmacOS用のターミナルベースのメールクライアント
 nmap	大規模ネットワーク用のポートスキャンユーティリティ
 nmh	MHメールハンドラーの新しいバージョン
 nmrpflash	Netgear Unbrickユーティリティ
@@ -4360,6 +4366,7 @@ notmuch-mutt	Muttの統合はあまりありません
 noweb	WEBの様な文芸的プログラミングツール
 nowplaying-cli	現在再生中のメディアを取得し、メディアアクションをシミュレートします
 nox	Pythonの柔軟なテスト自動化
+npm-check-updates	package.jsonで許可されているものよりも新しいバージョンの依存関係を見つける
 npth	新しいGNUポータブルスレッドライブラリ
 npush	SokobanやBoulder Dashに似た論理ゲーム
 nq	Unixコマンドラインキューユーティリティ
@@ -4869,6 +4876,7 @@ pkg-config-wrapper	GoプログラムにCコードを含める簡単な方法
 pkgconf	パッケージコンパイラとLinkerメタデータのツールキット
 pkgdiff	ソフトウェアパッケージ(RPM/DEB/TAR.GZなど)の変更を分析する為のツール
 pkger	Goバイナリに静的ファイルを埋め込む(gobuffalo/packrの代わりに)
+pkl	Pklプログラミング言語のCLI
 pktanon	パケットトレースの匿名化
 pla	PNG/EPS/PDF/SVG 形式のGanttチャートを作成する為のツール
 planck	単独で動作するClojureScript REPL
