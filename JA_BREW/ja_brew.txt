@@ -3516,6 +3516,7 @@ libspelling	GTK4用のスペルチェックライブラリ
 libspiro	曲線の描画を簡素化するライブラリ
 libspnav	3Dconnexionの3D入力デバイスに接続する為のクライアントライブラリ
 libspng	PNG形式のファイルを読み書きする為のCライブラリ
+libsql	オープンソースかつオープンコントリビューションであるSQLiteのフォーク
 libsquish	DXT標準で画像を圧縮する為のライブラリ
 libssh	CライブラリSSHv1/SSHv2クライアント及びサーバー手続き
 libssh2	SSH2手続きを実装するCライブラリ
@@ -6095,6 +6096,7 @@ task	機能豊富なコンソールベースのtodoリストマネージャー
 task-spooler	タスクを次々に実行するバッチシステム
 taskd	ToDoリストのクライアントサーバー同期
 taskell	TrelloをサポートするコマンドラインKanbanボード/タスクマネージャー
+taskopen	taskwarriorでメモを取ってURLを開くためのツール
 tasksh	Taskwarriorコマンドのシェルラッパー
 taskwarrior-tui	taskwarriorのターミナルユーザーインターフェイス
 tass64	65xxシリーズ計算機のMulti Pass最適化Macro Assembler
