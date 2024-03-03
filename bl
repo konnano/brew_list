@@ -1632,8 +1632,9 @@ sub Format_1{
    my $leng = $re->{'LEN1'};
     $re->{'TPUT'} = `tput cols` unless $re->{'TPUT'};
      my( $size,$in ) = ( ( $re->{'TPUT'}/($leng+2) ) >> 0,1 );
-      $re->{'PRE'} ? print" ==> Fonts\n" : $re->{'FOR'} ? print" ==> Formula\n" : $re->{'CAS'} ? print" ==> Casks\n" : 0
-       if @{$re->{'ARR'}} and index($re->{'ARR'}[0],'homebrew/') < 0;
+     ( $re->{'FOR'} and not $re->{'USE'} ) ? print" ==> Formula\n" :
+       $re->{'PRE'} ? print" ==> Fonts\n" : $re->{'CAS'} ? print" ==> Casks\n" : 0
+        if @{$re->{'ARR'}} and index($re->{'ARR'}[0],'homebrew/') < 0;
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
       if( index($re->{'ARR'}[$e],' ==> Formula') == 0 or index($re->{'ARR'}[$e],' ==> Cask') == 0 ){
        ( not $re->{'KAI'} and index($re->{'ARR'}[$e],' ==> Cask') == 0 ) ?
