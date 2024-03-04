@@ -4981,6 +4981,7 @@ primesieve	高速C/C++素数発生器
 principalmapper	AWSでIAM権限をすばやく評価する
 prips	指定された範囲のIPアドレスを出力します
 privoxy	高度なフィルタリングWebプロキシ
+prjtrellis	Lattice ECP5ビットストリームフォーマットの文書化
 procmail	自律型メール計算機
 procps	procfsを閲覧する為のユーティリティ
 procps@3	procfを参照する為のユーティリティ
@@ -5115,7 +5116,6 @@ python-click	Pythonコンポーザブルコマンドラインインターフェ�
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
-python-filelock	Pythonのプラットフォームに依存しないファイルロック
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
@@ -5527,6 +5527,7 @@ sc68	AtariST/Amigaコンピューター用に設計された音楽を再生す�
 scala	JVMベースのプログラミング言語
 scala@2.12	JVMベースのプログラミング言語
 scala@2.13	JVMベースのプログラミング言語
+scala@3.3	JVMベースのプログラミング言
 scalaenv	Scala環境を管理する為のコマンドラインツール
 scalapack	分散メモリマシン用の高性能線形代数
 scalariform	Scalaソースコード整形ツール
@@ -6759,6 +6760,7 @@ wrk-trello	Trelloへのコマンドラインインターフェイス
 wsk	OpenWhiskコマンドラインインターフェイス(CLI)
 wskdeploy	Apache OpenWhiskプロジェクト展開ユーティリティ
 wslay	C WebSocketライブラリ
+wstunnel	Websocket又はHTTP2経由で全てのトラフィックをトンネリングします
 wtf	一般的なインターネットの頭字語を翻訳する
 wtfis	パッシブホストネーム/ドメイン/IP ルックアップツール
 wtfutil	端末の個人情報ダッシュボード
