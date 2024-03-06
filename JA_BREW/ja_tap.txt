@@ -2173,6 +2173,7 @@ ableton-live-intro10	サウンドと音楽のエディター
 ableton-live-lite10	サウンドと音楽のエディター
 ableton-live-standard10	サウンドと音楽のエディター
 ableton-live-suite10	サウンドと音楽のエディター
+ableton-live-suite11	サウンド及び音楽エディター
 ableton-live-suite9	サウンドと音楽のエディター
 adguard-nightly	スタンドアロンの広告ブロッカー
 adguard-vpn-nightly	プライバシーとセキュリティの為のVPN
