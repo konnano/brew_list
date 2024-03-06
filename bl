@@ -1517,7 +1517,7 @@ my( $list,$re,$in ) = @_;
 sub Tap_2{
 my( $re,$tap ) = @_;
  Tap_3( $re->{'TAP_S'},$re ) unless $re->{'TAP2'};
-  index($_,"/$$tap") >= 0 ? $$tap = $_ : 0 for @{$re->{'TAP2'}};
+  m|.+/$$tap$| ? $$tap = $_ : 0 for @{$re->{'TAP2'}};
 }
 
 sub Tap_3{
