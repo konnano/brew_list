@@ -1510,6 +1510,7 @@ ecoji	データを絵文字としてエンコード(デコード)します
 ed	従来のUNIXラインエディタ
 edbrowse	コマンドラインエディタとWebブラウザ
 edencommon	Watchman及びEden プロジェクトの共有ライブラリ
+edgevpn	不変、分散型、静的に構築されたp2p VPN
 editorconfig	複数のエディター間で一貫したコーディングスタイルを維持する
 editorconfig-checker	ファイルが.editorconfigと調和していることを確認する為のツール
 efl	Enlightenment Foundationライブラリ
@@ -5131,7 +5132,6 @@ python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-matplotlib	静的、アニメーション化、インタラクティブビジュアライゼーション、を作成する為のPythonライブラリ
 python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
-python-mutagen	オーディオメタデータを処理する為のPythonモジュール
 python-networkx	Pythonによるネットワーク分析
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
