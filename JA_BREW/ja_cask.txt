@@ -1763,6 +1763,7 @@ jamie	AIを活用した会議メモ
 jamkazam	低遅延のリハーサル 妨害/パフォーマンス
 jamovi	統計ソフトウェア
 jamulus	友達とオンラインで音楽を再生する
+jan	オフラインAIチャットツール
 jandi	JANDIコラボレーションプラットフォームのデスクトップアプリ
 jandi-statusbar	ステータスバーのGithubコントリビューション
 jasp	統計分析アプリケーション
