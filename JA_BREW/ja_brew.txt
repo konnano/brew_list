@@ -177,6 +177,7 @@ appium	アプリの自動化
 apprise	コマンドラインから一般的な通知サービスに通知を送信します
 appstream	AppStreamメタデータを操作する為のツールとライブラリ
 appstream-glib	AppStreamメタデータを読み書きする為のヘルパーライブラリ
+appwrite	Appwrite用のコマンドラインツール
 apr	Apacheポータブルランタイムライブラリ
 apr-util	apr手引きライブラリ、Apache PortableRuntimeライブラリ
 apt	高度なパッケージツール
@@ -928,6 +929,7 @@ clutter-gtk	ClutterのGTK+統合ライブラリ
 clzip	lzipのC言語バージョン
 cmake	クロスプラットフォーム Make
 cmake-docs	CMakeのドキュメント
+cmake-language-server	CMake用言語サーバー
 cmark	強く指定された、互換性の高いMarkdownの実装
 cmark-gfm	GitHubフレーバーマークダウンのC実装
 cmatrix	コンソールMatrix
