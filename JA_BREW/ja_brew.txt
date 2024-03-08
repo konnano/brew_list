@@ -750,6 +750,7 @@ ceres-solver	大規模な最適化の為のC++ライブラリ
 cern-ndiff	数値diffツール
 certbot	Let'sEncryptから証明書を取得してHTTPSを自動有効化するツール
 certgraph	証明書の代替名のグラフをクロールする
+certifi	Python用 Mozilla CAバンドル
 certigo	さまざまな形式の証明書を調べて検証するユーティリティ
 certstrap	CAのブートストラップツール 証明書要求/署名付き証明書
 certsync	ゴールデン証明書を使用してNTDSをダンプし、ハッシュをUnPAC
@@ -3946,7 +3947,6 @@ mercurial	拡張性のある分散バージョン管理システム
 mercury	プログラミング言語 論理/関数型
 mergelog	round-robin DNSの背後にあるWebサーバーからのhttpdログをマージします
 mergepbx	XCodeプロジェクトファイルをgitにマージする
-mermaid-cli	mermaidの為のコマンドラインインターフェース(CLI)
 mesa	グラフィックライブラリ
 mesa-glu	Mesa OpenGLユーティリティライブラリ
 mesalib-glw	OpenGL仕様のオープンソース実装
@@ -5112,7 +5112,6 @@ pystring	Pythonの文字列クラスメソッドのインターフェイス用 C
 python-argcomplete	Python argparseのタブ補完
 python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
-python-certifi	Python用 Mozilla CAバンドル
 python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
 python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
