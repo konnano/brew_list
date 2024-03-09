@@ -4167,6 +4167,7 @@ mtools	MSDOSファイルを操作する為のツール
 mtr	単一のツールでの'traceroute'と'ping'
 mu	maildir形式で保存された電子メールメッセージを検索する為のツール
 mu-repo	複数のgitリポジトリを操作する為のツール
+mubeng	驚くほど高速なプロキシチェッカーと簡単なIPローテータ
 muffet	Goの高速websiteリンクチェッカー
 mujs	埋め込み可能なJavascript解釈プログラム
 multi-git-status	コミットされていない表示 複数Gitリポジトリの追跡されていない変更/プッシュされていない変更
@@ -5114,7 +5115,6 @@ python-brotli	Brotli圧縮ライブラリのPythonバインディング
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
-python-click	Pythonコンポーザブルコマンドラインインターフェイスツールキット
 python-cryptography	Pythonの暗号化レシピとプリミティブ
 python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
@@ -5123,7 +5123,6 @@ python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
 python-hatchling	最新の拡張可能なPythonビルドバックエンド
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
-python-jinja	高速、表現力豊か、拡張可能な、Python用テンプレートエンジン
 python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC++実装
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
@@ -5132,7 +5131,6 @@ python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
 python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-matplotlib	静的、アニメーション化、インタラクティブビジュアライゼーション、を作成する為のPythonライブラリ
-python-mpmath	任意精度の浮動小数点演算用の Pythonライブラリ
 python-networkx	Pythonによるネットワーク分析
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
@@ -5145,13 +5143,11 @@ python-pytz	クロスプラットフォームのタイムゾーン用のPython�
 python-requests	Python HTTP for Humans
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-setuptools-scm	git/hgメタデータからPythonパッケージのバージョンを抽出します
-python-sympy	記号数学用のPythonライブラリ
 python-tabulate	Pythonで表形式のデータをきれいにプリントする
 python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
 python-tk@3.12	Tcl/TkへのPythonインターフェース
 python-tk@3.9	Tcl/TkへのPythonインターフェース
-python-toml	TOML用のPythonライブラリ
 python-trove-classifiers	PyPI上の分類器の正規ソース
 python-typing-extensions	Pythonのバックポート及び実験的な型ヒント
 python-urllib3	スレッドセーフな接続プーリング、ファイルポストなどを備えたHTTPライブラリ
