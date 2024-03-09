@@ -4217,6 +4217,7 @@ whoozle-android-file-transfer	Linux用のAndroidファイル転送
 widelands	Settlers IIの様なFreeのリアルタイム戦略ゲーム
 wifi-explorer	ワイヤレスネットワークのトラブルシューティング スキャン/画面
 wifi-explorer-pro	ワイヤレスネットワークのトラブルシューティング スキャン/画面
+wifiman	ネットワーク監視及びトラブルシューティングツール
 wifispoof	コンピュータのMACアドレスを変更する
 winclone	BootCampのクローン作成とバックアップソリューション
 windows95	Electron Windows 95
