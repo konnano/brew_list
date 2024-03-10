@@ -881,6 +881,10 @@ font-jaldi	Jaldi
 font-jeju-gothic	Jeju Gothic
 font-jeju-hallasan	Jeju Hallasan
 font-jeju-myeongjo	Jeju Myeongjo
+font-jersey-10	Jersey 10
+font-jersey-10-charted	Jersey 10 Charted
+font-jersey-15	Jersey 15
+font-jersey-15-charted	Jersey 15 Charted
 font-jetbrains-mono	開発者向けに作られた書体
 font-jetbrains-mono-nerd-font	JetBrainsMonoオタクフォント(JetBrains Mono)
 font-jf-open-huninn	ピンクの丸い jf open
@@ -1494,6 +1498,7 @@ font-noto-serif-grantha	Noto Serif Grantha
 font-noto-serif-gujarati	Noto Serif Gujarati
 font-noto-serif-gurmukhi	Noto Serif Gurmukhi
 font-noto-serif-hebrew	Noto Serif Hebrew
+font-noto-serif-hentaigana	かな補足、Unicodeブロックの記号を含むフォント
 font-noto-serif-hk	ウェイト軸がエクストラライトからエクストラブラックまでの可変フォント
 font-noto-serif-jp	日本語用の変調(“serif”)デザイン
 font-noto-serif-kannada	Noto Serif Kannada
@@ -1619,6 +1624,7 @@ font-pirata-one	Pirata One
 font-pixelify-sans	小さな正方形のピクセルのグリッドを使用して各文字形を作成することによって実現されます
 font-plangothic	Plangothicは、CJK統一表意文字をカバーする sans-serif font
 font-plaster	Plaster
+font-platypi	Platypuses
 font-play	Play
 font-playball	Playball
 font-playfair	Playfair
@@ -1722,6 +1728,7 @@ font-redacted	Redacted
 font-redacted-script	Redacted スクリプト
 font-reddit-mono	reddit sans及びreddit sansの圧縮によって補完されます
 font-reddit-sans	Reddit sans Condensed及びReddit Monoによって補完されます
+font-reddit-sans-condensed	reddit sans及びreddit monoによって補完されます
 font-redhat	Red Hat
 font-redressed	Redressed
 font-reem-kufi	Reem Kufi
