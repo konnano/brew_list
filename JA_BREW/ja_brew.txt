@@ -623,6 +623,7 @@ c10t	Minecraftの地図作成ツール
 c2048	2048のコンソールバージョン
 c2rust	CコードをRustに移行する
 c3c	C3言語用コンパイラ
+c4core	C++ユーティリティ
 c7n	クラウドセキュリティの為のRuleエンジン コスト最適化/ガバナンス
 ca-certificates	Mozilla CA証明書store
 cabal-install	Cabal及びHackageのコマンドラインインターフェイス
@@ -1100,6 +1101,7 @@ crunch	ワードリスト発生器
 crunchy-cli	Crunchyroll用のコマンドラインダウンローダー
 crush-tools	区切られたテキストデータを処理する為のコマンドラインツール
 cryfs	ファイルを暗号化してDropboxやiCloudなどに安全に保存できる様にします。
+cryptography	Pythonの暗号化レシピとプリミティブ
 cryptol	暗号化アルゴリズムを指定する為のドメイン固有言語
 cryptominisat	高度なSAT Solver
 cryptopp	暗号化スキームの　Free C++クラスライブラリ
@@ -3979,7 +3981,6 @@ micronaut	モジュラーmicroservicesを構築する為の最新のJVM-baseの�
 microplane	多くのリポジトリ間でgitを変更する為のCLIツール
 micropython	マイクロコントローラーと制約のあるシステムの為のPythonの実装
 microsocks	リソース使用量が非常に少ない、小型でポータブルなSOCKS5サーバー
-midgard2	Web/デスクトップアプリケーション用の汎用コンテンツリポジトリ
 midicsv	MIDIオーディオファイルを人間が読めるCSV形式に変換する
 midnight-commander	ターミナルベースのビジュアルファイルマネージャー
 mighttpd2	HTTPサーバー
