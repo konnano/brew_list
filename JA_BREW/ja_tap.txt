@@ -2201,6 +2201,7 @@ arq5	マルチクラウドバックアップアプリケーション
 atom-beta	クロスプラットフォームのテキストエディター
 atom-nightly	クロスプラットフォームのテキストエディター
 azure-data-studio-insiders	SQLServerでの作業を可能にするデータ管理ツール
+bbedit14	テキスト/コード/マークアップ エディター
 beyond-compare-beta	ファイルとフォルダーを比較する
 blender-lts	Freeのオープンソース3D作成セット
 brave-browser-beta	プライバシーに焦点を当てたWebブラウザー
