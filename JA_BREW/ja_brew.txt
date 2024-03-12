@@ -2192,6 +2192,7 @@ gmsh	CADエンジンを備えた3D限定要素Grid発生器
 gmssl	中国国家暗号標準のツールキット
 gmt	地理データとCartesianデータを操作及び立案する為のツール
 gnirehtet	Android逆テザリングツール
+gnmic	GNMI CLIクライアント及びコレクター
 gnome-autoar	アーカイブ処理用のGNOMEライブラリ
 gnome-common	GNOMEのコアファイル
 gnome-latex	GNOMEデスクトップのLaTeXエディター
