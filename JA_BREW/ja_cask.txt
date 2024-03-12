@@ -227,6 +227,7 @@ arq-cloud-backup	Arqクラウドバックアップ
 arrsync	ユーティリティrsyncのグラフィカルフロントエンド
 artisan	coffee roasters用のVisual scope
 artpip	厳選された写真のデスクトップの背景
+arturia-software-center	Arturia製品のインストーラーとライセンスの認証
 asana	チームプロジェクトとタスクを管理する
 ascension	ANSI/ASCII アートビューア
 asciidocfx	本を作成する為のAsciidocエディターとツールチェーン ドキュメント/スライド
