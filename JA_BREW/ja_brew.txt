@@ -1598,6 +1598,7 @@ erlang@21	高度に拡張性のあるリアルタイムシステムの為のプ�
 erlang@22	高度に拡張性のあるリアルタイムシステムの為のプログラミング言語
 erlang@24	高度スケーラブルなリアルタイムシステムの為のプログラミング言語
 erlang@25	拡張性の高いリアルタイムシステム用のプログラミング言語
+erlang_ls	Erlang言語サーバー
 erofs-utils	拡張読み取り専用ファイルシステムのユーティリティ
 esbuild	非常に高速なJavaScript bundler and minifier
 eslint	JavaScript用のASTベースのパターンチェッカー
@@ -2705,6 +2706,7 @@ inih	Cの単純な.INIファイル解析器
 iniparser	iniファイルを解析する為のライブラリ
 inja	最新のC++のテンプレートエンジン
 inko	安全で並列のオブジェクト指向プログラミング言語
+inlyne	マークダウンファイルを素早く表示できる、GPU搭載でありながらブラウザレスのツール
 innoextract	Inno Setupによって作成されたインストーラーを解凍するツール
 innotop	MySQLのTopクローン
 inotify-tools	inotifyする為のシンプルなインターフェイスを提供するCライブラリとコマンドラインプログラム
