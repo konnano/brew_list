@@ -1614,6 +1614,7 @@ ibackup	バックアップユーティリティ
 ibackup-viewer	iPhoneバックアップからデータを抽出する
 ibackupbot	iBackupBot
 ibettercharge	バッテリーレベル監視ソフトウェア
+ibkr	取引ソフトウェア
 ibm-aspera-connect	Aspera転送サーバーを使用してアップロードとダウンロードを容易にします
 ibm-cloud-cli	コマンドラインAPIクライアント
 ibored	16進エディター
@@ -1684,6 +1685,7 @@ insomnium	HTTP及びGraphQLクライアント
 inssider	遅いwifiを無効化する
 insta360-studio	ビデオと写真の編集
 install-disk-creator	起動可能なシステムインストールディスクを作成するユーティリティ
+instantview	UI付き、SM76x用ドライバー
 instatus-out	メニューバーでサービスを監視する
 insync	GoogleドライブとOneDriveファイルを管理する
 integrity	壊れたリンクをチェックするWebサイトをスキャンするツール
@@ -3867,6 +3869,7 @@ time-to-leave	勤務時間を記録しオフィスを離れる時間になると
 time-tracker	時間追跡app
 timecamp	TimeCampソフトウェアのクライアントアプリケーション-時間の追跡とタスクの変更
 timelane	Timelane
+timelapze	メニューバーインターフェイスで画面の経過時間を記録する
 timemachineeditor	TimeMachineのデフォルトのバックアップ間隔を変更するユーティリティ
 timemachinestatus	Time Machine情報を表示するメニューバーアプリ
 timemator	自動時間追跡アプリケーション
@@ -4334,6 +4337,7 @@ yealink-meeting	ビデオコミュニケーション及び仮想会議プラッ�
 yed	ダイアグラムを手動で作成するか分析の為に外部データをインポートします
 yemuzip	YemuZip
 yep	ドキュメントマネージャー
+yes24-ebook	Yes24用Crema電子ブックリーダー
 yesplaymusic	サードパーティのNetEaseクラウドプレーヤー
 yggdrasil	世界をつなぐEnd-to-endの暗号化されたIPv6ネットワーキング
 yinxiangbiji	アプリを取ることに注意してください
