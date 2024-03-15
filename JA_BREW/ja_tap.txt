@@ -2177,8 +2177,11 @@ font-zilla-slab-highlight	Zilla Slab Highlight
 1password6	すべてのパスワードを1つのパスワードで安全に保つパスワードマネージャー
 1password7	すべてのパスワードを1つのパスワードで安全に保つパスワードマネージャー
 ableton-live-intro10	サウンドと音楽のエディター
+ableton-live-intro11	サウンド及び音楽エディター
 ableton-live-lite10	サウンドと音楽のエディター
+ableton-live-lite11	サウンド及び音楽エディター
 ableton-live-standard10	サウンドと音楽のエディター
+ableton-live-standard11	サウンド及び音楽エディター
 ableton-live-suite10	サウンドと音楽のエディター
 ableton-live-suite11	サウンド及び音楽エディター
 ableton-live-suite9	サウンドと音楽のエディター
