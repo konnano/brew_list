@@ -503,6 +503,7 @@ cabal	チャットプラットフォームCabal用のデスクトップクライ
 cacher	コードスニペットオーガナイザー
 cad-assistant	CADアシスタント
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
+cahier	研究の為のネイティブサポートを備えたナレッジベース
 cakebrew	HomebrewのGUIアプリ
 cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
@@ -2572,6 +2573,7 @@ novabench	コンピューターのパフォーマンスをすばやくテスト�
 now-tv-player	ビデオストリーミングサービスプレーヤー
 noxappplayer	モバイルゲームをプレイする為のAndroidエミュレーター
 nozbe	プロジェクト管理アプリ
+nperf	インターネット速度テストユーティリティ
 nrfutil	Nordic Semiconductor製品用の統合CLIユーティリティ
 nrlquaker-winbox	MikroTik Winbox
 nslogger	最新の柔軟なロギングツール
