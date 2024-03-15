@@ -1030,6 +1030,7 @@ corrosion	簡単なRustとC/C++の統合
 corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
 cosign	コンテナ署名
+cotp	インポート機能を備えた TOTP/HOTP認証アプリ
 coturn	TURN/STUNサーバーのFreeオープンソース実装
 couchbase-shell	Couchbase Server及びCapella用のモダンで楽しいシェル
 couchdb	Apache CouchDBデータベースサーバー
@@ -2102,6 +2103,7 @@ git-secret	gitリポジトリ内にプライベートデータを保存する為
 git-secrets	機密情報をgitリポジトリにコミットすることを防ぎます
 git-series	パッチシリーズへの変更を経時的に追跡する
 git-sizer	Gitリポジトリのさまざまなサイズmetricsを計算する
+git-split-diffs	ターミナル内の差分を並べて強調表示した構文
 git-ssh	SSH経由でgitリポジトリを提供する為のプロキシ
 git-standup	スタンドアップミーティングの報告を生成するGit機能拡張
 git-subrepo	Gitサブモジュールの代替品
@@ -5128,18 +5130,14 @@ python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC+
 python-launcher	Python解釈プログラム 怠惰/賢い な方法で起動します
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2/libxsltライブラリのPythonバインディング
-python-mako	Python用の高速テンプレート言語
 python-markdown	MarkdownのPython実装
-python-markupsafe	Python用の XML/HTML/XHTML マークアップセーフ文字列を実装します
 python-matplotlib	静的、アニメーション化、インタラクティブビジュアライゼーション、を作成する為のPythonライブラリ
-python-networkx	Pythonによるネットワーク分析
 python-packaging	Pythonパッケージのコアユーティリティ
 python-pathspec	ファイルパスの gitignoreスタイルパターンマッチング用のユーティリティライブラリ
 python-pluggy	シンプルなプロダクション対応プラグインシステム
 python-ply	Python Lex & Yacc
 python-psutil	Pythonでプロセスとシステムを監視する為のクロスプラットフォームライブラリ
 python-pyparsing	PEGパーサーを作成する為のPythonライブラリ
-python-pyproject-hooks	pyproject.tomlベースのプロジェクトでビルドバックエンドを呼び出す為の低レベルライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-requests	Python HTTP for Humans
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
