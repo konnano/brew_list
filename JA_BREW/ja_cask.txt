@@ -2943,6 +2943,7 @@ postico	PostgreSQLデータベース用のGUIクライアント
 postman	API開発の為の協力的プラットフォーム
 postman-agent	Postman on theWebのデスクトップエージェント
 postman-cli	PostmanでのコマンドラインAPI管理用のCLI
+posture-pal	悪い姿勢を思い出させるツール
 powder	物理サンドボックスゲーム
 powder-player	パウダープレーヤー
 power-manager	タスクを自動化し電力管理を改善するユーティリティ
@@ -2997,6 +2998,7 @@ protege	Ontologyエディタ
 protoio-overflow	双方向なユーザーフロー図を作成する
 protokol	MIDI/OSC モニター
 proton-drive	プロトンドライブのクライアン
+proton-mail	Proton Mailのクライアント
 protonmail-bridge	ProtonMailをIMAP及びSMTP手続きをサポートする電子メールクライアントにブリッジします
 protonmail-import-export	電子メールを安全なProtonMail受信トレイにインポートするかオフラインバックアップを作成します
 protonvpn	セキュリティに重点を置いたVPNクライアント
