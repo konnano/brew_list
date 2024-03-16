@@ -269,7 +269,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
     if( $re->{'MAC'} and $re->{'USE'} ){
      my @list1 = split '\t',$re->{'OS'}{"$re->{'USE'}u_form"} if $re->{'OS'}{"$re->{'USE'}u_form"};
      my @list2 = split '\t',$re->{'OS'}{"$re->{'USE'}u_cask"} if $re->{'OS'}{"$re->{'USE'}u_cask"};
-      @{$re->{'cask'}} = ( @list1,@list2 );
+      push @{$re->{'cask'}},( @list1,@list2 );
     }
    }
   if( @{$list} and ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
@@ -1522,11 +1522,11 @@ my( $re,$tap ) = @_;
 
 sub Tap_3{
 my( $dir,$re ) = @_;
- return 1 if substr($dir,-4) eq '/cmd';
  for my $ls( glob "$dir/*" ){
   next if substr($ls,-9) eq '/homebrew';
    Tap_3( $ls,$re ) ? return : 0 if -d $ls;
-  push( @{$re->{'TAP2'}},$ls ),return 1 if $ls =~ s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb$|$1/$2/$3|;
+    return 1 if $ls =~ m|.+/brew-[^/]+\.rb$|;
+  push @{$re->{'TAP2'}},$ls if $ls =~ s|.+/Taps/([^/]+)/homebrew-([^/]+)/(?:[^/]+/)*([^/]+)\.rb$|$1/$2/$3|;
  }
 }
 
