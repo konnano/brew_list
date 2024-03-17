@@ -1894,6 +1894,7 @@ font-smokum	Smokum
 font-smooch	他の手書きのスクリプトよりもわずかに太字です
 font-smooch-sans	Smooch Sans
 font-smythe	Smythe
+font-sn-pro	SN Proは、Markdownでの使用に最適化された使いやすいsans serif書体です
 font-sniglet	Sniglet
 font-snippet	Snippet
 font-snowburst-one	Snowburst One
