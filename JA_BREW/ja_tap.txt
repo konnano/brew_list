@@ -873,6 +873,8 @@ font-itim	Itim
 font-jaapokki	Jaapokki
 font-jacquard-12	Jacquard 12
 font-jacquard-12-charted	Jacquard 12 Charted
+font-jacquard-24	Jacquard 24
+font-jacquard-24-charted	Jacquard 24 Charted
 font-jacquarda-bastarda-9	Jacquarda Bastarda 9
 font-jacquarda-bastarda-9-charted	Jacquarda Bastarda 9 Charted
 font-jacques-francois	Jacques Francois
@@ -885,6 +887,10 @@ font-jersey-10	Jersey 10
 font-jersey-10-charted	Jersey 10 Charted
 font-jersey-15	Jersey 15
 font-jersey-15-charted	Jersey 15 Charted
+font-jersey-20	Jersey 20
+font-jersey-20-charted	Jersey 20 Charted
+font-jersey-25	Jersey 25
+font-jersey-25-charted	Jersey 25 Charted
 font-jetbrains-mono	開発者向けに作られた書体
 font-jetbrains-mono-nerd-font	JetBrainsMonoオタクフォント(JetBrains Mono)
 font-jf-open-huninn	ピンクの丸い jf open
@@ -1160,6 +1166,7 @@ font-miama	Miama
 font-miao-unicode	MiaoUnicode
 font-michroma	Michroma
 font-micro-5	プロジェクトのどこにでも収まる小さな書体
+font-micro-5-charted	Micro 5 Charted
 font-migmix-1m	MigMix 1M
 font-migmix-1p	MigMix 1P
 font-migmix-2m	MigMix 2M
