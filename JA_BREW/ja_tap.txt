@@ -743,6 +743,7 @@ font-heebo	Heebo
 font-henny-penny	Henny Penny
 font-hepta-slab	Hepta Slab
 font-hermeneus-one	Hermeneus One
+font-hermit	明確で実用的で非常に読みやすいように設計された等幅フォント
 font-herr-von-muellerhoff	Herr Von Muellerhoff
 font-hi-melody	Hi Melody
 font-hina-mincho	Hina Mincho
