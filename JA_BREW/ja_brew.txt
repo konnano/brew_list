@@ -6701,6 +6701,7 @@ whatmask	ネットワーク設定ヘルパー
 whatmp3	FLACからmp3トレントを作成する為の小さなスクリプト
 when	小さな個人カレンダー
 whisper-cpp	C/C++でのOpenAIのWhisperモデルのポート
+whisperkit-cli	Apple Silicon用のWhisperによる迅速なネイティブオンデバイス音声認識
 whistle	Websocketデバッグプロキシ HTTP/HTTP2/HTTPS
 whois	ドメイン名やその他のインターネットリソースの検索ツール
 widelands	Settlers IIの様なFreeのリアルタイム戦略ゲーム
@@ -6918,6 +6919,7 @@ ykdl	中国本土のビデオサイトに焦点を当てたビデオダウンロ
 ykman	YubiKey構成を管理する為のツール
 ykpers	YubiKeyパーソナライズライブラリとツール
 yle-dl	コマンドラインからYleビデオをダウンロードする
+yo	Yeomanジェネレーターを実行するためのCLIツール
 yorkie	共同アプリケーション用のDocument store
 yosys	Verilog RTL合成のフレームワーク
 you-get	ウェブを削り取るDumbダウンローダー
