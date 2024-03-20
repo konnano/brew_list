@@ -3647,6 +3647,7 @@ steamcmd	Steamのコマンドラインクライアント
 steelseries-engine	SteelSeries周辺機器及びアクセサリの設定
 steelseries-gg	SteelSeries周辺機器及びアクセサリの設定
 steermouse	マウスボタンをカスタマイズする ホイール/カーソル速度
+steinberg-activation-manager	Steinberg Licensingのライセンスマネージャー
 stella	マルチプラットフォームのAtari2600エミュレーター
 stellarium	画面上にリアルタイムでリアルな空をレンダリングするツール
 stepmania	家庭用とアーケード用の両方で使用できる様に設計された高度なリズムゲーム
