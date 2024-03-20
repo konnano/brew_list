@@ -1570,7 +1570,7 @@ hides	現在開いているアプリ以外のすべてのアプリを非表示�
 hidock	異なるディスプレイを使用する場合のカスタムDock設定を設定する
 hightop	メニューバーを介したファイルアクセス
 historyhound	ブラウザーの履歴とブックマークのキーワード検索
-hma-pro-vpn	HMA! Pro VPN
+hma-vpn	Hide My AssのVPNプログラム
 holavpn	ピアツーピアVPN
 home-assistant	Home Assistantホームオートメーションソフトウェアのコンパニオンアプリ
 home-inventory	家や持ち物のドキュメンテーションアプリケーション
