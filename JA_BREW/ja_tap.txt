@@ -2227,6 +2227,7 @@ chromedriver-beta	Google Chrome用のWebアプリの自動テスト
 cleanmymac3	ディスクから不要なファイルとフォルダーを削除するツール
 corretto11	AmazonからのOpenJDKディストリビューション
 corretto17	AmazonからのOpenJDKディストリビューション
+corretto21	AmazonからのOpenJDKディストリビューション
 corretto8	AmazonからのOpenJDKディストリビューション
 daedalus-flight	Cardanoブロックチェーン上のada用のDaedalus暗号通貨ウォレットのプレリリース
 dash2	APIドキュメントブラウザとコードスニペットマネージャ
@@ -2271,6 +2272,7 @@ google-chrome-dev	Webブラウザー
 google-japanese-ime-dev	Google日本語入力方式エディター
 gpg-suite-nightly	メールやファイルを保護する為のツール
 graalvm-jdk17	OracleからGraalVM
+graalvm-jdk21	OracleのGraalVM
 hamsket-nightly	Freeのオープンソースメッセージング及び電子メールアプリ
 hancom-word-2014	ワードプロセッサ
 hyper-canary	Webテクノロジーに基づいて構築されたターミナル
