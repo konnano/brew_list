@@ -6086,6 +6086,7 @@ tarsnap	本当に妄想的な人の為のオンラインバックアップ
 tarsnap-gui	TarsnapコマンドラインクライアントのクロスプラットフォームGUI
 tarsnapper	gfs-schemeを使用してバックアップを期限切れにするTarsnapラッパー
 tart	CIやその他の自動化で使用するApple Silicon上のmacOS/Linux VM
+tartufo	gitリポジトリを介して高エントロピー文字列とシークレットを検索します
 task	機能豊富なコンソールベースのtodoリストマネージャー
 task-spooler	タスクを次々に実行するバッチシステム
 taskd	ToDoリストのクライアントサーバー同期
