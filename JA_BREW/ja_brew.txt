@@ -5433,6 +5433,7 @@ rsync	高速増分ファイル転送を提供するユーティリティ
 rsync-time-backup	rsyncを使用した端末のTimeMachineスタイルのバックアップ
 rsyncy	rsyncの、ステータス/進行状況バー
 rsyslog	強化されたマルチスレッドsyslogd
+rtabmap	Visual及びLiDAR SLAMライブラリとスタンドアロンアプリケーション
 rtags	clangフロントエンドを備えたctagsの様なソースコード相互参照
 rtaudio	リアルタイムオーディオ入力/出力用のAPI
 rtf2latex2e	RTFからLaTeXへの変換
