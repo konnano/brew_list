@@ -2704,6 +2704,7 @@ influxdb@1	データベース 時系列/イベント/metrics
 inform6	対話的のフィクションのデザインシステム
 infracost	Terraformのコスト見積もり
 inframap	tfstate/HCLを読み取ってグラフを生成します
+ingress2gateway	Kubernetes IngressリソースをKubernetes Gateway APIリソースに変換する
 inih	Cの単純な.INIファイル解析器
 iniparser	iniファイルを解析する為のライブラリ
 inja	最新のC++のテンプレートエンジン
