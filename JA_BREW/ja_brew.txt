@@ -3212,7 +3212,6 @@ libcsv	ANSI C89のCSVライブラリ
 libcue	CのCue sheetパーサーライブラリ
 libcuefile	CUEファイルを操作する為のライブラリ
 libcyaml	YAMLの読み取りと書き込みの為の、Cライブラリ
-libcython	Python言語のC拡張機能を作成する為のコンパイラ
 libdaemon	UNIXデーモンの作成を容易にするCライブラリ
 libdap	科学データネットワーキングのフレームワーク
 libdazzle	GObject/Gtk+のGNOME手引きライブラリ
@@ -5248,6 +5247,7 @@ raptor	RDFパーサーツールキット
 rargs	パターンマッチングをサポートするxargs + awkの様なユーティリティ
 rarian	ドキュメントメタデータライブラリ
 rasqal	RDFクエリライブラリ
+ratchet	バージョン固定によりCI/CDワークフローを保護するツール
 ratfor	Rational Fortran
 rathole	NATトラバーサル用のリバースプロキシ
 rats	セキュリティの為の大まかな監査ツール
