@@ -1345,6 +1345,7 @@ fx-cast-bridge	Chromecastサポートを有効にするfx_cast Firefox拡張機�
 fxfactory	ブラウズ 巨大なカタログからエフェクトとプラグインをインストールして購入する
 g-desktop-suite	Gデスクトップパッケージ
 gactions	Google Actions SDK用のCLIツール
+galaxybudsclient	Buds/Buds+/Buds Live/Buds Pro の非公式マネージャー
 gama	空間的に明示的なエージェントベースのシミュレーションを構築する為のIDE
 gama-jdk	空間的に明示的なエージェントベースのシミュレーションを構築する為のIDE
 gamemaker	2Dゲームを作成する為の完全な開発ツール
@@ -1721,6 +1722,7 @@ ipynb-quicklook	ipynb-quicklook
 iqmol	Freeオープンソース分子エディター及び可視化パッケージ
 irccloud	IRCクライアント
 ireadfast	速読プログラム
+ireal-pro	ミュージックブックとバッキングトラック
 iridium	セキュリティとプライバシーに焦点を当てたWebブラウザー
 iris	ブルーライトフィルターと目の保護ソフトウェア
 iriunwebcam	携帯電話のカメラをワイヤレスWebカメラとして使用する
