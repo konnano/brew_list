@@ -434,6 +434,7 @@ font-daddy-time-mono-nerd-font	開発者向けのグリフ数が多いフォン�
 font-dai-banna-sil	Dai Banna SIL
 font-damion	Damion
 font-dancing-script	Dancing Script
+font-danfo	0/50/100 の3つの主要なスタイルを持つElsh軸可変フォント
 font-dangrek	Dangrek
 font-darker-grotesque	Darker Grotesque
 font-darumadrop-one	Darumadrop One
@@ -499,10 +500,14 @@ font-economica	Economica
 font-eczar	Eczar
 font-edlo	Edlo
 font-edu-nsw-act-foundation	Edu NSW ACT Foundation
+font-edu-nsw-act-hand	Edu NSW ACT Hand
 font-edu-qld-beginner	Edu QLD Beginner
+font-edu-qld-hand	Edu QLD Hand
 font-edu-sa-beginner	Edu SA Beginner
+font-edu-sa-hand	Edu SA Hand
 font-edu-tas-beginner	Edu TAS Beginner
 font-edu-vic-wa-nt-beginner	Edu VIC WA NT Beginner
+font-edu-vic-wa-nt-hand	Edu VIC WA NT Hand
 font-edwin	楽譜用のテキストフォント
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
@@ -891,7 +896,6 @@ font-jersey-15-charted	Jersey 15 Charted
 font-jersey-20	Jersey 20
 font-jersey-20-charted	Jersey 20 Charted
 font-jersey-25	Jersey 25
-font-jersey-25-charted	Jersey 25 Charted
 font-jetbrains-mono	開発者向けに作られた書体
 font-jetbrains-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-jf-open-huninn	jf open 粉圓
@@ -2063,6 +2067,7 @@ font-ubuntu-mono	Ubuntu Mono
 font-ubuntu-mono-derivative-powerline	Ubuntu Mono 派生 Powerline
 font-ubuntu-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-ubuntu-nerd-font	開発者向けのグリフ数が多いフォント
+font-ubuntu-sans	Ubuntu Sans
 font-uchen	Uchen
 font-udev-gothic	BIZ UD Gothic と JetBrains Monoのフォントを統合
 font-udev-gothic-nf	BIZ UD Gothic と JetBrains Monoのフォントを統合
