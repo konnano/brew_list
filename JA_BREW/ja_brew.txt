@@ -618,6 +618,7 @@ bzt	BlazeMeter Taurus
 c	C スクリプトを一度にコンパイルして実行する
 c-ares	非同期DNSライブラリ
 c-blosc	Blocking、shufflingと損失の無い圧縮ライブラリ
+c-blosc2	C用の、高速/圧縮/永続的なバイナリデータストアライブラリ
 c-kermit	UNIX及びVMSのスクリプト可能なネットワークの順番通信
 c10t	Minecraftの地図作成ツール
 c2048	2048のコンソールバージョン
@@ -5021,6 +5022,7 @@ protoc-gen-go-grpc	gRPC-Goクライアントのコードを生成するProtocプ
 protoc-gen-gogo	Buffer手続き Go with Gadgets
 protoc-gen-gogofaster	Buffer手続き Go with Gadgets
 protoc-gen-grpc-web	gRPC-Webクライアントのコードを生成するProtocプラグイン
+protoc-gen-js	プロトコルバッファーJavaScriptジェネレータープラグイン
 protolint	Protocol Bufferのスタイルと規則を適用する為のプラグイン可能な解析ツールとフィクサー
 prototool	Buffer手続きの万能ナイフ
 prover9	一次及び等式論理の自動定理証明
