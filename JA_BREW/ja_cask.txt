@@ -1727,6 +1727,7 @@ iridium	セキュリティとプライバシーに焦点を当てたWebブラウ
 iris	ブルーライトフィルターと目の保護ソフトウェア
 iriunwebcam	携帯電話のカメラをワイヤレスWebカメラとして使用する
 irpf2023	ブラジル歳入庁(RFB)の納税申告書(DIRPF)に記入する
+irpf2024	ブラジル歳入庁(RFB)の税務申告書(DIRPF)に記入します
 isabelle	一般的な証明アシスタント
 ishowu	スクリーンレコーダー
 ishowu-instant	リアルタイム画面録画
