@@ -1832,6 +1832,7 @@ jumpshare	ファイル共有/画面録画 とスクリーンショットキャ�
 jupyter-notebook-ql	JupyterノートブックQuick Look
 jupyter-notebook-viewer	Jupyterノートブックをレンダリングするユーティリティ
 jupyterlab	JupyterLab用のデスクトップアプリケーション
+juxtacode	コード 差分/マージ/比較
 jyutping	広東語のジュッピン入力方法
 kactus	デザイナーの為の真のバージョン管理ツール
 kakapo	オープンソースの常用サウンドミキサー
