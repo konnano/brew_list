@@ -1439,6 +1439,7 @@ go2shell	ターミナルウィンドウを開いてFinderの現在のディレ�
 go64	32ビットアプリケーションのコンピューターディスクをスキャンする
 godot	ゲーム開発エンジン
 godot-mono	2D/3D ゲームエンジン
+godspeed	キーボード中心の、Todoマネージャー
 gog-galaxy	ゲームクライアント
 gogs	セルフホストのGitサービス
 goland	Go(golang)IDE
@@ -2051,12 +2052,14 @@ logmein-client	リモートアクセスツール
 logmein-hamachi	LogMeIn Hamachi
 logos	聖書研究ソフトウェア
 logseq	知識の共有と管理の為のプライバシー第一のオープンソースプラットフォーム
+lookaway	休憩時間リマインダーアプリ
 lookin	iOSビューのデバッグ用アプリ
 lookingglassstudio	Looking Glassで3D画像及びビデオ形式を表示/編集する
 loom	画面/ビデオ 録画ソフトウェア
 loopback	ケーブルFreeオーディオルーター
 losslesscut	ビデオファイルとオーディオファイルを劣化無しでトリミング
 lotus	GitHubの通知を確認する
+loungy	アプリケーションランチャー
 loupedeck	Loupedeckコンソール用ソフトウェア
 love	Lua用の2Dゲームフレームワーク
 low-profile	Apple構成プロファイルのペイロードの検査に役立つユーティリティ
@@ -4304,6 +4307,7 @@ xbar	メニューバーにスクリプトからの出力を表示する
 xbench	ベンチマークソフトウェア
 xca	X証明書とキーの管理
 xcodeclangformat	xcodeでclang-formatを使用してコードをフォーマットします
+xcodepilot	Apple開発者向けの生産性と効率性を向上させるツールセッ
 xcodes	Xcodeの複数のバージョンをインストールして切り替えます
 xctu	ソリューションの構成プラットフォーム XBee/RF
 xdm	ダウンロード速度を上げる為のツール
