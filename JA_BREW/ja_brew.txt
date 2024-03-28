@@ -1314,6 +1314,7 @@ diskonaut	ターミナルビジュアルディスクスペースナビゲータ�
 disktype	ディスク/ディスクイメージのコンテンツ形式を検出する
 diskus	'du-sh'の最低限の高速代替品
 dislocker	WindowsのBitLocker-edボリュームを 読み取り/書き込み する為のFUSEドライバー
+dissent	Goの、GTK4 Discordクライアント
 distcc	分散コンパイラクライアント及びサーバー
 distribution	ターミナルでASCIIグラフィカルヒストグラムを作成する
 distrobox	ターミナル内で任意の Linuxディストリビューションを使用する
@@ -2845,6 +2846,7 @@ jmxterm	オープンソースのコマンドラインベースの対話的なJMX
 jmxtrans	JVMに接続しその属性を照会する為のツール
 jnethack	NetHackの日本語ローカリゼーション
 jnettop	ネットワーク転送量を最も多く使用している ホスト/ポート を表示する
+jnv	jqを使用したインタラクティブなJSONフィルター
 jo	シェルからのJSON出力
 jobber	cronの代替品 より優れたステータスレポートとエラー処理
 joe	フル機能の端末ベースのスクリーンエディタ
