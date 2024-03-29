@@ -231,7 +231,7 @@ unless( $ARGV[0] ){
       }
 
     if( $data =~ /^\s*keg_only.*macos/ ){
-      $tap{"${name}keg"} = 1;
+      $tap{"${name}pkeg"} = 1;
     }elsif( $data =~ /^\s*keg_only/ ){
       $tap{"${name}keg_Linux"} = $tap{"${name}keg"} = 1;
     }elsif( $data =~ /^\s*depends_on\s+:macos/ ){
