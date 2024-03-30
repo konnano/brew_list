@@ -1328,9 +1328,9 @@ my( $list,$file,$in,$re ) = @_;
   $brew_3 =~ tr/“”//d unless $Locale;
 
   if( not $re->{'LINK'} or
-      $re->{'LINK'} == 1 and $re->{'OS'}{"${brew_1}un_xcode"} or
-      $re->{'LINK'} == 2 and $re->{'OS'}{"${brew_1}un_Linux"} or
-      $re->{'LINK'} == 3 and $re->{'OS'}{"$brew_1$OS_Version"} or
+      $re->{'LINK'} == 1 and ( $re->{'OS'}{"${brew_1}un_xcode"} or $re->{'OS'}{"${brew_1}disable"} ) or
+      $re->{'LINK'} == 2 and ( $re->{'OS'}{"${brew_1}un_Linux"} or $re->{'OS'}{"${brew_1}disable"} ) or
+      $re->{'LINK'} == 3 and $re->{'OS'}{"$brew_1$OS_Version"} and not $re->{'OS'}{"${brew_1}disable"} or
       $re->{'LINK'} == 4 and $re->{'OS'}{"${brew_1}un_cask"} or
       $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
       $re->{'LINK'} == 6 and $re->{"deps$brew_1"} or
@@ -1366,30 +1366,38 @@ my( $list,$file,$in,$re ) = @_;
    unless( defined $re->{'S_OPT'} or $re->{'BL'} ){
      if( $re->{'MAC'} ){
       if( $re->{'FOR'} ){
-       $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}pkeg"} ) ?
-        " b kp    $brew_1\t" : ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ?
-        " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
-         ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}pkeg"} ) ? " x kp    $brew_1\t" :
-         ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} )  ? " x k     $brew_1\t" :
-           $re->{'OS'}{"${brew_1}un_xcode"} ? " x       $brew_1\t" :
+       $re->{'MEM'} =
+         ( $re->{'OS'}{"${brew_1}disable"} and $re->{'OS'}{"${brew_1}pkeg"} )   ? " d kp    $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}disable"} and $re->{'OS'}{"${brew_1}keg"} )    ? " d k     $brew_1\t" :
+           $re->{'OS'}{"${brew_1}disable"}   ? " d       $brew_1\t" :
+         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}pkeg"} ) ? " B kp    $brew_1\t" :
+         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} )  ? " B k     $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}pkeg"} )  ? " x kp    $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} )   ? " x k     $brew_1\t" :
+           $re->{'OS'}{"$brew_1$OS_Version"} ? " B       $brew_1\t" :
+           $re->{'OS'}{"${brew_1}un_xcode"}  ? " x       $brew_1\t" :
            $re->{'OS'}{"${brew_1}pkeg"} ? "   kp    $brew_1\t" :
            $re->{'OS'}{"${brew_1}keg"}  ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
       }else{
-       $re->{'MEM'} = ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ?
-        " x s     $brew_1\t" : ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}d_cask"} ) ?
-        " x c     $brew_1\t" : ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}formula"} ) ?
-        " x f     $brew_1\t" : $re->{'OS'}{"${brew_1}un_cask"} ? " x       $brew_1\t" :
-       $re->{'OS'}{"${brew_1}so_name"} ? "   s     $brew_1\t" : $re->{'OS'}{"${brew_1}d_cask"} ?
-        "   c     $brew_1\t" : $re->{'OS'}{"${brew_1}formula"} ?
-        "   f     $brew_1\t" : $re->{'OS'}{"${brew_1}font"} ?
-        "   p     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
+       $re->{'MEM'} =
+         ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ? " x s     $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}d_cask"} )  ? " x c     $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}formula"} ) ? " x f     $brew_1\t" :
+           $re->{'OS'}{"${brew_1}un_cask"} ? " x       $brew_1\t" :
+           $re->{'OS'}{"${brew_1}so_name"} ? "   s     $brew_1\t" :
+           $re->{'OS'}{"${brew_1}d_cask"}  ? "   c     $brew_1\t" :
+           $re->{'OS'}{"${brew_1}formula"} ? "   f     $brew_1\t" :
+           $re->{'OS'}{"${brew_1}font"}    ? "   p     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
       }
      }else{
-       $re->{'MEM'} = ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
-       " b k     $brew_1\t" : $re->{'OS'}{"$brew_1$OS_Version"} ? " b       $brew_1\t" :
-        ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ?
-       " x k     $brew_1\t" : $re->{'OS'}{"${brew_1}un_Linux"}  ? " x       $brew_1\t" :
-       $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
+           $re->{'MEM'} =
+         ( $re->{'OS'}{"${brew_1}disable"} and $re->{'OS'}{"${brew_1}keg"} )   ? " d k     $brew_1\t" :
+           $re->{'OS'}{"${brew_1}disable"}   ? " d       $brew_1\t" :
+         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ? " B k     $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg"} )  ? " x k     $brew_1\t" :
+           $re->{'OS'}{"$brew_1$OS_Version"} ? " B       $brew_1\t" :
+           $re->{'OS'}{"${brew_1}un_Linux"}  ? " x       $brew_1\t" :
+           $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
      }
     if( $pop ){
      if( not $list->[$in] or index($list->[$in],' ') == 0 ){
@@ -1473,17 +1481,16 @@ my( $list,$re,$in ) = @_;
        $com = $JA{$tap} if $JA{$tap}; $com =~ tr/“”//d unless $Locale;
 
       my $brew = 1;
-   if( $re->{'LINK'} and $re->{'LINK'} == 1 and not $re->{'OS'}{"${tap}un_xcode"} or
-       $re->{'LINK'} and $re->{'LINK'} == 2 and not $re->{'OS'}{"${tap}un_Linux"} or
-       $re->{'LINK'} and $re->{'LINK'} == 3 and not $re->{'OS'}{"$tap$OS_Version"} or
+   if( $re->{'LINK'} and $re->{'LINK'} == 1 and ( not $re->{'OS'}{"${tap}un_xcode"}  or $re->{'OS'}{"${tap}disable"} ) or
+       $re->{'LINK'} and $re->{'LINK'} == 2 and ( not $re->{'OS'}{"${tap}un_Linux"}  or $re->{'OS'}{"${tap}disable"} ) or
+       $re->{'LINK'} and $re->{'LINK'} == 3 and ( not $re->{'OS'}{"$tap$OS_Version"} or $re->{'OS'}{"${tap}disable"} ) or
        $re->{'LINK'} and $re->{'LINK'} == 4 and not $re->{'OS'}{"${tap}un_cask"} or
        $re->{'LINK'} and $re->{'LINK'} == 5 and not $re->{'OS'}{"${tap}so_name"} or
        $re->{'LINK'} and $re->{'LINK'} == 6 and not $re->{"deps$tap"} or
        $re->{'LINK'} and $re->{'LINK'} == 7 and not $re->{"${tap}delet"} or
        $re->{'LINK'} and $re->{'LINK'} == 8 and not $re->{'OS'}{"${tap}font"} or
-       $re->{'LINK'} and $re->{'LINK'} == 9 and not $re->{'OS'}{"${tap}un_cask"} ){
-      $brew = 0;
-   }
+       $re->{'LINK'} and $re->{'LINK'} == 9 and not $re->{'OS'}{"${tap}un_cask"} ){ $brew = 0 }
+
   if( $re->{'BL'} and not $dirs1 or defined $re->{'S_OPT'} and
                      $tap =~ /$re->{'S_OPT'}/o and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
       unless( $re->{'OS'}{"${tap}lfont"} ){
@@ -1542,14 +1549,16 @@ sub Type_1{
 my( $re,$brew_1,$i,$e ) = @_;
  if( $re->{'MAC'} ){
   if( $re->{'FOR'} ){
-   ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} )  ? substr $re->{'MEM'},0,9," t k $i " :
-   ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}pkeg"} ) ? substr $re->{'MEM'},0,9," t kp$i " :
-   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ? substr $re->{'MEM'},0,9," b k $i " :
-   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}pkeg"} )? substr $re->{'MEM'},0,9," b kp$i " :
+   ( ( $re->{'OS'}{"${brew_1}un_xcode"} or $re->{'OS'}{"${brew_1}disable"} ) and $re->{'OS'}{"${brew_1}keg"} )  ?
+       substr $re->{'MEM'},0,9," t k $i " :
+   ( ( $re->{'OS'}{"${brew_1}un_xcode"} or $re->{'OS'}{"${brew_1}disable"} ) and $re->{'OS'}{"${brew_1}pkeg"} ) ?
+       substr $re->{'MEM'},0,9," t kp$i " :
+   ( $re->{'OS'}{"${brew_1}un_xcode"} or $re->{'OS'}{"${brew_1}disable"} ) ? substr $re->{'MEM'},0,9," t   $i " :
+   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} )   ? substr $re->{'MEM'},0,9," B k $i " :
+   ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}pkeg"} )  ? substr $re->{'MEM'},0,9," B kp$i " :
    ( $e and $re->{'OS'}{"${brew_1}keg"} )  ? substr $re->{'MEM'},0,9," e k $i " :
    ( $e and $re->{'OS'}{"${brew_1}pkeg"} ) ? substr $re->{'MEM'},0,9," e kp$i " :
-     $re->{'OS'}{"${brew_1}un_xcode"}  ? substr $re->{'MEM'},0,9," t   $i " :
-     $re->{'OS'}{"$brew_1$OS_Version"} ? substr $re->{'MEM'},0,9," b   $i " :
+     $re->{'OS'}{"$brew_1$OS_Version"} ? substr $re->{'MEM'},0,9," B   $i " :
      $re->{'OS'}{"${brew_1}keg"}  ? substr $re->{'MEM'},0,9,"   k $i " :
      $re->{'OS'}{"${brew_1}pkeg"} ? substr $re->{'MEM'},0,9,"   kp$i " :
                                $e ? substr $re->{'MEM'},0,9," e   $i " :
@@ -1566,9 +1575,12 @@ my( $re,$brew_1,$i,$e ) = @_;
                                        substr $re->{'MEM'},0,9,"     $i " ;
   }
  }else{
-  ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg_Linux"} ) ? substr $re->{'MEM'},0,9," b k $i " :
-    $re->{'OS'}{"$brew_1$OS_Version"} ? substr $re->{'MEM'},0,9," b   $i " :
-    $re->{'OS'}{"${brew_1}keg_Linux"} ? substr $re->{'MEM'},0,9,"   k $i " :
+  ( ( $re->{'OS'}{"${brew_1}un_Linux"} or $re->{'OS'}{"${brew_1}disable"} ) and $re->{'OS'}{"${brew_1}keg"} )  ?
+      substr $re->{'MEM'},0,9," t k $i " :
+  ( $re->{'OS'}{"${brew_1}un_Linux"} or $re->{'OS'}{"${brew_1}disable"} ) ? substr $re->{'MEM'},0,9," t   $i " :
+  ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} )   ? substr $re->{'MEM'},0,9," B k $i " :
+    $re->{'OS'}{"$brew_1$OS_Version"} ? substr $re->{'MEM'},0,9," B   $i " :
+    $re->{'OS'}{"${brew_1}keg"}       ? substr $re->{'MEM'},0,9,"   k $i " :
                                         substr $re->{'MEM'},0,9,"     $i " ;
  }
 }
@@ -2260,7 +2272,8 @@ my( $dir,$ls,$cask,$HA ) = @_;
   }
  closedir $DIR;
 }
-
+ my $Time = [localtime(time)];
+ my $TIME = sprintf "%04d-%02d-%02d",$Time->[5]+=1900,++$Time->[4],$Time->[3];
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
 tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
@@ -2351,7 +2364,9 @@ unless( $ARGV[0] ){
          $SPA = $IN = 1 if $MAC_OS{$ha5} and $MAC_OS{$ha5} ne $OS_Version; next;
      }
 
-      if( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
+      if( $data =~ /^\s*disable!\s+date:\s+"([^"]+)",/ and $TIME gt $1 ){
+          $tap{"${name}disable"} = 1;
+      }elsif( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
           $data = "0$data" if index($data,'.') == 1;
          if( $re->{'MAC'} and $data gt $Xcode ){
           $tap{"${name}un_xcode"} = 1;
@@ -2434,10 +2449,10 @@ unless( $ARGV[0] ){
         $tap{"${name}revision"} = "_$data";
       }
 
-    if( $data =~ /^\s*keg_only.*macos/ ){
+    if( $data =~ /^\s*keg_only\s+:.+_by_macos/ ){
       $tap{"${name}pkeg"} = 1;
     }elsif( $data =~ /^\s*keg_only/ ){
-      $tap{"${name}keg_Linux"} = $tap{"${name}keg"} = 1;
+      $tap{"${name}keg"} = 1;
     }elsif( $data =~ /^\s*depends_on\s+:macos/ ){
       $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0;
     }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
