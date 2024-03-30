@@ -56,6 +56,7 @@ my( $dir,$ls,$cask,$HA ) = @_;
   }
  closedir $DIR;
 }
+
  my $Time = [localtime(time)];
  my $TIME = sprintf "%04d-%02d-%02d",$Time->[5]+=1900,++$Time->[4],$Time->[3];
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
@@ -66,8 +67,8 @@ unless( $ARGV[0] ){
   $alias =~ s|.+/(.+)|$1|;
    $hand =~ s|.+/(.+)\.rb$|$1|;
   $tap{"${alias}alia"} = $hand;
-  $tap{"${hand}alias"} .= "$alias\t";
- } $tap{'pythonalia'} = 'python@3.11' if $re->{'LIN'};
+   $tap{"${hand}alias"} .= "$alias\t";
+ }
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,$in * 3 );
     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
