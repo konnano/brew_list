@@ -56,7 +56,8 @@ my( $dir,$ls,$cask,$HA ) = @_;
   }
  closedir $DIR;
 }
-
+ my $Time = [localtime(time)];
+ my $TIME = sprintf "%04d-%02d-%02d",$Time->[5]+=1900,++$Time->[4],$Time->[3];
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
 tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ARGV[0] ){
@@ -147,7 +148,9 @@ unless( $ARGV[0] ){
          $SPA = $IN = 1 if $MAC_OS{$ha5} and $MAC_OS{$ha5} ne $OS_Version; next;
      }
 
-      if( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
+      if( $data =~ /^\s*disable!\s+date:\s+"([^"]+)",/ and $TIME gt $1 ){
+          $tap{"${name}disable"} = 1;
+      }elsif( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
           $data = "0$data" if index($data,'.') == 1;
          if( $re->{'MAC'} and $data gt $Xcode ){
           $tap{"${name}un_xcode"} = 1;
@@ -230,10 +233,10 @@ unless( $ARGV[0] ){
         $tap{"${name}revision"} = "_$data";
       }
 
-    if( $data =~ /^\s*keg_only.*macos/ ){
+    if( $data =~ /^\s*keg_only\s+:.+_by_macos/ ){
       $tap{"${name}pkeg"} = 1;
     }elsif( $data =~ /^\s*keg_only/ ){
-      $tap{"${name}keg_Linux"} = $tap{"${name}keg"} = 1;
+      $tap{"${name}keg"} = 1;
     }elsif( $data =~ /^\s*depends_on\s+:macos/ ){
       $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0;
     }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
