@@ -1428,7 +1428,7 @@ my( $list,$file,$in,$re ) = @_;
     }
     $re->{'MEM'} .= "$brew_2\t$brew_3\n" if defined $brew_2;
      $re->{'MEM'} =~ tr/\t/\n/ unless defined $brew_2;
-      Memo_1( $re,$mem ) if $re->{'LIST'} or $pop;
+      Memo_1( $re,$mem ) if $re->{'LIST'} or $pop and not $re->{'OS'}{"${brew_1}_tap"} ;
        $re->{'BN'}++ if $mem and index($brew_1,' ') != 0;
         $re->{'AN'}++ if index($brew_1,' ') != 0;
    }
