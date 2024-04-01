@@ -264,6 +264,7 @@ font-braah-one	大胆で遊び心のあるフォント
 font-brawler	Brawler
 font-bree-serif	Bree Serif
 font-bricolage-grotesque	歴史的資料、技術的な決定、個人的な感情のコラージュ
+font-briem-hand	16 世紀筆記体の現代版
 font-brill	Brill
 font-bruno-ace	Bruno Ace
 font-bruno-ace-sc	Bruno Ace SC
@@ -504,7 +505,9 @@ font-edu-nsw-act-hand	Edu NSW ACT Hand
 font-edu-qld-beginner	Edu QLD Beginner
 font-edu-qld-hand	Edu QLD Hand
 font-edu-sa-beginner	Edu SA Beginner
+font-edu-sa-dotted-guide	Edu SA点線ガイド
 font-edu-sa-hand	Edu SA Hand
+font-edu-sa-hand-cursive	Edu SA手書き筆記体
 font-edu-tas-beginner	Edu TAS Beginner
 font-edu-vic-wa-nt-beginner	Edu VIC WA NT Beginner
 font-edu-vic-wa-nt-hand	Edu VIC WA NT Hand
@@ -886,6 +889,7 @@ font-jacquarda-bastarda-9-charted	Jacquarda Bastarda 9 Charted
 font-jacques-francois	Jacques Francois
 font-jacques-francois-shadow	Jacques Francois Shadow
 font-jaldi	Jaldi
+font-jaro	ヤロスラフ・ベンダの作品にインスピレーションを得たグローバル表示書体
 font-jeju-gothic	Jeju Gothic
 font-jeju-hallasan	Jeju Hallasan
 font-jeju-myeongjo	Jeju Myeongjo
@@ -1990,6 +1994,7 @@ font-tapestry	ちょっと素朴でカントリーな雰囲気のローマンカ
 font-taprom	Taprom
 font-tauri	Tauri
 font-taviraj	Taviraj
+font-teachers	Teachers
 font-teko	Teko
 font-tektur	コンパクトな組版を可能にする高めの設定
 font-telex	Telex
@@ -2068,6 +2073,7 @@ font-ubuntu-mono-derivative-powerline	Ubuntu Mono 派生 Powerline
 font-ubuntu-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-ubuntu-nerd-font	開発者向けのグリフ数が多いフォント
 font-ubuntu-sans	Ubuntu Sans
+font-ubuntu-sans-mono	Ubuntu Sans Mono
 font-uchen	Uchen
 font-udev-gothic	BIZ UD Gothic と JetBrains Monoのフォントを統合
 font-udev-gothic-nf	BIZ UD Gothic と JetBrains Monoのフォントを統合
