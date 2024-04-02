@@ -2349,6 +2349,7 @@ opera-crypto-developer	Web3ブラウザ
 opera-developer	Webブラウザー
 oracle-jdk17	OracleからJDK
 papers3	あなたの個人的な研究ライブラリ
+paragon-extfs11	ext2/3/4フォーマットされたボリュームの、読み取り/書き込みサポート
 parallels12	デスクトップ仮想化ソフトウェア
 parallels13	デスクトップ仮想化ソフトウェア
 parallels14	デスクトップ仮想化ソフトウェア
