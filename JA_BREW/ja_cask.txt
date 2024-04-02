@@ -525,6 +525,7 @@ canon-eos-utility	Canon EOSカメラとの通信
 cantata	Qt5グラフィカルMPDクライアント
 canva	デザインツール
 capacities	アイデアを書いて整理するアプリ
+capcut	ビデオ編集と画像デザインのプラットフォーム
 caprine	エレガントなFacebookメッセンジャーデスクトップアプリ
 capslocknodelay	Caps Lockを押したときの遅延をなくす
 captain	メニューバーからDockerコンテナを管理する
