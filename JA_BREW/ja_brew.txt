@@ -2144,6 +2144,7 @@ gitsign	Sigstoreを使用したキーレスGit署名
 gitslave	スーパープロジェクトとして1つの関連するリポジトリのグループを作成します
 gitter-cli	端末用の非常にシンプルなGitterクライアント
 gittuf	Gitリポジトリのセキュリティ層
+gitu	Magitからインスピレーションを得た、TUI Gitクライアント
 gitui	燃える様に高速なターミナル rustで書かれたgit用のUI
 gitup	複数のgitリポジトリを一度に更新する
 gitversion	Gitを使用したプロジェクトの簡単な意味にversioning
@@ -2906,6 +2907,7 @@ jsonrpc-glib	JSON-RPCベースのピアと通信する為のGNOMEライブラリ
 jsonschema	PythonのJSONスキーマの実装
 jsonschema2pojo	JSONスキーマ(JSONの例え)からJavaタイプを生成します
 jsvc	Javaアプリケーションをデーモンとして起動するラッパー
+jtbl	JSON及びJSON行を変換、ターミナル/CSV/HTTP.マークダウンテーブル
 jthread	スレッドを簡単に利用できるC++クラス
 judy	スパース動的配列を実装する最先端の Cライブラリ
 juicefs	RedisとS3上に構築されたクラウドベースの分散POSIXファイルシステム
@@ -3496,6 +3498,7 @@ libsais	高速線形時間サフィックス配列 LCPアレイとBwtの構築
 libsamplerate	オーディオデータのサンプルレート変換用のライブラリ
 libsass	SassコンパイラのC実装
 libsbol	Synthetic Biology Open Language(SBOL)でのファイルの読み取りと書き込み
+libscfg	scfg用のCライブラリ
 libscrypt	scryptのライブラリ
 libseccomp	Linuxカーネルのsyscall filteringメカニズムへのインターフェース
 libsecret	パスワードや秘密鍵を 保存/取得 する為のライブラリ
@@ -3850,6 +3853,7 @@ mandoc	UNIX manpageコンパイラツールセット
 mandown	Manページに触発されたMarkdown Viewer
 manifest-tool	コンテナイメージマニフェス list/indexes作成及びクエリする為のコマンドラインツール
 manticoresearch	オープンソースのテキスト検索エンジン
+mantra	JSファイルおよびページ内の、APIキーの漏洩を追跡するツール
 mapcidr	Subnet/CIDR 操作ユーティリティ
 mapcrafter	Minecraft map renderer
 mapnik	地図アプリケーションを開発する為のツールキット
@@ -4938,6 +4942,7 @@ podsync	YouTube/Vimeoチャンネルを回す ユーザー/プレイリストを
 poetry	Pythonパッケージ管理ツール
 poke	構造化されたバイナリデータ用の拡張可能なエディター
 pokerstove	ポーカー評価及び列挙ソフトウェア
+policy_sentry	ロックダウンされた、AWS IAMポリシーを生成する
 polyglot	XBoardでUCIエンジンを実行する為の手続きアダプタ
 polyml	標準ML実装
 polynote	First-classのScalaをサポートするPolyglotノートブック
@@ -6539,6 +6544,7 @@ vert.x	JVMでリアクティブアプリケーションを構築する為のツ�
 vespa-cli	Vespa.aiのコマンドラインツール
 vet	オープンソースの依存関係をポリシーに基づいて精査する
 vf	`cd`コマンドの拡張バージョン
+vfox	Java/Node.js/Flutter/.NET などをサポートするバージョンマネージャー
 vfuse	VMwareFusionで使用する為に起動可能なDMGイメージを変換する
 vgmstream	ビデオゲームからストリーミングされたオーディオ形式を再生する為のライブラリ
 vgrep	grepのユーザーに親しいPager
