@@ -3852,6 +3852,7 @@ man2html	nroffのマニュアルページをHTMLに変換する
 mandoc	UNIX manpageコンパイラツールセット
 mandown	Manページに触発されたMarkdown Viewer
 manifest-tool	コンテナイメージマニフェス list/indexes作成及びクエリする為のコマンドラインツール
+manim	数学説明ビデオ用のアニメーションエンジン
 manticoresearch	オープンソースのテキスト検索エンジン
 mantra	JSファイルおよびページ内の、APIキーの漏洩を追跡するツール
 mapcidr	Subnet/CIDR 操作ユーティリティ
