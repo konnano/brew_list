@@ -621,6 +621,7 @@ cleanmymac-zh	中国語版ディスクから不要なファイルやフォルダ
 cleanshot	画面キャプチャツール
 cleanupbuddy	キーボードとトラックパッドをきれいにする
 cleartext	テキストエディター
+clearvpn	VPNクライアント
 clementine	音楽プレーヤーとライブラリーのまとめ
 clibor	クリップボードマネージャー
 clickcharts	ダイアグラム及びフローチャートソフトウェア
@@ -1333,6 +1334,7 @@ fspy	静止画カメラマッチング
 fstream	WebRadioソフトウェア リスナー/レコーダー
 ftdi-vcp-driver	仮想COMポートドライバー
 fugu	OpenSSHの sftp/scpツールのフロントエンド
+fujifilm-x-raw-studio	富士フイルムのカメラで撮影したRAW画像を変換する
 fujitsu-scansnap-home	富士通 ScanSnapスキャナーソフトウェア
 functionflip	ファンクションキーコントロール
 funter	隠しファイルと隠しフォルダを表示しFinderでそれらの表示を切り替えます
