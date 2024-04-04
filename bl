@@ -6,8 +6,8 @@ my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1() || die " brew path not found\n
 MAIN:{
  my $home = "$ENV{'HOME'}/.BREW_LIST";
  my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],'LEN4'=>1,
-             'HOME'=>$home,'TXT'=>"$home/brew.txt",'CLO' => clojur_1(),
-             'CAN'=>"$home/ana.txt",'SPA'=>' 'x9,'LFO'=>"$home/font.zip" };
+             'HOME'=>$home,'TXT'=>"$home/brew.txt",'CAN'=>"$home/ana.txt",
+                                        'SPA'=>' 'x9,'LFO'=>"$home/font.zip" };
 
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
              'HOME'=>$home,'TXT'=>"$home/cask.txt",'CAN'=>"$home/cna.txt",
@@ -253,14 +253,21 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
   if( $re->{'PRS'} ){
-   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h\n" };
     $re->{'PID2'} = fork;
-     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
+     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = $$;
+   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die "\x1B[?25h\n" };
   }
-  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
+  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,$pid );
   }else{
-   Info_1( $re ) if $re->{'INF'};
-    if( $re->{'TREE'} ){ delete $re->{'OS'}; $re->{'UNI'} = $re->{'CLO'}->(); return }
+    if( $re->{'INF'} ){ open my $TR,'>',"$re->{'HOME'}/Tree.txt" or die " Tree1 $!\n"
+                         unless $re->{'PP'} or $re->{'LINK'};
+                          $re->{'TR'} = $TR || ''; Info_1( $re ); close $TR if $re->{'TR'};
+    }
+    if( $re->{'TREE'} ){ Nohup_1( $re ) if $re->{'PP'};
+                          delete $re->{'OS'}; Split_1( $re );
+                           open my $TR,'<',"$re->{'HOME'}/Tree.txt" or die " Tree2 $!\n";
+                            $re->{'TR'} = $TR; return
+    }
    unless( $re->{'ANA'} or $re->{'COM'} or $re->{'deps'} or $re->{'PRE'} ){
      $list = ( defined $re->{'S_OPT'} or $re->{'BL'} and ( $re->{'CAS'} or -f $re->{'LFO'} ) ) ? Dirs_1( $re->{'CEL'},1 ) :
              ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
@@ -278,12 +285,12 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   if( @{$list} and ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
                      $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} or
                      $re->{'LIN'} and $re->{'USE'} and not $re->{'USES'} ) ){
-   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h\n" };
     $re->{'PID2'} = fork;
-     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = 1;
+     die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = $$;
+   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die "\x1B[?25h\n" };
   }
-  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,1 );
-  }else{
+  if( $pid and not $re->{'PID2'} ){ Wait_1( $re,$pid );
+  }else{ select undef,undef,undef,0.1 if $re->{'LIN'} and $re->{'USE'} or $re->{'PRS'};
    $re->{'COM'} ? Command_1( $re ) :
    ( $re->{'BL'} and $re->{'FOR'} and not -f $re->{'LFO'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ?
     Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ?
@@ -305,26 +312,25 @@ sub Wait_1{
 my( $re,$loop ) = @_; my $pid;
  rename $re->{'HOME'}, "$ENV{'HOME'}/BREW_LIST$$" if -d $re->{'HOME'} and not -f $re->{'TXT'};
   mkdir $re->{'HOME'};
-   mkdir "$re->{'HOME'}/WAIT";
   my( $not,$dok,$ten ) = Doc_1;
   unless( $loop ){
    $pid = fork;
     die " Wait Not fork : $!\n" unless defined $pid;
   }
   if( $pid or $loop ){
-   if( ( $loop or not -d "$re->{'HOME'}/LOCK" ) and -t STDOUT ){
+   my $WAIT = $pid ? "$re->{'HOME'}/WAIT".$pid : "$re->{'HOME'}/WAIT".$loop;  mkdir $WAIT;
+   if( -t STDOUT ){
     print STDERR "\x1B[?25l";
     if( $re->{'LIN'} or $loop or -d "$re->{'HOME'}/TAP" ){ my $i = 0;
      my $name = $loop ? 'Please wait' : 'Makes new cache';
       while(1){ $i = $i % 8; my $c = ( (rand 6) + 1 ) >> 0;
-       -d "$re->{'HOME'}/WAIT" ?
-        print STDERR "\r  \033[3${c}m$ten->[$i]\033[0m : $name" : last;
+       -d $WAIT ? print STDERR "\r  \033[3${c}m$ten->[$i]\033[0m : $name" : last;
          $i++; select undef,undef,undef,0.1;
       }
     }else{ my $i = 0; my $ma = '';
       while(1){
       printf STDERR "\r '\033[33m%-20s\033[0m' [%2d/20]",$ma,$i;
-       last unless -d "$re->{'HOME'}/WAIT";
+       last unless -d $WAIT;
         if( -d "$re->{'HOME'}/$i" ){
          while(1){
           last unless -d "$re->{'HOME'}/$i";
@@ -340,7 +346,7 @@ my( $re,$loop ) = @_; my $pid;
    } exit;
   }else{
    Tied_1( $re ) unless -d "$re->{'HOME'}/LOCK";
-    -d "$re->{'HOME'}/TAP" ? system '~/.BREW_LIST/font.sh 1 2' : system '~/.BREW_LIST/font.sh 0 1';
+    -d "$re->{'HOME'}/TAP" ? system "~/.BREW_LIST/font.sh 1 2 $$" : system "~/.BREW_LIST/font.sh 0 1 $$";
      exit;
   }
 }
@@ -407,6 +413,30 @@ sub Path_1{ my( $brew,$i );
    } last if substr($ls,0,1) ge 'c';
   } last if $i;
  } $brew;
+}
+
+sub Split_1{ my $re = shift; my( $i,@line ) = 0;
+ open my $TR1,'<',"$re->{'HOME'}/Tree.txt" or die " Split1 $!\n";
+  while(<$TR1>){
+  unshift @line,$_;
+   if( @line == 100000 or eof ){ $i++;
+    my $file1 = "file$i";
+     open G,'>',"$re->{'HOME'}/$file1" or die " $file1 $!";
+      print G @line;
+     close G;
+    @line = ();
+   }
+  }
+ close $TR1;
+ open my $TR2,'>',"$re->{'HOME'}/Tree.txt" or die " Split2 $!\n";
+  for( reverse(1 .. $i) ){
+   my $file2 = "file$_";
+    open H,"$re->{'HOME'}/$file2" or die " $file2 $!";
+     print $TR2 <H>;
+    close H;
+   unlink "$re->{'HOME'}/$file2";
+  }
+ close $TR2;
 }
 
 sub m_search{
@@ -529,7 +559,7 @@ my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2
      _par( $re,\@an3 );
    }
     _par( $re,[],$FH );
-  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 3\n"; }
+  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die " can't open process 3\n"; }
  }else{ exit unless @an2;
    if( open my $DH,'-|' ){
      _par( $re,\@an2,$DH );
@@ -683,9 +713,9 @@ sub Size_1{
     @data = `du -ks $ls1`;
      push @data,<$FH>;
       close $FH;
-    if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT"; die " can't open process 1\n"; }
+    if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die " can't open process 1\n"; }
    }else{ print`du -ks $ls2` if $ls2; exit; }
-   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
     sub _cmp{ $_[0] =~ /(\d+)\s/; $1 }
    for( sort{_cmp($b) <=> _cmp($a)} @data ){ my $utime; $c++;
     my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
@@ -728,7 +758,7 @@ my( $re,$list ) = @_; my( $top,@font,@ver );
     Mine_1( $_,$re,0 ) for( @font );
    Mine_1( ' ==> homebrew/cask-versions',$re,0 ) if @ver;
     Mine_1( $_,$re,0 ) for( @ver );
-  waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT";
+  waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
  print "$top" if $top;
 }
 
@@ -750,7 +780,7 @@ my( $re,$list ) = @_; my( %HA,@AN );
    $re->{'DMG'}{$_} ? push @cask,$_ : 0 for @{$re->{'cask'}};
     if( not $re->{'USES'} and @cask ){ push @AN,' ==> Cask',@cask;
     }elsif( $re->{'USES'} and @{$re->{'cask'}} ){ push @AN,' ==> Cask',@{$re->{'cask'}}; }
-   waitpid $re->{'PID2'},0 if $re->{'LIN'} and rmdir "$re->{'HOME'}/WAIT";
+   waitpid $re->{'PID2'},0 if $re->{'LIN'} and $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
   for my $an( @AN ){ Mine_1( $an,$re,0 ) }
  }
 }
@@ -775,7 +805,7 @@ my $re = shift; my( $ls,@an,%ha );
     Leng_1( $spa,\$keys ) if $spa >= 5;
      $ls .= sprintf"%${spa}s uses  :%4s formula\n",$keys,$#{$re->{$key}};
   }
-  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
  }
  print"$ls" if $ls;
  Nohup_1( $re );
@@ -952,11 +982,11 @@ my $re = shift; my( @AN,%HA,@an,$do );
 
  unless( @an ){ @AN = ();
   unless( $re->{'CAS'} ){
-   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT"; die "\x1B[?25h\n" };
     $re->{'PID2'} = fork;
      die " Dele Not fork : $!\n" unless defined $re->{'PID2'};
+   $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die "\x1B[?25h\n" };
   }
-  unless( $re->{'PID2'} or $re->{'CAS'} ){ Wait_1( $re,1 );
+  unless( $re->{'PID2'} or $re->{'CAS'} ){ Wait_1( $re,$$ );
   }else{
    Info_1( $re,0,0,\@AN );
     Proc_1( $re,\@AN );
@@ -977,7 +1007,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
      }
     $re->{"${brew}delet"} = $do = 1 unless $list2[$i];
    }
-    waitpid $re->{'PID2'},0 if not $do and rmdir "$re->{'HOME'}/WAIT";
+    waitpid $re->{'PID2'},0 if not $do and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
    if( $re->{'LINK'} and $do ){
     $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
      $re->{'LIST'} = $re->{'COL'} = 1;
@@ -1076,8 +1106,6 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   }
 }
 
-sub clojur_1{ my @an; sub{ @_ ? push @an,shift : \@an } }
-
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
 print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN4'}++;
@@ -1091,12 +1119,12 @@ print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN4'}++;
  $name = -t STDOUT ? "$name \033[33m(can delete)\033[0m" : "$name (can delete)"
    if $re->{'COL'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
- unless( $re->{"$${brew}undel"} ){
+ unless( $re->{"$${brew}undel"} ){ my $TR = $re->{'TR'};
   $re->{"deps$$brew"} +=
    ( $re->{'TREE'} and $re->{'PP'} and $build ) ? print"${spa} $name [Build]\n" :
    ( $re->{'TREE'} and $re->{'PP'} ) ? print"${spa} $name\n" :
-   ( $re->{'TREE'} and $build ) ? $re->{'CLO'}->("${spa}-- $name [Build]\n") :
-     $re->{'TREE'} ? $re->{'CLO'}->("${spa}-- $name\n") : 1;
+   ( $re->{'TREE'} and $build ) ? print $TR "${spa}-- $name [Build]\n" :
+     $re->{'TREE'} ? print $TR "${spa}-- $name\n" : 1;
   push @{$AN},$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
    $re->{"$re->{'INF'}deps"} .= "$$brew\t"
     if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
@@ -1105,7 +1133,7 @@ print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN4'}++;
 
 sub Info_1{
 my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
- if( $m > 50 ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+ if( $m > 50 ){ waitpid $re->{'PID2'},0 if $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
    die " Info_1 Deep recursion on subroutine\n";
  } return if $re->{'PP'} and $re->{'KEN'} and $re->{'KEN'} < $m;
 
@@ -1123,7 +1151,7 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
   $re->{'NEW'}++, Init_1( $re ) unless $brew;
    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
     $spa .= $spa ? '   |' : '|' unless $re->{'PP'};
-     rmdir "$re->{'HOME'}/WAIT" ? waitpid $re->{'PID2'},0 : 0 unless $spa;
+     ( $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}" ) ? waitpid $re->{'PID2'},0 : 0 unless $spa;
 
  unless( $re->{"${brew}undel"} ){
   if( $re->{'OS'}{"${brew}deps_b"} ){ my $i = $re->{'OS'}{"${brew}deps_b"} =~ tr/\t/\t/;
@@ -1463,9 +1491,8 @@ my( $list,$file,$in,$re ) = @_;
 sub Tap_1{ no warnings 'regexp';
 my( $list,$re,$in ) = @_;
  unless( $re->{'CAS'} and defined $re->{'S_OPT'} or $re->{'MAC'} and $re->{'BL'} or $re->{'LRE'} ){
-  my( $tap ) = $list->[$$in] =~ /^\s(.*)\n/;
-   $tap = $re->{'OS'}{$tap} ? "$tap/tap" : $tap if $re->{'OS'}{"${tap}_tap"};
-    my $tap2 = $tap =~ m|([^/]+)/.+| ? $1 : $tap;
+  my( $tap2 ) = $list->[$$in] =~ /^\s(.+)\n/;
+   my $tap = ( $re->{'OS'}{$tap2} and $re->{'OS'}{"${tap2}_tap"} ) ? "$tap2/tap" : $tap2;
 
    my $mem = ( defined $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
     my( $dirs1 )=( $re->{'FTD'} and $re->{'OS'}{"${tap}core"} ) ? $re->{'OS'}{"${tap}core"} =~ m|.+/(homebrew-[^/]+)/.+| :
@@ -1624,7 +1651,7 @@ sub Format_1{
  my $re = shift;
  if( $re->{'TREE'} and not $re->{'LIKE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
-  waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} > 5 and rmdir "$re->{'HOME'}/WAIT";
+  waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
   $re->{'ZEN'} = $re->{'ALL'} || $re->{'EXC'} || $re->{'KXC'} || 0;
   if( $re->{'TAP'} and not $re->{'LINK'} ){
     $re->{'ZEN'} = $re->{'ZEN'} =~ /^\s{10}==>.*\n$|^\s{10}==>.*\n\s{10}==>.*\n$/ ? 0 :
@@ -1724,14 +1751,15 @@ sub Format_1{
 }
 
 sub Format_2{
-my $re = shift; my( $e,$mm,@tt ) = 0;
- for my $uni( reverse @{$re->{'UNI'}} ){
+my $re = shift; my( $e,$mm,@tt ) = 0; my $TR = $re->{'TR'};
+ while( my $uni = <$TR> ){
   $mm = $uni =~ tr/|/|/;
    if( $mm == $e or index($uni,'(require)') > 0 or index($uni,'(can delete)') > 0 ){
     push @tt,$uni;
      $e = $mm - 1;
    }
   } @{$re->{'UNI'}} = reverse @tt;
+   close $TR; unlink "$re->{'HOME'}/Tree.txt";
 
   my( $cou,@COU2,@COU3,@AR2,@SC,@cn,%ha ) = 0;
  $re->{'KEN'} = 0 if not $re->{'KEN'} or $re->{'KEN'} and $re->{'KEN'} !~ /^\d+$/;
@@ -1787,14 +1815,14 @@ my $re = shift; my( $e,$mm,@tt ) = 0;
     push @AUA,$AU;
      $AU = '';
   }
-   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+   waitpid $re->{'PID2'},0 if $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
    print"$re->{'INF'}\n" if @AUA;
    print reverse @AUA if not $re->{'DD'} or -t STDOUT;
  }
  if( $re->{'DD'} ){ my( $m,$flag,@AR,@DEL ) = 0;
    $_->[0] ? push @{$AR[$m++]},@{$_} : next for @AR2;
   if( $re->{'DDD'} ){ my $i;
-   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT";
+   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
    for my $cn( @cn ){
     my $file = Dirs_1( "$re->{'CEL'}/$cn",2 );
      $i++, print" check $re->{'CEL'}/$cn  \033[33mbrew cleanup...\033[0m\n" if @{$file} > 1;
@@ -1885,7 +1913,7 @@ my $re = shift;
   ( [localtime],[localtime((stat $re->{'TXT'})[9])] ) : ([0,0,0,0,0,1],[0,0,0,0,0,0]);
    if( $time1->[5] > $time2->[5] or $time1->[4] > $time2->[4] or
        $time1->[3] > $time2->[3] or $time1->[2] > $time2->[2] ){
-    system 'nohup ~/.BREW_LIST/font.sh 1 1 >/dev/null 2>&1 &';
+    system "nohup ~/.BREW_LIST/font.sh 1 1 $$ >/dev/null 2>&1 &";
    }
  exit;
 }
@@ -1911,10 +1939,10 @@ __END__
 #!/bin/bash
  NAME=$(uname)
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
-[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
+[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}; CO=$3
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
+                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT$CO,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
@@ -1944,7 +1972,7 @@ if [[ $2 ]];then
   fi
   if (( $TI > $LS3 ));then
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
-    cp ~/.JA_BREWG/* ~/.JA_BREW
+    cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
     [[ $NAME = Linux ]] && rm ~/.JA_BREW/ja_cask.txt ~/.JA_BREW/ja_tap.txt
     [[ $NAME = Darwin ]] && rm ~/.JA_BREW/ja_linux.txt
