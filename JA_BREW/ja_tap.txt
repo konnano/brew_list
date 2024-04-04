@@ -379,7 +379,7 @@ font-comforter-brush	comforter Brushyの仲間 弾む 直立したブラシス�
 font-comic-mono	読みやすい等幅フォント
 font-comic-neue	古典的 comic sansのオリジナルの再解釈
 font-comic-sans-ms	Comic Sans
-font-comic-shanns-mono-nerd-font	多数のglyphsを含む開発者向けのフォント
+font-comic-shanns-mono-nerd-font	多数のグリフを含む開発者向けのフォント
 font-coming-soon	Coming Soon
 font-comme	可変、細いものから黒いものまでのウェイト軸
 font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストsans-serifフォント
@@ -866,7 +866,7 @@ font-iosevka-ss15	Sans-serif/slab-serif/monospace/quasi‑proportional 書体フ
 font-iosevka-ss16	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-ss17	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
 font-iosevka-ss18	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
-font-iosevka-term-nerd-font	多数のglyphsを含む開発者向けのフォント
+font-iosevka-term-nerd-font	多数のグリフを含む開発者向けのフォント
 font-iosevka-term-slab-nerd-font	開発者向けのグリフ数が多いフォント
 font-ipaexfont	IPAex Fonts
 font-ipafont	IPA Fonts
@@ -1736,6 +1736,7 @@ font-ravi-prakash	Ravi Prakash
 font-readex-pro	可変フォントのファミリー
 font-recursive	アロータイプを筆頭にブルックリンに拠点を置く活字製造所、ニューヨーク、アメリカ
 font-recursive-code	Recursiveのビルド済みのテキストエディターに適したファイル powerline glyphsを含む
+font-recursive-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-red-hat-display	Red Hat Display
 font-red-hat-mono	Red Hat Mono
 font-red-hat-text	Red Hat Text
@@ -2082,6 +2083,7 @@ font-ubuntu-mono-nerd-font	UbuntuMonoオタクフォント(Ubuntu Mono)
 font-ubuntu-nerd-font	Ubuntuオタクフォント(Ubuntu)
 font-ubuntu-sans	Ubuntu Sans
 font-ubuntu-sans-mono	Ubuntu Sans Mono
+font-ubuntu-sans-nerd-font	開発者向けのグリフ数が多いフォント
 font-uchen	Uchen
 font-udev-gothic	BIZ UD GothicとJetBrains Monoのフォントを統合する
 font-udev-gothic-nf	BIZ UD GothicとJetBrains Monoのフォントを統合す
@@ -2173,6 +2175,7 @@ font-zcool-kuaile	ZCOOL KuaiLe
 font-zcool-qingke-huangyou	ZCOOL QingKe HuangYou
 font-zcool-xiaowei	ZCOOL XiaoWei
 font-zed-mono	Iosevka に基づく準プロポーショナル等幅フォント
+font-zed-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-zed-sans	Iosevka に基づく準プロポーショナルsans-serifフォント
 font-zen-antique	Zen Antique
 font-zen-antique-soft	Zen Antique Soft
