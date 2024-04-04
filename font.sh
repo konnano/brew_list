@@ -1,10 +1,10 @@
 #!/bin/bash
  NAME=$(uname)
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
-[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}
+[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}; CO=$3
 
 math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
-                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
+                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT$CO,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
@@ -34,7 +34,7 @@ if [[ $2 ]];then
   fi
   if (( $TI > $LS3 ));then
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
-    cp ~/.JA_BREWG/* ~/.JA_BREW
+    cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
     [[ $NAME = Linux ]] && rm ~/.JA_BREW/ja_cask.txt ~/.JA_BREW/ja_tap.txt
     [[ $NAME = Darwin ]] && rm ~/.JA_BREW/ja_linux.txt
