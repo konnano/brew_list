@@ -210,6 +210,7 @@ archaeology	バイナリファイルを掘り下げる為のツール
 archipelago	Webテクノロジに基づいて構築されたターミナルエミュレータ
 archiver	アーカイブを開く ファイルを圧縮する ファイルを分割して結合するだけでなく
 archy	YAMLプロセッサ
+arctic	Final Cut Pro X ライブラリの表示と管理
 arctype	SQLクライアント及びデータベース管理ツール
 arduino	電子工学プロトタイピングプラットフォーム
 arduino-ide	電子プロトタイピングプラットフォーム
@@ -2839,6 +2840,7 @@ phantomjs	Headlessウェブブラウザ
 phd2	望遠鏡ガイドソフトウェア
 philips-hue-sync	スマートライトシステムを制御する
 phoenix	JavaScriptでスクリプト化可能なウィンドウとアプリマネージャー
+phoenix-code	コードエディタ
 phoenix-slides	フルスクリーンスライドショープログラム
 photoninja	プロフェッショナルRAW変換器
 photosrevive	古い白黒写真を自動的に色付けする
@@ -3641,6 +3643,7 @@ stand	1時間に1回立ち上がる様に通知します
 standard-notes	Freeのオープンソースの完全に暗号化されたメモアプリ
 starcraft	Starcraft
 starnet-plus-plus	MLモデルを使用して天体写真画像から星を削除します
+starnet2	MLモデルを使用して天体写真画像から星を削除します
 starsector	オープンワールドのシングルプレイヤー宇宙戦闘及びトレーディングRPG
 start	Tencentクラウドゲームプラットフォーム
 startupizer	ログインアイテムハンドラ
