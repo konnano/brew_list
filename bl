@@ -1251,27 +1251,13 @@ my( $name,$re,$ls ) = @_;
 sub Memo_1{
 my( $re,$mem,$dir ) = @_;
  if( $mem == 2 and not defined $re->{'L_OPT'} ){
-    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n";
-    }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
-    }elsif( $mem == 1 ){ $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n";
-    }
+   $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n";
  }elsif( $mem == 3 and not defined $re->{'L_OPT'} ){
-    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "      X  $dir\tNot Formula\n"
-    }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "      X  $dir\tNot Formula\n"
-    }elsif( $mem == 1 ){ $re->{'EXC'} .= "      X  $dir\tNot Formula\n"
-    }
+   $re->{'ALL'} .= "      X  $dir\tNot Formula\n"
  }elsif( defined $dir and not defined $re->{'L_OPT'} ){
-   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
-    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n";
-    }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
-    }elsif( $mem ){ $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n";
-    }
-   for( my $i=0;$i<@{$file};$i++ ){
-    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
-    }elsif( $re->{'KEN'} ){ $re->{'KXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
-    }elsif( $mem ){ $re->{'EXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
-    }
-   }
+  my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
+   $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n";
+  for( my $i=0;$i<@{$file};$i++ ){ $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]" }
  }else{
   $re->{'ALL'} .= $re->{'MEM'} unless defined $re->{'L_OPT'};
   if( $re->{'KEN'} and defined $re->{'L_OPT'} ){
