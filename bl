@@ -1268,9 +1268,9 @@ my( $re,$mem,$dir ) = @_;
      my( $brew,$vers,$hont ) = split '\t',$mee;
    if( index($mee,' ==>') == 0 or $mee =~ /$re->{'L_OPT'}/oi ){
     if( index($mee,' ==> ') != 0 and index($mee,'Not Formula') < 0 ){ $re->{'DN'}++;
+      $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
      if( -t STDOUT ){ for( $brew,$vers,$hont ){ s/($re->{'L_OPT'})/\033[33m$1\033[0m/oig } }
     }
-     $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
     $re->{'KXC'} .= $hont ? "$top$brew\t$vers\t$hont" : $vers ? "$top$brew\t$vers" : "$top$brew";
    }
   }elsif( $mem ){ $re->{'EXC'} .= $re->{'MEM'} }
@@ -1528,8 +1528,8 @@ my( $list,$re,$in ) = @_;
       }
     }
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap2} or $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
-        $re->{'MEM'} = "      X  $tap\tNot Formula\n";
-         Memo_1( $re,$mem ) unless $re->{'FOR'};
+        $re->{'MEM'} = "      X  $tap\tNot Formula\n" unless defined $re->{'L_OPT'};;
+         $re->{'AN'}--; $re->{'IN'}--; $re->{'BN'}--, $re->{'CN'}-- if $mem;
     }elsif( $re->{'FOR'} and Version_1( $ver,$re->{'HASH'}{$tap2} ) and
            not( $re->{'OS'}{"${tap}un_xcode"} and $re->{'OS'}{"${tap}un_Linux"} ) or
             $re->{'CAS'} and not $re->{'OS'}{"${tap}un_cask"} and $ver ne $re->{'DMG'}{$tap} ){
@@ -1543,9 +1543,8 @@ my( $list,$re,$in ) = @_;
     }
        push @{$re->{'ARY'}},"$dirs1\n".$re->{'MEM'} if $dirs1;
      if( $brew and not $dirs1 ){
-      Memo_1( $re,$mem );
-       $re->{'AN'}++; $re->{'IN'}++;
-      $re->{'BN'}++, $re->{'CN'}++ if $mem;
+       Memo_1( $re,$mem );
+        $re->{'AN'}++; $re->{'IN'}++; $re->{'BN'}++, $re->{'CN'}++ if $mem;
      }
   }else{
     Memo_1( $re,$mem,$tap );
