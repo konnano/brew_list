@@ -3966,7 +3966,6 @@ mesa-glu	Mesa OpenGLユーティリティライブラリ
 mesalib-glw	OpenGL仕様のオープンソース実装
 mesheryctl	クラウドネイティブの管理プレーンであるMesheryのコマンドラインユーティリティ
 meson	高速でユーザーに親しいビルドシステム
-meson-python	Meson PEP 517 Pythonビルドバックエンド
 meta-package-manager	統合CLIを使用したすべてのパッケージマネージャーのラッパー
 metabase	ビジネス知性報告サーバー
 metalang99	C99プリプロセッサベースのメタプログラミング言語
@@ -4246,6 +4245,7 @@ naturaldocs	拡張可能な多言語ドキュメント発生器
 nauty	グラフと有向グラフの自己同形群
 nave	Node.jsの仮想環境
 navi	コマンドライン用の対話的なcheatsheetツール
+navidrome	Subsonic/Airsonicと互換性のある最新のミュージック サーバーおよびストリーマー
 nb	コマンドライン及びローカルWebのメモ取り ブックマークとアーカイブ
 nbdime	JupyterNotebookの Diff/Mergeツール
 nbimg	Android/winCEのスマートフォンの派手なブートスクリーン変換器
@@ -4654,6 +4654,7 @@ otf2bdf	OpenTypeからBDFフォントへの変換器
 ots	🔐 1回限りのURLを介してend-to-endの暗号化された秘密を他の人と共有する
 ott	プログラミング言語と計算の定義を書く為のツール
 ouch	端末用の簡単な圧縮と解凍
+overarch	ソフトウェアアーキテクチャのデータ駆動型の説明
 overdrive	OverDriveオーディオブックサービスからmp3をダウンロードする為のBashスクリプト
 overmind	Procfileベースのアプリケーションとtmuxのプロセスマネージャー
 overtls	GFWをバイパスするためのシンプルなプロキシトンネル
@@ -5128,13 +5129,11 @@ python-argcomplete	Python argparseのタブ補完
 python-build	単純 正しいPEP517ビルドフロントエンド
 python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
-python-cycler	構成可能なスタイルサイクル
 python-dateutil	標準Python日時機能の便利な拡張機能
 python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
-python-kiwisolver	ヒクイドリ制約解決アルゴリズムの効率的なC++実装
 python-launcher	Pythonインタープリターを、遅延/スマートな方法で起動する
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2/libxsltライブラリのPythonバインディング
@@ -5147,7 +5146,6 @@ python-pyparsing	PEGパーサーを作成する為のPythonライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-requests	Python HTTP for Humans
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
-python-setuptools-scm	git/hgメタデータからPythonパッケージのバージョンを抽出します
 python-tabulate	Pythonで表形式のデータをきれいにプリントする
 python-tk@3.10	Tcl/TkへのPythonインターフェース
 python-tk@3.11	Tcl/TkへのPythonインターフェイス
@@ -5312,6 +5310,7 @@ recoverpy	上書き/削除されたデータを回復する為のTUI
 recutils	人間が編集可能なプレーンテキストデータファイルを操作する為のツール
 red-tldr	red teamのスタッフがコマンドとキーポイントをすばやく見つけるのに役立ちます
 redex	Androidアプリ用のバイトコード最適化ツール
+redict	分散キー/値 データベース
 redir	Portリダイレクタ
 redis	組み込みのネットインターフェイスを備えた永続的なKey-Valueデータベース
 redis-leveldb	leveldbへのRedis手続き互換フロントエンド
@@ -6506,6 +6505,7 @@ valabind	レーダー用のVala bindings、逆エンジニアリングフレー�
 vale	散文用の構文対応静的解析ツール
 valgrind	動的分析ツール(メモリ、デバッグ、プロファイリング)
 valijson	JSONスキーマ検証用のヘッダーのみのC++ライブラリ
+valkey	主に、キー/値　ワークロードを処理する高性能データ構造サーバー
 vamp-plugin-sdk	オーディオ処理プラグインシステムSDK
 vapor	Vaporのコマンドラインツール(サーバー側のSwift Webフレームワーク)
 vapoursynth	シンプルさを念頭に置いたビデオ処理フレームワーク
