@@ -1250,14 +1250,16 @@ my( $name,$re,$ls ) = @_;
 
 sub Memo_1{
 my( $re,$mem,$dir ) = @_;
- if( $mem == 2 and not defined $re->{'L_OPT'} ){
-   $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n";
- }elsif( $mem == 3 and not defined $re->{'L_OPT'} ){
-   $re->{'ALL'} .= "      X  $dir\tNot Formula\n"
- }elsif( defined $dir and not defined $re->{'L_OPT'} ){
+ if( defined $dir ){
   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
-   $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n";
-  for( my $i=0;$i<@{$file};$i++ ){ $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]" }
+  if( @{$file} ){
+    $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n" unless defined $re->{'L_OPT'};
+   for( my $i=0;$i<@{$file};$i++ ){
+    $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]" unless defined $re->{'L_OPT'};
+   }
+  }else{
+    $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n" unless defined $re->{'L_OPT'};
+  }
  }else{
   $re->{'ALL'} .= $re->{'MEM'} unless defined $re->{'L_OPT'};
   if( $re->{'KEN'} and defined $re->{'L_OPT'} ){
@@ -1419,7 +1421,7 @@ my( $list,$file,$in,$re ) = @_;
      }
     if( $pop ){
      if( not $list->[$in] or index($list->[$in],' ') == 0 ){
-       Memo_1( $re,2,$brew_1 );
+       Memo_1( $re,$mem,$brew_1 );
          $i--; next;
      }elsif( $list->[$in + 1] and index($list->[$in + 1],' ') != 0 ){
        Memo_1( $re,$mem,$brew_1 );
@@ -1431,7 +1433,8 @@ my( $list,$file,$in,$re ) = @_;
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} and ( $un or "$brew_2\n" eq $list->[$in] ) ){
          Type_1( $re,$brew_1,' u ' ) unless $re->{'OS'}{"${brew_1}_tap"};
      }elsif( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
-         Memo_1( $re,3,$brew_1 );
+           $re->{'MEM'} = "      X  $brew_1\tNot Formula\n";
+            Memo_1( $re,$mem );
           $in++; $i--; next;
      }else{
       if( $re->{'FOR'} and Version_1( $brew_2,$re->{'HASH'}{$brew_1} ) and
@@ -1525,7 +1528,8 @@ my( $list,$re,$in ) = @_;
       }
     }
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap2} or $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
-       Memo_1( $re,3,$tap );
+        $re->{'MEM'} = "      X  $tap\tNot Formula\n";
+         Memo_1( $re,$mem ) unless $re->{'FOR'};
     }elsif( $re->{'FOR'} and Version_1( $ver,$re->{'HASH'}{$tap2} ) and
            not( $re->{'OS'}{"${tap}un_xcode"} and $re->{'OS'}{"${tap}un_Linux"} ) or
             $re->{'CAS'} and not $re->{'OS'}{"${tap}un_cask"} and $ver ne $re->{'DMG'}{$tap} ){
@@ -1544,7 +1548,7 @@ my( $list,$re,$in ) = @_;
       $re->{'BN'}++, $re->{'CN'}++ if $mem;
      }
   }else{
-    Memo_1( $re,2,$tap );
+    Memo_1( $re,$mem,$tap );
   }
  }
  $$in++;
