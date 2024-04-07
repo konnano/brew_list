@@ -90,7 +90,10 @@ MAIN:{
     unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
      my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'};
       $Locale = ( $Lc and $Lc =~ /^ja_jp\.utf-?8$/i ) ? 2 : ( $Lc and $Lc =~ /utf-?8$/i ) ? 1 : 0;
-  if( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $home or
+
+  if( $re->{'NEW'} and $AR[1] and $AR[1] eq '.' ){
+      system 'rmdir ~/.BREW_LIST/WAIT* 2>/dev/null'; $? ? exit : die " \033[33mrmdir WAIT\033[0m\n";
+  }elsif( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $home or
                       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
       $re->{'NEW'}++; Init_1( $re );
   }
