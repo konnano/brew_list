@@ -1371,8 +1371,8 @@ my( $list,$file,$in,$re ) = @_;
        Mine_1( $ls,$re,1 ) : Mine_1( $ls,$re,0 ) if $brew_1 =~ /$re->{'S_OPT'}/o;
      }elsif( $re->{'BL'} and ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ){ Mine_1( $brew_1,$re,0 );
      } $pop = ++$in;
-        $re->{'IN'}++ unless $re->{'OS'}{"${brew_1}_tap"};
-        $re->{'CN'}++ if $mem and not $re->{'OS'}{"${brew_1}_tap"};
+        $re->{'IN'}++ unless not $re->{'FTD'} and $re->{'OS'}{"${brew_1}_tap"};
+        $re->{'CN'}++ if $mem and ( $re->{'FTD'} or not $re->{'OS'}{"${brew_1}_tap"} );
     }else{
      if( defined $re->{'S_OPT'} and $brew_1 =~ m|(?!.*/)$re->{'S_OPT'}|o ){
       if( my( $opt ) = $brew_1 =~ m|^homebrew/.+/(.+)| ){ my $cou = $opt =~ tr/-/-/;
@@ -1434,7 +1434,7 @@ my( $list,$file,$in,$re ) = @_;
        }
      }
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} and ( $un or "$brew_2\n" eq $list->[$in] ) ){
-         Type_1( $re,$brew_1,' u ' ) unless $re->{'OS'}{"${brew_1}_tap"};
+         Type_1( $re,$brew_1,' u ' ) unless not $re->{'FTD'} and $re->{'OS'}{"${brew_1}_tap"};
      }elsif( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
            $re->{'MEM'} = "      X  $brew_1\tNot Formula\n";
             Memo_1( $re,$mem );
