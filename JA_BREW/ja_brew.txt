@@ -5130,7 +5130,6 @@ python-build	単純 正しいPEP517ビルドフロントエンド
 python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
 python-dateutil	標準Python日時機能の便利な拡張機能
-python-flit-core	Pythonモジュールの簡素化されたパッケージ化
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
 python-idna	アプリケーションの国際化ドメイン名(IDNA)
@@ -5142,7 +5141,6 @@ python-matplotlib	静的、アニメーション化、インタラクティブ�
 python-packaging	Pythonパッケージのコアユーティリティ
 python-ply	Python Lex & Yacc
 python-psutil	Pythonでプロセスとシステムを監視する為のクロスプラットフォームライブラリ
-python-pyparsing	PEGパーサーを作成する為のPythonライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
 python-requests	Python HTTP for Humans
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
