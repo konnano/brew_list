@@ -1530,6 +1530,7 @@ hackintool	Hackintoshパッチツール
 hackmd	HackMD
 hackolade	RDBMSでのNoSQLデータベース、ストレージ形式、REST API、JSONのデータモデリング
 hakuneko	HakuNeko
+halloy	IRCクライアント
 hammerspoon	デスクトップ自動化アプリケーション
 hancock	Hancoc
 hancom-docs	ワードプロセッサ
@@ -3223,6 +3224,7 @@ replacicon	アプリアイコン置換ユーティリティ
 replay	タイムトラベルデバッグ
 repoz	Zero-confgitリポジトリハブ
 reqable	高度なAPIデバッグプロキシ
+requestly	HTTPリクエストをインターセプトして変更する
 rescuetime	時間最適化アプリケーション
 resilio-sync	ファイル同期/共有ソフトウェア
 resolume-arena	ビデオマッピングソフトウェア
