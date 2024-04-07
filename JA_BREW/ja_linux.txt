@@ -1735,6 +1735,7 @@ font-ravi-prakash	Ravi Prakash
 font-readex-pro	Family of variable fonts
 font-recursive	米国ニューヨーク州ブルックリンに拠点を置く活字鋳造会社、アロータイプが率いる
 font-recursive-code	Recursive の事前構築済みテキストエディタ対応ファイル(powerline glyphs を含む)
+font-recursive-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-red-hat-display	Red Hat Display
 font-red-hat-mono	Red Hat Mono
 font-red-hat-text	Red Hat Text
@@ -2074,6 +2075,7 @@ font-ubuntu-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-ubuntu-nerd-font	開発者向けのグリフ数が多いフォント
 font-ubuntu-sans	Ubuntu Sans
 font-ubuntu-sans-mono	Ubuntu Sans Mono
+font-ubuntu-sans-nerd-font	開発者向けのグリフ数が多いフォント
 font-uchen	Uchen
 font-udev-gothic	BIZ UD Gothic と JetBrains Monoのフォントを統合
 font-udev-gothic-nf	BIZ UD Gothic と JetBrains Monoのフォントを統合
@@ -2165,6 +2167,7 @@ font-zcool-kuaile	ZCOOL KuaiLe
 font-zcool-qingke-huangyou	ZCOOL QingKe HuangYou
 font-zcool-xiaowei	ZCOOL XiaoWei
 font-zed-mono	Iosevkaに基づく準プロポーショナル等幅フォント
+font-zed-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-zed-sans	Iosevkaに基づく準プロポーショナルsans-serifフォント
 font-zen-antique	Zen Antique
 font-zen-antique-soft	Zen Antique Soft
