@@ -4166,6 +4166,7 @@ msgpack	バイナリベースの効率的なデータ交換フォーマット用
 msgpack-cxx	C++のMessagePackの実装/msgpack.org [C++]
 msgpack-tools	MessagePackとJSONを変換する為のコマンドラインツール
 msgpuck	シンプルで効率的なMsgPackバイナリ順番化ライブラリ
+msieve	大きな整数を因数分解する為の、Cライブラリ
 msitools	Windowsインストーラー(.MSI)ツール
 msktutil	Active Directoryキータブ管理
 msmtp	MuttのSMTPプラグインとして使用できるSMTPクライアント
@@ -5233,6 +5234,7 @@ rabbitmq-c	RabbitMQのCAMQPクライアントライブラリ
 rack	RackspaceのCLI
 radamsa	堅牢性テスト用のテストケース発生器(別名 fuzzer)
 radare2	逆エンジニアリングフレームワーク
+rage	シンプル、最新、安全なファイル暗号化
 ragel	ステートマシンコンパイラ
 rails-completion	RailsのBash補完
 railway	ゼロ構成でコードを開発/配置する
