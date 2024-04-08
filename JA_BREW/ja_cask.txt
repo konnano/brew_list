@@ -4104,6 +4104,7 @@ vertcoin-core	Vertcoinクライアントとウォレット
 vesta	電子的及び構造的分析の為の視覚化
 veusz	科学的立案アプリケーション
 via	キーボード コンフィギュレーター
+viable	Apple Silicon Macで、MacOS仮想マシンを作成して実行する
 vial	互換性のあるキーボードのリアルタイムのConfigurator
 viber	セキュリティに焦点を当てた通話及びメッセージングアプリケーション
 vidcutter	メディアcutterとjoiner
