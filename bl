@@ -2717,6 +2717,12 @@ unless( $ARGV[0] ){
   $TIN .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]deps"} or $tap{"$BREW[$i]deps_b"} and not $tap{"$BREW[$i]$OS_Version2"};
   $UAA .= "$BREW[$i] \\\n" if $tap{"$BREW[$i]uses"};
   $AIA .= "$BREW[$i] \\\n";
+   if( $tap{"$BREW[$i]alias"} ){
+    for my $a1( split '\t',$tap{"$BREW[$i]alias"} ){
+     $UAA .= "$a1 \\\n" if $tap{"${a1}uses"} or $tap{"${a1}u_cask"} or $tap{"${a1}u_form"};
+     $BUI .= "$a1 \\\n" if $tap{"${a1}build"};
+    }
+   }
    if( $tap{"$BREW[$i]build"} ){
     for my $b1( split '\t',$tap{"$BREW[$i]build"} ){
      $BUI .= "$BREW[$i] \\\n",last if not $tap{"${b1}$OS_Version2"} and
