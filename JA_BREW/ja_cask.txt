@@ -2738,6 +2738,7 @@ osu	リズムゲーム
 osxfuse	ファイルシステム統合
 otto-matic	Pangea Softwareのサイエンスフィクション3Dアクション/アドベンチャーゲーム
 otx	Mach-O逆アセンブラ
+outfox	StepManiaをベースにした拡張可能なリズムゲームエンジン
 outguess	Outguess
 outline	アプリを取ることに注意してください
 outline-manager	Shadowsocksを搭載したOutlineサーバーを作成及び管理する為のツール
