@@ -2419,7 +2419,6 @@ mplabx-ide	マイクロチップのマイクロコントローラーとデジタ
 mplayer-osx-extended	バックエンドとしてMPlayerを使用するビデオプレーヤー
 mplayerx	メディアプレーヤー
 mps	独自のドメイン固有言語を作成する
-mpv	MPlayerとmplayer2に基づくメディアプレーヤー
 mqtt-explorer	MQTT Explorer
 mqttfx	IoTルートテストツール
 mqttx	クロスプラットフォームのMQTT5.0デスクトップクライアント
@@ -3668,6 +3667,7 @@ stella	マルチプラットフォームのAtari2600エミュレーター
 stellarium	画面上にリアルタイムでリアルな空をレンダリングするツール
 stepmania	家庭用とアーケード用の両方で使用できる様に設計された高度なリズムゲーム
 steveschow-gfxcardstatus	gfxCardStatus
+stolendata-mpv	MPlayer及びmplayer2に基づくメディアプレーヤー
 stoplight-studio	APIを設計及び文書化する為のエディター
 stork	合成作業の為の強力な機能を備えたメッセンジャー
 storyboarder	棒人間を描くことができるのと同じくらい速く物語を視覚化する
