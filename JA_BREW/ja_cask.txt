@@ -155,7 +155,7 @@ ankama	AnkamaのPCゲームをダウンロードする為のPortal
 ankermake	AnkerMake 3Dプリンター用スライサー
 ankerwork	ウェブカメラ&オーディオ デバイスソフトウェア
 anki	記憶力トレーニングアプリケーション
-ankiapp-anki	暗記App
+ankiapp	間隔をあけて繰り返すフラッシュカードアプリ
 anonym	ネットワークアクセスAnonymizer
 another-redis-desktop-manager	Redisデスクトップマネージャー
 ansible-dk	Ansibleベースのインフラストラクチャ基盤コードで作業する為のOmnibusベースのツールキット
@@ -430,6 +430,7 @@ blurred	暗くするユーティリティ画面のコンテンツ 背景/非ア�
 blurscreen	画面の任意の部分をぼかす
 bob	テキストの翻訳アプリケーション ピクチャー/手動入力
 boinc	科学計算ジョブをダウンロードしバックグラウンドで目に見えない形で実行します
+boltai	AIチャットクライアン
 bome-network	コンピューター間のMIDI接続を作成する
 bonitastudiocommunity	ビジネスプロセスの自動化と最適化
 bonjeff	ネットワーク上で公開されているBonjourサービスのライブディスプレイを表示します
@@ -1101,6 +1102,7 @@ enigma	OxydとRock'n'Rollに触発されたパズルゲーム
 enjoyable	マウスやキーボードの様にゲームパッドやジョイスティックを使用する
 enpass	パスワードと認証情報の管理
 ente	Ente用デスクトップクライアント
+ente-auth	Ente Auth用のデスクトップクライアント
 entry	ブロックベースのコーディングプラットフォーム
 envkey	認証情報を保護し構成を同期します
 enzymex	DNAシーケンスファイルの視覚化と編集
@@ -1571,6 +1573,7 @@ hey	HEYメールサービスにアクセスする
 heynote	開発者専用のスクラッチパッド
 hfsleuth	HFSleuth
 hhkb	HHKB HYBRID Type-S 及び HYBRIDモデルでキーマップのカスタマイズが可能
+hhkb-studio	HHKB Studioでキーマップの動作をカスタマイズする、ショートカット/ジェスチャーパッド
 hiarcs-chess-explorer	チェスデータベース 分析及びゲームプレイプログラム
 hiddenbar	メニューバー項目を非表示にするユーティリティ
 hides	現在開いているアプリ以外のすべてのアプリを非表示にするアプリ
@@ -3923,6 +3926,7 @@ toinane-colorpicker	カラーコードを取得して保存する
 toland-qlmarkdown	Markdownファイル用のQuickLook生成器
 tomatobar	メニューバーポモドーロタイマー
 tomighty	Pomodoroデスクトップタイマー
+toneprint	TonePrintペダルのキャラクターを変更する
 tongbu	携帯電話管理ツール
 toolreleases	最新のAppleツールリリース(ベータリリースを含む)について通知するユーティリティ
 toontown-rewritten	ディズニーのToontownオンラインのファンによる再生
