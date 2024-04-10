@@ -7026,6 +7026,7 @@ zssh	SSHを介した対話的なファイル転送
 zstd	Zstandardはリアルタイム圧縮アルゴリズムです
 zsxd	Solarus XDのゼルダミステリー
 zsync	ファイル転送プログラム
+zsync	ファイル転送プログラム
 zug	トランスデューサを提供する、C++ライブラリ
 zurl	ZeroMQインターフェースを備えたHTTP/WebSocketクライアントワーカー
 zx	より良いスクリプトを書く為のツール
