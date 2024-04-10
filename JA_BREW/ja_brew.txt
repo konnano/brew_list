@@ -3351,6 +3351,7 @@ libkeccak	Keccak-ファミリハッシュライブラリ
 libkml	KMLを解析、生成、操作する為のライブラリ
 libksba	X.509/CMSライブラリ
 liblbfgs	限られたメモリのBFGS最適化アルゴリズムのCライブラリ
+liblc3	低複雑性の通信コーデックライブラリとツール
 liblcf	RPGツクール 2000/2003 ゲームデータ用ライブラリ
 liblerc	Ersi LERCライブラリ(限定エラーラスター圧縮)
 liblinear	大規模な線形分類の為のライブラリ
@@ -5478,6 +5479,7 @@ rush-parallel	ジョブを並行して実行する為のクロスプラットフ
 rust	安全で並行した実用的な言語
 rust-analyzer	IDEの実験的なRustコンパイラフロントエンド
 rustc-completion	rustcのbash補完
+rustcat	最新のポートリスナーとリバースシェル
 rustfmt	Rustコードをフォーマットする
 rustscan	現代のポートスキャナー
 rustup-init	Rustツールチェーンインストーラー
