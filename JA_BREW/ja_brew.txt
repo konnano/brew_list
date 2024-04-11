@@ -3740,6 +3740,7 @@ log4cxx	柔軟なロギングの為のC++クラスのライブラリ
 log4shib	Shibbolethプロジェクト用のlog4cppのフォークバージョン
 logcheck	システムログファイルの異常を管理者にメールで送信する
 logcli	Lokiサーバーに対してLogQLクエリを実行する
+logdy	Webベースのリアルタイムログビューア
 logrotate	回転/圧縮/メールシステムログ
 logstalgia	レトロなスタイルのWebサーバーアクセスログvisualizer
 logstash	イベントとログを管理する為のツール
