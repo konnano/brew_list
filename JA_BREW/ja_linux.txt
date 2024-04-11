@@ -500,8 +500,10 @@ font-ebh	Exeter Bookのスクリプトに基づいたベクトル化されたフ
 font-economica	Economica
 font-eczar	Eczar
 font-edlo	Edlo
+font-edu-nsw-act-cursive	Edu NSW ACT Cursive
 font-edu-nsw-act-foundation	Edu NSW ACT Foundation
 font-edu-nsw-act-hand	Edu NSW ACT Hand
+font-edu-nsw-act-hand-pre	Edu NSW ACT Hand Pre
 font-edu-qld-beginner	Edu QLD Beginner
 font-edu-qld-hand	Edu QLD Hand
 font-edu-sa-beginner	Edu SA Beginner
@@ -510,7 +512,10 @@ font-edu-sa-hand	Edu SA Hand
 font-edu-sa-hand-cursive	Edu SA手書き筆記体
 font-edu-tas-beginner	Edu TAS Beginner
 font-edu-vic-wa-nt-beginner	Edu VIC WA NT Beginner
+font-edu-vic-wa-nt-guide	Edu VIC WA NT Guide
 font-edu-vic-wa-nt-hand	Edu VIC WA NT Hand
+font-edu-vic-wa-nt-hand-pre	Edu VIC WA NT Hand Pre
+font-edu-vic-wa-nt-pre-guide	Edu VIC WA NT Pre Guide
 font-edwin	楽譜用のテキストフォント
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
@@ -888,6 +893,8 @@ font-jacquarda-bastarda-9	Jacquarda Bastarda 9
 font-jacquarda-bastarda-9-charted	Jacquarda Bastarda 9 Charted
 font-jacques-francois	Jacques Francois
 font-jacques-francois-shadow	Jacques Francois Shadow
+font-jaini	ジャイナ教のカルパスートラ写本の書体に基づいた書体
+font-jaini-purva	ジャイナ教のカルパスートラ写本の書体に基づいた書体
 font-jaldi	Jaldi
 font-jaro	ヤロスラフ・ベンダの作品にインスピレーションを得たグローバル表示書体
 font-jeju-gothic	Jeju Gothic
@@ -1649,6 +1656,7 @@ font-playpen-sans	細いフォントから太いフォントまでの太さの�
 font-playwrite-co	Playwrite CO
 font-playwrite-fr-trad	Playwrite FR Trad
 font-playwrite-gb-s	Playwrite GB S
+font-playwrite-vn	Playwrite VN
 font-plemol-jp	IBM Plex Mono/IBM Plex Sans JP から合成された日本語プログラミングフォント
 font-plemol-jp-hs	IBM Plex Mono/IBM Plex Sans JP から合成された日本語プログラミングフォント
 font-plemol-jp-nf	IBM Plex Mono/IBM Plex Sans JP から合成された日本語プログラミングフォント
