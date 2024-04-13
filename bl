@@ -68,7 +68,7 @@ MAIN:{
   $re->{'CEL'} = "$MY_BREW/Cellar";
    $re->{'BIN'} = "$MY_BREW/opt";
     my $repo = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
-  $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm' unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'};
+  $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
    $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts";
     $re->{'TAP_S'} = "$repo/Library/Taps";
      $re->{'Q_TAP'} = "$home/Q_TAP.txt";
