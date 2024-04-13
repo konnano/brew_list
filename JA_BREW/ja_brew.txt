@@ -70,7 +70,6 @@ ahcpd	IPv6とIPv6/IPv4 ネットワークの自動構成手続き
 ahoy	YAMLファイルのコマンドから自己文書化CLIプログラムを作成します
 aichat	ChatGPT cli
 aicommits	AIを使用してgitコミットメッセージを書き込みます
-aida-header	データ分析の抽象インターフェースは、物理分析のインターフェースを定義します
 aide	ファイルとディレクトリの整合性チェッカー
 ain	端末用HTTP APIクライアント
 aircrack-ng	多くの新機能を備えた次世代のaircrack
@@ -3139,6 +3138,7 @@ levant	HashiCorp Nomadジョブ用のテンプレート及びデプロイメン�
 leveldb	順序付けられたマッピングを備えたKey-Value保管ライブラリ
 lexbor	依存関係のないCで記述された高速の埋め込み可能なWebブラウザエンジン
 lexicon	標準化された方法でさまざまなDNSプロバイダーのDNSレコードを操作する
+lexido	コマンドライン用の革新的なアシスタント
 lf	ターミナルファイルマネージャー
 lfe	ErlangVMの同時Lisp
 lft	高度なtracerouteツールであるLayerFour Traceroute(LFT)
@@ -4483,6 +4483,7 @@ oha	HTTPロードジェネレータ tuiアニメーション rakyll/hey に触�
 ohcount	ソースコードラインカウンター
 ohdear-cli	あなたの大事なサイトを管理するツール
 oil	より一貫性のある構文と意味を備えたBash互換のUnixシェル
+oj	JSONパーサー及び視覚化ツール
 oksh	パブリックドメインのKornシェル(pdksh)に基づくポータブルOpenBSD ksh
 okta-aws-cli	AWS CLIのOktaフェデレーションID
 okta-awscli	awscliのOkta認証
@@ -4715,6 +4716,7 @@ pari-seadata-big	PARI/GP用の追加のモジュラー多項式データ
 parliament	AWS IAM lintingライブラリ
 parquet-cli	Apache Parquetコマンドラインツールとユーティリティ
 parrot	オープンソース仮想マシン(Perl6など)
+parsedmarc	DMARCレポートアナライザー及びビジュアライザー
 partio	3Dグラフィックス用の細かいライブラリ
 pass	パスワードマネージャー
 pass-git-helper	Passとやり取りするGit認証情報ヘルパー
@@ -6067,6 +6069,7 @@ synergy-core	相乗、キーボードとマウスの共有ツール
 synfig	コマンドラインレンダラー
 synscan	非同期ハーフオープンTCPポートスキャナー
 syntaxerl	Erlangコードと設定ファイルの構文チェッカー
+sysaidmin	GPTを利用したシステム管理者
 sysbench	システム性能基準比較ツール
 sysdig	システムレベルの調査と修繕のツール
 syslog-ng	高度な処理パイプラインと幅広いI/Oメソッドを備えたログデーモン
@@ -6442,6 +6445,7 @@ uncover	複数の検索エンジンを使用してインターネット上に公
 uncrustify	ソースコード美化
 ungit	Gitを使用する最も簡単な方法 どのプラットフォームでも どこでも
 uni	コマンドライン用のUnicodeデータベースクエリツール
+uni-algo	C/C++用のUnicodeアルゴリズムの実装
 uni2ascii	UTF-8とさまざまなASCIIフレーバー間の双方向変換
 unibilium	非常に基本的なterminfoライブラリ
 unicorn	軽量のmulti-architecture CPUエミュレーションフレームワーク
