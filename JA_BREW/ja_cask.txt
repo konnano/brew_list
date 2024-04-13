@@ -4357,6 +4357,7 @@ yam-display	さらに別のモニター
 yandex	Webブラウザー
 yandex-cloud-cli	Yandex Cloud CLI
 yandex-disk	クラウドストレージ
+yandex-music	Yandex Musicに耳を傾けて個人的なお勧めを入手してください
 yandex-music-unofficial	Yandex ミュージック非公式
 yate	メディアファイルタグエディター
 yattee	代替のプライバシーに優しいYouTubeフロントエンド
