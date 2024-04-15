@@ -266,7 +266,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   if( $pid and not $re->{'PID2'} ){ Wait_1( $re,$pid );
   }else{
     if( $re->{'INF'} ){ open my $TR,'>',"$re->{'HOME'}/Tree.txt" or die " Tree1 $!\n"
-                         unless $re->{'PP'} or $re->{'LINK'};
+                         unless $re->{'PP'} or $re->{'LINK'} or $re->{'IS'};
                           $re->{'TR'} = $TR || ''; Info_1( $re ); close $TR if $re->{'TR'};
     }
     if( $re->{'TREE'} ){ Nohup_1( $re ) if $re->{'PP'};
