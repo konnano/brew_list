@@ -780,7 +780,6 @@ font-hurmit-nerd-font	Hurmit Nerd Font(Hermit)
 font-hurricane	Hurricane
 font-hyppolit	Hyppolit
 font-ia-writer-duo	iA Writer Duo
-font-ia-writer-duospace	iA Writer Duospace
 font-ia-writer-mono	iA Writer Mono
 font-ia-writer-quattro	iA Writer Quattro
 font-iansui	Klee Oneから派生した中国語フォント
@@ -907,6 +906,7 @@ font-jersey-15-charted	Jersey 15 Charted
 font-jersey-20	Jersey 20
 font-jersey-20-charted	Jersey 20 Charted
 font-jersey-25	Jersey 25
+font-jersey-25-charted	Jersey 25 Charted
 font-jetbrains-mono	開発者向けに作られた書体
 font-jetbrains-mono-nerd-font	JetBrainsMonoオタクフォント(JetBrains Mono)
 font-jf-open-huninn	ピンクの丸い jf open
@@ -948,6 +948,7 @@ font-kaisei-tokumin	読みやすさを維持しながらさらに大胆な書体
 font-kaiso	現代の幻想的な日本語フォント
 font-kalam	Kalam
 font-kalnia	Kalnia
+font-kalnia-glaze	Kalnia Glaze
 font-kameron	Kameron
 font-kanit	Kanit
 font-kanjistrokeorders	6500字以上の漢字の書き順図 180以上のかな記号とラテン文字
