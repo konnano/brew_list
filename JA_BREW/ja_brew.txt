@@ -695,7 +695,6 @@ cask	Emacsの依存関係管理
 cassandra	結果整合性のある分散型Key-Value store
 cassandra-cpp-driver	C/C++ドライバー Apache CassandraのDataStax
 cassandra-reaper	Cassandraの管理インターフェース
-cassandra@3	結果整合性のある分散型Key-Value store
 cassowary	Goで記述された最新のクロスプラットフォームHTTP負荷テストツール
 castget	コマンドラインポッドキャスト及びRSSエンクロージャダウンローダー
 castxml	Cファミリの抽象構文ツリーXML出力
@@ -3029,6 +3028,7 @@ kubeaudit	一般的なセキュリティ制御に対してKubernetesクラスタ
 kubebuilder	CRDを使用してKubernetesAPIを構築する為のSDK
 kubecfg	複雑なエンタープライズKubernetes環境をコードとして管理する
 kubecm	KubeConfigマネージャー
+kubecolor	kubectl出力を色付けする
 kubeconform	FAST Kubernetesマニフェストの確認、Custom Resourcesのサポート！
 kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成できるツール
 kubefirst	Kubernetes向けのGitOpsインフラストラクチャとアプリケーション配信プラットフォーム
@@ -3926,6 +3926,7 @@ mdbtools	Microsoft Accessデータベースの使用を容易にするツール
 mdcat	テキスト端末にマークダウンドキュメントを表示する
 mdds	多次元データ構造とインデックス作成アルゴリズム
 mdf2iso	MDF(アルコール120％画像)画像をISO画像に変換するツール
+mdformat	CommonMark準拠のMarkdownフォーマッタ
 mdk	GNU MIX開発キット
 mdless	ターミナルでマークダウンファイルの書式設定及び強調表示されたビューを提供します
 mdp	コマンドラインベースのマークダウン提示ツール
