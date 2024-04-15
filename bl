@@ -258,7 +258,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
    Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'},\$re->{'BUI'}],$cat );
   }
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
-  if( $re->{'PRS'} ){
+  if( $re->{'PRS'} or $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) ){
     $re->{'PID2'} = fork;
      die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = $$;
    $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die "\x1B[?25h\n" };
@@ -288,8 +288,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
       push @{$re->{'cask'}},( @list1,@list2 );
     }
    }
-  if( @{$list} and ( $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) or
-                     $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} or
+  if( @{$list} and ( $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} or
                      $re->{'LIN'} and $re->{'USE'} and not $re->{'USES'} ) ){
     $re->{'PID2'} = fork;
      die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = $$;
