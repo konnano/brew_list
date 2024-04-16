@@ -5,7 +5,7 @@ use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my $MY_BREW = $ENV{'Perl_B'} || `CO=\$(command -v brew);printf \${CO%/bin/brew}`;
+my $MY_BREW = $ENV{'Perl_B'} || `CO=\$(which brew);printf \${CO%/bin/brew}`;
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
