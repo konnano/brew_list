@@ -1247,6 +1247,7 @@ flomo	メモ取りと管理アプリ
 floorp	プライバシーを重視したFirefoxベースブラウザ
 flotato	任意のWebページをデスクトップアプリに変えるツール
 flow	タスク及びプロジェクト管理ソフトウェア
+flox	ソフトウェアのライフサイクル全体にわたって環境を管理します
 flrig	アマチュア無線リグ制御
 fluent-reader	RSS/Atom ニュース収集
 fluid	Webサイトをデスクトップアプリに変えるツール
