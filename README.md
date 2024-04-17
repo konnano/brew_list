@@ -4,6 +4,8 @@ HomeBrew 4.0.0以降の場合はシェルに以下の環境変数を設定して
 
 ```
 echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/$(echo .${SHELL##*/}rc)
+source  ~/$(echo .${SHELL##*/}rc)
+brew tap homebrew/core
 ```
 開発者向けにしないとbrew tap homebrew/core、homebrew/caskがインストールされません
 
