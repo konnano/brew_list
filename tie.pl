@@ -5,7 +5,7 @@ use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my $MY_BREW = $ENV{'Perl_B'} || `CO=\$(which brew);printf \${CO%/bin/brew}`;
+my $MY_BREW = $ENV{'Perl_B'} || `CO=\$(which brew 2>/dev/null);printf \${CO%/bin/brew}`;
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
@@ -51,7 +51,7 @@ my( $dir,$ls,$cask,$HA ) = @_;
  closedir $DIR;
 }
 
- my( $Time,%NA ) = [localtime(time)];
+ my( $Time,%NA ) = [localtime];
  my $TIME = sprintf "%04d-%02d-%02d",$Time->[5]+=1900,++$Time->[4],$Time->[3];
  my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
 tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
