@@ -87,7 +87,7 @@ MAIN:{
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die "\techo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)
-   \tsource /\$(echo .\${SHELL##*/}rc)
+   \tsource ~/\$(echo .\${SHELL##*/}rc)
    \tbrew tap homebrew/core\n"
     unless -d "$re->{'TAP_S'}/homebrew/homebrew-core";
      my $Lc = $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'};
