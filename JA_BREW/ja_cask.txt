@@ -221,6 +221,7 @@ aria2gui	Aria2のグラフィカルユーザーインターフェイス
 ariang	AriaNgよりも優れたaria2デスクトップフロントエンド
 ark-desktop-wallet	マルチプラットフォームARKデスクトップウォレット
 arkiwi	ファイルアーカイバ
+arm-performance-libraries	Armプロセッサ向けに最適化された標準コア数学ライブラリ
 armory	Pythonベースのビットコインソフトウェア
 around	エネルギーの為に設計されたビデオ通話 アイデア/行動
 arq	マルチクラウドバックアップアプリケーション
