@@ -1,6 +1,5 @@
 a2ps	Any-to-PostScriptフィルター
 a52dec	ATSC A/52 ストリームをデコードする為のライブラリ(別名 AC-3)
-aacgain	AAC対応バージョンのmp3gain
 aalib	ポータブルASCIIアートグラフィックライブラリ
 aamath	数式をASCIIアートとして表現します
 aarch64-elf-binutils	aarch64-elfクロス開発の為のGNU Binutils
@@ -168,9 +167,7 @@ apktool	サードパーティのクローズドバイナリAndroidアプリを�
 apm-bash-completion	Atomパッケージマネージャーの補完
 apng2gif	APNGアニメーションをアニメーションGIF形式に変換します
 apngasm	apngasmの次世代、APNGアセンブラー
-apollo-cli	Apollo GraphQLのコマンドラインツール
 apophenia	統計/科学計算用の Cライブラリ
-app-engine-python	Google App Engine
 apparix	ブックマークディレクトリを介したファイルシステムナビゲーション
 appium	アプリの自動化
 apprise	コマンドラインから一般的な通知サービスに通知を送信します
@@ -2002,7 +1999,6 @@ gerrit-tools	Gerritコードレビューを容易にするツール
 get-flash-videos	さまざまなFlashベースのWebサイトからビデオをダウンロード/再生します
 get_iplayer	BBC iPlayerからテレビやラジオ番組をダウンロードする為のユーティリティ
 getdns	最新の非同期DNS API
-getmail	POP3/IMAP4/SSL をサポートする拡張可能なメール検索システム
 getmail6	POP3/IMAP4/SSL をサポートする拡張可能なメール検索システム
 gettext	GNU国際化(i18n)及びローカリゼーション(l10n)ライブラリ
 getxbook	さまざまなソースから電子書籍をダウンロードする為のツール
@@ -3038,7 +3034,6 @@ kubent	非推奨のAPIの使用についてクラスターを簡単に確認す�
 kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋める為のコマンドのコレクション
 kubernetes-cli	Kubernetesコマンドラインインターフェース
-kubernetes-service-catalog-client	OSBAPIを使用してk8sでサービスを利用する
 kubescape	NSA/CISAによる硬化ガイダンスに従ったKubernetesテスト
 kubeseal	一方向に暗号化された機密Kubernetesコントローラーとツール
 kubesess	複数の kubernetesクラスターを同時に管理する
@@ -3361,7 +3356,6 @@ liblockfile	標準のメールボックスをロックする機能を提供す�
 liblouis	オープンソースの点字翻訳と逆翻訳
 liblqr	C/C++ seam carvingライブラリ
 libltc	タイムコード(LTC)を処理する為のPOSIX-Cライブラリ 線形/対数
-liblunar	太陰暦
 liblxi	LXI互換計測器と通信する為のシンプルなC API
 liblzf	非常に小さく、非常に高速なデータ圧縮ライブラリ
 libmaa	ハッシュテーブルを含む低レベルのデータ構造 セット/リスト
@@ -3718,6 +3712,7 @@ llvm@13	次世代基礎構造コンパイラ
 llvm@14	次世代基礎構造コンパイラ
 llvm@15	次世代基礎構造コンパイラ
 llvm@16	次世代基礎構造コンパイラ
+llvm@17	次世代基礎構造コンパイラ
 llvm@8	次世代基礎構造コンパイラ
 llvm@9	次世代基礎構造コンパイラ
 lm-sensors	温度を監視する為のツール 電圧/ファン
