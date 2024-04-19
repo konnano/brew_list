@@ -270,6 +270,7 @@ authy	二段階認証ソフトウェア
 autodesk-fusion	統合された、CAD/CAM/CAE/PCBソフトウェア
 autodmg	システムインストーラーから展開可能なシステムイメージを作成する為のアプリ
 autofirma	デジタル署名エディター/バリデーター
+automattic-texts	DMマネージャー
 automute	現在のWi-Fiネットワークに基づいてシステムをミュート又はミュート解除します
 autopkgr	AutoPkgをインストールして構成します
 autovolume	音量を指定した音量に自動設定するツール
@@ -795,6 +796,7 @@ dadroit-json-viewer	JSONビューア
 daedalus-mainnet	Cardanoブロックチェーン上のadaの暗号通貨ウォレット
 daisydisk	ディスクスペースビジュアライザー
 dangerzone	潜在的に危険なPDF/Officeドキュメントを安全なPDFに変換する
+darkmodebuddy	環境光センサーに基づいて明モードと暗モードを自動的に切り替えます
 darktable	写真ワークフローアプリケーションとRaw開発
 darwindumper	DarwinDumper
 dash	APIドキュメントブラウザーとコードsnippetマネージャー
