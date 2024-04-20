@@ -1461,7 +1461,7 @@ my( $list,$file,$in,$re ) = @_;
         $re->{'AN'}++ if index($brew_1,' ') != 0;
    }
   }
-  if( $re->{'OS'}{"${brew_1}_tap"} ){ $in -= 2; Tap_1( $list,$re,\$in ) }
+  if( $re->{'OS'}{"${brew_1}_tap"} and not $re->{'INF'} ){ $in -= 2; Tap_1( $list,$re,\$in ) }
  }
  if( $list->[$in] ){ Tap_1( $list,$re,\$in ) while($list->[$in]) }
 
