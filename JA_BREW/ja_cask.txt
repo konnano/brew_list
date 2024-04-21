@@ -2618,6 +2618,7 @@ objectivesharpie	Objective-Cコードから始まるC#インターフェイス�
 objektiv	Objektiv
 obs	ライブストリーミングと画面録画用のオープンソースソフトウェア
 obs-advanced-scene-switcher	OBS Studioの自動シーンスイッチャー
+obs-backgroundremoval	仮想グリーンスクリーン及び低照度強化OBSプラグイン
 obs-ndi	OBS Studio用のNewTek NDI統合
 obs-virtualcam	OBSバーチャルカメラ
 obs-websocket	WebSocketを介したOBS Studioのリモートコントロール
