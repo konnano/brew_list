@@ -425,6 +425,7 @@ bdftopcf	XフォントをBitmap Distribution FormatからPortable Compiled Forma
 bdw-gc	C/C++のガベージコレクター
 beagle	木の進化順序を評価する
 beancount	プレーンテキストファイルで機能する複式簿記ツール
+beancount-language-server	Beancountファイル用の言語サーバー
 beanstalkd	もともとWebの待ち時間を短縮する為に設計された汎用ワークキュー
 bear	clangツールのコンパイルデータベースを生成する
 beast	ベイズ進化分析サンプリングツリー
@@ -1250,6 +1251,7 @@ deployer	一般的なフレームワークをサポートするPHPで記述さ�
 depqbf	定量化されたブール式(QBF)のSolver
 der-ascii	リバーシブル DER及びBER プリティプリンタ
 derby	Apache DerbyはJVMで実行される組み込みリレーショナルデータベースです。
+descope	Descopeプロジェクトで一般的なタスクを実行する為のコマンドラインユーティリティ
 desk	シェルの軽量ワークスペースマネージャー
 desktop-file-utils	デスクトップエントリを操作する為のコマンドラインユーティリティ
 detach	デタッチされたプロセスで指定されたコマンドを実行します
@@ -1879,7 +1881,6 @@ fs-uae	Amigaエミュレーター
 fselect	SQLの様なクエリでファイルを検索する
 fsevent_watch	MacOS FSEventsクライアント
 fsevents-tools	FSEvents APIのコマンドラインユーティリティ
-fsh	リモートコマンド実行を提供します
 fsql	SQL風のクエリでファイルシステムを検索する
 fst	限定状態transducersを使用して、大きなセットとマップをコンパクトに表現します
 fstrm	Cでのフレームストリームの実装
@@ -5665,7 +5666,6 @@ shelltestrunner	コマンドラインプログラムをテストする為のポ�
 shellz	カスタムshellzを追跡/制御する為の小さなユーティリティ
 shfmt	シェルスクリプトのソースコードを自動フォーマットする
 shibboleth-sp	Shibboleth2サービスプロバイダーデーモン
-ship	Kubernetesでサードパーティアプリケーションを維持する為のオーバーヘッドを削減する
 shivavg	OpenVG標準のOpenGLベースのANSIC実装
 shmcat	共有メモリセグメントをダンプするツール(System V/POSIX)
 shml	ターミナルのスタイルフレームワーク
