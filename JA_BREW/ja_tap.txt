@@ -1,3 +1,4 @@
+font-0xproto	ソースコードの読みやすさを重視したプログラミングフォント
 font-0xproto-nerd-font	開発者向けのグリフ数が多いフォント
 font-3270	IBM 3270
 font-3270-nerd-font	3270オタクフォント(3270)
@@ -512,10 +513,8 @@ font-edu-sa-hand	Edu SA Hand
 font-edu-sa-hand-cursive	Edu SA手書き筆記体
 font-edu-tas-beginner	Edu TASビギナー
 font-edu-vic-wa-nt-beginner	Edu VIC WA NTビギナー
-font-edu-vic-wa-nt-guide	Edu VIC WA NT Guide
 font-edu-vic-wa-nt-hand	Edu VIC WA NT Hand
 font-edu-vic-wa-nt-hand-pre	Edu VIC WA NT Hand Pre
-font-edu-vic-wa-nt-pre-guide	Edu VIC WA NT Pre Guide
 font-edwin	楽譜のテキストフォント
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
