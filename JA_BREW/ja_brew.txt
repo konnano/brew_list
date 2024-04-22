@@ -424,6 +424,7 @@ bde	基本的な開発環境：Bloombergで使用される基本的なC++ライ�
 bdftopcf	XフォントをBitmap Distribution FormatからPortable Compiled Formatに変換
 bdw-gc	C/C++のガベージコレクター
 beagle	木の進化順序を評価する
+beakerlib	シェルレベルの統合テストライブラリ
 beancount	プレーンテキストファイルで機能する複式簿記ツール
 beancount-language-server	Beancountファイル用の言語サーバー
 beanstalkd	もともとWebの待ち時間を短縮する為に設計された汎用ワークキュー
@@ -6016,6 +6017,7 @@ sui	Moveプログラミング言語を活用した次世代スマートコント
 suil	LV2プラグインUIをロード及びラップする為の軽量Cライブラリ
 suite-sparse	Sparse行列ソフトウェアのパッケージ
 sundials	非線形と微分/代数 方程式Solver
+superfile	ターミナル用のモダンで非常に派手なファイルマネージャー
 superlu	大規模で限られたな非対称連立方程式を解く
 supermodel	セガモデル3アーケードエミュレーター
 supertux	古典的な2Dジャンプアンドラン横スクロールゲーム
