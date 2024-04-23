@@ -611,6 +611,7 @@ font-fredoka	ben nathanが率いる イスラエルを拠点とするタイパ�
 font-free-mono-tengwar	Unicode tengwar等幅フォント
 font-freefont	FreeFont
 font-freehand	Freehand
+font-freeman	伝統的な表示サンセリフゴシック書体の再解釈
 font-fresca	Fresca
 font-frijole	Frijole
 font-fruktur	Fruktur
@@ -1725,6 +1726,7 @@ font-qwigley	Qwigley
 font-qwitcher-grypen	少しエッジのあるカジュアルなブラッシュスクリプト
 font-racing-sans-one	Racing Sans One
 font-radio-canada	Radio Canada
+font-radio-canada-big	標準(400)から太字(700)までのウェイト軸を持つ可変フォント
 font-radley	Radley
 font-rajdhani	Rajdhani
 font-rakkas	Rakkas
