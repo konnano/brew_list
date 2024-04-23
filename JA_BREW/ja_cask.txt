@@ -1079,7 +1079,6 @@ eloquent	SWORD Projectに基づく Free/オープンソースの聖書研究ア�
 eloston-chromium	Google Chromium Googleとの統合はありません
 elpass	パスワードマネージャー
 emacs	テキストエディター
-emacsclient	emacsでのorg-captureを容易にする Chrome/Firefox拡張機能
 emailchemy	メールの移行、変換、アーカイブ　ソフトウェア
 emby	embyメディアサーバーのクライアント
 embyserver	ほぼすべてのデバイスにアプリを備えたパーソナルメディアサーバー
@@ -2017,6 +2016,7 @@ lightkey	DMX照明制御
 lightproxy	Chrome DevtoolsUIを使用したホイッスルに基づくプロキシ及びデバッグツール
 lighttable	IDE
 lightworks	完全なビデオ作成パッケージ
+limitless	AIを活用した個人向けの文字起こしおよびメモ作成サービス
 line-bot-designer	プロトタイプLINEボット
 linear	Web開発を念頭に置いた定規アプリ
 linear-linear	ソフトウェア開発を管理しバグを追跡する為のアプリ
@@ -2277,9 +2277,11 @@ meta	デジタル音楽用のタグエディター
 metabase	ビジネス知能と分析
 metaimage	読むエディター 画像メタデータの書き込みと編集
 metamer	16個のSpotlight拡張属性に対応したアクセス可能なメタデータエディター
+metarename	メタタグをサポートする一括ファイルリネーム機能
 metashape	デジタル画像を処理し3D空間データを生成します
 metashapepro	デジタル画像を処理し3D空間データを生成します
 metasploit	侵入テストフレームワーク
+metavideo	ビデオメタデータタグビューア及びエディタ
 metaz	Mp4メタデータエディター
 meteorologist	調整可能な天気表示アプリケーション
 mfiles	ローカルネットワーク経由でファイルを転送する
