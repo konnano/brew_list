@@ -1,3 +1,4 @@
+font-0xproto	ソースコードの読みやすさを重視したプログラミングフォント
 font-0xproto-nerd-font	開発者向けのグリフ数が多いフォント
 font-3270	IBM 3270
 font-3270-nerd-font	開発者向けのグリフ数が多いフォント
@@ -512,10 +513,8 @@ font-edu-sa-hand	Edu SA Hand
 font-edu-sa-hand-cursive	Edu SA手書き筆記体
 font-edu-tas-beginner	Edu TAS Beginner
 font-edu-vic-wa-nt-beginner	Edu VIC WA NT Beginner
-font-edu-vic-wa-nt-guide	Edu VIC WA NT Guide
 font-edu-vic-wa-nt-hand	Edu VIC WA NT Hand
 font-edu-vic-wa-nt-hand-pre	Edu VIC WA NT Hand Pre
-font-edu-vic-wa-nt-pre-guide	Edu VIC WA NT Pre Guide
 font-edwin	楽譜用のテキストフォント
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
@@ -612,6 +611,7 @@ font-fredoka	イスラエルに拠点を置くタイターデザインファウ�
 font-free-mono-tengwar	Unicode tengwar等幅フォント
 font-freefont	FreeFont
 font-freehand	Freehand
+font-freeman	伝統的な表示サンセリフゴシック書体の再解釈
 font-fresca	Fresca
 font-frijole	Frijole
 font-fruktur	Fruktur
@@ -1725,6 +1725,7 @@ font-qwigley	Qwigley
 font-qwitcher-grypen	ちょっとエッジの効いたカジュアルな筆文字
 font-racing-sans-one	Racing Sans One
 font-radio-canada	Radio Canada
+font-radio-canada-big	標準(400)から太字(700)までのウェイト軸を持つ可変フォント
 font-radley	Radley
 font-rajdhani	Rajdhani
 font-rakkas	Rakkas
