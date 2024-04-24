@@ -1409,6 +1409,7 @@ dovecot	IMAP/POP3 サーバー
 dovi_tool	ビデオストリーム上のDolby Visionメタデータ用のCLIツール
 doxygen	幾つかのプログラミング言語のドキュメントを生成する
 doxymacs	Emacsでdoxygenを使用する為のElispパッケージ
+dpcmd	DediProg SF100/SF600用Linuxソフトウェア
 dpkg	Debianパッケージ管理システム
 dpp	DソースコードにCヘッダーを直接含める
 dprint	Rustで記述されたプラグイン可能で構成可能なコードフォーマットプラットフォーム
@@ -5021,6 +5022,7 @@ proj@7	地図投影法ライブラリ
 projectm	Milkdrop対応の音楽visualizer
 prometheus	サービス監視システムと時系列データベース
 prometheus-cpp	最新のC++用のPrometheusクライアントライブラリ
+promptfoo	LLMアプリをローカルでテストする
 promtail	Lokiのログエージェント
 proof-general	定理証明の為のEmacsベースの包括的インターフェース
 proper	QuickCheckに触発されたErlang用の属性ベースのテストツール
