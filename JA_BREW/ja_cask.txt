@@ -4278,6 +4278,7 @@ witch	アプリ/ウィンドウ/タブを切り替える
 wiznote	メモアプリ
 wjoy	任天堂 wiimoteドライバー
 wkhtmltopdf	HTMLからPDFへのレンダラー
+wljs-notebook	WolframエンジンのJavaScriptフロントエンド
 wolai	クラウドノート
 wolfram-engine	Wolfram言語の評価器
 wombat	クロスプラットフォームgRPCクライアント
