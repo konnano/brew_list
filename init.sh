@@ -12,14 +12,25 @@ fi
 
  LINK=$1;
 if [[ $LINK = unlink ]];then
+ [[ ! -d $MY_BREW/Cellar ]] && ${die:?Not exists directory : brew}
  rm -f $MY_BREW/bin/bl $MY_BREW/share/zsh/site-functions/_bl
   rm -rf ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
-    exit
+   echo -n 'untap homebrew/cask homebrew/core ?'  [y/n]:
+    read i
+    case $i in
+     y)
+       sed -i.txt '/export HOMEBREW_NO_INSTALL_FROM_API=1/{d;}' ~/$(echo .${SHELL##*/}rc)
+       unset HOMEBREW_NO_INSTALL_FROM_API
+       brew untap homebrew/cask 2>/dev/null
+       brew untap homebrew/core ;;
+     *) exit ;;
+    esac
+ exit
 fi
 
 if [[ ! $LINK || $LINK = JA ]];then
-   [[ ! -d $MY_BREW/Cellar ]] && echo Not installed HOME BREW && exit 1
+   [[ ! -d $MY_BREW/Cellar ]] && ${die:?Not installed brew}
    if [[ -f $MY_BREW/bin/bl ]];then
     echo -n exist $MY_BREW/bin/bl bl upgrade [y/n]:
      read i
