@@ -189,15 +189,17 @@ my( $name,$re,$ref ) = @_;
 sub Died_1{
   my $LC = ( $ENV{'LC_ALL'} || $ENV{'LC_CTYPE'} || $ENV{'LANG'} ) =~ /^ja_jp\.utf-?8$/i;
   my $brew = -f "$MY_BREW/opt/brew_list/bin/bl" ? '# Then, brew uninstall brew_list' : "# rm $MY_BREW/bin/bl";
+  my $api = "# sed -i.txt '/export HOMEBREW_NO_INSTALL_FROM_API=1/d' ~/\$(echo .\${SHELL##*/}rc)
+   # unset HOMEBREW_NO_INSTALL_FROM_API; brew untap homebrew/cask 2>/dev/null; brew untap homebrew/core";
   my $Lang = ( $LC and -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # English display in Japanese version is argument EN
-   # Uninstall : rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
+   # Uninstall : rm -rf ~/.BREW_LIST ~/.JA_BREW $MY_BREW/share/zsh/site-functions/_bl\n   $api\n   $brew" :
     ( $LC and not -d "$ENV{'HOME'}/.JA_BREW" ) ?
    "\n   # Japanese Language -JA option
-   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
-   "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
+   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $api\n   $brew" :
+   "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $api\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.21_7\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.21_8\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -232,7 +234,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   die " \033[31mNot connected\033[0m\n"
    if system "ping $op -c1 formulae.brew.sh >/dev/null 2>&1";
     system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
-     die " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
+     die " exists \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
    Wait_1( $re );
  }
