@@ -20,7 +20,7 @@ if [[ $LINK = unlink ]];then
     read i
     case $i in
      y)
-       sed -i.txt '/export HOMEBREW_NO_INSTALL_FROM_API=1/{d;}' ~/$(echo .${SHELL##*/}rc)
+       sed -i.txt '/export HOMEBREW_NO_INSTALL_FROM_API=1/d' ~/$(echo .${SHELL##*/}rc)
        unset HOMEBREW_NO_INSTALL_FROM_API
        brew untap homebrew/cask 2>/dev/null
        brew untap homebrew/core ;;
