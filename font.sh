@@ -132,21 +132,23 @@ EOF
 perl<<"EOF"
    open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " CASK FILE 1 $!\n";
     while($brew=<$FILE1>){
-     if( $brew =~ s|^\s*<td><a href[^>]+>(.+)</a></td>\n|$1| ){
+     if( $brew =~ s|^\s*<td><a href[^>]+>([^<]*)</a></td>\n|$1| ){
       $tap1 = $brew; next;
-     }elsif( not $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
+     }elsif( not $test and $brew =~ s|^\s*<td>([^<]*)</td>\n|$1| ){
       $tap2 = $brew;
-      $tap2 =~ s/&quot;/"/g;
-      $tap2 =~ s/&amp;/&/g;
-      $tap2 =~ s/&lt;/</g;
-      $tap2 =~ s/&gt;/>/g;
       $test = 1; next;
-     }elsif( $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
+     }elsif( $test and $test == 1 and $brew =~ s|^\s*<td>([^<]*)</td>\n|$1| ){
       $tap3 = $brew;
+      $tap3 =~ s/&quot;/"/g;
+      $tap3 =~ s/&amp;/&/g;
+      $tap3 =~ s/&lt;/</g;
+      $tap3 =~ s/&gt;/>/g;
+      $test = 2; next;
+     }elsif( $test and $test == 2 and $brew =~ m|^\s*<td>[^<]*</td>\n| ){
       $test = 0;
      }
        push @ANA,$tap1 if $tap1;
-      push @file1,"$tap1\t$tap3\t$tap2\n" if $tap1;
+      push @file1,"$tap1\t$tap2\t$tap3\n" if $tap1;
      $tap1 = $tap2 = $tap3 = '';
     }
    close $FILE1;
@@ -234,12 +236,12 @@ EOF
 perl<<"EOF"
   open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " BREW FILE 1 $!\n";
    while($brew=<$FILE1>){
-    if( $brew =~ s|^\s*<td><a href[^>]+>(.+)</a></td>\n|$1| ){
+    if( $brew =~ s|^\s*<td><a href[^>]+>([^<]*)</a></td>\n|$1| ){
      $tap1 = $brew; next;
-    }elsif( not $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
+    }elsif( not $test and $brew =~ s|^\s*<td>([^<]*)</td>\n|$1| ){
      $tap2 = $brew;
      $test = 1; next;
-    }elsif( $test and $brew =~ s|^\s*<td>(.+)</td>\n|$1| ){
+    }elsif( $test and $brew =~ s|^\s*<td>([^<]*)</td>\n|$1| ){
      $tap3 = $brew;
      $tap3 =~ s/&quot;/"/g;
      $tap3 =~ s/&amp;/&/g;
