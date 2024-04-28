@@ -924,7 +924,6 @@ clucene	LuceneのC++ポート：高性能でフル機能のテキスト検索エ
 clusterawsadm	Cluster API Provider AWS clusterawsadmのブートストラップ AMI/EKS/その他のヘルパーのホーム
 clusterctl	sig-cluster-lifecycleのサブプロジェクトであるクラスター管理API作業のホーム
 clutter	一般的で高レベルのキャンバスライブラリ
-clutter-gst	ビデオとオーディオにGStreamerを使用したClutterMediaインターフェース
 clutter-gtk	ClutterのGTK+統合ライブラリ
 clzip	lzipのC言語バージョン
 cmake	クロスプラットフォーム Make
@@ -3549,6 +3548,7 @@ libtecla	tcshシェルと同様のコマンドライン編集機能
 libtensorflow	GoogleのOSライブラリのCインターフェース
 libtermkey	端末からのキーボード入力を処理する為のライブラリ
 libtextcat	Nグラムベースのテキスト分類ライブラリ
+libtickit	インタラクティブな全画面端末プログラムを構築する為のライブラリ
 libtiff	TIFFライブラリとユーティリティ
 libtins	C++ネットワークパケットsniffing及びクラフティングライブラリ
 libtirpc	Sunの転送に依存しないLinuxへのRPCライブラリの移植
@@ -4934,6 +4934,7 @@ pngnq	PNG画像を最適化する為のツール
 pngpaste	PNGをファイルに貼り付けます
 pngquant	PNG画像最適化ユーティリティ
 pnpm	📦🚀 高速でディスクスペース効率の高いパッケージマネージャー
+pnpm@8	高速でディスクスペース効率の高いパッケージマネージャー
 po4a	ドキュメント翻訳メンテナンスツール
 poac	C++のパッケージマネージャー
 pocketbase	1つのファイルで次のプロジェクトのオープンソースバックエンドを実現
