@@ -1359,7 +1359,7 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'LINK'} == 1 and ( $re->{'OS'}{"${brew_1}un_xcode"} or $re->{'OS'}{"${brew_1}disable"} ) or
       $re->{'LINK'} == 2 and ( $re->{'OS'}{"${brew_1}un_Linux"} or $re->{'OS'}{"${brew_1}disable"} ) or
       $re->{'LINK'} == 3 and $re->{'OS'}{"$brew_1$OS_Version"} and not $re->{'OS'}{"${brew_1}disable"} or
-      $re->{'LINK'} == 4 and $re->{'OS'}{"${brew_1}un_cask"} or
+      $re->{'LINK'} == 4 and ( $re->{'OS'}{"${brew_1}un_cask"} or $re->{'OS'}{"${brew_1}c_disable"} ) or
       $re->{'LINK'} == 5 and $re->{'OS'}{"${brew_1}so_name"} or
       $re->{'LINK'} == 6 and $re->{"deps$brew_1"} or
       $re->{'LINK'} == 7 and $re->{"${brew_1}delet"} or
@@ -1409,6 +1409,10 @@ my( $list,$file,$in,$re ) = @_;
            $re->{'OS'}{"${brew_1}keg"}  ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
       }else{
        $re->{'MEM'} =
+         ( $re->{'OS'}{"${brew_1}c_disable"} and $re->{'OS'}{"${brew_1}so_name"} ) ? " d s     $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}c_disable"} and $re->{'OS'}{"${brew_1}d_cask"} )  ? " d c     $brew_1\t" :
+         ( $re->{'OS'}{"${brew_1}c_disable"} and $re->{'OS'}{"${brew_1}formula"} ) ? " d f     $brew_1\t" :
+           $re->{'OS'}{"${brew_1}c_disable"} ? " d       $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}so_name"} ) ? " x s     $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}d_cask"} )  ? " x c     $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_cask"} and $re->{'OS'}{"${brew_1}formula"} ) ? " x f     $brew_1\t" :
@@ -1597,15 +1601,18 @@ my( $re,$brew_1,$i,$e ) = @_;
                                $e ? substr $re->{'MEM'},0,9," e   $i " :
                                     substr $re->{'MEM'},0,9,"     $i " ;
   }else{
-   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}so_name"} ) ? substr $re->{'MEM'},0,9," t s $i " :
-   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}formula"} ) ? substr $re->{'MEM'},0,9," t f $i " :
-   ( $re->{'OS'}{"${brew_1}un_cask"} and  $re->{'OS'}{"${brew_1}d_cask"} )  ? substr $re->{'MEM'},0,9," t c $i " :
-     $re->{'OS'}{"${brew_1}un_cask"} ? substr $re->{'MEM'},0,9," t   $i " :
-     $re->{'OS'}{"${brew_1}so_name"} ? substr $re->{'MEM'},0,9,"   s $i " :
-     $re->{'OS'}{"${brew_1}formula"} ? substr $re->{'MEM'},0,9,"   f $i " :
-     $re->{'OS'}{"${brew_1}d_cask"}  ? substr $re->{'MEM'},0,9,"   c $i " :
-     $re->{'OS'}{"${brew_1}font"}    ? substr $re->{'MEM'},0,9,"   p $i " :
-                                       substr $re->{'MEM'},0,9,"     $i " ;
+   ( ( $re->{'OS'}{"${brew_1}un_cask"} or $re->{'OS'}{"${brew_1}c_disable"} ) and  $re->{'OS'}{"${brew_1}so_name"} ) ?
+       substr $re->{'MEM'},0,9," t s $i " :
+   ( ( $re->{'OS'}{"${brew_1}un_cask"} or $re->{'OS'}{"${brew_1}c_disable"} ) and  $re->{'OS'}{"${brew_1}formula"} ) ?
+       substr $re->{'MEM'},0,9," t f $i " :
+   ( ( $re->{'OS'}{"${brew_1}un_cask"} or $re->{'OS'}{"${brew_1}c_disable"} ) and  $re->{'OS'}{"${brew_1}d_cask"} )  ?
+       substr $re->{'MEM'},0,9," t c $i " :
+     ( $re->{'OS'}{"${brew_1}un_cask"} or $re->{'OS'}{"${brew_1}c_disable"} ) ? substr $re->{'MEM'},0,9," t   $i " :
+       $re->{'OS'}{"${brew_1}so_name"} ? substr $re->{'MEM'},0,9,"   s $i " :
+       $re->{'OS'}{"${brew_1}formula"} ? substr $re->{'MEM'},0,9,"   f $i " :
+       $re->{'OS'}{"${brew_1}d_cask"}  ? substr $re->{'MEM'},0,9,"   c $i " :
+       $re->{'OS'}{"${brew_1}font"}    ? substr $re->{'MEM'},0,9,"   p $i " :
+                                         substr $re->{'MEM'},0,9,"     $i " ;
   }
  }else{
   ( ( $re->{'OS'}{"${brew_1}un_Linux"} or $re->{'OS'}{"${brew_1}disable"} ) and $re->{'OS'}{"${brew_1}keg"} )  ?
@@ -2668,6 +2675,8 @@ sub Version_1{
          $data =~ s|.+/([^/]+)|$1|;
           $tap{"${data}u_cask"} .= "$name\t"
            if not $tap{"${data}u_cask"} or $tap{"${data}u_cask"} !~ /$name\t/;
+     }elsif( my( $del ) = $data =~ /deprecate!\s+date:\s+"([^"]+)"/ and $TIME gt $1 ){
+       $tap{"${name}c_disable"} = 1;
      }elsif( my( $ha1,$ha2 ) = $data =~ /^\s*on_([^\s]+)\s+:or_([^\s]+)\s+do/ ){
        $SPA = $CN = not eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version" ? 1 : 0;
         $CP1 = $CP2 = $CN ? 0 : 1; next;
