@@ -461,9 +461,9 @@ brackets	Web開発用のオープンソースコードエディター
 brain-workshop	知的ワークショップ
 brainfm	brain.fm用のデスクトップクライアント
 brave-browser	プライバシーに焦点を当てたWebブラウザー
-brave-browserbeta	プライバシーを重視したWebブラウザ
-brave-browserdev	プライバシーを重視したWebブラウザ
-brave-browsernightly	プライバシーを重視したWebブラウザ
+brave-browser@beta	プライバシーを重視したWebブラウザ
+brave-browser@dev	プライバシーを重視したWebブラウザ
+brave-browser@nightly	プライバシーを重視したWebブラウザ
 breaktimer	定期的な休憩を管理する為のツール
 breitbandmessung	ドイツ連邦ネットワーク庁による公式インターネット速度テスト
 brewlet	Homebrewのメニューレットがありません
@@ -745,6 +745,10 @@ cornercal	CornerCal
 cornerstone	Subversionクライアント
 corona-tracker	地図とチャートを備えたコロナウイルス監視アプリ
 corretto	AmazonからのOpenJDKディストリビューション
+corretto@11	AmazonからのOpenJDKディストリビューション
+corretto@17	AmazonからのOpenJDKディストリビューション
+corretto@21	AmazonからのOpenJDKディストリビューション
+corretto@8	AmazonからのOpenJDKディストリビューション
 coscreen	マルチユーザー画面共有を備えた協力的ツール
 coteditor	Webページ用のプレーンテキストエディタ プログラムのソースコードなど
 couchbase-server-community	分散型NoSQLクラウドデータベース
@@ -775,8 +779,10 @@ crushftp	ファイル転送サーバー
 crypter	暗号化ソフトウェア
 cryptomator	マルチプラットフォームのクライアント側クラウドファイル暗号化ツール
 cryptr	HashicorpのVaultのGUI
+crystaldiffract	フェーズID及びリートベルト精密化を含む粉末回折ソフトウェア
 crystalfetch	UUPDumpからWindowsインストーラーISOを作成する為のUI
 crystalmaker	結晶/分子構造を視覚化する
+crystalviewer	3D結晶及び分子構造のインタラクティブなギャラリー
 cscreen	コマンドライン表示管理ユーティリティ
 cubicsdr	クロスプラットフォームソフトウェア無線アプリケーション
 cuda-z	CUDA対応のGPUとGPGPUに関する基本情報を表示する
@@ -1198,7 +1204,7 @@ fig	ターミナルを再考する
 fightcade	レトロゲームのマッチメイキングプラットフォーム
 figma	コラボレーティブ共同チームソフトウェア
 figma-agent	Figma.appフォントインストーラー
-figmabeta	共同チームソフトウェア
+figma@beta	共同チームソフトウェ
 figtree	FigTree
 fiji	オープンソースの画像処理パッケージ
 file-juicer	PDFから画像を抽出する パワーポイント/Word/Excel/その他のファイル
@@ -1469,9 +1475,9 @@ google-assistant	デスクトップ用のクロスプラットフォームの非
 google-chat	Chat
 google-chat-electron	Googleチャット用の独立型アプリ
 google-chrome	Webブラウザー
-google-chromebeta	ウェブブラウザ
-google-chromecanary	ウェブブラウザ
-google-chromedev	ウェブブラウザ
+google-chrome@beta	ウェブブラウザ
+google-chrome@canary	ウェブブラウザ
+google-chrome@dev	ウェブブラウザ
 google-cloud-sdk	Google Cloudでホストされているリソースとアプリケーションを管理する為のツールのセット
 google-drive	Googleドライブストレージサービスのクライアント
 google-earth-pro	Virtual globe
@@ -1495,6 +1501,8 @@ gpodder	ポッドキャストクライアント
 gpxsee	GPSログファイルビューア及び分析
 gqrx	GNURadioとQtを搭載したソフトウェア無線受信機
 graalvm-jdk	OracleからGraalVM
+graalvm-jdk@17	オラクルのGraalVM
+graalvm-jdk@21	オラクルのGraalVM
 grads	地球科学データを視覚化する アクセス/操作
 grafx	256色の塗装プログラム
 grammarly	テキストの文法エラーとスタイルの問題を修正するユーティリティ
@@ -2304,13 +2312,15 @@ microblog	マイクロブログとソーシャルネットワーキングサー�
 microsoft-auto-update	さまざまなMicrosoft製品の更新を提供します
 microsoft-azure-storage-explorer	AzureStorageのエクスプローラー
 microsoft-edge	Webブラウザー
-microsoft-edgebeta	マルチプラットフォームWebブラウザ
-microsoft-edgedev	マルチプラットフォームWebブラウザ
+microsoft-edge@beta	マルチプラットフォームWebブラウザ
+microsoft-edge@dev	マルチプラットフォームWebブラウザ
 microsoft-excel	表計算ソフトウェア
 microsoft-office	オフィスパッケージ
 microsoft-office-businesspro	オフィスパッケージ
 microsoft-onenote	デジタルノート作成アプリ
 microsoft-openjdk	MicrosoftからのOpenJDKディストリビューション
+microsoft-openjdk@11	MicrosoftのOpenJDKディストリビューション
+microsoft-openjdk@17	MicrosoftのOpenJDKディストリビューション
 microsoft-outlook	メールクライアント
 microsoft-powerpoint	プレゼンテーションソフトウェア
 microsoft-remote-desktop	リモートデスクトップクライアント
@@ -2731,6 +2741,8 @@ optimage	画像最適化ツール
 optimus-player	メディアプレーヤー
 oracle-jdk	OracleのJDK
 oracle-jdk-javadoc	OracleJDKのドキュメント
+oracle-jdk@17	オラクルのJDK
+oracle-jdk@21	オラクルのJDK
 orange	コンポーネントベースのデータマイニングソフトウェア
 orangedrangon-android-messages	Androidメッセージデスクトップ
 orbstack	Dockerデスクトップの代替
@@ -2838,6 +2850,7 @@ pdfelement-express	PDFelement表現
 pdfextractor	PDFExtractor
 pdfify	検索可能で小さいPDFを作成する
 pdfkey-pro	PDFKey Pro
+pdfpals	PDFを使用したAIチャット
 pdfpen	PDF編集ソフトウェア
 pdfpenpro	PDF編集ソフトウェア
 pdfsam-basic	ページを抽出/分割/マージ PDFファイルを混合及び回転します
@@ -2994,6 +3007,7 @@ preform	3D印刷のセットアップ、管理、監視
 prefs-editor	'defaults'コマンドのグラフィカルユーザーインターフェイス
 prepros	Web開発コンパニオン
 presentation	PDFスライド用のツール
+presonus-universal-control	PreSonusソフトウェア制御インターフェイス
 prettyclean	使いやすいディスク クリーンアップ ツール
 pretzel	クリエイター向けのDMCA-safe音楽
 prezi-classic	PreziプレゼンテーションSaaS用のデスクトップクライアント
@@ -3491,6 +3505,7 @@ simplex	SimpleXプロトコル用メッセンジャー
 simplistic	SimPLISTic
 simply-fortran	Fortran開発環境
 simsim	ターミナル/ファインダーでiOSアプリケーションフォルダーを探索する為のツール
+singlecrystal	結晶回折ソフトウェア
 singularity	Second LifeとOpenSimのクライアント
 sioyek	研究論文や技術書を読む為に設計されたPDFビューア
 sip	収集 色を整理して共有する
@@ -3829,6 +3844,10 @@ telegram-desktop	Telegramメッセンジャー用のデスクトップクライ�
 teleport-connect	クラウドインフラストラクチャ向けの開発者向けブラウザ
 tempbox	使い捨てメールクライアント
 temurin	Eclipse Foundation(Adoptium)のJDK
+temurin@11	Eclipse FoundationのJDK(Adoptium)
+temurin@17	Eclipse FoundationのJDK(Adoptium)
+temurin@21	Eclipse FoundationのJDK(Adoptium)
+temurin@8	Eclipse FoundationのJDK(Adoptium)
 tenable-nessus-agent	Nessus脆弱性スキャナーのエージェント
 tencent-docs	Word用のオンラインエディタ Excel/PPTドキュメント
 tencent-lemon	クリーンアップ/システムステータスツール
@@ -4298,6 +4317,7 @@ wondershare-filmora	動画編集
 wondershare-uniconverter	ビデオ編集ソフトウェア
 wooshy	入力によるUI要素のクリックなど
 wordpresscom	WordPressクライアント
+wordpresscom-studio	WordPressのローカル開発環境
 wordservice	選択したテキストを操作する為のコマンドを提供するツール
 workbench	シームレス iCloudに自動同期する "dotfile"
 workflowy	メモを取るツール
@@ -4444,6 +4464,10 @@ zspace	NASクライアント
 zui	Zed lakes データを探索する為のグラフィカルユーザーインターフェイス
 zulip	Zulipチームチャットプラットフォーム用のデスクトップクライアント
 zulu	AzulからのOpenJDKディストリビューション
+zulu@11	AzulのOpenJDKディストリビューション
+zulu@17	AzulのOpenJDKディストリビューション
+zulu@21	AzulのOpenJDKディストリビューション
+zulu@8	AzulのOpenJDKディストリビューション
 zulufx	Azul ZuluFX Java StandardEdition開発キット
 zwift	インドアサイクリングゲーム
 zxpinstaller	Adobe拡張機能インストーラー
