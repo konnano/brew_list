@@ -2294,6 +2294,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  unless( $ARGV[0] ){
   Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
    Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
+    Dirs_1( "$MY_HOME/Library/Taps",1,0 );
  }
   Dirs_1( "$MY_HOME/Library/Taps/homebrew",1,1 );
    rmdir "$ENV{'HOME'}/.BREW_LIST/11";
