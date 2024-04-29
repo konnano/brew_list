@@ -2204,12 +2204,7 @@ font-zhudou-sans	NotoSansから派生したCJK記号と句読点
 font-zhuque-fangsong	TrionesTypeによって作成されたオープンソースの中国語Fangsongフォント
 font-zilla-slab	Zilla Slab
 font-zilla-slab-highlight	Zilla Slab Highlight
-1password-beta	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
-1password-cli-beta	1Passwordパスワードマネージャーのコマンドラインヘルパー
-1password-cli1	1Passwordパスワードマネージャーのコマンドラインヘルパー
-1password-nightly	パスワードマネージャー
 1password6	すべてのパスワードを1つのパスワードで安全に保つパスワードマネージャー
-1password7	すべてのパスワードを1つのパスワードで安全に保つパスワードマネージャー
 ableton-live-intro10	サウンドと音楽のエディター
 ableton-live-intro11	サウンド及び音楽エディター
 ableton-live-lite10	サウンドと音楽のエディター
@@ -2219,8 +2214,6 @@ ableton-live-standard11	サウンド及び音楽エディター
 ableton-live-suite10	サウンドと音楽のエディター
 ableton-live-suite11	サウンド及び音楽エディター
 ableton-live-suite9	サウンドと音楽のエディター
-adguard-nightly	スタンドアロンの広告ブロッカー
-adguard-vpn-nightly	プライバシーとセキュリティの為のVPN
 adoptopenjdk8	ビルド済みのOpenJDKバイナリ
 aerial-beta	Apple TV Aerialスクリーンセーバー
 affinity-designer1	プロ仕様のグラフィックデザインソフトウェア
@@ -2266,7 +2259,6 @@ dolphin-beta	ゲームキューブやWiiのゲームが遊べるエミュレー�
 dolphin-dev	ゲームキューブとWiiのゲームが遊べるエミュレーター
 dotnet-preview	開発者プラットフォーム
 dotnet-sdk-preview	開発者プラットフォーム
-dropbox-beta	Dropboxクラウドストレージサービスのクライアント
 element-nightly	マトリックスコラボレーションクライアント
 elephas-beta	パーソナルAIライティングアシスタント
 emacs-nightly	GNU Emacsテキストエディター
@@ -2378,7 +2370,6 @@ semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備え�
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 shadow-beta	オンライン仮想化コンピュータ
 signal-beta	セキュリティに焦点を当てたインスタントメッセージングアプリケーション
-sketch-beta	デジタルデザイン及びプロトタイピングプラットフォーム
 skype-preview	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype7	ビデオ チャット/音声通話/インスタントメッセージング アプリケーション
 slack-beta	チームコミュニケーション及び協力ソフトウェア
@@ -2433,7 +2424,6 @@ xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
 xmind-beta	マインドマップとブレインストーミングツール
 xmind8	マインドマッピングとブレーンストーミングツール
 zed-preview	マルチプレイヤーコードエディター
-zotero-beta	研究ソースを収集、整理、引用、共有する
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
 zulu7	AzulからのOpenJDKディストリビューション
