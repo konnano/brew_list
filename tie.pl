@@ -365,7 +365,7 @@ sub Version_1{
  if( $re->{'MAC'} ){
  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
  my( $in,$e ) = ( @CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
- $UNAME = $UNAME eq 'x86_64' ? 'intel' : 'arm';
+ my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm';
   for my $dir2( @CASK ){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
     my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(?:[^/]+/)*(.+)\.rb$|;
@@ -385,7 +385,7 @@ sub Version_1{
           $FON .= "$name \\\n" if -d $re->{'FON'}; $FI = 0;
        }
      }
-      if( my( $cpu ) = $data =~ /^\s*on_(intel|arm)\s+do/ ){ if( $cpu eq $UNAME ){ $CN = $SPA= 1;
+      if( my( $cpu ) = $data =~ /^\s*on_(intel|arm)\s+do/ ){ if( $cpu eq $UNAME2 ){ $CN = $SPA= 1;
                                                              }else{ $CP1 = $CP2 = 1 } next;
       }elsif( $data !~ /^\s*end/ and $CP1 ){ $CP2++ if $data =~ /\s+do\s/; next;
       }elsif( $data =~ /^\s*end/ and $CP2 > 1 ){ $CP2--; next;
@@ -393,6 +393,8 @@ sub Version_1{
       }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ and not $CN ){
        $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
+     }elsif( my( $arch ) = $data =~ /^\s*depends_on\s+arch:\s+:([^\s]+)/ ){
+       $tap{"${name}un_cask"} = 1 if $UNAME ne $arch;
      }elsif( $data =~ s/^\s*depends_on\s+formula:\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}formula"} .= "$data\t";
         $tap{"${data}u_form"} .= "$name\t"
