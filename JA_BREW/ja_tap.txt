@@ -2053,6 +2053,7 @@ font-times-newer-roman	Times New Romanと同じ様に見えますが、文字の
 font-timmana	Timmana
 font-tinos	Tinos
 font-tinos-nerd-font	Tinos Nerd Font(Tinos)
+font-tiny5	Tiny5
 font-tiro-bangla	伝統的な文学出版に適しています
 font-tiro-devanagari-hindi	より広いプロポーション、寛大なカウンターと強い斜めのストローク
 font-tiro-devanagari-marathi	より広いプロポーション、寛大なカウンターと強い斜めのストローク
@@ -2240,19 +2241,12 @@ azure-data-studio-insiders	SQLServerでの作業を可能にするデータ管�
 bbedit14	テキスト/コード/マークアップ エディター
 beyond-compare-beta	ファイルとフォルダーを比較する
 blender-lts	Freeのオープンソース3D作成セット
-brave-browser-beta	プライバシーに焦点を当てたWebブラウザー
-brave-browser-dev	プライバシーに焦点を当てたWebブラウザー
-brave-browser-nightly	プライバシーに焦点を当てたWebブラウザー
 buckets-beta	予算編成ツール
 calibre4	電子書籍管理ソフトウェア
 carbon-copy-cloner5	ハードディスクのバックアップとクローン作成ユーティリティ
 charles-applejava	Webデバッグプロキシアプリケーション
 chromedriver-beta	Google Chrome用のWebアプリの自動テスト
 cleanmymac3	ディスクから不要なファイルとフォルダーを削除するツール
-corretto11	AmazonからのOpenJDKディストリビューション
-corretto17	AmazonからのOpenJDKディストリビューション
-corretto21	AmazonからのOpenJDKディストリビューション
-corretto8	AmazonからのOpenJDKディストリビューション
 daedalus-flight	Cardanoブロックチェーン上のada用のDaedalus暗号通貨ウォレットのプレリリース
 dash2	APIドキュメントブラウザとコードスニペットマネージャ
 dash3	APIドキュメントブラウザとコードスニペットマネージャ
@@ -2277,7 +2271,6 @@ element-nightly	マトリックスコラボレーションクライアント
 elephas-beta	パーソナルAIライティングアシスタント
 emacs-nightly	GNU Emacsテキストエディター
 emacs-pretest	テキストエディター
-figma-beta	協調的チームソフトウェア
 firefox-beta	Webブラウザー
 firefox-cn	中国語版Firefox
 firefox-developer-edition	Webブラウザー
@@ -2290,13 +2283,8 @@ geogebra5	解決 数学の問題を保存して共有する グラフ関数等
 gimp-dev	Freeでオープンソースの画像エディター
 github-beta	GitHubリポジトリ用のデスクトップクライアント
 godot3	ゲーム開発エンジン
-google-chrome-beta	Webブラウザー
-google-chrome-canary	Webブラウザー
-google-chrome-dev	Webブラウザー
 google-japanese-ime-dev	Google日本語入力方式エディター
 gpg-suite-nightly	メールやファイルを保護する為のツール
-graalvm-jdk17	OracleからGraalVM
-graalvm-jdk21	OracleのGraalVM
 hamsket-nightly	Freeのオープンソースメッセージング及び電子メールアプリ
 hancom-word-2014	ワードプロセッサ
 hyper-canary	Webテクノロジーに基づいて構築されたターミナル
@@ -2330,18 +2318,13 @@ macfuse-dev	ファイルシステム統合
 macloggerdx-beta	アマチュア無線ロギング及びリグ制御ソフトウェア
 mailmate-beta	IMAPメールクライアント
 mi-beta	テキストエディター
-microsoft-edge-beta	マルチプラットフォームのWebブラウザー
-microsoft-edge-dev	マルチプラットフォームのWebブラウザー
 microsoft-office-2016	オフィスセット
 microsoft-office-2019	Officeセット
-microsoft-openjdk11	MicrosoftからのOpenJDKディストリビューション
-microsoft-openjdk17	MicrosoftからのOpenJDKディストリビューション
 microsoft-teams-classic	１ヶ所で会議、チャット、通話、コラボレーションが可能
 miniconda2	condaの最小限のインストーラー
 mixxx-snapshot	オープンソースのDJソフトウェア
 monal-beta	チャットサーバーに安全に接続する為のツール
 mongodb-compass-beta	MongoDBのGUI
-mono-mdk-for-visual-studio	Microsoftの.NETFrameworkのオープンソース実装
 morpheus-beta	多細胞システム生物学のモデリング環境
 mullvadvpn-beta	VPNクライアント
 mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
@@ -2360,8 +2343,6 @@ openshot-video-editor-daily	クロスプラットフォームのビデオエデ�
 opera-beta	Webブラウザー
 opera-crypto-developer	Web3ブラウザ
 opera-developer	Webブラウザー
-oracle-jdk17	OracleからJDK
-oracle-jdk21	オラクルのJDK
 papers3	あなたの個人的な研究ライブラリ
 paragon-extfs11	ext2/3/4フォーマットされたボリュームの、読み取り/書き込みサポート
 parallels12	デスクトップ仮想化ソフトウェア
@@ -2413,13 +2394,9 @@ sublime-text2	コード用テキストエディタ マークアップ/散文
 sublime-text3	コード、マークアップ、散文用のテキストエディター
 surge4	ネットワークツールボックス
 telegram-desktop-beta	Telegramメッセンジャー用のデスクトップクライアント
-temurin11	Eclipse Foundation(Adoptium)のJDK
-temurin17	Eclipse Foundation(Adoptium)のJDK
 temurin18	Eclipse Foundation(Adoptium)のJDK
 temurin19	Eclipse Foundation(Adoptium)のJDK
 temurin20	JDK from the Eclipse Foundation (Adoptium)
-temurin21	JDK from the Eclipse Foundation (Adoptium)
-temurin8	Eclipse Foundation(Adoptium)のJDK
 termius-beta	SSHクライアント
 threema-beta	エンドツーエンドで暗号化されたインスタントメッセージングアプリケーション
 thunderbird-beta	Mozilla Thunderbird
@@ -2457,10 +2434,6 @@ xmind-beta	マインドマップとブレインストーミングツール
 xmind8	マインドマッピングとブレーンストーミングツール
 zed-preview	マルチプレイヤーコードエディター
 zotero-beta	研究ソースを収集、整理、引用、共有する
-zulu11	AzulからのOpenJDKディストリビューション
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
-zulu17	AzulからのOpenJDKディストリビューション
-zulu21	AzulからのOpenJDKディストリビューション
 zulu7	AzulからのOpenJDKディストリビューション
-zulu8	AzulからのOpenJDKディストリビューション
