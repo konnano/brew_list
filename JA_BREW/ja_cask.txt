@@ -6,6 +6,11 @@
 1kc-razer	Razerデバイス用のオープンソースカラーエフェクトマネージャー
 1password	すべてのパスワードを1つのパスワードの背後で安全に保つパスワードマネージャー
 1password-cli	1Passwordパスワードマネージャーのコマンドラインヘルパー
+1password-cli@1	1Passwordパスワードマネージャーのコマンドラインヘルパー
+1password-cli@beta	1Passwordパスワードマネージャーのコマンドラインヘルパー
+1password@7	全てのパスワードを、1つのパスワードで安全に保つパスワードマネージャー
+1password@beta	パスワードマネージャー
+1password@nightly	パスワードマネージャー
 360safe	保護とウイルス対策のセキュリティ
 3dgenceslicer	3DGenceプリンターのCADモデルに基づいて3D印刷用のファイルを準備します
 4k-slideshow-maker	スライドショーメーカー
@@ -47,6 +52,8 @@ actual-odbc-pack	実際のODBCドライバーパック
 adapter	ビデオ、オーディオ、画像を変換します
 adguard	独立型の広告ブロッカー
 adguard-vpn	プライバシーとセキュリティの為のVPN
+adguard-vpn@nightly	プライバシーとセキュリティの為のVPN
+adguard@nightly	スタンドアロン広告ブロッカー
 adium	インスタントメッセージングアプリケーション
 adobe-acrobat-pro	ポータブルドキュメント形式でファイルをプリント及び管理する 意見/作成/操作
 adobe-acrobat-reader	PDFドキュメントにコメントする 表示/印刷
@@ -982,6 +989,7 @@ dropbox	Dropboxクラウドストレージサービスのクライアント
 dropbox-capture	あなたの仕事やアイデアをビデオメッセージやスクリーンショットで共有しましょう
 dropbox-dash	ユニバーサル検索ツール
 dropbox-passwords	デバイス間で同期するパスワードマネージャー
+dropbox@beta	Dropboxクラウドストレージサービスのクライアント
 dropdmg	DMG及びその他のアーカイブを作成する
 dropletmanager	デジタルOcean dropletマネージャー
 droplr	スクリーンショットとスクリーンレコーダー
@@ -3521,6 +3529,7 @@ sizzy	複数のデバイスで動的デザインをシミュレートするツ�
 skala-preview	Skalaプレビュー
 sketch	デジタルデザイン及びプロトタイピングプラットフォーム
 sketch-toolbox	スケッチツールボックス
+sketch@beta	デジタルデザイン及びプロトタイピングプラットフォーム
 sketchbook	描画 ペイント&スケッチ アプリケーション
 skiff	End-to-end 暗号化された電子メール/カレンダー/ドキュメント/ファイルのサポート
 skim	PDFリーダーとメモ取りアプリケーション
@@ -4458,6 +4467,7 @@ zoho-workdrive	Zohoクラウドストレージサービスのクライアント
 zoom	ビデオ通信及び仮想会議プラットフォーム
 zoom-for-it-admins	ビデオ通信/仮想会議プラットフォーム
 zotero	研究ソースを共有する 収集/整理/引用
+zotero@beta	研究ソースを収集、整理、引用、共有する
 zprint	Clojure及びClojurescriptのソースコードとS式を再フォーマットする為のライブラリ
 zsa-wally	ZSAキーボード用のFlashツール
 zspace	NASクライアント
