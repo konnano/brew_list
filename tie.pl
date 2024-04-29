@@ -414,7 +414,7 @@ sub Version_1{
          $data =~ s|.+/([^/]+)|$1|;
           $tap{"${data}u_cask"} .= "$name\t"
            if not $tap{"${data}u_cask"} or $tap{"${data}u_cask"} !~ /$name\t/;
-     }elsif( my( $del ) = $data =~ /deprecate!\s+date:\s+"([^"]+)"/ and $TIME gt $1 ){
+     }elsif( my( $del ) = $data =~ /disable!\s+date:\s+"([^"]+)"/ and $TIME gt $1 ){
        $tap{"${name}c_disable"} = 1;
      }elsif( my( $ha1,$ha2 ) = $data =~ /^\s*on_([^\s]+)\s+:or_([^\s]+)\s+do/ ){
        $SPA = $CN = not eval "$MAC_OS{$ha1} $HAN{$ha2} $OS_Version" ? 1 : 0;
