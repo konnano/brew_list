@@ -309,6 +309,7 @@ autopsy	SleuthKit調査ツールへのグラフィカルインターフェイス
 autorest	Swagger(OpenAPI)仕様コード発生器
 autorestic	Resticの高レベルCLIユーティリティ
 autossh	SSHセッションとトンネルを自動的に再起動します
+autotrace	ビットマップをベクターグラフィックスに変換する
 avahi	mDNS/DNS-SD を使用したLinuxのサービスディスカバリ
 avanor	簡単なADOMの様なUIを備えた急成長中のローグライクゲーム
 avce00	Arc/Info(バイナリ)Vector CoveragesをE00として表示する
