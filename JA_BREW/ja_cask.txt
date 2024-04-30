@@ -1688,7 +1688,7 @@ hype	アニメーション化された双方向なWebコンテンツを作成す
 hyper	Webテクノロジーに基づいて構築されたターミナル
 hyperbackupexplorer	Synology NASからのバックアップデータ
 hypercal	スケジュールとタスクを1つのビューに結び付けるプライバシー最優先のカレンダー
-hyper@canary	Terminal built on web technologies
+hyper@canary	Web技術を活用したターミナル
 hyperkey	CapsLockキー/修飾キーのいずれかをハイパーキーに変換します
 i1profiler	写真家やデザイナーの為の自動化とクリエイティブなコントロール
 ia-markdown-dictionary	Dictionary.appのマークダウン辞書
