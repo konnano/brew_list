@@ -6498,6 +6498,7 @@ util-macros	X.Org：他のxorgパッケージを構築する為に使用され�
 utimer	多機能タイマーツール
 uudeview	スマートマルチファイルマルチパートデコーダー
 uutils-coreutils	GNUcoreutilsのクロスプラットフォームRustリライト
+uutils-diffutils	GNU diffutilsのクロスプラットフォームRust書き換え
 uutils-findutils	GNU findutilsのクロスプラットフォームRustリライト
 uuu	汎用アップデートユーティリティ mfgtools3.0。NXPI.MXチップイメージ展開ツール
 uv	Rustで書かれた非常に高速なPythonパッケージインストーラー及びリゾルバー
