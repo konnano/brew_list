@@ -64,24 +64,20 @@ MAIN:{
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
    unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} and not $re->{'S_O'};
+    $re->{'CEL'} = "$MY_BREW/Cellar";
+     $re->{'BIN'} = "$MY_BREW/opt";
+  my $repo = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
+   $re->{'TAP_S'} = "$repo/Library/Taps";
  if( $re->{'LIN'} ){
-  $re->{'CEL'} = "$MY_BREW/Cellar";
-   $re->{'BIN'} = "$MY_BREW/opt";
-    my $repo = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
   $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm' unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'};
    $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts";
-    $re->{'TAP_S'} = "$repo/Library/Taps";
-     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
+    $re->{'Q_TAP'} = "$home/Q_TAP.txt";
  }else{
   unless( $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} ){
    $OS_Version =  `sw_vers -productVersion`;
     die " Use Tiger Brew\n" unless $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
      $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
-  } $re->{'CEL'} = "$MY_BREW/Cellar";
-     $re->{'BIN'} = "$MY_BREW/opt";
-      $ref->{'CEL'} = "$MY_BREW/Caskroom";
-       my $repo = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
-    $re->{'TAP_S'} = "$repo/Library/Taps";
+  } $ref->{'CEL'} = "$MY_BREW/Caskroom";
      $ref->{'VERS'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-versions";
       $ref->{'FDIR'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-fonts";
  }
@@ -1502,8 +1498,8 @@ my( $list,$re,$in ) = @_;
    my $tap = ( $re->{'OS'}{$tap2} and $re->{'OS'}{"${tap2}_tap"} ) ? "$tap2/tap" : $tap2;
 
    my $mem = ( defined $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
-    my( $dirs1 )=( $re->{'FTD'} and $re->{'OS'}{"${tap}core"} ) ? $re->{'OS'}{"${tap}core"} =~ m|.+/(homebrew-[^/]+)/.+| :
-                   $re->{'OS'}{"${tap}cask"} ? $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+| : '';
+    my( $dirs1 ) = ( $re->{'FTD'} and $re->{'OS'}{"${tap}core"} ) ? $re->{'OS'}{"${tap}core"} =~ m|.+/(homebrew-[^/]+)/.+| :
+                     $re->{'OS'}{"${tap}cask"} ? $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+| : '';
 
     my $ver = $re->{'OS'}{"${tap}f_version"} ? $re->{'OS'}{"${tap}f_version"} :
               $re->{'OS'}{"${tap}c_version"} ? $re->{'OS'}{"${tap}c_version"} :
