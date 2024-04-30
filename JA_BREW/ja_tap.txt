@@ -1605,6 +1605,7 @@ font-overlock-sc	Overlock SC
 font-overpass	Overpass
 font-overpass-mono	Overpass Mono
 font-overpass-nerd-font	Overpass Nerd Font(Overpass)
+font-overused-grotesk	クラシックなneo-grotesk Swissデザインに影響を受けた可変sans serif書体
 font-ovo	Ovo
 font-oxanium	Oxanium
 font-oxygen	Oxygen
@@ -2206,37 +2207,19 @@ font-zilla-slab	Zilla Slab
 font-zilla-slab-highlight	Zilla Slab Highlight
 1password6	すべてのパスワードを1つのパスワードで安全に保つパスワードマネージャー
 ableton-live-intro10	サウンドと音楽のエディター
-ableton-live-intro11	サウンド及び音楽エディター
 ableton-live-lite10	サウンドと音楽のエディター
-ableton-live-lite11	サウンド及び音楽エディター
 ableton-live-standard10	サウンドと音楽のエディター
-ableton-live-standard11	サウンド及び音楽エディター
 ableton-live-suite10	サウンドと音楽のエディター
-ableton-live-suite11	サウンド及び音楽エディター
 ableton-live-suite9	サウンドと音楽のエディター
 adoptopenjdk8	ビルド済みのOpenJDKバイナリ
-aerial-beta	Apple TV Aerialスクリーンセーバー
-affinity-designer1	プロ仕様のグラフィックデザインソフトウェア
-affinity-photo1	プロ仕様の画像編集ソフトウェア
-affinity-publisher1	プロフェッショナルデスクトップパブリッシングソフトウェア
 alfred2	アプリケーションランチャーと生産性ソフトウェア
 alfred3	アプリケーションランチャーと生産性ソフトウェア
-alfred4	アプリケーションランチャーと生産性ソフトウェア
 anaconda2	データサイエンスプラットフォーム
-android-studio-preview-beta	Androidアプリケーションを構築する為のツール
-android-studio-preview-canary	Androidアプリケーションを構築する為のツール
-arduino-ide-nightly	電子工学プロトタイピングプラットフォーム
 arduino-nightly	電子プロトタイピングプラットフォーム
 arq5	マルチクラウドバックアップアプリケーション
 atom-beta	クロスプラットフォームのテキストエディター
 atom-nightly	クロスプラットフォームのテキストエディター
-azure-data-studio-insiders	SQLServerでの作業を可能にするデータ管理ツール
-bbedit14	テキスト/コード/マークアップ エディター
-beyond-compare-beta	ファイルとフォルダーを比較する
-blender-lts	Freeのオープンソース3D作成セット
-buckets-beta	予算編成ツール
 calibre4	電子書籍管理ソフトウェア
-carbon-copy-cloner5	ハードディスクのバックアップとクローン作成ユーティリティ
 charles-applejava	Webデバッグプロキシアプリケーション
 chromedriver-beta	Google Chrome用のWebアプリの自動テスト
 cleanmymac3	ディスクから不要なファイルとフォルダーを削除するツール
@@ -2245,67 +2228,20 @@ dash2	APIドキュメントブラウザとコードスニペットマネージ�
 dash3	APIドキュメントブラウザとコードスニペットマネージャ
 dash4	APIドキュメントブラウザとコードスニペットマネージャ
 dash5	APIドキュメントブラウザとコードスニペットマネージャー
-dash6	APIドキュメントブラウザとコードスニペットマネージャー
-db-browser-for-sqlcipher-nightly	SQLCipher用のデータベースブラウザ
-db-browser-for-sqlite-nightly	SQLite用のデータベースブラウザー
 deadbeef-nightly	モジュラーオーディオプレーヤー
-defold-alpha	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
-defold-beta	デスクトップ開発用のゲームエンジン モバイル/Webゲーム
-discord-canary	音声及びテキストチャットソフトウェア
-discord-development	音声及びテキストチャットソフトウェア
-discord-ptb	音声及びテキストチャットソフトウェア
 docker-edge	コンテナ化されたアプリケーションとマイクロサービスを構築して共有する為のアプリ
-dolphin-beta	ゲームキューブやWiiのゲームが遊べるエミュレーター
-dolphin-dev	ゲームキューブとWiiのゲームが遊べるエミュレーター
-dotnet-preview	開発者プラットフォーム
-dotnet-sdk-preview	開発者プラットフォーム
-element-nightly	マトリックスコラボレーションクライアント
-elephas-beta	パーソナルAIライティングアシスタント
-emacs-nightly	GNU Emacsテキストエディター
-emacs-pretest	テキストエディター
-firefox-beta	Webブラウザー
-firefox-cn	中国語版Firefox
-firefox-developer-edition	Webブラウザー
-firefox-esr	Webブラウザー
-firefox-nightly	Webブラウザー
-folding-at-home-beta	科学研究の為のタンパク質特定構造シミュレーション
 forklift2	Finderの代替品と FTP/SFTP/WebDAV/Amazon s3クライアント
 forklift3	Finderの代替、FTP、SFTP、WebDAV、Amazon s3 クライアント
 geogebra5	解決 数学の問題を保存して共有する グラフ関数等
-gimp-dev	Freeでオープンソースの画像エディター
-github-beta	GitHubリポジトリ用のデスクトップクライアント
-godot3	ゲーム開発エンジン
-google-japanese-ime-dev	Google日本語入力方式エディター
-gpg-suite-nightly	メールやファイルを保護する為のツール
 hamsket-nightly	Freeのオープンソースメッセージング及び電子メールアプリ
 hancom-word-2014	ワードプロセッサ
-hyper-canary	Webテクノロジーに基づいて構築されたターミナル
-inso-beta	CLI HTTP及びGraphQLクライアント
-insomnia-alpha	HTTP及びGraphQLクライアント
 intellij-idea-ce19	Java開発用IDE-コミュニティ版
-intellij-idea-eap	IntelliJ IDEA早期アクセスプログラム
 intellij-idea19	JVM言語用のIDE
-istat-menus5	iStatsメニュー
-iterm2-beta	Appleターミナルアプリの代替ターミナルエミュレータ
 iterm2-legacy	Appleターミナルアプリの代替ターミナルエミュレータ
-iterm2-nightly	Appleターミナルアプリの代替ターミナルエミュレータ
-java-beta	Javaプログラミング言語用の早期アクセス開発キット
 java6	Javaプログラミング言語のレガシーランタイム
-julia-lts	テクニカルコンピューティングの為のプログラミング言語
-julia-nightly	テクニカルコンピューティングの為のプログラミング言語
-kaleidoscope2	テキストと画像のファイルまたはフォルダの違いを見つけてマージする
-kaleidoscope3	テキスト及び画像ファイルまたはフォルダー内の相違点を特定してマージします
-keepassxc-beta	パスワードマネージャーアプリ
 keepassxc-snapshot	パスワードマネージャーアプリ
-keka-beta	File archiver
 keyboard-maestro8	キーボードMaestro
-kitty-nightly	GPU-basedターミナルエミュレータ
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
-lando-edge	Docker上に構築されたローカル開発環境とDevOpsツール
-libreoffice-still	Freeのクロスプラットフォームオフィスセット
-libreoffice-still-language-pack	LibreOfficeの代替言語のコレクション
-little-snitch4	ホストベースのアプリケーションファイアウォール
-local-beta	FlywheelによるWordPressローカル開発ツール(ベータ版)
 macfuse-dev	ファイルシステム統合
 macloggerdx-beta	アマチュア無線ロギング及びリグ制御ソフトウェア
 mailmate-beta	IMAPメールクライアント
@@ -2415,8 +2351,6 @@ vmware-fusion8	仮想マシンの 作成/管理/実行
 vox2	外部ソースからのハイレゾ(Hi-Res)音楽用の音楽プレーヤー
 vscodium-insiders	コードエディタ
 wezterm-nightly	GPUで高速化されたクロスプラットフォームターミナルエミュレーター及びマルチプレクサー
-whatsapp-beta	WhatsAppのデスクトップクライアント
-whatsapp-legacy	WhatsApp用のデスクトップクライアント
 whoozle-android-file-transfer-nightly	Androidファイル転送
 wine-devel	Windowsアプリケーションを実行する為の互換性レイヤー
 wine-staging	Windowsアプリケーションを実行する為の互換性レイヤー
