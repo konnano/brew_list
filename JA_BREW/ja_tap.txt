@@ -2243,106 +2243,45 @@ keepassxc-snapshot	パスワードマネージャーアプリ
 keyboard-maestro8	キーボードMaestro
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
 macfuse-dev	ファイルシステム統合
-macloggerdx-beta	アマチュア無線ロギング及びリグ制御ソフトウェア
-mailmate-beta	IMAPメールクライアント
-mi-beta	テキストエディター
 microsoft-office-2016	オフィスセット
 microsoft-office-2019	Officeセット
-microsoft-teams-classic	１ヶ所で会議、チャット、通話、コラボレーションが可能
 miniconda2	condaの最小限のインストーラー
-mixxx-snapshot	オープンソースのDJソフトウェア
-monal-beta	チャットサーバーに安全に接続する為のツール
-mongodb-compass-beta	MongoDBのGUI
 morpheus-beta	多細胞システム生物学のモデリング環境
-mullvadvpn-beta	VPNクライアント
 mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
-navicat-premium15	データベース管理及び開発ツール
-netnewswire-beta	FreeのオープンソースRSSリーダー
-obs-beta	ライブストリーミングと画面録画用のオープンソースソフトウェア
 olympus	Everest(ビデオゲームCeleste用のModローダー) インストーラー/マネージャー
-omegat-latest	翻訳メモリツール
 omnifocus2	編成重視のスケジューリングアプリ
 omnigraffle6	ビジュアルコミュニケーションソフトウェア
 omniplan3	プロジェクト計画及び管理ソフトウェア
 openemu-experimental	レトロなビデオゲームエミュレーション
-openra-playtest	Westwoodゲーム用のリアルタイムストラテジーゲームエンジン
 openscad-snapshot	プログラム可能なソリッド3D CADモデラー
-openshot-video-editor-daily	クロスプラットフォームのビデオエディター
-opera-beta	Webブラウザー
-opera-crypto-developer	Web3ブラウザ
-opera-developer	Webブラウザー
 papers3	あなたの個人的な研究ライブラリ
-paragon-extfs11	ext2/3/4フォーマットされたボリュームの、読み取り/書き込みサポート
-parallels12	デスクトップ仮想化ソフトウェア
-parallels13	デスクトップ仮想化ソフトウェア
-parallels14	デスクトップ仮想化ソフトウェア
 parallels15	デスクトップ仮想化ソフトウェア
-parallels16	デスクトップ仮想化ソフトウェア
-parallels17	デスクトップ仮想化ソフトウェア
-parallels18	デスクトップ仮想化ソフトウェア
-pdf-expert-beta	PDFリーダー エディター/注釈
 pgadmin3	PostgreSQLの管理及び開発プラットフォーム
-picoscope-beta	PicoScope oscilloscops用のテスト及び測定オシロスコープソフトウェア
 playcover-community-beta	iOSアプリとゲームをサイドロードする
-postico1	PostgreSQLデータベースのGUIクライアント
-postmancanary	API開発の為のコラボレーションプラットフォーム
-powershell-preview	コマンドラインシェルとスクリプト言語
 powershell6	コマンドラインシェルとスクリプト言語
 processing2	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶ為の言語
-processing3	コーディング方法を学習する為の柔軟なソフトウェア スケッチブックと言語
-propresenter-beta	ライブイベントのプレゼンテーション及び制作アプリケーション
 propresenter6	ライブイベントのプレゼンテーション及び制作アプリケーション
 qbittorrent-lt20	libtorrent-rasterbar 2.0.xに基づくqBitorrentのエディション
 qgis-ltr	地理情報システム
-qt-creator-dev	アプリケーション開発の為のIDE
 quicktime-player7	ビデオプレーヤー
 rambox-ce	Freeのオープンソースメッセージング及び電子メールアプ
 reflector2	ワイヤレス画面ミラーリングアプリケーション
-royal-tsx-beta	リモート管理ソリューション
 rstudio-daily	RとPythonを中心としたデータサイエンスソフトウェア
-safari-technology-preview	Webブラウザー
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
-shadow-beta	オンライン仮想化コンピュータ
-signal-beta	セキュリティに焦点を当てたインスタントメッセージングアプリケーション
-skype-preview	ビデオチャット 音声通話とインスタントメッセージングアプリケーション
 skype7	ビデオ チャット/音声通話/インスタントメッセージング アプリケーション
-slack-beta	チームコミュニケーション及び協力ソフトウェア
 slicer-preview	医用画像処理及び視覚化システム
 smcfancontrol-beta	内蔵ファンの最低速度を設定します
 sonarr-beta	sonarr-beta
-sonos-s1-controller	Gen 1 Sonos製品のコントローラー
 soulver2	テキストエディタと電卓
-sourcetree-beta	Gitバージョン管理用のグラフィカルクライアント
-sublime-merge-dev	Gitクライアント
-sublime-text-dev	コード用のテキストエディタ マークアップ/散文
 sublime-text2	コード用テキストエディタ マークアップ/散文
 sublime-text3	コード、マークアップ、散文用のテキストエディター
-surge4	ネットワークツールボックス
-telegram-desktop-beta	Telegramメッセンジャー用のデスクトップクライアント
 temurin18	Eclipse Foundation(Adoptium)のJDK
-temurin19	Eclipse Foundation(Adoptium)のJDK
-temurin20	JDK from the Eclipse Foundation (Adoptium)
-termius-beta	SSHクライアント
-threema-beta	エンドツーエンドで暗号化されたインスタントメッセージングアプリケーション
-thunderbird-beta	Mozilla Thunderbird
-thunderbird-daily	カスタマイズ可能なメールクライアント
-tor-browser-alpha	セキュリティに重点を置いたWebブラウザー
 tower2	パワーと生産性に重点を置いたGitクライアント
 transmission-nightly	オープンソースのBitTorrentクライアント
 transmit4	ファイル転送アプリケーション
-tsh13	分散インフラストラクチャを管理するチームのSSHサーバー
-tunnelblick-beta	OpenVPN用のFreeオープンソースグラフィックユーザーインターフェイス
-typora-dev	Markdownをサポートする構成可能なドキュメントエディター
-utm-beta	QEMUを使用した仮想マシンUI
-virtualbox-beta	x86及びarm64ハードウェア用のバーチャライザー
-virtualbox6	x86ハードウェアのバーチャライザー
-virtualbuddy-beta	仮想化ツール
-visual-studio-code-insiders	コードエディター
-vivaldi-snapshot	カスタマイズと制御に焦点を当てたWebブラウザー
 vlc-nightly	オープンソースのクロスプラットフォームマルチメディアプレーヤー
-vmware-fusion-tech-preview	仮想マシンの 実行/作成/管理
 vmware-fusion10	仮想マシンの 作成/管理/実行
 vmware-fusion11	再起動せずに他のオペレーティングシステムを実行するアプリ
 vmware-fusion12	仮想マシンの 作成/管理/実行
@@ -2350,14 +2289,10 @@ vmware-fusion7	仮想マシンの 作成/管理/実行
 vmware-fusion8	仮想マシンの 作成/管理/実行
 vox2	外部ソースからのハイレゾ(Hi-Res)音楽用の音楽プレーヤー
 vscodium-insiders	コードエディタ
-wezterm-nightly	GPUで高速化されたクロスプラットフォームターミナルエミュレーター及びマルチプレクサー
 whoozle-android-file-transfer-nightly	Androidファイル転送
 wine-devel	Windowsアプリケーションを実行する為の互換性レイヤー
 wine-staging	Windowsアプリケーションを実行する為の互換性レイヤー
-xampp7	MySQL/PHP 7/Perl を含むApacheディストリビューション
-xmind-beta	マインドマップとブレインストーミングツール
 xmind8	マインドマッピングとブレーンストーミングツール
-zed-preview	マルチプレイヤーコードエディター
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
 zulu7	AzulからのOpenJDKディストリビューション
