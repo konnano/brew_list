@@ -735,7 +735,7 @@ cdlabelgen	挿入と包み CD/DVD
 cdo	気候データオペレーター
 cdogs-sdl	古典的なオーバーヘッドrun-and-gunゲーム
 cdparanoia	CDをサンプリングする為のオーディオ抽出ツール
-cdpr	Cisco Discovery Protocol Reporter
+cdpr	Cisco Discovery Protocolレポーター
 cdrdao	Disk-At-OnceモードでCDを録音する
 cdrtools	プリマスタリング及びレコーディングソフトウェア CD/DVD/Blu-ray
 cdsclient	CDSデータベースを照会する為のツール
@@ -877,7 +877,7 @@ clfft	OpenCLで記述されたFFT関数
 clhep	高エネルギー物理学の為のクラスライブラリ
 cli11	C++11のシンプルで直感的なコマンドラインパーサー
 cli53	Amazon Route53のコマンドラインツール
-cliam	Bitwarden Secrets Manager CLI
+cliam	クラウドに依存しないIAM権限収集
 clib	Cプログラミングのパッケージマネージャー
 click	Kubernetesのコマンドライン対話的コントローラー
 clickhouse-cpp	ClickHouseのC++クライアントライブラリ
@@ -1041,7 +1041,7 @@ cowsay	ASCIIアートで構成可能な話す文字
 cp2k	量子化学及び固体物理学ソフトウェアパッケージ
 cpanminus	CPANからモジュールを取得/解凍/ビルド/インストールします
 cpansearch	Cで書かれたCPANモジュール検索
-cpi	Tiny c++ interpreter
+cpi	小さなC++インタープリター
 cpio	cpio/tarアーカイブにファイルをコピーしたりアーカイブからファイルをコピーしたりします
 cpl	天文データ削減タスクを開発する為のISO-Cライブラリ
 cpm	高速CPANモジュールインストーラー
@@ -1325,7 +1325,7 @@ djhtml	Django/Jinja テンプレート圧子
 djl-serving	このモジュールには実装を提供する汎用モデルが含まれています
 djview4	DjVu画像形式のViewer
 djvu2pdf	DjvuファイルをPDFファイルに変換する為の小さなツール
-djvulibre	DjVu Viewer
+djvulibre	DjVu viewer
 dlib	機械学習用のC++ライブラリ
 dmagnetic	磁気スクロール通訳
 dmalloc	システムメモリ管理ルーチンのデバッグバージョン
@@ -1964,7 +1964,7 @@ gdbm	GNUデータベースマネージャー
 gdcm	根本的なのDICOMライブラリと医療ファイル用のユーティリティ
 gdk-pixbuf	画像の読み込みとピクセルBuffer操作の為のツールキット
 gdl	GNOMEドッキングライブラリはGTK+3のドッキング機能を提供します
-gdm	Go Dependency Manager(gdm)
+gdm	Go依存関係マネージャー(gdm)
 gdmap	フォルダの使用スペースを検査するツール
 gdrive	GoogleドライブCLIクライアント
 gdrive-downloader	gdriveフォルダー/ファイルを簡単にダウンロードする シェルftw
@@ -2450,7 +2450,7 @@ gwt	Google Webツールキット
 gwyddion	走査型プローブ顕微鏡の視覚化及び分析ツール
 gx	言語に依存しない、汎用パッケージマネージャー
 gx-go	goで記述されたパッケージのgxパッケージマネージャーで使用するツール
-gxml	GObject-based XML DOM API
+gxml	GObjectベースの、XML DOM API
 gyb	Gmailメッセージをバックアップ及び復元する為のCLI
 gzip	人気のGNUデータ圧縮プログラム
 gzrt	Gzipリカバリツールキット
@@ -3860,7 +3860,7 @@ manim	数学説明ビデオ用のアニメーションエンジン
 manticoresearch	オープンソースのテキスト検索エンジン
 mantra	JSファイルおよびページ内の、APIキーの漏洩を追跡するツール
 mapcidr	Subnet/CIDR 操作ユーティリティ
-mapcrafter	Minecraft map renderer
+mapcrafter	Minecraftマップレンダラー
 mapnik	地図アプリケーションを開発する為のツールキット
 mapproxy	Webマッププロキシの高速化
 mapserver	空間データと対話的な地図アプリをウェブに公開する
@@ -4087,7 +4087,7 @@ modsurfer	WebAssemblyバイナリの検証、監査、調査
 modules	モジュールファイルを介したユーザーの環境の動的な変更
 moe	ISO-8859/ASCIIのコンソールテキストエディタ
 mogenerator	CoreDataモデルからObjective-C及びSwiftクラスを生成する
-mold	Modern Linker
+mold	最新のリンカー
 molecule	Ansibleロールの自動テスト
 molten-vk	Metal上でのVulkanグラフィックスとコンピューティングAPIの実装
 mon	ホスト/サービス/その他 を監視し問題を警告します
@@ -4293,7 +4293,7 @@ neopop-sdl	NeoGeo Pocketエミュレーター
 neosync	Neosyncとインターフェースの為のCLI
 neovide	Rust実用的Neovim Client
 neovim	拡張性と敏捷性に焦点を当てた野心的なVimフォーク
-neovim-qt	NeoVim GUI, in Qt5
+neovim-qt	Neovim GUI, in Qt
 neovim-remote	`nvr`コマンドラインツールを使用してnvimプロセスを制御する
 nerdctl	ContaiNERD CTL containerd用のDocker互換CLI
 nerdfix	古いNerd Fontアイコンを見つけて修正する
@@ -4458,7 +4458,7 @@ ocaml-num	任意精度演算用のOCamlレガシーNumライブラリ
 ocaml-zarith	任意精度演算用のOCamlライブラリ
 ocaml@4	MLファミリの汎用プログラミング言語
 ocamlbuild	OCamlの汎用ビルドツール
-oci-cli	Oracle Cloud Infrastructure CLI
+oci-cli	Oracle CloudインフラストラクチャCLI
 ocl-icd	OpenCL ICDローダー
 oclgrind	OpenCLデバイス模擬装置とデバッガー
 ocm	Red Hat OpenShiftクラスタマネージャのCLI
@@ -4640,7 +4640,7 @@ osi	Open Solverインターフェース
 osinfo-db	仮想化provisioningツール用のオペレーティングシステムOsinfoデータベース
 osinfo-db-tools	libosinfoデータベースファイルを管理する為のツール
 oslo	OpenSLO仕様用のCLIツール
-osm	Open Service Mesh(OSM)
+osm	オープンサービスMesh(OSM)
 osm-gps-map	OpenStreetMap地図を埋め込む為のGTK+ライブラリ
 osm-pbf	PBFに関連するツール(XML形式の代替品)
 osm2pgrouting	OSMデータをpgRoutingデータベースにインポートします
@@ -4839,7 +4839,7 @@ php@8.0	汎用スクリプト言語
 php@8.1	汎用スクリプト言語
 php@8.2	汎用スクリプト言語
 phpbrew	HOMEで純粋なPHPでPHPバージョンを作成及び管理する
-phpmd	PHP Mess Detector
+phpmd	PHP混乱検出器
 phpmyadmin	MySQL/MariaDBのWebインターフェース
 phpstan	PHP静的分析ツール
 phpunit	PHPのプログラマー指向のテストフレームワーク
@@ -4983,7 +4983,7 @@ postgresql@15	オブジェクトリレーショナルデータベースシステ
 postgresql@16	オブジェクトリレーショナルデータベースシステム
 postgrest	既存のPostgreSQLデータベースから完全にRESTfulなAPIを提供します
 potrace	ビットマップをベクターグラフィックに変換する
-povray	Persistence Of Vision RAYtracer(POVRAY)
+povray	持続性のビジョンRAYtracer(POVRAY)
 powerlevel10k	zshのテーマ
 powerline-go	シェルの美しく便利な低遅延プロンプト
 powerman	制御(リモート/並列)スイッチ配電ユニット
@@ -6181,7 +6181,7 @@ terraform-local	TerraformアプリケーションをLocalStackに直接デプロ
 terraform-ls	Terraform言語サーバー
 terraform-lsp	Terraformの言語サーバー手続き
 terraform-provider-libvirt	libvirtを使用しLinux KVMにTerraformを提供する
-terraform-rover	Terraform visualizer
+terraform-rover	Terraform Visualizer
 terraform_landscape	Terraformの計画出力を改善する
 terraformer	既存の基礎構造からTerraformファイルを生成するCLIツール
 terraforming	既存のAWSリソースをTerraformスタイル(tf、tfstate)に転送する
@@ -6880,7 +6880,7 @@ xorgproto	X.Org：手続きヘッダー
 xorgrgb	X.Org：色名データベース
 xorriso	ISO9660+RR操作ツール
 xpa	Unixプログラム間のSeamlessな通信
-xpdf	PDF Viewer
+xpdf	PDF viewer
 xpipe	入力を分割し指定されたユーティリティにフィードします
 xplanet	地球のHQ壁紙を作成する
 xplr	ハッキング可能で最低限の高速のTUIファイルエクスプローラー
