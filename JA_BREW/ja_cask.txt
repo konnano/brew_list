@@ -4491,9 +4491,10 @@ xamarin-mac	C#/.NET開発者にアクセスを提供します Objective-C/Swift 
 xamarin-profiler	Xamarinプロファイラー
 xamarin-studio	モバイルアプリ開発の為のIDE
 xamarin-workbooks	C#ドキュメントとコーディング資料
-xampp	MySQLを含むApacheディストリビューション PHP/Perl
-xampp-vm	MySQLを含むApacheディストリビューションを備えた仮想マシン PHP/Perl
-xampp@7	xaos	リアルタイムのインタラクティブなフラクタルズーマー
+xampp	MySQL/PHP/Perl を含むApacheディストリビューション
+xampp-vm	MySQL/PHP/Perl を含むApacheディストリビューションを備えた仮想マシン
+xampp@7	MySQL/PHP7/Perl を含むApacheディストリビューション
+xaos	リアルタイムのインタラクティブなフラクタルズーマー
 xattred	拡張属性エディター
 xbar	メニューバーにスクリプトからの出力を表示する
 xbench	ベンチマークソフトウェア
