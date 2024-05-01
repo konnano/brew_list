@@ -23,7 +23,7 @@ font-advent-pro	Webとプリント用に設計されたモダンなフォント
 font-afacad	Afacad
 font-african-sans	African Sans
 font-african-serif	African Serif
-font-agave-nerd-font	Agave Nerd Font(Agave)
+font-agave-nerd-font	開発者向けのグリフ数が多いフォント
 font-agbalumo	シングルウェイトフォント
 font-agdasima	Big shouldersをベースに、凝縮されたアメリカンゴシックsans-serif
 font-aguafina-script	Aguafina Script
@@ -97,7 +97,7 @@ font-angkor	Angkor
 font-anka-coder	Anka/Coder
 font-annapurna-sil	デヴァナガリ文字を使用するシステムをサポートするUnicodeベースのフォント
 font-annie-use-your-telescope	Annie Use Your Telescope
-font-anonymice-nerd-font	Anonymice Nerd Font(Anonymous Pro)
+font-anonymice-nerd-font	開発者向けのグリフ数が多いフォント
 font-anonymice-powerline	Anonymice Powerline
 font-anonymous-pro	Anonymous Pro
 font-anta	特にグラフィック デザインだけでなく、ブランディング プロジェクトにも適しています
@@ -126,7 +126,7 @@ font-arial	Arial
 font-arial-black	Arial Black
 font-arima	ndiscoverが主導 ポルトガルを拠点とするタイプデザインファウンドリ
 font-arimo	Arimo
-font-arimo-nerd-font	Arimo Nerd Font(Arimo)
+font-arimo-nerd-font	開発者向けのグリフ数が多いフォント
 font-arizonia	Arizonia
 font-ark-pixel-10px-monospaced	オープンソースのPan-CJKピクセルフォント
 font-ark-pixel-10px-proportional	オープンソースのPan-CJKピクセルフォント
@@ -164,7 +164,7 @@ font-averia-serif-libre	Averia Serif Libre
 font-awesome-terminal-fonts	素晴らしいターミナルフォント
 font-azeret-mono	martinváchaとdanielquisekによるデザイン
 font-azonix	モダンなsans-serif書体
-font-b612	B612
+font-b612	航空機のコックピット画面で使用する為に設計及びテストされたフォント
 font-b612-mono	B612 Mono
 font-babylonica	直立または逆傾斜のフォームによってさえぎられ強調が発生します
 font-bacasime-antique	様式的には過渡的なデザイン
@@ -386,7 +386,7 @@ font-comme	可変、細いものから黒いものまでのウェイト軸
 font-commissioner	ほぼ古典的な比率の低コントラストのヒューマニストsans-serifフォント
 font-commit-mono	ニュートラルなプログラミング書体
 font-commit-mono-nerd-font	開発者向けのグリフ数が多いフォント
-font-computer-modern	Computer Modern
+font-computer-modern	主にXアプリケーション用の多言語Unicodeフォント
 font-conakry	Conakry
 font-concert-one	Concert One
 font-condiment	Condiment
@@ -413,7 +413,7 @@ font-courier-prime-code	Courier Prime Code
 font-courier-prime-medium-and-semi-bold	Courier Prime Medium & Semi-Bold
 font-courier-prime-sans	Courier Prime Sans
 font-cousine	Cousine
-font-cousine-nerd-font	Cousine Nerd Font(Cousine)
+font-cousine-nerd-font	開発者向けのグリフ数が多いフォント
 font-coustard	Coustard
 font-covered-by-your-grace	あなたの恵みによって覆われています
 font-cozette	ビットマッププログラミングフォント
@@ -579,7 +579,7 @@ font-fira-code	プログラミング合字付きのfree等幅フォント
 font-fira-code-nerd-font	多数のglyphsを含む開発者向けのフォント
 font-fira-mono	Fira Mono
 font-fira-mono-for-powerline	Fira Mono for Powerline
-font-fira-mono-nerd-font	FiraMono Nerd Font(Fira)
+font-fira-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-fira-sans	Fira Sans
 font-fira-sans-condensed	Fira Sans Condensed
 font-fira-sans-extra-condensed	Fira Sans Extra Condensed
@@ -694,7 +694,7 @@ font-glow-sans-tc-wide	Glow Sans TC Wide
 font-gluten	Filling, we'll put it that way
 font-gnu-unifont	GNU Unifont
 font-go	Go
-font-go-mono-nerd-font	GoMono Nerd Font(Go)
+font-go-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-goblin-one	Goblin One
 font-gochi-hand	Gochi Hand
 font-gohufont-nerd-font	GohuFontオタクフォント(Gohu)
@@ -749,7 +749,7 @@ font-harmattan	Harmattan
 font-hasklig	等幅合字のコードフォント
 font-hasklug-nerd-font	Hasklugオタクフォント(Hasklig)
 font-headland-one	Headland One
-font-heavy-data-nerd-font	HeavyData Nerd Font(Heavy Data)
+font-heavy-data-nerd-font	開発者向けのグリフ数が多いフォント
 font-hedvig-letters-sans	そうでないときは完璧
 font-hedvig-letters-serif	そうでないときは完璧
 font-heebo	Heebo
@@ -776,7 +776,7 @@ font-honk	taresh vohraとチームek typeによって行われました
 font-hubballi	非公式で親しみやすい外観のMonolinear書体
 font-hubot-sans	GitHubのバリアブルフォントHubot Sans
 font-humor-sans	Humor Sans
-font-hurmit-nerd-font	Hurmit Nerd Font(Hermit)
+font-hurmit-nerd-font	開発者向けのグリフ数が多いフォント
 font-hurricane	Hurricane
 font-hyppolit	Hyppolit
 font-ia-writer-duo	iA Writer Duo
@@ -824,7 +824,7 @@ font-inconsolata-for-powerline-bold	Inconsolata Bold for Powerline
 font-inconsolata-g	Inconsolata-g
 font-inconsolata-g-for-powerline	Inconsolata-g for Powerline
 font-inconsolata-go-nerd-font	InconsolataGoオタクフォント(Inconsolata Go)
-font-inconsolata-lgc	Inconsolata LGC
+font-inconsolata-lgc	Inconsolata LGCは、キリル文字を使用してInconsolataを修正したバージョンです
 font-inconsolata-lgc-nerd-font	InconsolataLGCオタクフォント(Inconsolata LGC)
 font-inconsolata-nerd-font	Inconsolataオタクフォント(Inconsolata)
 font-inder	Inder
@@ -841,7 +841,7 @@ font-inspiration	Inspiration
 font-instrument-sans	Instrument Sans
 font-instrument-serif	Instrument Serif
 font-intel-one-mono	表現力豊かな等幅フォントファミリー
-font-inter	Inter
+font-inter	表示用に設計された可変フォント
 font-inter-tight	Inter Tight
 font-intone-mono-nerd-font	多数のグリフを含む開発者向けのフォント
 font-iosevka	Sans-serif/slab-serif/monospace/quasi‑proportional 書体ファミリー
@@ -1014,8 +1014,8 @@ font-langdon	Langdon
 font-last-resort	専用フォント Unicode文字のタイプを表すglyphsを提供する
 font-last-resort-high-efficiency	Unicode文字のタイプを表すglyphsを提供する
 font-lateef	Lateef
-font-latin-modern	Latin Modern
-font-latin-modern-math	Latin Modern Math
+font-latin-modern	Computer Modernフォントから派生したLatin Modernフォントファミリ
+font-latin-modern-math	数学に焦点を当てたラテン語のモダンなバリエーション
 font-lato	Lato
 font-lavishly-yours	魅力的な書道スクリプト
 font-league-gothic	古い古典の復活 代替ゴシック＃1
@@ -1025,7 +1025,7 @@ font-league-spartan	ATFの古典的なSpartanの幾何学的なsans-serif再生
 font-leckerli-one	Leckerli One
 font-ledger	Ledger
 font-lekton	Lekton
-font-lekton-nerd-font	Lekton Nerd Font(Lekton)
+font-lekton-nerd-font	開発者向けのグリフ数が多いフォント
 font-lemon	Lemon
 font-lemonada	Lemonada
 font-lemonada-vf-beta	Lemonada VF Beta
@@ -1148,7 +1148,7 @@ font-masinahikan-dene	Masinahikan Dene
 font-mate	Mate
 font-mate-sc	Mate SC
 font-material-design-icons-webfont	マテリアルデザインアイコンのWebフォント
-font-material-icons	Material Icons
+font-material-icons	マテリアルデザインの核となる原則に基づいたアイコン
 font-material-symbols	可変フォントとしてマテリアルデザインの原則に基づいたアイコン
 font-maven-pro	Maven Pro
 font-maven-pro-vf-beta	Maven Pro VF Beta
@@ -1244,7 +1244,7 @@ font-moulpali	Moulpali
 font-mountains-of-christmas	Mountains of Christmas
 font-mouse-memoirs	Mouse Memoirs
 font-mplus	M+ FONTS
-font-mplus-nerd-font	mplus Nerd Font(M+)
+font-mplus-nerd-font	開発者向けのグリフ数が多いフォント
 font-mr-bedfort	Mr Bedfort
 font-mr-dafoe	Mr Dafoe
 font-mr-de-haviland	Mr De Haviland
@@ -1604,7 +1604,7 @@ font-overlock	Overlock
 font-overlock-sc	Overlock SC
 font-overpass	Overpass
 font-overpass-mono	Overpass Mono
-font-overpass-nerd-font	Overpass Nerd Font(Overpass)
+font-overpass-nerd-font	開発者向けのグリフ数が多いフォント
 font-overused-grotesk	クラシックなneo-grotesk Swissデザインに影響を受けた可変sans serif書体
 font-ovo	Ovo
 font-oxanium	Oxanium
@@ -1708,7 +1708,7 @@ font-pt-mono	PT Mono
 font-pt-sans	PT Sans
 font-pt-sans-caption	PT Sans Caption
 font-pt-sans-narrow	PT Sans Narrow
-font-pt-serif	PT Serif
+font-pt-serif	PT Sansと併用するために設計されたユニバーサルタイプファミリー
 font-pt-serif-caption	PT Serif Caption
 font-public-sans	Public Sans
 font-puppies-play	遊び心のある流れを与えるコネクタを備えた楽しく弾力のあるスクリプト
@@ -2053,7 +2053,7 @@ font-times-new-roman	Times New Roman
 font-times-newer-roman	Times New Romanと同じ様に見えますが、文字の幅が5〜10％広くなっています
 font-timmana	Timmana
 font-tinos	Tinos
-font-tinos-nerd-font	Tinos Nerd Font(Tinos)
+font-tinos-nerd-font	開発者向けのグリフ数が多いフォント
 font-tiny5	Tiny5
 font-tiro-bangla	伝統的な文学出版に適しています
 font-tiro-devanagari-hindi	より広いプロポーション、寛大なカウンターと強い斜めのストローク
@@ -2131,7 +2131,7 @@ font-viga	Viga
 font-vina-sans	Vina Sans
 font-voces	Voces
 font-volkhov	Volkhov
-font-vollkorn	Vollkorn
+font-vollkorn	静かで控えめな高級serif書体
 font-vollkorn-sc	Vollkorn SC
 font-voltaire	Voltaire
 font-vt323	VT323
@@ -2273,7 +2273,7 @@ semeru-jdk8-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備え�
 skype7	ビデオ チャット/音声通話/インスタントメッセージング アプリケーション
 slicer-preview	医用画像処理及び視覚化システム
 smcfancontrol-beta	内蔵ファンの最低速度を設定します
-sonarr-beta	sonarr-beta
+sonarr-beta	Usenet及びBitTorrentユーザー向けのPVR
 soulver2	テキストエディタと電卓
 sublime-text2	コード用テキストエディタ マークアップ/散文
 sublime-text3	コード、マークアップ、散文用のテキストエディター
