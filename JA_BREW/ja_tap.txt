@@ -2221,25 +2221,21 @@ atom-beta	クロスプラットフォームのテキストエディター
 atom-nightly	クロスプラットフォームのテキストエディター
 calibre4	電子書籍管理ソフトウェア
 charles-applejava	Webデバッグプロキシアプリケーション
-chromedriver-beta	Google Chrome用のWebアプリの自動テスト
 cleanmymac3	ディスクから不要なファイルとフォルダーを削除するツール
 daedalus-flight	Cardanoブロックチェーン上のada用のDaedalus暗号通貨ウォレットのプレリリース
 dash2	APIドキュメントブラウザとコードスニペットマネージャ
 dash3	APIドキュメントブラウザとコードスニペットマネージャ
 dash4	APIドキュメントブラウザとコードスニペットマネージャ
 dash5	APIドキュメントブラウザとコードスニペットマネージャー
-deadbeef-nightly	モジュラーオーディオプレーヤー
 docker-edge	コンテナ化されたアプリケーションとマイクロサービスを構築して共有する為のアプリ
 forklift2	Finderの代替品と FTP/SFTP/WebDAV/Amazon s3クライアント
 forklift3	Finderの代替、FTP、SFTP、WebDAV、Amazon s3 クライアント
-geogebra5	解決 数学の問題を保存して共有する グラフ関数等
 hamsket-nightly	Freeのオープンソースメッセージング及び電子メールアプリ
 hancom-word-2014	ワードプロセッサ
 intellij-idea-ce19	Java開発用IDE-コミュニティ版
 intellij-idea19	JVM言語用のIDE
 iterm2-legacy	Appleターミナルアプリの代替ターミナルエミュレータ
 java6	Javaプログラミング言語のレガシーランタイム
-keepassxc-snapshot	パスワードマネージャーアプリ
 keyboard-maestro8	キーボードMaestro
 ksdiff2	Kaleidoscope v2のApp Storeバージョン用のコマンドラインツール
 macfuse-dev	ファイルシステム統合
@@ -2247,51 +2243,34 @@ microsoft-office-2016	オフィスセット
 microsoft-office-2019	Officeセット
 miniconda2	condaの最小限のインストーラー
 morpheus-beta	多細胞システム生物学のモデリング環境
-mumble-snapshot	ゲーム用のオープンソース、低遅延、高品質のボイスチャットソフトウェア
 olympus	Everest(ビデオゲームCeleste用のModローダー) インストーラー/マネージャー
 omnifocus2	編成重視のスケジューリングアプリ
 omnigraffle6	ビジュアルコミュニケーションソフトウェア
 omniplan3	プロジェクト計画及び管理ソフトウェア
-openemu-experimental	レトロなビデオゲームエミュレーション
-openscad-snapshot	プログラム可能なソリッド3D CADモデラー
 papers3	あなたの個人的な研究ライブラリ
 parallels15	デスクトップ仮想化ソフトウェア
-pgadmin3	PostgreSQLの管理及び開発プラットフォーム
-playcover-community-beta	iOSアプリとゲームをサイドロードする
 powershell6	コマンドラインシェルとスクリプト言語
 processing2	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶ為の言語
 propresenter6	ライブイベントのプレゼンテーション及び制作アプリケーション
-qbittorrent-lt20	libtorrent-rasterbar 2.0.xに基づくqBitorrentのエディション
-qgis-ltr	地理情報システム
 quicktime-player7	ビデオプレーヤー
 rambox-ce	Freeのオープンソースメッセージング及び電子メールアプ
-reflector2	ワイヤレス画面ミラーリングアプリケーション
 rstudio-daily	RとPythonを中心としたデータサイエンスソフトウェア
 semeru-jdk11-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk17-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk8-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 skype7	ビデオ チャット/音声通話/インスタントメッセージング アプリケーション
-slicer-preview	医用画像処理及び視覚化システム
-smcfancontrol-beta	内蔵ファンの最低速度を設定します
-sonarr-beta	Usenet及びBitTorrentユーザー向けのPVR
 soulver2	テキストエディタと電卓
 sublime-text2	コード用テキストエディタ マークアップ/散文
 sublime-text3	コード、マークアップ、散文用のテキストエディター
 temurin18	Eclipse Foundation(Adoptium)のJDK
 tower2	パワーと生産性に重点を置いたGitクライアント
-transmission-nightly	オープンソースのBitTorrentクライアント
 transmit4	ファイル転送アプリケーション
-vlc-nightly	オープンソースのクロスプラットフォームマルチメディアプレーヤー
 vmware-fusion10	仮想マシンの 作成/管理/実行
 vmware-fusion11	再起動せずに他のオペレーティングシステムを実行するアプリ
 vmware-fusion12	仮想マシンの 作成/管理/実行
 vmware-fusion7	仮想マシンの 作成/管理/実行
 vmware-fusion8	仮想マシンの 作成/管理/実行
 vox2	外部ソースからのハイレゾ(Hi-Res)音楽用の音楽プレーヤー
-vscodium-insiders	コードエディタ
-whoozle-android-file-transfer-nightly	Androidファイル転送
-wine-devel	Windowsアプリケーションを実行する為の互換性レイヤー
-wine-staging	Windowsアプリケーションを実行する為の互換性レイヤー
 xmind8	マインドマッピングとブレーンストーミングツール
 zulu13	AzulからのOpenJDKディストリビューション
 zulu15	Zulu OpenJDK 15
