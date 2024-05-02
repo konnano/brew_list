@@ -613,6 +613,7 @@ choosy	任意のブラウザーでリンクを開く
 chrome-devtools	スタンドアロンChrome開発ツール
 chrome-remote-desktop-host	Google Chromeブラウザーを介して別のコンピュータにリモートアクセスする
 chromedriver	Google Chrome用のWebアプリの自動テスト
+chromedriver@beta	Google Chrome の Web アプリの自動テスト
 chromium	FreeのオープンソースWebブラウザー
 chromium-gost	GOST暗号化アルゴリズムをサポートするChromiumベースのブラウザ
 chronoagent	ChronoSyncのリモートファイル共有
@@ -878,6 +879,7 @@ dcv-viewer	NICE DCVリモートディスプレイ手続きのクライアント
 dd-utility	オペレーティングシステムのIMG及びISOファイルの書き込みとバックアップ
 ddnet	DDRaceのTeeworldsバージョン
 ddpm	モニター/周辺機器マネージャー
+deadbeef@nightly	モジュール式オーディオプレーヤー
 deadbolt	ファイル暗号化ツール
 deathtodsstore	DeathToDSStore
 debookee	ネットワークトラフィック分析
@@ -1449,7 +1451,8 @@ geneious-prime	生物情報科学ソフトウェアプラットフォーム
 genesis-plus	セガ ジェネシス/メガドライブ エミュレータ
 genesys-cloud	Genesys Cloudをスタンドアロンプログラムとして実行しWebブラウザから分離します
 genymotion	Androidエミュレータ
-geogebra	数学の問題を 解決し/保存し/共有する グラフ関数等
+geogebra	数学の問題、グラフ関数等を、解決/保存/共有します
+geogebra@5	数学の問題、グラフ関数などを解決、保存、共有します。
 geomap	ブラウズ 地球科学データセットの視覚化と分析
 geotag	画像のGeoロケーションエディター
 geotag-photos-pro	Geotaggingソフトウェア
@@ -1948,6 +1951,7 @@ keep-it	ノートブック スクラップブック/オーガナイザーツー�
 keepassx	セキュリティに焦点を当てたパーソナルデータマネージャー
 keepassxc	パスワードマネージャーアプリ
 keepassxc@beta	パスワードマネージャーアプリ
+keepassxc@snapshot	パスワードマネージャーアプリ
 keeper-password-manager	パスワードマネージャーアプリケーションとデジタルVault
 keepingyouawake	システムがスリープモードになるのを防ぐ為のツール
 keet	ピアツーピアのビデオ及びテキストチャット
@@ -2551,6 +2555,7 @@ multipatch	ファイルパッチユーティリティ
 multitouch	トラックパッドとマジックマウスのジェスチャーを追加する
 multiviewer-for-f1	F1TVの非公式デスクトップクライアント
 mumble	オープンソース/低遅延 ゲーム用の高品質ボイスチャットソフトウェア
+mumble@snapshot	オープンソース、低遅延、高品質のゲーム用ボイスチャット ソフトウェア
 mumu	絵文字ピッカー
 mumu-x	GPT-3 AIを利用した同義語を利用して絵文字や記号を検索します
 mumuplayer	Androidエミュレータ
@@ -2782,6 +2787,7 @@ opencore-patcher	サポートされていないMacの現在の機能を挿入/�
 opencpn	フル機能で簡潔な ChartPlotter/Navigator
 opendnsupdater	動的IPアップデータクライアント
 openemu	レトロなビデオゲームエミュレーション
+openemu@experimental	レトロビデオゲームエミュレーション
 openframeworks	クリエイティブコーディング用のC++ツールキット
 openineditor-lite	Finderで現在のディレクトリを開く為のFinderツールバーアプリ
 openinterminal	ターミナル/エディターで現在のディレクトリを開く為のFinderツールバーアプリ
@@ -2803,6 +2809,7 @@ openrgb	メーカーのソフトウェアに依存しないオープンソース
 openrocket	Rocket simulator モデル
 opensc	スマートカードライブラリとユーティリティ
 openscad	プログラム可能なソリッド3DCADモデラー
+openscad@snapshot	プログラム可能なソリッド 3D CAD モデラー
 opensesame	社会科学の為のグラフィカルな実験ビルダー
 openshift-client	Openshiftクライアント
 openshot-video-editor	クロスプラットフォームのビデオエディター
@@ -2969,6 +2976,7 @@ pester	設定/アラーム/タイマーを解除またはスヌーズする
 pext	Pythonベースの拡張可能なツール
 pflists	PFリスト
 pg-commander	PostgreSQLクライアント
+pgadmin3	PostgreSQL の管理および開発プラットフォーム
 pgadmin4	PostgreSQLの管理及び開発プラットフォーム
 phantomjs	Headlessウェブブラウザ
 phd2	望遠鏡ガイドソフトウェア
@@ -3025,6 +3033,7 @@ platypus	コマンドラインスクリプトからネイティブアプリケ�
 play	4K/1080p/360° ビデオ、MP3/AAC/APE/FLAC 音楽を品質を損なうことなく再生
 playback	ビデオプレーヤー
 playcover-community	Sideload iOSアプリとゲーム
+playcover-community@beta	iOS アプリとゲームをサイドロードする
 playdate-mirror	Playdateからゲームプレイのオーディオとビデオをストリーミングするアプリケーション
 playdate-simulator	ローカル開発用のドキュメントとシミュレータ PlaydateLua/CAPI
 playmemories-home	写真やビデオを管理及び編集するフリーウェア
@@ -3196,6 +3205,7 @@ pym-player	字幕を自動的に検索するメディアプレーヤー
 pynsource	PythonソースコードをUMLに逆エンジニアリングする
 pyzo	双方向性と内観に焦点を当てたPythonIDE
 qbittorrent	ピアツーピアBitorrentクライアント
+qbittorrent@lt20	libtorrent-rasterbar 2.0.x に基づく qBtorrent のエディション
 qblocker	誤ってアプリを終了するのを防ぎます
 qbserve	自動時間追跡
 qcad	2Dでのコンピュータ支援製図用のFreeのオープンソースアプリケーション
@@ -3207,6 +3217,7 @@ qdslrdashboard	ニコンを制御する為のアプリケーション キヤノ�
 qfinder-pro	NAS管理アプリケーション
 qflipper	Flipper Zeroデバイス用のコンパニオンアプリ
 qgis	地理情報システム
+qgis@ltr	地理情報システム
 qgroundcontrol	ドローン用地上管制局
 qingg	五筆字型入力方式
 qlab	サウンド ビデオと照明の制御
@@ -3340,6 +3351,7 @@ redquits	最後のウィンドウを閉じるときにアプリを終了する
 redream	ドリームキャストエミュレータ
 reflect	会議用メモアプリ アイデア/ジャーナリング/研究
 reflector	ワイヤレス画面ミラーリングアプリケーション
+reflector@2	ワイヤレス画面ミラーリング アプリケーション
 reflex	音楽(iTunes)及びSpotify用のメディアキーフォワーダー
 regexhibit	Perl正規表現アシスタント
 reikey	キーボードタップを監視します スキャン/検出
@@ -3650,6 +3662,7 @@ sleek	todo.txtに基づくTodoアプリ
 sleipnir	ウェブブラウザ
 slic3r	3Dプリントツールボックス
 slicer	医用画像処理及び視覚化システム
+slicer@preview	医用画像処理・可視化システム
 slidepilot	PDFプレゼンテーションツール
 slik	アプリとウェブアプリのランチャー
 slimbatterymonitor	SlimBatteryMonitor
@@ -3663,6 +3676,7 @@ smartreporter-free	ドライブ障害監視ツール
 smartsvn	Subversionクライアント
 smartsynchronize	ファイルとディレクトリの比較ツール
 smcfancontrol	内蔵ファンの最低速度を設定します
+smcfancontrol@beta	内蔵ファンの最低速度を設定します。
 smlnj	Standard ML'97プログラミング言語用のコンパイラ
 smoothscroll	スムーズなマウススクロールユーティリティ
 smooze	スクロールホイールマウスを再発見する
@@ -3694,6 +3708,7 @@ solar2d	Luaベースのゲームエンジン
 solvespace	パラメトリック 2d/3d CAD
 sonarr	Usenet及びBitTorrentユーザー向けのPVR
 sonarr-menu	Sonarrを管理する為のメニューをステータスバーに追加するユーティリティ
+sonarr@beta	Usenet および BitTorrent ユーザー向けの PVR
 songkong	自動オーディオタグエディター
 sonic-lineup	比較の為の複数のオーディオファイルの迅速な視覚化
 sonic-pi	コードベースの音楽作成及びパフォーマンスツール
@@ -4125,6 +4140,7 @@ transcribe	録音された音楽を書き写す
 transfer	独立型 TFTP/FTP/SFTPサーバー
 transmission	オープンソースのBitTorrentクライアント
 transmission-remote-gui	伝送リモートGUI
+transmission@nightly	オープンソースの BitTorrent クライアント
 transmit	ファイル転送アプリケーション
 transnomino	バッチ名前変更ユーティリティ
 transocks	さまざまなビデオ音楽リソースへのアクセスを最適化するツール
@@ -4326,6 +4342,7 @@ vk-messenger	メッセンジャーアプリ
 vlc	マルチメディアプレーヤー
 vlc-setup	VLCRemoteのVLCを設定する
 vlc-webplugin	Webブラウザープラグイン
+vlc@nightly	オープンソースのクロスプラットフォーム マルチメディア プレーヤー
 vlcstreamer	VLCを使用してモバイルデバイスにビデオをストリーミングする
 vmpk	仮想MIDIピアノキーボード
 vmware-fusion	仮想マシンを実行します 作成/管理
@@ -4351,6 +4368,7 @@ vpn-enabler	VPNイネーブラー
 vpn-tracker-365	VPNクライアント：IPsec、L2TP、OpenVPN、PPTP、SSTP、SonicWALL/AnyConnect/Fortinet SSL
 vrew	動画編集
 vscodium	MS ブランディング/テレメトリ/ライセンス なしのVSCodeのバイナリリリース
+vscodium@insiders	コードエディタ
 vsd-viewer	Visio図面の.VSD、.VDX、.VSDX ファイル形式をプレビューする
 vsdx-annotator	プレビュー Visioの図面を編集/変換する
 vsee	グループビデオ通話 画面共有/インスタントメッセージング
@@ -4420,6 +4438,7 @@ whatsyoursign	ファイルの暗号署名情報を表示します
 whichspace	アクティブスペースメニューバーアイコン
 whisky	SwiftUIで構築されたWineラッパー
 whoozle-android-file-transfer	Linux用のAndroidファイル転送
+whoozle-android-file-transfer@nightly	Linux 向け Android ファイル転送
 widelands	Settlers IIの様なFreeのリアルタイム戦略ゲーム
 wifi-explorer	ワイヤレスネットワークのトラブルシューティング スキャン/画面
 wifi-explorer-pro	ワイヤレスネットワークのトラブルシューティング スキャン/画面
@@ -4430,6 +4449,8 @@ windows95	Electron Windows 95
 windscribe	安全なインターネットアクセスとプライベートブラウジングの為のVPNクライアント
 windterm	SSH/SFTP/Shell/Telnet/Serial ターミナル
 wine-stable	Windowsアプリケーションを実行する為の互換性レイヤー
+wine@devel	Windows アプリケーションを実行するための互換レイヤー
+wine@staging	Windows アプリケーションを実行するための互換レイヤー
 wing-personal	学生や愛好家の為に設計されたFreeのPython IDE
 wings3d	高度な分割モデラー
 wintertime	バッテリーを節約する為にバックグラウンドで実行されているアプリをフリーズするユーティリティ
