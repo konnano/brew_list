@@ -1460,6 +1460,7 @@ my( $list,$file,$in,$re ) = @_;
 
 sub Tap_1{ no warnings 'regexp';
 my( $list,$re,$in ) = @_;
+ return unless $list->[$$in];
  unless( $re->{'CAS'} and defined $re->{'S_OPT'} or $re->{'MAC'} and $re->{'BL'} or $re->{'LRE'} ){
   my( $tap2 ) = $list->[$$in] =~ /^\s(.+)\n/;
    my $tap = ( $re->{'OS'}{$tap2} and $re->{'OS'}{"${tap2}_tap"} ) ? "$tap2/tap" : $tap2;
