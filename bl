@@ -1025,7 +1025,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
 }
 
 sub File_1{
-my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
+my( $re,$list ) = @_; my( $e,@tap,$file ) = 0;
   unless( $re->{'TAP'} or $re->{'FTD'} ){
    open my $BREW,'<',$re->{'TXT'} or die " File_1 $!\n";
     chomp( @{$file}=<$BREW> );
@@ -1051,14 +1051,11 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
        Prew_1( $re ) if defined $re->{'PRE'};
       next;
      }
-      if( $re->{'TAP'} ){
-       $i++ if $tap =~ /^[01]$/;
-        push @{$tap[$i]},$tap;
-      }elsif( $re->{'BL'} or defined $re->{'S_OPT'} ){
+      if( $re->{'BL'} or defined $re->{'S_OPT'} ){
        $e++ if $tap =~ /^[01]$/;
         push @{$tap[$e]},$tap;
       }else{
-        push @{$file},$tap if $re->{'FTD'};
+        push @{$file},$tap if $re->{'TAP'} or $re->{'FTD'};
       }
     }
    close $TAP;
@@ -1084,26 +1081,11 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
    }
   }
   Format_3( $file,$re ) if $re->{'DEP'};
-   $re->{'AN'} = $re->{'IN'} = $re->{'BN'} = $re->{'CN'} = $re->{'DN'} = $re->{'DI'} = 0;
-  if( $re->{'TAP'} ){ my $i = 0; my $e = 0;
-   for my $ta1( @tap ){
-    Search_1( $list,$ta1,0,$re );
-     unless( defined $re->{'L_OPT'} ){
-      $i = $re->{'AN'} - $i; $e = $re->{'IN'} - $e;
-       $re->{'ALL'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
-     }elsif( not $re->{'KEN'} ){
-      $i = $re->{'BN'} - $i; $e = $re->{'CN'} - $e;
-       $re->{'EXC'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
-     }else{
-      $i = $re->{'DN'} - $i; $e = $re->{'DI'} - $e;
-       $re->{'KXC'} .= "$re->{'SPA'} item $i : install $e\n" if $i;
-     }
-   }
-  }elsif( ( $re->{'CAS'} or -f $re->{'LFO'} ) and defined $re->{'S_OPT'} or $re->{'BL'} ){
-   for my $ta2( @tap ){ Search_1( $list,$ta2,0,$re ) }
-  }else{
-   Search_1( $list,$file,0,$re );
-  }
+ if( ( $re->{'CAS'} or -f $re->{'LFO'} ) and defined $re->{'S_OPT'} or $re->{'BL'} ){
+  for my $ta2( @tap ){ Search_1( $list,$ta2,0,$re ) }
+ }else{
+  Search_1( $list,$file,0,$re );
+ }
 }
 
 sub Unic_1{
@@ -1473,7 +1455,6 @@ my( $list,$file,$in,$re ) = @_;
    }
   $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n";
  }
-#=cut
 }
 
 sub Tap_1{ no warnings 'regexp';
@@ -1643,14 +1624,11 @@ sub Format_1{
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
   waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
   $re->{'ZEN'} = $re->{'ALL'} || $re->{'EXC'} || $re->{'KXC'} || 0;
-  if( $re->{'TAP'} and not $re->{'LINK'} ){
-    $re->{'ZEN'} = $re->{'ZEN'} =~ /^\s{10}==>.*\n$|^\s{10}==>.*\n\s{10}==>.*\n$/ ? 0 :
-    $re->{'ZEN'} =~ /^(\s{10}==>.*\n[^=]+)\s{10}==>.*\n$/ ? $1 :
-    $re->{'ZEN'} =~ /^\s{10}==>.*\n(\s{10}==>.*\n[^=]+)$/ ? $1 : $re->{'ZEN'} if $re->{'EXC'} or $re->{'KXC'};
-  }
+   if( $re->{'TAP'} and not $re->{'LINK'} ){
+    $re->{'ZEN'} = $re->{'ZEN'} =~ /^\s{10}==>.*\n$/ ? 0 : $re->{'ZEN'} if $re->{'EXC'} or $re->{'KXC'};
+   }
     $re->{'ZEN'} =~ s/[^\n]+item \d.+item \d\K|[^\n]+item \d[^\n]*\n//s
      if $re->{'TAP'} or $re->{'PRINT'} and ( $re->{'CAS'} or $re->{'LIN'} );
-     $re->{'ZEN'} = 0 if $re->{'KEN'} and $re->{'DN'} == 0;
   if( $re->{'ZEN'} ){
      print"\033[?7l" if -t STDOUT;
     ( $re->{'LINK'} > 5 and $re->{'FOR'} ) ? print" ==> Formula\n" :
