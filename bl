@@ -1081,6 +1081,7 @@ my( $re,$list ) = @_; my( $e,@tap,$file ) = 0;
    }
   }
   Format_3( $file,$re ) if $re->{'DEP'};
+   $re->{'AN'} = $re->{'IN'} = $re->{'BN'} = $re->{'CN'} = $re->{'DN'} = $re->{'DI'} = 0;
  if( ( $re->{'CAS'} or -f $re->{'LFO'} ) and defined $re->{'S_OPT'} or $re->{'BL'} ){
   for my $ta2( @tap ){ Search_1( $list,$ta2,0,$re ) }
  }else{
