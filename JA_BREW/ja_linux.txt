@@ -1604,6 +1604,7 @@ font-overlock-sc	Overlock SC
 font-overpass	Overpass
 font-overpass-mono	Overpass Mono
 font-overpass-nerd-font	開発者向けのグリフ数が多いフォント
+font-overused-grotesk	クラシックなneo-groteskスイスデザインに影響を受けた可変ans serif書体
 font-ovo	Ovo
 font-oxanium	Oxanium
 font-oxygen	Oxygen
@@ -2045,6 +2046,7 @@ font-times-newer-roman	見た目は Times New Romanに似ていますが、文�
 font-timmana	Timmana
 font-tinos	Tinos
 font-tinos-nerd-font	開発者向けのグリフ数が多いフォント
+font-tiny5	Tiny5
 font-tiro-bangla	伝統的な文芸出版に適しています
 font-tiro-devanagari-hindi	より幅広いプロポーション、寛大なカウンター、そして強力な斜めのストローク
 font-tiro-devanagari-marathi	より幅広いプロポーション、寛大なカウンター、そして強力な斜めのストローク
