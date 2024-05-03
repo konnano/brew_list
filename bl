@@ -2044,7 +2044,7 @@ perl<<"EOF"
     $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions";
      $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts";
 
-    @tap = (['cask-fonts','file1','FDIR','i1'],['cask-versions','file2','VERS','i2']);
+    @tap = (['cask-fonts','file1','FDIR','i1']);#,['cask-versions','file2','VERS','i2']);
    for $tap( @tap ){
     opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-$tap->[0]-master/Casks" or die " TAP DIR $!\n";
      for $hand( readdir $dir ){ next if index($hand,'.') == 0;
