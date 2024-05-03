@@ -236,7 +236,7 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
  }
   if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} and not $re->{'COL'} ){
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
-    DB_2( $re ) unless $re->{'BL'} or $re->{'COM'} or defined $re->{'S_OPT'} and not $re->{'S_O'};
+    DB_2( $re ) unless $re->{'MAC'} and ( $re->{'BL'} or $re->{'COM'} or defined $re->{'S_OPT'} and not $re->{'S_O'} );
   }
   if( $re->{'INF'} and not $re->{'COL'} or
       $re->{'USE'} or $re->{'dep_s'} or $re->{'ana'} or $re->{'use'} or $re->{'BUI'} ){
@@ -1058,7 +1058,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
        $e++ if $tap =~ /^[01]$/;
         push @{$tap[$e]},$tap;
       }else{
-        push @{$file},$tap unless $re->{'LIN'} and not $re->{'FTD'};
+        push @{$file},$tap if $re->{'FTD'};
       }
     }
    close $TAP;
@@ -1352,7 +1352,7 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'LINK'} == 8 and $re->{'OS'}{"${brew_1}font"} or
       $re->{'LINK'} == 9 and $re->{'OS'}{"${brew_1}un_cask"} ){
 
-    if( not( $re->{'FTD'} or defined $re->{'S_OPT'} ) and $re->{'OS'}{"${brew_1}lfont"} ){ next;
+    if( not( $re->{'FTD'} or defined $re->{'S_OPT'} or $re->{'BL'} ) and $re->{'OS'}{"${brew_1}lfont"} ){ next;
     }elsif( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
@@ -1918,7 +1918,7 @@ __END__
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
 [[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}; CO=$3
 
-math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{master*,*.html,DBM*} || rm -f ~/.BREW_LIST/{master*,*.html}
+math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
                        rm -rf ~/.BREW_LIST/{homebrew*,{0..19},WAIT$CO,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
@@ -1965,50 +1965,41 @@ if [[ $2 ]];then
    curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
     { math_rm; ${die:?curl 2 error}; }
      rmdir ~/.BREW_LIST/0
-   curl -skLo ~/.BREW_LIST/master1.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
+   curl -skLo ~/.BREW_LIST/master.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
     { math_rm; ${die:?curl 3 error}; }
-     rmdir ~/.BREW_LIST/1
-   curl -skLo ~/.BREW_LIST/master2.zip https://github.com/Homebrew/homebrew-cask-versions/archive/master.zip ||\
-    { math_rm; ${die:?curl 4 error}; }
-   zip -jq ~/.BREW_LIST/keepme.zip ~/.BREW_LIST/master1.zip ~/.BREW_LIST/master2.zip ||\
-    { rm -f keepme.zip; math_rm; ${die:?zip error}; }
-     rmdir ~/.BREW_LIST/2
    curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
     { math_rm; ${die:?curl 5 error}; }
+     rmdir ~/.BREW_LIST/1
    curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
     { math_rm; ${die:?curl 6 error}; }
-     rmdir ~/.BREW_LIST/3
    curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
     { math_rm; ${die:?curl 7 error}; }
+     rmdir ~/.BREW_LIST/2
    curl -sko ~/.BREW_LIST/cna1.html https://formulae.brew.sh/analytics/cask-install/30d/index.html ||\
     { math_rm; ${die:?curl 8 error}; }
-     rmdir ~/.BREW_LIST/4
    curl -sko ~/.BREW_LIST/cna2.html https://formulae.brew.sh/analytics/cask-install/90d/index.html ||\
     { math_rm; ${die:?curl 9 error}; }
+     rmdir ~/.BREW_LIST/3
    curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
     { math_rm; ${die:?curl a error}; }
-     rmdir ~/.BREW_LIST/5
    curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
     { math_rm; ${die:?curl b error}; }
+     rmdir ~/.BREW_LIST/4
    curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
     { math_rm; ${die:?curl c error}; }
    curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
     { math_rm; ${die:?curl d error}; }
-     rmdir ~/.BREW_LIST/6
+     rmdir ~/.BREW_LIST/5
    curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
     { math_rm; ${die:?curl e error}; }
    curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
     { math_rm; ${die:?curl f error}; }
+     rmdir ~/.BREW_LIST/6
    curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
     { math_rm; ${die:?curl g error}; }
      rmdir ~/.BREW_LIST/7
   fi
-
-  if [[ $2 = 2 ]];then
-   unzip -jq ~/.BREW_LIST/keepme.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip error}; }
-  fi
-   unzip -q ~/.BREW_LIST/master1.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
-   unzip -q ~/.BREW_LIST/master2.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 2 error}; }
+   unzip -q ~/.BREW_LIST/master.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
@@ -2021,7 +2012,7 @@ perl<<"EOF"
        if( $FDIR ){
         push @file1,"$hand\n";
        }else{ $i1 = 1;
-        push @file1,"homebrew/$tap->[0]/$hand\n";
+        push @file1,"homebrew/cask-fonts/$hand\n";
        }
      }
     closedir $dir;
@@ -2092,32 +2083,32 @@ EOF
   fi
  else
   if [[ $2 = 1 ]];then
- curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
-   { math_rm; ${die:?curl h error}; }
- curl -skLo ~/.BREW_LIST/font.zip https://github.com/Homebrew/homebrew-linux-fonts/archive/master.zip ||\
-   { math_rm; ${die:?curl i error}; }
- curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
-   { math_rm; ${die:?curl j error}; }
- curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
-   { math_rm; ${die:?curl k error}; }
- curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
-   { math_rm; ${die:?curl l error}; }
- curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
-   { math_rm; ${die:?curl m error}; }
- curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
-   { math_rm; ${die:?curl n error}; }
- curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
-   { math_rm; ${die:?curl o error}; }
- curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
-   { math_rm; ${die:?curl p error}; }
- curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
-   { math_rm; ${die:?curl q error}; }
- curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
-   { math_rm; ${die:?curl r error}; }
+   curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
+    { math_rm; ${die:?curl h error}; }
+   curl -skLo ~/.BREW_LIST/font.zip https://github.com/Homebrew/homebrew-linux-fonts/archive/master.zip ||\
+     { math_rm; ${die:?curl i error}; }
+   curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
+     { math_rm; ${die:?curl j error}; }
+   curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
+     { math_rm; ${die:?curl k error}; }
+   curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
+     { math_rm; ${die:?curl l error}; }
+   curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
+     { math_rm; ${die:?curl m error}; }
+   curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
+     { math_rm; ${die:?curl n error}; }
+   curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
+     { math_rm; ${die:?curl o error}; }
+   curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
+     { math_rm; ${die:?curl p error}; }
+   curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
+     { math_rm; ${die:?curl q error}; }
+   curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
+     { math_rm; ${die:?curl r error}; }
   fi
- unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
- export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
-  [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
+   unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
+   export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
+    [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
     $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula";
