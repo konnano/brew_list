@@ -639,6 +639,7 @@ cadubi	クリエイティブASCII描画ユーティリティ
 caf	C++アクターモデルの実装
 cafeobj	新世代の代数的仕様とプログラミング言語
 caffe	ディープラーニングの為の高速オープンフレームワーク
+cahute	カシオ計算機と対話する為のライブラリとユーティリティのセット
 caire	コンテンツ対応画像サイズ変更ツール
 cairo	クロスデバイス出力をサポートするベクターグラフィックライブラリ
 cairomm	クロスデバイス出力をサポートするベクターグラフィックライブラリ
@@ -1672,6 +1673,7 @@ fantom	オブジェクト指向のポータブルプログラミング言語
 fanyi	コマンドラインの北京語と英語の翻訳ツール
 fargatecli	AWSファーゲートのCLI
 fasd	ファイルとディレクトリにすばやくアクセスする為のCLIツール
+fastapi	FastAPIフレームワーク用のCLI
 fastbit	NoSQL精神のオープンソースデータ処理ライブラリ
 fastd	高速で安全なトンネリングデーモン
 fastfec	Cで書かれた非常に高速なFECファイリングパーサー
@@ -6111,6 +6113,7 @@ tart	CIやその他の自動化で使用するApple Silicon上のmacOS/Linux VM
 tartufo	gitリポジトリを介して高エントロピー文字列とシークレットを検索します
 task	機能豊富なコンソールベースのtodoリストマネージャー
 task-spooler	タスクを次々に実行するバッチシステム
+task@2	機能豊富なコンソールベースのToDoリストマネージャー
 taskd	ToDoリストのクライアントサーバー同期
 taskell	TrelloをサポートするコマンドラインKanbanボード/タスクマネージャー
 taskopen	taskwarriorでメモを取ってURLを開くためのツール
@@ -6291,6 +6294,7 @@ toast	コンテナでタスクを実行する為のツール
 todo-txt	最低限のtodo.txtに焦点を当てたエディター
 todoman	シンプルなCalDAVベースのtodoマネージャー
 tofrodos	DOS <-> UNIXテキストファイルを変換します alias tofromdos
+tofuenv	tfenvから影響を受けたOpenTofuバージョンマネージャー
 toilet	figletのカラーベースの代替品(libcacaを使用)
 tokei	コードをすばやくカウントできるプログラム
 tokyo-cabinet	軽量データベースライブラリ
@@ -6327,6 +6331,7 @@ tracy	リアルタイム ナノ秒解像度のフレームプロファイラー
 tradcpp	K＆RスタイルのCプリプロセッサ
 trader	スタートレーダー
 traefik	最新の逆プロキシ
+traefik@2	最新のリバースプロキシ
 trafficserver	HTTP/1.1準拠のCachingプロキシサーバー
 trafilatura	Webテキスト 検出/抽出/処理
 trafshow	継続的なネットワーク転送量の表示
