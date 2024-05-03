@@ -98,8 +98,8 @@ if [[ $2 ]];then
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions";
-     $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts";
+    $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions/Casks";
+     $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
 
     @tap = (['cask-fonts','file1','FDIR','i1']);#,['cask-versions','file2','VERS','i2']);
    for $tap( @tap ){
