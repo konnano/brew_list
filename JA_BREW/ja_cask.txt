@@ -2208,6 +2208,7 @@ macdroid	Androidデバイスに接続します
 macdropany	ローカルフォルダをクラウドと同期します
 macforge	プラグイン インジェクションを含むプラグイン、アプリ/テーマ ストア
 macfuse	ファイルシステム統合
+macfuse@dev	ファイルシステム統合
 macgamestore	ゲームを購入/ダウンロード/ゲームプレイ
 macgdbp	実行中のPHPアプリケーションのライブで双方向なデバッグ
 macgesture	グローバルなマウスジェスチャーを設定するユーティリティ
@@ -2751,6 +2752,7 @@ old-school-runescape	Old School RuneScapeのゲームクライアント
 olive	Non-linearビデオエディター
 ollama	大規模な言語モデルをローカルで立ち上げて実行する
 ollamac	Ollamaモデルと対話する
+olympus	Everest(ビデオゲームCeleste用Modローダー) インストーラー/マネージャー
 omegat	翻訳メモリ ツール
 omegat@latest	翻訳メモリツール
 omnidazzle	画面とマウスポインタの領域を強調表示するプラグインのセット
@@ -2922,6 +2924,7 @@ parallels-virtualization-sdk	デスクトップ仮想化開発キット
 parallels@12	デスクトップ仮想化ソフトウェア
 parallels@13	デスクトップ仮想化ソフトウェア
 parallels@14	デスクトップ仮想化ソフトウェア
+parallels@15	デスクトップ仮想化ソフトウェア
 parallels@16	デスクトップ仮想化ソフトウェア
 parallels@17	デスクトップ仮想化ソフトウェア
 parallels@18	デスクトップ仮想化ソフトウェア
@@ -3445,6 +3448,7 @@ royal-tsx@beta	リモート管理ソリューション
 rpn-scientific	RPN関数電卓
 rq	レコード分析/変換ツール
 rstudio	RとPythonに焦点を当てたデータサイエンスソフトウェア
+rstudio@daily	RとPythonに焦点を当てたデータサイエンスソフトウェア
 rsyncosx	rsyncのGUI
 rsyncui	rsyncのGUI
 rubymine	Ruby on Rails IDE
@@ -3532,6 +3536,9 @@ sejda-pdf	PDFエディター
 sekey	SSH認証にTouch ID又はSecure Enclaveを使用する
 selfcontrol	気が散るWebサイトへの自分のアクセスをブロックする
 semeru-jdk-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
+semeru-jdk-open@11	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
+semeru-jdk-open@17	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
+semeru-jdk-open@8	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semulov	メニューバーからマウントされたボリュームとマウントされていないボリュームにアクセスします
 senabluetoothdevicemanager	SENAデバイスのマネージャー
 sencha	Sencha Ext JSの生産性とパフォーマンスの最適化ツール
