@@ -78,8 +78,8 @@ MAIN:{
     die " Use Tiger Brew\n" unless $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
      $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
   } $ref->{'CEL'} = "$MY_BREW/Caskroom";
-     $ref->{'VERS'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-versions";
-      $ref->{'FDIR'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-fonts";
+     $ref->{'VERS'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-versions/Casks";
+      $ref->{'FDIR'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die "\techo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)
@@ -146,8 +146,8 @@ MAIN:{
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
    }
   }
-   unless( not $ref->{'TAP'} or $ref->{'FDIR'} or $ref->{'VERS'} ){
-    print " not exists cask tap\n homebrew/cask-fonts\n homebrew/cask-versions\n";
+   unless( not $ref->{'TAP'} or $ref->{'FDIR'} ){
+    print " not exists cask tap\n homebrew/cask-fonts\n";
      File_1( $ref );
    }elsif( $re->{'FTD'} and not $re->{'LFOD'} ){
     print " not exists font tap\n homebrew/linux-fonts\n";
@@ -1040,9 +1040,9 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
    open my $TAP,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$TAP>){  chomp $tap;
      if( $tap =~ /^[3-6]$/ ){
-       if( $re->{'MAC'} and ( $re->{'FDIR'} and $re->{'VERS'} and $tap != 6 or
-                              $re->{'FDIR'} and not $re->{'VERS'} and $tap != 5 or
-                              $re->{'VERS'} and not $re->{'FDIR'} and $tap != 4 or
+       if( $re->{'MAC'} and (# $re->{'FDIR'} and $re->{'VERS'} and $tap != 6 or
+                             # $re->{'FDIR'} and not $re->{'VERS'} and $tap != 5 or
+                             # $re->{'VERS'} and not $re->{'FDIR'} and $tap != 4 or
                               not( $re->{'VERS'} or $re->{'FDIR'} ) and $tap != 3 ) or
            $re->{'LIN'} and ( not $re->{'LFOD'} and $tap != 3 or $re->{'LFOD'} and $tap != 4 ) ){
             die " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
@@ -2041,8 +2041,8 @@ if [[ $2 ]];then
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions";
-     $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts";
+    $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions/Casks";
+     $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
 
     @tap = (['cask-fonts','file1','FDIR','i1']);#,['cask-versions','file2','VERS','i2']);
    for $tap( @tap ){
