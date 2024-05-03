@@ -98,28 +98,22 @@ if [[ $2 ]];then
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions/Casks";
-     $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
+    $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
 
-    @tap = (['cask-fonts','file1','FDIR','i1']);#,['cask-versions','file2','VERS','i2']);
-   for $tap( @tap ){
-    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-$tap->[0]-master/Casks" or die " TAP DIR $!\n";
+    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " TAP DIR $!\n";
      for $hand( readdir $dir ){ next if index($hand,'.') == 0;
       $hand =~ s/(.+)\.rb$/$1/;
-       if( ${$tap->[2]} ){
-        push @{$tap->[1]},"$hand\n";
-       }else{ ${$tap->[3]} = 1;
-        push @{$tap->[1]},"homebrew/$tap->[0]/$hand\n";
+       if( $FDIR ){
+        push @file1,"$hand\n";
+       }else{ $i1 = 1;
+        push @file1,"homebrew/$tap->[0]/$hand\n";
        }
      }
     closedir $dir;
-    @{$tap->[1]} = sort @{$tap->[1]};
-   }
+    @file1 = sort @file1;
 
-   ( $i1 and $i2 ) ? push @file,"3\n",@file1,@file2 :
-    $i1 ? push @file,"4\n1\n",@file2,@file1 :
-    $i2 ? push @file,"5\n0\n",@file1,@file2 :
-          push @file,"6\n0\n",@file1,"1\n",@file2;
+    $i1 ? push @file,"3\n1\n",@file1 :
+          push @file,"4\n0\n",@file1 ;
 
    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
     print $FILE1 @file;
@@ -211,7 +205,7 @@ EOF
   [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
+    $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula";
 
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " LINUX DIR $!\n";
     for $hand1( readdir $dir1 ){ next if index($hand1,'.') == 0;
