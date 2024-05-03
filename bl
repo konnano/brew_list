@@ -5,11 +5,11 @@ my( $MY_BREW,$OS_Version,$Locale,%JA ) = Path_1() || die " brew path not found\n
 
 MAIN:{
  my $home = "$ENV{'HOME'}/.BREW_LIST";
- my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],'LEN4'=>1,
+ my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],'LEN2'=>1,
              'HOME'=>$home,'TXT'=>"$home/brew.txt",'CAN'=>"$home/ana.txt",
                                         'SPA'=>' 'x9,'LFO'=>"$home/font.zip" };
 
- my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'LEN2'=>1,'LEN3'=>1,'LEN4'=>1,
+ my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'LEN2'=>1,
              'HOME'=>$home,'TXT'=>"$home/cask.txt",'CAN'=>"$home/cna.txt",
              'Q_TAP'=>"$home/Q_TAP.txt",'SPA'=>' 'x9,'LFO'=>"$home/font.zip" };
 
@@ -70,7 +70,7 @@ MAIN:{
    $re->{'TAP_S'} = "$repo/Library/Taps";
  if( $re->{'LIN'} ){
   $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm' unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'};
-   $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts";
+   $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts/Formula";
     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
  }else{
   unless( $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} ){
@@ -78,8 +78,7 @@ MAIN:{
     die " Use Tiger Brew\n" unless $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
      $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
   } $ref->{'CEL'} = "$MY_BREW/Caskroom";
-     $ref->{'VERS'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-versions/Casks";
-      $ref->{'FDIR'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
+     $ref->{'FDIR'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
    die "\techo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/\$(echo .\${SHELL##*/}rc)
@@ -755,15 +754,12 @@ my( $re,$list ) = @_; my( $top,@font,@ver );
      Tap_2( $re,\$bui ) if $re->{'FOR'};
       $ls .= " : $bui" if $re->{'HASH'}{$build};
     }
-   if( $re->{'OS'}{"${ls}m_ver"} ){ push @ver,$ls;
-   }elsif( $re->{'OS'}{"${ls}lfont"} or $re->{'OS'}{"${ls}mfont"} ){ push @font,$ls;
+   if( $re->{'OS'}{"${ls}lfont"} or $re->{'OS'}{"${ls}mfont"} ){ push @font,$ls;
    }else{ $ls =~ s/^([^:]+)\s:\s(.+)/$1 [build] => $2\n/ ? $top .= $ls : Mine_1( $ls,$re,0 );
    }
   }
  } $re->{'MAC'} ? Mine_1( ' ==> homebrew/cask-fonts',$re,0 ) : Mine_1( ' ==> homebrew/linux-fonts',$re,0 ) if @font;
     Mine_1( $_,$re,0 ) for( @font );
-   Mine_1( ' ==> homebrew/cask-versions',$re,0 ) if @ver;
-    Mine_1( $_,$re,0 ) for( @ver );
   waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
  print "$top" if $top;
 }
@@ -1039,11 +1035,9 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   if( $re->{'CAS'} and -f $re->{'Q_TAP'} or -f $re->{'LFO'} ){
    open my $TAP,'<',$re->{'Q_TAP'} or die " File_1 $!\n";
     while(my $tap=<$TAP>){  chomp $tap;
-     if( $tap =~ /^[3-6]$/ ){
-       if( $re->{'MAC'} and (# $re->{'FDIR'} and $re->{'VERS'} and $tap != 6 or
-                             # $re->{'FDIR'} and not $re->{'VERS'} and $tap != 5 or
-                             # $re->{'VERS'} and not $re->{'FDIR'} and $tap != 4 or
-                              not( $re->{'VERS'} or $re->{'FDIR'} ) and $tap != 3 ) or
+     if( $tap =~ /^[34]$/ ){
+       if( $re->{'MAC'} and ( $re->{'FDIR'} and $tap != 4 or
+                              not $re->{'FDIR'} and $tap != 3 ) or
            $re->{'LIN'} and ( not $re->{'LFOD'} and $tap != 3 or $re->{'LFOD'} and $tap != 4 ) ){
             die " exist \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
              $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
@@ -1074,7 +1068,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
   if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
    my @brew = $re->{'DEP'} ? ('brew','cask','tap') :
             ( $re->{'LFOD'} and $re->{'PRINT'} ) ? ('brew','linux') : $re->{'FTD'} ? ('linux') :
-            ( $re->{'CAS'} and not $re->{'TAP'} and ( $re->{'FDIR'} or $re->{'VERS'} ) and $re->{'PRINT'} ) ?
+            ( $re->{'CAS'} and not $re->{'TAP'} and $re->{'FDIR'} and $re->{'PRINT'} ) ?
               ('cask','tap') : $re->{'FOR'} ? ('brew') : ( $re->{'CAS'} and not $re->{'TAP'} ) ? ('cask') :
             ( ( $re->{'FDIR'} or $re->{'VERS'} ) and $re->{'TAP'} ) ? ('tap') : ();
     no warnings 'closed'; my $JA;
@@ -1114,7 +1108,7 @@ my( $re,$list ) = @_; my( $i,$e,@tap,$file ) = ( -1,0 );
 
 sub Unic_1{
 my( $re,$brew,$spa,$AN,$build ) = @_;
-print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN4'}++;
+print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN1'}++;
  my $name = $$brew;
   $$brew =  $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
  $name = ( -t STDOUT and $re->{'OS'}{"$name$OS_Version"} ) ? "$name \033[33m(require)\033[0m 'Bottle'" :
@@ -1236,16 +1230,12 @@ my( $name,$re,$ls ) = @_;
     ( $re->{'BR'} ) = $name =~ m|^ ==>.+/(.+)|; return;
  }
  if( index($name,'homebrew/linux-fonts/') == 0 ){
-   $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
- }elsif( index($name,'homebrew/cask-versions/') == 0 ){
-   $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
+   $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
  }elsif( index($name,'homebrew/cask-fonts/') == 0 ){
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
  }else{
   if( $re->{'BR'} and $re->{'BR'} eq 'linux-fonts' ){
-   $re->{'LEN4'} = $re->{'LEN'}{$name} if $re->{'LEN4'} < $re->{'LEN'}{$name};
-  }elsif( $re->{'BR'} and $re->{'BR'} eq 'cask-versions' ){
-   $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
+   $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
   }elsif( $re->{'BR'} and $re->{'BR'} eq 'cask-fonts' ){
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
   }else{
@@ -1334,8 +1324,7 @@ my( $list,$file,$in,$re ) = @_;
     my $mem = ( defined $re->{'L_OPT'} and $brew_1 =~ /$re->{'L_OPT'}|^[01]$/o ) ? 1 : 0;
 
   $brew_1 = ( $re->{'MAC'} and $brew_1 eq '0' ) ? ' ==> homebrew/cask-fonts' :
-            ( $re->{'LIN'} and $brew_1 eq '0' ) ? ' ==> homebrew/linux-fonts' :
-              $brew_1 eq '1' ? ' ==> homebrew/cask-versions' : $brew_1;
+            ( $re->{'LIN'} and $brew_1 eq '0' ) ? ' ==> homebrew/linux-fonts' : $brew_1 ;
   if( ( $re->{'BL'} or defined $re->{'S_OPT'} ) and index($brew_1,' ') == 0 ){
     Mine_1( $brew_1,$re,0 );
      $re->{'LRE'}++ if $re->{'LIN'};
@@ -1468,27 +1457,23 @@ my( $list,$file,$in,$re ) = @_;
  }
  if( $list->[$in] ){ Tap_1( $list,$re,\$in ) while($list->[$in]) }
 
- if( $re->{'PRINT'} and ( $re->{'CAS'} or $re->{'LIN'} ) ){ my( @tap,$i,$e ) = ( [],[] );
+ if( $re->{'PRINT'} and ( $re->{'CAS'} or $re->{'LIN'} ) ){ my( @tap,$i,$e );
   for my $arr( @{$re->{'ARY'}} ){
-    if( $re->{'MAC'} ){ push @{$tap[1]},$arr if $arr =~ s/^homebrew-cask-versions\n(.+)/$1/;
-                        push @{$tap[0]},$arr if $arr =~ s/^homebrew-cask-fonts\n(.+)/$1/;
-                      }else{ push @{$tap[0]},$arr if $arr =~ s/^homebrew-linux-fonts\n(.+)/$1/ }
-  } return unless @{$tap[0]} or @{$tap[1]};
+    if( $re->{'MAC'} ){ push @tap,$arr if $arr =~ s/^homebrew-cask-fonts\n(.+)/$1/;
+                      }else{ push @tap,$arr if $arr =~ s/^homebrew-linux-fonts\n(.+)/$1/ }
+  } return unless @tap;
    $re->{'ALL'} .= "$re->{'SPA'} in_item $re->{'IN'}\n" if $re->{'ALL'};
-  for my $tap( @tap ){ $i += @{$tap} ? 1 : 2;
-   for my $ta1( @{$tap} ){
-    if( $i == 1 ){ $i++;
+   for my $ta1( @tap ){
+    unless( $i ){ $i++;
       $re->{'ALL'} .= $re->{'MAC'} ? "$re->{'SPA'} ==> homebrew/cask-fonts\n" :
                                      "$re->{'SPA'} ==> homebrew/linux-fonts\n";
-    }elsif( $i == 3 ){ $i++;
-      $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n" if $e; $e = 0;
-      $re->{'ALL'} .= "$re->{'SPA'} ==> homebrew/cask-versions\n";
     } $e++;
      $re->{'ALL'} .= $ta1;
     $re->{'AN'}++; $re->{'IN'}++;
    }
-  } $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n";
+  $re->{'ALL'} .= "$re->{'SPA'} in_item $e\n";
  }
+#=cut
 }
 
 sub Tap_1{ no warnings 'regexp';
@@ -1709,18 +1694,10 @@ sub Format_1{
          if( index($re->{'ARR'}[$e],' ') == 0 ){
           print"$re->{'ARR'}[$e]\n" if index($re->{'ARR'}[$e + 1],'homebrew/') != 0; next;
          }else{ print" ==> brew tap : homebrew/cask-fonts\n"; }
-        }elsif( not $sl and index($re->{'ARR'}[$e],'homebrew/cask-versions') >= 0 ){
-         next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
-          print"\n" if $ze;
-           $leng = $re->{'LEN3'};
-            $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $sl = 1;
-         if( index($re->{'ARR'}[$e],' ') == 0 ){
-          print"$re->{'ARR'}[$e]\n" if index($re->{'ARR'}[$e + 1],'homebrew/') != 0; next;
-         }else{ print" ==> brew tap : homebrew/cask-versions\n"; }
         }elsif( not $ss and index($re->{'ARR'}[$e],'homebrew/linux-fonts') >= 0 ){
          next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
           print"\n" if $ze;
-           $leng = $re->{'LEN4'};
+           $leng = $re->{'LEN2'};
             $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
          if( index($re->{'ARR'}[$e],' ') == 0 ){
           print"$re->{'ARR'}[$e]\n" if index($re->{'ARR'}[$e + 1],'homebrew/') != 0; next;
@@ -1851,11 +1828,6 @@ sub Format_3{
   my $line1 = $Locale ? '├──' : '|--';
   my $line2 = $Locale ? '└──' : '`--';
   for( my $m=0;$m<@{$file};$m++ ){
-   if( $$file[$m] eq 1 and index($$file[$m+1],'homebrew/') != 0 ){
-    $fo .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[0m\n" : "  == homebrew/cask-versions ==\n";
-    $ca .= -t STDOUT ? "  \033[33m== homebrew/cask-versions ==\033[0m\n" : "  == homebrew/cask-versions ==\n";
-   }  next if $$file[$m] =~ m[^[01]$|^homebrew/];
-
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
     my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
@@ -2041,28 +2013,22 @@ if [[ $2 ]];then
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $VERS = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-versions/Casks";
-     $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
+    $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
 
-    @tap = (['cask-fonts','file1','FDIR','i1']);#,['cask-versions','file2','VERS','i2']);
-   for $tap( @tap ){
-    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-$tap->[0]-master/Casks" or die " TAP DIR $!\n";
+    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " TAP DIR $!\n";
      for $hand( readdir $dir ){ next if index($hand,'.') == 0;
       $hand =~ s/(.+)\.rb$/$1/;
-       if( ${$tap->[2]} ){
-        push @{$tap->[1]},"$hand\n";
-       }else{ ${$tap->[3]} = 1;
-        push @{$tap->[1]},"homebrew/$tap->[0]/$hand\n";
+       if( $FDIR ){
+        push @file1,"$hand\n";
+       }else{ $i1 = 1;
+        push @file1,"homebrew/$tap->[0]/$hand\n";
        }
      }
     closedir $dir;
-    @{$tap->[1]} = sort @{$tap->[1]};
-   }
+    @file1 = sort @file1;
 
-   ( $i1 and $i2 ) ? push @file,"3\n",@file1,@file2 :
-    $i1 ? push @file,"4\n1\n",@file2,@file1 :
-    $i2 ? push @file,"5\n0\n",@file1,@file2 :
-          push @file,"6\n0\n",@file1,"1\n",@file2;
+    $i1 ? push @file,"3\n1\n",@file1 :
+          push @file,"4\n0\n",@file1 ;
 
    open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
     print $FILE1 @file;
@@ -2154,7 +2120,7 @@ EOF
   [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts";
+    $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula";
 
    opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " LINUX DIR $!\n";
     for $hand1( readdir $dir1 ){ next if index($hand1,'.') == 0;
@@ -2630,9 +2596,8 @@ sub Version_1{
   for my $dir2( @CASK ){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
     my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(?:[^/]+/)*(.+)\.rb$|;
-     $tap{"${name}m_ver"} = 1 if $dirs eq 'homebrew-cask-versions';
-      $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
-       $tap{"${name}cask"} = $dir2;
+     $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
+      $tap{"${name}cask"} = $dir2;
     my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW ) = ( 0,0,0,0,0,1,0,0 );
      delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
