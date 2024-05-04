@@ -449,19 +449,21 @@ sub Version_1{
   }
  }else{
   for my $dir3( @CASK ){
-   my( $name ) = $dir3 =~ m|.+/(.+)\.rb|;
+  my( $dirs,$name ) = $dir3 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
+   if( $dirs eq 'homebrew-linux-fonts' ){
     $tap{"${name}cask"} = $dir3; $tap{"${name}lfont"} = 1;
-   open my $BREW,'<',$dir3 or die " tie Info_3 $!\n";
-    while(my $data=<$BREW>){
-     if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
+    open my $BREW,'<',$dir3 or die " tie Info_3 $!\n";
+     while(my $data=<$BREW>){
+      if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}c_version"} = $data;
-     }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
+      }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}c_desc"} = $data;
-     }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
+      }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
        $tap{"${name}c_name"} = $data;
+      }
      }
-    }
-   close $BREW;
+    close $BREW;
+   }
   }
  }
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
