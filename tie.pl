@@ -43,7 +43,7 @@ my( $dir,$ls,$cask ) = @_;
  opendir my $DIR,$dir or die " DIR $!\n";
   for my $an( sort readdir $DIR ){ next if index($an,'.') == 0;
    next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$|
-                           homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found/x;
+                           homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found$/x;
     if( $ls and not $cask and $an =~ /\.rb$/ ){ local $/;
      open K,'<',"$dir/$an" or die" rb_file $!\n"; my $br = <K>; close K;
       if( $br =~ /desc\s*"/ ){ push @BREW,"$dir/$an"; return }else{ return }
