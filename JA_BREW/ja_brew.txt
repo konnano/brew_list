@@ -122,6 +122,7 @@ animdl	アニメのダウンローダーとストリーマー
 anime-downloader	お気に入りのアニメをダウンロード
 ansible	展開の自動化 構成/アップグレード
 ansible-cmdb	Ansibleファクトから静的HTML概要ページを生成します
+ansible-creator	Ansibleコンテンツをスキャフォールディングする為のCLIツール
 ansible-language-server	Ansibleファイル用の言語サーバー
 ansible-lint	実践と行動についてAnsibleプレイブックをチェックします
 ansible@7	導入/構成/アップグレード を自動化する
