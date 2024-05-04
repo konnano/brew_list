@@ -184,13 +184,13 @@ unless( $ARGV[0] ){
          next;
      }elsif( $re->{'MAC'} and my( $ds4,$ds5,$ds6 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+=>\s+\[?:build.+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
-        if( $ds5 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds5 $ds6" ){
+        if( $ds5 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $ds5 $ds6" ){
          $tap{"${ds4}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
           $tap{"${name}deps_b"} .= "$ds4\t";
         }
      }elsif( $re->{'MAC'} and my( $ds7,$ds8,$ds9 ) =
        $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
-        if( $ds8 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $ds8 $ds9" ){
+        if( $ds8 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $ds8 $ds9" ){
          $tap{"${ds7}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
           $tap{"${name}deps_b"} .= "$ds7\t";
         }
@@ -244,7 +244,7 @@ unless( $ARGV[0] ){
     }elsif( my( $cs1,$cs2,$cs3 ) =
            $data =~ /^\s*depends_on\s+macos:\s+:([^\s]*)\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and
-      $cs2 =~ /^[<=>]+$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $MAC_OS{$cs1} > $OS_Version;
+      $cs2 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $MAC_OS{$cs1} > $OS_Version;
        $tap{"${name}USE_OS"} = $cs1;
     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $MAC_OS{$data} > $OS_Version;
@@ -371,9 +371,8 @@ sub Version_1{
   for my $dir2( @CASK ){ my $ver;
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
     my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(?:[^/]+/)*(.+)\.rb$|;
-     $tap{"${name}m_ver"} = 1 if $dirs eq 'homebrew-cask-versions';
-      $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
-       $tap{"${name}cask"} = $dir2;
+     $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
+      $tap{"${name}cask"} = $dir2;
     my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW ) = ( 0,0,0,0,0,1,0,0 );
      delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
@@ -394,7 +393,7 @@ sub Version_1{
       }elsif( $data =~ /^\s*end/ and $CP1 ){ $CP1 = $CP2 = 0; next;
       }
      if( my( $ls1,$ls2 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ and not $CN ){
-       $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]+$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
+       $tap{"${name}un_cask"} = 1 unless $ls1 !~ /^[<=>]{1,2}$/ or eval "$OS_Version $ls1 $MAC_OS{$ls2}";
      }elsif( my( $arch ) = $data =~ /^\s*depends_on\s+arch:\s+:([^\s]+)/ ){
        $tap{"${name}un_cask"} = 1 if $UNAME ne $arch;
      }elsif( not $DW and $data =~ /depends_on\s+formula:\s+%w\[/ ){ $DW = 1;
@@ -432,7 +431,7 @@ sub Version_1{
      }elsif( $data !~ /^\s*end/ and $CN ){ $SPA++ if $data =~ /\s+do\s/;
       $tap{"${name}c_version"} = $data if $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/;
        if( my( $ls3,$ls4 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
-        $tap{"${name}un_cask"} = 1 unless $ls3 !~ /^[<=>]+$/ or eval"$OS_Version $ls3 $MAC_OS{$ls4}";
+        $tap{"${name}un_cask"} = 1 unless $ls3 !~ /^[<=>]{1,2}$/ or eval"$OS_Version $ls3 $MAC_OS{$ls4}";
        } next;
      }elsif( $data =~ /^\s*end/ and $SPA > 1 ){ $SPA--; next;
      }elsif( $data =~ /^\s*end/ and $CN ){ $SPA = $CN = 0; next;
