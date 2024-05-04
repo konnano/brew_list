@@ -42,12 +42,13 @@ sub Dirs_1{
 my( $dir,$ls,$cask ) = @_;
  opendir my $DIR,$dir or die " DIR $!\n";
   for my $an( sort readdir $DIR ){ next if index($an,'.') == 0;
-   next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$/;
+   next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$|
+                           homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found/x;
     if( $ls and not $cask and $an =~ /\.rb$/ ){ local $/;
      open K,'<',"$dir/$an" or die" rb_file $!\n"; my $br = <K>; close K;
       if( $br =~ /desc\s*"/ ){ push @BREW,"$dir/$an"; return }else{ return }
     }
-   ( -d "$dir/$an" ) ? Dirs_1( "$dir/$an",$ls,$cask ) : ( -l "$dir/$an" ) ? push @{$re->{'ALIA'}},"$dir/$an" :
+     -d "$dir/$an" ? Dirs_1( "$dir/$an",$ls,$cask ) : -l "$dir/$an" ? push @{$re->{'ALIA'}},"$dir/$an" :
    ( $cask and $an =~ /\.rb$/ ) ? push @CASK,"$dir/$an" : ( $an =~ /\.rb$/ ) ? push @BREW,"$dir/$an" : 0;
   }
  closedir $DIR;
@@ -368,16 +369,16 @@ sub Version_1{
  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
  my( $in,$e ) = ( @CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
  my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm';
-  for my $dir2( @CASK ){ my $ver;
+  for my $dir2( @CASK ){
+   my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW,$ver ) = ( 0,0,0,0,0,1,0,0 );
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
-    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-cask.*)/Casks/(?:[^/]+/)*(.+)\.rb$|;
+    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)+(.+)\.rb$|;
      $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
       $tap{"${name}cask"} = $dir2;
-    my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW ) = ( 0,0,0,0,0,1,0,0 );
-     delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
+       delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
-     if( $name =~ /^font-/ and $FI ){
+     if( $dirs eq 'homebrew-cask-fonts' and $FI ){
       $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
       ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
        if( $tap{"${name}font"} ){
