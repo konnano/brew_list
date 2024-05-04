@@ -4353,7 +4353,7 @@ vlc@nightly	オープンソースのクロスプラットフォーム マルチ�
 vlcstreamer	VLCを使用してモバイルデバイスにビデオをストリーミングする
 vmpk	仮想MIDIピアノキーボード
 vmware-fusion	仮想マシンを実行します 作成/管理
-vmware-fusion-tech@preview	仮想マシンの作成、管理、実行
+vmware-fusion@preview	仮想マシンを実行します 作成/管理
 vmware-horizon-client	仮想マシンクライアント
 vnc-server	リモートデスクトップサーバーアプリケーション
 vnc-viewer	セキュリティに重点を置いたリモートデスクトップアプリケーション
