@@ -2537,6 +2537,7 @@ mps	独自のドメイン固有言語を作成する
 mqtt-explorer	MQTT Explorer
 mqttfx	IoTルートテストツール
 mqttx	クロスプラットフォームのMQTT5.0デスクトップクライアント
+msty	LLMをローカルで実行する
 mtgaprotracker	高度な魔法：Gathering Arena追跡ツール
 mtmr	TouchBarカスタマイズ アプリ
 mu-editor	初心者のPythonプログラマー向けの小さくてシンプルなエディター
