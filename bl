@@ -2346,30 +2346,21 @@ unless( $ARGV[0] ){
       if( $data =~ /^\s*disable!\s+date:\s+"([^"]+)",/ and $TIME gt $1 ){
           $tap{"${name}disable"} = 1;
       }elsif( $data =~ s/^\s*depends_on\s+xcode:.+"([^"]+)",\s+:build.*\n/$1/ ){
-          $data = "0$data" if index($data,'.') == 1;
+        $data = "0$data" if index($data,'.') == 1;
          if( $re->{'MAC'} and $data gt $Xcode ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-         }elsif( $re->{'LIN'} ){
-          $tap{"${name}un_Linux"} = 1;
-           $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
          } next;
       }elsif( $data =~ /^\s*depends_on\s+xcode:\s+:build/ ){
          if( $re->{'MAC'} and not $Xcode ){
           $tap{"${name}un_xcode"} = 1;
            $tap{"${name}un_xcode"} = 0 if $tap{"$name$OS_Version2"};
-         }elsif( $re->{'LIN'} ){
-          $tap{"${name}un_Linux"} = 1;
-           $tap{"${name}un_Linux"} = 0 if $tap{"${name}Linux"};
          } next;
       }elsif( $data =~ s/^\s*depends_on\s+xcode:\s*"([^"]+)".*\n/$1/ ){
-          $data = "0$data" if index($data,'.') == 1;
+        $data = "0$data" if index($data,'.') == 1;
          if( $re->{'MAC'} and $data gt $Xcode ){
            $tap{"${name}un_xcode"} = 1;
             $tap{"$name$OS_Version2"} = 0;
-         }elsif( $re->{'LIN'} ){
-           $tap{"${name}un_Linux"} = 1;
-            $tap{"${name}Linux"} = 0; # bottle #
          } next;
       }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
           $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
@@ -2568,13 +2559,13 @@ sub Version_1{
   for my $dir2( @CASK ){
    my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW,$ver ) = ( 0,0,0,0,0,1,0,0 );
    rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
-    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)+(.+)\.rb$|;
-     $tap{"${name}mfont"} = 1 if $dirs eq 'homebrew-cask-fonts';
-      $tap{"${name}cask"} = $dir2;
-       delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
+    my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
+     $tap{"${name}cask"} = $dir2;
+      delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
    open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
     while(my $data=<$BREW>){
      if( $dirs eq 'homebrew-cask-fonts' and $FI ){
+      $tap{"${name}mfont"} = 1;
       $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
       ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
        if( $tap{"${name}font"} ){
