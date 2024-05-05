@@ -161,7 +161,7 @@ font-averia-gruesa-libre	Averia Gruesa Libre
 font-averia-libre	Averia Libre
 font-averia-sans-libre	Averia Sans Libre
 font-averia-serif-libre	Averia Serif Libre
-font-awesome-terminal-fonts	Awesome Terminal Fonts
+font-awesome-terminal-fonts	素晴らしいターミナルフォント
 font-azeret-mono	Martin Vácha/Daniel Quisekによるデザイン
 font-azonix	モダンな書体 sans-serif
 font-b612	B612
@@ -241,7 +241,7 @@ font-biz-udgothic	BIZ UDGothic
 font-biz-udmincho	日本の明朝体の伝統を継承した書体　ユニバーサルデザイン
 font-biz-udpgothic	BIZ UDPGothic
 font-biz-udpmincho	日本の明朝体の伝統を継承した書体　ユニバーサルデザイン
-font-black-and-white-picture	Black And White Picture
+font-black-and-white-picture	白黒写真
 font-black-han-sans	Black Han Sans
 font-black-ops-one	Black Ops One
 font-blackout	Blackout
@@ -437,7 +437,7 @@ font-d2coding-nerd-font	開発者向けのグリフ数が多いフォント
 font-daddy-time-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-dai-banna-sil	Dai Banna SIL
 font-damion	Damion
-font-dancing-script	Dancing Script
+font-dancing-script	ダンススクリプト
 font-danfo	0/50/100 の3つの主要なスタイルを持つElsh軸可変フォント
 font-dangrek	Dangrek
 font-darker-grotesque	Darker Grotesque
@@ -445,7 +445,7 @@ font-darumadrop-one	Darumadrop One
 font-dashicons	Dashicons
 font-david-clm	David CLM
 font-david-libre	イスラエルのテルアビブを拠点とする書体デザイナー、メイア・サダン氏が率いる
-font-dawning-of-a-new-day	Dawning of a New Day
+font-dawning-of-a-new-day	新しい日の夜明け
 font-days-one	Days One
 font-decovar-alpha	Decovar Alpha
 font-dejavu	DejaVu
@@ -563,7 +563,7 @@ font-fanwood-text	Fanwood Text
 font-farro	Farro
 font-farsan	Farsan
 font-fascinate	Fascinate
-font-fascinate-inline	Fascinate Inline
+font-fascinate-inline	インラインで魅せる
 font-faster-one	Faster One
 font-fasthand	Fasthand
 font-fauna-one	Fauna One
@@ -592,7 +592,7 @@ font-fjalla-one	Fjalla One
 font-fjord-one	Fjord One
 font-flamenco	Flamenco
 font-flavors	Flavors
-font-fleur-de-leah	Formal script with a floral flavour
+font-fleur-de-leah	花の香りのフォーマルスクリプト
 font-flow-block	Flow Block
 font-flow-circular	Flow Circular
 font-flow-rounded	Flow Rounded
@@ -653,7 +653,7 @@ font-genshingothic	Gen Shin Gothic
 font-gentium-basic	Gentium Basic
 font-gentium-book-basic	Gentium Book Basic
 font-gentium-book-plus	削減された文字セット ファミリの新バージョン、gentium book basic
-font-gentium-plus	Multilingual font
+font-gentium-plus	多言語フォント
 font-genwanmin	GenWanMin
 font-genyogothic	GenYoGothic
 font-genyomin	GenYoMin
@@ -728,7 +728,7 @@ font-gupter	Gupter
 font-gurajada	Gurajada
 font-gwendolyn	Gwendolyn
 font-habibi	Habibi
-font-hachi-maru-pop	Handwritten font
+font-hachi-maru-pop	手書きフォント
 font-hack	Hack
 font-hack-nerd-font	開発者向けのグリフ数が多いフォント
 font-hackgen	Hack と GenJyuu-Gothicを組み合わせた日本語プログラミングフォント
@@ -842,13 +842,13 @@ font-inria-serif	Inria Serif
 font-inspiration	Inspiration
 font-instrument-sans	Instrument Sans
 font-instrument-serif	Instrument Serif
-font-intel-one-mono	Expressive monospaced font family
+font-intel-one-mono	表現力豊かな等幅フォントファミリー
 font-inter	Inter
 font-inter-tight	Inter Tight
 font-intone-mono-nerd-font	開発者向けのグリフ数が多いフォント
 font-iosevka	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-aile	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
-font-iosevka-comfy	Custom build of Iosevka with different style and metrics than the default
+font-iosevka-comfy	デフォルトとは異なるスタイルとメトリクスを備えたIosevkaのカスタムビルド
 font-iosevka-curly	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-curly-slab	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
 font-iosevka-etoile	Sans-serif, slab-serif, monospace and quasi‑proportional typeface family
@@ -987,11 +987,11 @@ font-kodchasan	Kodchasan
 font-kode-mono	font-kode-mono
 font-koh-santepheap	Khmer font for body text
 font-koho	KoHo
-font-kokoro	Kokoro
+font-kokoro	こころ
 font-kolker-brush	コピーを編集するときにすべて大文字を使用することは決して推奨されません
 font-konkhmer-sleokchher	見出しや大きなタイポグラフィーとしての使用に最適
-font-kosugi	Available as kosugi maru
-font-kosugi-maru	Available as kosugi
+font-kosugi	小杉丸として利用可能
+font-kosugi-maru	小杉として利用可能
 font-kotta-one	Kotta One
 font-koulen	Koulen
 font-kranky	Kranky
@@ -1019,7 +1019,7 @@ font-lateef	Lateef
 font-latin-modern	Latin Modern
 font-latin-modern-math	Latin Modern Math
 font-lato	Lato
-font-lavishly-yours	Charming calligraphic script
+font-lavishly-yours	魅力的な書体
 font-league-gothic	古典の復活, Alternate Gothic #1
 font-league-mono	Fira Mono、Libertinus Mono、Courierから影響を受けた等幅書体
 font-league-script	League Script
@@ -1243,7 +1243,7 @@ font-mooli	Mulishフォントファミリから派生
 font-moon-dance	Moon Dance
 font-moul	Moul
 font-moulpali	Moulpali
-font-mountains-of-christmas	Mountains of Christmas
+font-mountains-of-christmas	クリスマスの山々
 font-mouse-memoirs	Mouse Memoirs
 font-mplus	M+ FONTS
 font-mplus-nerd-font	開発者向けのグリフ数が多いフォント
@@ -1633,7 +1633,7 @@ font-pavanam	Pavanam
 font-paytone-one	Paytone One
 font-peddana	Peddana
 font-peralta	Peralta
-font-permanent-marker	Permanent Marker
+font-permanent-marker	油性マジック
 font-petemoss	ぺんてる™カラーブラシで描くフォルムから影響を受けた
 font-petit-formal-script	Petit Formal Script
 font-petrona	Petrona
@@ -1754,7 +1754,7 @@ font-red-hat-mono	Red Hat Mono
 font-red-hat-text	Red Hat Text
 font-red-rose	ポスター用にデザインされたラテン表示書体
 font-redacted	Redacted
-font-redacted-script	Redacted Script
+font-redacted-script	編集されたスクリプト
 font-reddit-mono	reddit sans及びreddit sansの圧縮によって補完されます
 font-reddit-sans	Reddit sans Condensed及びReddit Monoによって補完されます
 font-reddit-sans-condensed	reddit sans及びreddit monoによって補完されます
@@ -1774,7 +1774,7 @@ font-ribeye-marrow	Ribeye Marrow
 font-ricty-diminished	Ricty Diminished
 font-righteous	Righteous
 font-risque	Risque
-font-road-rage	Return to the days of grunge
+font-road-rage	グランジの時代に戻る
 font-roboto	機械的な骨格を持つフォントで、形状は主に幾何学的なものです
 font-roboto-condensed	Roboto Condensed
 font-roboto-flex	Roboto Flex
@@ -1853,7 +1853,7 @@ font-sans-forgetica	Sans Forgetica
 font-sansation	Sansation
 font-sansita	Sansita
 font-sansita-one	Sansita One
-font-sansita-swashed	Beautiful display font in vintage form
+font-sansita-swashed	ビンテージ形式の美しい表示フォント
 font-sarabun	Sarabun
 font-sarala	Sarala
 font-sarasa-gothic	Iosevka と Source Han Sansに基づく CJKプログラミングフォント
@@ -1877,11 +1877,11 @@ font-sedan-sc	Sedan SC
 font-sedgwick-ave	Sedgwick Ave
 font-sedgwick-ave-display	Sedgwick Ave Display
 font-sen	Sen
-font-send-flowers	Appropriate for an older audience
+font-send-flowers	年配の視聴者に適しています
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
 font-sf-mono-for-powerline	Powerlineサポート用に Nerd Fontsパッチャーを適用したAppleのSF Monoフォント
-font-shadows-into-light	Shadows Into Light
+font-shadows-into-light	影から光へ
 font-shadows-into-light-two	Shadows Into Light Two
 font-shalimar	平らなペン先のペンのカリグラフィーのストロークからインスピレーションを得た直立したスクリプト
 font-shantell-sans	Shantell Sans
@@ -1918,7 +1918,7 @@ font-skranji	Skranji
 font-slabo-13px	Slabo 13px
 font-slabo-27px	Slabo 27px
 font-slackey	Slackey
-font-slackside-one	Handwritten display font
+font-slackside-one	手書き表示フォント
 font-smiley-sans	人間主義と幾何学の間の視覚的なバランスを追求した中国語の書体
 font-smokum	Smokum
 font-smooch	他の手書きのスクリプトよりもわずかに太字です
@@ -1986,7 +1986,7 @@ font-sue-ellen-francisco	Sue Ellen Francisco
 font-suez-one	Suez One
 font-sulphur-point	Sulphur Point
 font-sumana	Sumana
-font-sunflower	Sunflower
+font-sunflower	ひまわり
 font-sunshiney	Sunshiney
 font-supermercado-one	Supermercado One
 font-sura	Sura
@@ -2030,7 +2030,7 @@ font-tex-gyre-schola	TeX Gyre Schola
 font-tex-gyre-schola-math	Schola Math
 font-tex-gyre-termes	TeX Gyre Termes
 font-tex-gyre-termes-math	Termes Math
-font-text-me-one	Text Me One
+font-text-me-one	テキストメッセージを送ってください
 font-texturina	Designed by guillermo torres
 font-thabit	Thabit
 font-tharlon	Tharlon
@@ -2061,7 +2061,7 @@ font-titan-one	Titan One
 font-titillium	Titillium
 font-titillium-web	Titillium Web
 font-togalite	M+ extended with thorn
-font-tomorrow	Tomorrow
+font-tomorrow	明日
 font-tourney	Completely solid
 font-trade-winds	Trade Winds
 font-train-one	Train One
@@ -2133,10 +2133,10 @@ font-vujahday-script	Vujahday Script
 font-waiting-for-the-sunrise	日の出を待っています
 font-wallpoet	Wallpoet
 font-walter-turncoat	Walter Turncoat
-font-waptia	Ancient-biology styled font
+font-waptia	古代生物学風のフォント
 font-warnes	Warnes
 font-water-brush	水彩テクスチャー紙に色で満たされたラクダの毛のブラシ
-font-waterfall	Calligraphic script
+font-waterfall	書道
 font-wavefont	バー間の距離を調整するのに便利です、1ch === 1 bar width
 font-wellfleet	Wellfleet
 font-wendy-one	Wendy One
