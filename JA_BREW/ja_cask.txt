@@ -4568,6 +4568,7 @@ yandex-cloud-cli	Yandex Cloud CLI
 yandex-disk	クラウドストレージ
 yandex-music	Yandex Musicに耳を傾けて個人的なお勧めを入手してください
 yandex-music-unofficial	Yandex ミュージック非公式
+yass	さらに別のシャドウソケット
 yate	メディアファイルタグエディター
 yattee	代替のプライバシーに優しいYouTubeフロントエンド
 yealink-meeting	ビデオコミュニケーション及び仮想会議プラットフォーム
