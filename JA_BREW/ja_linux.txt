@@ -315,8 +315,10 @@ font-carrois-gothic	Carrois Gothic
 font-carrois-gothic-sc	Carrois Gothic SC
 font-carter-one	Carter One
 font-cascadia-code	プログラミング合字を含む等幅フォント
+font-cascadia-code-nf	シンボルが埋め込まれたCascadiaコードのバージョン
 font-cascadia-code-pl	Powerline symbolsが埋め込まれたCascadiaコードバージョン
 font-cascadia-mono	合字なしのCascadiaコードバージョン
+font-cascadia-mono-nf	合字なしでNerd Fontsシンボルが埋め込まれたCascadiaコードのバージョン
 font-cascadia-mono-pl	合字なしのPowerline symbolsが埋め込まれたCascadiaコードバージョン
 font-caskaydia-cove-nerd-font	開発者向けのグリフ数が多いフォント
 font-caskaydia-mono-nerd-font	開発者向けのグリフ数が多いフォント
