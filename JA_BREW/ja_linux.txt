@@ -503,20 +503,11 @@ font-ebh	Exeter Bookのスクリプトに基づいたベクトル化されたフ
 font-economica	Economica
 font-eczar	Eczar
 font-edlo	Edlo
-font-edu-nsw-act-cursive	Edu NSW ACT Cursive
 font-edu-nsw-act-foundation	Edu NSW ACT Foundation
-font-edu-nsw-act-hand	Edu NSW ACT Hand
-font-edu-nsw-act-hand-pre	Edu NSW ACT Hand Pre
 font-edu-qld-beginner	Edu QLD Beginner
-font-edu-qld-hand	Edu QLD Hand
 font-edu-sa-beginner	Edu SA Beginner
-font-edu-sa-dotted-guide	Edu SA点線ガイド
-font-edu-sa-hand	Edu SA Hand
-font-edu-sa-hand-cursive	Edu SA手書き筆記体
 font-edu-tas-beginner	Edu TAS Beginner
 font-edu-vic-wa-nt-beginner	Edu VIC WA NT Beginner
-font-edu-vic-wa-nt-hand	Edu VIC WA NT Hand
-font-edu-vic-wa-nt-hand-pre	Edu VIC WA NT Hand Pre
 font-edwin	楽譜用のテキストフォント
 font-el-messiri	El Messiri
 font-electrolize	Electrolize
