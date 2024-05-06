@@ -1827,6 +1827,7 @@ fontforge	コマンドラインアウトラインとビットマップフォン�
 fonts-encodings	libfontencのフォントエンコーディングテーブル
 fonttools	フォントを操作する為のライブラリ
 fop	PDF/PSドキュメントを作成する為のXSL-FOプリント整形ツール
+forbidden	4xx HTTP応答ステータスコードなどをバイパスします
 forcecli	Force.comへのコマンドラインインターフェイス
 ford	最新のFortranプログラム用の自動ドキュメント発生器
 forego	Procfileベースのアプリケーション管理の為のGoのForeman
@@ -2955,6 +2956,7 @@ katana	クロール及びスパイダーリングフレームワーク
 kawa	Javaプログラミング言語(Schemeの実装)
 kcat	一般的なコマンドライン非JVMApache Kafkaプロデューサー及びコンシューマー
 kcgi	C/C++の最低限のCGI及びFast CGIライブラリ
+kconf	複数のkubeconfigを管理するためのCLI
 kcov	コンパイルされたプログラムコードの範囲テスター Python/シェルスクリプト
 kcptun	安定して安全 N：M多重化とFECを備えたKCPに基づくトンネル
 kdoctools	DocBookからドキュメントを作成する
@@ -4330,6 +4332,7 @@ newrelic-cli	New Relicのコマンドラインインターフェイス
 newrelic-infra-agent	New Relic基礎構造の手段
 newsboat	テキスト端末用の RSS/Atom フィードリーダー
 newt	カラーテキストモード用のライブラリ widgetベースのユーザーインターフェイス
+nextdns	NextDNSのDNS-over-HTTPS(DoH)用のCLI
 nexttrace	オープンソースのビジュアルルート追跡CLIツール
 nexus	binaryソフトウェアコンポーネント用のリポジトリマネージャ
 nfcutils	POSIXシステムでの近距離無線通信(NFC)ツール
