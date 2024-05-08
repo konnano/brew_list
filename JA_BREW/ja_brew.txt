@@ -402,6 +402,7 @@ bashish	テキスト端末のテーマ環境
 bashunit	bashスクリプト用のシンプルなテストライブラリ
 basis_universal	基準汎用GPUテクスチャコーデック コマンドライン圧縮ツール
 bastet	ろくでなしテトリス
+basti	VPC内のRDS、Elasticache、その他のAWSリソースに安全に接続します
 bat	構文の強調表示とGit統合を備えたcat(1)のクローン
 bat-extras	batをさまざまなコマンドラインツールと統合するBashスクリプト
 batik	SVG画像のJavaベースのツールキット
@@ -1305,6 +1306,7 @@ difftastic	構文を理解するDiff
 diffutils	ファイル比較ユーティリティ
 digdag	ワークロード自動化システム
 digitemp	1線式ネットで温度センサーを読み取る
+dillo	高速かつ小型のグラフィカルWebブラウザ
 dirac	さまざまな解像度を対象とした汎用ビデオコーデック
 direnv	$PWDに基づく環境変数の Load/unload
 direvent	ファイルシステムディレクトリ内のイベントを監視します
