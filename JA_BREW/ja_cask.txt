@@ -3285,6 +3285,7 @@ quicklookapk	Androidパッケージ用のQuick Lookプラグイン
 quicklookase	Adobe Swatch Exchangeファイル用のQuickLook生成器
 quicknfo	NFOファイルを表示するための、Quick Lookプラグイン
 quicksilver	生産性アプリケーション
+quiet	Tor及びIPFSに基づいて構築された、SlackとDiscordに代わるプライベートなp2p
 quiet-reader	気を散らさずに記事やテキストのハイライトを読む
 quik	GoProの写真とビデオにアクセスして編集する
 quip	チームが生きたドキュメントを作成する為のツール
@@ -4117,6 +4118,7 @@ toolreleases	最新のAppleツールリリース(ベータリリースを含む)
 toontown-rewritten	ディズニーのToontownオンラインのファンによる再生
 topaz-denoise-ai	画像のノイズを除去
 topaz-gigapixel-ai	AI画像アップスケーラー
+topaz-photo-ai	AIイメージエンハンサー
 topaz-sharpen-ai	自然な結果を生み出すAI搭載の画像シャープナー
 topaz-video-ai	ビデオアップスケーラーと品質エンハンサー
 topcat	表形式データ用の双方向グラフィカルビューア及びエディター
@@ -4324,6 +4326,7 @@ virtualbox@beta	x86及びarm64ハードウェア用のバーチャライザー
 virtualbuddy	仮想化ツール
 virtualbuddy@beta	仮想化ツール
 virtualc64	サイクル精度の高いC64エミュレーター
+virtualdj	DJソフトウェア
 virtualgl	境界のない3D
 virtualhere	ネットワーク経由でリモートでUSBデバイスを使用する
 virtualhereserver	ネットワーク経由で接続されたUSBデバイスにリモートアクセス
