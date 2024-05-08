@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,%HAN,$Xcode,@BREW,@CASK );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,%HAN,$Xcode,@BREW,@CASK );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(which brew);printf \${CO%/bin/brew} 2>/dev/null`||die" brew path not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
@@ -21,6 +21,9 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  }
   %MAC_OS = ('sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
              'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
+  %Mac_OS = ('14.0M1'=>'arm64_sonoma','14.0','sonoma','13.0M1'=>'arm64_ventura','13.0'=>'ventura',
+             '12.0M1'=>'arm64_monterey','12.0'=>'monterey','11.0M1'=>'arm64_big_sur','11.0'=>'big_sur',
+             '10.15'=>'catalina','10.14'=>'mojave','10.13'=>'high_sierra','10.12'=>'sierra','10.11'=>'el_capitan');
      %HAN = ('newer'=>'>','older'=>'<');
   $re->{'FON'} = "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts";
    Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks",0,1 )
@@ -69,7 +72,7 @@ unless( $ARGV[0] ){
   my( $in,$e ) = @BREW >> 2;
    my @in = ( $in << 1,$in * 3 );
     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
- for my $dir1( @BREW ){ my( $bot,@an );
+ for my $dir1( @BREW ){ my $bot;
   if( $re->{'MAC'} ){ $e++;
    $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
    $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
@@ -95,34 +98,8 @@ unless( $ARGV[0] ){
         if( $re->{'LIN'} ){
          if( $data =~ s/.*x86_64_linux:.*\n/Linux/ ){ $tap{"$name$data"} = 1; $KIN = 0 } next;
         }else{
-         if( not $an[0] and $data =~ s/.*arm64_sonoma:.*\n/14.0M1/ ){
-           $tap{"$name$data"} = $an[0] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[1] and $data =~ s/.*arm64_ventura:.*\n/13.0M1/ ){
-           $tap{"$name$data"} = $an[1] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[2] and $data =~ s/.*arm64_monterey:.*\n/12.0M1/ ){
-           $tap{"$name$data"} = $an[2] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[3] and $data =~ s/.*arm64_big_sur:.*\n/11.0M1/ ){
-           $tap{"$name$data"} = $an[3] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[4] and $data =~ s/.*sonoma:.*\n/14.0/ ){
-           $tap{"$name$data"} = $an[4] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[5] and $data =~ s/.*ventura:.*\n/13.0/ ){
-           $tap{"$name$data"} = $an[5] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[6] and $data =~ s/.*monterey:.*\n/12.0/ ){
-           $tap{"$name$data"} = $an[6] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[7] and $data =~ s/.*big_sur:.*\n/11.0/ ){
-           $tap{"$name$data"} = $an[7] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[8] and $data =~ s/.*catalina:.*\n/10.15/ ){
-           $tap{"$name$data"} = $an[8] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[9] and $data =~ s/.*mojave:.*\n/10.14/ ){
-           $tap{"$name$data"} = $an[9] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[10] and $data =~ s/.*high_sierra:.*\n/10.13/ ){
-           $tap{"$name$data"} = $an[10] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[11] and $data =~ s/.*sierra:.*\n/10.12/ ){
-           $tap{"$name$data"} = $an[11] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }elsif( not $an[12] and $data =~ s/.*el_capitan:.*\n/10.11/ ){
-           $tap{"$name$data"} = $an[12] = 1; $KIN = 0 if $data eq $OS_Version2; next;
-         }
-        } next;
+         if( $data =~ s/.*[^_]$Mac_OS{$OS_Version2}:.*\n/$OS_Version2/o ){ $tap{"$name$data"} = 1; $KIN = 0 } next;
+        }
      }elsif( $KIN and $data =~ /^\s*end/ ){
       $KIN = 0; next;
      }
