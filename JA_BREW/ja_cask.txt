@@ -139,6 +139,7 @@ amazon-chime	通信サービス
 amazon-luna	お気に入りのゲームをクラウドから直接プレイ
 amazon-music	Amazon Music用のデスクトップクライアント
 amazon-photos	写真の保存と共有サービス
+amazon-q	コマンドライン用のAIを活用した生産性向上ツール
 amazon-workdocs	完全に管理 安全なコンテンツの作成/保管所/コラボレーション
 amazon-workdocs-drive	完全に管理 安全なエンタープライズストレージ/共有サービス
 amazon-workspaces	クラウドネイティブの永続デスクトップ仮想化
@@ -711,7 +712,6 @@ codelite	C/C++/PHP/Node.js 用のIDE
 codeql	セマンティックコード分析エンジン
 coderunner	多言語プログラミングエディター
 codespace	Code snippetマネージャー
-codewhisperer	コマンドライン用のAIを活用した生産性向上ツール
 codux	コンポーネントのスタイルとレイアウトを視覚的に編集する為に構築されたReact IDE
 coffitivity-offline	Ambientサウンド生成器
 cog	オーディオプレイヤー
