@@ -785,6 +785,7 @@ cgvg	コマンドラインソース ブラウジングツール
 chadwick	RetrosheetMLBの実況ファイルを解析する為のツール
 chafa	用途が広く高速なグラフィックrenderer Unicode/ASCII/ANSI
 chain-bench	CISベンチマークに基づくソフトウェアサプライチェーン監査ツール
+chainhook	スタック及びビットコインブロックチェーン用の、Reorg対応インデックスエンジン
 chainloop-cli	Chainloopと対話する為のCLI
 chainsaw	Windowsフォレンジックアーティファクトを迅速に検索して追跡
 chaiscript	C++の使いやすい埋め込みスクリプト言語
@@ -3059,6 +3060,7 @@ kustomize	Kubernetes YAMLマニフェストのテンプレートFreeカスタマ
 kustomizer	Kubernetes 構成をOCIアーティファクトとして配布する為のパッケージマネージャー
 kuto	リバースJSバンドラー
 kuttl	KUbernetesテストツール
+kuzu	クエリ速度と拡張性を考慮して構築された埋め込み可能なグラフデータベース管理システム
 kvazaar	Ultravideo HEVCエンコーダー
 kwctl	KubernetesのKubewardenポリシーエンジンのCLIツール
 kwok	Kubernetes WithOut Kubelet - 何千ものノードとクラスターをシミュレートします
@@ -5975,7 +5977,6 @@ star	標準のタップアーカイバ
 starship	宇宙飛行の為のクロスシェルプロンプト
 startup-notification	起動通知手続きのリファレンス実装
 staticcheck	Goプログラミング言語の最先端の静的解析ツール
-statik	開発者向けのPythonベースの汎用静的Webサイト発生器
 statix	nixプログラミング言語のヒントと提案
 stdman	cppreference.comからのフォーマットされたC++ stdlibのマニュアルページ
 steamguard-cli	steamguardのCLI
@@ -6008,6 +6009,7 @@ streamvbyte	Cでの高速整数圧縮
 stress	コンピュータシステムに負荷をかけストレステストを行う為のツール
 stress-ng	さまざまな選択可能な方法でコンピュータシステムのストレステストを行う
 strip-nondeterminism	ファイルから非決定的な情報のビットを削除するツール
+stripe-mock	本物のStripe APIの様に応答する Moku HTTPサーバー
 strongswan	IPsecに基づくVPN
 structurizr-cli	Structurizrのコマンドラインユーティリティ
 stubby	getdnsに基づくDNSプライバシー対応スタブリゾルバーサービス
