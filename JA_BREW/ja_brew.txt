@@ -464,6 +464,7 @@ bibtexconv	BibTeXファイル変換器
 bibutils	参考文献変換ユーティリティ
 bic	C解釈プログラム及びAPIエクスプローラー
 bigloo	オブジェクトシステム、C、Javaインターフェイスを使用したSchemeの実装
+bigquery-emulator	ローカルマシン上でGCP BigQueryサーバーをエミュレートする
 bilix	️libiliなどの超高速非同期ダウンロード ツール
 binaryen	WebAssemblyの基礎構造コンパイラとtoolchainライブラリ
 bind	DNS手続きの実装
@@ -538,6 +539,7 @@ boost-python3	相互運用性の為のC++ライブラリ C++/Python3
 boost@1.76	ポータブルC++ソースライブラリのコレクション
 boot-clj	Clojureのツールを構築する
 bootloadhid	AVRマイクロコントローラー用のHIDベースのUSBブートローダー
+bootterm	シリアルポートへの接続を容易にする、シンプルで信頼性の高い強力なターミナル
 bore-cli	モダン ローカルポートをリモートサーバーに公開するRustの単純なTCPトンネル
 borgbackup	圧縮と認証された暗号化を使用したアーカイバの重複排除
 borgmatic	ボーグバックアップソフトウェアのシンプルなラッパースクリプト
@@ -6289,6 +6291,7 @@ tm	knativeオブジェクトを操作する為のTriggerMeshCLI
 tmate	即時端末共有
 tmpreaper	経過時間に基づいてディレクトリ内のファイルをクリーンアップします
 tmpwatch	指定された時間内にアクセスされなかったファイルを検索して削除します
+tmt	テスト管理ツール
 tmux	ターミナル多重装置
 tmux-mem-cpu-load	tmuxで使用する為の負荷モニター CPU/RAMメモリ
 tmux-xpanes	tmuxを搭載した究極のターミナルディバイダー
@@ -7051,7 +7054,6 @@ zshdb	zshのデバッガー
 zssh	SSHを介した対話的なファイル転送
 zstd	Zstandardはリアルタイム圧縮アルゴリズムです
 zsxd	Solarus XDのゼルダミステリー
-zsync	ファイル転送プログラム
 zsync	ファイル転送プログラム
 zug	トランスデューサを提供する、C++ライブラリ
 zurl	ZeroMQインターフェースを備えたHTTP/WebSocketクライアントワーカー
