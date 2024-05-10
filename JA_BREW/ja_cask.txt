@@ -568,6 +568,7 @@ capto	スクリーン キャプチャ/レコーダー/ビデオエディター
 carbide-create	CNCルーター用CAD/CAMソフトウェア
 carbon-copy-cloner	ハードディスクのバックアップとクローン作成ユーティリティ
 carbon-copy-cloner@5	ハードディスクのバックアップとクローン作成ユーティリティ
+carbon-copy-cloner@6	ハードディスクのバックアップ及びクローン作成ユーティリティ
 cardhop	連絡先マネージャー
 cardinal	仮想モジュラーシンセサイザープラグイン
 cardo-update	PacktalkとFreecom、バイク用インターコムをアップデートする
