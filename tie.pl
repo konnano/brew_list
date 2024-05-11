@@ -265,6 +265,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   } closedir $dir1;
  }
  rmdir "$ENV{'HOME'}/.BREW_LIST/15";
+
   sub Spec_1{
    my( $data,$i ) = @_;
     if( index($data,'specs') >= 0 ){ $$i = 1; return }
@@ -309,24 +310,6 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       $tap{"$name$OS_Version2"} = 0;
     }
    }
-  }
-
-  sub Version_1{
-   my @ls1 = split '\.|-|_',$_[0];
-   $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
-   my $i = 0;
-    for( ;$i<@ls2;$i++ ){
-     if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
-       if( $ls1[$i] gt $ls2[$i] ){ return 1;
-       }elsif( $ls1[$i] lt $ls2[$i] ){ return;
-       }
-     }else{
-       if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
-       }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
-       }
-     }
-    }
-   $ls1[$i] ? 1 : 0;
   }
 
  unless( $ARGV[0] or $re->{'LIN'} ){
@@ -538,7 +521,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       %HAN = ('newer'=>'>','older'=>'<');
    Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks",0,1 )
      if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks" and not $ARGV[0];
-  }
+ }
 
    unless( $ARGV[0] ){
     Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
@@ -868,6 +851,24 @@ unless( $ARGV[0] ){
    }
    Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"};
   }
+ }
+
+ sub Version_1{
+  my @ls1 = split '\.|-|_',$_[0];
+  $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
+  my $i = 0;
+   for( ;$i<@ls2;$i++ ){
+    if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
+      if( $ls1[$i] gt $ls2[$i] ){ return 1;
+      }elsif( $ls1[$i] lt $ls2[$i] ){ return;
+      }
+    }else{
+      if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
+      }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
+      }
+    }
+   }
+  $ls1[$i] ? 1 : 0;
  }
 
  sub Glob_1{
