@@ -1,20 +1,9 @@
 brew list コマンド拡張版
 
-HomeBrew 4.0.0以降はシェルに以下の設定をして下さい
-
-```
-echo 'export HOMEBREW_NO_INSTALL_FROM_API=1' >> ~/$(echo .${SHELL##*/}rc)
-source  ~/$(echo .${SHELL##*/}rc)
-brew tap homebrew/core
-```
-開発者向けにしないとbrew tap homebrew/core、homebrew/caskがインストールされません
-
 : 使用方法
+
 ```
-brew tap konnano/brew_list
-```
-```
-brew install brew_list
+brew install konnano/brew_list/brew_list
 ```
 もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
