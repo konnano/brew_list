@@ -324,6 +324,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    }
  }
  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
+
  unless( $ARGV[0] ){
   if( $re->{'MAC'} ){
   my $CPU = $UNAME eq 'x86_64' ? 'intel' : 'arm';
@@ -396,6 +397,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
  }
  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
+
   sub Form_1{
    my( $name,$fo ) = @_;
     $tap{"${name}formula"} .= "$fo\t";
@@ -418,8 +420,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
   }
 
-   Dirs_1( "$MY_HOME/Library/Taps",0 ) unless $ARGV[0];
-   Dirs_1( "$MY_HOME/Library/Taps/homebrew",1 ); my( @BR,@CA );
+   Dirs_1( "$MY_HOME/Library/Taps",0 ) unless $ARGV[0];  my( @BR,@CA );
+   Dirs_1( "$MY_HOME/Library/Taps/homebrew",1 ) if not $ARGV[0] or $ARGV[0] == 1;
 
   sub Dirs_1{
   my( $dir,$cask ) = @_;
@@ -528,7 +530,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
       Dirs_2( "$MY_HOME/Library/Taps",1,0 );
    }
-    Dirs_2( "$MY_HOME/Library/Taps/homebrew",1,1 );
+    Dirs_2( "$MY_HOME/Library/Taps/homebrew",1,1 ) if not $ARGV[0] or $ARGV[0] == 1;
      rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 
   sub Dirs_2{
@@ -827,50 +829,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
 }
 
-unless( $ARGV[0] ){
- if( $re->{'MAC'} ){ my %HA;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/15";
-  for( @{$re->{'OS'}} ){
-   my( $name,$data,$ls ) = split ',';
-   if( not $ls and $tap{"${data}USE_OS"} and $tap{"${data}USE_OS"} <= $OS_Version ){
-    $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-     $tap{"${name}deps_b"} .= "$data\t";
-   }elsif( $ls and $tap{"${data}USE_OS"} and $tap{"${data}USE_OS"} > $OS_Version ){
-    Uses_1( $name,\%HA );
-   }
-  }
- }
-
- sub Uses_1{
- my( $name,$HA ) = @_;
-  for my $ls( split '\t',$name ){
-   $HA->{$ls}++;
-   if( $HA->{$ls} < 2 ){
-    $tap{"$ls$OS_Version2"} = 0 if $tap{"$ls$OS_Version2"};
-     $tap{"${ls}un_xcode"} = 1;
-   }
-   Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"};
-  }
- }
-
- sub Version_1{
-  my @ls1 = split '\.|-|_',$_[0];
-  $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
-  my $i = 0;
-   for( ;$i<@ls2;$i++ ){
-    if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
-      if( $ls1[$i] gt $ls2[$i] ){ return 1;
-      }elsif( $ls1[$i] lt $ls2[$i] ){ return;
-      }
-    }else{
-      if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
-      }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
-      }
-    }
-   }
-  $ls1[$i] ? 1 : 0;
- }
-
+if( not $ARGV[0] or $ARGV[0] == 2 ){
  sub Glob_1{
  my( $brew,$mine,$loop ) = @_;
   my @GLOB = $brew ? glob "$MY_BREW/Cellar/$brew/*" : glob "$MY_BREW/Cellar/*/*";
@@ -934,6 +893,51 @@ unless( $ARGV[0] ){
    }
   }1;
  } Glob_1;
+}
+
+unless( $ARGV[0] ){
+ if( $re->{'MAC'} ){ my %HA;
+  rmdir "$ENV{'HOME'}/.BREW_LIST/15";
+  for( @{$re->{'OS'}} ){
+   my( $name,$data,$ls ) = split ',';
+   if( not $ls and $tap{"${data}USE_OS"} and $tap{"${data}USE_OS"} <= $OS_Version ){
+    $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
+     $tap{"${name}deps_b"} .= "$data\t";
+   }elsif( $ls and $tap{"${data}USE_OS"} and $tap{"${data}USE_OS"} > $OS_Version ){
+    Uses_1( $name,\%HA );
+   }
+  }
+ }
+
+ sub Uses_1{
+ my( $name,$HA ) = @_;
+  for my $ls( split '\t',$name ){
+   $HA->{$ls}++;
+   if( $HA->{$ls} < 2 ){
+    $tap{"$ls$OS_Version2"} = 0 if $tap{"$ls$OS_Version2"};
+     $tap{"${ls}un_xcode"} = 1;
+   }
+   Uses_1( $tap{"${ls}uses"},$HA ) if $tap{"${ls}uses"};
+  }
+ }
+
+ sub Version_1{
+  my @ls1 = split '\.|-|_',$_[0];
+  $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
+  my $i = 0;
+   for( ;$i<@ls2;$i++ ){
+    if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
+      if( $ls1[$i] gt $ls2[$i] ){ return 1;
+      }elsif( $ls1[$i] lt $ls2[$i] ){ return;
+      }
+    }else{
+      if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
+      }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
+      }
+    }
+   }
+  $ls1[$i] ? 1 : 0;
+ }
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
 
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
