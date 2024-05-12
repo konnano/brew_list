@@ -2611,7 +2611,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
   }
 
-   Dirs_1( "$MY_HOME/Library/Taps",0 ) unless $ARGV[0];  my( @BR,@CA );
+   Dirs_1( "$MY_HOME/Library/Taps",0 ) unless $ARGV[0]; my( @BR,@CA );
    Dirs_1( "$MY_HOME/Library/Taps/homebrew",1 ) if not $ARGV[0] or $ARGV[0] == 1;
 
   sub Dirs_1{
@@ -2637,7 +2637,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      $tap{"${name}core"} = $dir1; push @BREW,$name;
    open my $BR1,$dir1 or die" tie Info_3 $!\n";
    while( my $data = <$BR1> ){
-    if( $ta[0] and $data =~ /^\s*desc\s*"([^"]+)"/ ){ $tap{"${name}desc"} = $1; $ta[0] = 0 }
+    if( $ta[0] and $data =~ /^\s*desc\s*"([^"]+)"/ ){ $tap{"${name}f_desc"} = $1; $ta[0] = 0 }
     if( $ta[1] and $data =~ /^\s*bottle\s+do/ ){ $bot = 1; $ta[1] = 0 }
      if( $bot ){
       unless( $os ){ for(keys %MAC_OS){ $os = $_ if $MAC_OS{$_} eq $OS_Version2 } $os = 'x86_64_linux' if $re->{'LIN'} }
