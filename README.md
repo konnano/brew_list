@@ -5,6 +5,10 @@ brew list コマンド拡張版
 ```
 brew install konnano/brew_list/brew_list
 ```
+
+![brew-ezgif com-video-to-gif-converter](https://github.com/konnano/brew_list/assets/73874687/10f3a2f8-9c02-46dc-a759-71a76304f131)
+
+
 もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
 
 キャッシュファイル作成に少し時間がかかります、コマンドは<strong>`bl`</strong>です
