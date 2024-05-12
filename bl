@@ -2905,12 +2905,12 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
 
    if( $re->{'MAC'} ){
-   rmdir "$ENV{'HOME'}/.BREW_LIST/16";
+   rmdir "$ENV{'HOME'}/.BREW_LIST/15";
    my( $in,$e ) = ( @CASK >> 1,0 ); delete $tap{"fontlist"} if $ARGV[0];
    my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm';
     for my $dir2( @CASK ){
      my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW,$ver ) = ( 0,0,0,0,0,1,0,0 );
-     rmdir "$ENV{'HOME'}/.BREW_LIST/17" if $in == $e++;
+     rmdir "$ENV{'HOME'}/.BREW_LIST/16" if $in == $e++;
       my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
        $tap{"${name}cask"} = $dir2;
         delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
@@ -3005,7 +3005,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      }
     }
    }
-   rmdir "$ENV{'HOME'}/.BREW_LIST/18";
+   rmdir "$ENV{'HOME'}/.BREW_LIST/17";
 
   unless( $ARGV[0] ){
     @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
@@ -3088,7 +3088,6 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
 
 unless( $ARGV[0] ){
  if( $re->{'MAC'} ){ my %HA;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/15";
   for( @{$re->{'OS'}} ){
    my( $name,$data,$ls ) = split ',';
    if( not $ls and $tap{"${data}USE_OS"} and $tap{"${data}USE_OS"} <= $OS_Version ){
