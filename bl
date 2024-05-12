@@ -1793,7 +1793,7 @@ my $re = shift; my( $e,$mm,@tt ) = 0; my $TR = $re->{'TR'};
    print STDERR " [ $re->{'INF'} ] and deps delete [y/n]:";
     exit if getc ne 'y';
    system "brew uninstall $re->{'INF'}";
-   for( @DEL ){ system "brew uninstall $_" if -d "$re->{'CEL'}/$_" }
+   for( @DEL ){ substr $_,-1,1,''; system "brew uninstall $_" if -d "$re->{'CEL'}/$_" }
   }
  }
 }
