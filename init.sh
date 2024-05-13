@@ -1,13 +1,14 @@
 #!/bin/bash
  NAME=$(uname)
  MY_BREW=$(CO=$(command -v brew);echo ${CO%/bin/brew})
+ [[ -d "$MY_BREW/Homebrew" ]] && MY_HOME="$MY_BREW/Homebrew"
  [[ ! $MY_BREW ]] && echo -e "\033[31m Not installed HOME BREW\033[00m" && exit 1
 if [[ ! $NAME = Darwin && ! $NAME = Linux ]];then
  echo Not support OS; exit 1
 elif [[ $NAME = Darwin ]];then
  VER=$(sw_vers -productVersion|
        sed -E 's/^(1[1-4]).*/\1.0/;s/^(10\.1)([0-5]).*/\1\2/;s/^(10\.)([1-9])\..*/\10\2/')
- [[ 10.10 > $VER ]] && echo Use Tiger Brew && exit 1
+ [[ 10.11 > $VER ]] && echo Use Tiger Brew && exit 1
 fi
 
  LINK=$1;
@@ -16,16 +17,18 @@ if [[ $LINK = unlink ]];then
  rm -f $MY_BREW/bin/bl $MY_BREW/share/zsh/site-functions/_bl
   rm -rf ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
-   echo -n 'untap homebrew/cask homebrew/core ?'  [y/n]:
-    read i
-    case $i in
-     y)
-       sed -i.txt '/export HOMEBREW_NO_INSTALL_FROM_API=1/d' ~/$(echo .${SHELL##*/}rc)
-       unset HOMEBREW_NO_INSTALL_FROM_API
-       brew untap homebrew/cask 2>/dev/null
-       brew untap homebrew/core ;;
-     *) exit ;;
-    esac
+    if [[ -d "$MY_HOME/Library/Taps/homebrew/homebrew-core" ]];then
+    echo -n untap homebrew/cask homebrew/core ? [y/n]:
+     read i
+     case $i in
+      y)
+        sed -i.txt '/export HOMEBREW_NO_INSTALL_FROM_API=1/d' ~/$(echo .${SHELL##*/}rc)
+        unset HOMEBREW_NO_INSTALL_FROM_API
+        brew untap homebrew/cask 2>/dev/null
+        brew untap homebrew/core ;;
+      *) exit ;;
+     esac
+    fi
  exit
 fi
 
