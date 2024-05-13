@@ -1009,7 +1009,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
     $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
      $re->{'LIST'} = $re->{'COL'} = 1;
       Fork_1( $re );
-   }elsif( $do ){
+   }elsif( $do or $re->{'DDD'} ){
     $re->{'COL'} = $re->{'TREE'} = $re->{'DEL'} = 2;
      $re->{'PP'} = 1 unless $re->{'DD'};
       Fork_1( $re );
