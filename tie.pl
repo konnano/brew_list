@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON );
+my( $re,$cache,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(which brew);printf \${CO%/bin/brew} 2>/dev/null`||die" brew path not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
@@ -26,11 +26,13 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
 }elsif( $^O eq 'linux' ){ $re->{'LIN'} = 1;
  $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
 }
- chomp( my $cache = `brew --cache` ) unless $ARGV[0];
-unless( $ARGV[0] ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
- mkdir "$ENV{'HOME'}/.BREW_LIST/parse";
- open my $J1,'<',"$cache/api/formula.jws.json" or die" 1 brew cache $!\n";
-  my $fo = <$J1>; close $J1; my $i;
+
+unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
+ chomp( $cache = `brew --cache` ) unless $ARGV[0];
+ unless( $ARGV[0] ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+  mkdir "$ENV{'HOME'}/.BREW_LIST/parse";
+  open my $J1,'<',"$cache/api/formula.jws.json" or die" 1 brew cache $!\n";
+   my $fo = <$J1>; close $J1; my $i;
    my @fo = split /[^\\]\\n/,$fo; $NAM = @fo >> 1;
     for( @fo ){  $i++; rmdir "$ENV{'HOME'}/.BREW_LIST/12" if $i == $NAM;
                 tr/\\//d; my( $file ) = /"name":"([^"]+)"/;
@@ -38,7 +40,8 @@ unless( $ARGV[0] ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
      open K,'>',"$ENV{'HOME'}/.BREW_LIST/parse/$file.txt" or die" 2 brew cache $!\n";
      print K $_; close K;
     }
- rmdir "$ENV{'HOME'}/.BREW_LIST/13";
+  rmdir "$ENV{'HOME'}/.BREW_LIST/13";
+ }
 }
 
  my( $Time,%NA,$i )  = [localtime];
