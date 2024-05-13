@@ -9,13 +9,9 @@ brew install konnano/brew_list/brew_list
 ![brew-ezgif com-video-to-gif-converter](https://github.com/konnano/brew_list/assets/73874687/10f3a2f8-9c02-46dc-a759-71a76304f131)
 
 
-もしくはダウンロード後、brew_list-mainフォルダー内で ./init.sh を実行して下さい
+コマンドは<strong>`bl`</strong>です
 
-キャッシュファイル作成に少し時間がかかります、コマンドは<strong>`bl`</strong>です
-
-アンインストールはbrew_list-mainフォルダー内で ./init.sh unlink
-
-デフォルトは英語表示です　./init.sh JA オプション追加で日本語表示されます
+デフォルトは英語表示です　 bl -JA オプションで日本語表示されます
 
 日本語版で英語表示させるにははbl -l などで引数 ENにして下さい 正規表現は２番目の引数になります
 
