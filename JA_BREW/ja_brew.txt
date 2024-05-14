@@ -3887,7 +3887,6 @@ mariadb@10.3	MySQLのドロップイン代替品
 mariadb@10.4	MySQLのドロップイン代替品
 mariadb@10.5	MySQLのドロップイン代替品
 mariadb@10.6	MySQLのドロップイン代替品
-mariadb@10.7	MySQLのドロップイン代替品
 mariadb@10.8	MySQLのドロップイン代替品
 mariadb@10.9	MySQLのドロップイン代替品
 mariadb@11.0	MySQLのドロップイン代替品
@@ -4739,7 +4738,6 @@ pass-git-helper	Passとやり取りするGit認証情報ヘルパー
 pass-import	ほとんどの既存のパスワードマネージャーからデータをインポートする為のパス拡張子
 pass-otp	ワンタイムパスワードトークンを管理する為のPass拡張
 passenger	Ruby用サーバー PythonとApache/NGINXを介したNode.jsアプリ
-passpie	ターミナルからのログイン認証情報を管理する
 passwdqc	パスワード/パスフレーズ の強度チェック及び施行ツールセット
 pastebinit	コマンドラインからpastebinに送る
 pastel	色分析/変換/操作 を生成するコマンドラインツール
@@ -5499,6 +5497,7 @@ rush	GNUの制限付きユーザーシェル
 rush-parallel	ジョブを並行して実行する為のクロスプラットフォームコマンドライン ツール
 rust	安全で並行した実用的な言語
 rust-analyzer	IDEの実験的なRustコンパイラフロントエンド
+rust-parallel	RustのTokioフレームワークと並行してコマンドを実行する
 rustc-completion	rustcのbash補完
 rustcat	最新のポートリスナーとリバースシェル
 rustfmt	Rustコードをフォーマットする
@@ -5883,7 +5882,6 @@ spice-gtk	SPICEのGTKクライアント/ライブラリ
 spice-protocol	SPICE手続きのヘッダー
 spicetify-cli	Spotifyクライアントをカスタマイズする為のコマンドラインツール
 spidermonkey	JavaScript-Cエンジン
-spidermonkey@78	JavaScript-Cエンジン
 spidermonkey@91	JavaScript-C エンジン
 spigot	コマンドラインストリーミングの正確な実際の計算機
 spim	MIPS32模擬装置
@@ -6027,7 +6025,6 @@ stylish-haskell	Haskellコードの整形
 stylua	意見のあるLuaコード整形ツール
 sub2srt	字幕を.subからsubviewer.srt形式に変換します
 subfinder	サブドメイン検出ツール
-subliminal	字幕を検索してダウンロードする為のライブラリ
 subnetcalc	IPv4/IPv6サブネット計算機
 subversion	より良いCVSになる様に設計されたバージョン管理システム
 sugarjar	Git/GitHubエクスペリエンスを向上させるヘルパーユーティリティ
