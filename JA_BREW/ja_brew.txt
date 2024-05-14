@@ -2252,6 +2252,7 @@ go-feature-flag-relay-proxy	GO機能フラグを実行するスタンドアロ�
 go-jira	Goのシンプルなjiraコマンドラインクライアント
 go-jsonnet	JSONデータを定義する為の構成言語の実装に移動します
 go-md2man	マークダウンをroffに変換します(manページ)
+go-size-analyzer	コンパイルされたGolangバイナリの依存関係を分析する
 go-statik	Go実行可能ファイルにファイルを埋め込む
 go-task	Taskはよりシンプルで使いやすいことを目的としたタスク ランナー/ビルド ツールです
 go@1.16	Goプログラミング環境(1.16)
