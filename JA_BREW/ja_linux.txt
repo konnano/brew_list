@@ -2135,6 +2135,7 @@ font-whisper	Whisper
 font-windsong	複数の文体セットを含む長いスクリプト
 font-wire-one	Wire One
 font-wix-madefor-display	Wix Madefor Display
+font-wix-madefor-text	Wix Madefor Text
 font-work-sans	Work Sans
 font-workbench	Workbench
 font-xanh-mono	Mono-serif 書体、lam bao、duy daoによってデザインされました
