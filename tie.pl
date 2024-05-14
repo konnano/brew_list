@@ -1052,9 +1052,11 @@ unless( $ARGV[0] ){
 }
 untie %tap;
 
-my $f = -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ? 4 : 3;			###
-unless( $ARGV[0] ){ my $sort = '';
- for( sort @font,@cas ){ $sort .= $_ }
- open my $F,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die" font list $!\n";
- print $F "$f\n0\n$sort"; close $F;
-}												###
+if( -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" or
+    -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){				###
+  unless( $ARGV[0] ){ my $sort = '';
+   for( sort @font,@cas ){ $sort .= $_ }
+   open my $F,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die" font list $!\n";
+   print $F "4\n0\n$sort"; close $F;
+  }												###
+}
