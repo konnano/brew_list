@@ -111,7 +111,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         my( $fom,$bui ) = split ':',$data if $ui[10] and substr($data,-1,1) ne ':';
          if( $bui ){ $LHA1{$fom}++;
           if( $re->{'LIN'} and $LHA1{$fom} < 2 ){ Bdep_1( $fom,$name ) }
-         }elsif( $data =~ /(.+):$/ ){ Bdep_1( $1,$name );
+         }elsif( $data =~ /(.+):$/ ){
+          if( $re->{'LIN'} and $LHA1{$fom} < 2 ){ Bdep_1( $1,$name ) }
          }else{ @sp = split ',',$data;
           for my $sp( @sp ){ $LHA2{$sp}++;
            if( $re->{'LIN'} and $LHA2{$sp} < 2 ){ Depe_1( $sp,$name ) }
