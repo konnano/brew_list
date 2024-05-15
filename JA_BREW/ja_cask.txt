@@ -596,6 +596,7 @@ charles	Webデバッグプロキシアプリケーション
 charlessoft-timetracker	時間追跡
 chatall	ChatGPT/Bing Chat/Bard/Claude/ChatGLM などで同時にチャットできます
 chatbox	GPT-4/GPT-3.5 用デスクトップアプリ(OpenAI API)
+chatgpt	OpenAIの公式ChatGPTデスクトップアプリ
 chatmate-for-whatsapp	WhatsAppのChatMate
 chatology	チャットマネージャーとメッセージ検索ソフトウェア
 chatterino	https://twitch.tvのチャットクライアント
@@ -2279,8 +2280,8 @@ manuskript	作家の為のツール
 manymc	ネイティブarm64をサポートするMinecraftランチャー
 manyverse	ピアツーピアSSB手続きに基づいて構築されたソーシャルネットワーク
 marathon	三部作で最初の一人称シューティングゲーム
+marathon-2	三部作で2番目の一人称シューティングゲーム
 marathon-infinity	三部作で3番目の一人称シューティングゲーム
-marathon2	三部作で2番目の一人称シューティングゲーム
 marble	Marble
 marginnote	電子リーダー
 mari0	スーパーマリオブラザーズの再現
@@ -2953,6 +2954,7 @@ pdf-expert	PDFリーダー/エディター/注釈
 pdf-expert@beta	PDFリーダー/エディター/注釈
 pdf-images	PDF-画像
 pdf-over	オーストリアのBuergerkarteでPDFにデジタル署名する
+pdf-pals	PDFを使用したAIチャット
 pdf-reader-pro	フォームに記入してPDFに署名する 読む/注釈/編集/変換/作成/OCR
 pdf-squeezer	PDF圧縮ツール
 pdf-toolbox	PDFツールボックス
@@ -2961,7 +2963,6 @@ pdfelement-express	PDFelement表現
 pdfextractor	PDFExtractor
 pdfify	検索可能で小さいPDFを作成する
 pdfkey-pro	パスワードで保護されたPDFのロックを解除するユーティリティ
-pdfpals	PDFを使用したAIチャット
 pdfpen	PDF編集ソフトウェア
 pdfpenpro	PDF編集ソフトウェア
 pdfsam-basic	ページを抽出/分割/マージ PDFファイルを混合及び回転します
@@ -4413,6 +4414,7 @@ waves-central	Waves製品をインストールしてアクティブ化するク�
 wavesurfer	サウンドの視覚化と操作の為のツール
 wch-ch34x-usb-serial-driver	USBシリアルドライバー
 weakauras-companion	Wago.ioからオーラを更新しそれらの定期的なバックアップを作成します
+weasis	医療画像を表示及び分析する為のFree DICOMビューア
 webcamoid	ウェブカメラセット
 webcatalog	デスクトップアプリの様なWebアプリを実行する為のツール
 webex	ビデオ通信及び仮想会議プラットフォーム
