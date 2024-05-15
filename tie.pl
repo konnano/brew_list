@@ -107,19 +107,20 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( $ui[6] ){ if( index($data,"\n") == 0 ){ $ui[10] = 1; next }
                        chomp $data; $data =~ tr/"//d; $data =~ s/^,//;
        if( index($data,'uses_from_macos_bounds:') == 0 ){ $ui[7] = 1; $ui[6] = $ui[10] = 0; next }
-        next if $data eq 'build,test';
+        if( $data eq 'build,test' ){ $ui[23] = 1; next }
         my( $fom,$bui ) = split ':',$data if $ui[10] and substr($data,-1,1) ne ':';
-         if( $bui ){ $LHA1{$fom}++;
+         if( $bui and $bui eq 'build' or $ui[23] ){ $LHA1{$fom}++ if $fom;
           if( $re->{'LIN'} and $LHA1{$fom} < 2 ){ Bdep_1( $fom,$name ) }
-         }elsif( $data =~ /(.+):$/ ){
-          if( $re->{'LIN'} and $LHA1{$fom} < 2 ){ Bdep_1( $1,$name ) }
-         }else{ @sp = split ',',$data;
+         }elsif( $data =~ /(.+):$/ ){ $LHA1{$1}++;
+          if( $re->{'LIN'} and $LHA1{$1} < 2 ){ Bdep_1( $1,$name ) }
+         }elsif( index($data,',') > 0 ){ @sp = split ',',$data;
           for my $sp( @sp ){ $LHA2{$sp}++;
            if( $re->{'LIN'} and $LHA2{$sp} < 2 ){ Depe_1( $sp,$name ) }
           }
          }
          if( $ui[10] and index($data,',') > 0 ){ push @lu,@sp;;
-         }elsif( $ui[10] and $bui ){ push @lu,":$fom";
+         }elsif( $ui[10] and $bui and $bui eq 'build'){ push @lu,":$fom";
+         }elsif( $ui[10] and $bui and $bui eq 'test'){ push @lu,"=$fom";
          }elsif( $ui[10] and $data =~ /(.+):$/ ){ push @lu,":$1";
          }elsif( not $ui[10] and index($data,',') > 0 ){ @lu = split ',',$data;
          }elsif( $data ){ push @lu,$data;
@@ -128,13 +129,14 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
 
        if( $ui[7] and $re->{'MAC'} ){
         if( index($data,'"requirements":') >= 0 ){ $ui[7] = 0; next }
-        if( index($data,'"variations":') >= 0 ){ $ui[7] = 0; $ui[11] = 1; next }
+        if( index($data,'"variations":') >= 0 ){ $ui[7] = 0; $ui[22] = 1; next }
         if( index($data,"\n") == 0 ){ next }
         if( index($data,',') == 0 ){ $u2++; next }
          $data =~ s/^"since":"([^"]+)"\n/$1/;
          if( $Mac_OS{$data} and $Mac_OS{$data} > $OS_Version ){
           if( index($lu[$u2],':') == 0 and substr $lu[$u2],0,1,'' ){ $HA1{$lu[$u2]}++;
            unless( $HA1{$lu[$u2]} > 1 ){ Bdep_1( $lu[$u2],$name ) }
+          }elsif( index($lu[$u2],'=') == 0 ){
           }else{ $HA2{$lu[$u2]}++;
            unless( $HA2{$lu[$u2]} > 1 ){ Depe_1( $lu[$u2],$name ) }
           }
