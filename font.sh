@@ -44,74 +44,46 @@ if [[ $2 ]];then
  if [[ $NAME = Darwin ]];then
   if [[ $2 = 1 ]];then
     mkdir -p ~/.BREW_LIST/{0..19}
-    rm -f ~/.BREW_LIST/keepme.zip
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl 1 error}; }
+     rmdir ~/.BREW_LIST/0
    curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
     { math_rm; ${die:?curl 2 error}; }
-     rmdir ~/.BREW_LIST/0
-   curl -skLo ~/.BREW_LIST/master.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
-    { math_rm; ${die:?curl 3 error}; }
-   curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
-    { math_rm; ${die:?curl 5 error}; }
      rmdir ~/.BREW_LIST/1
-   curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
-    { math_rm; ${die:?curl 6 error}; }
-   curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
-    { math_rm; ${die:?curl 7 error}; }
+   curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
+    { math_rm; ${die:?curl 3 error}; }
      rmdir ~/.BREW_LIST/2
-   curl -sko ~/.BREW_LIST/cna1.html https://formulae.brew.sh/analytics/cask-install/30d/index.html ||\
-    { math_rm; ${die:?curl 8 error}; }
-   curl -sko ~/.BREW_LIST/cna2.html https://formulae.brew.sh/analytics/cask-install/90d/index.html ||\
-    { math_rm; ${die:?curl 9 error}; }
+   curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
+    { math_rm; ${die:?curl 4 error}; }
+   curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
+    { math_rm; ${die:?curl 5 error}; }
      rmdir ~/.BREW_LIST/3
-   curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
-    { math_rm; ${die:?curl a error}; }
-   curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
-    { math_rm; ${die:?curl b error}; }
+   curl -sko ~/.BREW_LIST/cna1.html https://formulae.brew.sh/analytics/cask-install/30d/index.html ||\
+    { math_rm; ${die:?curl 6 error}; }
+   curl -sko ~/.BREW_LIST/cna2.html https://formulae.brew.sh/analytics/cask-install/90d/index.html ||\
+    { math_rm; ${die:?curl 7 error}; }
      rmdir ~/.BREW_LIST/4
-   curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
-    { math_rm; ${die:?curl c error}; }
-   curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
-    { math_rm; ${die:?curl d error}; }
+   curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
+    { math_rm; ${die:?curl 8 error}; }
+   curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
+    { math_rm; ${die:?curl 9 error}; }
      rmdir ~/.BREW_LIST/5
-   curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
-    { math_rm; ${die:?curl e error}; }
-   curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
-    { math_rm; ${die:?curl f error}; }
+   curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
+    { math_rm; ${die:?curl a error}; }
+   curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
+    { math_rm; ${die:?curl b error}; }
      rmdir ~/.BREW_LIST/6
-   curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
-    { math_rm; ${die:?curl g error}; }
+   curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
+    { math_rm; ${die:?curl c error}; }
+   curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
+    { math_rm; ${die:?curl d error}; }
      rmdir ~/.BREW_LIST/7
+   curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
+    { math_rm; ${die:?curl e error}; }
+     rmdir ~/.BREW_LIST/8
   fi
-   unzip -q ~/.BREW_LIST/master.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
-perl<<"EOF"
-   $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
-
-    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " TAP DIR $!\n";
-     for $hand( readdir $dir ){ next if index($hand,'.') == 0;
-      $hand =~ s/(.+)\.rb$/$1/;
-       if( $FDIR ){
-        push @file1,"$hand\n";
-       }else{ $i1 = 1;
-        push @file1,"homebrew/cask-fonts/$hand\n";
-       }
-     }
-    closedir $dir;
-    @file1 = sort @file1;
-
-    $i1 ? push @file,"3\n1\n",@file1 :
-          push @file,"4\n0\n",@file1 ;
-
-   open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
-    print $FILE1 @file;
-   close $FILE1;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/8";
-EOF
-  (( $? != 0 )) && math_rm 1 && ${die:?perl 1 error}
 
   if [[ $2 = 1 ]];then
 perl<<"EOF"
