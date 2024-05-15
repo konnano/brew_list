@@ -2271,6 +2271,7 @@ gocloc	少し速いLoCカウンター
 gocr	光学式文字認識(OCR)、画像をテキストに変換します
 gocryptfs	Goで記述された暗号化され隠されたファイルシステム
 goctl	Web及びRPCサービスのサーバー側及びクライアント側のコードを生成します
+godap	LDAP用の完全なTUI(ターミナルユーザーインターフェイス)
 goenv	GOバージョン管理
 goffice	数値スプレッドシートプログラム
 gofish	クロスプラットフォームシステムパッケージマネージャー
@@ -3050,6 +3051,7 @@ kubent	非推奨のAPIの使用についてクラスターを簡単に確認す�
 kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋める為のコマンドのコレクション
 kubernetes-cli	Kubernetesコマンドラインインターフェース
+kubernetes-cli@1.29	Kubernetesコマンドラインインターフェイス
 kubescape	NSA/CISAによる硬化ガイダンスに従ったKubernetesテスト
 kubeseal	一方向に暗号化された機密Kubernetesコントローラーとツール
 kubesess	複数の kubernetesクラスターを同時に管理する
