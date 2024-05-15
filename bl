@@ -142,15 +142,9 @@ MAIN:{
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
    }
   }
-   unless( not $ref->{'TAP'} or $ref->{'FDIR'} ){
-    print " not exists cask tap\n homebrew/cask-fonts\n";
-     File_1( $ref );
-   }elsif( $re->{'FTD'} and not $re->{'LFOD'} ){
+   if( $re->{'FTD'} and not $re->{'LFOD'} ){
     print " not exists font tap\n homebrew/linux-fonts\n";
      File_1( $re );
-   }elsif( $ref->{'PRE'} and not $ref->{'FDIR'} ){
-    print " not exists cask tap homebrew/cask-fonts\n";
-     File_1( $ref );
    }
  Fork_1( $name,$re,$ref );
 }
@@ -441,7 +435,7 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
 
 sub m_search{
  my $re = shift; my( $co,$bl,$nam,$rows,$cols,@an ) = ( 0,__FILE__ );
-  $nam = $re->{'MAC'} ? 54 : 27;
+  $nam = ( $re->{'MAC'} or $re->{'LFOD'} ) ? 54 : 27;
    $an[$co++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
     $an[$co++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' );
   exit unless -t STDOUT and Path_1; $co = 1;
@@ -469,7 +463,7 @@ sub m_search{
 
     $co = $co == $nam ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
     $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
-    if( $re->{'MAC'} ){
+    if( $re->{'MAC'} or $re->{'LFOD'} ){
       $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
       $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
       $co = $co > 27 ? 28 :  1 if $key == 5;
@@ -483,10 +477,14 @@ sub m_search{
      if( $nu eq chr(10) ){
         print"\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$an[$co];
-         ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
-         ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
-       my $bl = ( $an[$co] eq 'l_l' ) ?
-       `$bl -l /^l\\(?\\!ib\\)/` : `$bl -$ca /^$na/`;
+          ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
+         if( $re->{'MAC'} ){
+          ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
+         }else{
+          ( $ca,$na ) = ( 'fc',"font-$na" ) if $ca eq 'c';
+          ( $ca,$na ) = ( 'fc','font-\\\\d' ) if $an[$co] eq 'num';
+         } my $bl = ( $an[$co] eq 'l_l' ) ?
+       `  $bl -l /^l\\(?\\!ib\\)/` : `$bl -$ca /^$na/`;
         $SIG{'INT'} = $SIG{'QUIT'} = sub{};
       open my $pipe,'|-','less -S' or die " can't exec command\n";
        print $pipe $bl;
@@ -1041,8 +1039,6 @@ my( $re,$list ) = @_; my( $e,@tap,$file ) = 0;
                 Wait_1( $re );
        }
         last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
-       exit unless ( not $re->{'TAP'} or $re->{'FDIR'} or $re->{'VERS'} ) and
-                   ( not $re->{'PRE'} or $re->{'FDIR'} ) and ( not $re->{'FTD'} or $re->{'LFOD'} );
        Prew_1( $re ) if defined $re->{'PRE'};
       next;
      }
@@ -1058,11 +1054,11 @@ my( $re,$list ) = @_; my( $e,@tap,$file ) = 0;
     die " Tap No such file\n";
   }
   if( -d "$ENV{'HOME'}/.JA_BREW" and not $re->{'EN'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DEP'} ) ){
-   my @brew = $re->{'DEP'} ? ('brew','cask','tap') :
+   my @brew = $re->{'DEP'} ? ('brew','cask') :
             ( $re->{'LFOD'} and $re->{'PRINT'} ) ? ('brew','linux') : $re->{'FTD'} ? ('linux') :
             ( $re->{'CAS'} and not $re->{'TAP'} and $re->{'FDIR'} and $re->{'PRINT'} ) ?
-              ('cask','tap') : $re->{'FOR'} ? ('brew') : ( $re->{'CAS'} and not $re->{'TAP'} ) ? ('cask') :
-            ( ( $re->{'FDIR'} or $re->{'VERS'} ) and $re->{'TAP'} ) ? ('tap') : ();
+              ('cask','tap') : $re->{'FOR'} ? ('brew') : ( $re->{'CAS'} and not $re->{'TAP'} ) ?
+              ('cask') : $re->{'TAP'} ? ('tap') : ();
     no warnings 'closed'; my $JA;
    for my $ha( @brew ){
     ( $re->{'KEN'} and $Locale == 2 ) ?
@@ -1934,74 +1930,46 @@ if [[ $2 ]];then
  if [[ $NAME = Darwin ]];then
   if [[ $2 = 1 ]];then
     mkdir -p ~/.BREW_LIST/{0..19}
-    rm -f ~/.BREW_LIST/keepme.zip
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl 1 error}; }
+     rmdir ~/.BREW_LIST/0
    curl -sko ~/.BREW_LIST/Q_CASK.html https://formulae.brew.sh/cask/index.html ||\
     { math_rm; ${die:?curl 2 error}; }
-     rmdir ~/.BREW_LIST/0
-   curl -skLo ~/.BREW_LIST/master.zip https://github.com/Homebrew/homebrew-cask-fonts/archive/master.zip ||\
-    { math_rm; ${die:?curl 3 error}; }
-   curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
-    { math_rm; ${die:?curl 5 error}; }
      rmdir ~/.BREW_LIST/1
-   curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
-    { math_rm; ${die:?curl 6 error}; }
-   curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
-    { math_rm; ${die:?curl 7 error}; }
+   curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
+    { math_rm; ${die:?curl 3 error}; }
      rmdir ~/.BREW_LIST/2
-   curl -sko ~/.BREW_LIST/cna1.html https://formulae.brew.sh/analytics/cask-install/30d/index.html ||\
-    { math_rm; ${die:?curl 8 error}; }
-   curl -sko ~/.BREW_LIST/cna2.html https://formulae.brew.sh/analytics/cask-install/90d/index.html ||\
-    { math_rm; ${die:?curl 9 error}; }
+   curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
+    { math_rm; ${die:?curl 4 error}; }
+   curl -sko ~/.BREW_LIST/ana3.html https://formulae.brew.sh/analytics/install/365d/index.html ||\
+    { math_rm; ${die:?curl 5 error}; }
      rmdir ~/.BREW_LIST/3
-   curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
-    { math_rm; ${die:?curl a error}; }
-   curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
-    { math_rm; ${die:?curl b error}; }
+   curl -sko ~/.BREW_LIST/cna1.html https://formulae.brew.sh/analytics/cask-install/30d/index.html ||\
+    { math_rm; ${die:?curl 6 error}; }
+   curl -sko ~/.BREW_LIST/cna2.html https://formulae.brew.sh/analytics/cask-install/90d/index.html ||\
+    { math_rm; ${die:?curl 7 error}; }
      rmdir ~/.BREW_LIST/4
-   curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
-    { math_rm; ${die:?curl c error}; }
-   curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
-    { math_rm; ${die:?curl d error}; }
+   curl -sko ~/.BREW_LIST/cna3.html https://formulae.brew.sh/analytics/cask-install/365d/index.html ||\
+    { math_rm; ${die:?curl 8 error}; }
+   curl -sko ~/.BREW_LIST/req1.html https://formulae.brew.sh/analytics/install-on-request/30d/index.html ||\
+    { math_rm; ${die:?curl 9 error}; }
      rmdir ~/.BREW_LIST/5
-   curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
-    { math_rm; ${die:?curl e error}; }
-   curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
-    { math_rm; ${die:?curl f error}; }
+   curl -sko ~/.BREW_LIST/req2.html https://formulae.brew.sh/analytics/install-on-request/90d/index.html ||\
+    { math_rm; ${die:?curl a error}; }
+   curl -sko ~/.BREW_LIST/req3.html https://formulae.brew.sh/analytics/install-on-request/365d/index.html ||\
+    { math_rm; ${die:?curl b error}; }
      rmdir ~/.BREW_LIST/6
-   curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
-    { math_rm; ${die:?curl g error}; }
+   curl -sko ~/.BREW_LIST/err1.html https://formulae.brew.sh/analytics/build-error/30d/index.html ||\
+    { math_rm; ${die:?curl c error}; }
+   curl -sko ~/.BREW_LIST/err2.html https://formulae.brew.sh/analytics/build-error/90d/index.html ||\
+    { math_rm; ${die:?curl d error}; }
      rmdir ~/.BREW_LIST/7
+   curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
+    { math_rm; ${die:?curl e error}; }
+     rmdir ~/.BREW_LIST/8
   fi
-   unzip -q ~/.BREW_LIST/master.zip -d ~/.BREW_LIST || { math_rm; ${die:?unzip 1 error}; }
    export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
-perl<<"EOF"
-   $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $FDIR = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks";
-
-    opendir $dir,"$ENV{'HOME'}/.BREW_LIST/homebrew-cask-fonts-master/Casks" or die " TAP DIR $!\n";
-     for $hand( readdir $dir ){ next if index($hand,'.') == 0;
-      $hand =~ s/(.+)\.rb$/$1/;
-       if( $FDIR ){
-        push @file1,"$hand\n";
-       }else{ $i1 = 1;
-        push @file1,"homebrew/cask-fonts/$hand\n";
-       }
-     }
-    closedir $dir;
-    @file1 = sort @file1;
-
-    $i1 ? push @file,"3\n1\n",@file1 :
-          push @file,"4\n0\n",@file1 ;
-
-   open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " TAP FILE $!\n";
-    print $FILE1 @file;
-   close $FILE1;
-  rmdir "$ENV{'HOME'}/.BREW_LIST/8";
-EOF
-  (( $? != 0 )) && math_rm 1 && ${die:?perl 1 error}
 
   if [[ $2 = 1 ]];then
 perl<<"EOF"
@@ -2218,9 +2186,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
 }
 
-unless( $ARGV[0] or $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
- chomp( $cache = `brew --cache` ) unless $ARGV[0];
- unless( $ARGV[0] ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+ chomp( $cache = `brew --cache` ) if not $ARGV[0] or $ARGV[0] == 1;
+ unless( $ARGV[0] or $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
   mkdir "$ENV{'HOME'}/.BREW_LIST/parse";
   open my $J1,'<',"$cache/api/formula.jws.json" or die" 1 brew cache $!\n";
    my $fo = <$J1>; close $J1; my $i;
@@ -2233,7 +2200,6 @@ unless( $ARGV[0] or $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     }
   rmdir "$ENV{'HOME'}/.BREW_LIST/13";
  }
-}
 
  my( $Time,%NA,$i )  = [localtime];
   my $TIME = sprintf "%04d-%02d-%02d",$Time->[5]+=1900,++$Time->[4],$Time->[3];
@@ -2509,7 +2475,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    }
   }
 
- unless( $ARGV[0] or $re->{'LIN'} ){
+ if( not $ARGV[0] or $ARGV[0] == 1 ){
   mkdir "$ENV{'HOME'}/.BREW_LIST/cparse";
   open my $J2,'<',"$cache/api/cask.jws.json" or die" 1 cask cache $!\n";
    my $an = <$J2>; close $J2;
@@ -2522,7 +2488,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
  }
  rmdir "$ENV{'HOME'}/.BREW_LIST/16";
 
- unless( $ARGV[0] ){
+ if( not $ARGV[0] or $ARGV[0] == 1 ){
   if( $re->{'MAC'} ){
   my $CPU = $UNAME eq 'x86_64' ? 'intel' : 'arm';
    opendir my $dir2,"$ENV{'HOME'}/.BREW_LIST/cparse/" or die" 1 cparse $!\n";
@@ -2547,10 +2513,11 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( index($data,'{"font":[') == 0 ){				push @font,"$name\n";	###
         if( $re->{'MAC'} ){ $tap{"${name}mfont"} = 1;
          ( $tap{"${name}font"} ) = $url =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
+         if( $tap{"${name}font"} ){
            $tap{'fontlist'} .= "$name\t";
             $FON .= "$name \\\n";
-        }else{ $tap{"${name}lfont"} = 1 }
-        last;
+         }
+        } last;
        }
 
        if( index($data,'"version":') == 0 ){ $ui[2] = 1 }
@@ -2630,19 +2597,20 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
 
    if( not $ARGV[0] or $ARGV[0] == 1 ){
     if( $re->{'MAC'} and -d -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ){	###
-        Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks",0,1 );
+        Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks",0,1 ); $re->{'font'} = 1;
     }elsif( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
-        Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 );
+        Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
     }
    }
-   Dirs_1( "$MY_HOME/Library/Taps",1,0 ) unless $ARGV[0]; my( @BR,@CA );
+   Dirs_1( "$MY_HOME/Library/Taps",1,0 ) unless $ARGV[0]; my( @BR,@CA );			### Tap
 
   sub Dirs_1{
   my( $dir,$ls,$cask ) = @_;
    opendir my $DIR,$dir or die " DIR $!\n";
     for my $an( sort readdir $DIR ){ next if index($an,'.') == 0;
       next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$|
-                              homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found/x;
+                              homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found
+                              homebrew-cask-fonts$|homebrew-linux-fonts/x;
       if( not $cask and $an =~ /\.rb$/ ){ local $/;
        open K,'<',"$dir/$an" or die" rb_file $!\n"; my $br = <K>; close K;
         if( $br =~ /desc\s*"/ ){ push @BR,"$dir/$an"; return }else{ return }
@@ -2673,7 +2641,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   if( $re->{'MAC'} ){
    for my $dir2( @CA ){ my( $ver,@ta );
     my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
-    for(0..4){ $ta[$_] = 1 }
+    for(0..3){ $ta[$_] = 1 }
     if( $dirs eq 'homebrew-cask-fonts' ){ push @CASK,$name;		push @cas,"$name\n";	###
      $tap{"${name}mfont"} = 1;
       $tap{"${name}cask"} = $dir2;
@@ -2689,13 +2657,13 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
           $FON .= "$name \\\n"; $ta[0] = 0;
        }
       }
-       if( $ta[2] and $data =~ s/^\s*version\s+[":]([^"\s]+)"?.*\n/$1/ ){
-        $tap{"${name}c_version"} = $data unless $tap{"${name}c_version"}; $ta[2] = 0
-       }elsif( $ta[3] and $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
-        $data =~ tr/\\//d if index($data,'\\') > 0; $ta[3] = 0;
+       if( $ta[1] and $data =~ s/^\s*version\s+[":]([^"\s]+)"?.*\n/$1/ ){
+        $tap{"${name}c_version"} = $data unless $tap{"${name}c_version"}; $ta[1] = 0
+       }elsif( $ta[2] and $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
+        $data =~ tr/\\//d if index($data,'\\') > 0; $ta[2] = 0;
         $tap{"${name}c_desc"} = $data;
-       }elsif( $ta[4] and $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_name"} = $data; $ta[4] = 0
+       }elsif( $ta[3] and $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
+        $tap{"${name}c_name"} = $data; $ta[3] = 0
        }
       }
      close $BR2;
@@ -2728,9 +2696,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
 }else{
  if( $re->{'MAC'} ){
-  unless( $ARGV[0] ){
-   $re->{'CLANG'} = `/usr/bin/clang --version|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0;
-  }
+   $re->{'CLANG'} = `/usr/bin/clang --version|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0 unless $ARGV[0];
    %MAC_OS = ('14.0M1'=>'arm64_sonoma','14.0','sonoma','13.0M1'=>'arm64_ventura','13.0'=>'ventura',
               '12.0M1'=>'arm64_monterey','12.0'=>'monterey','11.0M1'=>'arm64_big_sur','11.0'=>'big_sur',
               '10.15'=>'catalina','10.14'=>'mojave','10.13'=>'high_sierra','10.12'=>'sierra','10.11'=>'el_capitan');
@@ -2742,13 +2708,13 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    unless( $ARGV[0] ){
     Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
      Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
-      Dirs_2( "$MY_HOME/Library/Taps",1,0 );
+      Dirs_2( "$MY_HOME/Library/Taps",1,0 );							### Tap
    }
    if( not $ARGV[0] or $ARGV[0] == 1 ){
     if( $re->{'MAC'} and -d -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ){	###
-        Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks",0,1 );
+        Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks",0,1 ); $re->{'font'} = 1;
     }elsif( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
-        Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 );
+        Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
     }
    } rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 
@@ -2757,7 +2723,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    opendir my $DIR,$dir or die " DIR $!\n";
     for my $an( sort readdir $DIR ){ next if index($an,'.') == 0;
      next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$|
-                             homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found$/x;
+                             homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found$
+                             homebrew-cask-fonts$|homebrew-linux-fonts$/x;
       if( $ls and not $cask and $an =~ /\.rb$/ ){ local $/;
        open K,'<',"$dir/$an" or die" rb_file $!\n"; my $br = <K>; close K;
         if( $br =~ /desc\s*"/ ){ push @BREW,"$dir/$an"; return }else{ return }
@@ -3246,11 +3213,9 @@ unless( $ARGV[0] ){
 }
 untie %tap;
 
-if( -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" or
-    -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){				###
-  unless( $ARGV[0] ){ my $sort = '';
+ if( not $ARGV[0] or $ARGV[0] == 1 ){ my $sort = '';					###
+  my $f = $re->{'font'} ? 4 : 3;
    for( sort @font,@cas ){ $sort .= $_ }
    open my $F,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die" font list $!\n";
-   print $F "4\n0\n$sort"; close $F;
-  }												###
-}
+   print $F "$f\n0\n$sort"; close $F;
+ }
