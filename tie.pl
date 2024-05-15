@@ -351,9 +351,9 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        }
 
        if( $ta[1] and $data =~ /"url":"([^"]+)"/ ){ $url = $1; $ta[1] = 0 }
-       if( index($data,'{"font":[') == 0 ){				push @font,"$name\n";	###
+       if( index($data,'{"font":[') >= 0 ){				push @font,"$name\n";	###
         if( $re->{'MAC'} ){ $tap{"${name}mfont"} = 1;
-         ( $tap{"${name}font"} ) = $url =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
+         ( $tap{"${name}font"} ) = $url =~ /(.+(?:ttf|otf|dfont))$/;
          if( $tap{"${name}font"} ){
            $tap{'fontlist'} .= "$name\t";
             $FON .= "$name \\\n";
@@ -543,7 +543,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
               '10.15'=>'catalina','10.14'=>'mojave','10.13'=>'high_sierra','10.12'=>'sierra','10.11'=>'el_capitan');
       %HAN = ('newer'=>'>','older'=>'<');
    Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks",0,1 )
-     if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks" and not $ARGV[0];
+     if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks" and ( not $ARGV[0] or $ARGV[0] == 1 );
  }
 
    unless( $ARGV[0] ){
@@ -841,7 +841,6 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      }
     }
    }
-   rmdir "$ENV{'HOME'}/.BREW_LIST/17";
 
   unless( $ARGV[0] ){
     @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
@@ -854,6 +853,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     @CASK = sort grep{ s|.+/(.+)\.rb|$1| }@CASK;
    }
   }
+  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
 }
 
 if( not $ARGV[0] or $ARGV[0] == 2 ){
@@ -923,6 +923,7 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
 }
 
 unless( $ARGV[0] ){
+ rmdir "$ENV{'HOME'}/.BREW_LIST/18";
  if( $re->{'MAC'} ){ my %HA;
   for( @{$re->{'OS'}} ){
    my( $name,$data,$ls ) = split ',';
@@ -964,7 +965,6 @@ unless( $ARGV[0] ){
    }
   $ls1[$i] ? 1 : 0;
  }
- rmdir "$ENV{'HOME'}/.BREW_LIST/18";
 
  open my $FILE,'<',"$ENV{'HOME'}/.BREW_LIST/brew.txt" or die " FILE $!\n";
   my @LIST = <$FILE>;
