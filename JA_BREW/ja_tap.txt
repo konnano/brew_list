@@ -1276,7 +1276,6 @@ font-neucha	Neucha
 font-neuton	Neuton
 font-new-rocker	New Rocker
 font-new-tegomin	New Tegomin
-font-new-york	AppleによるSerif font "New York"
 font-news-cycle	News Cycle
 font-newsreader	主に画面上で継続的に読むことを目的としたオリジナルの書体
 font-nico-moji	Nico Moji
@@ -1841,6 +1840,7 @@ font-saira-stencil-one	Saira Stencil One
 font-salsa	Salsa
 font-sanchez	Sanchez
 font-sancreek	Sancreek
+font-sankofa-display	直線的な幾何学的デザインに重点を置いたAfrican書体
 font-sans-forgetica	Sans Forgetica
 font-sansation	Sansation
 font-sansita	Sansita
@@ -1872,14 +1872,7 @@ font-sen	Sen
 font-send-flowers	年配の視聴者に適しています
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
-font-sf-arabic	Appleによる"San Francisco"のアラビア語拡張
-font-sf-armenian	Appleによる"San Francisco"アルメニア語拡張
-font-sf-compact	Appleによる"San Francisco"のコンパクト版
-font-sf-georgian	Appleによる"San Francisco"グルジア語拡張
-font-sf-hebrew	Appleによる"San Francisco"のヘブライ語拡張
-font-sf-mono	Appleによる"San Francisco"の等幅版
 font-sf-mono-for-powerline	Powerlineをサポートする為にNerdFontsパッチャーでパッチされたAppleのSFMonoフォント
-font-sf-pro	Appleによる”San Francisco"のSans-serifバージョン
 font-shadows-into-light	Shadows Into Light
 font-shadows-into-light-two	Shadows Into Light Two
 font-shalimar	平らなペン先の書道のストロークに触発された直立したスクリプト
@@ -2143,6 +2136,7 @@ font-whisper	Whisper
 font-windsong	複数の文体セットを含む細長いスクリプト
 font-wire-one	Wire One
 font-wix-madefor-display	Wix Madefor ディスプレイ
+font-wix-madefor-text	Wix Madefor Text
 font-work-sans	Work Sans
 font-workbench	Workbench
 font-xanh-mono	lambaoとduydaoによってデザインされたMono-serif書体
