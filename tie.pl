@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my( $re,$cache,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@font,@cas ); ###
+my( $re,$cache,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(which brew);printf \${CO%/bin/brew} 2>/dev/null`||die" brew path not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
@@ -351,7 +351,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        }
 
        if( $ta[1] and $data =~ /"url":"([^"]+)"/ ){ $url = $1; $ta[1] = 0 }
-       if( index($data,'{"font":[') >= 0 ){				push @font,"$name\n";	###
+       if( index($data,'{"font":[') >= 0 ){ push @FONT,"$name\n";
         if( $re->{'MAC'} ){ $tap{"${name}mfont"} = 1;
          ( $tap{"${name}font"} ) = $url =~ /(.+(?:ttf|otf|dfont))$/;
          if( $tap{"${name}font"} ){
@@ -437,13 +437,13 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
 
    if( not $ARGV[0] or $ARGV[0] == 1 ){
-    if( $re->{'MAC'} and -d -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ){	###
+    if( $re->{'MAC'} and -d -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ){
         Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks",0,1 ); $re->{'font'} = 1;
     }elsif( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
         Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
     }
    }
-   Dirs_1( "$MY_HOME/Library/Taps",1,0 ) unless $ARGV[0]; my( @BR,@CA );			### Tap
+   Dirs_1( "$MY_HOME/Library/Taps",1,0 ) unless $ARGV[0]; my( @BR,@CA );
 
   sub Dirs_1{
   my( $dir,$ls,$cask ) = @_;
@@ -483,7 +483,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    for my $dir2( @CA ){ my( $ver,@ta );
     my( $dirs,$name ) = $dir2 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
     for(0..3){ $ta[$_] = 1 }
-    if( $dirs eq 'homebrew-cask-fonts' ){ push @CASK,$name;		push @cas,"$name\n";	###
+    if( $dirs eq 'homebrew-cask-fonts' ){ push @CASK,$name; push @FONT,"$name\n";
      $tap{"${name}mfont"} = 1;
       $tap{"${name}cask"} = $dir2;
        delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
@@ -514,7 +514,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    for my $dir3( @CA ){
     my( $dirs,$name,@ta ) = $dir3 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
      for(0..2){ $ta[$_] = 1 }
-    if( $dirs eq 'homebrew-linux-fonts' ){ push @CASK,$name;		push @cas,"$name\n";	###
+    if( $dirs eq 'homebrew-linux-fonts' ){ push @CASK,$name;
      $tap{"${name}cask"} = $dir3; $tap{"${name}lfont"} = 1;
      open my $BR3,'<',$dir3 or die " tie Info_3 $!\n";
       while(my $data=<$BR3>){
@@ -549,10 +549,10 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    unless( $ARGV[0] ){
     Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
      Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
-      Dirs_2( "$MY_HOME/Library/Taps",1,0 );							### Tap
+      Dirs_2( "$MY_HOME/Library/Taps",1,0 );
    }
    if( not $ARGV[0] or $ARGV[0] == 1 ){
-    if( $re->{'MAC'} and -d -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ){	###
+    if( $re->{'MAC'} and -d -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ){
         Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks",0,1 ); $re->{'font'} = 1;
     }elsif( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
         Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
@@ -752,8 +752,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         delete $tap{"${name}d_cask"}, delete $tap{"${name}formula"} if $ARGV[0];
      open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
       while(my $data=<$BREW>){ $i++;
-       if( ( $dirs eq 'homebrew-cask-fonts'or $dirs eq 'font' ) and $FI ){			###
-        $tap{"${name}mfont"} = 1;		push @font,"$name\n" if $i == 1;		###
+       if( ( $dirs eq 'homebrew-cask-fonts'or $dirs eq 'font' ) and $FI ){
+        $tap{"${name}mfont"} = 1; push @FONT,"$name\n" if $i == 1;
         $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
         ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
          if( $tap{"${name}font"} ){
@@ -825,7 +825,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    }else{
     for my $dir3( @CASK ){
     my( $dirs,$name ) = $dir3 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
-     if( $dirs eq 'homebrew-linux-fonts' ){			push @cas,"$name\n";		###
+     if( $dirs eq 'homebrew-linux-fonts' ){
       $tap{"${name}cask"} = $dir3; $tap{"${name}lfont"} = 1;
       open my $BREW,'<',$dir3 or die " tie Info_3 $!\n";
        while(my $data=<$BREW>){
@@ -1054,9 +1054,9 @@ unless( $ARGV[0] ){
 }
 untie %tap;
 
- if( not $ARGV[0] or $ARGV[0] == 1 ){ my $sort = '';					###
+ if( $re->{'MAC'} and ( not $ARGV[0] or $ARGV[0] == 1 ) ){ my $sort = '';
   my $f = $re->{'font'} ? 4 : 3;
-   for( sort @font,@cas ){ $sort .= $_ }
+   for( sort @FONT ){ $sort .= $_ }
    open my $F,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die" font list $!\n";
    print $F "$f\n0\n$sort"; close $F;
  }
