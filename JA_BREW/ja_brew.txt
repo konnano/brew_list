@@ -5685,6 +5685,7 @@ shellshare	ライブターミナル放送
 shellspec	Dash、bash、ksh、zsh、及び全てのPOSIXシェル用のBDD単体テストフレームワーク
 shelltestrunner	コマンドラインプログラムをテストする為のポータブルコマンドラインツール
 shellz	カスタムshellzを追跡/制御する為の小さなユーティリティ
+sherlock	ユーザー名でソーシャルメディアアカウントを追跡する
 shfmt	シェルスクリプトのソースコードを自動フォーマットする
 shibboleth-sp	Shibboleth2サービスプロバイダーデーモン
 shivavg	OpenVG標準のOpenGLベースのANSIC実装
