@@ -1912,6 +1912,7 @@ jpadilla-redis	Redisのアプリラッパー
 jpc-qlcolorcode	構文を強調表示してソースコードをレンダリングするQuickLookプラグイン
 jprofiler	Javaプロファイラー
 jquake	日本向けリアルタイム地震監視ソフトウェア
+jslegendre-themeengine	コンパイルされた .carファイルを編集するアプリ
 json-viewer	JSONデータセットを 視覚化/検証/フォーマット するアプリ
 jt-bridge	WSJT-Xとアマチュア無線ロギングアプリケーション間のブリッジとして機能します
 jtool	逆エンジニアリングを支援するツール セキュリティ研究/tweak開発
@@ -3636,6 +3637,7 @@ simplefloatingclock	シンプルなフローティングクロック
 simplemind	クロスプラットフォームのマインドマッピングツール
 simplenote	SimplenoteのReactクライアント
 simplesynth	小さくて速いシンセ
+simpletex	数式の切り取りと認識アプリ
 simplex	SimpleXプロトコル用メッセンジャー
 simplistic	SimPLISTic
 simply-fortran	Fortran開発環境
@@ -3898,6 +3900,7 @@ surge@4	ネットワークツールボックス
 suspicious-package	インストーラーパッケージを検査する為のアプリケーション
 suuntodm5	ダイビングプランを作成しダイビングを分析します
 svgcleaner	不要なデータを削除してSVGファイルをクリーンアップするツール
+svp	リアルタイムビデオフレームレートコンバータ
 sweet-home3d	インテリアデザインアプリケーション
 swift	Swift XMPPクライアント
 swift-publisher	ページレイアウトとデスクトップ出版アプリケーション
