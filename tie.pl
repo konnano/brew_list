@@ -454,7 +454,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
                               homebrew-cask-fonts$|homebrew-linux-fonts/x;
       if( not $cask and $an =~ /\.rb$/ ){ local $/;
        open K,'<',"$dir/$an" or die" rb_file $!\n"; my $br = <K>; close K;
-        if( $br =~ /desc\s*"/ ){ push @BR,"$dir/$an"; return }else{ return }
+        if( $br =~ /desc\s*"/ ){ push @BR,"$dir/$an" } return;
       }
       -d "$dir/$an" ? Dirs_1( "$dir/$an",$ls,$cask) :( $cask and $an =~ /\.rb$/ ) ?
                       push @CA,"$dir/$an" : ( $an =~ /\.rb$/ ) ? push @BR,"$dir/$an" : 0;
@@ -568,7 +568,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
                              homebrew-cask-fonts$|homebrew-linux-fonts$/x;
       if( $ls and not $cask and $an =~ /\.rb$/ ){ local $/;
        open K,'<',"$dir/$an" or die" rb_file $!\n"; my $br = <K>; close K;
-        if( $br =~ /desc\s*"/ ){ push @BREW,"$dir/$an"; return }else{ return }
+        if( $br =~ /desc\s*"/ ){ push @BREW,"$dir/$an" } return;
       }
        -d "$dir/$an" ? Dirs_2( "$dir/$an",$ls,$cask ) : -l "$dir/$an" ? push @{$re->{'ALIA'}},"$dir/$an" :
      ( $cask and $an =~ /\.rb$/ ) ? push @CASK,"$dir/$an" : ( $an =~ /\.rb$/ ) ? push @BREW,"$dir/$an" : 0;
