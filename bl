@@ -2261,7 +2261,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    $i++; rmdir "$ENV{'HOME'}/.BREW_LIST/14" if $i == $NAM;
    my( $name,$u2,$b2,%HA1,%HA2,%LHA1,%LHA2,@ui,@ta,@lu,@sp ) = ( substr($ls1,0,-4),0 );
     for(0..11){ $ta[$_] = 1 } push @BREW,$name; $NA{$name}++;
-     $tap{"${name}core"} = "$MY_HOME/homebrew--core/$name";
+     $tap{"${name}core"} = "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula/$name";
    open my $BREW,"$ENV{'HOME'}/.BREW_LIST/parse/$ls1" or die" 2 parse $!\n";
     while(my $data = <$BREW> ){
      unless( $ui[22] ){
@@ -2538,7 +2538,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    for my $ls2(sort readdir $dir2){ next if index($ls2,'.') == 0;
     my( $name,$u2,$ato,$url,@ui,@ta ) = ( substr($ls2,0,-4),'' );
      for(0..2){ $ta[$_] = 1 } push @CASK,$name;
-      $tap{"${name}cask"} = "$MY_HOME/homebrew--cask/$name";
+      $tap{"${name}cask"} = "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Caks/$name";
     open my $CASK,'<',"$ENV{'HOME'}/.BREW_LIST/cparse/$ls2" or die" 2 cparse $!\n";
      while(my $data = <$CASK>){
       unless( $ui[9] ){
@@ -2631,13 +2631,12 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   sub Macs_1{
    my( $name,$kaku,$os,$val ) = @_;
     $os = substr($os,2,1) ? $os : "$os.0";
-     if( $kaku =~ /^[<=>]{1,2}$/ and $os =~ /^[\d.]+$/  ){
+    if( $kaku =~ /^[<=>]{1,2}$/ and $os =~ /^[\d.]+$/  ){
      unless( $val or eval"$OS_Version $kaku $os" ){ $tap{"${name}un_cask"} = 1;
      }elsif( eval"$OS_Version $kaku $os" ){ $tap{"${name}un_cask"} = 0;
      }
+    }
   }
-  }
-
    if( not $ARGV[0] or $ARGV[0] == 1 ){
     if( $re->{'MAC'} and -d -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks" ){
         Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Casks",0,1 ); $re->{'font'} = 1;
@@ -2955,6 +2954,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      open my $BREW,'<',$dir2 or die " tie Info_2 $!\n";
       while(my $data=<$BREW>){ $i++;
        if( ( $dirs eq 'homebrew-cask-fonts'or $dirs eq 'font' ) and $FI ){
+        $tap{"${name}cask"} = "$MY_HOME/Library/Taps/homebrew/homebrew-cask-fonts/Caks/$name";
         $tap{"${name}mfont"} = 1; push @FONT,"$name\n" if $i == 1;
         $ver = $1 if $data =~ /^\s*version\s+"([^"]+)"/;
         ( $tap{"${name}font"} ) = $data =~ /^\s*url\s+"(.+(?:ttf|otf|dfont))"/;
