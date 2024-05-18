@@ -3511,6 +3511,7 @@ screencast	シンプルなスクリーンビデオキャプチャアプリケー
 screenflick	オーディオ付きスクリーンレコーダー
 screenflow	画面録画及びビデオ編集ソフトウェア
 screenfocus	複数の画面を管理する為のツール
+screenmemory	画面を録画し時間を遡って作業内容を確認します
 screens	使いやすさに焦点を当てたリモートアクセスソフトウェア
 screens-assist	画面共有リンク
 screens-connect	リモートデスクトップソフトウェア
@@ -4471,6 +4472,7 @@ wine@devel	Windows アプリケーションを実行するための互換レイ�
 wine@staging	Windows アプリケーションを実行するための互換レイヤー
 wing-personal	学生や愛好家の為に設計されたFreeのPython IDE
 wings3d	高度な分割モデラー
+wins	ウィンドウマネージャー
 wintertime	バッテリーを節約する為にバックグラウンドで実行されているアプリをフリーズするユーティリティ
 winx-hd-video-converter	HDビデオ変換器
 winzip	ファイルアーカイブツール
