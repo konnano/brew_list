@@ -442,6 +442,7 @@ font-danfo	0/50/100 の3つの主要なスタイルを持つElsh軸可変フォ�
 font-dangrek	Dangrek
 font-darker-grotesque	Darker Grotesque
 font-darumadrop-one	Darumadrop One
+font-darwin	科学文書に重点を置いた書籍や記事の書体
 font-dashicons	Dashicons
 font-david-clm	David CLM
 font-david-libre	meir sadanが率いる テルアビブを拠点とする書体デザイナー イスラエル
