@@ -435,11 +435,13 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      }
     }
   }
+=cut
    if( not $ARGV[0] or $ARGV[0] == 1 ){
     if( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
         Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
     }
    }
+=cut
    Dirs_1( "$MY_HOME/Library/Taps",1,0 ) unless $ARGV[0]; my( @BR,@CA );
 
   sub Dirs_1{
@@ -475,7 +477,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     if( $bot and $data =~ /^\s+end/ ){ $bot = 0 }
    } close $BR1;
   }
-
+=cut
   if( $re->{'LIN'} ){
    for my $dir3( @CA ){
     my( $dirs,$name,@ta ) = $dir3 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
@@ -496,7 +498,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     }
    }
   }
-   undef @CA; undef @BR;
+=cut
+   undef @BR; # undef @CA;
   unless( $ARGV[0] ){
    @BREW = sort @BREW;
    @CASK = sort @CASK;
@@ -517,11 +520,14 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
       Dirs_2( "$MY_HOME/Library/Taps",1,0 );
    }
+=cut
    if( not $ARGV[0] or $ARGV[0] == 1 ){
     if( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
         Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
     }
-   } rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+   }
+=cut
+  rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 
   sub Dirs_2{
   my( $dir,$ls,$cask ) = @_;
@@ -787,6 +793,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       }
      close $BREW;
     }
+=cut
    }else{
     for my $dir3( @CASK ){
     my( $dirs,$name ) = $dir3 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
@@ -805,6 +812,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       close $BREW;
      }
     }
+=cut
    }
 
   unless( $ARGV[0] ){
@@ -918,14 +926,16 @@ unless( $ARGV[0] ){
   $_[1] ? my @ls2 = split '\.|-|_',$_[1] : return 1;
   my $i = 0;
    for( ;$i<@ls2;$i++ ){
-    if( $ls1[$i] and $ls2[$i] =~ /[^\d]+/ ){
+    if( $ls1[$i] and $ls2[$i] ){
+     if( $ls1[$i] =~ /[^\d]+/ or $ls2[$i] =~ /[^\d]+/ ){
       if( $ls1[$i] gt $ls2[$i] ){ return 1;
       }elsif( $ls1[$i] lt $ls2[$i] ){ return;
       }
-    }else{
+     }else{
       if( $ls1[$i] and $ls1[$i] > $ls2[$i] ){ return 1;
       }elsif( $ls1[$i] and $ls1[$i] < $ls2[$i] ){ return;
       }
+     }
     }
    }
   $ls1[$i] ? 1 : 0;
@@ -1017,10 +1027,14 @@ unless( $ARGV[0] ){
    print $dir $TOP;
   close $dir;
 }
+ if( $re->{'LIN'} ){
+  open my $LF,'<',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die" linux font $!\n";
+   while(<$LF>){ chomp; next unless $_; $tap{"${_}lfont"} = 1 } close $LF;
+ }
 untie %tap;
 
  if( $re->{'MAC'} and ( not $ARGV[0] or $ARGV[0] == 1 ) ){ my $sort = '';
    for( sort @FONT ){ $sort .= $_ }
    open my $F,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die" font list $!\n";
-   print $F "3\n0\n$sort"; close $F;
+   print $F "0\n$sort"; close $F;
  }
