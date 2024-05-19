@@ -1787,6 +1787,7 @@ flatbuffers	C++用の順番化ライブラリサポート Java/C#/Go
 flatcc	FlatBuffersコンパイラとCforCのライブラリ
 flavours	どんなワークフローにも統合できる、使いやすいbase16スキームマネージャー
 flawfinder	コードを調べてセキュリティ上の弱点の可能性を報告します
+flawz	セキュリティ脆弱性(CVE)を参照するためのターミナルUI
 fleet-cli	Kubernetesクラスターの大規模なfleetを管理する
 flex	高速字句分析器 スキャナーを生成します(tokenizers)
 flickcurl	Flickr APIのライブラリ
@@ -3043,6 +3044,8 @@ kubecfg	複雑なエンタープライズKubernetes環境をコードとして�
 kubecm	KubeConfigマネージャー
 kubecolor	kubectl出力を色付けする
 kubeconform	FAST Kubernetesマニフェストの確認、Custom Resourcesのサポート！
+kubectl-cnpg	kubectl用CloudNativePGプラグイン
+kubectl-rook-ceph	Ceph管理用のRookプラグイン
 kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成できるツール
 kubefirst	Kubernetes向けのGitOpsインフラストラクチャとアプリケーション配信プラットフォーム
 kubekey	Kubernetes and/or KubeSphereのインストーラー...詳しくはENで
@@ -5411,6 +5414,7 @@ riscv64-elf-binutils	riscv64-elfクロス開発用の GNU Binutils
 riscv64-elf-gcc	riscv64-elf用の GNUコンパイラコレクション
 riscv64-elf-gdb	riscv64-elfクロス開発用の GNUデバッガー
 risor	Go開発者とDevOpsの為の高速かつ柔軟なスクリプト作成
+river	Cloudflareのpingoraライブラリに基づくリバースプロキシアプリケーション
 rizin	UNIXライクな逆エンジニアリングフレームワークとコマンドラインツールセット
 rke	Rancher Kubernetes Engine どこでも機能するKubernetesインストーラー
 rkflashtool	Rockchipデバイスをフラッシュする為のツール
@@ -5814,6 +5818,7 @@ sntop	ホストをポーリングして接続を判別するCursesベースの�
 snyk-cli	プロジェクトをスキャンしてセキュリティの脆弱性を監視します
 snzip	snappyに基づく圧縮/解凍ツール
 so	StackOverflowのターミナルインターフェース
+soapyremote	Soapy SDRをリモートで使用する
 soapyrtlsdr	SoapySDR RTL-SDRサポートモジュール
 soapysdr	ベンダー及びプラットフォームに依存しないSDRサポートライブラリ
 socat	ソケットCAT：ステロイドのnetcat
