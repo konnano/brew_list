@@ -142,8 +142,8 @@ EOF
   if [[ $2 = 1 ]];then
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl h error}; }
-#   curl -skLo ~/.BREW_LIST/font.zip https://github.com/Homebrew/homebrew-linux-fonts/archive/master.zip ||\
-#     { math_rm; ${die:?curl i error}; }
+   curl -sko ~/.BREW_LIST/font.zip https://raw.githubusercontent.com/konnano/brew_list/main/JA_BREW/font.zip ||\
+     { math_rm; ${die:?curl i error}; }
    curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
      { math_rm; ${die:?curl j error}; }
    curl -sko ~/.BREW_LIST/ana2.html https://formulae.brew.sh/analytics/install/90d/index.html ||\
@@ -163,7 +163,7 @@ EOF
    curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
      { math_rm; ${die:?curl r error}; }
   fi
-#   unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
+   unzip -qo ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
    export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 <<CUT
