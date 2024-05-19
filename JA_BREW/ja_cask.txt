@@ -546,6 +546,7 @@ caldigit-thunderbolt-charging	Appleデバイスのサポートの改善
 calendar-366	イベントと通知の日程表メニューバー
 calhash	ファイルのチェックサムを計算して比較する
 calibre	電子書籍管理ソフトウェア
+calibrite-profiler	Calibrite/ColorChecker/X-Rite、デバイス用のディスプレイキャリブレーションソフトウェア
 calmly-writer	マークダウンフォーマットと選択したテーマを備えたワードプロセッサ
 camed	XMLエディター
 camera-live	Live Syphonカメラ
