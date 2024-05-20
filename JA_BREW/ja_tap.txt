@@ -289,7 +289,6 @@ font-butterfly-kids	Butterfly Kids
 font-cabin	Cabin
 font-cabin-condensed	Cabin Condensed
 font-cabin-sketch	Cabin Sketch
-font-cactus-classical-serif	font-cactus-classical-serif
 font-caesar-dressing	Caesar Dressing
 font-cagliostro	Cagliostro
 font-cairo	Cairo
@@ -358,7 +357,6 @@ font-chiron-hei-hk	モダン、地域に依存しない伝統的な中国語の�
 font-chiron-sung-hk	モダン、地域に依存しない伝統的な中国語の書体 sans serif
 font-chivo	Chivo
 font-chivo-mono	細いフォントから黒のフォントまでイタリック体が一致するバリアブルフォン
-font-chocolate-classical-sans	font-chocolate-classical-sans
 font-chokokutai	文字が面白い外観の日本語表示フォント
 font-chomsky	New York Timesのマストヘッド フルフォントとして再考
 font-chonburi	Chonburi
@@ -1098,9 +1096,7 @@ font-lxgw-heartserif	IPAmj明朝から派生した中国語sans-serif font
 font-lxgw-neoxihei	IPAex Gothic から派生した中国語のsans-serif font
 font-lxgw-neozhisong	IPAmj明朝から派生した中国語sans-serif font
 font-lxgw-wenkai	FontworksのKlee Oneから派生したオープンソースの中国語フォント
-font-lxgw-wenkai-gb	FontworksのKlee Oneから派生したオープンソースの簡体字中国語フォント
 font-lxgw-wenkai-lite	FontworksのKlee Oneから派生したオープンソースの中国語フォント
-font-lxgw-wenkai-mono-tc	font-lxgw-wenkai-mono-tc
 font-lxgw-wenkai-tc	FontworksのKlee Oneから派生したオープンソースの繁体字中国語フォント
 font-lxgw-zhenkai	LXGW WenKaiのBolder-weightエディション
 font-m-plus-1	M PLUS 1
@@ -1281,6 +1277,7 @@ font-neucha	Neucha
 font-neuton	Neuton
 font-new-rocker	New Rocker
 font-new-tegomin	New Tegomin
+font-new-york	AppleによるSerif font "New York"
 font-news-cycle	News Cycle
 font-newsreader	主に画面上で継続的に読むことを目的としたオリジナルの書体
 font-nico-moji	Nico Moji
@@ -1653,13 +1650,8 @@ font-playfair	Playfair
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
 font-playpen-sans	細いフォントから太いフォントまでの太さの範囲を持つ可変フォント
-font-playwrite-br	font-playwrite-br
 font-playwrite-co	Playwrite CO
-font-playwrite-de-grund	font-playwrite-de-grund
-font-playwrite-de-sas	font-playwrite-de-sas
-font-playwrite-de-va	font-playwrite-de-va
 font-playwrite-fr-trad	Playwrite FR Trad
-font-playwrite-gb-j	font-playwrite-gb-j
 font-playwrite-gb-s	Playwrite GB S
 font-playwrite-vn	Playwrite VN
 font-plemol-jp	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
@@ -1882,7 +1874,14 @@ font-sen	Sen
 font-send-flowers	年配の視聴者に適しています
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
+font-sf-arabic	Appleによる"San Francisco"のアラビア語拡張
+font-sf-armenian	Appleによる"San Francisco"のアルメニア語拡張
+font-sf-compact	Appleによる"San Francisco"のコンパクト版
+font-sf-georgian	Appleによる"San Francisco"のグルジア語拡張
+font-sf-hebrew	Appleによる"San Francisco"のヘブライ語拡張
+font-sf-mono	Appleによる"San Francisco"の等幅版
 font-sf-mono-for-powerline	Powerlineをサポートする為にNerdFontsパッチャーでパッチされたAppleのSFMonoフォント
+font-sf-pro	Appleによる"San Francisco"Sans-serif版
 font-shadows-into-light	Shadows Into Light
 font-shadows-into-light-two	Shadows Into Light Two
 font-shalimar	平らなペン先の書道のストロークに触発された直立したスクリプト
