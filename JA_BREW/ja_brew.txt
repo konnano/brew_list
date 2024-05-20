@@ -1934,7 +1934,6 @@ gambit-scheme	Scheme言語の実装
 game-music-emu	ビデオゲーム音楽ファイルエミュレータコレクション
 gammaray	実行時にQtアプリケーションの内部を調べて操作する
 gammu	電話を制御する為のコマンドラインユーティリティ
-gandi.cli	パブリックAPIを使用したGandi.net製品へのコマンドラインインターフェイス
 ganglia	拡張性のある分散監視システム
 garble	Goビルドを難読化する
 garmintools	Garmin Forerunner GPS単体へのインターフェース
@@ -4017,6 +4016,7 @@ microsocks	リソース使用量が非常に少ない、小型でポータブル
 midicsv	MIDIオーディオファイルを人間が読めるCSV形式に変換する
 midnight-commander	ターミナルベースのビジュアルファイルマネージャー
 mighttpd2	HTTPサーバー
+mihomo	Goのもう1つのルールベースのトンネル、以前はClashMetaとして知られていました
 mikmod	ポータブルトラックミュージックプレーヤー
 mikutter	拡張可能なTwitterクライアント
 mill	Scalaビルドツール
@@ -5445,6 +5445,7 @@ rollup	次世代ESモジュールバンドラー
 rom-tools	マルチアーケードマシンエミュレータ用のツール
 rome	S3/Minio/Ceph/Google Storage/Artifactory などのCarthageキャッシュ
 ronn	マニュアルを作成します roffの反対です
+ronn-ng	Markdownからmanページを構築する
 root	大規模データ分析の為のオブジェクト指向フレームワーク
 rosa-cli	RedHat OpenShift Service on AWS(ROSA)コマンドラインインターフェース
 rospo	🐸 組み込みのsshサーバーを備えたシンプルで信頼性の高い永続的なsshトンネル
