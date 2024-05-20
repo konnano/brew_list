@@ -435,28 +435,20 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      }
     }
   }
-=cut
-   if( not $ARGV[0] or $ARGV[0] == 1 ){
-    if( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
-        Dirs_1( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
-    }
-   }
-=cut
-   Dirs_1( "$MY_HOME/Library/Taps",1,0 ) unless $ARGV[0]; my( @BR,@CA );
+   Dirs_1( "$MY_HOME/Library/Taps" ) unless $ARGV[0]; my @BR;
 
   sub Dirs_1{
-  my( $dir,$ls,$cask ) = @_;
+  my $dir = shift;
    opendir my $DIR,$dir or die " DIR $!\n";
     for my $an( sort readdir $DIR ){ next if index($an,'.') == 0;
-      next if $ls and $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$|
-                              homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found
-                              homebrew-cask-fonts$|homebrew-linux-fonts/x;
-      if( not $cask and $an =~ /\.rb$/ ){ local $/;
+      next if $an =~ /homebrew$|homebrew-core$|homebrew-cask$|homebrew-bundle$|homebrew-services$|
+                      homebrew-aliases$|homebrew-cask-versions$|homebrew-command-not-found
+                      homebrew-cask-fonts$|homebrew-linux-fonts/x;
+      if( $an =~ /\.rb$/ ){ local $/;
        open K,'<',"$dir/$an" or die" rb_file $!\n"; my $br = <K>; close K;
         if( $br =~ /desc\s*"/ ){ push @BR,"$dir/$an" } return;
       }
-      -d "$dir/$an" ? Dirs_1( "$dir/$an",$ls,$cask) :( $cask and $an =~ /\.rb$/ ) ?
-                      push @CA,"$dir/$an" : ( $an =~ /\.rb$/ ) ? push @BR,"$dir/$an" : 0;
+      -d "$dir/$an" ? Dirs_1( "$dir/$an" ) : $an =~ /\.rb$/ ? push @BR,"$dir/$an" : 0;
     }
    closedir $DIR;
   }
@@ -477,29 +469,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     if( $bot and $data =~ /^\s+end/ ){ $bot = 0 }
    } close $BR1;
   }
-=cut
-  if( $re->{'LIN'} ){
-   for my $dir3( @CA ){
-    my( $dirs,$name,@ta ) = $dir3 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
-     for(0..2){ $ta[$_] = 1 }
-    if( $dirs eq 'homebrew-linux-fonts' ){ push @CASK,$name;
-     $tap{"${name}cask"} = $dir3; $tap{"${name}lfont"} = 1;
-     open my $BR3,'<',$dir3 or die " tie Info_3 $!\n";
-      while(my $data=<$BR3>){
-       if( $ta[0] and $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_version"} = $data; $ta[0] = 0;
-       }elsif( $ta[1] and $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_desc"} = $data; $ta[1] = 0;
-       }elsif( $ta[2] and $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_name"} = $data; $ta[2] = 0;
-       }
-      }
-     close $BR3;
-    }
-   }
-  }
-=cut
-   undef @BR; # undef @CA;
+   undef @BR;
   unless( $ARGV[0] ){
    @BREW = sort @BREW;
    @CASK = sort @CASK;
@@ -519,15 +489,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Formula",0,0 );
      Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-core/Aliases",0,0 );
       Dirs_2( "$MY_HOME/Library/Taps",1,0 );
-   }
-=cut
-   if( not $ARGV[0] or $ARGV[0] == 1 ){
-    if( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
-        Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 ); $re->{'font'} = 1;
-    }
-   }
-=cut
-  rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+   } rmdir "$ENV{'HOME'}/.BREW_LIST/11";
 
   sub Dirs_2{
   my( $dir,$ls,$cask ) = @_;
@@ -793,26 +755,6 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       }
      close $BREW;
     }
-=cut
-   }else{
-    for my $dir3( @CASK ){
-    my( $dirs,$name ) = $dir3 =~ m|.+/(homebrew-[^/]+)/(?:[^/]+/)*(.+)\.rb$|;
-     if( $dirs eq 'homebrew-linux-fonts' ){
-      $tap{"${name}cask"} = $dir3; $tap{"${name}lfont"} = 1;
-      open my $BREW,'<',$dir3 or die " tie Info_3 $!\n";
-       while(my $data=<$BREW>){
-        if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
-         $tap{"${name}c_version"} = $data;
-        }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
-         $tap{"${name}c_desc"} = $data;
-        }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
-         $tap{"${name}c_name"} = $data;
-        }
-       }
-      close $BREW;
-     }
-    }
-=cut
    }
 
   unless( $ARGV[0] ){
