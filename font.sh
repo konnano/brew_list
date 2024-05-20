@@ -166,29 +166,6 @@ EOF
    unzip -qo ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
    export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
-<<CUT
-perl<<"EOF"
-   $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
-    $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula";
-
-   opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " LINUX DIR $!\n";
-    for $hand1( readdir $dir1 ){ next if index($hand1,'.') == 0;
-      $hand1 =~ s/(.+)\.rb$/$1/;
-       if( $LFOD ){
-        push @file1,"$hand1\n";
-       }else{ $i1 = 1;
-        push @file1,"homebrew/linux-fonts/$hand1\n";
-       }
-    }
-   closedir $dir1;
-    @file1 = sort @file1;
-     $i1 ? push @file2,"3\n",@file1 : push @file2,"4\n0\n",@file1;
-
-   open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " LINUX FILE $!\n";
-    print $FILE1 @file2;
-   close $FILE1;
-EOF
-CUT
  fi
 
  if [[ $2 = 1 ]];then
