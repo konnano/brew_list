@@ -916,7 +916,14 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
     $re->{'LEN1'} = $re->{'LEN'}{$key} if $re->{'LEN1'} < $re->{'LEN'}{$key};
    push @ARR,$key;
   }
- }
+ } my @FOR;
+  if( $re->{'FOR'} and @ARR > 1 ){ my( $i,$e,$m ) = ( 0,0 );
+   for(;$i<@ARR;$i++){ last if $m;
+    for(;$e<@{$cat};$e++){ if( $$cat[$e] gt $$cat[$e+1] ){ $m++; last }
+     if( $ARR[$i] eq $$cat[$e] ){ push @FOR,$ARR[$i]; last }
+    }
+   }
+  } @ARR = @FOR if @FOR; 
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
    print" $$name...\n" unless not -t STDOUT or $re->{'PRE'} or $re->{'dep_s'} or $re->{'ANA'};
@@ -1856,7 +1863,7 @@ __END__
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ $LS ]];then
+ if [[ -n $LS ]];then
   if [[ $NAME = Darwin ]];then
    LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
     (( $LS1 != 60 && $TI > $LS1 )) && math_rm
