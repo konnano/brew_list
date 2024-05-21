@@ -1,10 +1,12 @@
 #!/bin/bash
  NAME=$(uname)
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
-[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}; CO=$3
+[[ $2 =~ ^[01]$ ]] || ${die:?input 2 error}; CO=$3
 
-math_rm(){ [[ $1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
-                       rm -rf ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,WAIT$CO,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
+ math_rm(){
+  [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
+                  rm -rf ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,WAIT$CO,LOCK,font2.sh,tie2.pl} ~/.JA_BREWG; }
+
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
@@ -17,16 +19,22 @@ if [[ $1 = 1 ]];then
     (( $LS1 != 60 && $TI > $LS1 )) && math_rm
   fi
  fi
+ WD=(~/.BREW_LIST/WAIT*)
+  for wa in ${WD[@]};do
+   if ! kill -0 `echo $wa|sed 's/.*WAIT//'` 2>/dev/null;then
+    rmdir $wa 2>/dev/null
+   fi
+  done
 fi
 
-if [[ $2 ]];then
+if [[ $2 = 1 ]];then
  if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
    exit 2
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
   LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ $LS2 ]];then
+ if [[ -n $LS2 ]];then
   if [[ $NAME = Darwin ]];then
    LS3=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS2" +%s 2>/dev/null)+86400 ))
   else
@@ -243,9 +251,6 @@ EOF
    mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
   fi
  fi
-  if [[ $2 = 2 ]];then
-   perl ~/.BREW_LIST/tie.pl 1 || { math_rm 1 && ${die:?perl tie2 error}; }
-  fi
  rm -rf ~/.BREW_LIST/19
  math_rm
 fi
