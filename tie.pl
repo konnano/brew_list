@@ -348,8 +348,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        }
 
        if( $ta[1] and $data =~ /"url":"([^"]+)"/ ){ $url = $1; $ta[1] = 0 }
-       if( index($data,':"Casks/font/') >= 0 ){ push @FONT,"$name\n";
-        if( $re->{'MAC'} ){ $tap{"${name}mfont"} = 1;
+       if( index($data,':"Casks/font/') >= 0 ){
+        if( $re->{'MAC'} ){ $tap{"${name}mfont"} = 1; push @FONT,"$name\n";
          ( $tap{"${name}font"} ) = $url =~ /(.+(?:ttf|otf|dfont))$/;
          if( $tap{"${name}font"} ){
            $tap{'fontlist'} .= "$name\t";
