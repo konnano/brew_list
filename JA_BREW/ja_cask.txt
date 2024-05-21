@@ -612,6 +612,7 @@ chemdoodle	2D化学描画/出版/情報学
 chessx	チェスデータベース
 chia	ChiaブロックチェーンのGUI Python実装
 chiaki	PlayStationリモートプレイクライアント
+chime	テキスト及びコードエディター
 chipmunk	ログ分析ツール
 chirp	アマチュア無線をプログラミングする為のツール
 choosy	任意のブラウザーでリンクを開く
@@ -3274,6 +3275,7 @@ quassel-client	Quassel IRC：快適にチャットできます。どこにでも
 quaternion	Matrix用のIMクライアント
 qudedup-extract-tool	重複排除された.qdffファイルを通常の状態に復元する
 querious	MySQL及び互換性のあるデータベースツール
+quick-app-ide	Quickapp開発ツール
 quickbooks	会計ソフトウェア
 quickbooks-online	会計ソフト
 quickboot	QuickBoot
