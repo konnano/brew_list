@@ -2309,6 +2309,7 @@ goredo	Go djbのやり直しの実装 扱うことが少ないMakefileの交換
 goreleaser	Goバイナリをできるだけ速く簡単に配信する
 goreman	Goで書かれたForemanクローン
 goresym	Goシンボル回復ツール
+gorilla-cli	LLMs for your CLI
 gosec	Golangセキュリティチェッカー
 gossip	Rustで書かれたNostr用デスクトップクライアント
 gost	GO Simple Tunnel-golangで書かれた単純なtunnel
@@ -2642,6 +2643,7 @@ i386-elf-gdb	i386-elfクロス開発用ののGNUデバッガー
 i686-elf-binutils	i686-elfクロス開発用のGNU Binutils
 i686-elf-gcc	i686-elf用のGNUコンパイラコレクション
 iam-policy-json-to-terraform	JSONIAMポリシーをテラフォームに変換する
+iamb	Vim中毒者の為のMatrixクライアント
 iamy	AWSIAMインポート/転送ツール
 iat	多くのCD-ROM画像フォーマットをISO9660に変換します
 ibazel	ソースファイルの変更時にBazelターゲットをビルドする為のツール
