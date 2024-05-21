@@ -926,7 +926,7 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
   } @ARR = @FOR if @FOR; 
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
-   print" $$name...\n" unless not -t STDOUT or $re->{'PRE'} or $re->{'dep_s'} or $re->{'ANA'};
+   print"$$name...\n" unless not -t STDOUT or $re->{'PRE'} or $re->{'dep_s'} or $re->{'ANA'};
  }else{
   if( @ARR ){
    $re->{'LIKE'} = -t STDOUT ? print"\033[33m much...\033[0m\n" : print" much...\n";
