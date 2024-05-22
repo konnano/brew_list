@@ -22,7 +22,7 @@ if [[ $LINK = unlink ]];then
      read i
      case $i in
       y)
-        sed -i.txt '/export HOMEBREW_NO_INSTALL_FROM_API=1/d' ~/$(echo .${SHELL##*/}rc)
+        sed -i.txt '/export *HOMEBREW_NO_INSTALL_FROM_API=1/d' ~/$(echo .${SHELL##*/}rc)
         unset HOMEBREW_NO_INSTALL_FROM_API
         brew untap homebrew/cask 2>/dev/null
         brew untap homebrew/core ;;
@@ -42,7 +42,8 @@ if [[ ! $LINK || $LINK = JA ]];then
       *) exit ;;
      esac
    fi
-   curl -k https://formulae.brew.sh/formula >/dev/null 2>&1 ||\
+   [[ $NAME = Darwin ]] && T='-t1' || T='-w1'
+   ping $T -c1 formulae.brew.sh >/dev/null 2>&1 ||\
     { echo -e "\033[31m Not connected\033[00m"; exit 1; }
    trap 'rm -rf $MY_BREW/bin/bl ~/.BREW_LIST ~/.JA_BREW; exit 1' 1 2 3 15
     DIR=$(cd $(dirname $0); pwd)
@@ -58,4 +59,5 @@ if [[ ! $LINK || $LINK = JA ]];then
       cp $DIR/JA_BREW/ja_brew.txt ~/.JA_BREW
    fi
   bl -new
+ [[ $NAME = Linux ]] && cp $DIR/JA_BREW/font.zip ~/.BREW_LIST
 fi
