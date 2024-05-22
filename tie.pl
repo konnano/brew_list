@@ -772,7 +772,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    if( -f "$glob/INSTALL_RECEIPT.json" ){ my $in;
     open my $CEL,'<',"$glob/INSTALL_RECEIPT.json" or die " GLOB $!\n";
      while(my $cel=<$CEL>){
-      unless( $cel =~ /\n/ ){
+      if( index($cel,"\n") < 0 ){
        my( $col ) = $cel =~ /"runtime_dependencies":\[([^]]*)]/;
        my @HE = $col =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1( @HE ){ my( %HA,%AL,$ne );
@@ -784,10 +784,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
           } next if $ne;
-          if( $re->{'LIN'} and $ls1 ne 'linux-headers@5.15' ){
-           $tap{"${ls1}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls1\t";
-          }elsif( $re->{'MAC'} ){
+          if( $re->{'MAC'} or $re->{'LIN'} and $ls1 ne 'linux-headers@5.15' ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
           }
@@ -808,10 +805,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
           } next if $ne;
-          if( $re->{'LIN'} and $ls2 ne 'linux-headers@5.15' ){
-           $tap{"${ls2}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls2\t";
-          }elsif( $re->{'MAC'} ){
+          if( $re->{'MAC'} or $re->{'LIN'} and $ls2 ne 'linux-headers@5.15' ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
           }
@@ -819,8 +813,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         }
        }
        if( $cel =~ s/^\s+"tap":\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}_tap"} = 1 if index($cel,'homebrew/core') < 0;
-         last
+        $tap{"${name}_tap"} = 1 if index($cel,'homebrew/core') < 0; last;
        }
       }
      }
