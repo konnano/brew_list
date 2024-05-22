@@ -3844,6 +3844,7 @@ macos-term-size	MacOSでターミナルウィンドウサイズを取得する
 macos-trash	ファイルとフォルダをゴミ箱に移動します
 macosvpn	プログラムでMacOS VPNを作成する
 macpine	MacOS上の軽量 Linux VM
+mactop	Golangで書かれたApple Silicon Monitor Top
 macvim	MacOS用に作られたVimのGUI
 mad	MPEGオーディオデコーダー
 madplay	MPEGオーディオデコーダー
