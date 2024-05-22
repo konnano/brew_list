@@ -10,7 +10,7 @@
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ $LS ]];then
+ if [[ -n $LS ]];then
   if [[ $NAME = Darwin ]];then
    LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
     (( $LS1 != 60 && $TI > $LS1 )) && math_rm
