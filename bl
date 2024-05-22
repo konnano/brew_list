@@ -92,7 +92,7 @@ MAIN:{
     -d "$ENV{'HOME'}/.JA_BREW" ?
      print" exists ~/.JA_BREW\n" : system 'git clone https://github.com/konnano/JA_BREW ~/.JA_BREW';
       if( $? ){ die " can not git clone ~/.JA_BREW\n";
-      }else{ unlink "$ENV{'HOME'}/.JA_BREW/font.zip" if $re->{'MAC'}; exit }
+      }else{ unlink "$ENV{'HOME'}/.JA_BREW/font.zip"; exit }
   }elsif( -d "$ENV{'HOME'}/.JA_BREW" and $AR[1] and $AR[1] eq 'EN' ){
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
     $AR[1] = $AR[2] // undef; $AR[2] = $AR[3] // undef;
@@ -100,7 +100,8 @@ MAIN:{
    $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
   }
 
-  if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
+  if( not -d "$re->{'HOME'}/LOCK" and ( $re->{'TOP'} or $re->{'DEL'} ) ){ system'perl ~/.BREW_LIST/tie.pl 1';
+  }elsif( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
    $AR[1] !~ /.*\\Q.+\\E.*/ ? die " nothing in regex\n" : $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
   }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
    die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
@@ -176,7 +177,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.23_5\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.23_6\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -278,7 +279,6 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   }
   if( $pid and not $re->{'PID2'} ){ Wait_1( $re,$pid );
   }else{ select undef,undef,undef,0.1 if $re->{'LIN'} and $re->{'USE'} or $re->{'PRS'};
-    if( not -d "$re->{'HOME'}/LOCK" and $re->{'TOP'} ){ system'perl ~/.BREW_LIST/tie.pl 1' }
    $re->{'COM'} ? Command_1( $re ) :
    ( $re->{'BL'} and $re->{'FOR'} and not -f $re->{'LFO'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ?
     Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ?
@@ -888,7 +888,9 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
    for my $c2( @{$cat} ){ chomp $c2;
     if( $re->{'FOR'} ){
      $HA{$c2}++ if $re->{'OS'}{"${c2}deps"};
-     $HA{$c2}++ if $re->{'OS'}{"${c2}deps_b"} and not $re->{'OS'}{"${c2}$OS_Version"};
+      if( $re->{'OS'}{"${c2}deps_b"} and not $re->{'OS'}{"${c2}$OS_Version"} ){
+       for(split "\t",$re->{'OS'}{"${c2}deps_b"}){ next if $re->{'HASH'}{$_}; $HA{$_}++ }
+      }
     }
     $HA{$c2}++ if $re->{'OS'}{"${c2}d_cask"};
    }
@@ -923,7 +925,7 @@ my( $re,$name,$cat ) = @_; my( %HA,%HAN,@ARR );
      if( $ARR[$i] eq $$cat[$e] ){ push @FOR,$ARR[$i]; last }
     }
    }
-  } @ARR = @FOR if @FOR; 
+  } @ARR = @FOR if @FOR;
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
    print"$$name...\n" unless not -t STDOUT or $re->{'PRE'} or $re->{'dep_s'} or $re->{'ANA'};
@@ -982,7 +984,7 @@ my $re = shift; my( @AN,%HA,@an,$do );
    $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die "\x1B[?25h\n" };
   }
   unless( $re->{'PID2'} or $re->{'CAS'} ){ Wait_1( $re,$$ );
-  }else{ unless( -d "$re->{'HOME'}/LOCK" ){ system'perl ~/.BREW_LIST/tie.pl 1' }
+  }else{
    Info_1( $re,0,0,\@AN );
     Proc_1( $re,\@AN );
      my @list1 = sort @AN;
@@ -2882,7 +2884,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    if( -f "$glob/INSTALL_RECEIPT.json" ){ my $in;
     open my $CEL,'<',"$glob/INSTALL_RECEIPT.json" or die " GLOB $!\n";
      while(my $cel=<$CEL>){
-      unless( $cel =~ /\n/ ){
+      if( index($cel,"\n") < 0 ){
        my( $col ) = $cel =~ /"runtime_dependencies":\[([^]]*)]/;
        my @HE = $col =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1( @HE ){ my( %HA,%AL,$ne );
@@ -2894,10 +2896,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
            $AL{$_}++ for split '\t',$tap{"${ls1}alias"};
            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
           } next if $ne;
-          if( $re->{'LIN'} and $ls1 ne 'linux-headers@5.15' ){
-           $tap{"${ls1}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls1\t";
-          }elsif( $re->{'MAC'} ){
+          if( $re->{'MAC'} or $re->{'LIN'} and $ls1 ne 'linux-headers@5.15' ){
            $tap{"${ls1}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls1\t";
           }
@@ -2918,10 +2917,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
            $AL{$_}++ for split '\t',$tap{"${ls2}alias"};
            $AL{$_} ? $ne++ : 0 for split '\t',$tap{"${name}deps"};
           } next if $ne;
-          if( $re->{'LIN'} and $ls2 ne 'linux-headers@5.15' ){
-           $tap{"${ls2}uses"} .= "$name\t";
-           $tap{"${name}deps"} .= "$ls2\t";
-          }elsif( $re->{'MAC'} ){
+          if( $re->{'MAC'} or $re->{'LIN'} and $ls2 ne 'linux-headers@5.15' ){
            $tap{"${ls2}uses"} .= "$name\t";
            $tap{"${name}deps"} .= "$ls2\t";
           }
@@ -2929,8 +2925,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         }
        }
        if( $cel =~ s/^\s+"tap":\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}_tap"} = 1 if index($cel,'homebrew/core') < 0;
-         last
+        $tap{"${name}_tap"} = 1 if index($cel,'homebrew/core') < 0; last;
        }
       }
      }
