@@ -2129,6 +2129,7 @@ liteide	Go IDE
 little-navmap	フライトプランニングとナビゲーション 空港検索と情報システム
 little-snitch	ホストベースのアプリケーションファイアウォール
 little-snitch@4	ホストベースのアプリケーションファイアウォール
+little-snitch@5	ホストベースのアプリケーションファイアウォール
 live-home-3d	ホーム&フロアプランデザイナー&レンダラー
 livebook	開発者向けのコードノートブック
 livetail	Sumologic livetail CLI
@@ -3292,6 +3293,7 @@ quicklookapk	Androidパッケージ用のQuick Lookプラグイン
 quicklookase	Adobe Swatch Exchangeファイル用のQuickLook生成器
 quicknfo	NFOファイルを表示するための、Quick Lookプラグイン
 quicksilver	生産性アプリケーション
+quicktune	QuickTime 7スタイルのApple Musicコントローラー
 quiet	Tor及びIPFSに基づいて構築された、SlackとDiscordに代わるプライベートなp2p
 quiet-reader	気を散らさずに記事やテキストのハイライトを読む
 quik	GoProの写真とビデオにアクセスして編集する
@@ -3508,6 +3510,7 @@ score	インターメディアアート向けのインタラクティブシー�
 scout	シンプルなSassプロセッサ
 scrapp	クラウドストレージを備えたスクリーンショットツール
 scratch	プログラム双方向ストーリー ゲーム/アニメーション
+screaming-frog-log-file-analyser	SEOログ監査ツール
 screaming-frog-seo-spider	SEOサイト監査ツール
 screen-studio	スクリーンレコーダーとエディター
 screencast	シンプルなスクリーンビデオキャプチャアプリケーション
