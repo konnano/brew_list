@@ -3551,6 +3551,7 @@ selfcontrol	気が散るWebサイトへの自分のアクセスをブロック�
 semeru-jdk-open	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk-open@11	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semeru-jdk-open@17	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
+semeru-jdk-open@21	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた実稼働対応JDK
 semeru-jdk-open@8	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semulov	メニューバーからマウントされたボリュームとマウントされていないボリュームにアクセスします
 senabluetoothdevicemanager	SENAデバイスのマネージャー
@@ -4227,6 +4228,7 @@ ubiquiti-unifi-controller	UniFiネットワークの設定、構成、管理、�
 ubports-installer	モバイルデバイスにubportsをインストールする為のアプリケーション
 udig	uDig
 ueli	キーストロークランチャー
+ugg	ゲーム分析とチャンピオンピッカー
 uhk-agent	Ultimate Hacking Keyboardの設定アプリケーション
 ui	コーポレートWi-Fi VPN/SSO/HR アプリケーション
 ui-browser	AppleのアクセシビリティとAppleScript GUIスクリプティングのアシスタント
