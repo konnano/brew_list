@@ -59,5 +59,8 @@ if [[ ! $LINK || $LINK = JA ]];then
       cp $DIR/JA_BREW/ja_brew.txt ~/.JA_BREW
    fi
   bl -new
- [[ $NAME = Linux ]] && cp $DIR/JA_BREW/font.zip ~/.BREW_LIST
+ if [[ $NAME = Linux ]];then
+  cp $DIR/JA_BREW/font.zip ~/.BREW_LIST
+  unzip -qo ~/.BREW_LIST/font.zip -d ~/.BREW_LIST
+ fi
 fi
