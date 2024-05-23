@@ -2992,6 +2992,7 @@ pgadmin4	PostgreSQLの管理及び開発プラットフォーム
 phantomjs	Headlessウェブブラウザ
 phd2	望遠鏡ガイドソフトウェア
 philips-hue-sync	スマートライトシステムを制御する
+phocus	Hasselbladカメラ用のRAWファイル画像処理ソフトウェア
 phoenix	JavaScriptでスクリプト化可能なウィンドウとアプリマネージャー
 phoenix-code	コードエディタ
 phoenix-slides	フルスクリーンスライドショープログラム
