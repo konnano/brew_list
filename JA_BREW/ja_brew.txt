@@ -4966,6 +4966,7 @@ poco	ネットワーク及びインターネットベースのアプリケーシ
 pocsuite3	オープンソースのリモート脆弱性テストフレームワーク
 pod2man	Perlドキュメント発生器
 podiff	2つのPOファイルのテキスト情報を比較する
+podlet	podmanコマンド又は構成ファイルからpodmanクワドレットファイルを生成する
 podman	OCIコンテナとポッドを管理する為のツール
 podman-compose	dockerの代替-podmanを使用して作成
 podman-tui	Podmanターミナルユーザーインターフェイス
