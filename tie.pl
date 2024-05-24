@@ -3,7 +3,7 @@ use warnings;
 use NDBM_File;
 use Fcntl ':DEFAULT';
 
-my( $re,$cache,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
+my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(which brew);printf \${CO%/bin/brew} 2>/dev/null`||die" brew path not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
@@ -27,10 +27,10 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
 }
 
+ my $Cache = $re->{'MAC'} ? "$ENV{'HOME'}/Library/Caches/Homebrew" : "$ENV{'HOME'}/.cache/Homebrew";
  unless( $ARGV[0] or $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
- chomp( $cache = `brew --cache` );
   mkdir "$ENV{'HOME'}/.BREW_LIST/parse";
-  open my $J1,'<',"$cache/api/formula.jws.json" or die" 1 brew cache $!\n";
+  open my $J1,'<',"$Cache/api/formula.jws.json" or die" 1 brew cache $!\n";
    my $fo = <$J1>; close $J1; my $i;
    my @fo = split /[^\\]\\n/,$fo; $NAM = @fo >> 1;
     for( @fo ){  $i++; rmdir "$ENV{'HOME'}/.BREW_LIST/12" if $i == $NAM;
@@ -48,7 +48,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
  unless( $ARGV[0] ){
-  open my $K,'<',"$cache/api/formula_aliases.txt" or die" 1 alias $!\n";
+  open my $K,'<',"$Cache/api/formula_aliases.txt" or die" 1 alias $!\n";
    while(<$K>){ chomp; my( $alias,$hand ) = split '\|';
     $tap{"${alias}alia"} = $hand;
     $tap{"${hand}alias"} .= "$alias\t";
@@ -318,7 +318,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
 
  unless( $ARGV[0] ){
   mkdir "$ENV{'HOME'}/.BREW_LIST/cparse";
-  open my $J2,'<',"$cache/api/cask.jws.json" or die" 1 cask cache $!\n";
+  open my $J2,'<',"$Cache/api/cask.jws.json" or die" 1 cask cache $!\n";
    my $an = <$J2>; close $J2;
   my @an = split /[^\\]\\n/,$an;
    for( @an ){ tr/\\//d; my( $file ) = /"token":"([^"]+)"/; tr/,/\n/;
