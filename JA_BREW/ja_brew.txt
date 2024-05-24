@@ -1319,6 +1319,7 @@ diskonaut	ターミナルビジュアルディスクスペースナビゲータ�
 disktype	ディスク/ディスクイメージのコンテンツ形式を検出する
 diskus	'du-sh'の最低限の高速代替品
 dislocker	WindowsのBitLocker-edボリュームを 読み取り/書き込み する為のFUSEドライバー
+displayplacer	マルチディスプレイの解像度と配置を構成するユーティリティ
 dissent	Goの、GTK4 Discordクライアント
 distcc	分散コンパイラクライアント及びサーバー
 distribution	ターミナルでASCIIグラフィカルヒストグラムを作成する
@@ -3605,6 +3606,7 @@ libversion	アドバンストバージョン文字列比較ライブラリ
 libvidstab	Transcodeビデオ安定化プラグイン
 libvirt	C仮想化API
 libvirt-glib	glibベースのプログラム用のLibvirtAPI
+libvirt-python	Libvirt仮想化API Pythonバインディング
 libvisio	Visio図表の解釈とインポート
 libvisual	オーディオ視覚化ツールとライブラリ
 libvisual-plugins	オーディオ視覚化ツールとライブラリ
@@ -5224,6 +5226,7 @@ qrcp	QRコードをスキャンして、コンピューターとの間でファ�
 qrencode	QRコードの生成
 qrupdate	QR/Cholesky分解の高速更新
 qscintilla2	Scintilla編集コンポーネントのQtへの移植
+qshell	Qiniuクラウド用のシェルツール
 qsoas	データ分析の為の多用途のソフトウェア
 qstat	コマンドラインからQuakeサーバーをクエリする
 qsv	超高速 CSV data-wranglingツールキット
