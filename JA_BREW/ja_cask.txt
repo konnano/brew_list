@@ -772,6 +772,7 @@ copytranslator	コピーしながらリアルタイムでテキストを翻訳�
 coqide	正式な証明管理システム
 cord	リモートデスクトップクライアント
 core-data-editor	Core Dataエディター
+core-tunnel	SSHトンネルマネージャー
 corelocationcli	CoreLocationから位置情報を出力します
 cornercal	時計アプリ
 cornerstone	Subversionクライアント
@@ -4415,6 +4416,7 @@ waltr	Appleデバイス用のメディア直接転送ツール
 waltr-heic-converter	HEICからJPEGへの画像変換器をドラッグアンドドロップします
 waltr-pro	Appleデバイス用のメディア変換及び直接転送ツール
 wannianli	メニューバー 中国の太陰暦
+warcraft-logs-uploader	Warcraftログをアップロードするクライアント
 warp	Rustベースの端末
 warsow	一人称シューティングゲーム
 warzone-2100	Freeのオープンソースリアルタイム戦略ゲーム
