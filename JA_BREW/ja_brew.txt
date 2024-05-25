@@ -912,6 +912,7 @@ closure-compiler	JavaScript最適化コンパイラ
 cloud-nuke	クラウドリソースを削除(削除)するCLIツール
 cloud-sql-proxy	Cloud SQLインスタンスに安全に接続する為のユーティリティ
 cloud-watch	Amazon CloudWatchコマンドラインツール
+cloudflare-cli4	Cloudflare API v4のCLI
 cloudflare-quiche	QUICトランスポートプロトコルとHTTP/3のおいしい実装
 cloudflare-wrangler	Cloudflareワーカー向けのCLIツール
 cloudflare-wrangler2	Cloudflareワーカー用のCLI ツール
@@ -2920,6 +2921,7 @@ jsonpp	コマンドラインJSON pretty-printer
 jsonrpc-glib	JSON-RPCベースのピアと通信する為のGNOMEライブラリ
 jsonschema	PythonのJSONスキーマの実装
 jsonschema2pojo	JSONスキーマ(JSONの例え)からJavaタイプを生成します
+jsontoolkit	最新のC++で表現力豊かなJSONプログラミングの為の万能ナイフライブラリ
 jsvc	Javaアプリケーションをデーモンとして起動するラッパー
 jtbl	JSON及びJSON行を変換、ターミナル/CSV/HTTP.マークダウンテーブル
 jthread	スレッドを簡単に利用できるC++クラス
@@ -4457,6 +4459,7 @@ nvchecker	ソフトウェアリリースの新しいバージョンチェッカ�
 nvi	44BSDによるviの再実装
 nvimpager	NeoVimをページャとして使用して、マンページや差分などを表示します
 nvm	複数のNode.jsバージョンを管理する
+nvtop	インタラクティブなGPUプロセスモニター
 nwchem	高性能計算化学ツール
 nxengine	洞窟物語の書き直し
 nyancat	PoptartCatのアニメーション化されたカラーANSIテキストループを解釈します
@@ -6029,6 +6032,7 @@ streamvbyte	Cでの高速整数圧縮
 stress	コンピュータシステムに負荷をかけストレステストを行う為のツール
 stress-ng	さまざまな選択可能な方法でコンピュータシステムのストレステストを行う
 strip-nondeterminism	ファイルから非決定的な情報のビットを削除するツール
+stripe-cli	Stripe用のコマンドラインツール
 stripe-mock	本物のStripe APIの様に応答する Moku HTTPサーバー
 strongswan	IPsecに基づくVPN
 structurizr-cli	Structurizrのコマンドラインユーティリティ
