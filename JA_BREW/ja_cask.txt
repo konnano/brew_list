@@ -391,6 +391,7 @@ beyond-compare	ファイルとフォルダを比較する
 beyond-compare@beta	ファイルとフォルダーを比較する
 bezel	iOS画面出力レコーダー
 bfxr	コンピュータゲームの効果音を作る
+bias-fx	ギターアンプとエフェクト処理ソフトウェア
 bibdesk	参考文献の編集と管理
 big-mean-folder-machine	ファイル/フォルダ 管理ユーティリティ
 biglybt	Azureusオープンソースプロジェクトに基づくBittorrentクライアント
@@ -430,6 +431,7 @@ bleunlock	Bluetooth LowEnergyデバイスの近くを使用してAppleコンピ�
 blheli-configurator	BLHeli Configurator
 blink1control	点滅を制御するユーティリティ(1)USB RGB LEDデバイス
 blisk	開発者向けブラウザー
+blitz-gg	パフォーマンス分析ソフトウェア
 blobby-volley2	直接対決のマルチプレイヤー球技
 blobsaver	SHSHブロブを自動的に保存する為のGUI
 blockbench	boxyモデルとピクセルアートtexture用の3Dモデルエディター
@@ -1669,6 +1671,7 @@ honer	フォーカスされたウィンドウの周囲に境界線を描画す�
 honto	honto storeの電子書籍リーダー
 hookmark	重要な情報をリンクして取得する
 hookshot	ウィンドウスナップツール
+hopper-disassembler	アプリを逆アセンブル、逆コンパイル、デバッグ出来るリバースエンジニアリングツール
 hoppscotch	オープンソースAPI開発エコシステム
 horndis	Android USBテザリングドライバー
 horos	医用画像ビューア
@@ -2204,6 +2207,7 @@ lyx	LaTeX植字システムに基づくオープンソースのGUIドキュメ�
 m3unify	ファイルエクスポータ及びM3Uプレイリストクリエータ
 maa	アークナイツの日常業務をワンクリックで実行できるツール
 mac-mouse-fix	サードパーティのマウスにジェスチャー機能とスムーズなスクロールを追加するマウスユーティリティ
+mac-mouse-fix@2	サードパーティのマウスにジェスチャー機能とスムーズなスクロールを追加するマウスユーティリティ
 mac2imgur	画像とスクリーンショットをImgurにアップロードする
 macast	DLNAメディアレンダラー
 macbreakz	健康上の問題を防ぐ為の人間工学的アシスタント
