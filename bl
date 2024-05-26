@@ -57,7 +57,7 @@ MAIN:{
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} = $re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
- }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1; Died_1 () if $re->{'LIN'};
+ }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }else{  Died_1();
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
@@ -433,9 +433,10 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
 }
 
 sub m_search{
- my $re = shift; my( $co,$nam,$bl,$rows,$cols,$cont,@an ) = ( 0,81,__FILE__ );
+ my $re = shift; my( $co,$bl,$rows,$cols,$cont,@an ) = ( 0,__FILE__ );
+ my $nam = $re->{'MAC'} ? 81 : $re->{'LFOD'} ? 54 : 27;
   $an[$co++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
-   $an[$co++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' );
+   if( $re->{'MAC'} ){ $an[$co++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' ) }
     $an[$co++] = $_ eq 'fnu' ? $_ : "f_$_" for( 'fnu','a'..'z' );
   exit unless -t STDOUT and Path_1; $co = 1;
    system"stty -echo -icanon";
@@ -463,21 +464,32 @@ sub m_search{
 
     $co = $co == $nam ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
     $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
+    if( $re->{'MAC'} ){
      $co += 27 if $co < 55 and ( $nu eq 'l' or $key == 3 );
      $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
-      $co = $co > 54 ? 55 : $co > 27 ? 28 :  1 if $key == 5;
-      $co = $co < 28 ? 27 : $co < 55 ? 54 : 81 if $key == 6;
-       $cont = $co > 54 ? $co - 54 : $co > 27 ? $co - 27 : $co ;
+     $co = $co > 54 ? 55 : $co > 27 ? 28 :  1 if $key == 5;
+     $co = $co < 28 ? 27 : $co < 55 ? 54 : 81 if $key == 6;
+    }elsif( $re->{'LFOD'} ){
+      $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
+      $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
+      $co = $co > 27 ? 28 :  1 if $key == 5;
+      $co = $co < 28 ? 27 : 54 if $key == 6;
+    }else{
+      $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
+    }
+     if( $re->{'MAC'} ){ $cont = $co > 54 ? $co - 54 : $co > 27 ? $co - 27 : $co ;
+     }else{ $cont = $co > 27 ? $co - 27 : $co }
           if( $re->{'LI'} < $cont ){ $re->{'ST'}++; $re->{'LI'}++
       }elsif( $re->{'ST'} > $cont ){ $re->{'ST'}--; $re->{'LI'}-- }
 
      if( $nu eq chr(10) ){
         print"\033[0;0H","\033[2J";
        my( $ca,$na ) = split '_',$an[$co];
+         my $key = $re->{'MAC'} ? 'cf' : 'fc';
           ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
           ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
-          ( $ca,$na ) = ( 'cf','font-\\\\d' ) if $an[$co] eq 'fnu';
-          ( $ca,$na ) = ( 'cf',"font-$na" ) if $ca eq 'f';
+          ( $ca,$na ) = ( $key,'font-\\\\d' ) if $an[$co] eq 'fnu';
+          ( $ca,$na ) = ( $key,"font-$na" ) if $ca eq 'f';
            my $bl = ( $an[$co] eq 'l_l' ) ?
            `$bl -l /^l\\(?\\!ib\\)/` : `$bl -$ca /^$na/`;
         $SIG{'INT'} = $SIG{'QUIT'} = sub{};
@@ -492,18 +504,31 @@ sub m_search{
  }
 
   sub _pri_1{
-   my( $co,$re,$an ) = @_;
-    my $s = $re->{'SP'} < 27 ? ' 'x ( 26 - $re->{'SP'} ) : '';
-     print"$re->{'MENU'} \033[1mFormula $s Cask  $s  Font\033[0m\n";
+   my( $co,$re,$an ) = @_; my $s;
+     if( $re->{'MAC'} ){ $s = $re->{'SP'} < 27 ? ' 'x ( 26 - $re->{'SP'} ) : '';
+                        print"$re->{'MENU'} \033[1mFormula $s Cask  $s  Font\033[0m\n";
+     }else{  $s = ' 'x ( 27 - ( $re->{'SP'}||'' ));
+             print"$re->{'MENU'} \033[1mFormula $s Font\033[0m\n";
+     }
     for( my $i = $re->{'ST'};$i<=$re->{'LI'};$i++ ){
-     if( $an->[$co] eq $an->[$i] ){
-       print" \033[33m$an->[$i]\033[0m ) <<$s $an->[$i+27] .. $s $an->[$i+54] ..   \n";
-     }elsif( $an->[$co] eq $an->[$i+54] ){
-       print" $an->[$co-54] .. $s  $an->[$co-27]\033[0m .. $s \033[33m$an->[$co]\033[0m ) <<\n";
-     }elsif( $an->[$co] eq $an->[$i+27] ){
-       print" $an->[$co-27] .. $s  \033[33m$an->[$co]\033[0m ) <<$s$an->[$co+27] ..   \n";
+     if( $re->{'MAC'} ){
+      if( $an->[$co] eq $an->[$i] ){
+        print" \033[33m$an->[$i]\033[0m ) <<$s $an->[$i+27] .. $s $an->[$i+54] ..   \n";
+      }elsif( $an->[$co] eq $an->[$i+54] ){
+        print" $an->[$co-54] .. $s  $an->[$co-27]\033[0m .. $s \033[33m$an->[$co]\033[0m ) <<\n";
+      }elsif( $an->[$co] eq $an->[$i+27] ){
+        print" $an->[$co-27] .. $s  \033[33m$an->[$co]\033[0m ) <<$s$an->[$co+27] ..   \n";
+      }else{
+        print"\r $an->[$i] .. $s  $an->[$i+27] .. $s $an->[$i+54] ..   \n";
+      }
      }else{
-       print"\r $an->[$i] .. $s  $an->[$i+27] .. $s $an->[$i+54] ..   \n";
+      if( $an->[$co] eq $an->[$i] ){
+        print" \033[33m$an->[$i]\033[0m ) <<$s $an->[$i+27] ..   \n";
+      }elsif( $an->[$co] eq $an->[$i+27] ){
+        print" $an->[$co-27] .. $s  \033[33m$an->[$co]\033[0m ) <<\n";
+      }else{
+        print"\r $an->[$i] .. $s  $an->[$i+27] ..   \n";
+      }
      }
     }
   }
