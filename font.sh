@@ -1,11 +1,11 @@
 #!/bin/bash
  NAME=$(uname)
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
-[[ $2 =~ ^[01]$ ]] || ${die:?input 2 error}; CO=$3
+[[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}; CO=$3
 
  math_rm(){
   [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
-                  rm -rf ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,WAIT$CO,LOCK,font2.sh,tie2.pl} ~/.JA_BREWG; }
+                  rm -rf ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,WAIT$CO,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
 
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
@@ -27,14 +27,14 @@ if [[ $1 = 1 ]];then
   done
 fi
 
-if [[ $2 = 1 ]];then
+if [[ $2 ]];then
  if ! mkdir ~/.BREW_LIST/LOCK 2>/dev/null;then
    exit 2
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
   LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ -n $LS2 ]];then
+ if [[ $LS2 ]];then
   if [[ $NAME = Darwin ]];then
    LS3=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS2" +%s 2>/dev/null)+86400 ))
   else
@@ -150,7 +150,7 @@ EOF
   if [[ $2 = 1 ]];then
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl h error}; }
-   curl -sko ~/.BREW_LIST/font.zip https://raw.githubusercontent.com/konnano/brew_list/main/JA_BREW/font.zip ||\
+   curl -skLo ~/.BREW_LIST/font.zip https://github.com/Homebrew/homebrew-linux-fonts/archive/master.zip ||\
      { math_rm; ${die:?curl i error}; }
    curl -sko ~/.BREW_LIST/ana1.html https://formulae.brew.sh/analytics/install/30d/index.html ||\
      { math_rm; ${die:?curl j error}; }
@@ -171,9 +171,30 @@ EOF
    curl -sko ~/.BREW_LIST/err3.html https://formulae.brew.sh/analytics/build-error/365d/index.html ||\
      { math_rm; ${die:?curl r error}; }
   fi
-   unzip -qo ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
+   unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
    export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
+perl<<"EOF"
+   $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
+    $LFOD = 1 if -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula";
+
+   opendir $dir1,"$ENV{'HOME'}/.BREW_LIST/homebrew-linux-fonts-master/Formula" or die " LINUX DIR $!\n";
+    for $hand1( readdir $dir1 ){ next if index($hand1,'.') == 0;
+      $hand1 =~ s/(.+)\.rb$/$1/;
+       if( $LFOD ){
+        push @file1,"$hand1\n";
+       }else{ $i1 = 1;
+        push @file1,"homebrew/linux-fonts/$hand1\n";
+       }
+    }
+   closedir $dir1;
+    @file1 = sort @file1;
+     $i1 ? push @file2,"3\n",@file1 : push @file2,"4\n0\n",@file1;
+
+   open $FILE1,'>',"$ENV{'HOME'}/.BREW_LIST/Q_TAP.txt" or die " LINUX FILE $!\n";
+    print $FILE1 @file2;
+   close $FILE1;
+EOF
  fi
 
  if [[ $2 = 1 ]];then
@@ -251,6 +272,9 @@ EOF
    mv ~/.BREW_LIST/DBMG.pag ~/.BREW_LIST/DBM.pag
   fi
  fi
+  if [[ $2 = 2 ]];then
+   perl ~/.BREW_LIST/tie.pl 1 || { math_rm 1 && ${die:?perl tie2 error}; }
+  fi
  rm -rf ~/.BREW_LIST/19
  math_rm
 fi
