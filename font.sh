@@ -45,7 +45,7 @@ if [[ $2 ]];then
     cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
     [[ $NAME = Linux ]] && rm ~/.JA_BREW/ja_cask.txt ~/.JA_BREW/ja_tap.txt
-    [[ $NAME = Darwin ]] && rm ~/.JA_BREW/font.zip
+    [[ $NAME = Darwin ]] && rm ~/.JA_BREW/ja_linux.txt
   fi
  fi
 
