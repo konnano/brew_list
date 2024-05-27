@@ -1653,15 +1653,37 @@ font-playfair	Playfair
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
 font-playpen-sans	細いフォントから太いフォントまでの太さの範囲を持つ可変フォント
+font-playwrite-au-nsw	Playwrite AU NSW
+font-playwrite-au-qld	Playwrite AU QLD
+font-playwrite-au-sa	Playwrite AU SA
+font-playwrite-au-tas	Playwrite AU TAS
+font-playwrite-au-vic	Playwrite AU VIC
 font-playwrite-br	Playwrite BR
+font-playwrite-ca	Playwrite CA
 font-playwrite-co	Playwrite CO
 font-playwrite-de-grund	Playwrite DE Grund
+font-playwrite-de-la	Playwrite DE LA
 font-playwrite-de-sas	Playwrite DE SAS
 font-playwrite-de-va	Playwrite DE VA
+font-playwrite-es	Playwrite ES
+font-playwrite-es-deco	Playwrite ES Deco
+font-playwrite-fr-moderne	Playwrite FR Moderne
 font-playwrite-fr-trad	Playwrite FR Trad
 font-playwrite-gb-j	Playwrite GB J
 font-playwrite-gb-s	Playwrite GB S
+font-playwrite-id	Playwrite ID
+font-playwrite-ie	Playwrite IE
+font-playwrite-in	Playwrite IN
+font-playwrite-it-moderna	Playwrite IT Moderna
+font-playwrite-it-trad	Playwrite IT Trad
+font-playwrite-mx	Playwrite MX
+font-playwrite-ng-modern	Playwrite NG Modern
+font-playwrite-nz	Playwrite NZ
+font-playwrite-tz	Playwrite TZ
+font-playwrite-us-modern	Playwrite US Modern
+font-playwrite-us-trad	Playwrite US Trad
 font-playwrite-vn	Playwrite VN
+font-playwrite-za	Playwrite ZA
 font-plemol-jp	IBM Plex Mono/IBM Plex Sans JP から合成された日本語プログラミングフォント
 font-plemol-jp-hs	IBM Plex Mono/IBM Plex Sans JP から合成された日本語プログラミングフォント
 font-plemol-jp-nf	IBM Plex Mono/IBM Plex Sans JP から合成された日本語プログラミングフォント
