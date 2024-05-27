@@ -2644,6 +2644,7 @@ neat-reader	読む ePubブックに注釈を付けて管理する
 neo4j	Neo4jインスタンス用の開発者IDE/管理環境
 neofinder	デジタルメディアアセットマネージャー
 neovide	Neovimクライアント
+nessus	脆弱性スキャナー
 nestopia	ファミコン(NES)エミュレータ
 netbeans	開発環境 ツーリングプラットフォーム/アプリケーションフレームワーク
 netdownloadhelpercoapp	Webからのビデオダウンロードを許可します
