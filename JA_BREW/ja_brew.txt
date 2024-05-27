@@ -151,6 +151,7 @@ apache-arrow-glib	Apache ArrowのGLib bindings
 apache-brooklyn-cli	Apache Brooklynコマンドラインインターフェイス
 apache-drill	Hadoopの為のSchema-free SQLクエリエンジン NoSQL/クラウドストレージ
 apache-flink	Scalableバッチ/ストリームデータ処理
+apache-flink-cdc	Flink CDCはストリーミングデータ統合ツールです
 apache-geode	高速データ処理の為のIn-memory Data Grid
 apache-opennlp	自然言語テキストを処理する為の機械学習ツールキット
 apache-pulsar	クラウドネイティブの分散メッセージング及びストリーミングプラットフォーム
@@ -3731,6 +3732,7 @@ livekit-cli	LiveKitへのコマンドラインインターフェイス
 livestreamer	ストリーミングサービスからVLCなどのプレーヤーにビデオをパイプします
 lizard	非常に高速な減圧を備えた効率的な圧縮機
 lizard-analyzer	拡張可能な循環的複雑度アナライザー
+llama.cpp	C/C++でのLLM推論
 lldpd	IEEE 802.1ab(LLDP)の実装
 llm	コマンドラインから大規模な言語モデルにアクセスする
 llnode	node.jsアプリのデバッグ用LLDBプラグイン live/post-mortem
@@ -6581,6 +6583,7 @@ vdirsyncer	カレンダーと連絡先を同期する
 veclibfort	AppleのvecLibに対するGNU Fortranの互換性
 vectorscan	高性能正規表現マッチングライブラリ
 vecx	Vectrexエミュレーター
+vedic	シンプルなSanskritプログラミング言語
 vegeta	HTTP負荷テストツールとライブラリ
 veilid	さまざまなデータを簡単に共有できるピアツーピアネットワーク
 velero	Kubernetesリソースと永続ボリュームの災害からの回復
