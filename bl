@@ -1066,7 +1066,8 @@ my( $re,$list ) = @_; my( $e,@tap,$file ) = 0;
                select undef,undef,undef,0.1;
                 Wait_1( $re );
        }
-        last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
+         exit if $re->{'FTD'} and not $re->{'LFOD'};
+        last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} )
        Prew_1( $re ) if defined $re->{'PRE'};
       next;
      }
