@@ -1281,6 +1281,7 @@ font-neucha	Neucha
 font-neuton	Neuton
 font-new-rocker	New Rocker
 font-new-tegomin	New Tegomin
+font-new-york	Apple によるSerif font "New York"
 font-news-cycle	News Cycle
 font-newsreader	主に画面上で継続的に読むことを目的としたオリジナルの書体
 font-nico-moji	Nico Moji
@@ -1904,7 +1905,14 @@ font-sen	Sen
 font-send-flowers	年配の視聴者に適しています
 font-sevillana	Sevillana
 font-seymour-one	Seymour One
+font-sf-arabic	Apple による"San Francisco"のアラビア語拡張
+font-sf-armenian	Apple による"San Francisco"のアルメニア語拡張
+font-sf-compact	Apple による"San Francisco"のコンパクト版
+font-sf-georgian	Apple による"San Francisco"のグルジア語拡張
+font-sf-hebrew	Apple による"San Francisco"のヘブライ語拡張
+font-sf-mono	Apple による"San Francisco"の等幅版
 font-sf-mono-for-powerline	Powerlineサポート用に Nerd Fontsパッチャーを適用したAppleのSF Monoフォント
+font-sf-pro	Apple によるS"San Francisco"のSans-serif版
 font-shadows-into-light	影から光へ
 font-shadows-into-light-two	Shadows Into Light Two
 font-shalimar	平らなペン先のペンのカリグラフィーのストロークからインスピレーションを得た直立したスクリプト
