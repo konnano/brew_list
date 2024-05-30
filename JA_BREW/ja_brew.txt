@@ -4487,6 +4487,7 @@ ocaml-zarith	任意精度演算用のOCamlライブラリ
 ocaml@4	MLファミリの汎用プログラミング言語
 ocamlbuild	OCamlの汎用ビルドツール
 oci-cli	Oracle CloudインフラストラクチャCLI
+ocicl	Common Lisp用のOCIベースのASDFシステム配布及び管理ツール
 ocl-icd	OpenCL ICDローダー
 oclgrind	OpenCLデバイス模擬装置とデバッガー
 ocm	Red Hat OpenShiftクラスタマネージャのCLI
@@ -5878,6 +5879,7 @@ spaceship	宇宙飛行の為のZshプロンプト
 spack	ソフトウェアの複数のバージョンと構成を構築するパッケージマネージャー
 spades	denovoゲノム配列アセンブリ
 spago	PureScriptパッケージマネージャーとビルドツール
+span-lite	単一ファイルのヘッダーのみのライブラリ内の C++98/C++11 以降のC++20に似たスパン
 spandsp	テレフォニー用のDSP関数ライブラリ
 spark	シェルのSparklines
 sparkey	定数Key-Value貯蔵 頻繁な読み取り/まれな書き込み、の使用に最適
