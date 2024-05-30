@@ -2253,7 +2253,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     while(my $data = <$BREW> ){
      unless( $ui[22] ){
 
-       if( $ta[0] and $data =~ /^,"desc":"([^"]+)"/ ){ $tap{"${name}f_desc"} = $1; $ta[0] = 0 }
+       if( $ta[0] and $data =~ /^,"desc":"(.+)","license"/ ){ $tap{"${name}f_desc"} = $1; $ta[0] = 0 }
        if( $ta[1] and $data =~ /"versions":$/ ){ $ui[0] = 1; $ta[1] = 0; next }
        if( $ui[0] ){
         if( $data =~ /"stable":"([^"]+)"/ ){ $tap{"${name}f_version"} =$1 } $ui[0] = 0; next
@@ -2531,6 +2531,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( $ui[0] ){
         if( index($data,'"homepage":') == 0 ){ $ui[0] = $ui[1] = 0; next }
         if( not $ui[1] and $data =~ /^"desc":"([^"]+)"$/ ){ $tap{"${name}c_desc"} = $1; $ui[0] = 0; next;
+        }elsif( not $ui[1] and $data =~ /^"desc":"(.+)"$/ ){ $tap{"${name}c_desc"} = $1; $ui[0] = 0; next;
         }elsif( not $ui[1] and $data =~ /"desc":"([^"]+)\n$/ ){ $tap{"${name}c_desc"} .= "$1,"; $ui[1] = 1; next;
         }elsif( $ui[1] and $data =~/([^"]+)\n$/ ){ $tap{"${name}c_desc"} .= "$1,"; next;
         }elsif( $ui[1] and $data =~ /([^"]+)"\n$/ ){ $tap{"${name}c_desc"} .= $1; $ui[0] = $ui[1] = 0; next }
@@ -2652,7 +2653,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      $tap{"${name}core"} = $dir1; push @BREW,$name;
    open my $BR1,$dir1 or die" tie Info_3 $!\n";
    while( my $data = <$BR1> ){
-    if( $ta[0] and $data =~ /^\s*desc\s*"([^"]+)"/ ){ $tap{"${name}f_desc"} = $1; $ta[0] = 0 }
+    if( $ta[0] and $data =~ /^\s*desc\s*"(.+)"/ ){ $data =~ tr/\\//d; $tap{"${name}f_desc"} = $1; $ta[0] = 0 }
     if( $ta[1] and $data =~ /^\s*bottle\s+do/ ){ $bot = 1; $ta[1] = 0 }
      if( $bot ){
       unless( $os ){ for(keys %MAC_OS){ $os = $_ if $MAC_OS{$_} eq $OS_Version2 } $os = 'x86_64_linux' if $re->{'LIN'} }
@@ -2672,8 +2673,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       while(my $data=<$BR3>){
        if( $ta[0] and $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}c_version"} = $data; $ta[0] = 0;
-       }elsif( $ta[1] and $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_desc"} = $data; $ta[1] = 0;
+       }elsif( $ta[1] and $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
+        $data =~ tr/\\//d; $tap{"${name}c_desc"} = $data; $ta[1] = 0;
        }elsif( $ta[2] and $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}c_name"} = $data; $ta[2] = 0;
        }
@@ -2858,8 +2859,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
          $tap{"${name}f_version"} = $data;
        }elsif( not $bot and $data =~ s/^\s*tag:\s+"v([^"]+)".*\n/$1/ ){
          $tap{"${name}f_version"} = $data;
-       }elsif( not $bot and $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
-         $tap{"${name}f_desc"} = $data;
+       }elsif( not $bot and $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
+         $data =~ tr/\\//d; $tap{"${name}f_desc"} = $data;
        }elsif( not $bot and $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
          $tap{"${name}f_name"} = $data;
        }elsif( not $bot and $data =~ s/^\s*revision\s+(\d+).*\n/$1/ ){
@@ -2964,8 +2965,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       }elsif( $data =~ s/^\s*version\s+[":]([^"\s]+)"?.*\n/$1/ ){
         $tap{"${name}c_version"} = $data unless $tap{"${name}c_version"};
       }elsif( $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
-        $data =~ tr/\\//d if index($data,'\\') > 0;
-        $tap{"${name}c_desc"} = $data;
+        $data =~ tr/\\//d; $tap{"${name}c_desc"} = $data;
       }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}c_name"} = $data;
       }
@@ -2981,8 +2981,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        while(my $data=<$BREW>){
         if( $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
          $tap{"${name}c_version"} = $data;
-        }elsif( $data =~ s/^\s*desc\s+"([^"]+)".*\n/$1/ ){
-         $tap{"${name}c_desc"} = $data;
+        }elsif( $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
+         $data =~ tr/\\//d; $tap{"${name}c_desc"} = $data;
         }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
          $tap{"${name}c_name"} = $data;
         }
