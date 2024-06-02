@@ -66,6 +66,7 @@ font-almendra-display	Almendra Display
 font-almendra-sc	Almendra SC
 font-alumni-sans	Alumni Sans
 font-alumni-sans-collegiate-one	Impact Blackに触発されたフォント
+font-alumni-sans-collegiate-one-sc	貢献する大学を持たない卒業生の小型大文字バージョンについては、githubを参照してください
 font-alumni-sans-inline-one	同窓生 Sans Inline One
 font-alumni-sans-pinstripe	Alumni Sans Pinstripe
 font-amarante	Amarante
@@ -106,6 +107,7 @@ font-antic-didone	Antic Didone
 font-antic-slab	Antic Slab
 font-antinoou	Antinoou
 font-anton	Anton
+font-anton-sc	Antonのスモールキャップバージョン
 font-antonio	Antonio
 font-anuphan	ibm plex sans thaiの変更ではありません
 font-anybody	10程度 目立つか微妙
@@ -136,6 +138,7 @@ font-ark-pixel-16px-monospaced	オープンソースのPan-CJKピクセルフォ
 font-ark-pixel-16px-proportional	オープンソースのPan-CJKピクセルフォント
 font-armata	Armata
 font-arsenal	Arsenal
+font-arsenal-sc	font-arsenal-sc
 font-artifika	Artifika
 font-arvo	Arvo
 font-arya	Arya
@@ -196,6 +199,7 @@ font-barriecito	Barriecito
 font-barrio	Barrio
 font-basic	Basic
 font-baskervville	Baskervville
+font-baskervville-sc	Baskervvilleの小文字バージョン
 font-battambang	Battambang
 font-baumans	Baumans
 font-bayon	Bayon
@@ -253,8 +257,10 @@ font-blinker	Blinker
 font-blokk-neue	BLOKK Neue
 font-bm	BM
 font-bodoni-moda	コントラストの高いSerif書体
+font-bodoni-moda-sc	Owen earlデザイン(不滅型*)
 font-bokor	Bokor
 font-bona-nova	Cursive typeface
+font-bona-nova-sc	font-bona-nova-sc
 font-bonbon	Bonbon
 font-bonheur-royale	Bonheur Royale
 font-boogaloo	Boogaloo
@@ -1654,15 +1660,44 @@ font-playfair	Playfair
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
 font-playpen-sans	細いフォントから太いフォントまでの太さの範囲を持つ可変フォント
+font-playwrite-au-nsw	font-playwrite-au-nsw
+font-playwrite-au-qld	font-playwrite-au-qld
+font-playwrite-au-sa	font-playwrite-au-sa
+font-playwrite-au-tas	font-playwrite-au-tas
+font-playwrite-au-vic	font-playwrite-au-vic
 font-playwrite-br	font-playwrite-br
+font-playwrite-ca	font-playwrite-ca
 font-playwrite-co	Playwrite CO
 font-playwrite-de-grund	font-playwrite-de-grund
+font-playwrite-de-la	font-playwrite-de-la
 font-playwrite-de-sas	font-playwrite-de-sas
 font-playwrite-de-va	font-playwrite-de-va
+font-playwrite-es	font-playwrite-es
+font-playwrite-es-deco	font-playwrite-es-deco
+font-playwrite-fr-moderne	font-playwrite-fr-moderne
 font-playwrite-fr-trad	Playwrite FR Trad
 font-playwrite-gb-j	font-playwrite-gb-j
 font-playwrite-gb-s	Playwrite GB S
+font-playwrite-id	font-playwrite-id
+font-playwrite-ie	font-playwrite-ie
+font-playwrite-in	font-playwrite-in
+font-playwrite-is	font-playwrite-is
+font-playwrite-it-moderna	font-playwrite-it-moderna
+font-playwrite-it-trad	font-playwrite-it-trad
+font-playwrite-mx	font-playwrite-mx
+font-playwrite-ng-modern	font-playwrite-ng-modern
+font-playwrite-nl	font-playwrite-nl
+font-playwrite-no	font-playwrite-no
+font-playwrite-nz	font-playwrite-nz
+font-playwrite-pl	font-playwrite-pl
+font-playwrite-pt	font-playwrite-pt
+font-playwrite-ro	font-playwrite-ro
+font-playwrite-sk	font-playwrite-sk
+font-playwrite-tz	font-playwrite-tz
+font-playwrite-us-modern	font-playwrite-us-modern
+font-playwrite-us-trad	font-playwrite-us-trad
 font-playwrite-vn	Playwrite VN
+font-playwrite-za	font-playwrite-za
 font-plemol-jp	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-hs	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
 font-plemol-jp-nf	IBM Plex Mono及びIBM Plex Sans JPから合成された日本語プログラミングフォント
