@@ -2487,6 +2487,7 @@ hamlib	アマチュア無線制御ライブラリ
 handbrake	Linux/Mac/Windows で利用可能なオープンソースのビデオtranscoder
 hapi-fhir-cli	HAPIFHIRライブラリのコマンドラインインターフェイス
 haproxy	信頼性の高い高性能ロードバランサー TCP/HTTP
+haproxy@2.8	信頼性の高い高性能TCP/HTTPロードバランサー
 harbour	ポータブルでxBase互換のプログラミング言語
 harfbuzz	OpenTypeテキスト成形エンジン
 has	パス上のさまざまなコマンドラインツールとそのバージョンの存在を確認します
@@ -4583,6 +4584,7 @@ opendetex	ドキュメントからTeX/LaTeXコマンドを取り除く為のツ�
 opendht	C++ 14分散ハッシュテーブルの実装
 openexr	ハイダイナミックレンジ画像ファイル形式
 openexr@2	ハイダイナミックレンジ画像ファイル形式
+openfa	基礎的な天文学で使用される標準モデルを実装するアルゴリズムのセット
 openfast	NRELがサポートするOpenFAST全回転シミュレーションコード
 openfga	高性能かつ柔軟な 認可/許可エンジン
 openfortivpn	PPP+SSL VPNトンネルサービス用のOpen Fortinetクライアント
@@ -4810,6 +4812,7 @@ pdnsd	永続的なキャッシュを備えたプロキシDNSサーバー
 pdnsrec	非公式/再帰 DNSサーバー
 pdsh	ホストを並行して使用する為の効率的なrshの様なユーティリティ
 peco	シンプルで対話的なフィルタリングツール
+pedump	Rubyを使用してWindows PEファイルをダンプする
 peg	テキストのパターンマッチングを実行するプログラム
 peg-markdown	PEG文法に基づくマークダウンの実装
 pegtl	式文法テンプレートライブラリの解析
