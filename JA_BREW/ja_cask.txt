@@ -559,6 +559,7 @@ camtasia	スクリーンレコーダーとビデオエディター
 camunda-modeler	ワークフロー及び意思決定自動化プラットフォーム
 candybar	ファイルアイコンを変更するツール
 canon-eos-utility	Canon EOSカメラとの通信
+canon-ufrii-driver	Canon imageRUNNERオフィスプリンター用プリンタードライバー
 cantata	Qt5グラフィカルMPDクライアント
 canva	デザインツール
 capacities	アイデアを書いて整理するアプリ
@@ -3255,6 +3256,7 @@ qlprettypatch	パッチファイルを表示するための、Quick Lookプラ�
 qlstephen	拡張子のないプレーンテキストファイル用のQuickLookプラグイン
 qlswift	Swiftファイル用の、Quick Lookプラグイン
 qlvideo	動画ファイル用のQuickLook生成器
+qlzipinfo	QuickLookプレビューでzipファイルの内容をリスト表示する
 qmk-toolbox	QMKファームウェアのツールボックスコンパニオン
 qmoji	mojibarに似ていますがreasonmlで書かれています
 qnapi	QNapi
