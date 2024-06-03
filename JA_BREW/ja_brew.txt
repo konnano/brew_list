@@ -4516,6 +4516,7 @@ oha	HTTPロードジェネレータ tuiアニメーション rakyll/hey に触�
 ohcount	ソースコードラインカウンター
 ohdear-cli	あなたの大事なサイトを管理するツール
 oil	より一貫性のある構文と意味を備えたBash互換のUnixシェル
+oils-for-unix	より一貫した構文とセマンティクスを備えたBash互換のUnixシェル
 oj	JSONパーサー及び視覚化ツール
 oksh	パブリックドメインのKornシェル(pdksh)に基づくポータブルOpenBSD ksh
 okta-aws-cli	AWS CLIのOktaフェデレーションID
@@ -5525,6 +5526,7 @@ rust-parallel	RustのTokioフレームワークと並行してコマンドを実
 rustc-completion	rustcのbash補完
 rustcat	最新のポートリスナーとリバースシェル
 rustfmt	Rustコードをフォーマットする
+rustls-ffi	Rustls TLSライブラリのFFIバインディング
 rustscan	現代のポートスキャナー
 rustup-init	Rustツールチェーンインストーラー
 rxvt-unicode	UnicodeをサポートするRxvtフォーク
@@ -6966,6 +6968,7 @@ yamllint	YAMLファイルの静的解析ツール
 yank	端末出力をクリップボードにコピーします
 yapf	Pythonコードの整形ツール
 yara	マルウェアの識別及び分類ツール
+yara-x	マルウェア研究のためのパターンマッチングを行うツール
 yarn	JavaScriptパッケージマネージャー
 yarn-completion	YarnのBash補完
 yash	さらに別のシェル：POSIX準拠のコマンドラインシェル
