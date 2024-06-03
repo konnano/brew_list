@@ -58,6 +58,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} = $re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
+ }elsif( $AR[0] eq '-ma' ){ $re->{'S_M'}= 2;
  }else{  Died_1();
  }
   my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
@@ -181,7 +182,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.24_2\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.24_3\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -432,73 +433,101 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
 
 sub m_search{
  my $re = shift; my( $co,$bl,$rows,$cols,$cont,@an ) = ( 0,__FILE__ );
- my $nam = $re->{'MAC'} ? 81 : $re->{'LFOD'} ? 54 : 27;
-  $an[$co++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
-   if( $re->{'MAC'} ){ $an[$co++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' ) }
-    $an[$co++] = $_ eq 'fnu' ? $_ : "f_$_" for( 'fnu','a'..'z' );
-  exit unless -t STDOUT and Path_1; $co = 1;
-   system"stty -echo -icanon";
- while(1){
-  my( $ROWS,$COLS ) = ( $rows,$cols) = _term();
-   $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
-    if( $re->{'MAC'} ){ $re->{'SP'} =  81 > $COLS ? 80 - $COLS : 0;
-    }else{ $re->{'SP'} = 46 - $COLS if 45 > $COLS }
-  $re->{'LI'} ||= $ROWS > 30 ? 27 : $ROWS - 4;
-  $re->{'ST'} ||= 1;
-  $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit 1 };
+  system"stty -echo -icanon";
+   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit 1 };
+ if( $re->{'S_M'} == 2 ){
   print"\033[0;0H\033[2J\033[?25l";
-   while(1){ my( $nu,$key ) = ( 0,0 );
-    ( $rows,$cols ) = _term();
-     $re->{'LI'} = $re->{'ST'} = 0 if $rows != $ROWS;
-      last if $rows != $ROWS or $cols != $COLS;
-    my $rs = chr(1);
+  while(1){ my( $nu,@col );
+   my $rs = chr(1);
     my $st = select $rs,undef,undef,0.05;
-     _pri_1( $co,$re,\@an );
-      $nu = getc if $st;
-     if( $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
-     if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
-         $key = $ge eq 'B' ? 1 : $ge eq 'A' ? 2 : $ge eq 'C' ? 3 : $ge eq 'D' ? 4 : 0 }
-         $key = $nu eq chr(2) ? 5 : $nu eq chr(6) ? 6 : $key;
-
-    $co = $co == $nam ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
-    $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
-    if( $re->{'MAC'} ){
-     $co += 27 if $co < 55 and ( $nu eq 'l' or $key == 3 );
-     $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
-     $co = $co > 54 ? 55 : $co > 27 ? 28 :  1 if $key == 5;
-     $co = $co < 28 ? 27 : $co < 55 ? 54 : 81 if $key == 6;
-    }elsif( $re->{'LFOD'} ){
-      $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
-      $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
-      $co = $co > 27 ? 28 :  1 if $key == 5;
-      $co = $co < 28 ? 27 : 54 if $key == 6;
-    }else{
-      $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
-    }
-     if( $re->{'MAC'} ){ $cont = $co > 54 ? $co - 54 : $co > 27 ? $co - 27 : $co ;
-     }else{ $cont = $co > 27 ? $co - 27 : $co }
-          if( $re->{'LI'} < $cont ){ $re->{'ST'}++; $re->{'LI'}++
-      }elsif( $re->{'ST'} > $cont ){ $re->{'ST'}--; $re->{'LI'}-- }
-
-     if( $nu eq chr(10) ){
-        print"\033[0;0H","\033[2J";
-       my( $ca,$na ) = split '_',$an[$co];
-         my $key = $re->{'MAC'} ? 'cf' : 'fc';
-          ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
-          ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
-          ( $ca,$na ) = ( $key,'font-\\\\d' ) if $an[$co] eq 'fnu';
-          ( $ca,$na ) = ( $key,"font-$na" ) if $ca eq 'f';
-           my $bl = ( $an[$co] eq 'l_l' ) ?
-           `$bl -l /^l\\(?\\!ib\\)/` : `$bl -$ca /^$na/`;
-        $SIG{'INT'} = $SIG{'QUIT'} = sub{};
-      open my $pipe,'|-','less -S' or die " can't exec command\n";
-       print $pipe $bl;
-      close $pipe;
-      ( $rows,$cols ) = _term();
-       $re->{'LI'} = $re->{'ST'} = 0 if $rows != $ROWS;
-     last }
-     print"\033[0;0H";
+     $nu = getc if $st;
+      if( $nu and $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
+    my( $rows,$cols ) = _term();
+   for(0..12){ $col[$_] = int rand($cols) }
+   for(0..(int rand($rows)-8) ){ my @row; select $rs,undef,undef,0.1;
+    for(0..12){ $row[$_] = sprintf('%c',97+(int rand(26)) ) }
+     print "\033[$_;$col[0]H\033[32m$row[0]\033[0m  ","\n",
+           ' 'x($col[1]/2),"\033[32m$row[1]\033[0m  ","\n",
+           ' 'x($col[2]/3),"\033[32m$row[2]\033[0m  ","\n",
+           ' 'x($col[3]/4),"\033[32m$row[3]\033[0m  ","\n",
+           ' 'x($col[4]/5),"\033[32m$row[4]\033[0m  ","\n",
+           ' 'x($col[5]/6),"\033[32m$row[5]\033[0m  ","\n",
+           ' 'x$col[6],"\033[32m$row[6]\033[0m  ","\n",
+           ' 'x$col[7],"\033[32m$row[7]\033[0m  ","\n",
+           ' 'x$col[8],"\033[32m$row[8]\033[0m  ","\n",
+           ' 'x$col[9],"\033[32m$row[9]\033[0m  ","\n",
+           ' 'x$col[10],"\033[32m$row[10]\033[0m  ","\n",
+           ' 'x$col[11],"\033[32m$row[11]\033[0m  ","\n",
+           ' 'x$col[12],"\033[32m$row[12]\033[0m  ","\n";
    }
+  }
+ }else{
+  my $nam = $re->{'MAC'} ? 81 : $re->{'LFOD'} ? 54 : 27;
+   $an[$co++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
+    if( $re->{'MAC'} ){ $an[$co++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' ) }
+     $an[$co++] = $_ eq 'fnu' ? $_ : "f_$_" for( 'fnu','a'..'z' );
+   exit unless -t STDOUT and Path_1; $co = 1;
+  while(1){
+   my( $ROWS,$COLS ) = ( $rows,$cols) = _term();
+    $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
+     if( $re->{'MAC'} ){ $re->{'SP'} =  81 > $COLS ? 80 - $COLS : 0;
+     }else{ $re->{'SP'} = 46 - $COLS if 45 > $COLS }
+   $re->{'LI'} ||= $ROWS > 30 ? 27 : $ROWS - 4;
+   $re->{'ST'} ||= 1;
+   print"\033[0;0H\033[2J\033[?25l";
+    while(1){ my( $nu,$key ) = ( 0,0 );
+     ( $rows,$cols ) = _term();
+      $re->{'LI'} = $re->{'ST'} = 0 if $rows != $ROWS;
+       last if $rows != $ROWS or $cols != $COLS;
+     my $rs = chr(1);
+     my $st = select $rs,undef,undef,0.05;
+      _pri_1( $co,$re,\@an );
+       $nu = getc if $st;
+      if( $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
+      if( $nu eq chr(27) and getc eq '[' ){ my $ge = getc;
+          $key = $ge eq 'B' ? 1 : $ge eq 'A' ? 2 : $ge eq 'C' ? 3 : $ge eq 'D' ? 4 : 0 }
+          $key = $nu eq chr(2) ? 5 : $nu eq chr(6) ? 6 : $key;
+
+     $co = $co == $nam ? 1 : ++$co if $nu eq chr(32)  or $nu eq 'j' or $key == 1;
+     $co = $co == 1 ? $nam : --$co if $nu eq chr(127) or $nu eq 'k' or $key == 2;
+     if( $re->{'MAC'} ){
+      $co += 27 if $co < 55 and ( $nu eq 'l' or $key == 3 );
+      $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
+      $co = $co > 54 ? 55 : $co > 27 ? 28 :  1 if $key == 5;
+      $co = $co < 28 ? 27 : $co < 55 ? 54 : 81 if $key == 6;
+     }elsif( $re->{'LFOD'} ){
+       $co += 27 if $co < 28 and ( $nu eq 'l' or $key == 3 );
+       $co -= 27 if $co > 27 and ( $nu eq 'h' or $key == 4 );
+       $co = $co > 27 ? 28 :  1 if $key == 5;
+       $co = $co < 28 ? 27 : 54 if $key == 6;
+     }else{
+       $co = $key == 5 ? 1 : $key == 6 ? 27 : $co;
+     }
+      if( $re->{'MAC'} ){ $cont = $co > 54 ? $co - 54 : $co > 27 ? $co - 27 : $co ;
+      }else{ $cont = $co > 27 ? $co - 27 : $co }
+           if( $re->{'LI'} < $cont ){ $re->{'ST'}++; $re->{'LI'}++
+       }elsif( $re->{'ST'} > $cont ){ $re->{'ST'}--; $re->{'LI'}-- }
+
+      if( $nu eq chr(10) ){
+         print"\033[0;0H","\033[2J";
+        my( $ca,$na ) = split '_',$an[$co];
+          my $key = $re->{'MAC'} ? 'cf' : 'fc';
+           ( $ca,$na ) = ( 'l','lib' ) if $an[$co] eq 'lib';
+           ( $ca,$na ) = ( 'c','\\\\d' ) if $an[$co] eq 'num';
+           ( $ca,$na ) = ( $key,'font-\\\\d' ) if $an[$co] eq 'fnu';
+           ( $ca,$na ) = ( $key,"font-$na" ) if $ca eq 'f';
+            my $bl = ( $an[$co] eq 'l_l' ) ?
+            `$bl -l /^l\\(?\\!ib\\)/` : `$bl -$ca /^$na/`;
+         $SIG{'INT'} = $SIG{'QUIT'} = sub{};
+       open my $pipe,'|-','less -S' or die " can't exec command\n";
+        print $pipe $bl;
+       close $pipe;
+       ( $rows,$cols ) = _term();
+        $re->{'LI'} = $re->{'ST'} = 0 if $rows != $ROWS;
+      last }
+      print"\033[0;0H";
+    }
+  }
  }
 
   sub _pri_1{
