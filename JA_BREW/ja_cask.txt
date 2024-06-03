@@ -155,6 +155,7 @@ amorphousdiskmark	ストレージのパフォーマンスを測定するアプ�
 ampps	Webサイト開発用のソフトウェアスタック
 anaconda	科学計算の為のPython及びRプログラミング言語の配布
 ananas-analytics-desktop-edition	ハッキング可能なデータ統合及び分析ツール
+anchor-wallet	EOSIOデスクトップウォレットと認証システム
 android-commandlinetools	Androidアプリを構築及びデバッグする為のコマンドラインツール
 android-file-transfer	Androidスマートフォンとの間でファイルを転送する
 android-messages	Androidメッセージ用のデスクトップクライアント
@@ -2619,6 +2620,7 @@ nanoem	クロスプラットフォームMMD(MikuMikuDance)対応実装
 nanosaur	PangeaSoftwareのサイエンスフィクションサードパーソンシューティングゲーム
 nanosaur2	Pangea Softwareの恐竜三人称シューティングゲームの続編
 nanostudio	32ビットiOSデバイス向けの音楽制作
+naps2	ドキュメントスキャンアプリケーション
 nasas-eyes	地球/太陽系/宇宙 及びそれらを探索する宇宙船について学ぶ
 native-access	NativeInstruments製品の管理ツール
 nativedisplaybrightness	NativeDisplayBrightness
