@@ -439,26 +439,24 @@ sub m_search{
   print"\033[0;0H\033[2J\033[?25l";
   while(1){ my( $nu,@col );
    my $rs = chr(1);
-    my $st = select $rs,undef,undef,0.05;
+    my $st = select $rs,undef,undef,0.2;
      $nu = getc if $st;
-      if( $nu and $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
+     if( $nu and $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
     my( $rows,$cols ) = _term();
-   for(0..12){ $col[$_] = int rand($cols) }
-   for(0..(int rand($rows)-8) ){ my @row; select $rs,undef,undef,0.1;
-    for(0..12){ $row[$_] = sprintf('%c',97+(int rand(26)) ) }
-     print "\033[$_;$col[0]H\033[32m$row[0]\033[0m  ","\n",
-           ' 'x($col[1]/2),"\033[32m$row[1]\033[0m  ","\n",
-           ' 'x($col[2]/3),"\033[32m$row[2]\033[0m  ","\n",
-           ' 'x($col[3]/4),"\033[32m$row[3]\033[0m  ","\n",
-           ' 'x($col[4]/5),"\033[32m$row[4]\033[0m  ","\n",
-           ' 'x($col[5]/6),"\033[32m$row[5]\033[0m  ","\n",
-           ' 'x$col[6],"\033[32m$row[6]\033[0m  ","\n",
-           ' 'x$col[7],"\033[32m$row[7]\033[0m  ","\n",
-           ' 'x$col[8],"\033[32m$row[8]\033[0m  ","\n",
-           ' 'x$col[9],"\033[32m$row[9]\033[0m  ","\n",
-           ' 'x$col[10],"\033[32m$row[10]\033[0m  ","\n",
-           ' 'x$col[11],"\033[32m$row[11]\033[0m  ","\n",
-           ' 'x$col[12],"\033[32m$row[12]\033[0m  ","\n";
+   for(0..10){ $col[$_] = int rand($cols) }
+   for(rand(5)>>0..(rand($rows-15)>>0)+5){ my @row; select $rs,undef,undef,0.1;
+    for(0..10){ my $ra = rand(35)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
+    print  "\033[$_;$col[0]H\033[32m$row[0]\033[0m    ","\n",
+           ' 'x($col[1]/2),"\033[32m$row[1]\033[0m    ","\n",
+           ' 'x$col[2],"\033[32m$row[2]\033[0m    ",    "\n",
+           ' 'x($col[3]/3),"\033[32m$row[3]\033[0m    ","\n",
+           ' 'x$col[4],"\033[32m$row[4]\033[0m    ",    "\n",
+           ' 'x($col[5]/4),"\033[32m$row[5]\033[0m    ","\n",
+           ' 'x$col[6],"\033[32m$row[6]\033[0m    ",    "\n",
+           ' 'x($col[7]/5),"\033[32m$row[7]\033[0m    ","\n",
+           ' 'x$col[8],"\033[32m$row[8]\033[0m    ",    "\n",
+           ' 'x($col[9]/6),"\033[32m$row[9]\033[0m    ","\n",
+           ' 'x$col[10],"\033[32m$row[10]\033[0m    ",  "\n";
    }
   }
  }else{
