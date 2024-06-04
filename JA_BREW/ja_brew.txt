@@ -1729,6 +1729,7 @@ felinks	テキストモードブラウザとGemini、NNTP/FTP/Gopher/Finger/BitT
 fend	任意精度の単位認識計算機
 fennel	LuaLisp言語
 ferium	Minecraft mods及びmodpacksを管理する為の高速でマルチソースのCLIプログラム
+fern-api	API用のストライプレベルのSDKとドキュメント
 feroxbuster	Rustで書かれた高速かつシンプルな再帰的コンテンツ発見ツール
 fetch	コミットからアセットをダウンロードする ブランチもしくはGitHubリポジトリのタグ
 fetch-crl	証明書失効リスト(CRL)を取得する
@@ -6603,6 +6604,7 @@ verovio	コマンドラインMEI楽譜エングレーバー
 vert.x	JVMでリアクティブアプリケーションを構築する為のツールキット
 vespa-cli	Vespa.aiのコマンドラインツール
 vet	オープンソースの依存関係をポリシーに基づいて精査する
+vexctl	VEXメタデータを、作成/変換/証明するツール
 vf	`cd`コマンドの拡張バージョン
 vfox	Java/Node.js/Flutter/.NET などをサポートするバージョンマネージャー
 vfuse	VMwareFusionで使用する為に起動可能なDMGイメージを変換する
