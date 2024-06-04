@@ -444,8 +444,8 @@ sub m_search{
      if( $nu and $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
     my( $rows,$cols ) = _term();
    for(0..10){ $col[$_] = int rand($cols) }
-   for(rand(5)>>0..(rand($rows-15)>>0)+5){ my @row; select $rs,undef,undef,0.1;
-    for(0..10){ my $ra = rand(35)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
+   for(rand(5)>>0..(rand($rows-15)>>0)+5){ my @row; select undef,undef,undef,0.1;
+    for(0..10){ my $ra = rand(36)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
     print  "\033[$_;$col[0]H\033[32m$row[0]\033[0m    ","\n",
            ' 'x($col[1]/2),"\033[32m$row[1]\033[0m    ","\n",
            ' 'x$col[2],"\033[32m$row[2]\033[0m    ",    "\n",
