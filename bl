@@ -434,7 +434,7 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
 sub m_search{
  my $re = shift; my( $co,$bl,$rows,$cols,$cont,@an ) = ( 0,__FILE__ );
   system"stty -echo -icanon";
-   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\e[?25h\033[0m"; system'stty sane'; exit 1 };
+   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h\033[0m"; system'stty sane'; exit 1 };
  if( $re->{'S_M'} == 2 ){ my $i = 1;
   print"\033[0;0H\033[2J\033[40m\033[?25l";
   while(1){ my( $nu,@col );
@@ -450,12 +450,12 @@ sub m_search{
     if( $nu and $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h\033[0m"; system'stty sane'; exit }
      for(0..10){ my $ra = rand(36)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
       for(0..10){ $mem[$_] = rand(3)>>0 }
-       print  "\033[$_;$col[0]H\033[$mem[0];32;40m$row[0]\033m   ","\n",
-              ' 'x($col[1]/2),"\033[$mem[1];32;40m$row[1]\033m    ","\n",' 'x$col[2],"\033[$mem[2];32;40m$row[2]\033m    ","\n",
-              ' 'x($col[3]/3),"\033[$mem[3];32;40m$row[3]\033m    ","\n",' 'x$col[4],"\033[$mem[4];32;40m$row[4]\033m    ","\n",
-              ' 'x($col[5]/4),"\033[$mem[5];32;40m$row[5]\033m    ","\n",' 'x$col[6],"\033[$mem[6];32;40m$row[6]\033m    ","\n",
-              ' 'x($col[7]/5),"\033[$mem[7];32;40m$row[7]\033m    ","\n",' 'x$col[8],"\033[$mem[8];32;40m$row[8]\033m    ","\n",
-              ' 'x($col[9]/6),"\033[$mem[8];32;40m$row[9]\033m    ","\n",' 'x$col[10],"\033[$mem[10];32;40m$row[10]\033m    ","\n";
+       print  "\033[$_;$col[0]H\033[$mem[0];32;40m$row[0]   ","\n",
+              ' 'x($col[1]/2),"\033[$mem[1];32;40m$row[1]    ","\n",' 'x$col[2],"\033[$mem[2];32;40m$row[2]    ","\n",
+              ' 'x($col[3]/3),"\033[$mem[3];32;40m$row[3]    ","\n",' 'x$col[4],"\033[$mem[4];32;40m$row[4]    ","\n",
+              ' 'x($col[5]/4),"\033[$mem[5];32;40m$row[5]    ","\n",' 'x$col[6],"\033[$mem[6];32;40m$row[6]    ","\n",
+              ' 'x($col[7]/5),"\033[$mem[7];32;40m$row[7]    ","\n",' 'x$col[8],"\033[$mem[8];32;40m$row[8]    ","\n",
+              ' 'x($col[9]/6),"\033[$mem[8];32;40m$row[9]    ","\n",' 'x$col[10],"\033[$mem[10];32;40m$row[10]    ","\n";
    }
   }
  }else{
