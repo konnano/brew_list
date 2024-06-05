@@ -113,6 +113,7 @@ akuity	Akuity Platformの管理ツール
 alacritty	GPUで高速化されたターミナルエミュレータ
 aladin	双方向sky atlas
 alchemy	図面プロジェクトを開く
+alcom	VRChatパッケージマネージャーに代わるオープンソース、Vrc-getのグラフィカルフロントエンド
 aldente	最大充電率を制限するメニューバーツール
 aleph-one	Bungie's Marathon 2 ゲームエンジンのオープンソース継続版
 alex313031-thorium	ウェブブラウザ
