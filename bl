@@ -443,7 +443,7 @@ sub m_search{
      for(0..10){ $col[$_] = rand($COLS)>>0 }
    for(rand(3)>>0..(rand($ROWS-15)>>0)+5){ my( @row,@mem );
      ( $rows,$cols ) = _term();
-      if( $i or $ROWS != $rows or $COLS != $cols ){ for(0..$rows){for(0..$cols){ print' ' } print"\n" } $i = 0 }
+      if( $i or $ROWS != $rows or $COLS != $cols ){ for(0..$rows){for(0..$cols-1){ print' ' } print"\n" } $i = 0 }
     my $rs = chr(1);
      my $st = select $rs,undef,undef,0.1;
       my $nu = getc if $st;
