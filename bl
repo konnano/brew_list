@@ -434,29 +434,28 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
 sub m_search{
  my $re = shift; my( $co,$bl,$rows,$cols,$cont,@an ) = ( 0,__FILE__ );
   system"stty -echo -icanon";
-   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit 1 };
- if( $re->{'S_M'} == 2 ){
-  print"\033[0;0H\033[2J\033[?25l";
+   $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0;0H\033[2J\e[?25h\033[0m"; system'stty sane'; exit 1 };
+ if( $re->{'S_M'} == 2 ){ my $i = 1;
+  print"\033[0;0H\033[2J\033[40m\033[?25l";
   while(1){ my( $nu,@col );
-   my $rs = chr(1);
-    my $st = select $rs,undef,undef,0.2;
-     $nu = getc if $st;
-     if( $nu and $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
-    my( $rows,$cols ) = _term();
-   for(0..10){ $col[$_] = int rand($cols) }
-   for(rand(5)>>0..(rand($rows-15)>>0)+5){ my @row; select undef,undef,undef,0.1;
-    for(0..10){ my $ra = rand(36)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
-    print  "\033[$_;$col[0]H\033[32m$row[0]\033[0m    ","\n",
-           ' 'x($col[1]/2),"\033[32m$row[1]\033[0m    ","\n",
-           ' 'x$col[2],"\033[32m$row[2]\033[0m    ",    "\n",
-           ' 'x($col[3]/3),"\033[32m$row[3]\033[0m    ","\n",
-           ' 'x$col[4],"\033[32m$row[4]\033[0m    ",    "\n",
-           ' 'x($col[5]/4),"\033[32m$row[5]\033[0m    ","\n",
-           ' 'x$col[6],"\033[32m$row[6]\033[0m    ",    "\n",
-           ' 'x($col[7]/5),"\033[32m$row[7]\033[0m    ","\n",
-           ' 'x$col[8],"\033[32m$row[8]\033[0m    ",    "\n",
-           ' 'x($col[9]/6),"\033[32m$row[9]\033[0m    ","\n",
-           ' 'x$col[10],"\033[32m$row[10]\033[0m    ",  "\n";
+   my( $ROWS,$COLS ) = _term();
+    select undef,undef,undef,0.01;
+     for(0..10){ $col[$_] = rand($COLS)>>0 }
+   for(rand(3)>>0..(rand($ROWS-15)>>0)+5){ my( @row,@mem );
+     ( $rows,$cols ) = _term();
+      if( $i or $ROWS != $rows or $COLS != $cols ){ for(0..$rows){for(0..$cols){ print' ' } print"\n" } $i = 0 }
+    my $rs = chr(1);
+     my $st = select $rs,undef,undef,0.1;
+      my $nu = getc if $st;
+    if( $nu and $nu eq 'q' ){ print"\033[0;0H\033[2J\033[?25h\033[0m"; system'stty sane'; exit }
+     for(0..10){ my $ra = rand(36)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
+      for(0..10){ $mem[$_] = rand(3)>>0 }
+       print  "\033[$_;$col[0]H\033[$mem[0];32;40m$row[0]\033m   ","\n",
+              ' 'x($col[1]/2),"\033[$mem[1];32;40m$row[1]\033m    ","\n",' 'x$col[2],"\033[$mem[2];32;40m$row[2]\033m    ","\n",
+              ' 'x($col[3]/3),"\033[$mem[3];32;40m$row[3]\033m    ","\n",' 'x$col[4],"\033[$mem[4];32;40m$row[4]\033m    ","\n",
+              ' 'x($col[5]/4),"\033[$mem[5];32;40m$row[5]\033m    ","\n",' 'x$col[6],"\033[$mem[6];32;40m$row[6]\033m    ","\n",
+              ' 'x($col[7]/5),"\033[$mem[7];32;40m$row[7]\033m    ","\n",' 'x$col[8],"\033[$mem[8];32;40m$row[8]\033m    ","\n",
+              ' 'x($col[9]/6),"\033[$mem[8];32;40m$row[9]\033m    ","\n",' 'x$col[10],"\033[$mem[10];32;40m$row[10]\033m    ","\n";
    }
   }
  }else{
@@ -466,7 +465,7 @@ sub m_search{
      $an[$co++] = $_ eq 'fnu' ? $_ : "f_$_" for( 'fnu','a'..'z' );
    exit unless -t STDOUT and Path_1; $co = 1;
   while(1){
-   my( $ROWS,$COLS ) = ( $rows,$cols) = _term();
+   my( $ROWS,$COLS ) = _term();
     $re->{'MENU'} = substr(' Q exit : Space down : Delete up : Enter less',0,$COLS)."\n";
      if( $re->{'MAC'} ){ $re->{'SP'} =  81 > $COLS ? 80 - $COLS : 0;
      }else{ $re->{'SP'} = 46 - $COLS if 45 > $COLS }
