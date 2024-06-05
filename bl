@@ -448,7 +448,7 @@ sub m_search{
      my $st = select $rs,undef,undef,0.1;
       my $nu = getc if $st;
     if( $nu and $nu eq 'q' ){ print"\033[0m\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
-     for(0..10){ my $ra = rand(36)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
+     for(0..10){ my $ra = rand(34)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
       for(0..10){ $mem[$_] = rand(3)>>0 }
        print  "\033[$_;$col[0]H\033[$mem[0];32;40m$row[0]   ","\n",
               ' 'x($col[1]/2),"\033[$mem[1];32;40m$row[1]    ","\n",' 'x$col[2],"\033[$mem[2];32;40m$row[2]    ","\n",
