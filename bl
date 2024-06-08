@@ -435,29 +435,36 @@ sub m_search{
  my $re = shift; my( $co,$bl,$rows,$cols,$cont,@an ) = ( 0,__FILE__ );
   system"stty -echo -icanon";
    $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0m\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit 1 };
- if( $re->{'S_M'} == 2 ){ my $i;
+ if( $re->{'S_M'} == 2 ){ my( @an,@col,@ran );
   print"\033[0;0H\033[2J\033[40m\033[?25l";
-  while(1){ my( $nu,@col ); $i++;
    my( $ROWS,$COLS ) = _term();
-    select undef,undef,undef,0.01;
-     for(0..9){ $col[$_] = rand($COLS)>>0 }
-      my $hey = index($i/20,'.') > 0 ? (rand($ROWS-19)>>0)+9 : $ROWS - 9;
-   for(rand(3)>>0..$hey){ my( @row,@mem,@hei );
-     ( $rows,$cols ) = _term();
-      if( $i == 1 or $ROWS != $rows or $COLS != $cols ){ for(0..$rows){ for(0..$cols-1){ print' ' } print"\n" } $i++ }
+    for(0..($COLS/6)){ my $ra = rand($COLS)>>0; $an[$ra] = 1; $ran[$_] = $ra }
+     for(0..$COLS-1){ $col[$_] = $an[$_] ? 1 : 0 }
+  while(1){ my( $nu,@pri,$i );
+   ( $ROWS,$COLS ) = _term();
+    my $spa = $ENV{'ITERM_PROFILE'} ? 1 : 0;
+   while(1){ my( $c,@mem,@row ) = 0; $i++;
+    ( $rows,$cols ) = _term();
+     last if $rows != $ROWS or $cols != $COLS;
+      if( $i == 1 or $ROWS != $rows or $COLS != $cols ){
+       for my $e(0..$rows){ for my $m(0..$cols-1){ $pri[$e][$m] = 0 } } $i++ }
     my $rs = chr(1);
-     my $st = select $rs,undef,undef,0.1;
+     my $st = select $rs,undef,undef,0.08;
       my $nu = getc if $st;
     if( $nu and $nu eq 'q' ){ print"\033[0m\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
-     for(0..9){ my $ra = rand(34)>>0; $row[$_] = $ra < 26 ? sprintf('%c',97+$ra) : '' }
-      for(0..9){ $mem[$_] = rand(3)>>0 }
-       print  "\033[$_;$col[0]H\033[$mem[0];32;40m$row[0]    ","\n",' 'x($col[1]/5),"\033[$mem[1];32;40m$row[1]    ","\n",
-              ' 'x($col[2]/4),"\033[$mem[2];32;40m$row[2]    ","\n",' 'x($col[3]/3),"\033[$mem[3];32;40m$row[3]    ","\n",
-              ' 'x($col[4]/2),"\033[$mem[4];32;40m$row[4]    ","\n",' 'x$col[5],"\033[$mem[5];32;40m$row[5]    ","\n",
-              ' 'x$col[6],"\033[$mem[6];32;40m$row[6]    ","\n",' 'x$col[7],"\033[$mem[7];32;40m$row[7]    ","\n",
-              ' 'x$col[8],"\033[$mem[8];32;40m$row[8]    ","\n",' 'x$col[9],"\033[$mem[9];32;40m$row[9]    ","\n";
+     for(0..$cols-1){ my $ra = rand(115)>>0; $row[$_] = $ra < 90 ? sprintf('%c',33+$ra) : ' ' }
+      for(0..1){ my $ra = rand($cols/6)>>0; $col[$ran[$ra]] = 0;
+                 my $qa = rand($cols)>>0; $col[$qa] = 1; $ran[$ra] = $qa }
+       for(0..$cols-1){ $col[$_] = $col[$_] ? "\033[32;40m$row[$_]" : 0 }
+     for my $r( reverse(0..$rows) ){ for my $p( reverse(0..$cols-1) ){
+      $pri[$r][$p] = $col[$p],next if $r == 0; $pri[$r][$p] = $pri[$r-1][$p] }
+     }
+    for my $w(0..($rows-$spa)){ my $q = 0;
+     for $q(0..($cols-1)){ print"\033[0;0H" if $w == 0 and $q == 0;
+                           $pri[$w][$q] ? print $pri[$w][$q] : print ' '
+     } print"\n" if $w != ($rows-$spa) and $q != ($cols-1);
+    }
    }
-   if( $hey == $rows - 9 ){ my $spa = ' 'x($cols-1); print"\033[$hey,0H$spa\n" }
   }
  }else{
   my $nam = $re->{'MAC'} ? 81 : $re->{'LFOD'} ? 54 : 27;
