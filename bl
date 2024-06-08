@@ -440,14 +440,12 @@ sub m_search{
    my( $ROWS,$COLS ) = _term();
     for(0..($COLS/6)){ my $ra = rand($COLS)>>0; $an[$ra] = 1; $ran[$_] = $ra }
      for(0..$COLS-1){ $col[$_] = $an[$_] ? 1 : 0 }
-  while(1){ my( $nu,@pri,$i );
+  while(1){ my( $nu,@pri );
    ( $ROWS,$COLS ) = _term();
     my $spa = $ENV{'ITERM_PROFILE'} ? 1 : 0;
-   while(1){ my( $c,@mem,@row ) = 0; $i++;
+   while(1){ my( @mem,@row );
     ( $rows,$cols ) = _term();
      last if $rows != $ROWS or $cols != $COLS;
-      if( $i == 1 or $ROWS != $rows or $COLS != $cols ){
-       for my $e(0..$rows){ for my $m(0..$cols-1){ $pri[$e][$m] = 0 } } $i++ }
     my $rs = chr(1);
      my $st = select $rs,undef,undef,0.08;
       my $nu = getc if $st;
@@ -461,7 +459,7 @@ sub m_search{
      }
     for my $w(0..($rows-$spa)){ my $q = 0;
      for $q(0..($cols-1)){ print"\033[0;0H" if $w == 0 and $q == 0;
-                           $pri[$w][$q] ? print $pri[$w][$q] : print ' '
+                           $pri[$w][$q] ? print $pri[$w][$q] : print ' ';
      } print"\n" if $w != ($rows-$spa) and $q != ($cols-1);
     }
    }
