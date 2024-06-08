@@ -1169,6 +1169,7 @@ cxxtest	JUnit/CppUnit/xUnit に似たC++単体テストフレームワーク
 cyclonedx-gomod	GoモジュールからCycloneDXソフトウェア部品表(SBOM)を作成
 cyclonedx-python	PythonプロジェクトからCycloneDXソフトウェア部品表(SBOM)を作成
 cycode	シークレットスキャン、SAST/SCA/IaC によってソフトウェア開発のセキュリティを強化
+cyctl	Kubernetesワークロード向けにカスタマイズ可能なUI
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
 cyrus-sasl	シンプルな認証とセキュリティレイヤー
 cython	Python言語のC機能拡張を作成する為のコンパイラ
@@ -3474,6 +3475,7 @@ libpcap	ネットワーク転送量キャプチャ用のポータブルライブ
 libpciaccess	汎用PCIアクセスライブラリ
 libpcl	coroutinesのCライブラリとAPI
 libpeas	GObjectプラグインライブラリ
+libpeas@1	GObjectプラグインライブラリ
 libpgm	PGM高信頼マルチキャスト手続きを実装します
 libphonenumber	GoogleによるC++電話番号ライブラリ
 libpinyin	音節を扱うライブラリ
@@ -4602,6 +4604,7 @@ openjazz	オープンソースのJazz Jackrabitエンジン
 openjdk	Javaプログラミング言語用の開発キット
 openjdk@11	Javaプログラミング言語用の開発キット
 openjdk@17	Javaプログラミング言語用の開発キット
+openjdk@21	Java プログラミング言語の開発キット
 openjdk@8	Javaプログラミング言語用の開発キット
 openjpeg	JPEG-2000画像操作用ライブラリ
 openjph	JPEG2000 Part-15(又は JPH/HTJ2K)のオープンソース実装
@@ -6336,6 +6339,7 @@ todoman	シンプルなCalDAVベースのtodoマネージャー
 tofrodos	DOS <-> UNIXテキストファイルを変換します alias tofromdos
 tofuenv	tfenvから影響を受けたOpenTofuバージョンマネージャー
 toilet	figletのカラーベースの代替品(libcacaを使用)
+toipe	又々タイピングテストですが、Crab風です
 tokei	コードをすばやくカウントできるプログラム
 tokyo-cabinet	軽量データベースライブラリ
 tokyo-dystopia	軽量全文検索システム
@@ -7033,6 +7037,7 @@ zero-install	分散型クロスプラットフォームソフトウェアイン�
 zeromq	高性能の非同期メッセージングライブラリ
 zet	和集合を見つける為のCLIユーティリティ 交差とファイルの違いを設定します
 zf	ファイル名の一致を優先するコマンドラインファジーファインダー
+zfind	SQL-WHEREフィルターを使用してファイルを検索します(tar/zip/7z/rar、内も)
 zig	堅牢性の為に設計されたプログラミング言語 最適性/明快
 zigmod	Zigプログラミング言語のパッケージマネージャー
 zile	テキストエディタ開発キット
