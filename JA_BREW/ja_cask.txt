@@ -675,6 +675,7 @@ clicker-for-youtube	独立型のYouTubeアプリ
 clickhouse	列指向のデータベース管理システム
 clickup	タスクの生産性プラットフォーム ドキュメント/目標/チャット
 clion	C/C++ IDE
+clion@eap	CLion早期アクセスプログラム
 clip-studio-paint	描画とペイントの為のソフトウェア
 clipgrab	Webサイトからビデオとオーディオをダウンロードします
 clips-ide	エキスパートシステムを構築する為のツール
@@ -1469,6 +1470,7 @@ geotag	画像のGeoロケーションエディター
 geotag-photos-pro	Geotaggingソフトウェア
 geph	モジュラーインターネット検閲回避システム
 gephi	GraphVizグラフを視覚化して探索する為のユーティリティ
+get-api	HTTPクライアント
 get-backup-pro	フォルダ同期を備えたバックアップソフトウェア
 get-iplayer-automator	BBCとITVの番組をダウンロードして視聴する
 get-lyrical	iTunesの曲に歌詞を自動的に追加する
@@ -3183,6 +3185,7 @@ protoio-overflow	双方向なユーザーフロー図を作成する
 protokol	MIDI/OSC モニター
 proton-drive	プロトンドライブのクライアン
 proton-mail	Proton Mailのクライアント
+proton-pass	Proton Pass用デスクトップクライアント
 protonmail-bridge	ProtonMailをIMAP及びSMTP手続きをサポートする電子メールクライアントにブリッジします
 protonmail-import-export	電子メールを安全なProtonMail受信トレイにインポートするかオフラインバックアップを作成します
 protonvpn	セキュリティに重点を置いたVPNクライアント
