@@ -182,7 +182,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.24_5\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.24_6\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -435,12 +435,12 @@ sub m_search{
  my $re = shift; my( $co,$bl,$rows,$cols,$cont,@an ) = ( 0,__FILE__ );
   system"stty -echo -icanon";
    $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0m\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit 1 };
- if( $re->{'S_M'} == 2 ){ my( @an,@col,@ran );
+ if( $re->{'S_M'} == 2 ){ my( @col,@ran );
   print"\033[0;0H\033[2J\033[40m\033[?25l";
    my( $ROWS,$COLS ) = _term();
     for(0..($COLS/6)){ my $ra = rand($COLS)>>0; $an[$ra] = 1; $ran[$_] = $ra }
      for(0..$COLS-1){ $col[$_] = $an[$_] ? 1 : 0 }
-  while(1){ my( $nu,@pri );
+  while(1){ my @pri;
    ( $ROWS,$COLS ) = _term();
     my $spa = $ENV{'ITERM_PROFILE'} ? 1 : 0;
    while(1){ my( @mem,@row );
@@ -449,11 +449,11 @@ sub m_search{
     my $rs = chr(1);
      my $st = select $rs,undef,undef,0.08;
       my $nu = getc if $st;
-    if( $nu and $nu eq 'q' ){ print"\033[0m\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
-     for(0..$cols-1){ my $ra = rand(115)>>0; $row[$_] = $ra < 90 ? sprintf('%c',33+$ra) : ' ' }
-      for(0..1){ my $ra = rand($cols/6)>>0; $col[$ran[$ra]] = 0;
-                 my $qa = rand($cols)>>0; $col[$qa] = 1; $ran[$ra] = $qa }
-       for(0..$cols-1){ $col[$_] = $col[$_] ? "\033[32;40m$row[$_]" : 0 }
+     if( $nu and $nu eq 'q' ){ print"\033[0m\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit }
+      for(0..$cols-1){ my $ra = rand(115)>>0; $row[$_] = $ra < 90 ? sprintf('%c',33+$ra) : ' ' }
+       for(0..1){ my $ra = rand($cols/6)>>0; $col[$ran[$ra]] = 0;
+                  my $qa = rand($cols)>>0; $col[$qa] = 1; $ran[$ra] = $qa }
+       for(0..$cols-1){ $col[$_] = $col[$_] ? "\033[1;32;40m$row[$_]" : 0 }
      for my $r( reverse(0..$rows) ){ for my $p( reverse(0..$cols-1) ){
       $pri[$r][$p] = $col[$p],next if $r == 0; $pri[$r][$p] = $pri[$r-1][$p] }
      }
