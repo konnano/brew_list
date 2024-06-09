@@ -66,6 +66,7 @@ font-almendra-display	Almendra Display
 font-almendra-sc	Almendra SC
 font-alumni-sans	Alumni Sans
 font-alumni-sans-collegiate-one	Impact Blackをイメージしたフォント
+font-alumni-sans-collegiate-one-sc	小文字版のOB/OGはgithubを参照して下さい
 font-alumni-sans-inline-one	Alumni Sans Inline One
 font-alumni-sans-pinstripe	Alumni Sans Pinstripe
 font-amarante	Amarante
@@ -106,7 +107,7 @@ font-antic-didone	Antic Didone
 font-antic-slab	Antic Slab
 font-antinoou	Antinoou
 font-anton	Anton
-font-antonio	Antonio
+font-anton-sc	The small caps version of antonHEADfont-antonio	Antonio
 font-anuphan	ibm plex sans thaiの修正ではありません
 font-anybody	10度、目立ちますが微妙です
 font-aoboshi-one	Aoboshi One
@@ -136,6 +137,7 @@ font-ark-pixel-16px-monospaced	オープンソース Pan-CJK pixel font
 font-ark-pixel-16px-proportional	オープンソース Pan-CJK pixel font
 font-armata	Armata
 font-arsenal	Arsenal
+font-arsenal-sc	Arsenal sc font
 font-artifika	Artifika
 font-arvo	Arvo
 font-arya	Arya
@@ -196,6 +198,7 @@ font-barriecito	Barriecito
 font-barrio	Barrio
 font-basic	Basic
 font-baskervville	Baskervville
+font-baskervville-sc	Baskervvilleの小文字バージョン
 font-battambang	Battambang
 font-baumans	Baumans
 font-bayon	Bayon
@@ -253,8 +256,10 @@ font-blinker	Blinker
 font-blokk-neue	BLOKK Neue
 font-bm	BM
 font-bodoni-moda	コントラストの高い書体 Serif
+font-bodoni-moda-sc	Owen earlデザイン(不滅型*)
 font-bokor	Bokor
 font-bona-nova	Cursive 書体
+font-bona-nova-sc	Bona nova sc font
 font-bonbon	Bonbon
 font-bonheur-royale	Bonheur Royale
 font-boogaloo	Boogaloo
@@ -1675,11 +1680,18 @@ font-playwrite-gb-s	Playwrite GB S
 font-playwrite-id	Playwrite ID
 font-playwrite-ie	Playwrite IE
 font-playwrite-in	Playwrite IN
+font-playwrite-is	Playwrite is font
 font-playwrite-it-moderna	Playwrite IT Moderna
 font-playwrite-it-trad	Playwrite IT Trad
 font-playwrite-mx	Playwrite MX
 font-playwrite-ng-modern	Playwrite NG Modern
+font-playwrite-nl	Playwrite nl font
+font-playwrite-no	Playwrite no font
 font-playwrite-nz	Playwrite NZ
+font-playwrite-pl	Playwrite pl font
+font-playwrite-pt	Playwrite pt font
+font-playwrite-ro	Playwrite ro font
+font-playwrite-sk	Playwrite sk font
 font-playwrite-tz	Playwrite TZ
 font-playwrite-us-modern	Playwrite US Modern
 font-playwrite-us-trad	Playwrite US Trad
