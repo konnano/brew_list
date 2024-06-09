@@ -845,6 +845,7 @@ chrony	ネットワークタイム手続き(NTP)の多様な実装
 chrpath	ELFバイナリのrpathを編集する為のツール
 chruby	Ruby環境ツール
 chruby-fish	Fishシェルで動作するchrubyの周りの薄いラッパー
+chsrc	コマンドラインから、あらゆるプラットフォーム上のあらゆるソフトウェアのソースを変更する
 chuck	並行したオンザフライのオーディオプログラミング言語
 cidr	CIDR範囲に対してさまざまなアクションを実行する為のCLI
 cidr2range	CIDRをIP範囲に変換します
@@ -6460,6 +6461,7 @@ typical	代数データ型によるデータ交換
 typos-cli	ソースコードスペルチェッカー
 typst	マークアップベースの組版システム
 typstfmt	タイプスト用フォーマッタ
+typstyle	美しく信頼性の高いtypstコードフォーマッタ
 tz	CLIタイムゾーンvisualizer
 tzdiff	CLI(シェルスクリプト)でローカルタイムとのタイムゾーンの違いを表示します
 u-boot-tools	汎用ブートローダー
