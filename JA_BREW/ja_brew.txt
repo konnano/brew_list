@@ -408,6 +408,7 @@ bat	構文の強調表示とGit統合を備えたcat(1)のクローン
 bat-extras	batをさまざまなコマンドラインツールと統合するBashスクリプト
 batik	SVG画像のJavaベースのツールキット
 bats-core	Bash自動テストシステム
+batt	Apple Silicon MacBookのバッテリー充電を制御及び制限する
 bazarr	字幕を管理及びダウンロードする為の Sonarr/Radarrのコンパニオン
 bazel	Google独自のビルドツール
 bazel-diff	Gitの2つのリビジョン間でBazel Target Diffingを実行します
