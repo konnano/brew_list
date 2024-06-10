@@ -742,7 +742,7 @@ font-hammersmith-one	Hammersmith One
 font-han-nom-a	HAN NOM A
 font-hanalei	Hanalei
 font-hanalei-fill	Hanalei Fill
-font-hanamina	HanaMinA
+font-hanamin	font-hanamin
 font-handjet	ハンドジェットプリンターでうまく機能する様に調整されたフォント
 font-handlee	Handlee
 font-hanken-grotesk	アルフレド・マルコ・プラディル率いる
