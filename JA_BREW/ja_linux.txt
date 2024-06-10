@@ -107,7 +107,8 @@ font-antic-didone	Antic Didone
 font-antic-slab	Antic Slab
 font-antinoou	Antinoou
 font-anton	Anton
-font-anton-sc	The small caps version of antonHEADfont-antonio	Antonio
+font-anton-sc	The small caps version of antonHEADfont-antonio
+font-antonio	Antonio font
 font-anuphan	ibm plex sans thaiの修正ではありません
 font-anybody	10度、目立ちますが微妙です
 font-aoboshi-one	Aoboshi One
@@ -511,6 +512,7 @@ font-ebh	Exeter Bookのスクリプトに基づいたベクトル化されたフ
 font-economica	Economica
 font-eczar	Eczar
 font-edlo	Edlo
+font-edu-au-vic-wa-nt-hand	Edu au vic wa nt hand font
 font-edu-nsw-act-foundation	Edu NSW ACT Foundation
 font-edu-qld-beginner	Edu QLD Beginner
 font-edu-sa-beginner	Edu SA Beginner
@@ -618,11 +620,13 @@ font-frijole	Frijole
 font-fruktur	Fruktur
 font-fugaz-one	Fugaz One
 font-fuggles	洗練された商用デザインに使用できる強力なスクリプト
+font-fustat	独特のスタイルによりタイトルに最適ですが、本文でも読みやすさを確保します
 font-fuzzy-bubbles	お子様のパーティーに最適
 font-fzfangsong-z02	Fangzheng Fangsong GBK
 font-fzkai-z03	Fangzheng Kaiti GBK
 font-fzshusong-z01	Fangzheng Shusong GBK
 font-fzxiaobiaosong-b05	Fangzheng Xiaobiaosong GBK
+font-ga-maamli	小文字も大文字構造を使用する全て大文字のデザイン
 font-gabarito	通常から黒までの6つのウェイトを備えた幾何学的な書体
 font-gabriela	Gabriela
 font-gaegu	Gaegu
@@ -738,7 +742,7 @@ font-hammersmith-one	Hammersmith One
 font-han-nom-a	HAN NOM A
 font-hanalei	Hanalei
 font-hanalei-fill	Hanalei Fill
-font-hanamina	HanaMinA
+font-hanamin	Hanamin font
 font-handjet	ハンドジェットプリンターでの使用に適したフォント
 font-handlee	Handlee
 font-hanken-grotesk	アルフレッド・マルコ・プラディル率いる
@@ -1659,24 +1663,36 @@ font-playfair	Playfair
 font-playfair-display	Playfair Display
 font-playfair-display-sc	Playfair Display SC
 font-playpen-sans	細いフォントから太いフォントまでの太さの範囲を持つ可変フォント
+font-playwrite-ar	Playwrite ar font
+font-playwrite-at	Playwrite at font
 font-playwrite-au-nsw	Playwrite AU NSW
 font-playwrite-au-qld	Playwrite AU QLD
 font-playwrite-au-sa	Playwrite AU SA
 font-playwrite-au-tas	Playwrite AU TAS
 font-playwrite-au-vic	Playwrite AU VIC
+font-playwrite-be-vlg	Playwrite be vlg font
+font-playwrite-be-wal	Playwrite be wal font
 font-playwrite-br	Playwrite BR
 font-playwrite-ca	Playwrite CA
+font-playwrite-cl	Playwrite cl font
 font-playwrite-co	Playwrite CO
+font-playwrite-cu	Playwrite cu font
+font-playwrite-cz	Playwrite cz font
 font-playwrite-de-grund	Playwrite DE Grund
 font-playwrite-de-la	Playwrite DE LA
 font-playwrite-de-sas	Playwrite DE SAS
 font-playwrite-de-va	Playwrite DE VA
+font-playwrite-dk-loopet	Playwrite dk loopet font
+font-playwrite-dk-uloopet	Playwrite dk uloopet font
 font-playwrite-es	Playwrite ES
 font-playwrite-es-deco	Playwrite ES Deco
 font-playwrite-fr-moderne	Playwrite FR Moderne
 font-playwrite-fr-trad	Playwrite FR Trad
 font-playwrite-gb-j	Playwrite GB J
 font-playwrite-gb-s	Playwrite GB S
+font-playwrite-hr	Playwrite hr font
+font-playwrite-hr-lijeva	Playwrite hr lijeva font
+font-playwrite-hu	Playwrite hu font
 font-playwrite-id	Playwrite ID
 font-playwrite-ie	Playwrite IE
 font-playwrite-in	Playwrite IN
@@ -1688,6 +1704,7 @@ font-playwrite-ng-modern	Playwrite NG Modern
 font-playwrite-nl	Playwrite nl font
 font-playwrite-no	Playwrite no font
 font-playwrite-nz	Playwrite NZ
+font-playwrite-pe	Playwrite pe font
 font-playwrite-pl	Playwrite pl font
 font-playwrite-pt	Playwrite pt font
 font-playwrite-ro	Playwrite ro font
@@ -2187,6 +2204,7 @@ font-wendy-one	Wendy One
 font-whisper	Whisper
 font-windsong	複数の文体セットを含む長いスクリプト
 font-wire-one	Wire One
+font-wittgenstein	Wittgenstein font
 font-wix-madefor-display	Wix Madefor Display
 font-wix-madefor-text	Wix Madefor Text
 font-work-sans	Work Sans
@@ -2222,6 +2240,7 @@ font-yuji-hentaigana-akebono	Yuji Hentaigana Akebono
 font-yuji-mai	Yuji Mai
 font-yuji-syuku	Also approachable
 font-yusei-magic	手書き文字をベースにした視認性の高いフォント
+font-zain	Zain font
 font-zcool-kuaile	ZCOOL KuaiLe
 font-zcool-qingke-huangyou	ZCOOL QingKe HuangYou
 font-zcool-xiaowei	ZCOOL XiaoWei
