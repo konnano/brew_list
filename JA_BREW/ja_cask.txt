@@ -2319,6 +2319,7 @@ master-pdf-editor	PDFエディター
 mate-translate	任意のアプリでテキストを選択して翻訳します
 mater	マテリアルデザイン
 material-colors	Mac用の素材の色
+material-maker	Godotエンジンに基づプロシージャルマテリアルオーサリング及び3Dペイントツール
 mathcha-notebook	数学エディター
 mathpix-snipping-tool	数学と科学の為のスキャナーアプリ
 matterhorn	Mattermost用のUnixターミナルクライアント
