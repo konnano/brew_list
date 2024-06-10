@@ -432,7 +432,7 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
 }
 
 sub m_search{
- my $re = shift; my( $co,$bl,$rows,$cols,$cont,@an ) = ( 0,__FILE__ );
+ my $re = shift;
   system"stty -echo -icanon";
    $SIG{'INT'} = $SIG{'QUIT'} = sub{ print"\033[0m\033[0;0H\033[2J\033[?25h"; system'stty sane'; exit 1 };
  if( $re->{'S_M'} == 2 ){
@@ -441,7 +441,7 @@ sub m_search{
    my( $ROWS,$COLS ) = _term();
     for(0..($COLS/6)){ my $ra = rand($COLS+1)>>0; $tn[$ra] = 1; $ran[$_] = $ra }
      for(0..$COLS){ $col[$_] = $tn[$_] ? 1 : 0 }
-   while(1){ my( @mem,@row );
+   while(1){ my @row;
     my( $rows,$cols ) = _term();
      last if $rows != $ROWS or $cols != $COLS;
     my $rs = chr(1);
@@ -460,7 +460,7 @@ sub m_search{
     }
    }
   }
- }else{
+ }else{ my( $co,$bl,@an ) = ( 0,__FILE__ );
   my $nam = $re->{'MAC'} ? 81 : $re->{'LFOD'} ? 54 : 27;
    $an[$co++] = $_ eq 'lib' ? $_ : "l_$_" for( 0,'a'..'l','lib','m'..'z' );
     if( $re->{'MAC'} ){ $an[$co++] = $_ eq 'num' ? $_ : "c_$_" for( 'num','a'..'z' ) }
@@ -474,8 +474,8 @@ sub m_search{
    $re->{'LI'} ||= $ROWS > 30 ? 27 : $ROWS - 4;
    $re->{'ST'} ||= 1;
    print"\033[0;0H\033[2J\033[?25l";
-    while(1){ my( $nu,$key ) = ( 0,0 );
-     ( $rows,$cols ) = _term();
+    while(1){ my( $nu,$key,$cont ) = ( 0,0 );
+     my( $rows,$cols ) = _term();
       $re->{'LI'} = $re->{'ST'} = 0 if $rows != $ROWS;
        last if $rows != $ROWS or $cols != $COLS;
      my $rs = chr(1);
