@@ -1132,6 +1132,7 @@ elephas	パーソナルAIライティングアシスタント
 elephas@beta	パーソナルAIライティングアシスタント
 elephicon	PNGからApple ICNS及びMicrosoft ICOファイルを作成する
 elgato-camera-hub	Elgato FACECAM設定ツール
+elgato-capture-device-utility	Elgato Captureデバイスの更新と構成
 elgato-control-center	Elgatoキーライトをコントロール
 elgato-game-capture-hd	Elgatoビデオアプリ キャプチャ/ストリーミング
 elgato-stream-deck	キーを割り当て装飾してラベルを付ける
@@ -2247,6 +2248,7 @@ macrorecorder	マウスとキーボードのアクションを記録する
 macs-fan-control	Appleコンピュータのすべてのファンを制御及び監視します
 macstroke	構成可能なグローバルマウスジェスチャー
 macsvg	HTML5スケーラブルベクターグラフィックスをデザインする為のアプリ
+macsymbolicator	Apple関連のクラッシュレポートを象徴する
 macterm	MacTerm
 mactex	GUIアプリケーションを使用した完全なTeX Liveディストリビューション
 mactex-no-gui	GUIアプリケーションを使用しない完全なTeX Liveディストリビューション
@@ -4322,6 +4324,7 @@ vapor	視覚化/分析プラットフォーム
 vassal	ボードゲームエンジン
 vb-cable	あるアプリケーションから別のアプリケーションにオーディオをルーティングする為の仮想オーディオケーブル
 vbrokers	取引プラットフォーム
+vcam	ウェブカメラバックグラウンドツール
 vcv-rack	オープンソースの仮想モジュラーシンセサイザー
 ved	VVVVVVの外部レベルエディタ
 veepn	VPNクライアント
