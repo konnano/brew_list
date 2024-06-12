@@ -1258,6 +1258,7 @@ demumble	より強力なシンボルデマングラー(c++filt風)
 deno	JavaScriptとTypeScriptの安全なランタイム
 denominator	DNSクラウドを操作する為のポータブルJavaライブラリ
 density	超高速圧縮ライブラリ
+dep-tree	ファイル間の依存関係を視覚化し、依存関係ルールを適用するツール
 dependency-check	OWASP依存関係チェック
 deployer	一般的なフレームワークをサポートするPHPで記述された展開ツール
 depqbf	定量化されたブール式(QBF)のSolver
@@ -2003,6 +2004,7 @@ generate-json-schema	サンプルJSONからJSONスキーマを生成する
 genext2fs	通常の(root以外の)ユーザーとしてext2ファイルシステムを生成します
 gengetopt	getopt_longを介してコマンドライン引数を解析するCコードを生成します
 genometools	用途の広いオープンソースゲノム解析ソフトウェア
+gensio	ストリームI/Oライブラリ
 geocode-glib	gecoding及び逆gecoding用のGNOMEライブラリ
 geogram	幾何学的アルゴリズムのプログラミングライブラリ
 geographiclib	C++地理ライブラリ
