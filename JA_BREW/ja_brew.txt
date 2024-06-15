@@ -971,6 +971,7 @@ code-cli	コマンドラインインターフェイスビルトインVisual Stud
 code-minimap	高性能コードミニマップ発生器
 code-server	ブラウザからVSCodeにアクセスする
 codec2	オープンソースの音声コーデック
+codecov-cli	Codecovのコマンドラインインターフェイス
 codelimit	リファクタリングのアラーム
 codequery	コード理解/コードブラウジング/コード検索ツール
 coder	Terraformを使用してセルフホスト型開発環境をプロビジョニングする為のツール
@@ -2003,6 +2004,7 @@ genders	クラスター管理用の静的クラスター構成データベース
 generate-json-schema	サンプルJSONからJSONスキーマを生成する
 genext2fs	通常の(root以外の)ユーザーとしてext2ファイルシステムを生成します
 gengetopt	getopt_longを介してコマンドライン引数を解析するCコードを生成します
+geni	スタンドアロンのデータベース移行ツール
 genometools	用途の広いオープンソースゲノム解析ソフトウェア
 gensio	ストリームI/Oライブラリ
 geocode-glib	gecoding及び逆gecoding用のGNOMEライブラリ
@@ -3062,6 +3064,7 @@ kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成でき�
 kubefirst	Kubernetes向けのGitOpsインフラストラクチャとアプリケーション配信プラットフォーム
 kubekey	Kubernetes and/or KubeSphereのインストーラー...詳しくはENで
 kubeless	Kubernetesネイティブ Serverlessフレームワーク
+kubelogin	kubectl用のOpenID Connect認証プラグイン
 kubent	非推奨のAPIの使用についてクラスターを簡単に確認する
 kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋める為のコマンドのコレクション
@@ -5024,6 +5027,7 @@ postgresql@15	オブジェクトリレーショナルデータベースシステ
 postgresql@16	オブジェクトリレーショナルデータベースシステム
 postgrest	既存のPostgreSQLデータベースから完全にRESTfulなAPIを提供します
 potrace	ビットマップをベクターグラフィックに変換する
+poutine	ビルドパイプラインの脆弱性を検出するセキュリティスキャナー
 povray	持続性のビジョンRAYtracer(POVRAY)
 powerlevel10k	zshのテーマ
 powerline-go	シェルの美しく便利な低遅延プロンプト
