@@ -1102,7 +1102,7 @@ my( $re,$list ) = @_; my( $e,$i,@tap,$file ) = ( 0,1 );
       $i = 0; next;
      }
       if( $re->{'BL'} or defined $re->{'S_OPT'} ){
-       $e++ if $tap =~ /^[01]$/;
+       $e++ if not $e and $tap =~ /^[01]$/;
         push @{$tap[$e]},$tap;
       }else{
         push @{$file},$tap if $re->{'TAP'} or $re->{'FTD'};
@@ -1152,6 +1152,7 @@ print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN1'}++;
    if $re->{'COL'} and $re->{"$${brew}delet"} and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
 
  unless( $re->{"$${brew}undel"} ){ my $TR = $re->{'TR'};
+  $name = $re->{'OS'}{"${name}alia"} ? $re->{'OS'}{"${name}alia"} : $name;
   $re->{"deps$$brew"} +=
    ( $re->{'TREE'} and $re->{'PP'} and $build ) ? print"${spa} $name [Build]\n" :
    ( $re->{'TREE'} and $re->{'PP'} ) ? print"${spa} $name\n" :
