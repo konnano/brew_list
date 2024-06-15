@@ -1150,6 +1150,7 @@ emailchemy	メールの移行、変換、アーカイブ　ソフトウェア
 emby	embyメディアサーバーのクライアント
 embyserver	ほぼすべてのデバイスにアプリを備えたパーソナルメディアサーバー
 emclient	メールクライアント
+emclient@beta	電子メールクライアント
 eme	マークダウンエディター
 emmetapp	ウィンドウマネージャーとウィンドウサイズ変更ツールのタイリングとスタッキング
 emojipedia	絵文字pedia
@@ -1850,6 +1851,7 @@ itch	itch.ioのゲームクライアント
 iterm2	Appleターミナルアプリの代替ターミナルエミュレータ
 iterm2@beta	Appleターミナルアプリの代替ターミナルエミュレータ
 iterm2@nightly	Appleターミナルアプリの代替ターミナルエミュレータ
+itermai	iTerm2で生成AI機能を有効にする
 ithoughtsx	マインドマッピングツール
 itk-snap	3D医用画像のセグメント構造
 itraffic	ステータスバーにプロセストラフィックを表示する為のモニター
@@ -4586,6 +4588,7 @@ xlplayer	ビデオプレーヤー
 xmind	マインドマッピングとbrainstormingツール
 xmind@beta	マインドマッピングとbrainstormingツール
 xmplify	XMLエディター
+xnapper	スクリーンショットツール
 xnconvert	画像変換及びresizerツール
 xnviewmp	フォトビューアー 画面管理/画像リサイザーなど
 xonotic	アリーナスタイルの一人称シューティングゲーム
