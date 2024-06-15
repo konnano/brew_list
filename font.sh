@@ -104,6 +104,7 @@ perl<<"EOF"
       $test = 1; next;
      }elsif( $test and $test == 1 and $brew =~ s|^\s*<td>([^<]*)</td>\n|$1| ){
       $tap3 = $brew;
+      $tap3 =~ s/&#39;/'/g;
       $tap3 =~ s/&quot;/"/g;
       $tap3 =~ s/&amp;/&/g;
       $tap3 =~ s/&lt;/</g;
@@ -208,6 +209,7 @@ perl<<"EOF"
      $test = 1; next;
     }elsif( $test and $brew =~ s|^\s*<td>([^<]*)</td>\n|$1| ){
      $tap3 = $brew;
+     $tap3 =~ s/&#39;/'/g;
      $tap3 =~ s/&quot;/"/g;
      $tap3 =~ s/&amp;/&/g;
      $tap3 =~ s/&lt;/</g;
