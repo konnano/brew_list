@@ -206,6 +206,7 @@ font-bayon	Bayon
 font-be-vietnam-pro	ハイテク企業やスタートアップに最適
 font-beau-rivage	太いストロークと細いストロークのコントラストが強い古典的な書体
 font-bebas-neue	Bebas Neue
+font-beiruti	Volker schnebelによるデザイン
 font-belanosima	1920年代の幾何学的な sans serifデザインから影響を受けたもの
 font-belgrano	Belgrano
 font-bellefair	Bellefair
@@ -1622,6 +1623,10 @@ font-padauk	Padauk
 font-padyakke-expanded-one	Padyakke Expanded One
 font-palanquin	Palanquin
 font-palanquin-dark	Palanquin Dark
+font-palemonasmufi-bold	font-palemonasmufi-bold
+font-palemonasmufi-bolditalic	font-palemonasmufi-bolditalic
+font-palemonasmufi-italic	font-palemonasmufi-italic
+font-palemonasmufi-regular	font-palemonasmufi-regular
 font-palette-mosaic	Palette Mosaic
 font-pangolin	Pangolin
 font-paprika	Paprika
