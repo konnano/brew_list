@@ -1771,6 +1771,7 @@ imgotv	MangoTVビデオアプリ
 imhex	リバースエンジニア用のHexエディター
 imo	Imoメッセンジャー
 impactor	モバイルデバイスを操作する為のGUIツール
+impel	AIコンパニオン
 inav-configurator	INAV飛行制御システムの構成ツール
 infinity	カスタマイズ可能な作業管理プラットフォーム
 infoflow	AIオフィスプラットフォーム
