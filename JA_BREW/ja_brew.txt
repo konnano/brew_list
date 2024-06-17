@@ -60,6 +60,7 @@ aftman	Robloxのツールチェーン マネージャー Foremanの放蕩続編
 afuse	FUSEを使用してユーザースペースに実装された自動マウントファイルシステム
 agda	依存型関数型プログラミング言語
 age	シンプルでモダンに安全なファイル暗号化
+age-plugin-se	Apple Secure Enclave用のAgeプラグイン
 age-plugin-yubikey	YubiKeysなどの年齢/PIVトークンを使用してファイルを暗号化する為のプラグイン
 agedu	無駄なディスクスペースを追跡する為のUnixユーティリティ
 agg	AsciicastからGIFへのコンバーター
@@ -127,6 +128,7 @@ ansible-language-server	Ansibleファイル用の言語サーバー
 ansible-lint	実践と行動についてAnsibleプレイブックをチェックします
 ansible@7	導入/構成/アップグレード を自動化する
 ansible@8	導入、構成、アップグレード、を自動化する
+ansible@9	導入/構成/アップグレード　を自動化する
 ansifilter	ANSIコードを削除するか、HTML/(La)Tex/RTF/BBCodeに変換します
 ansilove	ANSI/ASCII アートからPNGへの変換器
 ansiweather	ANSIカラーとUnicode記号を使用した端末の天気予報
@@ -4444,6 +4446,7 @@ nspr	システムレベル及びlibcの様な関数用のプラットフォー�
 nsq	リアルタイム分散メッセージングプラットフォーム
 nss	セキュリティ対応のクライアント及びサーバーアプリケーション用のライブラリ
 nsuds	Ncurses数独システム
+nsync	さまざまな同期プリミティブをエクスポートするCライブラリ
 ntbtls	それほど悪くないTLSライブラリ
 ntfs-3g	FUSEのRead-write NTFSドライバー
 ntfy	PUT/POST経由で電話又はデスクトップにプッシュ通知を送信する
