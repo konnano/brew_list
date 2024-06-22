@@ -1476,6 +1476,7 @@ get-api	HTTPクライアント
 get-backup-pro	フォルダ同期を備えたバックアップソフトウェア
 get-iplayer-automator	BBCとITVの番組をダウンロードして視聴する
 get-lyrical	iTunesの曲に歌詞を自動的に追加する
+getoutline	Knowledgeマネジメントツール
 gfxcardstatus	グラフィックカードの使用状況を監視するメニューバーアプリ
 ghdl	VHDL2008/93/87 模擬装置
 ghidra	ツールのソフトウェア逆エンジニアリング(SRE)パッケージ
@@ -2181,6 +2182,7 @@ lookaway	休憩時間リマインダーアプリ
 lookin	iOSビューのデバッグ用アプリ
 lookingglassstudio	Looking Glassで3D画像及びビデオ形式を表示/編集する
 loom	画面/ビデオ 録画ソフトウェア
+loop	ウィンドウマネージャー
 loopback	ケーブルFreeオーディオルーター
 losslesscut	ビデオファイルとオーディオファイルを劣化無しでトリミング
 lotus	GitHubの通知を確認する
@@ -3575,7 +3577,7 @@ semeru-jdk-open@17	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備え
 semeru-jdk-open@21	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた実稼働対応JDK
 semeru-jdk-open@8	OpenJDKクラスライブラリとEclipse OpenJ9 JVMを備えた本番環境対応のJDK
 semulov	メニューバーからマウントされたボリュームとマウントされていないボリュームにアクセスします
-senabluetoothdevicemanager	SENAデバイスのマネージャー
+senadevicemanager	SENAデバイスのマネージャー
 sencha	Sencha Ext JSの生産性とパフォーマンスの最適化ツール
 send-anywhere	ファイル共有アプリ
 send-to-kindle	MacからKindleに個人文書を送信する為のツール
@@ -4021,6 +4023,7 @@ telegram-a	Telegramメッセンジャー用のWebクライアント
 telegram-desktop	Telegramメッセンジャー用のデスクトップクライアント
 telegram-desktop@beta	Telegramメッセンジャー用のデスクトップクライアント
 teleport-connect	クラウドインフラストラクチャ向けの開発者向けブラウザ
+tella	スクリーンレコーダー
 tempbox	使い捨てメールクライアント
 temurin	Eclipse Foundation(Adoptium)のJDK
 temurin@11	Eclipse FoundationのJDK(Adoptium)
