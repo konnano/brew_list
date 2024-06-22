@@ -135,7 +135,6 @@ ansiweather	ANSIカラーとUnicode記号を使用した端末の天気予報
 ant	Javaビルドツール
 ant-contrib	Apache Antのタスクのコレクション
 ant@1.9	Javaビルドツール
-antibody	シェルプラグインマネージャー
 antidote	zshのプラグインマネージャー 抗原と抗体に刺激を受けた
 antigen	oh-my-zshとvundleに触発されたzshのプラグインマネージャー
 antiword	Word(.doc)ファイルを読み取る為のユーティリティ
@@ -217,7 +216,6 @@ arm-none-eabi-binutils	arm-none-eabiクロス開発の為のGNU Binutils
 arm-none-eabi-gcc	arm-none-eabi用のGNUコンパイラコレクション
 arm-none-eabi-gdb	arm-none-eabiクロス開発用のGNUデバッガー
 armadillo	C++線形代数ライブラリ
-armor	シンプルで最新のHTTPサーバー
 arp-scan	ARPスキャン/フィンガープリントツール
 arp-sk	ARP転送生成ツール
 arpack	大規模な固有値問題を解決する為のルーチン
@@ -572,7 +570,6 @@ brev	brev.devによって提供されるワークスペースを管理する為�
 brew-cask-completion	brew-cask用のFish補完
 brew-gem	homebrew formulaeとしてRuby Gemsをインストールする
 brew-php-switcher	PHPバージョン間で構成を切り替えます Apache/Valet/CLI
-brew-pip	homebrew formulaeとしてpipパッケージをインストールする
 brigade-cli	Brigadeのコマンドラインインターフェース
 brightness	コマンドラインからMacOSディスプレイの明るさを変更する
 briss	PDFファイルを切り抜く
@@ -637,7 +634,6 @@ ca-certificates	Mozilla CA証明書store
 cabal-install	Cabal及びHackageのコマンドラインインターフェイス
 cabextract	Microsoftキャビネットファイルからファイルを抽出する
 cabocha	さらに別の日本語の依存関係構造分析
-cacli	Cloud Annotationsから機械学習モデルをトレーニングする
 cadaver	DAVのコマンドラインクライアント
 caddy	自動HTTPSを備えた強力なエンタープライズ対応のオープンソースWebサーバー
 cadence	リソース指向のスマートコントラクトプログラミング言語
@@ -907,7 +903,6 @@ clitest	コマンドラインテスター
 clive	⚡ 端末操作を自動化
 cln	数字のクラスライブラリ
 cloc	コードの行をカウントする統計ユーティリティ
-clockywock	Ncursesアナログ時計
 clog	色付きのパターンマッチングログtailユーティリティ
 clojure	動的な汎用プログラミング言語
 clojure-lsp	ClojureのLanguage Server(LSP)
@@ -1255,7 +1250,6 @@ define	複数のソースにアクセスできるコマンドライン辞書(the
 deheader	不要なヘッダーがないかC/C++ファイルを分析します
 dehydrated	シェルスクリプトとして実装された LetsEncrypt/acme クライアント
 deja-gnu	他のプログラムをテストする為のフレームワーク
-delta	プログラムでファイルを最小化して、対象の機能を分離します
 delve	Goプログラミング言語のデバッガー
 demumble	より強力なシンボルデマングラー(c++filt風)
 deno	JavaScriptとTypeScriptの安全なランタイム
@@ -1393,7 +1387,6 @@ dockviz	Dockerデータの視覚化
 dockward	Dockerコンテナ用のポート転送ツール
 doctest	機能豊富な C++11/14/17/20 single-headerテストフレームワーク
 doctl	DigitalOceanのコマンドラインツール
-docui	Docker用TUIクライアント
 docutils	reStructuredTextのテキスト処理システム
 docuum	Dockerイメージの最も最近使用されていない(LRU)削除を実行します
 docx2txt	Microsoft Officedocxドキュメントを同等のテキストドキュメントに変換します
@@ -1514,7 +1507,6 @@ e2fsprogs	ext2/ext3/ext4 ファイルシステムのユーティリティ
 e2tools	読み取り/書き込み ユーティリティと ext2/3/4ファイルシステム内のファイルを操作する
 earthly	コンテナeraのビルド自動化ツール
 easeprobe	単純 独立して health/statusのチェックを実行できるlightWeightツール
-easy-git	学習とgitの使用を簡素化するラッパー
 easy-rsa	PKI CAを構築及び管理する為のCLIユーティリティ
 easy-tag	オーディオファイルタグを表示及び編集する為のアプリケーション
 easyengine	WordPressサイトを管理する為のコマンドラインコントロールパネル
@@ -1530,6 +1522,7 @@ echidna	イーサリアム スマートコントラクトファザー
 ecl	埋め込み可能なCommon Lisp
 ecm	CDイメージファイルを作成して圧縮率を高めます
 ecoji	データを絵文字としてエンコード(デコード)します
+ecs-deploy	Amazon ECSの デプロイ/ロールバック/スケーリング を簡素化するCLIツール
 ed	従来のUNIXラインエディタ
 edbrowse	コマンドラインエディタとWebブラウザ
 edencommon	Watchman及びEden プロジェクトの共有ライブラリ
@@ -1552,7 +1545,6 @@ ekg2	プラグインベースの即時メッセンジャー Multiplatform/multip
 ekhtml	寛容なSAXスタイルのHTMLパーサー
 eksctl	Amazon EKSでクラスターを作成する為のシンプルなコマンドラインツール
 elan-init	Lean Theorem Proverインストーラー及びバージョンマネージャー
-elasticsearch@6	分散型検索/分析エンジン
 elektra	グローバルkeyデータベースの構成設定にアクセスする為のフレームワーク
 eless	より良い`less` EmacsビューモードとBashを使う
 eleventy	よりシンプルな静的サイト発生器
@@ -1560,7 +1552,6 @@ elfutils	ELFオブジェクトを処理する為のライブラリとユーテ�
 elfx86exts	x86バイナリ(ELF/Mach-O)をデコードし使用中のISA拡張機能を出力します
 elinks	テキストモードのWebブラウザ
 elixir	Erlang VM上に構築された機能的なメタプログラミング対応言語
-elixir-build	RubyビルドのElixirバージョン
 elixir-ls	Elixirの言語サーバーとデバッガー
 elm	ブラウザベースのGUIを構築する為の関数型プログラミング言語
 elm-format	Gofmtに触発されたElmソースコード初期化装置
@@ -1613,7 +1604,6 @@ erdtree	マルチスレッドのファイルツリービジュアライザーと
 erg	Pythonエコシステムを大幅に改善できる静的型付け言語
 erigon	効率性最前線でのイーサリアム(実行クライアント)の実装
 erlang	高度に拡張性のあるリアルタイムシステムの為のプログラミング言語
-erlang@21	高度に拡張性のあるリアルタイムシステムの為のプログラミング言語
 erlang@22	高度に拡張性のあるリアルタイムシステムの為のプログラミング言語
 erlang@24	高度スケーラブルなリアルタイムシステムの為のプログラミング言語
 erlang@25	拡張性の高いリアルタイムシステム用のプログラミング言語
@@ -1645,7 +1635,6 @@ exa	'ls'の最新の代替品
 exact-image	画像処理ライブラリ
 excel-compare	Excelワークブックを比較する為のコマンドラインツール(API)
 exempi	XMPメタデータを解析する為のライブラリ
-exenv	Elixirバージョン管理ツール
 exercism	exercism.ioと対話する為のコマンドラインツール
 exif	コマンドラインでのEXIFデータの 読み取り/書き込み/変更/表示
 exiftags	デジタルカメラのJPEGファイルからEXIFタグを読み取るユーティリティ
@@ -1687,8 +1676,6 @@ falcon	Multi-paradigmプログラミング言語とスクリプトエンジン
 fann	高速人工神経ネットワークライブラリ
 fantom	オブジェクト指向のポータブルプログラミング言語
 fanyi	コマンドラインの北京語と英語の翻訳ツール
-fargatecli	AWSファーゲートのCLI
-fasd	ファイルとディレクトリにすばやくアクセスする為のCLIツール
 fastapi	FastAPIフレームワーク用のCLI
 fastbit	NoSQL精神のオープンソースデータ処理ライブラリ
 fastd	高速で安全なトンネリングデーモン
@@ -2250,7 +2237,6 @@ gnupg-pkcs11-scd	GnuPGでPKCS#11トークンの使用を有効にする
 gnupg@1.4	GNU Pretty Good Privacy(PGP)パッケージ
 gnupg@2.2	GNU Pretty Good Privacy(PGP)パッケージ
 gnuplot	コマンド駆動型の対話的関数プロット
-gnuplot@4	コマンド駆動型の対話的関数プロット
 gnuradio	ソフトウェア無線を実装する為の信号処理ブロックのSDK
 gnuski	Skifreeのオープンソースクローン
 gnustep-base	汎用ライブラリー 非グラフィカルなObjectiveCオブジェクト
@@ -2828,7 +2814,6 @@ jasmin	Java仮想マシンのアセンブラ
 jasper	JPEG-2000画像を操作する為のライブラリ
 java-service-wrapper	展開の簡素化 Javaアプリケーションの起動と監視
 javacc	Javaアプリケーションで使用する為のパーサ発生器
-javarepl	JavaのEvalPrint Loop(REPL)を読む
 jbake	Javaベースの静的 サイト/ブログ 発生器
 jbang	作成するツール 自己完結型のソースのみのJavaプログラムを編集/実行する
 jbig2dec	JBIG2デコーダー及びライブラリー(モノクロドキュメント用)
@@ -2886,7 +2871,6 @@ joker	小さなクロージャーインタープリター 解析ツール/初期
 jolie	サービス指向プログラミング言語
 joplin-cli	同期機能を備えたメモ取りとToDoアプリケーション
 jose	Javascriptオブジェクトの署名と暗号化のC言語実装
-joshua	統計的機械翻訳デコーダー
 joshuto	Rustで書かれたRanger-likeターミナルファイルマネージャー
 jot	端末の迅速なメモ管理
 jove	Viの様なメモリを備えたEmacsスタイルのエディタ CPU/サイズ定義
@@ -3065,10 +3049,8 @@ kubectl-rook-ceph	Ceph管理用のRookプラグイン
 kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成できるツール
 kubefirst	Kubernetes向けのGitOpsインフラストラクチャとアプリケーション配信プラットフォーム
 kubekey	Kubernetes and/or KubeSphereのインストーラー...詳しくはENで
-kubeless	Kubernetesネイティブ Serverlessフレームワーク
 kubelogin	kubectl用のOpenID Connect認証プラグイン
 kubent	非推奨のAPIの使用についてクラスターを簡単に確認する
-kubeprod	Bitnami Kubernetes Production Runtime(BKPR)のインストーラー
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋める為のコマンドのコレクション
 kubernetes-cli	Kubernetesコマンドラインインターフェース
 kubernetes-cli@1.29	Kubernetesコマンドラインインターフェイス
@@ -3321,7 +3303,6 @@ libfuse	Linux FUSEインターフェースのリファレンス実装
 libfuse@2	Linux FUSEインターフェースのリファレンス実装
 libfyaml	完全な機能 YAMLパーサーとエミッター
 libgadu	ICQ即時メッセンジャー手続きのライブラリ
-libgaiagraphics	共通ユーティリティラスター処理をサポートするライブラリ
 libgccjit	GNUコンパイラコレクションのJITライブラリ
 libgcrypt	GnuPGのコードに基づく暗号ライブラリ
 libgda	GNOMEプロジェクトへの統合データアクセスを提供します
@@ -3509,7 +3490,6 @@ libquantum	量子力学のシミュレーションの為のCライブラリ
 libquicktime	QuickTimeファイルを読み書きする為のライブラリ
 libquvi	フラッシュメディアストリームの属性を解析する為のCライブラリ
 libraqm	複雑なテキストレイアウト用のライブラリ
-librasterlite	巨大なラスターカバレッジを保存/取得する為のライブラリ
 librasterlite2	巨大なラスターカバレッジを保存/取得する為のライブラリ
 libraw	デジタルフォトカメラからRAWファイルを読み取る為のライブラリ
 librcsc	RoboCupサッカー模擬装置のライブラリ
@@ -3553,7 +3533,6 @@ libsixel	SIXELの実装 エンコーダー/デコーダー
 libslax	SLAX言語の実装(XSLTの代替品)
 libslirp	汎用TCP-IPエミュレーター
 libsm	X.Org：Xセッション管理ライブラリ
-libsmf	SMF('* .mid')ファイルを処理する為のCライブラリ
 libsmi	SMIMIB情報にアクセスする為のライブラリ
 libsndfile	サンプリングされたサウンドを含むファイル用のCライブラリ
 libsodium	NaClネットワーキング/暗号化ライブラリ
@@ -3733,12 +3712,10 @@ liquibase	データベース変更追跡用のライブラリ
 liquid-dsp	ソフトウェア無線用のデジタル信号処理ライブラリ
 liquidctl	liquid coolersとその他のデバイス用のクロスプラットフォームツールとドライバー
 liquidprompt	bash/zshシェルの適応プロンプト
-liquigraph	Neo4jの移行ランナー
 lit	LLVM/Clang-styleのテストセットのポータブルツール
 litani	Metabuildシステム
 litecli	自動補完と構文の強調表示を備えたSQLiteデータベースのCLI
 literate-git	階層的なgitリポジトリをHTMLに表現する
-little-cms	Little CMSライブラリのバージョン1
 little-cms2	ICCプロファイルをサポートするカラーマネジメントエンジン
 livekit	拡張可能高性能WebRTCサーバー
 livekit-cli	LiveKitへのコマンドラインインターフェイス
@@ -3757,7 +3734,6 @@ llvm@14	次世代基礎構造コンパイラ
 llvm@15	次世代基礎構造コンパイラ
 llvm@16	次世代基礎構造コンパイラ
 llvm@17	次世代基礎構造コンパイラ
-llvm@8	次世代基礎構造コンパイラ
 llvm@9	次世代基礎構造コンパイラ
 lm-sensors	温度を監視する為のツール 電圧/ファン
 lm4tools	TI StellarisLaunchpadボード用のツール
@@ -3909,7 +3885,6 @@ mariadb-connector-c	Cアプリケーション用のMariaDBデータベース連�
 mariadb-connector-odbc	業界標準のODBCAPIを使用するデータベースドライバー
 mariadb@10.10	MySQLのドロップイン代替品
 mariadb@10.11	MySQLのドロップイン代替品
-mariadb@10.2	MySQLのドロップイン代替品
 mariadb@10.3	MySQLのドロップイン代替品
 mariadb@10.4	MySQLのドロップイン代替品
 mariadb@10.5	MySQLのドロップイン代替品
@@ -3969,7 +3944,6 @@ mdformat	CommonMark準拠のMarkdownフォーマッタ
 mdk	GNU MIX開発キット
 mdless	ターミナルでマークダウンファイルの書式設定及び強調表示されたビューを提供します
 mdp	コマンドラインベースのマークダウン提示ツール
-mdr	diffを読みやすくする
 mdsh	Markdownシェルプリプロセッサ
 mdt	コマンドラインマークダウンtodoリストマネージャー
 mdv	Style付きターミナルマークダウンViewer
@@ -4003,7 +3977,6 @@ mentat	GPT-4を活用してコードを作成するコーディングアシス�
 mercurial	拡張性のある分散バージョン管理システム
 mercury	プログラミング言語 論理/関数型
 mergelog	round-robin DNSの背後にあるWebサーバーからのhttpdログをマージします
-mergepbx	XCodeプロジェクトファイルをgitにマージする
 mesa	グラフィックライブラリ
 mesa-glu	Mesa OpenGLユーティリティライブラリ
 mesalib-glw	OpenGL仕様のオープンソース実装
@@ -4203,7 +4176,6 @@ mrbayes	系統発生と進化モデルのベイズ推定
 mrboom	8人のボンバーマンクローン
 mrtg	マルチルーター転送量グラファー
 mruby	Ruby言語の軽量実装
-mruby-cli	ネイティブコマンドラインアプリケーションを構築する Linux/MacOS/Windows
 msc-generator	テキストの説明からsignallingチャートを描画します
 mscgen	メッセージ順序チャートの説明を解析し、画像を生成します
 msdl	さまざまなストリーミング手続きのダウンローダー
@@ -4328,7 +4300,6 @@ neofetch	高速で高度にカスタマイズ可能なシステム情報スク�
 neomutt	Notmuch、NNTPなどをサポートする電子メールリーダー
 neon	Cインターフェイスを備えたHTTP/WebDAVクライアントライブラリ
 neonctl	Neon CLI ツール
-neopop-sdl	NeoGeo Pocketエミュレーター
 neosync	Neosyncとインターフェースの為のCLI
 neovide	Rust実用的Neovim Client
 neovim	拡張性と敏捷性に焦点を当てた野心的なVimフォーク
@@ -4550,7 +4521,6 @@ onednn	ディープラーニングアプリケーションの基本的な構成�
 onedpl	実行ポリシーをサポートするC++標準ライブラリアルゴリズム
 onedrive	OneDriveとのフォルダー同期
 onefetch	ターミナルのGitリポジトリの概要
-onetime	one-time padsによる暗号化
 oniguruma	正規表現ライブラリ
 onioncat	Tor/I2Pを使用してロケーションプライバシーを提供するVPNアダプター
 onionprobe	Tor Onionサービスのテスト/監視ツール
@@ -4941,7 +4911,6 @@ pixman	ピクセル操作用の低レベルライブラリ
 pixz	並列/インデックス xz圧縮機
 pjproject	SIP/SDP/RTP などのマルチメディア手続きのCライブラリ
 pk	Field extractorコマンドラインユーティリティ
-pkcrack	PkZip暗号を解読する為のアルゴリズムの実装
 pkcs11-helper	PKCS#11との相互作用を簡素化するライブラリ
 pkcs11-tools	PKCS#11 暗号化トークン上のオブジェクトを管理する為のツール
 pkg-config	ライブラリのコンパイルとリンクのFlagを管理する
@@ -5037,7 +5006,6 @@ powerline-go	シェルの美しく便利な低遅延プロンプト
 powerman	制御(リモート/並列)スイッチ配電ユニット
 powerman-dockerize	Dockerコンテナでのアプリケーションの実行を簡素化するユーティリティ
 ppl	パルマ多面体ライブラリ：分析/検証 の為の数値抽象化
-pprint	最新のC++のPretty printer
 ppss	コマンドを並行して実行するシェルスクリプト
 ppsspp	PlayStation Portableエミュレーター
 pqiv	最低限のUIを備えた強力な画像Viewer
@@ -5322,7 +5290,6 @@ rattler-build	ユニバーサルcondaパッケージビルダー
 rav1e	最速で最も安全なAV1ビデオエンコーダー
 raven	CI/CDのリスク分析と脆弱性の列挙
 rawdog	llmsでコードを生成および実行する為のCLIツール
-rawgl	別世界の為に書き直されたエンジン
 raxml-ng	RAxML次世代：より速く/使いやすく/より柔軟
 raylib	ビデオゲームプログラミングを学ぶ為のシンプルで使いやすいライブラリ
 rbenv	Rubyバージョンマネージャー
@@ -5410,7 +5377,6 @@ reprepro	Debianパッケージリポジトリマネージャー
 reproc	クロスプラットフォーム(C99/C++11)プロセスライブラリ
 req	シンプルで独創的なHTTPスクリプト言語
 reshape	Postgresの使いやすいzero-downtimeのスキーマ移行ツール
-rest-shell	Spring HATEOAS準拠のRESTリソースと連携するシェル
 restic	高速で効率的かつ安全なバックアッププログラム
 restund	モジュラーサーバー STUN/TURN
 restview	直ぐに解釈するReStructuredTextドキュメントViewer
@@ -5518,7 +5484,6 @@ ruby	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby-build	さまざまなRubyバージョンと実装をインストールします
 ruby-completion	RubyのBash補完
 ruby-install	Rubyをインストール、JRuby/Rubinius/TruffleRuby/mruby
-ruby@2.6	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@2.7	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@3.0	オブジェクト指向のスクリプト言語 強力/クリーン
 ruby@3.1	オブジェクト指向のスクリプト言語 強力/クリーン
@@ -5585,7 +5550,6 @@ sbjson	SBJsonv5に基づくJSONCLIパーサーと再整形ツール
 sblim-sfcc	システムの管理性を強化するプロジェクト GNU/Linux
 sbom-tool	あらゆる種類のアーティファクトのSBOMを作成する為のスケーラブルなエンタープライズ対応ツール
 sbt	Scalaプロジェクト用のビルドツール
-sbt@0.13	Scalaプロジェクト用のビルドツール
 sbtenv	sbt環境を管理する為のコマンドラインツール
 sbuild	Scalaベースのビルドシステム
 sc-im	ncursesを使用した端末用のスプレッドシートプログラム
@@ -5870,7 +5834,6 @@ solidity	契約指向プログラミング言語
 sollya	安全な浮動小数点コード開発の為のライブラリ
 solo2-cli	Solo 2セキュリティキーを更新して使用する為のCLI
 solr	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
-solr@7.7	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
 solr@8.11	Apache Luceneプロジェクトのエンタープライズ検索プラットフォーム
 somagic	EasyCAPのSomagic変換用のLinuxキャプチャプログラム
 somagic-tools	EasyCAPからファームウェアを抽出する為のツール
@@ -6111,7 +6074,6 @@ swiftgen	アセット用のSwiftコードジェネレーター ストーリー�
 swiftlint	Swiftのスタイルと規則を適用する為のツール
 swiftplantuml	SwiftソースからUMLクラス図を生成する
 swig	C/C++コードへのスクリプトインターフェイスを生成します
-swig@3	C/C++コードへのスクリプトインターフェイスを生成します
 swimat	Swiftコードのフォーマットに役立つコマンドラインツール
 switch-lan-play	あなたとあなたの友達にLANの様にゲームをさせましょう
 switchaudio-osx	コマンドラインからMacOSオーディオソースを変更する
@@ -6196,7 +6158,6 @@ td	ターミナルのToDoリスト
 tdlib	Telegramクライアントを構築する為のクロスプラットフォームライブラリ
 tea	Giteaサーバーと対話する為のコマンドラインツール
 tealdeer	Rustでのtldrの非常に高速な実装
-teapot	テーブルエディターとプランナー
 tectonic	近代化され完全な自己完結型のTeX/LaTeXエンジン
 teem	科学ラスターデータ用のライブラリ
 teensy_loader_cli	Teensy USB開発ボードのコマンドライン統合
@@ -6312,6 +6273,7 @@ tinc	仮想プライベートネットワーク(VPN)ツール
 tintin	MUDクライアント
 tiny-fugue	プログラム可能なMUDクライアント
 tinycdb	定数データベースの作成と読み取り
+tinymist	Typst用言語サーバー
 tinyproxy	POSIXシステム用のHTTP/HTTPSプロキシ
 tinysearch	小さなRustとWasmで構築された静的Webサイトの全文検索エンジン
 tinysvm	パターン認識の為のサポートベクターマシンライブラリ
@@ -6487,7 +6449,6 @@ ucspi-tcp	TCPクライアントサーバーアプリケーションを構築す�
 udis86	x86用の最低限の逆アセンブラライブラリ
 udp2raw-multiplatform	udp2raw-tunnelクライアントのマルチプラットフォーム(クロスプラットフォーム)バージョン
 udptunnel	TCP接続を介してUDPパケットをトンネリングする
-udpxy	UDPからHTTPへのマルチキャスト転送量リレーデーモン
 udunits	Unidata単位変換ライブラリ
 uffizzi	k8s仮想クラスターを使用すると数か月ではなく数分でセルフサービス開発プラットフォームを実現できます
 ufraw	未確認のFlyingRAW：RAW画像処理ユーティリティ
@@ -6572,7 +6533,6 @@ v	Z for vim
 v2ray	ネットワーク制限をバイパスするプロキシを構築する為のプラットフォーム
 v2ray-plugin	shadowsocksのv2rayに基づくSIP003プラグイン
 v8	GoogleのJavaScriptエンジン
-v8@3.15	GoogleのオープンソースJavaScriptエンジン
 vagrant-completion	VagrantのBash補完
 vala	GObject型システム用のコンパイラ
 vala-language-server	Vala＆Genieの高度なコード
@@ -6759,7 +6719,6 @@ weasyprint	HTML を PDF に変換する
 weaver	Weaverのコマンドラインツール
 web-ext	Web拡張機能の構築、実行、テストに役立つコマンドラインツール
 web100clt	NDT診断クライアントのコマンドラインバージョン
-webalizer	Webサーバーのログファイル分析器
 webarchiver	Safariの.webarchiveファイルを作成できます
 webdis	JSON出力を使用したRedisHTTPインターフェース
 webfs	純粋に静的なコンテンツ用のHTTPサーバー
@@ -7017,7 +6976,6 @@ yosys	Verilog RTL合成のフレームワーク
 you-get	ウェブを削り取るDumbダウンローダー
 youplot	ターミナルでプロットを描画するコマンドラインツール
 youtube-dl	コマンドラインからYouTubeビデオをダウンロードする
-youtube-dlc	YouTubeなどのさまざまなサイトをサポートするメディアダウンローダー
 youtubedr	GolangでYoutubeビデオをダウンロード
 youtubeuploader	YouTubeへのスクリプトによるアップロード
 yq	CLIからYAMLドキュメントを処理する
