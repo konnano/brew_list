@@ -230,6 +230,7 @@ arturo	効率的なスクリプティングの為のシンプルでモダンで�
 arx-libertatis	ArxFatalisのクロスプラットフォームのオープンソースポート
 arxiv_latex_cleaner	arXivに送信するLaTeXコードをクリーンアップします
 as-tree	パスのリストをパスのツリーとしてプリントする 🌳
+asak	TUIを使用したクロスプラットフォームのオーディオ録音/再生CLIツール
 ascii	ASCIIイディオム名と 8進数/10進数 のコードポイント形式を一覧表示します
 ascii2binary	テキストをバイナリに変換して戻す
 asciidoc	多数のテキストファイルのフォーマット フォーマット/翻訳
@@ -1349,6 +1350,7 @@ dnscontrol	DNSゾーンを維持する為のシステムです
 dnscrypt-proxy	クライアントとDNSリゾルバー間の安全な通信
 dnscrypt-wrapper	名前リゾルバーにdnscryptサポートを追加するサーバー側プロキシ
 dnsdist	高度なDNS- DoS- 及び不正使用を意識したロードバランサー
+dnsgen	既存のドメイン名からDNS名を生成します
 dnsmap	パッシブDNSネットワークmapper(別名 サブドメイン bruteforcer)
 dnsmasq	軽量DNSフォワーダーとDHCPサーバー
 dnsperf	ネットワークの状態をシミュレートしてDNS性能を測定する
@@ -1804,7 +1806,6 @@ flowpipe	クラウドスクリプトエンジン
 fltk	クロスプラットフォームのC++ GUIツールキット
 fluent-bit	高速で軽量のログとmetrics計算機
 fluid-synth	SoundFont2仕様に基づくリアルタイムソフトウェアシンセサイザー
-fluid-synth@2.1	SoundFont2仕様に基づくリアルタイムソフトウェアシンセサイザー
 flume	Hadoopベースの分散ログの収集と集約
 flux	データベースをクエリする為の軽量スクリプト言語
 fluxctl	Kubernetes GitOpsオペレーターであるWeaveFluxにアクセスする為のコマンドラインツール
@@ -5095,6 +5096,7 @@ puf	並列URLフェッチャー
 pugixml	軽量のC++ XML処理ライブラリ
 pulledpork	Snortルール管理
 pulp	PureScriptプロジェクト用のビルドツール
+pulsarctl	Goで書かれたApache Pulsar用のCLI
 pulseaudio	POSIXOSのサウンドシステム
 pulumi	クラウドネイティブ開発プラットフォーム
 pumba	DockerのChaosテストツール
