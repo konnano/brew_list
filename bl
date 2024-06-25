@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+
 my( $OS_Version,$Locale,%JA );
 my $MY_BREW = `CO=\$(which brew);printf \${CO%/bin/brew} 2>/dev/null` || die " brew path not found\n";
 
@@ -128,8 +129,7 @@ MAIN:{
   }elsif( $re->{'BUI'} ){ $re->{'BUI'} = defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
-   if( $Locale ){ $re->{'|'} = '│'; $re->{'|--'} = '├──'; $re->{'`--'} = '└──';
-           }else{ $re->{'|'} = '|'; $re->{'|--'} = '|--'; $re->{'`--'} = '`--'; }
+                        ( $re->{'|'},$re->{'|--'},$re->{'`--'} ) = $Locale ? ( '│','├──','└──' ) : ( '|','|--','`--' );
   }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
   }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
@@ -183,7 +183,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.24_8\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.24_9\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -1835,8 +1835,7 @@ my $re = shift; my( $e,$mm,@tt ) = 0; my $TR = $re->{'TR'};
 
 sub Format_3{
  my( $file,$re ) = @_; my( $flag1,$flag2,$ca,$fo );
-  my $line1 = $Locale ? '├──' : '|--';
-  my $line2 = $Locale ? '└──' : '`--';
+  my( $line1,$line2 ) = $Locale ? ( '├──','└──' ) : ( '|--','`--' );
   for( my $m=0;$m<@{$file};$m++ ){
    my( $name,$ver,$desc ) = split '\t',$$file[$m];
     my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
