@@ -347,6 +347,7 @@ awscli	公式のAmazon AWSコマンドラインインターフェース
 awscli-local	LocalStackで使用する、awsコマンドラインインターフェイスの薄いラッパー
 awscli@1	公式のAmazon AWSコマンドラインインターフェース
 awscurl	Curlの様にシンプルにAWSリソースにアクセス
+awsdac	AWSアーキテクチャを描画する為のCLIツール
 awslogs	AWS Cloud Watchログを読み取る為のシンプルなコマンドラインツール
 awsume	コマンドラインからAWS IAMロールを簡単に引き受ける為のユーティリティ
 awsweeper	AWSアカウントをクリーンアップする為のCLIツール
@@ -799,6 +800,7 @@ chamber	AWS SSMパラメータstoreを介して機密管理する為のCLI
 changie	リリースを準備する為の自動変更ログツール
 chaoskube	Kubernetesクラスター内のランダムなポッドを定期的に強制終了します
 chapel	大規模な生産的並列コンピューティングの為のプログラミング言語
+chardet	Python文字エンコード検出器
 charge	意見のある、ゼロ構成の静的サイト発生器
 charls	C++JPEG-LSライブラリの実装
 charm	Juju Charmsを管理する為のツール
@@ -3725,6 +3727,7 @@ lizard	非常に高速な減圧を備えた効率的な圧縮機
 lizard-analyzer	拡張可能な循環的複雑度アナライザー
 llama.cpp	C/C++でのLLM推論
 lldpd	IEEE 802.1ab(LLDP)の実装
+llgo	LLVMベースのGoコンパイラーがCエコシステムとPythonを統合します
 llm	コマンドラインから大規模な言語モデルにアクセスする
 llnode	node.jsアプリのデバッグ用LLDBプラグイン live/post-mortem
 llvm	次世代基礎構造コンパイラ
@@ -5156,7 +5159,6 @@ pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-argcomplete	Python argparseのタブ補完
 python-build	単純 正しいPEP517ビルドフロントエンド
-python-chardet	Python文字エンコード検出器
 python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
 python-dateutil	標準Python日時機能の便利な拡張機能
 python-gdbm@3.11	gdbmへのPythonインターフェイス
