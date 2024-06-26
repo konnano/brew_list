@@ -6217,6 +6217,7 @@ tesseract	OCR(光学式文字認識)エンジン
 tesseract-lang	Tesseractの追加言語サポートを有効にします
 testdisk	強力でFreeのデータ回復ユーティリティ
 testkube	テストの定義と実行の為のKubernetes-nativeフレームワーク
+testscript	.txtar形式のコマンドラインアプリケーションの統合テスト
 testssl	TLS/SSL暗号と欠陥のサポートをチェックするツール
 tetra	Tetragonインスタンスを 観察/管理/トラブルシューティングする為のTetragon CLI
 texapp	TTYtterに基づくApp.netクライアント
