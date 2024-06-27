@@ -2530,6 +2530,7 @@ mono-mdk	Microsoftの.NETFrameworkのオープンソース実装
 mono-mdk-for-visual-studio	Microsoftの.NET Frameworkのオープンソース実装
 monodraw	テキストベースのアートを作成する為のツール
 monofocus	Todoアプリのすべてのタスクをメニューバーに保持する
+monokle	高品質のKubernetes YAML構成専用のIDE
 monolingual	システムから不要な言語リソースを削除するユーティリティ
 monotype	フォントファインダーとオーガナイザー
 moom	1つのディスプレイでウィンドウを移動及びズームするユーティリティ
@@ -2649,6 +2650,7 @@ navicat-for-sql-server	SQLサーバー用のデータベース管理/開発ツ�
 navicat-for-sqlite	SQLite用のデータベース管理/開発ツール
 navicat-premium	データベース管理/開発ツール
 navicat-premium-essentials	データベース管理/開発ツール
+navicat-premium-lite	データベース管理及び開発ツール
 navicat-premium@15	データベース管理/開発ツール
 navigraph-charts	フライトシミュレーション用のプロフェッショナルな最新のJeppesenチャートにアクセス
 navigraph-simlink	NavigraphアカウントをFlight Simulatorにリンクする
@@ -4608,6 +4610,7 @@ xsplit-vcam	ウェブカメラバックグラウンドツール
 xstation5	デスクトップ取引プラットフォーム
 xtool-creative-space	xToolレーザー加工機用の設計及び制御ソフトウェア
 xtorrent	トレントクライアント
+yaak	REST/GraphQL/gRPC、クライアント
 yacreader	コミックリーダー
 yakyak	Google Hangouts用のデスクトップチャットクライアント
 yam-display	さらに別のモニター
