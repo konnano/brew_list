@@ -5221,6 +5221,7 @@ qpm	Qtアプリケーションのパッケージマネージャー
 qprint	Quoted-Printableエンコーディング用のエンコーダーとデコーダー
 qrcp	QRコードをスキャンして、コンピューターとの間でファイルを転送します
 qrencode	QRコードの生成
+qrtool	QRコードをエンコード又はデコードする為のユーティリティ
 qrupdate	QR/Cholesky分解の高速更新
 qscintilla2	Scintilla編集コンポーネントのQtへの移植
 qshell	Qiniuクラウド用のシェルツール
