@@ -5187,7 +5187,6 @@ python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.11	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.12	オブジェクト指向プログラミング言語 インタプリタ/対話的
-python@3.7	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.8	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.9	オブジェクト指向プログラミング言語 インタプリタ/対話的
 pythran	数値カーネル用のAheadofTimeコンパイラ
@@ -6038,6 +6037,7 @@ stylish-haskell	Haskellコードの整形
 stylua	意見のあるLuaコード整形ツール
 sub2srt	字幕を.subからsubviewer.srt形式に変換します
 subfinder	サブドメイン検出ツール
+subliminal	字幕を検索してダウンロードする為のライブラリ
 subnetcalc	IPv4/IPv6サブネット計算機
 subversion	より良いCVSになる様に設計されたバージョン管理システム
 sugarjar	Git/GitHubエクスペリエンスを向上させるヘルパーユーティリティ
@@ -6334,6 +6334,7 @@ toml-test	TOML パーサー用の言語に依存しないテストセット
 toml11	最新のC++用のTOML
 tomlplusplus	C++17用のヘッダーのみの。TOML構成ファイル パーサー及びシリアライザー
 toot	Mastodon CLI＆TUI
+topfew	レコードのストリーム内で最も頻繁に出現するフィールド値を検索します
 topgit	Gitパッチキューマネージャー
 topgrade	すべてのものをアップグレードする
 tor	TCPの匿名化overlayネットワーク
