@@ -692,8 +692,9 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        $cs2 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $Mac_OS{$cs1} > $OS_Version;
         $tap{"${name}USE_OS"} = $Mac_OS{$cs1};
      }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
-       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $Mac_OS{$data} > $OS_Version;
-        $tap{"${name}USE_OS"} = $Mac_OS{$data};
+      if( $re->{'MAC'} and $OS_Version and $Mac_OS{$data} > $OS_Version ){
+           $tap{"${name}un_xcode"} = 1; $tap{"${name}$OS_Version2"} = 0;
+      } $tap{"${name}USE_OS"} = $Mac_OS{$data};
      }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[?:([^,\s]+).*\n/$1/ ){
        $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $Mac_OS{$data} < $OS_Version;
      }
