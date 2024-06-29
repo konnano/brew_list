@@ -397,7 +397,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        }elsif( $os and $MAC_OS{$os} and $MAC_OS{$os} ne $OS_Version2 ){ $ui[0] = 0; next }
        if( $ui[0] ){
         if( $data =~ /"version":"([^"]+)"/ ){
-           $tap{"${name}c_version"} = $1;
+           $tap{"${name}v_version"} = $1;
         }elsif( index($data,'"depends_on":{}') == 0 ){
            $tap{"${name}un_cask"} = 0;
         }elsif( $data =~ /"depends_on":\{"macos":\{"([^"]+)":\["([^"]+)"]/ ){
@@ -767,9 +767,11 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         $SPA = $CN = $Mac_OS{$ha3} eq $OS_Version ? 1 : 0;
          $CP1 = $CP2 = $CN ? 0 : 1; next;
       }elsif( $data !~ /^\s*end/ and $CN ){ $SPA++ if $data =~ /\s+do\s/;
-       $tap{"${name}c_version"} = $data if $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/;
+       $tap{"${name}v_version"} = $data if $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/;
         if( my( $ls3,$ls4 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
          $tap{"${name}un_cask"} = 1 unless $ls3 !~ /^[<=>]{1,2}$/ or eval"$OS_Version $ls3 $Mac_OS{$ls4}";
+        }elsif( my( $ls5 ) = $data =~ /^\s*depends_on\s+macos:\s+:([^\s]+)/ ){
+         $tap{"${name}un_cask"} = 1 if $OS_Version < $Mac_OS{$ls5}
         } next;
       }elsif( $data =~ /^\s*end/ and $SPA > 1 ){ $SPA--; next;
       }elsif( $data =~ /^\s*end/ and $CN ){ $SPA = $CN = 0; next;
