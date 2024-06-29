@@ -1402,12 +1402,12 @@ my( $list,$file,$in,$re ) = @_;
          ( $re->{'OS'}{"${brew_1}disable"} and $re->{'OS'}{"${brew_1}pkeg"} )   ? " d kp    $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}disable"} and $re->{'OS'}{"${brew_1}keg"} )    ? " d k     $brew_1\t" :
            $re->{'OS'}{"${brew_1}disable"}   ? " d       $brew_1\t" :
-         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}pkeg"} ) ? " B kp    $brew_1\t" :
-         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} )  ? " B k     $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}pkeg"} )  ? " x kp    $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}keg"} )   ? " x k     $brew_1\t" :
-           $re->{'OS'}{"$brew_1$OS_Version"} ? " B       $brew_1\t" :
            $re->{'OS'}{"${brew_1}un_xcode"}  ? " x       $brew_1\t" :
+         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}pkeg"} ) ? " B kp    $brew_1\t" :
+         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} )  ? " B k     $brew_1\t" :
+           $re->{'OS'}{"$brew_1$OS_Version"} ? " B       $brew_1\t" :
            $re->{'OS'}{"${brew_1}pkeg"} ? "   kp    $brew_1\t" :
            $re->{'OS'}{"${brew_1}keg"}  ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
       }else{
@@ -1429,10 +1429,10 @@ my( $list,$file,$in,$re ) = @_;
        $re->{'MEM'} =
          ( $re->{'OS'}{"${brew_1}disable"} and $re->{'OS'}{"${brew_1}keg"} )   ? " d k     $brew_1\t" :
            $re->{'OS'}{"${brew_1}disable"}   ? " d       $brew_1\t" :
-         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ? " B k     $brew_1\t" :
          ( $re->{'OS'}{"${brew_1}un_Linux"} and $re->{'OS'}{"${brew_1}keg"} )  ? " x k     $brew_1\t" :
-           $re->{'OS'}{"$brew_1$OS_Version"} ? " B       $brew_1\t" :
            $re->{'OS'}{"${brew_1}un_Linux"}  ? " x       $brew_1\t" :
+         ( $re->{'OS'}{"$brew_1$OS_Version"} and $re->{'OS'}{"${brew_1}keg"} ) ? " B k     $brew_1\t" :
+           $re->{'OS'}{"$brew_1$OS_Version"} ? " B       $brew_1\t" :
            $re->{'OS'}{"${brew_1}keg_Linux"} ? "   k     $brew_1\t" : "$re->{'SPA'}$brew_1\t";
      }
     if( $pop ){
@@ -2900,9 +2900,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        $cs2 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $Mac_OS{$cs1} > $OS_Version;
         $tap{"${name}USE_OS"} = $Mac_OS{$cs1};
      }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
-      if( $re->{'MAC'} and $OS_Version and $Mac_OS{$data} > $OS_Version ){
-           $tap{"${name}un_xcode"} = 1; $tap{"${name}$OS_Version2"} = 0;
-      } $tap{"${name}USE_OS"} = $Mac_OS{$data};
+       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $Mac_OS{$data} > $OS_Version;
+        $tap{"${name}USE_OS"} = $Mac_OS{$data};
      }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[?:([^,\s]+).*\n/$1/ ){
        $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $Mac_OS{$data} < $OS_Version;
      }
