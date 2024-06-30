@@ -1173,6 +1173,7 @@ cyclonedx-gomod	GoモジュールからCycloneDXソフトウェア部品表(SBOM
 cyclonedx-python	PythonプロジェクトからCycloneDXソフトウェア部品表(SBOM)を作成
 cycode	シークレットスキャン、SAST/SCA/IaC によってソフトウェア開発のセキュリティを強化
 cyctl	Kubernetesワークロード向けにカスタマイズ可能なUI
+cyme	システムのUSBバスとデバイスをリストする
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
 cyrus-sasl	シンプルな認証とセキュリティレイヤー
 cython	Python言語のC機能拡張を作成する為のコンパイラ
@@ -1589,6 +1590,7 @@ entr	ファイルが変更されたときに任意のコマンドを実行する
 envchain	環境変数で認証情報を保護する
 envconsul	Consul及びVaultからの環境変数を使用してプロセスを起動します
 envd	AI/MLの再現可能な開発環境
+envelope	環境変数CLIツール
 envio	環境変数を管理する為の最新の安全なCLIツール
 envoy	クラウドネイティブの高性能プロキシ エッジ/ミドル/サービス
 envv	シェルに依存しない環境変数の処理
@@ -3066,6 +3068,7 @@ kubetui	Kubernetesリソースの監視と探索の為のTUIツール
 kubeval	Kubernetes構成ファイルを検証し複数のKubernetesバージョンをサポートします
 kubevela	Kubernetesとオープンアプリケーションモデルに基づくアプリケーションプラットフォーム
 kubevious	Kubernetesの構成ミスと違反を検出して防止します
+kubevpn	K8sクラスターネットワークに接続するクラウドネイティブ開発環境を提供します
 kubie	kubectxとkubensのはるかに強力な代替手段
 kumactl	Kumaコントロールplaneコマンドラインユーティリティ
 kumo	Javaのワードクラウド
@@ -3090,6 +3093,7 @@ ladspa-sdk	Linuxオーディオ開発者向けのシンプルなプラグイン
 lager	単指向性データフローアーキテクチャを使用した価値指向設計の為のC++ライブラリ
 lame	高品質のMPEGオーディオレイヤーIII(MP3)エンコーダー
 lammps	分子動力学模擬装置
+lando-cli	Cli part of Lando
 languagetool	スタイルと文法チェッカー
 lanraragi	マンガ/同人誌 アーカイブと読書の為のWebアプリケーション
 lapack	線形代数パッケージ
@@ -4679,6 +4683,7 @@ osx-cpu-temp	OSXの現在のCPU温度を出力します
 osxutils	MacOSコマンドラインユーティリティのコレクション
 otf2	Open Trace Format 2ファイル処理ライブラリ
 otf2bdf	OpenTypeからBDFフォントへの変換器
+otree	TUIツリーウィジェット内のオブジェクト(JSON/YAML/TOML)を表示するコマンドラインツール
 ots	🔐 1回限りのURLを介してend-to-endの暗号化された秘密を他の人と共有する
 ott	プログラミング言語と計算の定義を書く為のツール
 ouch	端末用の簡単な圧縮と解凍
