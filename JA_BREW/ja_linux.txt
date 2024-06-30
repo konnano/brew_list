@@ -69,6 +69,7 @@ font-alumni-sans-collegiate-one	Impact Blackをイメージしたフォント
 font-alumni-sans-collegiate-one-sc	小文字版のOB/OGはgithubを参照して下さい
 font-alumni-sans-inline-one	Alumni Sans Inline One
 font-alumni-sans-pinstripe	Alumni Sans Pinstripe
+font-alumni-sans-sc	Alumni sans sc font
 font-amarante	Amarante
 font-amaranth	Amaranth
 font-amatic-sc	Amatic SC
@@ -1132,6 +1133,7 @@ font-mako	Mako
 font-mali	Mali
 font-mallanna	Mallanna
 font-mamelon	電子機器向けの日常系丸ゴシックフォント
+font-maname	Maname font
 font-mandali	Mandali
 font-manjari	Manjari
 font-manrope	Manrope
