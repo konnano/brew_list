@@ -1348,11 +1348,16 @@ my( $list,$file,$in,$re ) = @_;
       next;
   } next if $re->{'LIN'} and not $re->{'PRINT'} and index($brew_1,' ') == 0 ;
 
+  my $dif = ( $re->{'FOR'} and $re->{'OS'}{"${brew_1}ver"} ) ? $re->{'OS'}{"${brew_1}ver"} :
+            ( $re->{'FTD'} and $re->{'OS'}{"${brew_1}c_version"} ) ? $re->{'OS'}{"${brew_1}c_version"} :
+            ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}v_version"} ) ? $re->{'OS'}{"${brew_1}v_version"} :
+            ( $re->{'CAS'} and $re->{'OS'}{"${brew_1}c_version"} ) ? $re->{'OS'}{"${brew_1}c_version"} : $brew_2;
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} if $re->{'TAP'} or $re->{'CAS'} and $brew_2 and
             $re->{'OS'}{"${brew_1}c_version"} and length $re->{'OS'}{"${brew_1}c_version"} <= length $brew_2;
   $brew_2 = $re->{'OS'}{"${brew_1}v_version"} if $re->{'OS'}{"${brew_1}v_version"};
   $brew_2 = $re->{'OS'}{"${brew_1}ver"} ? $re->{'OS'}{"${brew_1}ver"} : $brew_2 if $re->{'FOR'};
   $brew_2 = $re->{'OS'}{"${brew_1}c_version"} ? $re->{'OS'}{"${brew_1}c_version"} : 'HEAD' if $re->{'FTD'};
+            Leng_1( 22,\$brew_2 ) if $brew_2 and length $brew_2 > 21;
   $brew_3 = $JA{$brew_1} ? $JA{$brew_1} :
             ( ( $re->{'CAS'} or $re->{'FTD'} ) and $re->{'OS'}{"${brew_1}c_desc"} ) ? $re->{'OS'}{"${brew_1}c_desc"} :
             ( ( $re->{'CAS'} or $re->{'FTD'} ) and $re->{'OS'}{"${brew_1}c_name"} ) ? $re->{'OS'}{"${brew_1}c_name"} :
@@ -1453,10 +1458,10 @@ my( $list,$file,$in,$re ) = @_;
             Memo_1( $re,$mem );
           $in++; $i--; next;
      }else{
-      if( $re->{'FOR'} and Version_1( $brew_2,$re->{'HASH'}{$brew_1} ) and
+      if( $re->{'FOR'} and Version_1( $dif,$re->{'HASH'}{$brew_1} ) and
          not( $re->{'OS'}{"${brew_1}un_xcode"} and $re->{'OS'}{"${brew_1}un_Linux"} ) or
-          $re->{'CAS'} and not $re->{'OS'}{"${brew_1}un_cask"} and $brew_2 ne $re->{'DMG'}{$brew_1} ){
-         Version_2( $re,$brew_1,$brew_2 );
+          $re->{'CAS'} and not $re->{'OS'}{"${brew_1}un_cask"} and $dif ne $re->{'DMG'}{$brew_1} ){
+         Version_2( $re,$brew_1,$dif );
       }else{
          Type_1( $re,$brew_1,' i ' ) unless not $re->{'FTD'} and $re->{'OS'}{"${brew_1}_tap"};
       }
@@ -2900,8 +2905,9 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        $cs2 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $Mac_OS{$cs1} > $OS_Version;
         $tap{"${name}USE_OS"} = $Mac_OS{$cs1};
      }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
-       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $Mac_OS{$data} > $OS_Version;
-        $tap{"${name}USE_OS"} = $Mac_OS{$data};
+      if( $re->{'MAC'} and $OS_Version and $Mac_OS{$data} > $OS_Version ){
+           $tap{"${name}un_xcode"} = 1; $tap{"${name}$OS_Version2"} = 0;
+      } $tap{"${name}USE_OS"} = $Mac_OS{$data};
      }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[?:([^,\s]+).*\n/$1/ ){
        $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $Mac_OS{$data} < $OS_Version;
      }
