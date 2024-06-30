@@ -831,6 +831,7 @@ chinadns-c	ChinaDNSからCへのポート：中国語のDNSの不規則性を修
 chipmunk	Cで記述された2D剛体物理ライブラリ
 chisel	iOSアプリのデバッグを支援するLLDBコマンドのコレクション
 chisel-tunnel	HTTP経由の高速TCP/UDPトンネル
+chkbit	ファイルデータに破損が無いか確認する
 chkrootkit	ルートキット検出器
 chmlib	Microsoftのファイルを処理する為のライブラリ ITSS/CHM
 chocolate-doom	Doomの正確なソースポート
