@@ -2283,7 +2283,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         if( $data =~ /"stable":"([^"]+)"/ ){ $tap{"${name}f_version"} =$1 } $ui[0] = 0; next
        }
 
-       if( $ta[2] and $data =~ /,"revision":(\d),/ ){
+       if( $ta[2] and $data =~ /,"revision":(\d+),/ ){
            $tap{"${name}f_version"} = qq($tap{"${name}f_version"}_$1) if $1; $ta[2] = 0;
        }
 
