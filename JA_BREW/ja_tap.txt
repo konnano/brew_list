@@ -201,6 +201,8 @@ font-barrio	Barrio
 font-basic	Basic
 font-baskervville	Baskervville
 font-baskervville-sc	Baskervvilleの小文字バージョン
+font-batang	font-batang
+font-batangche	font-batangche
 font-battambang	Battambang
 font-baumans	Baumans
 font-bayon	Bayon
@@ -224,11 +226,17 @@ font-bevan	Bevan
 font-bhavuka	Bhavuka
 font-bhutuka-expanded-one	Gurmukhiの仲間 aoifemooneyのbiorhyme拡張ライト書体
 font-big-shoulders-display	Big Shouldersディスプレイ
+font-big-shoulders-display-sc	font-big-shoulders-display-sc
 font-big-shoulders-inline-display	凝縮されたアメリカンゴシック書体のスーパーファミリー
+font-big-shoulders-inline-display-sc	font-big-shoulders-inline-display-sc
 font-big-shoulders-inline-text	凝縮されたアメリカンゴシック書体のスーパーファミリー
+font-big-shoulders-inline-text-sc	font-big-shoulders-inline-text-sc
 font-big-shoulders-stencil-display	凝縮されたアメリカンゴシック書体のスーパーファミリー
+font-big-shoulders-stencil-display-sc	font-big-shoulders-stencil-display-sc
 font-big-shoulders-stencil-text	凝縮されたアメリカンゴシック書体のスーパーファミリー
+font-big-shoulders-stencil-text-sc	font-big-shoulders-stencil-text-sc
 font-big-shoulders-text	Big Shouldersテキスト
+font-big-shoulders-text-sc	font-big-shoulders-text-sc
 font-bigblue-terminal-nerd-font	BigBlue_Terminalオタクフォントファミリ(BigBlueターミナル)
 font-bigelow-rules	Bigelow Rules
 font-bigshot-one	Bigshot One
@@ -498,6 +506,8 @@ font-doppio-one	Doppio One
 font-dorsa	Dorsa
 font-dosis	Dosis
 font-dotgothic16	DotGothic16
+font-dotum	font-dotum
+font-dotumche	font-dotumche
 font-doulos-sil	ラテン文字とキリル文字を使用する言語をサポートする Unicode ベースのフォント ファミリ
 font-dr-sugiyama	Dr Sugiyama
 font-dream-han-sans	さまざまなウェイトを備えたPan-CJK font families
@@ -607,6 +617,7 @@ font-forum	Forum
 font-foundation-icons	Foundation Icons
 font-foundry-sterling	Foundry Sterling
 font-fragment-mono	Helveticaに影響を受けた等幅コーディングフォント
+font-fragment-mono-sc	font-fragment-mono-sc
 font-francois-one	Francois One
 font-frank-ruhl-libre	Frank Ruhl Libre
 font-fraunces	4軸可変フォント
@@ -728,7 +739,11 @@ font-griffy	Griffy
 font-gruppo	Gruppo
 font-gudea	Gudea
 font-gugi	Gugi
+font-gulim	font-gulim
+font-gulimche	font-gulimche
 font-gulzar	オリジナルのラテン版が設計されたNasta'liqタイプ
+font-gungsuh	font-gungsuh
+font-gungsuhche	font-gungsuhche
 font-gupter	Gupter
 font-gurajada	Gurajada
 font-gwendolyn	Gwendolyn
