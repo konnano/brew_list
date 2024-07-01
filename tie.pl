@@ -773,7 +773,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         $SPA = $CN = $Mac_OS{$ha3} eq $OS_Version ? 1 : 0;
          $CP1 = $CP2 = $CN ? 0 : 1; next;
       }elsif( $data !~ /^\s*end/ and $CN ){ $SPA++ if $data =~ /\s+do\s/;
-       $tap{"${name}v_version"} = $data if $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/;
+       $tap{"${name}v_version"} = $data if not $tap{"${name}v_version"} and $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/;
         if( my( $ls3,$ls4 ) = $data =~ /^\s*depends_on\s+macos:\s+"([^\s]+)\s+:([^\s]+)"/ ){
          $tap{"${name}un_cask"} = 1 unless $ls3 !~ /^[<=>]{1,2}$/ or eval"$OS_Version $ls3 $Mac_OS{$ls4}";
         }elsif( my( $ls5 ) = $data =~ /^\s*depends_on\s+macos:\s+:([^\s]+)/ ){
