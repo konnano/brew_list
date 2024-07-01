@@ -601,6 +601,7 @@ chainner	フローチャートベースの画像処理GUI
 chalk	電卓ソフトウェア
 charles	Webデバッグプロキシアプリケーション
 charlessoft-timetracker	時間追跡
+charmstone	アプリランチャーとスイッチャー
 chatall	ChatGPT/Bing Chat/Bard/Claude/ChatGLM などで同時にチャットできます
 chatbox	GPT-4/GPT-3.5 用デスクトップアプリ(OpenAI API)
 chatgpt	OpenAIの公式ChatGPTデスクトップアプリ
