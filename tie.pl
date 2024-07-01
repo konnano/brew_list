@@ -673,7 +673,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
 
        if( not $bot and $data =~ s/^\s*version\s+"([^"]+)".*\n/$1/ ){
          $tap{"${name}f_version"} = $data;
-       }elsif( not $bot and $data =~ s/^\s*tag:\s+"v([^"]+)".*\n/$1/ ){
+       }elsif( not $bot and $data =~ s/^\s*tag:\s+"v([^"[a-zA-Z]-]+).*?".*\n/$1/ ){
          $tap{"${name}f_version"} = $data;
        }elsif( not $bot and $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
          $data =~ tr/\\//d; $tap{"${name}f_desc"} = $data;
