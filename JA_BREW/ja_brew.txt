@@ -1539,6 +1539,7 @@ efl	Enlightenment Foundationライブラリ
 efm-langserver	汎用言語サーバー
 eg	Norton Guide Reader エキスパートガイド GNU/Linux
 eg-examples	コマンドラインでの便利な例え
+egctl	Envoy Gatewayを操作する為のコマンドラインユーティリティ
 eget	GitHubからビルド済みのバイナリを簡単にインストールできます
 ehco	ネットワークリレーツールとタイプミス:)
 eiffelstudio	Eiffel言語の開発環境
