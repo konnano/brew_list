@@ -363,7 +363,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( index($data,'"version":') == 0 ){ $ui[2] = 1 }
        if( $ui[2] ){ if( index($data,'"installed":') == 0 ){ $ui[2] = $ui[3] = 0; next }
         if( not $ui[3] and $data =~ /^"version":"([^"]+)"$/ ){ $tap{"${name}c_version"} = $1; $ui[2] = 0; next;
-        }elsif( not $ui[3] and $data =~ /"version":"([^"]+).*\n$/ ){ $tap{"${name}c_version"} .= "$1,"; $ui[3] = 1; next;
+        }elsif( not $ui[3] and $data =~ /"version":"([^"]+)\n$/ ){ $tap{"${name}c_version"} .= "$1,"; $ui[3] = 1; next;
         }elsif( $ui[3] and $data =~ /^([^"]+)\n$/ ){ $tap{"${name}c_version"} .= "$1,"; next;
         }elsif( $ui[3] and $data =~ /^([^"]+)".*\n$/ ){ $tap{"${name}c_version"} .= $1; $ui[2] = $ui[3] = 0; next }
        }
