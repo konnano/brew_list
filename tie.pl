@@ -11,18 +11,19 @@ my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  $OS_Version = `sw_vers -productVersion`;
   $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
-   $OS_Version =~ s/^(1[1-4]).+\n/$1.0/;
+   $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
  unless( $ARGV[0] ){
   $Xcode = `CC=\$(xcode-select -p);cat \${CC%/*}/version.plist 2>/dev/null|
             sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;}'`||0;
  }
-  %MAC_OS = ('arm64_sonoma'=>'14.0M1','arm64_ventura'=>'13.0M1','arm64_monterey'=>'12.0M1',
-             'arm64_big_sur'=>'11.0M1','sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0',
+  %MAC_OS = ('arm64_sequoia'=>'15.0M1','arm64_sonoma'=>'14.0M1','arm64_ventura'=>'13.0M1',
+             'arm64_monterey'=>'12.0M1','arm64_big_sur'=>'11.0M1',
+             'sequoia'=>'15.0','sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0',
              'big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
              'sierra'=>'10.12','el_capitan'=>'10.11','all'=>'all');
-  %Mac_OS = ('sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0','catalina'=>'10.15',
-             'mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
+  %Mac_OS = ('sequoia'=>'15.0','sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0',
+             'catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
 }elsif( $^O eq 'linux' ){ $re->{'LIN'} = 1;
  $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
 }
@@ -67,7 +68,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( $ta[0] and $data =~ /^,"desc":"(.+)","license"/ ){ $tap{"${name}f_desc"} = $1; $ta[0] = 0 }
        if( $ta[1] and $data =~ /"versions":$/ ){ $ui[0] = 1; $ta[1] = 0; next }
        if( $ui[0] ){
-        if( $data =~ /"stable":"([^"]+)"/ ){ $tap{"${name}f_version"} =$1 } $ui[0] = 0; next
+        if( $data =~ /"stable":"([^"]+)"/ ){ $tap{"${name}f_version"} = $1 } $ui[0] = 0; next
        }
 
        if( $ta[2] and $data =~ /,"revision":(\d+),/ ){
@@ -505,9 +506,10 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
 }else{
  if( $re->{'MAC'} ){
    $re->{'CLANG'} = `/usr/bin/clang --version|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0 unless $ARGV[0];
-   %MAC_OS = ('14.0M1'=>'arm64_sonoma','14.0','sonoma','13.0M1'=>'arm64_ventura','13.0'=>'ventura',
-              '12.0M1'=>'arm64_monterey','12.0'=>'monterey','11.0M1'=>'arm64_big_sur','11.0'=>'big_sur',
-              '10.15'=>'catalina','10.14'=>'mojave','10.13'=>'high_sierra','10.12'=>'sierra','10.11'=>'el_capitan');
+   %MAC_OS = ('15.0M1'=>'arm64_sequoia','15.0'=>'sequoia','14.0M1'=>'arm64_sonoma','14.0','sonoma',
+              '13.0M1'=>'arm64_ventura','13.0'=>'ventura','12.0M1'=>'arm64_monterey','12.0'=>'monterey',
+              '11.0M1'=>'arm64_big_sur','11.0'=>'big_sur','10.15'=>'catalina',
+              '10.14'=>'mojave','10.13'=>'high_sierra','10.12'=>'sierra','10.11'=>'el_capitan');
       %HAN = ('newer'=>'>','older'=>'<');
    Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks",0,1 )
      if -d "$MY_HOME/Library/Taps/homebrew/homebrew-cask/Casks" and not $ARGV[0];
