@@ -20,7 +20,7 @@ if [[ $1 = 1 ]];then
   fi
  fi
  WD=(~/.BREW_LIST/WAIT*)
-  for wa in ${WD[@]};do
+  for wa in "${WD[@]}";do
    if ! kill -0 `echo $wa|sed 's/.*WAIT//'` 2>/dev/null;then
     rmdir $wa 2>/dev/null
    fi
