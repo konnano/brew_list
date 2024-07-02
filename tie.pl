@@ -958,7 +958,7 @@ unless( $ARGV[0] ){
      $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]f_version"}, last if $BREW[$i] lt $ls1;
       if( $BREW[$i] eq $ls1 ){
        $tap{"$BREW[$i]ver"} = Version_1( $ls2,$tap{"$BREW[$i]f_version"} ) ? $ls2 : $tap{"$BREW[$i]f_version"};
-       $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]ver"}.$tap{"$BREW[$i]revision"} if $re->{'MAC'} and $tap{"$BREW[$i]revision"};
+       $tap{"$BREW[$i]ver"} = $tap{"$BREW[$i]ver"}.$tap{"$BREW[$i]revision"} if $tap{"$BREW[$i]revision"};
        $COU++; last;
       }
    }
