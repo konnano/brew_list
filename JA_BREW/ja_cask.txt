@@ -3125,6 +3125,7 @@ popsql	共同SQLエディター
 portfolioperformance	投資ポートフォリオの全体的なパフォーマンスを計算します
 porting-kit	Microsoft Windows用にコンパイルされたゲームとアプリをインストールします
 portx	SSHクライアント
+positron	VScodeベースのデータサイエンスIDE
 post-haste	デジタルメディアプロジェクト管理ツール
 postbird	オープンソースのPostgreSQL GUIクライアント
 postbox	プライバシー保護に焦点を当てた電子メールクライアント
@@ -3430,6 +3431,7 @@ retro-virtual-machine	ZX Spectrum及びAmstrad CPCエミュレーター
 retroactive	互換性のないOSバージョンでAppleアプリを実行する
 retroarch	エミュレータフロントエンド(OpenGLグラフィックAPIバージョン)
 retroarch-metal	エミュレータフロントエンド(Metal Graphics APIバージョン)
+retroarch-metal@nightly	エミュレータ/ゲームエンジン/メディアプレーヤーのフロントエンド(Metal graphics API)
 retrobatch	バッチ画像プロセッサ
 retroshare	Friend-2-Friendと安全な分散型通信プラットフォーム
 reunion	系図(家系図)アプリ
