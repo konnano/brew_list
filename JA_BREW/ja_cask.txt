@@ -1953,6 +1953,7 @@ jupyter-notebook-viewer	Jupyterノートブックをレンダリングするユ�
 jupyterlab	JupyterLab用のデスクトップアプリケーション
 juxtacode	コード 差分/マージ/比較
 jyutping	広東語のジュッピン入力方法
+k8studio	Kubernetes GUI
 kactus	デザイナーの為の真のバージョン管理ツール
 kakapo	オープンソースの常用サウンドミキサー
 kaku	Kaku
@@ -2091,6 +2092,7 @@ laverna	暗号化に重点を置いたオープンソースのメモ作成アプ
 lazarus	迅速なアプリケーション開発の為のIDE
 lazpaint	Lazarusで書かれた画像エディタ
 lazy	キーボードから環境を制御する
+lazycat	LazyCatハードウェアのクライアント
 lbry	分散型ファイル共有及び支払いネットワークであるLBRYの公式クライアント
 league-displays	Leagueディスプレイ
 league-of-legends	マルチプレイヤーオンラインバトルアリーナゲーム
@@ -2901,6 +2903,7 @@ osp-tracker	物理教育の為のビデオ分析及びモデリングツール
 osquery	SQLを利用したオペレーティングシステムのインストルメンテーションと分析
 oss-browser	OSS(オブジェクトストレージサービス)用のグラフィカルな管理ツール
 ossapp	統合パッケージマネージャー
+ossia-score	インターメディアアート向けのインタラクティブシーケンサー
 osu	リズムゲーム
 osxfuse	ファイルシステム統合
 otto-matic	Pangea Softwareのサイエンスフィクション3Dアクション/アドベンチャーゲーム
@@ -3541,7 +3544,6 @@ scidvsmac	チェスツールキット
 scihubeva	Sci-Hub GUIアプリ
 scilab	数値計算用ソフトウェア
 scoot	キーボード駆動のカーソルアクチュエータ
-score	インターメディアアート向けのインタラクティブシーケンサー
 scout	シンプルなSassプロセッサ
 scrapp	クラウドストレージを備えたスクリーンショットツール
 scratch	プログラム双方向ストーリー ゲーム/アニメーション
