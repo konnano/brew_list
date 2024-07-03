@@ -330,6 +330,7 @@ baiduinput	Baidu入力方式をインストールします
 baidunetdisk	クラウドストレージサービス
 balance-lock	オーディオバランスが左右にドリフトするのを防ぎます
 balenaetcher	OSイメージをSDカードとUSBドライブにフラッシュするツール
+ball	ドックにボールを追加するユーティリテ
 ballast	オーディオバランスがずれない様にするステータスバーアプリ
 balsamiq-wireframes	UIワイヤーフレーミングツール
 bambu-studio	3Dプリンター用の3Dモデルスライスソフトウェア Bambu Labによって管理されています
@@ -1073,6 +1074,7 @@ dynalist	あなたの仕事の為のアウトラインアプリ
 dynamic-dark-mode	自動ダークモードtoggle
 dynamodb-local	Amazon DynamoDBローカル
 dynobase	DynamoDB用のGUIクライアント
+ea	Electronic Artsゲームランチャー
 eagle	電子設計自動化ソフトウェア
 eaglefiler	ファイルを整理する 電子メールをアーカイブする Webページとメモを保存する すべてを検索
 ealeksandrov-cd-to	ターミナルで現在のディレクトリを開く為のFinderツールバーアプリ
@@ -1780,6 +1782,7 @@ infinity	カスタマイズ可能な作業管理プラットフォーム
 infoflow	AIオフィスプラットフォーム
 inform	自然言語に基づく会話型フィクションの書記体系
 infra	Kubernetesデスクトップクライアント
+inkdown	WYSIWYGマークダウン エディター
 inkdrop	マークダウンエディタ
 inkscape	ベクターグラフィックエディター
 inkstitch	機械刺繍デザイン用のInkscape拡張
@@ -2884,6 +2887,7 @@ origami-studio	Facebookのプロトタイプデザインツール デザイン/�
 origin	PCゲームをプレイし友達とつながる
 orion	WebKitベースのWebブラウザ
 orka	AppleでのKubernetesとのオーケストレーション
+orka-desktop	macOS仮想マシンをローカルで実行し、Orkaで使用するイメージを構築する
 orka-vm-tools	Apple上の Kubernetesによるオーケストレーション
 orka3	Apple上のKubernetesを使用したオーケストレーション
 oryoki	薄いインターフェースを備えた実験的なWebブラウザー
@@ -3085,6 +3089,7 @@ plotdigitizer	機能データのスキャンされた立案をデジタル化す
 plover	Stenotypeエンジン
 plug	The Hype Machineの音楽プレーヤー
 plugdata	PureDataのプラグインラッパー
+plugdata@nightly	PureDataのプラグイン ラッパー
 pluginval	クロスプラットフォームプラグインvalidator及びテスターアプリケーション
 plus42-binary	Plus42 バイナリ
 plus42-decimal	Plus42 10進数
@@ -3182,6 +3187,7 @@ processmonitor	プロセスアクティビティを監視する
 procexp	プロセスエクスプローラー
 proclaim	教会のプレゼンテーションソフトウェア
 product-hunt	Product Hunt
+productive	代理店管理システム
 profilecreator	標準又はカスタマイズされた構成プロファイルを作成する
 profind	ファイル検索アプリ
 programmer-dvorak	プログラマーDvorak
@@ -4458,6 +4464,7 @@ wavebox	Webブラウザー
 waves-central	Waves製品をインストールしてアクティブ化するクライアント
 wavesurfer	サウンドの視覚化と操作の為のツール
 wch-ch34x-usb-serial-driver	USBシリアルドライバー
+wd-security	ハードウェア暗号化機能でWestern Digital外付ドライブを、ロック/ロック解除
 weakauras-companion	Wago.ioからオーラを更新しそれらの定期的なバックアップを作成します
 weasis	医療画像を表示及び分析する為のFree DICOMビューア
 webcamoid	ウェブカメラセット
