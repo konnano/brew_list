@@ -70,7 +70,7 @@ MAIN:{
   my $repo = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
    $re->{'TAP_S'} = "$repo/Library/Taps";
  if( $re->{'LIN'} ){
-  $OS_Version = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm' unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'};
+  $OS_Version = $UNAME eq 'x86_64' ? 'x86_64_linux' : 'Linux_arm' unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'};
    $re->{'LFOD'} = 1 if -d "$repo/Library/Taps/homebrew/homebrew-linux-fonts/Formula";
     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
  }else{
@@ -2230,16 +2230,16 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
   $Xcode = `CC=\$(xcode-select -p);cat \${CC%/*}/version.plist 2>/dev/null|
             sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;}'`||0;
  }
+  %Mac_OS = ('sequoia'=>'15.0','sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0',
+             'catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
+}elsif( $^O eq 'linux' ){ $re->{'LIN'} = 1;
+ $OS_Version2 = $UNAME eq 'x86_64' ? 'x86_64_linux' : 'Linux_arm';
+}
   %MAC_OS = ('arm64_sequoia'=>'15.0M1','arm64_sonoma'=>'14.0M1','arm64_ventura'=>'13.0M1',
              'arm64_monterey'=>'12.0M1','arm64_big_sur'=>'11.0M1',
              'sequoia'=>'15.0','sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0',
              'big_sur'=>'11.0','catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13',
-             'sierra'=>'10.12','el_capitan'=>'10.11','all'=>'all');
-  %Mac_OS = ('sequoia'=>'15.0','sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0',
-             'catalina'=>'10.15','mojave'=>'10.14','high_sierra'=>'10.13','sierra'=>'10.12','el_capitan'=>'10.11');
-}elsif( $^O eq 'linux' ){ $re->{'LIN'} = 1;
- $OS_Version2 = $UNAME eq 'x86_64' ? 'Linux' : 'Linux_arm';
-}
+             'sierra'=>'10.12','el_capitan'=>'10.11','x86_64_linux'=>'x86_64_linux');
 
  my $Cache = $re->{'MAC'} ? "$ENV{'HOME'}/Library/Caches/Homebrew" : "$ENV{'HOME'}/.cache/Homebrew";
  unless( $ARGV[0] or $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
@@ -2291,8 +2291,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( $ta[3] and $data =~ /"bottle":$/ ){ $ui[1] = 1; $ta[3] = 0; next }
        if( $ui[1] ){ $data =~ tr/,//d;
         $ui[2] = index($data,"\n") == 0 ? ++$ui[2] : 0; $data =~ s/"([^"]+)":\n/$1/;
-         if( index($data,'all') == 0 or $MAC_OS{$data} and $MAC_OS{$data} eq $OS_Version2 or
-             $re->{'LIN'} and $data eq 'x86_64_linux'){
+         if( index($data,'all') == 0 or $MAC_OS{$data} and $MAC_OS{$data} eq $OS_Version2 ){
               $tap{"${name}$OS_Version2"} = 1; $ui[1] = $ui[2] = 0; next;
          }
         $ui[1] = $ui[2] = 0 if $ui[2] > 1; next;
@@ -2318,7 +2317,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( index($data,'"uses_from_macos":') >= 0 ){ $ui[6] = 1; next }
        if( $ui[6] ){ if( index($data,"\n") == 0 ){ $ui[10] = 1; next }
                        chomp $data; $data =~ tr/"//d; $data =~ s/^,//;
-       if( index($data,'uses_from_macos_bounds:') == 0 ){ $ui[7] = 1; $ui[6] = $ui[10] = 0; next }
+       if( index($data,'uses_from_macos_bounds:') == 0 ){ $ui[7] = 1 if $re->{'MAC'}; $ui[6] = $ui[10] = 0; next }
         if( $data eq 'build,test' ){ $ui[23] = 1; next }
         my( $fom,$bui ) = split ':',$data if $ui[10] and substr($data,-1,1) ne ':';
          if( $bui and $bui eq 'build' or $ui[23] ){ $LHA1{$fom}++ if $fom;
@@ -2339,7 +2338,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
          } next;
        }
 
-       if( $ui[7] and $re->{'MAC'} ){
+       if( $ui[7] ){
         if( index($data,'"requirements":') >= 0 ){ $ui[7] = 0; next }
         if( index($data,'"variations":') >= 0 ){ $ui[7] = 0; $ui[22] = 1; next }
         if( index($data,"\n") == 0 ){ next }
@@ -2380,7 +2379,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         if( index($data,'"build"') == 0 ){ $b2 = 1 }
         my $sp = Spec_1 ( $data,\$ui[13] );
         if( $sp and $sp == 1 ){ $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
-                                $tap{"$name$OS_Version2"} = $tap{"${name}Linux"} = 0;
+                                $tap{"$name$OS_Version2"} = 0;
           $ui[12] = $ui[13] = $b2 = 0;
         }elsif( $sp and $sp == 2 ){ $ui[12] = $ui[13] = $b2 = 0;
         } next;
@@ -2390,7 +2389,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( $ui[14] ){
         if( index($data,'"build"') == 0 ){ $b2 = 1 }
         my $sp = Spec_1 ( $data,\$ui[15] );
-        if( $sp and $sp == 1 ){ $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0;
+        if( $sp and $sp == 1 ){ $tap{"${name}un_Linux"} = 1; $tap{"${name}x86_64_linux"} = 0;
           $ui[14] = $ui[15] = $b2 = 0;
         }elsif( $sp and $sp == 2 ){ $ui[14] = $ui[15] = $b2 = 0;
         } next;
@@ -2437,6 +2436,9 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       if( $ui[0] and $MAC_OS{$data} ){ $ui[0] = 0 }
       if( $ui[0] ){
 
+       if( index($data,'"keg_only":false,') >= 0 ){ $tap{"${name}keg"}  = 0
+       }elsif( index($data,'keg_only') >= 0){ $tap{"${name}keg"}  = 1 }
+
        if( index($data,'build_dependencies') >= 0 ){ $ui[1] = 1; next }
        if( $ui[1] ){ chomp $data; $data =~ tr/"//d;
         for my $ls4(split ',',$data){ $HA1{$ls4}++;
@@ -2471,7 +2473,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        if( $ui[7] ){
        my $sp = Spec_1 ( $data,\$ui[8] );
         if( $sp and $sp == 1 ){  $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
-                                 $tap{"$name$OS_Version2"} = $tap{"${name}Linux"} = 0; $ui[7] = $ui[8] = $b2 = 0;
+                                 $tap{"$name$OS_Version2"} = 0; $ui[7] = $ui[8] = $b2 = 0;
         }elsif( $sp and $sp == 2 ){ $ui[7] = $ui[8] = $b2 = 0;
         } next;
        }
@@ -2766,8 +2768,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
    my( $in,$e ) = @BREW >> 2;
     my @in = ( $in << 1,$in * 3 );
-     my( $IN,$KIN,$SPA ) = ( 0,0,0 );
-  for my $dir1( @BREW ){ my $bot;
+  for my $dir1( @BREW ){ my( $IN,$KIN,$SPA,$bot ) = ( 0,0,0 );
    if( $re->{'MAC'} ){ $e++;
     $e == $in ? rmdir "$ENV{'HOME'}/.BREW_LIST/12" :
     $e == $in[0] ? rmdir "$ENV{'HOME'}/.BREW_LIST/13" :
@@ -2788,10 +2789,10 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
          $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}= $tap{"${name}12.0"}  =
          $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  = $tap{"${name}10.15"} =
          $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-         $tap{"${name}10.11"} = $tap{"${name}Linux"} = 1; $KIN = 0; next;
+         $tap{"${name}10.11"} = $tap{"${name}x86_64_linux"} = 1; $KIN = 0; next;
         }
          if( $re->{'LIN'} ){
-          if( $data =~ s/.*x86_64_linux:.*\n/Linux/ ){ $tap{"$name$data"} = 1; $KIN = 0 } next;
+          if( $data =~ /x86_64_linux:/ ){ $tap{"${name}x86_64_linux"} = 1; $KIN = 0 } next;
          }else{
           if( $data =~ s/.*[^_]$MAC_OS{$OS_Version2}:.*\n/$OS_Version2/o ){ $tap{"$name$data"} = 1; $KIN = 0 } next;
          }
@@ -2839,7 +2840,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
           } next;
        }elsif( $data =~ s/\s*depends_on\s+arch:\s+:([^\s]+).*\n/$1/ and $UNAME ne $data ){
            $tap{"${name}un_xcode"} = $tap{"${name}un_Linux"} =1;
-           $tap{"$name$OS_Version2"} = $tap{"${name}Linux"} = 0;
+           $tap{"$name$OS_Version2"} = 0;
             next;
        }
 
@@ -2896,12 +2897,12 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
          $tap{"${name}revision"} = "_$data";
        }
 
-     if( $data =~ /^\s*keg_only\s+:.+_by_macos/ ){
+     if( $re->{'MAC'} and $data =~ /^\s*keg_only\s+:.+_by_macos/ ){
        $tap{"${name}pkeg"} = 1;
      }elsif( $data =~ /^\s*keg_only/ ){
        $tap{"${name}keg"} = 1;
      }elsif( $data =~ /^\s*depends_on\s+:macos/ ){
-       $tap{"${name}un_Linux"} = 1; $tap{"${name}Linux"} = 0;
+       $tap{"${name}un_Linux"} = 1;
      }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
        $tap{"${name}un_xcode"} = 1;
      }elsif( my( $cs1,$cs2,$cs3 ) =
