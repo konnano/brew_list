@@ -3873,6 +3873,7 @@ makeicns	コマンドラインからicnsファイルを作成する
 makensis	Windowsインストーラーを作成するシステム
 makepkg	pacmanでのインストールに適したパッケージをコンパイルしてビルドします
 makeself	自己解凍型の圧縮tarアーカイブを生成します
+mako	Rustをベースにした実稼働グレードのWebバンドラー
 malbolge	難解プログラミング言語を意図的に難しくプログラミング
 mallet	LanguagEToolkitの機械学習
 mame	多角的アーケードマシンエミュレータ
