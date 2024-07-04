@@ -5,7 +5,7 @@ use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
 my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64';
-my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(which brew);printf \${CO%/bin/brew} 2>/dev/null`||die" brew path not found\n";
+my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(command -v brew);printf \${CO%/bin/brew} 2>/dev/null`||die" brew not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
