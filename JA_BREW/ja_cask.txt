@@ -3035,6 +3035,7 @@ photozoom-pro	デジタル写真やグラフィックスを拡大及び縮小す
 phpstorm	JetBrainsによるPHP IDE
 phpwebstudy	PHP/Web開発環境マネージャー
 physics-101	物理学の分野全体にわたるシミュレーション、ツール、及び方程式のコレクション
+pia	プライバシー影響評価ツール
 pibar	メニューバーのPi-hole(s)管理
 picfindr	Freeストック画像の検索エンジンとマネージャー
 picgo	画像をアップロードする為のツール
