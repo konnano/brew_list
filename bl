@@ -2783,11 +2783,11 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
         next;
       }elsif( $KIN and $data !~ /^\s*end/ ){
         if( $data =~ /.*,\s+all:/ ){
-         $tap{"${name}14.0M1"}= $tap{"${name}14.0"}  = $tap{"${name}13.0M1"}=
-         $tap{"${name}13.0"}  = $tap{"${name}12.0M1"}= $tap{"${name}12.0"}  =
-         $tap{"${name}11.0M1"}= $tap{"${name}11.0"}  = $tap{"${name}10.15"} =
-         $tap{"${name}10.14"} = $tap{"${name}10.13"} = $tap{"${name}10.12"} =
-         $tap{"${name}10.11"} = $tap{"${name}x86_64_linux"} = 1; $KIN = 0; next;
+         $tap{"${name}15.0M1"}= $tap{"${name}15.0"} = $tap{"${name}14.0M1"}= $tap{"${name}14.0"} =
+         $tap{"${name}13.0M1"}= $tap{"${name}13.0"} = $tap{"${name}12.0M1"}= $tap{"${name}12.0"} =
+         $tap{"${name}11.0M1"}= $tap{"${name}11.0"} = $tap{"${name}10.15"} = $tap{"${name}10.14"}=
+         $tap{"${name}10.13"} = $tap{"${name}10.12"}= $tap{"${name}10.11"} = $tap{"${name}x86_64_linux"} = 1;
+          $KIN = 0; next;
         }
          if( $re->{'LIN'} ){
           if( $data =~ /x86_64_linux:/ ){ $tap{"${name}x86_64_linux"} = 1; $KIN = 0 } next;
