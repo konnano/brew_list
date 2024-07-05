@@ -126,9 +126,8 @@ perl<<"EOF"
    local $/;
   for $ha( @cna ){ $e = 0;
    open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " cna1 $!\n";
-    $an = <$dir1>; close $dir1;
-   @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-    for( $i=0;$i<@an;$i+=2 ){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
+    @an = <$dir1> =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g; close $dir1;
+     for( $i=0;$i<@an;$i+=2 ){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
   }
 
   for( $in1=0;$in1<@ANA;$in1++ ){
@@ -232,9 +231,8 @@ perl<<"EOF"
    local $/;
   for $ha( @ana ){ $e = 0;
    open $dir1,'<',"$ENV{'HOME'}/.BREW_LIST/$ha->[0].html" or die " ana1 $!\n";
-    $an = <$dir1>; close $dir1;
-   @an = $an =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g;
-    for( $i=0;$i<@an;$i+=2 ){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
+    @an = <$dir1> =~ m|<td><a[^>]+><code>([^<]+)</code></a></td>[^<]+<td[^>]+>([^<]+)</td>|g; close $dir1;
+     for( $i=0;$i<@an;$i+=2 ){ ${$ha->[1]}{$an[$i]} = ++$e; ${$ha->[2]}{$an[$i]} = $an[$i+1] }
   }
 
   for( $in1=0;$in1<@ANA;$in1++ ){
