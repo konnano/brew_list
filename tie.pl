@@ -688,21 +688,21 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
        $tap{"${name}pkeg"} = 1;
      }elsif( $data =~ /^\s*keg_only/ ){
        $tap{"${name}keg"} = 1;
-     }elsif( $data =~ /^\s*depends_on\s+:macos/ ){
+     }elsif( $re->{'LIN'} and $data =~ /^\s*depends_on\s+:macos/ ){
        $tap{"${name}un_Linux"} = 1;
-     }elsif( $data =~ /^\s*depends_on\s+:linux/ ){
+     }elsif( $re->{'MAC'} and $data =~ /^\s*depends_on\s+:linux/ ){
        $tap{"${name}un_xcode"} = 1;
-     }elsif( my( $cs1,$cs2,$cs3 ) =
+     }elsif( $re->{'MAC'} and my( $cs1,$cs2,$cs3 ) =
             $data =~ /^\s*depends_on\s+macos:\s+:([^\s]*)\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
-      $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and
-       $cs2 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $Mac_OS{$cs1} > $OS_Version;
+      $tap{"${name}un_xcode"} = 1
+       if $cs2 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $cs2 $cs3" and $Mac_OS{$cs1} > $OS_Version;
         $tap{"${name}USE_OS"} = $Mac_OS{$cs1};
-     }elsif( $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
-      if( $re->{'MAC'} and $OS_Version and $Mac_OS{$data} > $OS_Version ){
+     }elsif( $re->{'MAC'} and $data =~ s/^\s*depends_on\s+macos:\s+:([^\s]*).*\n/$1/ ){
+      if( $OS_Version and $Mac_OS{$data} > $OS_Version ){
            $tap{"${name}un_xcode"} = 1; $tap{"${name}$OS_Version2"} = 0;
       } $tap{"${name}USE_OS"} = $Mac_OS{$data};
-     }elsif( $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[?:([^,\s]+).*\n/$1/ ){
-       $tap{"${name}un_xcode"} = 1 if $re->{'MAC'} and $OS_Version and $Mac_OS{$data} < $OS_Version;
+     }elsif( $re->{'MAC'} and $data =~ s/^\s*depends_on\s+maximum_macos:\s+\[?:([^,\s]+).*\n/$1/ ){
+       $tap{"${name}un_xcode"} = 1 if $OS_Version and $Mac_OS{$data} < $OS_Version;
      }
     }
    close $BREW;
