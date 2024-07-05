@@ -787,7 +787,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       }elsif( $data =~ s/^\s*desc\s+"(.+)".*\n/$1/ ){
         $data =~ tr/\\//d; $tap{"${name}c_desc"} = $data;
       }elsif( $data =~ s/^\s*name\s+"([^"]+)".*\n/$1/ ){
-        $tap{"${name}c_name"} = $data;
+        $tap{"${name}c_name"} = $data; last if $dirs eq 'font';
       }
      }
     close $BREW;
