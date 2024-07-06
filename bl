@@ -2242,9 +2242,8 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  unless( $ARGV[0] or $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){ rmdir "$ENV{'HOME'}/.BREW_LIST/11";
   mkdir "$ENV{'HOME'}/.BREW_LIST/parse";
   open my $J1,'<',"$Cache/api/formula.jws.json" or die" 1 brew cache $!\n";
-   my $fo = <$J1>; close $J1; my $i;
-   my @fo = split /[^\\]\\n/,$fo; $NAM = @fo >> 1;
-    for( @fo ){  $i++; rmdir "$ENV{'HOME'}/.BREW_LIST/12" if $i == $NAM;
+   my @fo = split /[^\\]\\n/,<$J1>; close $J1; $NAM = @fo >> 1; my $i;
+    for( @fo ){ $i++; rmdir "$ENV{'HOME'}/.BREW_LIST/12" if $i == $NAM;
                 tr/\\//d; my( $file ) = /"name":"([^"]+)"/;
                 tr/[/\n/; tr/]/\n/; tr/{/\n/; tr/}/\n/; $file ||= '';
      open K,'>',"$ENV{'HOME'}/.BREW_LIST/parse/$file.txt" or die" 2 brew cache $!\n";
@@ -2532,13 +2531,12 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
  unless( $ARGV[0] ){
   mkdir "$ENV{'HOME'}/.BREW_LIST/cparse";
   open my $J2,'<',"$Cache/api/cask.jws.json" or die" 1 cask cache $!\n";
-   my $an = <$J2>; close $J2;
-  my @an = split /[^\\]\\n/,$an;
-   for( @an ){ tr/\\//d; my( $file ) = /"token":"([^"]+)"/; tr/,/\n/;
-               s/"variations":\{/"variations":\n/; $file ||= '';
-    open my $K,'>',"$ENV{'HOME'}/.BREW_LIST/cparse/$file.txt" or die" 2 cask cache $!\n";
-     print $K "$_\n"; close $K;
-   } rmdir "$ENV{'HOME'}/.BREW_LIST/16";
+   my @an = split /[^\\]\\n/,<$J2>; close $J2;
+    for( @an ){ tr/\\//d; my( $file ) = /"token":"([^"]+)"/; tr/,/\n/;
+                s/"variations":\{/"variations":\n/; $file ||= '';
+     open my $K,'>',"$ENV{'HOME'}/.BREW_LIST/cparse/$file.txt" or die" 2 cask cache $!\n";
+      print $K "$_\n"; close $K;
+    } rmdir "$ENV{'HOME'}/.BREW_LIST/16";
 
   if( $re->{'MAC'} ){
   my $CPU = $UNAME eq 'x86_64' ? 'intel' : 'arm';
