@@ -44,7 +44,7 @@ if [[ $2 ]];then
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
-    [[ $NAME = Linux ]] && rm ~/.JA_BREW/{ja_cask.txt,ja_tap.txt}
+    [[ $NAME = Linux ]] && rm ~/.JA_BREW/ja_cask.txt
     [[ $NAME = Darwin ]] && rm ~/.JA_BREW/ja_linux.txt
   fi
  fi
