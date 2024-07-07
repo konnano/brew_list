@@ -183,7 +183,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.25_2\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.25_3\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -1172,21 +1172,26 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
      ( $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}" ) ? waitpid $re->{'PID2'},0 : 0 unless $spa;
 
  unless( $re->{"${brew}undel"} ){
-  if( $re->{'OS'}{"${brew}deps_b"} ){ my $i = $re->{'OS'}{"${brew}deps_b"} =~ tr/\t/\t/;
-   for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){ $i--;
-    if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
-        not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
-      ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
-       if( $re->{'PP'} ){
-        if( $i and not $re->{'OS'}{"${brew}deps"} ){
-               Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
-        }elsif( not $re->{'OS'}{"${brew}deps"} ){
-               Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
-        }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
-        }
-       }else{
-         Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN,$m );
-       }
+  if( $re->{'OS'}{"${brew}deps_b"} ){ my $i;
+    for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){
+     if( not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
+         not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
+       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){ $i++ }
+    }
+   for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){
+    if( $i and not $re->{'OS'}{"${data}so_name"} and ( not $bottle and not $re->{'HASH'}{$brew} or
+               not $bottle and Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
+             ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){ $i--;
+     if( $re->{'PP'} ){
+      if( $i and not $re->{'OS'}{"${brew}deps"} ){
+             Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
+      }elsif( not $re->{'OS'}{"${brew}deps"} ){
+             Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
+      }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
+      }
+     }else{
+       Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN,$m );
+     }
     }
    }
   }
