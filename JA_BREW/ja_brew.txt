@@ -140,7 +140,6 @@ antigen	oh-my-zshとvundleに触発されたzshのプラグインマネージャ
 antiword	Word(.doc)ファイルを読み取る為のユーティリティ
 antlr	言語認識の為の別のツール
 antlr4-cpp-runtime	言語認識の為の別のツールC++ランタイムライブラリ
-antlr@2	言語認識の為の別のツール
 anttweakbar	OpenGLアプリにGUIを追加する為のC/C++ライブラリ
 anycable-go	アクションケーブル手続きを備えたWeb Socketサーバー
 anyenv	**envのオールインワン
@@ -223,7 +222,6 @@ arping	MACアドレスがLAN上ですでに使用されているかどうかを�
 arpoison	UNIX arpキャッシュ更新ユーティリティ
 arrayfire	汎用GPUライブラリ
 arss	サウンドファイルをスペクトログラムに分析します
-artifactory	バイナリを管理します
 artillery	開発者/SRE 向けのクラウドネイティブの性能と信頼性テスト
 arttime	端末用の 時計、タイマー、タイムマネージャ、ASCII+テキストアートビューア
 arturo	効率的なスクリプティングの為のシンプルでモダンでポータブルなプログラミング言語
@@ -1128,7 +1126,6 @@ cspice	ロボット宇宙科学ミッションの為の観測幾何学システ�
 csprecon	コンテンツセキュリティポリシーを使用して新しいターゲットドメインを検出する
 css-crush	拡張可能なPHPベースのCSS前処理プログラム
 csshx	Terminal.appのクラスターsshツール
-cstore_fdw	Postgresを使用した分析用の列指向store
 csview	CLIの高性能CSV Viewer
 csvkit	CSVに変換して操作する為の一連のコマンドラインツール
 csvlens	コマンドラインCSVビューア
@@ -2280,7 +2277,6 @@ goctl	Web及びRPCサービスのサーバー側及びクライアント側の�
 godap	LDAP用の完全なTUI(ターミナルユーザーインターフェイス)
 goenv	GOバージョン管理
 goffice	数値スプレッドシートプログラム
-gofish	クロスプラットフォームシステムパッケージマネージャー
 gofumpt	より厳格なgofmt
 gojq	jqのPureGo実装
 gokart	Goコードを保護する為の静的コード分析
@@ -2475,6 +2471,7 @@ gzip	人気のGNUデータ圧縮プログラム
 gzrt	Gzipリカバリツールキット
 h2	JavaSQLデータベース
 h264bitstream	H264ビデオストリームを読み書きする為のライブラリ
+h26forge	構文的には有効だが意味的には仕様に準拠していないビデオを作成するツール
 h2c	ヘッダー2 curl
 h2o	HTTP /1.xとHTTP/2をサポートするHTTPサーバー
 h2spec	HTTP/2実装の適合性テストツール
@@ -2710,7 +2707,6 @@ img2pdf	直接JPEGを含めて画像をPDFに変換する
 imgdiet	画像の最適化とサイズ変更
 imgdiff	ピクセルごとの画像差分ツール
 imgproxy	リモート画像のサイズ変更と変換の為の高速で安全なサーバー
-imgur-screenshot	スクリーンショットを選択 upload to imgur. + more cool things
 imlib2	画像の読み込みと解釈のライブラリ
 immer	C++で書かれた永続的かつ不変のデータ構造のライブラリ
 immortal	OSにとらわれない(*nix)クロスプラットフォーム管理
@@ -3307,7 +3303,6 @@ libfreehand	Aldus/Macromedia/AdobeFreeHand ドキュメントの解釈とイン�
 libfreenect	XboxKinectデバイスのドライバーとライブラリ
 libfs	X.Org：Xフォントサービスクライアントライブラリ
 libftdi	FTDIチップと通信するライブラリ
-libftdi0	FTDIチップと通信するライブラリ
 libfuse	Linux FUSEインターフェースのリファレンス実装
 libfuse@2	Linux FUSEインターフェースのリファレンス実装
 libfyaml	完全な機能 YAMLパーサーとエミッター
@@ -3347,7 +3342,6 @@ libhandy	最新のアダプティブGNOMEアプリのビルディングブロッ
 libharu	PDFファイルを生成する為のライブラリ
 libhdhomerun	SiliconDust HDHomeRun TVチューナーを制御する為のCライブラリ
 libheif	ISO/IEC 23008-12：2017 HEIFファイル形式 デコーダー/エンコーダー
-libhid	USB HIDデバイスにアクセスして操作する為のライブラリ
 libhttpserver	組み込みREST HTTPサーバーのC++ライブラリ
 libical	iCalendar手続きとデータ形式の実装
 libice	X.Org：クライアント間交換ライブラリ
@@ -3497,7 +3491,6 @@ libpulsar	Apache Pulsar C++ライブラリ
 libqalculate	Qalculateのライブラリ！プログラム
 libquantum	量子力学のシミュレーションの為のCライブラリ
 libquicktime	QuickTimeファイルを読み書きする為のライブラリ
-libquvi	フラッシュメディアストリームの属性を解析する為のCライブラリ
 libraqm	複雑なテキストレイアウト用のライブラリ
 librasterlite2	巨大なラスターカバレッジを保存/取得する為のライブラリ
 libraw	デジタルフォトカメラからRAWファイルを読み取る為のライブラリ
@@ -3801,7 +3794,6 @@ lua	強力で軽量なプログラミング言語
 lua-language-server	Lua言語のLanguage Server
 lua@5.1	強力で軽量なプログラミング言語(v5.1.5)
 lua@5.3	強力で軽量なプログラミング言語
-luabind	C++とLua間のbindings用のライブラリ
 luacheck	Luaプログラミング言語のパッケージ マネージャー
 luajit	Luaプログラミング言語のJust-In-Timeコンパイラ(JIT)
 luajit-openresty	LuaJIT2のOpenRestyのブランチ
@@ -4941,7 +4933,6 @@ platypus	(Perl/Ruby/sh/Python)スクリプトからMacOSアプリケーション
 plenv	Perlバイナリマネージャー
 plod	あなたが取り組んでいるオンラインの記録を保管してください
 plog	移植可能、シンプル、拡張可能なC++ロギングライブラリ
-ploticus	スクリプト可能な立案及びグラフ作成ユーティリティ
 plotutils	2次元空間グラフィックを書き出しする為のC/C++関数ライブラリ
 plow	HTTP基準比較ツールを表示する高性能でリアルタイムのmetrics
 plowshare	人気のあるファイル共有ウェブサイトの ダウンロード/アップロードツール
@@ -5073,7 +5064,6 @@ protoc-gen-gogofaster	Buffer手続き Go with Gadgets
 protoc-gen-grpc-web	gRPC-Webクライアントのコードを生成するProtocプラグイン
 protoc-gen-js	プロトコルバッファーJavaScriptジェネレータープラグイン
 protolint	Protocol Bufferのスタイルと規則を適用する為のプラグイン可能な解析ツールとフィクサー
-prototool	Buffer手続きの万能ナイフ
 prover9	一次及び等式論理の自動定理証明
 prowler	クラウドセキュリティのベストプラクティスを実行する為のオープンソースセキュリティツール
 proxify	HTTP/HTTPS トラフィックをキャプチャ、操作、再生する為のポータブルプロキシ
@@ -5263,7 +5253,6 @@ quilt	一連のパッチを操作する
 quilt-installer	バニラ ランチャーの Quilt のインストーラー
 quotatool	コマンドラインからディスク割り当てを編集する
 quran	ターミナルでコーランの章と詩をプリントする
-quvi	ビデオのダウンロードURLを解析する
 qwt	技術的アプリケーション用のQtウィジェット
 qwt-qt5	技術的アプリケーション用のQtウィジェット
 qxmpp	クロスプラットフォームのC++ XMPPクライアント及びサーバーライブラリ
