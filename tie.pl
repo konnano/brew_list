@@ -640,8 +640,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       }elsif( $re->{'MAC'} and my( $ds7,$ds8,$ds9 ) =
         $data =~ /^\s*depends_on\s+"([^"]+)"\s+if\s+Development[^\s]+\s+([^\s]+)\s+(\d+)/ ){
          if( $ds8 =~ /^[<=>]{1,2}$/ and eval "$re->{'CLANG'} $ds8 $ds9" ){
-          $tap{"${ds7}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
-           $tap{"${name}deps_b"} .= "$ds7\t";
+           $tap{"${name}deps"} .= "$ds7\t";
          }
       }elsif( $re->{'LIN'} and $data =~ s/^\s*uses_from_macos\s+"([^"]+)"\s+=>\s+\[?:build.*\n/$1/ ){
         $tap{"${data}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
