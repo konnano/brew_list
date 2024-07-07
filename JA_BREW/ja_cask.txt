@@ -93,6 +93,7 @@ aimersoft-video-converter-ultimate	ビデオ変換アプリ
 air-video-server-hd	Appleデバイスにビデオをストリーミングする為のツール
 airbuddy	AirPodsコンパニオンアプリ
 aircall	クラウドベースのコールセンターと電話システムソフトウェア
+airdash	写真やファイルを任意のデバイスに転送
 airdisplay	タブレットをセカンドモニターとして使用する為のユーティリティ
 airdroid	モバイルデバイス管理パッケージ
 airflow	Apple TVとChromecastでローカルコンテンツを見る
