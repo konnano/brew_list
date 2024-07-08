@@ -434,6 +434,7 @@ blender@lts	Freeオープンソース3D作成パッケージ
 bleunlock	Bluetooth LowEnergyデバイスの近くを使用してAppleコンピューターを ロック/ロック解除します
 blheli-configurator	BLHeli Configurator
 blink1control	点滅を制御するユーティリティ(1)USB RGB LEDデバイス
+blip	デバイス間で任意のサイズのファイルを送信する
 blisk	開発者向けブラウザー
 blitz-gg	パフォーマンス分析ソフトウェア
 blobby-volley2	直接対決のマルチプレイヤー球技
