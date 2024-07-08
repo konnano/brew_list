@@ -29,6 +29,7 @@ if [[ $2 ]];then
 
  WD=({WAIT*,Tree*,File*=*})
  for wa in "${WD[@]}";do
+  [[ "${wa: -1}" = '*' ]] && continue
   if ! kill -0 `echo $wa|sed 's/WAIT\|Tree\|File.*=//'` 2>/dev/null;then
    rm -rf $wa
   fi
