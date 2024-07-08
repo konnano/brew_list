@@ -401,8 +401,7 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
   while(<$TR1>){
   unshift @line,$_;
    if( @line == 100000 or eof $TR1 ){ $i++;
-    my $file1 = "File$i=$$";
-     open G,'>',"$re->{'HOME'}/$file1" or die " $file1 $!";
+     open G,'>',"$re->{'HOME'}/File$i=$$" or die " 1 File$i=$$ $!";
       print G @line;
      close G;
     @line = ();
@@ -411,11 +410,10 @@ sub Split_1{ my $re = shift; my( $i,@line ) = 0;
  close $TR1;
  open my $TR2,'>',"$re->{'HOME'}/Tree$$" or die " Split2 $!\n";
   for( reverse(1..$i) ){
-   my $file2 = "File$_=$$";
-    open H,"$re->{'HOME'}/$file2" or die " $file2 $!";
+    open H,"$re->{'HOME'}/File$_=$$" or die " 2 File$_=$$ $!";
      print $TR2 <H>;
     close H;
-   unlink "$re->{'HOME'}/$file2";
+   unlink "$re->{'HOME'}/File$_=$$";
   }
  close $TR2;
 }
