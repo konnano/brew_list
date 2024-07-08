@@ -19,12 +19,6 @@ if [[ $1 = 1 ]];then
     (( $LS1 != 60 && $TI > $LS1 )) && math_rm
   fi
  fi
- WD=(~/.BREW_LIST/WAIT*)
-  for wa in "${WD[@]}";do
-   if ! kill -0 `echo $wa|sed 's/.*WAIT//'` 2>/dev/null;then
-    rmdir $wa 2>/dev/null
-   fi
-  done
 fi
 
 if [[ $2 ]];then
@@ -32,6 +26,13 @@ if [[ $2 ]];then
    exit 2
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
+
+ WD=({WAIT*,Tree*,File*=*})
+ for wa in "${WD[@]}";do
+  if ! kill -0 `echo $wa|sed 's/WAIT\|Tree\|File.*=//'` 2>/dev/null;then
+   rm -rf $wa
+  fi
+ done
 
   LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
  if [[ $LS2 ]];then
