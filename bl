@@ -1957,8 +1957,7 @@ if [[ $2 ]];then
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
- WD=({WAIT*,Tree*,File*=*})
- for wa in "${WD[@]}";do
+ for wa in {WAIT*,Tree*,File*=*};do
   [[ "${wa: -1}" = '*' ]] && continue
   if ! kill -0 `echo $wa|sed 's/WAIT\|Tree\|File.*=//'` 2>/dev/null;then
    rm -rf $wa
@@ -2248,7 +2247,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    my @fo = split /[^\\]\\n/,<$J1>; close $J1; $NAM = @fo >> 1; my $i;
     for( @fo ){ $i++; rmdir "$ENV{'HOME'}/.BREW_LIST/12" if $i == $NAM;
                 tr/\\//d; my( $file ) = /"name":"([^"]+)"/;
-                tr/[/\n/; tr/]/\n/; tr/{/\n/; tr/}/\n/; $file ||= '';
+                tr/[]{}/\n\n\n\n/; $file ||= '';
      open K,'>',"$ENV{'HOME'}/.BREW_LIST/parse/$file.txt" or die" 2 brew cache $!\n";
      print K $_; close K;
     }
