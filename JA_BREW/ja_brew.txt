@@ -1037,6 +1037,7 @@ corral	Pony言語の依存関係マネージャー
 corrosion	簡単なRustとC/C++の統合
 corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
+cortexso	OpenAIスタックに代わるドロップインのローカルAI
 cosign	コンテナ署名
 cotp	インポート機能を備えた TOTP/HOTP認証アプリ
 coturn	TURN/STUNサーバーのFreeオープンソース実装
@@ -6717,6 +6718,7 @@ wazero	ゼロ依存WebAssemblyランタイム
 wb32-dfu-updater_cli	USBデバイスとの間でファームウェアをダウンロードとアップロードする為のUSBプログラマー
 wbox	HTTPテストツールと構成不要のHTTPサーバー
 wcslib	FITS世界座標系のライブラリとユーティリティ
+wcurl	ファイルを簡単にダウンロードする為のCurlのラッパー
 wdc	WebDAVクライアントは簡単でWebDAVサーバーでの作業に便利
 wdfs	WebDAVファイルシステム
 wdiff	テキストファイル間の単語の違いを表示する
