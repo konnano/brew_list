@@ -35,7 +35,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    my @fo = split /[^\\]\\n/,<$J1>; close $J1; $NAM = @fo >> 1; my $i;
     for( @fo ){ $i++; rmdir "$ENV{'HOME'}/.BREW_LIST/12" if $i == $NAM;
                 tr/\\//d; my( $file ) = /"name":"([^"]+)"/;
-                tr/[/\n/; tr/]/\n/; tr/{/\n/; tr/}/\n/; $file ||= '';
+                tr/[]{}/\n\n\n\n/; $file ||= '';
      open K,'>',"$ENV{'HOME'}/.BREW_LIST/parse/$file.txt" or die" 2 brew cache $!\n";
      print K $_; close K;
     }
