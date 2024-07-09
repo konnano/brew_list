@@ -54,7 +54,7 @@ MAIN:{
  }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'}  = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
  }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'} = 1;
- }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'} = 1;
+ }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= 1; $ref->{'TOP'} = 1 if -t STDOUT;
  }elsif( $AR[0] eq '-'   ){ $re->{'BL'} = $ref->{'BL'}  = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
  }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} = $re->{'S_OPT'}= 1;
@@ -183,7 +183,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.25_5\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.25_6\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -778,7 +778,7 @@ my( $re,$list ) = @_; my( $top,@font,@ver );
  for my $ls( @{$list} ){
   next if $re->{'LIN'} and ( $ls eq 'glibc' or $ls eq 'linux-headers@5.15' );
   if( @{$re->{$ls}} and @{$re->{$ls}} < 2 ){
-   my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"};
+   my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"} and -t STDOUT;
    Tap_2( $re,\$ls ) if $re->{'FOR'};
     for my $bui( @BUI ){ my $build = $bui;
      Tap_2( $re,\$bui ) if $re->{'FOR'};
@@ -1958,7 +1958,7 @@ if [[ $2 ]];then
  trap 'math_rm 1; exit 1' 1 2 3 15
 
  for wa in {WAIT*,Tree*,File*=*};do
-  [[ "${wa: -1}" = '*' ]] && continue
+  [[ ${wa: -1} = '*' ]] && continue
   if ! kill -0 `echo $wa|sed 's/WAIT\|Tree\|File.*=//'` 2>/dev/null;then
    rm -rf $wa
   fi
