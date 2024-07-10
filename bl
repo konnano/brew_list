@@ -311,7 +311,7 @@ my( $re,$loop ) = @_; my $pid;
     die " Wait Not fork : $!\n" unless defined $pid;
   }
   if( $pid or $loop ){
-   my $WAIT = $pid ? "$re->{'HOME'}/WAIT".$pid : "$re->{'HOME'}/WAIT".$loop;  mkdir $WAIT;
+   my $WAIT = $pid ? "$re->{'HOME'}/WAIT".$pid : "$re->{'HOME'}/WAIT".$loop; mkdir $WAIT;
    if( -t STDOUT ){
     print STDERR "\x1B[?25l";
     if( $re->{'LIN'} or $loop or -d "$re->{'HOME'}/TAP" ){ my $i = 0;
@@ -1959,8 +1959,8 @@ if [[ $2 ]];then
 
  for wa in {WAIT*,Tree*,File*=*};do
   [[ ${wa: -1} = '*' ]] && continue
-  if ! kill -0 `echo $wa|sed 's/WAIT\|Tree\|File.*=//'` 2>/dev/null;then
-   rm -rf $wa
+  if ! kill -0 $(echo $wa|sed 's/WAIT\|Tree\|File.*=//') 2>/dev/null;then
+   rm -rf "$wa"
   fi
  done
 
