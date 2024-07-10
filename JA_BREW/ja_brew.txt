@@ -2964,6 +2964,7 @@ kapacitor	オープンソースの時系列データ計算機
 karchive	ファイルアーカイブの読み取り、作成、操作
 karmadactl	KarmadaコントロールプレーンのCLI
 karn	複数のGit IDを管理する
+kaskade	KafkaのTUI
 katago	人間が提供する知識を使用しないニューラルネットワークGoエンジン
 katana	クロール及びスパイダーリングフレームワーク
 kawa	Javaプログラミング言語(Schemeの実装)
@@ -3719,6 +3720,7 @@ lit	LLVM/Clang-styleのテストセットのポータブルツール
 litani	Metabuildシステム
 litecli	自動補完と構文の強調表示を備えたSQLiteデータベースのCLI
 literate-git	階層的なgitリポジトリをHTMLに表現する
+litmusctl	LitmusChaosと対話する為のコマンドラインインターフェイス
 little-cms2	ICCプロファイルをサポートするカラーマネジメントエンジン
 livekit	拡張可能高性能WebRTCサーバー
 livekit-cli	LiveKitへのコマンドラインインターフェイス
@@ -5819,6 +5821,7 @@ sntop	ホストをポーリングして接続を判別するCursesベースの�
 snyk-cli	プロジェクトをスキャンしてセキュリティの脆弱性を監視します
 snzip	snappyに基づく圧縮/解凍ツール
 so	StackOverflowのターミナルインターフェース
+soapyhackrf	SoapySDR HackRFモジュール
 soapyremote	Soapy SDRをリモートで使用する
 soapyrtlsdr	SoapySDR RTL-SDRサポートモジュール
 soapysdr	ベンダー及びプラットフォームに依存しないSDRサポートライブラリ
