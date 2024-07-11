@@ -5,12 +5,12 @@
 
  math_rm(){
   [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
-                  rm -rf ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,WAIT$CO,LOCK,TAP,font2.sh,tie2.pl} ~/.JA_BREWG; }
+                  rm -rf ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,WAIT$CO,LOCK,font2.sh,tie2.pl} ~/.JA_BREWG; }
 
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
  LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ -n $LS ]];then
+ if [[ $LS ]];then
   if [[ $NAME = Darwin ]];then
    LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
     (( $LS1 != 60 && $TI > $LS1 )) && math_rm
