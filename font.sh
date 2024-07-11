@@ -5,7 +5,7 @@
 
  math_rm(){
   [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
-                  rm -rf ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,WAIT$CO,LOCK,font2.sh,tie2.pl} ~/.JA_BREWG; }
+                  rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,font2.sh,tie2.pl,WAIT$CO,LOCK}; }
 
  TI=$(date +%s)
 if [[ $1 = 1 ]];then
