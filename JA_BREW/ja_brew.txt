@@ -1039,6 +1039,7 @@ corsixth	テーマホスピタルのオープンソースクローン
 cortex	Prometheusの長期保管
 cortexso	OpenAIスタックに代わるドロップインのローカルAI
 cosign	コンテナ署名
+cotila	C++のコンパイルタイム線形代数システム
 cotp	インポート機能を備えた TOTP/HOTP認証アプリ
 coturn	TURN/STUNサーバーのFreeオープンソース実装
 couchbase-shell	Couchbase Server及びCapella用のモダンで楽しいシェル
@@ -2647,7 +2648,7 @@ i2util	Internet2ユーティリティツール
 i386-elf-gdb	i386-elfクロス開発用ののGNUデバッガー
 i686-elf-binutils	i686-elfクロス開発用のGNU Binutils
 i686-elf-gcc	i686-elf用のGNUコンパイラコレクション
-iam-policy-json-to-terraform	JSONIAMポリシーをテラフォームに変換する
+iam-policy-json-to-terraform	JSON IAMポリシーをTerraformに変換する
 iamb	Vim中毒者の為のMatrixクライアント
 iamy	AWSIAMインポート/転送ツール
 iat	多くのCD-ROM画像フォーマットをISO9660に変換します
@@ -4312,6 +4313,7 @@ neovim	拡張性と敏捷性に焦点を当てた野心的なVimフォーク
 neovim-qt	Neovim GUI, in Qt
 neovim-remote	`nvr`コマンドラインツールを使用してnvimプロセスを制御する
 nerdctl	ContaiNERD CTL containerd用のDocker互換CLI
+nerdfetch	Nerdfontsを使用したPOSIX *nixフェッチスクリプト
 nerdfix	古いNerd Fontアイコンを見つけて修正する
 nesc	深くネットワーク化されたシステムの為のプログラミング言語
 nest	Python3 bindingsを備えた神経シミュレーションツール(NEST)(PyNEST)
@@ -5098,6 +5100,7 @@ ptunnel	ICMPを介したトンネル
 publish	Swift開発者向けの静的サイト発生器
 pueue	長時間実行されるシェルコマンドを管理する為のコマンドラインツール
 puf	並列URLフェッチャー
+pug	Terraformを終端速度で駆動する
 pugixml	軽量のC++ XML処理ライブラリ
 pulledpork	Snortルール管理
 pulp	PureScriptプロジェクト用のビルドツール
