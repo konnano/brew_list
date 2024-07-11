@@ -18,8 +18,7 @@ if [[ $LINK = unlink ]];then
   rm -rf ~/.BREW_LIST ~/.JA_BREW
    echo rm all cache
     if [[ -d "$MY_HOME/Library/Taps/homebrew/homebrew-core" ]];then
-    echo -n untap homebrew/cask homebrew/core ? [y/n]:
-     read i
+    read -p 'untap homebrew/cask homebrew/core ? [y/n]:' i
      case $i in
       y)
         sed -i.txt '/export *HOMEBREW_NO_INSTALL_FROM_API=1/d' ~/$(echo .${SHELL##*/}rc)
@@ -35,8 +34,7 @@ fi
 if [[ ! $LINK || $LINK = JA ]];then
    [[ ! -d $MY_BREW/Cellar ]] && ${die:?Not installed brew}
    if [[ -f $MY_BREW/bin/bl ]];then
-    echo -n exist $MY_BREW/bin/bl bl upgrade [y/n]:
-     read i
+    read -p 'exist $MY_BREW/bin/bl bl upgrade [y/n]:' i
      case $i in
       y)      ;;
       *) exit ;;
