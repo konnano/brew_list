@@ -5520,6 +5520,7 @@ rustup-init	Rustツールチェーンインストーラー
 rxvt-unicode	UnicodeをサポートするRxvtフォーク
 ry	Ruby仮想環境ツール
 rye	Python用の実験的なパッケージ管理ソリューション
+ryelang	Ryeは流動的な表現に重点を置いた同図像性プログラミング言語です
 rzip	ファイル圧縮ツール(gzipやbzip2など)
 s-lang	マルチプラットフォームソフトウェアを作成する為のライブラリ
 s-nail	Heirloomのフォークmailx
