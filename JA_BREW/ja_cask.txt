@@ -806,6 +806,7 @@ cpuinfo	CPUメーターメニューバーアプリ
 cr	XML/CSS ベースの電子書籍リーダー
 craft	ネイティブドキュメントエディタ
 craftmanager	Craftツールを最新の状態に保つのに役立ちます
+crashplan	バックアップ及び復元ソフトウェア
 creality-print	幾つかのCreality FDM 3Dプリンター用のスライサー及びクラウドサービス
 creality-slicer	すべてのCreality FDM 3Dプリンター用のスライサー
 create-recovery-partition-installer	リカバリパーティションインストーラーの作成
@@ -2725,6 +2726,7 @@ not-tetris	Not テトリス
 nota	マークダウンファイルエディター
 notable	マークダウンベースのメモ取りアプリ that doesn't suck
 notch-simulator	MacBookProのノッチをシミュレートする
+notchnook	ノッチ領域を管理及びカスタマイズする為の便利なユーティリテ
 notebooks	ワードプロセッサ
 notedup	Evernote InternationalからEvernoteへのデータ転送
 notes-better	マークダウンとkanbanの為のシンプルなメモアプリ
