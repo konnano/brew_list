@@ -4556,6 +4556,7 @@ open62541	OPC UAのオープンソース実装
 openai-whisper	汎用音声認識モデル
 openal-soft	OpenAL3DオーディオAPIの実装
 openapi-generator	クライアントを生成する OpenAPI仕様(v2/v3)のサーバーとドキュメント
+openbao	機密データを、管理/保存/配布する為のソフトウェアソリューションを提供します
 openblas	最適化されたBLASライブラリ
 opencascade	3Dモデル化及び数値シミュレーションソフトウェア CAD/CAM/CAE
 opencbm	さまざまなフロッピードライブ形式へのアクセスを提供します
