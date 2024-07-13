@@ -27,9 +27,10 @@ if [[ $2 ]];then
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
+  cd ~/.BREW_LIST
  for wa in {WAIT*,Tree*,File*=*};do
   [[ ${wa: -1} = '*' ]] && continue
-  if ! kill -0 $(echo $wa|sed 's/WAIT\|Tree\|File.*=//') 2>/dev/null;then
+  if ! kill -0 $(echo $wa|sed 's/WAIT//;s/Tree//;s/File.*=//') 2>/dev/null;then
    rm -rf "$wa"
   fi
  done
