@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 my( $OS_Version,$Locale,%JA );
-my $MY_BREW = `CO=\$(command -v brew);printf \${CO%/bin/brew} 2>/dev/null` || die " brew not found\n";
+my $MY_BREW = `CO=\$(command -v brew);printf \${CO%/bin/brew} 2>/dev/null`||die " brew not found\n";
 
 MAIN:{
  my $home = "$ENV{'HOME'}/.BREW_LIST";
@@ -435,7 +435,7 @@ sub m_search{
      my $st = select $rs,undef,undef,0.08;
       my $nu = getc if $st;
     if( $nu and $nu eq 'q' ){ print"\033[0m\033[?25h"; system'stty sane;tput rmcup'; exit }
-     for(0..$cols){ my $ra = rand(115)>>0; $row[$_] = $ra < 90 ? sprintf('%c',33+$ra) : ' ' }
+     for(0..$cols){ my $ra = rand(115)>>0; $row[$_] = $ra < 90 ? chr(33+$ra) : ' ' }
       for(0..1){ my $ra = rand($cols/6)>>0; $col[$ran[$ra]] = 0;
                  my $qa = rand($cols+1)>>0; $col[$qa] = 1; $ran[$ra] = $qa }
        for(0..$cols){ $col[$_] = $col[$_] ? "\033[1;32;40m$row[$_]" : 0 }
