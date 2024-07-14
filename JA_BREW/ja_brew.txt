@@ -1886,6 +1886,7 @@ frege	Haskellの精神に基づく非厳密で関数型プログラミング言�
 frege-repl	FregeのREPL(read-eval-print loop)
 frei0r	ビデオエフェクト用の最低限のプラグインAPI
 fribidi	UnicodeBiDiアルゴリズムの実装
+frizbee	タグを投げるとチェックサムが返されます
 frobtads	TADSインタプリタとコンパイラ
 frotz	Infocom-styleの相互の作用のフィクションプレーヤー
 frozen	ヘッダーのみ、C++14ユーザー向けのgperfに代わるconstexpr
@@ -1905,6 +1906,7 @@ fsw	複数のバックエンドを備えたファイル変更モニター
 fswatch	ディレクトリの変更を監視し、シェルコマンドを実行します
 ftgl	Freetype/OpenGL ブリッジ
 ftjam	Makeの代わりに使用できるビルドツール
+ftnchek	Fortran 77プログラムチェッカー
 fuc	モダン、パフォーマンス重視のUNIXコマンド
 fuego	囲碁のゲーム用のC++ライブラリのコレクション
 fuego-firestore	Firestoreデータベースのコマンドラインクライアント
