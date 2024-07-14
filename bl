@@ -1938,17 +1938,9 @@ __END__
                   rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,font2.sh,tie2.pl,WAIT$CO,LOCK}; }
 
  TI=$(date +%s)
-if [[ $1 = 1 ]];then
- LS=$(date -r ~/.BREW_LIST/LOCK "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ $LS ]];then
-  if [[ $NAME = Darwin ]];then
-   LS1=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS" +%s 2>/dev/null)+60 ))
-    (( $LS1 != 60 && $TI > $LS1 )) && math_rm
-  else
-   LS1=$(( $(date +%s --date "$LS" 2>/dev/null)+60 ))
-    (( $LS1 != 60 && $TI > $LS1 )) && math_rm
-  fi
- fi
+if [[ $1 = 1 && -d ~/.BREW_LIST/LOCK ]];then
+ LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+60 ))
+  (( $TI > $LS1 )) && math_rm
 fi
 
 if [[ $2 ]];then
@@ -1958,21 +1950,17 @@ if [[ $2 ]];then
  trap 'math_rm 1; exit 1' 1 2 3 15
 
   cd ~/.BREW_LIST
- for wa in {WAIT*,Tree*,File*=*};do
-  [[ ${wa: -1} = '*' ]] && continue
-  if ! kill -0 $(echo $wa|sed 's/WAIT//;s/Tree//;s/File.*=//') 2>/dev/null;then
-   rm -rf "$wa"
+ for WA in {WAIT*,Tree*,File*=*};do
+  [[ ${WA: -1} = '*' ]] && continue
+   SA=${WA:4}; MA=${SA#*=}
+  if ! kill -0 "$MA" 2>/dev/null;then
+   rm -rf "$WA"
   fi
  done
 
-  LS2=$(date -r ~/.JA_BREW/ja_brew.txt "+%Y-%m-%d %H:%M:%S" 2>/dev/null)
- if [[ $LS2 ]];then
-  if [[ $NAME = Darwin ]];then
-   LS3=$(( $(date -jf "%Y-%m-%d %H:%M:%S" "$LS2" +%s 2>/dev/null)+86400 ))
-  else
-   LS3=$(( $(date +%s --date "$LS2" 2>/dev/null)+86400 ))
-  fi
-  if (( $TI > $LS3 ));then
+ if [[ -f ~/.JA_BREW/ja_brew.txt ]];then
+  LS2=$(( $(date -r ~/.JA_BREW/ja_brew.txt +%s)+86400 ))
+  if (( $TI > $LS2 ));then
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
