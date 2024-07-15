@@ -24,9 +24,8 @@ if [[ $2 ]];then
 
   cd ~/.BREW_LIST
  for WA in {WAIT*,Tree*,File*=*};do
-  [[ ${WA: -1} = '*' ]] && continue
-   SA=${WA:4}; MA=${SA#*=}
-  if ! kill -0 "$MA" 2>/dev/null;then
+  [[ ${WA: -1} = '*' ]] && continue || shopt -s extglob
+  if ! kill -0 "${WA/+(WAIT|Tree|File*=)/}" 2>/dev/null;then
    rm -rf "$WA"
   fi
  done
