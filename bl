@@ -2708,7 +2708,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
 }else{
  if( $re->{'MAC'} ){
-   $re->{'CLANG'} = `/usr/bin/clang --version|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/'` || 0 unless $ARGV[0];
+   $re->{'CLANG'} = `/usr/bin/clang --version|sed -E '/Apple/!d;s/.+clang-([^.]+).+/\\1/;q'` || 0 unless $ARGV[0];
    %MAC_OS = ('15.0M1'=>'arm64_sequoia','15.0'=>'sequoia','14.0M1'=>'arm64_sonoma','14.0','sonoma',
               '13.0M1'=>'arm64_ventura','13.0'=>'ventura','12.0M1'=>'arm64_monterey','12.0'=>'monterey',
               '11.0M1'=>'arm64_big_sur','11.0'=>'big_sur','10.15'=>'catalina',
