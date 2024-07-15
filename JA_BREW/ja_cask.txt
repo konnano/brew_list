@@ -122,7 +122,6 @@ alfaview	オーディオビデオ会議
 alfred	アプリケーションランチャーと生産性ソフトウェア
 alfred@4	アプリケーションランチャーと生産性ソフトウェア
 algodoo	物理システムを描画して操作する
-alinof-timer	タイマーアプリ
 alipay-key-tool	鍵生成ツール
 aliwangwang	ショッピングコミュニケーションツール
 aliworkbench	Merchantワークベンチ
@@ -255,6 +254,7 @@ arrsync	ユーティリティrsyncのグラフィカルフロントエンド
 artisan	coffee roasters用のVisual scope
 artpip	厳選された写真のデスクトップの背景
 arturia-software-center	Arturia製品のインストーラーとライセンスの認証
+as-timer	タイマーアプリ
 asana	チームプロジェクトとタスクを管理する
 ascension	ANSI/ASCII アートビューア
 asciidocfx	本を作成する為のAsciidocエディターとツールチェーン ドキュメント/スライド
@@ -3431,6 +3431,7 @@ renpy	Pythonのビジュアルノベルエンジン
 repetier-host	3Dプリントアプリケーション
 replacicon	アプリアイコン置換ユーティリティ
 replay	タイムトラベルデバッグ
+replit	ソフトウェア開発及び配置プラットフォーム
 repoz	Zero-confgitリポジトリハブ
 reqable	高度なAPIデバッグプロキシ
 requestly	HTTPリクエストをインターセプトして変更する
