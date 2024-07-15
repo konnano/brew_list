@@ -1814,7 +1814,7 @@ my $re = shift; my( $e,$mm,@tt ) = 0; my $TR = $re->{'TR'};
      $AU = '';
   }
    waitpid $re->{'PID2'},0 if $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
-   print"$re->{'INF'}\n" if @AUA;
+   print"$re->{'INF'}\n" if @AUA and $re->{'LEN1'} == 1;
    print reverse @AUA if not $re->{'DD'} or -t STDOUT;
  }
  if( $re->{'DD'} ){ my( $m,$flag,@AR,@DEL ) = 0;
