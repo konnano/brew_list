@@ -13,7 +13,7 @@ fi
 
 if [[ $1 = 1 && -d ~/.BREW_LIST/LOCK ]];then
  LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+60 ))
-  (( $TI > $LS1 )) && math_rm
+  (( TI > LS1 )) && math_rm
 fi
 
 if [[ $2 ]];then
@@ -22,7 +22,7 @@ if [[ $2 ]];then
  fi
  trap 'math_rm 1; exit 1' 1 2 3 15
 
-  cd ~/.BREW_LIST
+  cd ~/.BREW_LIST || { math_rm; ${die:?cd error}; }
  for WA in {WAIT*,Tree*,File*=*};do
   [[ ${WA: -1} = '*' ]] && continue || shopt -s extglob
   if ! kill -0 "${WA/+(WAIT|Tree|File*=)/}" 2>/dev/null;then
@@ -32,7 +32,7 @@ if [[ $2 ]];then
 
  if [[ -f ~/.JA_BREW/ja_brew.txt ]];then
   LS2=$(( $(date -r ~/.JA_BREW/ja_brew.txt +%s)+86400 ))
-  if (( $TI > $LS2 ));then
+  if (( TI > LS2 ));then
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
