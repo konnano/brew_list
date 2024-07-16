@@ -1878,6 +1878,7 @@ j	数学の為のプログラミング言語 データの統計的/論理的 分
 jabra-direct	Jabraヘッドセットを最適化してパーソナライズする
 jabref	編集する参照マネージャー BibTeXファイルの管理と検索
 jad	Javaデコンパイラ
+jagex	公式Jagexランチャー
 jaikoz	オーディオタグエディター
 jalview	多重配列アラインメントエディター ビジュアライザー/分析/図表生成器
 jameica	SWT-UIを含むJavaで記述されたアプリケーションプラットフォーム
@@ -3847,6 +3848,7 @@ springtoolsuite	Spring Boot用の次世代ツール
 spundle	スパースバンドルの 作成/サイズ変更/圧縮
 spybuster	スパイウェア対策ツール
 spyder	科学的なPython IDE
+sq-mixpad	Allen & Heath SQオーディオコンソールのリモートコントロール
 sql-tabs	SQLタブ
 sqlcl	Oracle SQLclは、Oracleデータベースの最新のコマンドラインインターフェイスです。
 sqlectron	Sqlectron
