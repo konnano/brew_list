@@ -4255,6 +4255,7 @@ tvrenamer	TVリストからTVエピソードの名前を変更するユーティ
 twelite-stage	TWELITE無線モジュールの評価と開発ツール
 twilioquest	16ビットゲームでクラウドを保存するミッションでCrewをコーディングして導く方法を学びましょう
 twine	双方向で非線形のストーリーを伝える為のツール
+twingate	Zero trustネットワークアクセスプラットフォーム
 twist	チームコミュニケーション及び協力的ソフトウェア
 twitch-studio	新しいストリーマー向けに設計された Freeストリーミングソフトウェア
 twobird	共同メモをクライアントにメールで送信
