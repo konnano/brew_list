@@ -112,7 +112,7 @@ MAIN:{
   }
    if( $name and $AR[2] and $AR[2] eq '.' and not( $re->{'deps'} or $re->{'INF'} ) ){ $name->{'KEN'} = 1;
    }elsif( $re->{'DAT'} and $AR[1] and $AR[1] eq '.' ){ $re->{'DAT'} = $ref->{'DAT'} = 2;
-   }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2] =~ /^\d+$/ ? $AR[2] : 0;
+   }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2] =~ /^\d+$|^\.$/ ? $AR[2] : 0;
    }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){$name->{'KEN'} = 1}else{$re->{'dep_s'} = lc $AR[1]}
    }
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
@@ -135,8 +135,9 @@ MAIN:{
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
-  if( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} and $AR[2] and $AR[2] !~ /^\d+$/ ){ DB_1( $re );
-   for( my $i=2;$i<@AR;$i++ ){
+  if( $AR[2] and $AR[2] !~ /^\d+$/ and ( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} ) ){ DB_1( $re );
+    my $i = index($AR[2],'.') == 0 ? 3 : 2;
+   for( ;$i<@AR;$i++ ){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
       $ENV{'HOMEBREW_NO_AUTOREMOVE'} = 1;
@@ -1141,7 +1142,7 @@ print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN1'}++;
    ( $re->{'TREE'} and $re->{'PP'} ) ? print"${spa} $name\n" :
    ( $re->{'TREE'} and $build ) ? print $TR "${spa}-- $name [Build]\n" :
      $re->{'TREE'} ? print $TR "${spa}-- $name\n" : 1;
-  push @{$AN},$$brew if ( $re->{'DEL'} or $re->{'deps'} ) and $re->{"deps$$brew"} < 2;
+  push @{$AN},$$brew if $re->{"deps$$brew"} < 2 and ( $re->{'DEL'} or $re->{'deps'} );
    $re->{"$re->{'INF'}deps"} .= "$$brew\t"
     if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
  }
@@ -1151,7 +1152,7 @@ sub Info_1{
 my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
  if( $m > 50 ){ waitpid $re->{'PID2'},0 if $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
    die " Info_1 Deep recursion on subroutine\n";
- } return if $re->{'PP'} and $re->{'KEN'} and $re->{'KEN'} < $m;
+ } return if $re->{'PP'} and $re->{'KEN'} and index($re->{'KEN'},'.') < 0 and $re->{'KEN'} < $m;
 
   if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
@@ -1191,7 +1192,24 @@ my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
     }
    }
   }
-
+  if( $re->{'OS'}{"${brew}deps_b"} and $re->{'DEL'} and
+    ( $re->{'KEN'} and $re->{'KEN'} eq '.' or not $re->{'KEN'} and ( $m == 1 or $re->{"${brew}delet"} ) ) ){
+   for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){ my @deps_a;
+    if( not $re->{'OS'}{"${brew}so_name"} and not $bottle and $re->{'OS'}{"${data}build"} ){
+     for my $data1(split '\t',$re->{'OS'}{"${data}build"} ){ push @deps_a,$data if $re->{'HASH'}{$data1} }
+   }
+    if( @deps_a == 1 ){
+     if( $re->{'PP'} ){
+      if( not $re->{'OS'}{"${brew}deps"} ){
+             Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
+      }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
+      }
+     }else{
+       Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN,$m );
+     }
+    }
+   }
+  }
   if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){ my( $e,$i ) = $re->{'OS'}{"${brew}deps"} =~ tr/\t/\t/;
    for my $data2( split '\t',$re->{'OS'}{"${brew}deps"} ){ $i++;
     if( $re->{'PP'} ){
