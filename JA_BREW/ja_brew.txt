@@ -6169,6 +6169,7 @@ tcptunnel	TCPポートフォワーダー
 tcsh	Berkeley Cシェルの拡張された完全に互換性のあるバージョン
 tctl	一時CLI(tctl)
 td	ターミナルのToDoリスト
+tdb	SambaプロジェクトによるTrivial DataBase
 tdlib	Telegramクライアントを構築する為のクロスプラットフォームライブラリ
 tea	Giteaサーバーと対話する為のコマンドラインツール
 tealdeer	Rustでのtldrの非常に高速な実装
