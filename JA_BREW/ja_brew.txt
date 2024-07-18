@@ -872,6 +872,7 @@ clang-build-analyzer	コンパイル時間を分析するツール
 clang-format	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
 clang-format@11	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
 clang-format@8	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
+clang-uml	Clang に基づくカスタマイズ可能なC++用UMLダイアグラム自動生成ツール
 clarinet	Clarityスマートコントラクト言語のコマンドラインツールとランタイム
 clash	Goのルールベースのトンネル
 classads	求人広告(HTCondor Central Managerが使用)
@@ -2759,6 +2760,7 @@ ios-class-guard	Mach-O実行可能ファイルのObjective-C難読化ツール
 ios-deploy	コマンドラインからiPhoneアプリをインストールしてデバッグする
 ios-sim	iOS模擬装置のコマンドラインアプリケーションランチャー
 ios-webkit-debug-proxy	iOSデバイスのDevToolsプロキシ
+iowow	Cユーティリティライブラリと永続的な key/value ストレージ エンジン
 iozone	ファイルシステム基準比較ツール
 ip_relay	TCP転送量shaping relayアプリケーション
 ipbt	UNIXターミナルセッションを記録する為のプログラム
@@ -3328,6 +3330,7 @@ libgit2	再入可能でリンク可能なGitコアメソッドのCライブラ�
 libgit2-glib	libgit2 gitアクセスライブラリの周りのGlibラッパーライブラリ
 libgit2@1.5	再入可能でリンク可能なGitコアメソッドのCライブラリ
 libgit2@1.6	リエントラントでリンク可能なGitコアメソッドのCライブラリ
+libgit2@1.7	リエントラントでリンク可能なGitコアメソッドのCライブラリ
 libglade	GTK+インターフェースの構築を支援するRADツール
 libglademm	libgladeのC++ラッパー
 libgnt	テキストモードのグラフィカルユーザーインターフェイスを作成する為のNCursesツールキット
