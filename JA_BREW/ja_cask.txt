@@ -1871,6 +1871,7 @@ itsycal	日程表メニューバー
 itubedownloader	YouTubeビデオをダウンロードする チャンネル/プレイリスト
 itunes-producer	書籍の詳細を送信する 価格設定とファイルをAppleBooksに
 itunes-volume-control	キーボードの音量キーを使用してAppleMusicとSpotifyの音量を制御する
+ivacy	VPNクライアント
 ivideonserver	Ivideonアカウントを介してブラウザーで監視ビデオを見る
 ivolume	すべての曲が同じ音量レベルで再生されることを保証するアプリ
 ivpn	VPNクライアント
