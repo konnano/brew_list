@@ -5,14 +5,14 @@
 
  math_rm(){
   [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
-                  rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,FONT_*,TIE_*,WAIT$CO,LOCK}; }
+                  rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,FONT_*,TIE_*,"WAIT$CO",LOCK}; }
 
 if ! printf -v TI '%(%s)T' 2>/dev/null;then
  TI=$(date +%s)
 fi
 
 if [[ $1 = 1 && -d ~/.BREW_LIST/LOCK ]];then
- LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+60 ))
+ LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+120 ))
   (( TI > LS1 )) && math_rm
 fi
 
@@ -23,6 +23,11 @@ if [[ $2 ]];then
  trap 'math_rm 1; exit 1' 1 2 3 15
 
   cd ~/.BREW_LIST || { math_rm; ${die:?cd error}; }
+ for WT in WAIT*;do
+  [[ ${WT: -1} = '*' ]] && continue
+  WS1=$(( $(date -r "$WT" +%s)+1800 ))
+   (( TI > WS1 )) && rmdir "$WT"
+ done
  for WA in {WAIT*,Tree*,File*=*};do
   [[ ${WA: -1} = '*' ]] && continue || shopt -s extglob
   if ! kill -0 "${WA/+(WAIT|Tree|File*=)/}" 2>/dev/null;then
@@ -82,7 +87,7 @@ if [[ $2 ]];then
     { math_rm; ${die:?curl e error}; }
      rmdir ~/.BREW_LIST/8
   fi
-   export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
+   export Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}")
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 
   if [[ $2 = 1 ]];then
@@ -164,7 +169,7 @@ EOF
      { math_rm; ${die:?curl r error}; }
   fi
    unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
-   export Perl_B=$(CO=$(command -v brew);echo ${CO%/bin/brew})
+   export Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}")
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
