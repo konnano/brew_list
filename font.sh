@@ -5,7 +5,7 @@
 
  math_rm(){
   [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
-                  rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,font2.sh,tie2.pl,WAIT$CO,LOCK}; }
+                  rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,FONT_*,TIE_*,WAIT$CO,LOCK}; }
 
 if ! printf -v TI '%(%s)T' 2>/dev/null;then
  TI=$(date +%s)
