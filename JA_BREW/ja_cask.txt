@@ -303,6 +303,7 @@ autumn	JavaScript開発用のウィンドウマネージャー
 ava	言語モデルをコンピューター上でローカルに実行する
 avast-secure-browser	プライバシーに焦点を当てたWebブラウザー
 avast-security	ウイルス対策ソフト
+avbeam	音声ファイル類似性ビューア
 avg-antivirus	ウイルス対策ソフト
 aviatrix-vpn-client	SAML認証を提供するVPNクライアント
 avidcodecsle	Media ComposerのないシステムでAvidコーデックを使用してQuickTimeムービーを使用する
@@ -1062,6 +1063,7 @@ duplicacy-cli	クラウドバックアップツール
 duplicacy-web-edition	クラウドバックアップツール
 duplicate-annihilator-for-photos	写真の複製零化
 duplicate-file-finder	不要な重複ファイルやフォルダを見つけて削除する
+duplicateaudiofinder	オーディオファイルの一括フィンガープリンティングと類似性検出器
 duplicati	安全に暗号化されたバックアップをクラウドに保存する
 dupscanub	指定されたフォルダ内の重複ファイルを検索します
 dust3d	オープンソースの3Dモデリングソフトウェア
@@ -2189,6 +2191,7 @@ logmein-client	リモートアクセスツール
 logmein-hamachi	LANのようなネットワークを安全に拡張できるホスト型、VPNサービス
 logos	聖書研究ソフトウェア
 logseq	知識の共有と管理の為のプライバシー第一のオープンソースプラットフォーム
+longplay	アルバムに特化した音楽プレーヤー
 lookaway	休憩時間リマインダーアプリ
 lookin	iOSビューのデバッグ用アプリ
 lookingglassstudio	Looking Glassで3D画像及びビデオ形式を表示/編集する
@@ -3476,6 +3479,7 @@ rnnoise	音声のノイズ抑制
 roam	バーチャルオフィス
 roam-research	ネットワーク化された思考の為のメモを取るツール
 roaringapps	インストールされているアプリの互換性情報を表示する
+roblox	オンラインマルチプレイヤーゲームプラットフォーム
 robo-3t	MongoDB管理ツール
 robofont	フォントエディター
 roboform	パスワードマネージャーとフォームフィラーアプリケーション
