@@ -14,7 +14,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
    $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
  $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
  unless( $ARGV[0] ){
-  $Xcode = `CC=\$(xcode-select -p);cat "\${CC%/*}"/version.plist 2>/dev/null|
+  $Xcode = `CC=\$(xcode-select -p);cat "\${CC%/*}/version.plist" 2>/dev/null|
             sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;q;}'`||0;
  }
   %Mac_OS = ('sequoia'=>'15.0','sonoma'=>'14.0','ventura'=>'13.0','monterey'=>'12.0','big_sur'=>'11.0',
