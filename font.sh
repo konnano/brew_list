@@ -23,13 +23,12 @@ if [[ $2 ]];then
  trap 'math_rm 1; exit 1' 1 2 3 15
 
   cd ~/.BREW_LIST || { math_rm; ${die:?cd error}; }
- for WT in WAIT*;do
-  [[ ${WT: -1} = '*' ]] && continue
-  WS1=$(( $(date -r "$WT" +%s)+1800 ))
-   (( TI > WS1 )) && rmdir "$WT"
- done
  for WA in {WAIT*,Tree*,File*=*};do
   [[ ${WA: -1} = '*' ]] && continue || shopt -s extglob
+  if [[ $WA =~ WAIT* ]];then
+   WS=$(( $(date -r "$WA" +%s)+1800 ))
+   (( TI > WS )) && rmdir "$WA"
+  fi
   if ! kill -0 "${WA/+(WAIT|Tree|File*=)/}" 2>/dev/null;then
    rm -rf "$WA"
   fi
@@ -87,7 +86,7 @@ if [[ $2 ]];then
     { math_rm; ${die:?curl e error}; }
      rmdir ~/.BREW_LIST/8
   fi
-   export Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}")
+    Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}"); export Perl_B
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 
   if [[ $2 = 1 ]];then
@@ -169,7 +168,7 @@ EOF
      { math_rm; ${die:?curl r error}; }
   fi
    unzip -q ~/.BREW_LIST/font.zip -d ~/.BREW_LIST || { math_rm 1; ${die:?unzip 3 error}; }
-   export Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}")
+   Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}"); export Perl_B
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 perl<<"EOF"
    $MY_HOME = -d "$ENV{'Perl_B'}/Homebrew" ? "$ENV{'Perl_B'}/Homebrew" : $ENV{'Perl_B'};
