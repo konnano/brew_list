@@ -1930,19 +1930,17 @@ my $re = shift;
 }
 
 sub Tied_1{
-my( $re,$an1,$an2 ) = @_; my $i;
+my( $re,$an1,$an2 ) = @_; my( $i,$DATA1,$DATA2 );
  $an1 ||= 'font.sh'; $an2 ||= 'tie.pl';
- unless( $re->{'DATA1'} ){
   while(my $data=<DATA>){
    $i++, next if $data eq "__TIE__\n";
-    $i ? push @{$re->{'DATA2'}},$data : push @{$re->{'DATA1'}},$data;
+   if( $i ){ $DATA2 .= $data }else{ $DATA1 .= $data }
   }
- }
  open my $file1,'>',"$re->{'HOME'}/$an1" or die " Tied1 $!\n";
-  print $file1 @{$re->{'DATA1'}};
+  print $file1 $DATA1;
  close $file1;
  open my $file2,'>',"$re->{'HOME'}/$an2"  or die " Tied2 $!\n";
-  print $file2 @{$re->{'DATA2'}};
+  print $file2 $DATA2;
  close $file2;
   chmod 0755,"$re->{'HOME'}/font.sh" if $an1 eq 'font.sh';
 }
@@ -1975,7 +1973,7 @@ if [[ $2 ]];then
  for WA in {WAIT*,Tree*,File*=*};do
   [[ ${WA: -1} = '*' ]] && continue || shopt -s extglob
   if [[ $WA =~ WAIT* ]];then
-   WS=$(( $(date -r "$WA" +%s)+1800 ));
+   WS=$(( $(date -r "$WA" +%s)+1800 ))
    (( TI > WS )) && rmdir "$WA"
   fi
   if ! kill -0 "${WA/+(WAIT|Tree|File*=)/}" 2>/dev/null;then
