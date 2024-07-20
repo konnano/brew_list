@@ -269,8 +269,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     }
    close $BREW;
   } closedir $dir1;
+  rmdir "$ENV{'HOME'}/.BREW_LIST/15";
  }
- rmdir "$ENV{'HOME'}/.BREW_LIST/15";
 
   sub Spec_1{
    my( $data,$i ) = @_;
@@ -413,8 +413,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
      } close $CASK;
    }closedir $dir2;
   }
+  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  }
- rmdir "$ENV{'HOME'}/.BREW_LIST/17";
 
   sub Form_1{
    my( $name,$fo ) = @_;
@@ -524,7 +524,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
     if( $re->{'LIN'} and -d "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula" ){
         Dirs_2( "$MY_HOME/Library/Taps/homebrew/homebrew-linux-fonts/Formula",0,1 );
     }
-   } rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+    rmdir "$ENV{'HOME'}/.BREW_LIST/11";
+   }
 
   sub Dirs_2{
   my( $dir,$ls,$cask ) = @_;
@@ -707,7 +708,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
  }
 
   if( $re->{'MAC'} ){
-  rmdir "$ENV{'HOME'}/.BREW_LIST/15";
+  rmdir "$ENV{'HOME'}/.BREW_LIST/15" unless $ARGV[0];
   my( $in,$e ) = ( @CASK >> 1,0 );
   my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm';
    for my $dir2( @CASK ){
@@ -807,9 +808,9 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
       close $BREW;
      }
     }
-   }
+  }
 
-  unless( $ARGV[0] ){
+ unless( $ARGV[0] ){
    @BREW = sort grep{ s|.+/(.+)\.rb|$1| }@BREW;
   if( $re->{'MAC'} ){
    for( @CASK ){
@@ -819,8 +820,8 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
    }
    @CASK = sort grep{ s|.+/(.+)\.rb|$1| }@CASK;
   }
+  rmdir "$ENV{'HOME'}/.BREW_LIST/17";
  }
- rmdir "$ENV{'HOME'}/.BREW_LIST/17";
 }
 
 if( not $ARGV[0] or $ARGV[0] == 2 ){
