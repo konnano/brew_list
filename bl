@@ -1078,11 +1078,9 @@ my( $re,$list ) = @_; my( $e,$i,@tap,$file ) = ( 0,1 );
     while(my $tap=<$TAP>){  chomp $tap;
      if( $i and $tap =~ /^[34]$/ ){
        if( $re->{'LIN'} and ( not $re->{'LFOD'} and $tap != 3 or $re->{'LFOD'} and $tap != 4 ) ){
-            die " exists \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
-             $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
-              system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
-               $re->{'taps'} = -d "$re->{'HOME'}/LOCK" ? die " exists \033[31mLOCK\033[0m\n" : 1;
-                Wait_1( $re );
+        $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1; die "\x1B[?25h$not" };
+         system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
+          $re->{'taps'} = 1; Wait_1( $re );
        }
         exit if $re->{'FTD'} and not $re->{'LFOD'};
        last if not $re->{'TAP'} and $re->{'CAS'} and ( $re->{'LIST'} or $re->{'PRINT'} or $re->{'DAT'} );
