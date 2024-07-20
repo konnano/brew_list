@@ -313,6 +313,7 @@ my( $re,$loop ) = @_; my $pid;
   }
   if( $pid or $loop ){
    my $WAIT = $pid ? "$re->{'HOME'}/WAIT".$pid : "$re->{'HOME'}/WAIT".$loop; mkdir $WAIT;
+    die " exists \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
    if( -t STDOUT ){
     print STDERR "\x1B[?25l";
     if( $re->{'LIN'} or $loop or -d "$re->{'HOME'}/TAP" ){ my $i = 0;
