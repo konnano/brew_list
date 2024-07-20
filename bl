@@ -218,8 +218,6 @@ my $re = shift; my( $list,$cat,$pid ) = ( [],[] );
   $re->{'NEW'} < 2 ? die " \033[31mNot connected\033[0m\n" : exit
    if system "ping $op -c1 formulae.brew.sh >/dev/null 2>&1";
     system '~/.BREW_LIST/font.sh 1' if -d "$re->{'HOME'}/LOCK";
-    ( -d "$re->{'HOME'}/LOCK" and $re->{'NEW'} == 2 ) ? exit :
-      -d "$re->{'HOME'}/LOCK" ? die " exists \033[31mLOCK\033[0m\n" : 0;
   $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ my( $not ) = Doc_1(); die "\x1B[?25h$not" };
    Wait_1( $re );
  }
@@ -313,7 +311,8 @@ my( $re,$loop ) = @_; my $pid;
   }
   if( $pid or $loop ){
    my $WAIT = $pid ? "$re->{'HOME'}/WAIT".$pid : "$re->{'HOME'}/WAIT".$loop; mkdir $WAIT;
-    die " exists \033[31mLOCK\033[0m\n" if -d "$re->{'HOME'}/LOCK";
+    ( -d "$re->{'HOME'}/LOCK" and $re->{'NEW'} and $re->{'NEW'} == 2 ) ? exit :
+    ( -d "$re->{'HOME'}/LOCK" and $re->{'NEW'} ) ? die " exists \033[31mLOCK\033[0m\n" : 0;
    if( -t STDOUT ){
     print STDERR "\x1B[?25l";
     if( $re->{'LIN'} or $loop or -d "$re->{'HOME'}/TAP" ){ my $i = 0;
@@ -1931,17 +1930,19 @@ my $re = shift;
 }
 
 sub Tied_1{
-my( $re,$an1,$an2 ) = @_; my( $i,$DATA1,$DATA2 );
+my( $re,$an1,$an2 ) = @_; my $i;
  $an1 ||= 'font.sh'; $an2 ||= 'tie.pl';
+ unless( $re->{'DATA1'} ){
   while(my $data=<DATA>){
    $i++, next if $data eq "__TIE__\n";
-   if( $i ){ $DATA2 .= $data }else{ $DATA1 .= $data }
+    $i ? push @{$re->{'DATA2'}},$data : push @{$re->{'DATA1'}},$data;
   }
+ }
  open my $file1,'>',"$re->{'HOME'}/$an1" or die " Tied1 $!\n";
-  print $file1 $DATA1;
+  print $file1 @{$re->{'DATA1'}};
  close $file1;
  open my $file2,'>',"$re->{'HOME'}/$an2"  or die " Tied2 $!\n";
-  print $file2 $DATA2;
+  print $file2 @{$re->{'DATA2'}};
  close $file2;
   chmod 0755,"$re->{'HOME'}/font.sh" if $an1 eq 'font.sh';
 }
