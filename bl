@@ -136,7 +136,7 @@ MAIN:{
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
   if( $AR[2] and $AR[2] !~ /^\d+$/ and ( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} ) ){ DB_1( $re );
-    my $i = index($AR[2],'.') == 0 ? 3 : 2;
+    my $i = $AR[2] eq '.' ? 3 : 2;
    for( ;$i<@AR;$i++ ){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
@@ -310,9 +310,9 @@ my( $re,$loop ) = @_; my $pid;
     die " Wait Not fork : $!\n" unless defined $pid;
   }
   if( $pid or $loop ){
+   ( -d "$re->{'HOME'}/LOCK" and $re->{'NEW'} and $re->{'NEW'} == 2 ) ? exit :
+   ( -d "$re->{'HOME'}/LOCK" and $re->{'NEW'} ) ? die " exists \033[31mLOCK\033[0m\n" : 0;
    my $WAIT = $pid ? "$re->{'HOME'}/WAIT".$pid : "$re->{'HOME'}/WAIT".$loop; mkdir $WAIT;
-    ( -d "$re->{'HOME'}/LOCK" and $re->{'NEW'} and $re->{'NEW'} == 2 ) ? exit :
-    ( -d "$re->{'HOME'}/LOCK" and $re->{'NEW'} ) ? die " exists \033[31mLOCK\033[0m\n" : 0;
    if( -t STDOUT ){
     print STDERR "\x1B[?25l";
     if( $re->{'LIN'} or $loop or -d "$re->{'HOME'}/TAP" ){ my $i = 0;
@@ -1150,7 +1150,7 @@ sub Info_1{
 my( $re,$file,$spa,$AN,$m ) = @_; $spa ||= ''; $m++;
  if( $m > 50 ){ waitpid $re->{'PID2'},0 if $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
    die " Info_1 Deep recursion on subroutine\n";
- } return if $re->{'PP'} and $re->{'KEN'} and index($re->{'KEN'},'.') < 0 and $re->{'KEN'} < $m;
+ } return if $re->{'PP'} and $re->{'KEN'} and $re->{'KEN'} ne '.' and $re->{'KEN'} < $m;
 
   if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
