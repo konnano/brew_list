@@ -994,6 +994,7 @@ dmg-canvas	様式化されたディスクイメージが簡単に
 dmidiplayer	マルチプラットフォームMIDIファイルプレーヤー
 dnsmonitor	DNSアクティビティを監視する
 do-not-disturb	オープンソースの物理アクセス(別名 'evil maid')攻撃検出器
+dockdoor	ウィンドウピーキングユーティリティアプリ
 docker	コンテナ化されたアプリケーションとマイクロサービスを構築して共有する為のアプリ
 docker-toolbox	Dockerツールボックス
 dockey	ドックの詳細設定
@@ -2526,6 +2527,7 @@ mojibar	メニューバーアプリとしての絵文字サーチャー
 molotov	フランスのテレビストリーミングサービス
 monal	チャットサーバーに安全に接続する為のツール
 monal@beta	チャットサーバーに安全に接続する為のツール
+monarch	スポットライト検索
 monero-wallet	追跡不可能な暗号通貨ウォレット
 moneydance	プライバシーに焦点を当てた個人の財務管理アプリケーション
 moneymanager	財務マネージャー
