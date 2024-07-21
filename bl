@@ -135,8 +135,8 @@ MAIN:{
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
-  if( $AR[2] and $AR[2] !~ /^\d+$/ and ( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} ) ){ DB_1( $re );
-    my $i = $AR[2] eq '.' ? 3 : 2;
+  if( $AR[2] and $AR[2] !~ /^\d+$/ and ( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} ) ){
+    DB_1( $re ); my $i = $AR[2] eq '.' ? 3 : 2;
    for( ;$i<@AR;$i++ ){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
@@ -1279,29 +1279,32 @@ my( $name,$re,$ls ) = @_;
 }
 
 sub Memo_1{
-my( $re,$mem,$dir ) = @_;
+my( $re,$mem,$dir,$tap ) = @_;
  if( defined $dir ){
   my $file = Dirs_1( "$re->{'CEL'}/$dir",2 );
+   Tap_2( $re,\$dir ) if $tap and $re->{'FOR'};
   if( @{$file} ){
-    $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n" unless defined $re->{'L_OPT'};
+    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Check folder $re->{'CEL'} => $dir\n";
+    }elsif( $dir =~ /$re->{'L_OPT'}/ ){ $re->{'EXC'} .= "     Check folder $re->{'CEL'} => $dir\n" }
    for( my $i=0;$i<@{$file};$i++ ){
-    $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]" unless defined $re->{'L_OPT'};
+     unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]";
+     }elsif( $dir =~ /$re->{'L_OPT'}/ ){ $re->{'EXC'} .= $#$file == $i ? "    $$file[$i]\n" : "     $$file[$i]" }
    }
   }else{
-    $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n" unless defined $re->{'L_OPT'};
+    unless( defined $re->{'L_OPT'} ){ $re->{'ALL'} .= "     Empty folder $re->{'CEL'} => $dir\n";
+    }elsif( $dir =~ /$re->{'L_OPT'}/ ){ $re->{'EXC'} .= "     Empty folder $re->{'CEL'} => $dir\n" }
   }
  }else{
   $re->{'ALL'} .= $re->{'MEM'} unless defined $re->{'L_OPT'};
   if( $re->{'KEN'} and defined $re->{'L_OPT'} ){
-   my $top = substr $re->{'MEM'},0,9;
-    my $mee = substr $re->{'MEM'},9,length $re->{'MEM'};
-     my( $brew,$vers,$hont ) = split '\t',$mee;
+   my( $top,$mee ) = $re->{'MEM'} =~ /(.{9})(.+\n)/;
+    my( $brew,$vers,$hont ) = split '\t',$mee;
    if( index($mee,' ==>') == 0 or $mee =~ /$re->{'L_OPT'}/oi ){
     if( index($mee,' ==> ') != 0 and index($mee,'Not Formula') < 0 ){ $re->{'DN'}++;
       $re->{'DI'}++ if $re->{'HASH'}{$brew} or $re->{'DMG'}{$brew};
      if( -t STDOUT ){ for( $brew,$vers,$hont ){ s/($re->{'L_OPT'})/\033[33m$1\033[0m/oig } }
     }
-    $re->{'KXC'} .= $hont ? "$top$brew\t$vers\t$hont" : $vers ? "$top$brew\t$vers" : "$top$brew";
+    $re->{'KXC'} .= $hont ? "$top$brew\t$vers\t$hont" : $vers ? "$top$brew\t$vers" : "$top$brew" if index($top,'X') < 0;
    }
   }elsif( $mem ){ $re->{'EXC'} .= $re->{'MEM'} }
  }
@@ -1459,10 +1462,10 @@ my( $list,$file,$in,$re ) = @_;
      }
     if( $pop ){
      if( not $list->[$in] or index($list->[$in],' ') == 0 ){
-       Memo_1( $re,$mem,$brew_1 );
+       Memo_1( $re,$mem,$brew_1 ) unless $re->{'INF'} or $re->{'COL'};
          $i--; next;
      }elsif( $list->[$in + 1] and index($list->[$in + 1],' ') != 0 ){
-       Memo_1( $re,$mem,$brew_1 );
+       Memo_1( $re,$mem,$brew_1 ) unless $re->{'INF'} or $re->{'COL'};
        while(1){ $in++;
         $un++ if "$brew_2\n" eq $list->[$in];
          last if not $list->[$in + 1] or index($list->[$in + 1],' ') == 0;
@@ -1471,7 +1474,7 @@ my( $list,$file,$in,$re ) = @_;
      if( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} and ( $un or "$brew_2\n" eq $list->[$in] ) ){
          Type_1( $re,$brew_1,' u ' ) unless  not $re->{'FTD'} and $re->{'OS'}{"${brew_1}_tap"};
      }elsif( $re->{'FOR'} and not $re->{'HASH'}{$brew_1} or $re->{'CAS'} and not $re->{'DMG'}{$brew_1} ){
-           $re->{'MEM'} = "      X  $brew_1\tNot Formula\n";
+           $re->{'MEM'} = "      X  $brew_1\tNot Formula\n" unless $re->{'INF'} or $re->{'COL'};
             Memo_1( $re,$mem );
           $in++; $i--; next;
      }else{
@@ -1492,9 +1495,10 @@ my( $list,$file,$in,$re ) = @_;
         $re->{'AN'}++ if index($brew_1,' ') != 0;
    }
   }
-  if( $re->{'OS'}{"${brew_1}_tap"} and not $re->{'COL'} ){ $in -= 2; Tap_1( $list,$re,\$in ) }
- }
- if( $list->[$in] ){ Tap_1( $list,$re,\$in ) while($list->[$in]) }
+  if( $re->{'OS'}{"${brew_1}_tap"} and not( $re->{'COL'} or $re->{'INF'} ) ){
+   while($list->[$in]){ --$in; last if index($list->[$in],' ') == 0 } Tap_1( $list,$re,\$in )
+  }
+ } if( $list->[$in] ){ Tap_1( $list,$re,\$in ) while($list->[$in]) }
 
  if( $re->{'PRINT'} and ( $re->{'CAS'} or $re->{'LIN'} ) ){ my( @tap,$i,$e );
   for my $arr( @{$re->{'ARY'}} ){
@@ -1518,10 +1522,11 @@ sub Tap_1{ no warnings 'regexp';
 my( $list,$re,$in ) = @_;
  return unless $list->[$$in];
  unless( $re->{'CAS'} and defined $re->{'S_OPT'} or $re->{'MAC'} and $re->{'BL'} or $re->{'LRE'} ){
-  my( $tap2 ) = $list->[$$in] =~ /^\s(.+)\n/;
+  my( $tap3 ) = my( $tap2 ) = $list->[$$in] =~ /^\s(.+)\n/;
    my $tap = ( $re->{'OS'}{$tap2} and $re->{'OS'}{"${tap2}_tap"} ) ? "$tap2/tap" : $tap2;
+    Tap_2( $re,\$tap3 ) if $re->{'FOR'};
 
-   my $mem = ( defined $re->{'L_OPT'} and $tap =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
+   my $mem = ( defined $re->{'L_OPT'} and $tap3 =~ /$re->{'L_OPT'}/o ) ? 1 : 0;
     my( $dirs1 ) = ( $re->{'FTD'} and $re->{'OS'}{"${tap}core"} ) ? $re->{'OS'}{"${tap}core"} =~ m|.+/(homebrew-[^/]+)/.+| :
                      $re->{'OS'}{"${tap}cask"} ? $re->{'OS'}{"${tap}cask"} =~ m|.+/(homebrew-[^/]+)/.+| : '';
 
@@ -1549,19 +1554,19 @@ my( $list,$re,$in ) = @_;
        $re->{'LINK'} and $re->{'LINK'} == 8 and not $re->{'OS'}{"${tap}font"} ){ $brew = 0 }
 
   if( $re->{'BL'} and not $dirs1 or defined $re->{'S_OPT'} and
-                     $tap =~ /$re->{'S_OPT'}/o and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) ){
+                     $tap3 =~ /$re->{'S_OPT'}/o and ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap2} ) ){
       unless( $re->{'OS'}{"${tap}lfont"} ){
-       Tap_2( $re,\$tap ) if $re->{'FOR'};
-        $re->{'BL'} ? Mine_1( $tap,$re,0 ) : Mine_1( $tap,$re,1 ); }
+       Tap_2( $re,\$tap2 ) if $re->{'FOR'};
+        $re->{'BL'} ? Mine_1( $tap2,$re,0 ) : Mine_1( $tap2,$re,1 ); }
   }elsif( $list->[$$in + 1] and index($list->[$$in + 1],' ') != 0 ){ $$in++;
     if( $list->[$$in + 1] and index($list->[$$in + 1],' ') != 0 ){
-     Memo_1( $re,$mem,$tap );
+     Memo_1( $re,$mem,$tap2,1 ) unless $re->{'INF'} or $re->{'COL'};
       while(1){ $$in++;
        last if not $list->[$$in + 1] or index($list->[$$in + 1],' ') == 0;
       }
     }
     if( $re->{'FOR'} and not $re->{'HASH'}{$tap2} or $re->{'CAS'} and not $re->{'DMG'}{$tap} ){
-        $re->{'MEM'} = "      X  $tap\tNot Formula\n" unless defined $re->{'L_OPT'};;
+        $re->{'MEM'} = "      X  $tap\tNot Formula\n" unless $re->{'INF'} or $re->{'COL'};
          $re->{'AN'}--; $re->{'IN'}--; $re->{'BN'}--, $re->{'CN'}-- if $mem;
     }elsif( $re->{'FOR'} and Version_1( $ver,$re->{'HASH'}{$tap2} ) and
            not( $re->{'OS'}{"${tap}un_xcode"} and $re->{'OS'}{"${tap}un_Linux"} ) or
@@ -1580,7 +1585,7 @@ my( $list,$re,$in ) = @_;
         $re->{'AN'}++; $re->{'IN'}++; $re->{'BN'}++, $re->{'CN'}++ if $mem;
      }
   }else{
-    Memo_1( $re,$mem,$tap );
+    Memo_1( $re,$mem,$tap2,1 ) unless $re->{'INF'} or $re->{'COL'};
   }
  }
  $$in++;
@@ -1680,7 +1685,7 @@ sub Format_1{
  if( $re->{'TREE'} and not $re->{'LIKE'} ){ Format_2( $re );
  }elsif( $re->{'LIST'} or $re->{'PRINT'} ){
   waitpid $re->{'PID2'},0 if $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
-  $re->{'ZEN'} = $re->{'ALL'} || $re->{'EXC'} || $re->{'KXC'} || 0;
+  $re->{'ZEN'} = $re->{'KXC'} || $re->{'EXC'} || $re->{'ALL'} || 0;
    $re->{'ZEN'} = $re->{'ZEN'} =~ /^\s{10}==>.*\n$/ ? 0 : $re->{'ZEN'} if $re->{'TAP'} and not $re->{'LINK'};
     $re->{'ZEN'} =~ s/[^\n]+item \d.+item \d\K|[^\n]+item \d[^\n]*\n//s
      if $re->{'TAP'} or $re->{'PRINT'} and ( $re->{'CAS'} or $re->{'LIN'} );
