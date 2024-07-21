@@ -1395,7 +1395,7 @@ my( $list,$file,$in,$re ) = @_;
       $re->{'LINK'} == 8 and $re->{'OS'}{"${brew_1}font"} ){
 
     if( not( $re->{'FTD'} or defined $re->{'S_OPT'} or $re->{'BL'} ) and $re->{'OS'}{"${brew_1}lfont"} ){ next;
-    }elsif( $list->[$in] and " $brew_1\n" gt $list->[$in] or $re->{'S_OPT'} and $list->[$in] and "$list->[$in]/tap" ){
+    }elsif( $list->[$in] and " $brew_1\n" gt $list->[$in] ){
      Tap_1( $list,$re,\$in );
       $i--; next;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
@@ -1465,7 +1465,7 @@ my( $list,$file,$in,$re ) = @_;
        Memo_1( $re,$mem,$brew_1 ) unless $re->{'INF'} or $re->{'COL'};
          $i--; next;
      }elsif( $list->[$in + 1] and index($list->[$in + 1],' ') != 0 ){
-       Memo_1( $re,$mem,$brew_1 ) unless $re->{'INF'} or $re->{'COL'} or "$list->[$in]/tap";
+       Memo_1( $re,$mem,$brew_1 ) unless $re->{'INF'} or $re->{'COL'} or $re->{'OS'}{"${brew_1}_tap"};
        while(1){ $in++;
         $un++ if "$brew_2\n" eq $list->[$in];
          last if not $list->[$in + 1] or index($list->[$in + 1],' ') == 0;
