@@ -4040,6 +4040,7 @@ tdr-vos-slickeq	音楽の柔軟性と非の打ちどころのないサウンド�
 teacode	開発者向けのテキスト拡張アプリ
 teambition	Teambition
 teamspeak-client	音声通信クライアント
+teamspeak-client@beta	音声通信クライアント
 teamviewer	セキュリティに重点を置いたリモートアクセス及び接続ソフトウェア
 teamviewer-host	TeamViewerホスト
 teamviewer-quickjoin	プレゼンテーションや会議に参加する為のスタンドアロンのTeamViewerアプリ
