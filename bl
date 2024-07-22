@@ -1401,9 +1401,9 @@ my( $list,$file,$in,$re ) = @_;
     }elsif( $list->[$in] and " $brew_1\n" eq $list->[$in] ){
      if( defined $re->{'S_OPT'} ){ my $ls = $brew_1;
       Tap_2( $re,\$ls ) if $re->{'FOR'};
-       Mine_1( $brew_1,$re,0 ) if $brew_1 =~ /$re->{'S_OPT'}/o and $re->{'HASH'}{$brew_1} and index($ls,'/') > 0;
-      ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ?
-       Mine_1( $ls,$re,1 ) : Mine_1( $brew_1,$re,0 ) if $ls =~ /$re->{'S_OPT'}/o;
+       Mine_1( $brew_1,$re,0 ) if $re->{'FOR'} and index($ls,'/') > 0 and $brew_1 =~ /$re->{'S_OPT'}/o;
+       ( index($ls,'/') > 0 and not $re->{'S_O'} and $ls =~ /$re->{'S_OPT'}/o ) ? Mine_1( $ls,$re,1 ) :
+       ( index($ls,'/') < 0 and $ls =~ /$re->{'S_OPT'}/o ) ? Mine_1( $ls,$re,1 ) : 0;
      }elsif( $re->{'BL'} and ( $re->{'DMG'}{$brew_1} or $re->{'HASH'}{$brew_1} ) ){ Mine_1( $brew_1,$re,0 );
      } $pop = ++$in;
         $re->{'IN'}++ unless not $re->{'FTD'} and $re->{'OS'}{"${brew_1}_tap"};
@@ -1415,9 +1415,11 @@ my( $list,$file,$in,$re ) = @_;
         my( $reg ) = $opt =~ /(?:[^-]+-){$n}([^-]+)/;
          Mine_1( $brew_1,$re,0 ) if $reg =~ /^\Q$re->{'S_OPT'}\E$/o;
        }
-      }else{ Mine_1( $brew_1,$re,0 )
+      }else{
+       if( $re->{'S_O'} ){ Mine_1( $brew_1,$re,0 )
          unless( $re->{'MAC'} and ( $re->{'OS'}{"${brew_1}un_xcode"} or $re->{'OS'}{"${brew_1}un_cask"} ) ) or
                  $re->{'LIN'} and $re->{'OS'}{"${brew_1}un_Linux"};
+       }else{ Mine_1( $brew_1,$re,0 ) }
       }
      }
     }
