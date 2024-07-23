@@ -479,6 +479,7 @@ boom	オーディオ入力を変換します
 boom-3d	ボリュームブースター/イコライザーソフトウェア
 boop	開発者向けのスクリプト可能なスクラッチパッド
 boost-note	開発者向けのマークダウンノートエディター
+boosteroid	クラウドゲームサービス
 bootstrap-studio	Bootstrapフレームワークを使用したWebサイトの設計とプロトタイプ
 bootxchanger	古いMacのブートロゴを変更するユーティリティ
 bose-updater	Bose製品のソフトウェアアップデート
@@ -1475,6 +1476,7 @@ geneious-prime	生物情報科学ソフトウェアプラットフォーム
 genesis-plus	セガ ジェネシス/メガドライブ エミュレータ
 genesys-cloud	Genesys Cloudをスタンドアロンプログラムとして実行しWebブラウザから分離します
 genymotion	Androidエミュレータ
+geoda	空間分析、統計、自己相関及び回帰
 geogebra	数学の問題、グラフ関数等を、解決/保存/共有します
 geogebra@5	数学の問題、グラフ関数などを解決、保存、共有します。
 geomap	ブラウズ 地球科学データセットの視覚化と分析
@@ -1969,6 +1971,7 @@ kaku	Kaku
 kaleidoscope	テキストと画像の、ファイル/フォルダの違いを見つけてマージする
 kaleidoscope@2	テキストと画像の、ファイル/フォルダの違いを見つけてマージする
 kaleidoscope@3	テキストと画像の、ファイル/フォルダの違いを見つけてマージする
+kando	Pie Menu
 kap	Webテクノロジーで構築されたオープンソースのスクリーンレコーダー
 kapitainsky-rclone-browser	Rcloneブラウザー
 karabiner-elements	キーボードカスタマイザー
@@ -4224,6 +4227,7 @@ transmit	ファイル転送アプリケーション
 transnomino	バッチ名前変更ユーティリティ
 transocks	さまざまなビデオ音楽リソースへのアクセスを最適化するツール
 treesheets	オープンソースの階層型表計算とアウトラインアプリケーション
+treeviewer	系統樹ビューア
 tresorit	Tresoritクラウドストレージサービスのクライアント
 trex	使いやすいテキスト抽出ツール
 trezor-bridge	Trezorデバイスとサポートされているブラウザー間の通信を容易にします
