@@ -684,7 +684,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
 
      if( $re->{'MAC'} and $data =~ /^\s*keg_only\s+:.+_by_macos/ ){
        $tap{"${name}pkeg"} = 1;
-     }elsif( $data =~ /^\s*keg_only/ ){
+     }elsif( $data =~ /^\s*keg_only(?!\s+:.+_by_macos)/ ){
        $tap{"${name}keg"} = 1;
      }elsif( $re->{'LIN'} and $data =~ /^\s*depends_on\s+:macos/ ){
        $tap{"${name}un_Linux"} = 1;
