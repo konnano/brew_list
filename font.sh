@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
 [[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}; CO=$3
 
@@ -6,10 +6,7 @@
   [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
                   rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,FONT_*,TIE_*,"WAIT$CO",LOCK}; }
 
-if ! printf -v TI '%(%s)T' 2>/dev/null;then
  TI=$(date +%s)
-fi
-
 if [[ $1 = 1 && -d ~/.BREW_LIST/LOCK ]];then
  LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+120 ))
   (( TI > LS1 )) && math_rm
