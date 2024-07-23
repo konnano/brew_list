@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
- NAME=$(uname)
 [[ $1 =~ ^[01]$ ]] || ${die:?input 1 error}
 [[ ! $2 || $2 =~ ^[12]$ ]] || ${die:?input 2 error}; CO=$3
 
@@ -34,6 +33,7 @@ if [[ $2 ]];then
   fi
  done
 
+  NAME=$(uname)
  if [[ -f ~/.JA_BREW/ja_brew.txt ]];then
   LS2=$(( $(date -r ~/.JA_BREW/ja_brew.txt +%s)+86400 ))
   if (( TI > LS2 ));then
