@@ -5523,7 +5523,6 @@ rustfmt	Rustコードをフォーマットする
 rustls-ffi	Rustls TLSライブラリのFFIバインディング
 rustscan	現代のポートスキャナー
 rustup	Rustツールチェーンインストーラー
-rustup-init	Rustツールチェーンインストーラー
 rxvt-unicode	UnicodeをサポートするRxvtフォーク
 ry	Ruby仮想環境ツール
 rye	Python用の実験的なパッケージ管理ソリューション
