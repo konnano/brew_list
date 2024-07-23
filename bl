@@ -1961,8 +1961,8 @@ __END__
   [[ $1 = 1 ]] && rm -f ~/.BREW_LIST/{*.html,DBM*} || rm -f ~/.BREW_LIST/*.html
                   rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,FONT_*,TIE_*,"WAIT$CO",LOCK}; }
 
- TI=$(date +%s)
 if [[ $1 = 1 && -d ~/.BREW_LIST/LOCK ]];then
+ TI=$(date +%s)
  LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+120 ))
   (( TI > LS1 )) && math_rm
 fi
@@ -1974,6 +1974,7 @@ if [[ $2 ]];then
  trap 'math_rm 1; exit 1' 1 2 3 15
 
   cd ~/.BREW_LIST || { math_rm; ${die:?cd error}; }
+  TI=$(date +%s)
  for WA in {WAIT*,Tree*,File*=*};do
   [[ ${WA: -1} = '*' ]] && continue || shopt -s extglob
   if [[ $WA =~ WAIT* ]];then
