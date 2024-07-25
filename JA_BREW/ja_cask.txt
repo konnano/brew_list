@@ -2697,6 +2697,7 @@ network-radar	ネットワークをスキャン及び監視する為のツール
 netxms-console	ネットワークとインフラストラクチャ基盤の監視及び管理システム
 next	Nextブラウザ
 nextcloud	Nextcloudソフトウェア製品用のデスクトップ同期クライアント
+nextcloud-vfs	Nextcloud ソフトウェア製品用のデスクトップ同期クライアント
 nfov	ASCII/ANSI アートビューア
 ngrok	リバースプロキシ Localhostへの安全なintrospectableトンネル
 nheko	Matrix手続き用のデスクトップクライアント
@@ -3203,6 +3204,7 @@ prizmo	光学式文字認識(OCR)を使用したスキャンアプリケーシ�
 processing	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶ為の言語
 processing@3	柔軟なソフトウェアスケッチブックとコーディング方法を学ぶ為の言語
 processmonitor	プロセスアクティビティを監視する
+processspy	プロセスモニター
 procexp	プロセスエクスプローラー
 proclaim	教会のプレゼンテーションソフトウェア
 product-hunt	Product Hunt
@@ -3487,6 +3489,7 @@ roam	バーチャルオフィス
 roam-research	ネットワーク化された思考の為のメモを取るツール
 roaringapps	インストールされているアプリの互換性情報を表示する
 roblox	オンラインマルチプレイヤーゲームプラットフォーム
+robloxstudio	エクスペリエンスを構築する為のRoblox IDE
 robo-3t	MongoDB管理ツール
 robofont	フォントエディター
 roboform	パスワードマネージャーとフォームフィラーアプリケーション
