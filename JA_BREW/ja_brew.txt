@@ -4711,6 +4711,7 @@ packer	複数のプラットフォーム用に同一のマシンイメージを�
 packer-completion	PackerのBash補完
 packetbeat	ネットワークデータ用の軽量Shipper
 packetq	PCAPファイルへのSQLの様なフロントエンド
+packetry	Cynthionで使用する高速で直感的なUSB 2.0プロトコル分析アプリケーション
 packmol	分子動力学シミュレーションの為のPackingの最適化
 packr	静的ファイルをGoバイナリに埋め込む簡単な方法
 pacmc	Minecraftパッケージマネージャー/ランチャー
