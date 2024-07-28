@@ -512,6 +512,7 @@ brickstore	BrickLinkオフライン管理ツール
 bridge	メガスキャンとメタヒューマンへのゲートウェイ
 brightintosh	画面の明るさを高めるユーティリティ
 brightness-sync	LG UltraFineディスプレイの明るさを同期するユーティリティ
+brightvpn	VPNサービス
 brisk	レーダーを提示するアプリ
 brisync	外部ディスプレイの明るさを自動的に制御するユーティリティ
 brl-cad-mged	BRL-CAD
