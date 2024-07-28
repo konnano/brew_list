@@ -2778,6 +2778,7 @@ iprint	print_one関数を提供します
 iproute2	Linux設定ユーティリティ
 iproute2mac	MacOSの基本的なネットワークユーティリティのCLI wrapper -ipコマンド
 ipsumdump	ダンプファイルを自己記述型ASCII形式に要約します TCP/IP
+ipsw	iOS及びMacOSデバイス用のリサーチツール
 iptables	Linuxカーネルパケット制御ツール
 iputils	Linuxネットワークの小さく便利なユーティリティのセット
 ipv6calc	IPv6アドレスを操作する為の小さなユーティリティ
