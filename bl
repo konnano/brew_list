@@ -856,7 +856,7 @@ my( $re,$ls ) = @_; my( @AN,$mine,$in );
     Tap_2( $re,\$key );
      @AN = sort @AN unless $ls;
      if( -t STDOUT and @AN and not $in ){ $in++;
-      ( $re->{'dep_s'} and $ls ) ? print" ==> Cask\n" : $ls ? print"\n ==> Cask\n" : print" ==> Formula\n";
+      ( $re->{'dep_s'} and $ls ) ? print" == Cask ==\n" : $ls ? print"\n == Cask ==\n" : print" == Formula ==\n";
      }
       print"$re->{'NOT'}" if $re->{'NOT'} and @AN and not $re->{'KEN'};
        for my $len( @AN ){
@@ -1656,28 +1656,36 @@ my( $re,$brew_1,$i,$e ) = @_;
 
 sub Command_1{
 my $re = shift; my( $ls1,$ls2,%HA,%OP,$IN );
- Like_1( $re,[\$re->{'STDI'}],1 );
+ Like_1( $re,[\$re->{'STDI'}],[] );
  exit unless my $num = $re->{'HASH'}{$re->{'STDI'}};
- $re->{'CELD'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
-  for $ls1( sort `find -L $re->{'CEL'}/$re->{'STDI'}/$num -type f` ){ chomp $ls1;
-   next if $ls1 =~ m[^$re->{'CELD'}/[^.][^/]+$|^$re->{'CELD'}/\.brew]o;
-   if( $ls1 =~ m[^$re->{'CELD'}/\.|^$re->{'CELD'}/s?bin/]o ){
-           print"$ls1\n";
-   }elsif( not -l $ls1 and $ls1 =~ m|^$re->{'CELD'}/lib/[^/]+dylib$|o ){
-           $IN = print"$ls1\n";
-   }else{ $ls2 = $ls1;
-     $ls1 =~ s|^($re->{'CELD'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
-       $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
-     $ls2 =~ s|^$re->{'CELD'}/[^/]+/[^/]+/(.+)|$1|o;
-       $OP{$ls1} = $ls2;
+  if( $re->{'KEN'} ){
+   my $bin = substr($re->{'BIN'},0,-4).'/bin';
+   opendir my $dir,$bin or die " BIN $!\n";
+    for my $na(sort readdir $dir){ next if index($na,'.') == 0;
+     print"$bin/$na\n" if -l "$bin/$na" and readlink("$bin/$na") =~ m[/$re->{'STDI'}(/|$)]o;
+    }
+  }else{
+   $re->{'CELD'} = "$re->{'CEL'}/\Q$re->{'STDI'}\E/$num";
+   for $ls1( sort `find -L $re->{'CEL'}/$re->{'STDI'}/$num -type f` ){ chomp $ls1;
+    next if $ls1 =~ m[^$re->{'CELD'}/[^.][^/]+$|^$re->{'CELD'}/\.brew]o;
+    if( $ls1 =~ m[^$re->{'CELD'}/\.|^$re->{'CELD'}/s?bin/]o ){
+            print"$ls1\n";
+    }elsif( not -l $ls1 and $ls1 =~ m|^$re->{'CELD'}/lib/[^/]+dylib$|o ){
+            $IN = print"$ls1\n";
+    }else{ $ls2 = $ls1;
+      $ls1 =~ s|^($re->{'CELD'}/[^/]+/[^/]+)/.+(/.+)|$1$2|o;
+        $HA{$ls1}++ if $ls1 =~ s|(.+)/.+|$1|;
+      $ls2 =~ s|^$re->{'CELD'}/[^/]+/[^/]+/(.+)|$1|o;
+        $OP{$ls1} = $ls2;
+    }
    }
-  }
-  for my $key( sort keys %HA ){
-   if( $HA{$key} == 1 ){
-     $OP{$key} =~ /^$re->{'CELD'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
-   }else{
-     ( $IN and  $key =~ m|^$re->{'CELD'}/lib$|o ) ?
-     print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
+   for my $key( sort keys %HA ){
+    if( $HA{$key} == 1 ){
+      $OP{$key} =~ /^$re->{'CELD'}/o ? print"$OP{$key}\n" : print"$key/$OP{$key}\n";
+    }else{
+      ( $IN and  $key =~ m|^$re->{'CELD'}/lib$|o ) ?
+      print"$key/ ($HA{$key} other file)\n" : print"$key/ ($HA{$key} file)\n";
+    }
    }
   }
  Nohup_1( $re );
@@ -1990,7 +1998,7 @@ if [[ $2 ]];then
   [[ ! $TI ]] && TI=$(date +%s)
   LS2=$(( $(date -r ~/.JA_BREW/ja_brew.txt +%s)+86400 ))
   if (( TI > LS2 ));then
-   [[ $2 = 3 ]] && printf "\r $HOME/.JA_BREW : git clone\n"
+   [[ $2 = 3 ]] && printf "\r %s/.JA_BREW : git clone\n" "$HOME"
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
@@ -2000,7 +2008,7 @@ if [[ $2 ]];then
  fi
 
  if [[ $NAME = Darwin ]];then
-  if [[ $2 > 1 ]];then
+  if (( $2 > 1 ));then
     mkdir -p ~/.BREW_LIST/{0..19}
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl 1 error}; }
@@ -2043,7 +2051,7 @@ if [[ $2 ]];then
     Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}"); export Perl_B
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 
-  if [[ $2 > 1 ]];then
+  if (( $2 > 1 ));then
 perl<<"EOF"
    open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " CASK FILE 1 $!\n";
     while($brew=<$FILE1>){
@@ -2097,7 +2105,7 @@ EOF
   (( $? != 0 )) && math_rm 1 && ${die:?perl 2 error}
   fi
  else
-  if [[ $2 > 1 ]];then
+  if (( $2 > 1 ));then
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl h error}; }
    curl -skLo ~/.BREW_LIST/font.zip https://github.com/Homebrew/homebrew-linux-fonts/archive/master.zip ||\
@@ -2147,7 +2155,7 @@ perl<<"EOF"
 EOF
  fi
 
- if [[ $2 > 1 ]];then
+ if (( $2 > 1 ));then
 perl<<"EOF"
   open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " BREW FILE 1 $!\n";
    while($brew=<$FILE1>){
