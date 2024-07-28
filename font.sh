@@ -35,7 +35,7 @@ if [[ $2 ]];then
   [[ ! $TI ]] && TI=$(date +%s)
   LS2=$(( $(date -r ~/.JA_BREW/ja_brew.txt +%s)+86400 ))
   if (( TI > LS2 ));then
-   [[ $2 = 3 ]] && printf "\r $HOME/.JA_BREW : git clone\n"
+   [[ $2 = 3 ]] && printf "\r %s/.JA_BREW : git clone\n" "$HOME"
    git clone -q https://github.com/konnano/JA_BREW ~/.JA_BREWG 2>/dev/null || { math_rm; ${die:?git clone error}; }
     cp ~/.JA_BREWG/* ~/.JA_BREW/
      rm -rf ~/.JA_BREWG ~/.JA_BREW/.git
@@ -45,7 +45,7 @@ if [[ $2 ]];then
  fi
 
  if [[ $NAME = Darwin ]];then
-  if [[ $2 > 1 ]];then
+  if (( $2 > 1 ));then
     mkdir -p ~/.BREW_LIST/{0..19}
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl 1 error}; }
@@ -88,7 +88,7 @@ if [[ $2 ]];then
     Perl_B=$(CO=$(command -v brew);echo "${CO%/bin/brew}"); export Perl_B
     [[ ! $Perl_B ]] && { math_rm; ${die:?brew path not found}; }
 
-  if [[ $2 > 1 ]];then
+  if (( $2 > 1 ));then
 perl<<"EOF"
    open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_CASK.html" or die " CASK FILE 1 $!\n";
     while($brew=<$FILE1>){
@@ -142,7 +142,7 @@ EOF
   (( $? != 0 )) && math_rm 1 && ${die:?perl 2 error}
   fi
  else
-  if [[ $2 > 1 ]];then
+  if (( $2 > 1 ));then
    curl -sko ~/.BREW_LIST/Q_BREW.html https://formulae.brew.sh/formula/index.html ||\
     { math_rm; ${die:?curl h error}; }
    curl -skLo ~/.BREW_LIST/font.zip https://github.com/Homebrew/homebrew-linux-fonts/archive/master.zip ||\
@@ -192,7 +192,7 @@ perl<<"EOF"
 EOF
  fi
 
- if [[ $2 > 1 ]];then
+ if (( $2 > 1 ));then
 perl<<"EOF"
   open $FILE1,'<',"$ENV{'HOME'}/.BREW_LIST/Q_BREW.html" or die " BREW FILE 1 $!\n";
    while($brew=<$FILE1>){
