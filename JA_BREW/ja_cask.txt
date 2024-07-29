@@ -4600,6 +4600,7 @@ x-mirage	AirPlayとGoogle Castレシーバー
 x-moto	2Dモトクロスプラットフォームゲーム
 x-swiftformat	Swiftコードをフォーマットする為のXcode拡張
 x2goclient	リモートデスクトップソフトウェア
+x32-edit	Behringer X32オーディオ コンソール用のリモートコントロール
 xact	X オーディオ圧縮ツールキット
 xamarin-android	.NET開発者にAndroid SDKへの完全なアクセスを提供します
 xamarin-ios	.NET開発者に完全なアクセスを提供します iOS/watchOS/tvOSSDK
