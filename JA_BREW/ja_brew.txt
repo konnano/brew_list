@@ -1602,6 +1602,7 @@ epeg	サムネイルスケーリング JPEG/JPG
 ephemeralpg	分離された一時的なPostgresデータベースでテストを実行します
 epic5	強化されたプログラム可能なIRCクライアント
 epinio	EpinioのCLI Kubernetesのアプリケーション開発エンジン
+epoll-shim	kqueueを使用した小規模なepoll実装
 epr	コマンドラインEPUBリーダー
 eprover	平等で完全な一階述語論理の定理証明
 epsilon	強力なwavelet画像圧縮機
