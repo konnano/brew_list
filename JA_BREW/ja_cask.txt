@@ -865,6 +865,7 @@ data-integration	エンドツーエンドのデータ統合及び分析プラッ
 data-rescue	データ回復ソフトウェア
 data-science-studio	大規模な機械学習の為の迅速な実験と運用化
 datadog-agent	システム全体の監視とセキュリティ アプリ/サービス
+dataflare	データベースマネージャー
 datagraph	科学/統計 グラフ作成ソフトウェア
 datagrip	データベースとSQL IDE
 datasette	Datasetteをラップするデスクトップアプリケーション
@@ -3350,6 +3351,7 @@ quicklookase	Adobe Swatch Exchangeファイル用のQuickLook生成器
 quicknfo	NFOファイルを表示するための、Quick Lookプラグイン
 quicksilver	生産性アプリケーション
 quicktune	QuickTime 7スタイルのApple Musicコントローラー
+quickwhisper	音声転写ツール
 quiet	Tor及びIPFSに基づいて構築された、SlackとDiscordに代わるプライベートなp2p
 quiet-reader	気を散らさずに記事やテキストのハイライトを読む
 quik	GoProの写真とビデオにアクセスして編集する
