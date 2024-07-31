@@ -2478,8 +2478,8 @@ mindforger	思考力のあるノートブックとマークダウンIDE
 mindjet-mindmanager	マインドマッピングツール
 mindmac	ChatGPTクライアント
 minecraft	サンドボックス建設ビデオゲーム
+minecraft-education	Minecraftの教育版
 minecraft-server	Minecraftマルチプレイヤーサーバーを実行する
-minecraftpe	Minecraftの教育版
 mini-program-studio	Alipayアプレットの開発の為のIDE
 mini-vmac	最新のコンピュータが初期のAppleコンピュータ用に作られたソフトウェアを実行できる様にします
 miniconda	condaの最小限のインストーラー
