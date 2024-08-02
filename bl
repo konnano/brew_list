@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 my( $OS_Version,$Locale,%JA );
-my $MY_BREW = `CO=\$(command -v brew);printf "\${CO%/bin/brew}" 2>/dev/null`||die " brew not found\n";
+my $MY_BREW = Path_1() || die " brew not found\n";
 
 MAIN:{
  my $home = "$ENV{'HOME'}/.BREW_LIST";
@@ -395,6 +395,18 @@ my( $url,$ls,$re ) = @_; my( $an,$bn )  = ( [],[] );
   closedir $dir_2;
  }
  $bn;
+}
+
+sub Path_1{ my( $brew,$i );
+ for my $path( split ':',$ENV{'PATH'} ){
+  opendir my $dir,$path or die " Path $!\n";
+  for my $ls( sort readdir $dir ){
+   if( $ls eq 'brew' ){
+    $brew = substr $path,0,-4;
+     $i++; last;
+   } last if substr($ls,0,1) ge 'c';
+  } last if $i;
+ } $brew;
 }
 
 sub Split_1{ my $re = shift; my( $i,@line ) = 0;
