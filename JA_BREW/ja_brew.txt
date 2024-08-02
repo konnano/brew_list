@@ -917,7 +917,6 @@ cloud-sql-proxy	Cloud SQLインスタンスに安全に接続する為のユー�
 cloud-watch	Amazon CloudWatchコマンドラインツール
 cloudflare-cli4	Cloudflare API v4のCLI
 cloudflare-quiche	QUICトランスポートプロトコルとHTTP/3のおいしい実装
-cloudflare-wrangler	Cloudflareワーカー向けのCLIツール
 cloudflare-wrangler2	Cloudflareワーカー用のCLI ツール
 cloudflared	Cloudflareトンネルクライアント(以前のArgoトンネル)
 cloudformation-cli	CloudFormationプロバイダー開発ツールキット
@@ -2041,6 +2040,7 @@ ghc@8.8	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.2	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.4	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.6	Glorious Glasgow Haskellコンパイルシステム
+ghc@9.8	Glorious Glasgow Haskellコンパイルシステム
 ghcup	汎用言語Haskellのインストーラー
 ghex	GNOME16進エディター
 ghi	コマンドラインでGitHubの問題に取り組む
@@ -5662,6 +5662,7 @@ ser2net	順番ポートにネットワーク接続を許可する
 serd	RDF構文用のCライブラリ
 serf	サービスオーケストレーション/管理ツール
 serialosc	モノームデバイス用のOpensoundコントロールサーバー
+serpl	検索と置換の為のシンプルなターミナルUI
 sersniff	2つの順番ポート間をするプログラム tunnel/sniff
 serve	必要な場所にある静的httpサーバー
 serveit	静的コンテンツの同期サーバーと再構築
