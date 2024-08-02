@@ -1858,6 +1858,7 @@ islide	PPTベースのプラグインツール
 isolator	デスクトップや非アクティブなウィンドウなどを非表示にするメニューバーアプリ
 istat-menus	システム監視アプリ
 istat-menus@5	システム監視アプリ
+istat-menus@6	システム監視アプリ
 istat-server	コンピューター/サーバーの人口動態統計を送信します
 isteg	暗号化ツール
 isubtitle	字幕トラックを挿入する メディアへのチャプターマーカーとメタデータ
