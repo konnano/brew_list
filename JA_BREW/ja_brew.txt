@@ -4247,6 +4247,7 @@ mysql++	MySQLのCAPIのC++ラッパー
 mysql-client	オープンソースのリレーショナルデータベース管理システム
 mysql-client@5.7	オープンソースのリレーショナルデータベース管理システム
 mysql-client@8.0	オープンソースのリレーショナルデータベース管理システム
+mysql-client@8.4	オープンソースのリレーショナルデータベース管理システム
 mysql-connector-c++	C++アプリケーション用のMySQLデータベース連結装置
 mysql-search-replace	PHPでのデータベース検索及び置換スクリプト
 mysql@5.7	オープンソースのリレーショナルデータベース管理システム
