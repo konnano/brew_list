@@ -233,7 +233,7 @@ sub Init_1{
        $re->{'CAS'} and $re->{'ana'} and $re->{'ana'} !~ /^[12]$/ ){
      open my $DIR1,"$re->{'HOME'}/brew.txt" or die " L_DIR1 $!\n";
       while(<$DIR1>){ s/^([^\t]+)\t.+\n/$1/; 
-                      if( $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'FOR'} and $name eq $_ ){ $name = 0; last }
+                      if( $re->{'INF'} and $re->{'FOR'} and $name eq $_ ){ $name = 0; last }
                       push @{$cat},"$_\n";
                       if( $re->{'OS'}{"${_}alias"} and ( $re->{'USE'} or $re->{'BUI'} ) ){
                        for(split "\t",$re->{'OS'}{"${_}alias"}){ push @{$cat},"$_\n" }
@@ -242,7 +242,7 @@ sub Init_1{
     if( $re->{'MAC'} and $name ){
      open my $DIR2,"$re->{'HOME'}/cask.txt" or die " L_DIR2 $!\n";
       while(<$DIR2>){ s/^([^\t]+)\t.+/$1/;
-                      if( $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'CAS'} and "$name\n" eq $_ ){ $name = 0; last }
+                      if( $re->{'INF'} and $re->{'CAS'} and "$name\n" eq $_ ){ $name = 0; last }
                       push @{$cat},$_ } close $DIR2;
     }
    }
