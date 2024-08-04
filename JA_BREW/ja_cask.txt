@@ -2418,6 +2418,7 @@ meshlab	メッシュ加工システム
 messenger	メッセンジャー用のネイティブデスクトップアプリ(以前のFacebookメッセンジャー)
 messenger-native	Facebookのメッセンジャーネイティブ
 meta	デジタル音楽用のタグエディター
+meta-quest-developer-hub	VR開発ツール
 metabase	ビジネス知能と分析
 metaimage	読むエディター 画像メタデータの書き込みと編集
 metamer	16個のSpotlight拡張属性に対応したアクセス可能なメタデータエディター
@@ -3023,6 +3024,7 @@ pdfpenpro	PDF編集ソフトウェア
 pdfsam-basic	ページを抽出/分割/マージ PDFファイルを混合及び回転します
 pdfshaver	PDFファイルを縮小して小さくする
 peakhour	ネットワーク帯域幅とネットワーク品質ビジュアライザー
+pearcleaner	アプリをアンインストールし、古い/アンインストール されたアプリの残りのファイルを削除するユーティリティ
 pecunia	HBCIをサポートするオンラインバンキングアプリ
 penc	トラックパッド指向のウィンドウマネージャー
 pencil	鉛筆プロジェクト
