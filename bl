@@ -232,15 +232,18 @@ sub Init_1{
        $re->{'FOR'} and $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/ or
        $re->{'CAS'} and $re->{'ana'} and $re->{'ana'} !~ /^[12]$/ ){
      open my $DIR1,"$re->{'HOME'}/brew.txt" or die " L_DIR1 $!\n";
-      while(<$DIR1>){ s/^([^\t]+)\t.+\n/$1/; $name = 0,last if $name eq $_; push @{$cat},"$_\n";
+      while(<$DIR1>){ s/^([^\t]+)\t.+\n/$1/; 
+                      if( $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'FOR'} and $name eq $_ ){ $name = 0; last }
+                      push @{$cat},"$_\n";
                       if( $re->{'OS'}{"${_}alias"} and ( $re->{'USE'} or $re->{'BUI'} ) ){
                        for(split "\t",$re->{'OS'}{"${_}alias"}){ push @{$cat},"$_\n" }
                       }
                     } close $DIR1;
     if( $re->{'MAC'} and $name ){
      open my $DIR2,"$re->{'HOME'}/cask.txt" or die " L_DIR2 $!\n";
-      while(<$DIR2>){ s/^([^\t]+)\t.+/$1/; $name = 0,last if "$name\n" eq $_; push @{$cat},$_ }
-     close $DIR2;
+      while(<$DIR2>){ s/^([^\t]+)\t.+/$1/;
+                      if( $re->{'LINK'} and $re->{'LINK'} > 5 and $re->{'CAS'} and "$name\n" eq $_ ){ $name = 0; last }
+                      push @{$cat},$_ } close $DIR2;
     }
    }
    Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'},\$re->{'BUI'}],$cat ) if $name;
@@ -985,7 +988,7 @@ sub Like_1{
    push @ARR,$key;
   }
  } my @FOR;
-  if( $re->{'FOR'} and @ARR > 1 and not( $re->{'TREE'} or $re->{'LINK'} ) ){ my( $i,$e,$m ) = ( 0,0 );
+  if( $re->{'FOR'} and @ARR > 1 ){ my( $i,$e,$m ) = ( 0,0 );
    for(;$i<@ARR;$i++){ last if $m;
     for(;$e<@{$cat};$e++){ if( $$cat[$e] gt $$cat[$e+1] ){ $m++; last }
      if( $ARR[$i] eq $$cat[$e] ){ push @FOR,$ARR[$i]; last }
@@ -994,7 +997,7 @@ sub Like_1{
   } @ARR = @FOR if @FOR;
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
-   print"$$name...\n" unless $re->{'PRE'} or $re->{'dep_s'} or $re->{'ANA'};
+   print"$$name...\n" if $re->{'LINK'} or $re->{'USE'} or $re->{'BUI'} or $re->{'COM'};
  }else{
   if( @ARR ){
    $re->{'LIKE'} = -t STDOUT ? print"\033[33m much...\033[0m\n" : print" much...\n";
@@ -1145,7 +1148,7 @@ sub File_1{
 
 sub Unic_1{
  my( $re,$brew,$spa,$AN,$build ) = @_;
-  print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN1'}++;
+  print"$re->{'INF'}\n" if $re->{'PP'} and 1 == $re->{'LEN2'}++;
  my $name = $$brew;
   $$brew = $re->{'OS'}{"$${brew}alia"} ? $re->{'OS'}{"$${brew}alia"} : $$brew;
    my $ver = $re->{'OS'}{"${name}alia"} ? qq( ($re->{'OS'}{"$${brew}ver"})) : '';
@@ -1875,7 +1878,7 @@ sub Format_2{
      $AU = '';
   }
    waitpid $re->{'PID2'},0 if $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
-   print"$re->{'INF'}\n" if @AUA and $re->{'LEN1'} == 1;
+   print"$re->{'INF'}\n" if @AUA;
    print reverse @AUA if not $re->{'DD'} or -t STDOUT;
  }
  if( $re->{'DD'} ){ my( $m,$flag,@AR,@DEL ) = 0;
