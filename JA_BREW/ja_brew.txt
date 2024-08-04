@@ -3321,7 +3321,9 @@ libgcrypt	GnuPGのコードに基づく暗号ライブラリ
 libgda	GNOMEプロジェクトへの統合データアクセスを提供します
 libgdata	オンラインサービスAPIにアクセスする為のGLibベースのライブラリ
 libgedit-amtk	GTKアプリケーション用のアクション メニュー/ツールバーキット
+libgedit-gfls	Gedit Technology - ファイルの読み込みと保存
 libgedit-gtksourceview	コード編集用のテキストエディターウィジェット
+libgedit-tepl	Gedit Technology - テキストエディター製品ライン
 libgee	GObjectベースのインターフェースを提供するコレクションライブラリ
 libgeotiff	GeoTIFFを処理する為のライブラリとツール
 libgetdata	Dirfile標準のリファレンス実装
@@ -4703,6 +4705,7 @@ owamp	一方向アクティブ測定手続きの実装
 owfs	Dallas/Maxim 1-wireシステムを使用して物理環境を監視/制御します
 ox	ターミナルで実行される独立したRustテキストエディタ
 oxipng	Rustで書かれたマルチスレッドPNG最適化ツール
+oxker	Dockerコンテナを表示及び制御する為のターミナルユーザーインターフェイス(TUI)
 oysttyer	コマンドラインTwitterクライアント
 p0f	汎用性の高い指紋認証OS 成り済まし検出ツール
 p11-kit	PKCS#11モジュールをロードして列挙する為のライブラリ
@@ -5830,7 +5833,6 @@ snow	ホワイトスペースステガノグラフィ：ホワイトスペース
 snowball	ステミングアルゴリズム
 snowflake	Flashproxyに触発されたWebRTCを使用したプラガブルトランスポート
 snownews	テキストモードRSSニュースリーダー
-snowpack	最新のWeb用に設計されたフロントエンドビルドツール
 sntop	ホストをポーリングして接続を判別するCursesベースのユーティリティ
 snyk-cli	プロジェクトをスキャンしてセキュリティの脆弱性を監視します
 snzip	snappyに基づく圧縮/解凍ツール
@@ -6199,7 +6201,6 @@ tendermint	任意のプログラミング言語のアプリケーション用の
 tengo	Goの高速スクリプト言語
 tenv	OpenTofu/Terraform/Terragrunt バージョンマネージャー
 tenyr	32ビットコンピューティング環境(シミュレートされたCPUを含む)
-tepl	GNOMEテキストエディタの製品ライン
 tere	ターミナルファイルエクスプローラー
 term	指定されたディレクトリでターミナルを開きます(オプションでコマンドを実行します)
 termbox	テキストベースのユーザーインターフェイスを作成する為のライブラリ
