@@ -1293,6 +1293,7 @@ finbar	メニューバー検索ユーティリティ
 finch	オープンソースのコンテナ開発ツール
 find-any-file	ファイルファインダー
 find-empty-folders	空のフォルダを検索します
+find-my-ports	オープン開発ポートとリモートVercelデプロイメントのマネージャー
 findergo	Finderからターミナルをすばやく開く
 fing	ネットワークスキャナー
 fing-cli	ネットワークスキャナー
@@ -4718,6 +4719,7 @@ zesarux	ZXマシンエミュレータ
 zettelkasten	Luhmannによるノートボックス
 zettlr	オープンソースのマークダウンエディター
 zight	ビジュアルコミュニケーションプラットフォーム
+zipic	画像圧縮ツール
 znote	メモを取るアプリ
 zoc	プロフェッショナルSSHクライアント及びターミナルエミュレータ
 zoho-docs	Zoho Docsとの間でファイルを同期する
