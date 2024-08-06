@@ -71,6 +71,7 @@ ahoy	YAMLファイルのコマンドから自己文書化CLIプログラムを�
 aichat	ChatGPT cli
 aicommits	AIを使用してgitコミットメッセージを書き込みます
 aide	ファイルとディレクトリの整合性チェッカー
+aider	端末内でAIペアプログラミング
 ain	端末用HTTP APIクライアント
 aircrack-ng	多くの新機能を備えた次世代のaircrack
 airshare	ローカルネットワークでのクロスプラットフォームコンテンツ共有
@@ -873,6 +874,7 @@ clang-format	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
 clang-format@11	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
 clang-format@8	フォーマットツール C/C++/Obj-C/Java/JavaScript/TypeScript
 clang-uml	Clang に基づくカスタマイズ可能なC++用UMLダイアグラム自動生成ツール
+clangql	SQLの様な言語を実行して、C/C++ファイルに対してクエリを実行します
 clarinet	Clarityスマートコントラクト言語のコマンドラインツールとランタイム
 clash	Goのルールベースのトンネル
 classads	求人広告(HTCondor Central Managerが使用)
@@ -3060,6 +3062,7 @@ kubectl-cnpg	kubectl用CloudNativePGプラグイン
 kubectl-rook-ceph	Ceph管理用のRookプラグイン
 kubectx	kubectl文脈を簡単に切り替えてエイリアスを作成できるツール
 kubefirst	Kubernetes向けのGitOpsインフラストラクチャとアプリケーション配信プラットフォーム
+kubehound	Kubernetes攻撃パスを構築する為のツール
 kubekey	Kubernetes and/or KubeSphereのインストーラー...詳しくはENで
 kubelogin	kubectl用のOpenID Connect認証プラグイン
 kubent	非推奨のAPIの使用についてクラスターを簡単に確認する
@@ -3195,6 +3198,7 @@ libaribcaption	ポータブルARIB STD-B24キャプション デコーダ/レン
 libart	高性能2Dグラフィックス用のライブラリ
 libass	ASS/SSA 字幕形式の字幕renderer
 libassuan	Assuan IPCライブラリ
+libassuan@2	Assuan IPCライブラリ
 libatomic_ops	極小のメモリ更新操作の実装
 libavif	.avifファイルをエンコード及びデコードする為のライブラリ
 libb2	安全なハッシュ関数
@@ -3676,6 +3680,7 @@ libxmu	X.Org：Xその他のユーティリティルーチンライブラリ
 libxo	アプリケーションがテキスト、XML、JSON、HTML出力を生成できる様にします
 libxp	Xプリントクライアントライブラリ
 libxpm	X.Org：X Pixmap(XPM)画像ファイル形式ライブラリ
+libxpresent	X Present Extension用のXlibベースのライブラリ
 libxrandr	X.Org：Xサイズ変更 回転/反射/拡張 ライブラリ
 libxrender	X.Org：X11手続きの表現機能拡張のライブラリ
 libxres	X.Org：X-Resource拡張クライアントライブラリ
@@ -4252,6 +4257,7 @@ mysql-connector-c++	C++アプリケーション用のMySQLデータベース連�
 mysql-search-replace	PHPでのデータベース検索及び置換スクリプト
 mysql@5.7	オープンソースのリレーショナルデータベース管理システム
 mysql@8.0	オープンソースのリレーショナルデータベース管理システム
+mysql@8.4	オープンソースのリレーショナルデータベース管理システム
 mysqltuner	MySQLインストールの性能と安定性を向上させる
 mytop	MySQLのTopの様なクエリモニター
 n	Nodeバージョン管理
@@ -4540,6 +4546,7 @@ onedpl	実行ポリシーをサポートするC++標準ライブラリアルゴ�
 onedrive	OneDriveとのフォルダー同期
 onefetch	ターミナルのGitリポジトリの概要
 oniguruma	正規表現ライブラリ
+onion-location	指定されたURLに対して広告されOnion-Locationを検出する
 onioncat	Tor/I2Pを使用してロケーションプライバシーを提供するVPNアダプター
 onionprobe	Tor Onionサービスのテスト/監視ツール
 onlykey-agent	OnlyKeyをハードウェア SSH/GPGデバイスとして使用できるミドルウェア
@@ -5058,6 +5065,7 @@ prodigal	微生物の遺伝子予測
 profanity	コンソールベースのXMPPクライアント
 proftpd	高度に構成可能なGPLライセンスのFTPサーバーソフトウェア
 progress	CoreutilsプログレスViewer
+progressline	コマンドの進行状況をコンパクトな、1行形式で追跡します
 proguard	Javaクラスのファイル 収縮化/最適化/難読化
 proj	地図投影法ライブラリ
 proj@7	地図投影法ライブラリ
@@ -5933,6 +5941,7 @@ spr	個別の修正可能でリベース可能なコミットのプルリクエ�
 spring-completion	SpringのBash補完
 spring-loaded	実行中のJVMでクラスのリロードを有効にするJavaエージェント
 sproxy	'siege-friendly'作法でURLを収集するHTTPプロキシサーバー
+sq	JQのようなクエリ言語を使用したデータラングラー
 sql-language-server	SQL用言語サーバー
 sql-lint	クエリでエラーをDBから戻し健全性チェックを行うSQL静的解析
 sql-migrate	Go用SQLスキーマ移行ツール
@@ -6127,6 +6136,7 @@ t-rec	WebのアニメーションGIF画像を生成する非常に高速なタ�
 t1lib	Type 1フォントからビットマップを生成/ラスタライズする為のCライブラリ
 t1utils	Type 1フォントを処理する為のコマンドラインツール
 ta-lib	市場分析の為のツール
+tabiew	区切りファイル(CSV/TSV/etc.)を表示及びクエリする為のTUI
 tag	MacOSファイルのタグを操作してクエリする
 taglib	オーディオメタデータライブラリ
 tagref	コードベースの他の場所を参照してください
@@ -6537,6 +6547,7 @@ urlview	URLエクストラクタ/ランチャー
 urlwatch	Webページが変更されたときに通知を受け取る
 uru	複数のプラットフォームで複数のRubyを使用する
 urweb	Ur/Webプログラミング言語
+usage	使用仕様のCLIを操作する為のツール
 usb.ids	USBdeで使用されるサブシステム及びデバイスクラスID ベンダーのリポジトリ/デバイス
 usbredir	USB転送量リダイレクトライブラリ
 usbutils	USBデバイスに関する詳細情報を一覧表示します
