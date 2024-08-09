@@ -361,6 +361,7 @@ battle-net	オンラインゲームプラットフォーム
 battlescribe	卓上ウォーゲーマーの為の軍隊リスト作成
 baudline	時間頻度ブラウザー
 bazecor	Dygma Raiseキーボードのグラフィカルコンフィギュレーター
+bbackupp	iOSデバイスのバックアップソフト
 bbc-iplayer-downloads	BBC iPlayer Webサイトからプログラムをダウンロードします
 bbedit	テキスト/コード/マークアップ エディター
 bbedit@14	テキスト/コード/マークアップ エディター
@@ -544,6 +545,7 @@ bwana	Bwana
 bzflag	3Dマルチプレイヤー戦車バトルゲーム
 c0re100-qbittorrent	BitTorrentクライアント
 cabal	チャットプラットフォームCabal用のデスクトップクライアント
+cables	ビジュアルプログラミングツール
 cacher	コードスニペットオーガナイザー
 cad-assistant	CADアシスタント
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
@@ -788,6 +790,7 @@ cord	リモートデスクトップクライアント
 core-data-editor	Core Dataエディター
 core-tunnel	SSHトンネルマネージャー
 corelocationcli	CoreLocationから位置情報を出力します
+cork	Homebrew用GUIコンパニオン アプリ
 cornercal	時計アプリ
 cornerstone	Subversionクライアント
 corona-tracker	地図とチャートを備えたコロナウイルス監視アプリ
