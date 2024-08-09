@@ -279,21 +279,21 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
 
   sub Bdep_1{
-  my( $defa,$name,$ls ) = @_;
+   my( $defa,$name,$ls ) = @_;
    $tap{"${defa}build"} .= "$name\t" unless $tap{"$name$OS_Version2"};
     $tap{"${name}deps_b"} .= "$defa\t";
      push @{$re->{'OS'}},"$name,$defa,1" unless not $ls or $tap{"$name$OS_Version2"};
   }
 
   sub Depe_1{
-  my( $defa,$name,$ls ) = @_;
+   my( $defa,$name,$ls ) = @_;
    $tap{"${defa}uses"} .= "$name\t";
     $tap{"${name}deps"} .= "$defa\t";
      push @{$re->{'OS'}},"$name,$defa,1" if $ls;
   }
 
   sub Xcod_1{
-  my( $name,$bu ) = @_;
+   my( $name,$bu ) = @_;
    if( not $Xcode ){
     if( $bu ){
      $tap{"${name}un_xcode"} = 1;
@@ -306,7 +306,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   }
 
   sub Bxco_1{
-  my( $name,$xc,$bu ) = @_;
+   my( $name,$xc,$bu ) = @_;
    if( $xc gt $Xcode ){
     if( $bu ){
      $tap{"${name}un_xcode"} = 1;
@@ -710,7 +710,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   if( $re->{'MAC'} ){
   rmdir "$ENV{'HOME'}/.BREW_LIST/15" unless $ARGV[0];
   my( $in,$e ) = ( @CASK >> 1,0 );
-  my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm';
+  my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm' unless $ARGV[0];
    for my $dir2( @CASK ){
     my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW,$ver,$i ) = ( 0,0,0,0,0,1,0,0 );
     rmdir "$ENV{'HOME'}/.BREW_LIST/16" if $in == $e++;
