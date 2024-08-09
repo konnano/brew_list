@@ -38,7 +38,7 @@ MAIN:{
                             $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
                             $ref->{'DEL'} = $re->{'DEL'} = 1;
- }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'PP'} = 1 ;
+ }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'PP'} = 1;
  }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
  }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'DD'} = 1;
@@ -184,7 +184,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.26_6\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.26_7\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -232,7 +232,7 @@ sub Init_1{
        $re->{'FOR'} and $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/ or
        $re->{'CAS'} and $re->{'ana'} and $re->{'ana'} !~ /^[12]$/ ){
      open my $DIR1,"$re->{'HOME'}/brew.txt" or die " L_DIR1 $!\n";
-      while(<$DIR1>){ s/^([^\t]+)\t.+\n/$1/; 
+      while(<$DIR1>){ s/^([^\t]+)\t.+\n/$1/;
                       if( $re->{'INF'} and $re->{'FOR'} and $name eq $_ ){ $name = 0; last }
                       push @{$cat},"$_\n";
                       if( $re->{'OS'}{"${_}alias"} and ( $re->{'USE'} or $re->{'BUI'} ) ){
@@ -2983,7 +2983,7 @@ unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
   if( $re->{'MAC'} ){
   rmdir "$ENV{'HOME'}/.BREW_LIST/15" unless $ARGV[0];
   my( $in,$e ) = ( @CASK >> 1,0 );
-  my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm';
+  my $UNAME2 = $UNAME eq 'x86_64' ? 'intel' : 'arm' unless $ARGV[0];
    for my $dir2( @CASK ){
     my( $SPA,$CN,$IN,$CP1,$CP2,$FI,$DW,$OW,$ver,$i ) = ( 0,0,0,0,0,1,0,0 );
     rmdir "$ENV{'HOME'}/.BREW_LIST/16" if $in == $e++;
