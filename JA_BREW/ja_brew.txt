@@ -389,6 +389,7 @@ bas55	ECMA-55で定義されている最低限のBASICプログラミング言�
 base16384	バイナリファイルをプリント出来るutf16beにエンコードする
 base64	base64ファイルのエンコードとデコード
 base91	base91ファイルをエンコード及びデコードするユーティリティ
+basedpyright	様々な改良とパイランス機能を組み込んだPyrightフォーク
 basex	軽量XMLデータベース計算機 XPath/XQuery
 bash	Bourne-UNIXコマンド解釈プログラムのシェル
 bash-completion	Bash3.2のプログラム可能な補完
@@ -2291,6 +2292,7 @@ gokart	Goコードを保護する為の静的コード分析
 gokey	Goのシンプルなボールトレスパスワードマネージャー
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
+golangci-lint-langserver	'golangci-lint'用の言語サーバー
 golines	長い行を修正するGolangフォーマッタ
 gollum	Go n：mメッセージ 多重装置
 golo	JVMの軽量動的言語
@@ -3425,6 +3427,7 @@ libmpc	高精度複素数演算用のCライブラリ
 libmpd	MPD機能へのより高いレベルのアクセス
 libmpdclient	MPDライブラリ C/C++/Objective-C
 libmpeg2	mpeg-2/mpeg-1ビデオストリームをデコードする為のライブラリ
+libmps	メモリプールシステム
 libmrss	RSSファイル/ストリーム用のCライブラリ
 libmspub	Microsoft Publisherのコンテンツを解釈してインポートする
 libmtp	Microsoftのメディア転送手続き(MTP)の実装
@@ -5559,6 +5562,7 @@ sad	CLI 検索と置換 | Space Age seD
 saf-cli	セキュリティ自動化フレームワーク(SAF)CLI
 safe-rm	ファイルの危険な削除を防ぐ為にrmをラップします
 safeint	整数オーバーフローを管理するC++用のクラスライブラリ
+safety	Pythonの依存関係に既知の脆弱性がないかチェックし、修復策を提案します。
 sagittarius-scheme	FreeのR6RS/R7RSをサポートするSchemeの実装
 sail	WordPressアプリケーションを提供しDigitalOceanに展開する為のCLIツールキット
 saldl	速度と早期プレビュー用に最適化されたCLIダウンローダー
@@ -6024,6 +6028,7 @@ stdman	cppreference.comからのフォーマットされたC++ stdlibのマニ�
 steamguard-cli	steamguardのCLI
 steampipe	SQLを使用してクラウドサービスを即座にクエリする
 stella	Atari 2600VCSエミュレーター
+stellar-cli	Stellarネットワークと対話する為のStellarコマンドラインツール
 stellar-core	Stellar(XLM)ネットワークのバックボーン
 stencil	サービス開発用のスマートテンプレートエンジン
 step	暗号とx509の万能ナイフ
@@ -6951,7 +6956,6 @@ xq	コマンドラインXML美化ツール及びコンテンツエクストラ�
 xqilla	XQuery/XPath2コマンドライン解釈プログラム
 xray	ネットワーク制限をバイパスするプロキシを構築する為のプラットフォーム
 xrdb	Xリソースデータベースユーティリティ
-xrick	Rick Dangerousのクローン
 xrootd	高性能で拡張性のあるfault-tolerantデータアクセス
 xsane	グラフィカルスキャンフロントエンド
 xsd	C++のXMLデータbindings
