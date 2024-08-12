@@ -1891,7 +1891,6 @@ frege-repl	FregeのREPL(read-eval-print loop)
 frei0r	ビデオエフェクト用の最低限のプラグインAPI
 fribidi	UnicodeBiDiアルゴリズムの実装
 frizbee	タグを投げるとチェックサムが返されます
-frobtads	TADSインタプリタとコンパイラ
 frotz	Infocom-styleの相互の作用のフィクションプレーヤー
 frozen	ヘッダーのみ、C++14ユーザー向けのgperfに代わるconstexpr
 frpc	ローカルサーバーをインターネットに公開する高速逆プロキシのクライアントアプリ
@@ -2034,6 +2033,7 @@ gffread	GFF/GTF形式変換、領域フィルタリング、FASTA配列抽出
 gflags	command-lineフラグを処理する為のライブラリ
 gfold	Rustで書かれたGitリポジトリを追跡するのに役立ちます
 gforth	ANS Forth言語の実装
+gfxutil	デバイスプロパティ変換ツール
 ggshield	コード内の機密データと機密データをスキャンする
 gh	GitHubコマンドラインツール
 ghc	Glorious Glasgow Haskellコンパイルシステム
@@ -4717,7 +4717,6 @@ owfs	Dallas/Maxim 1-wireシステムを使用して物理環境を監視/制御�
 ox	ターミナルで実行される独立したRustテキストエディタ
 oxipng	Rustで書かれたマルチスレッドPNG最適化ツール
 oxker	Dockerコンテナを表示及び制御する為のターミナルユーザーインターフェイス(TUI)
-oysttyer	コマンドラインTwitterクライアント
 p0f	汎用性の高い指紋認証OS 成り済まし検出ツール
 p11-kit	PKCS#11モジュールをロードして列挙する為のライブラリ
 p7zip	7-Zip(高圧縮ファイルアーカイバ)の実装
@@ -4774,6 +4773,7 @@ pass-git-helper	Passとやり取りするGit認証情報ヘルパー
 pass-import	ほとんどの既存のパスワードマネージャーからデータをインポートする為のパス拡張子
 pass-otp	ワンタイムパスワードトークンを管理する為のPass拡張
 passenger	Ruby用サーバー PythonとApache/NGINXを介したNode.jsアプリ
+passt	仮想マシン及び名前空間用のユーザーモードネットワーキングデーモン
 passwdqc	パスワード/パスフレーズ の強度チェック及び施行ツールセット
 pastebinit	コマンドラインからpastebinに送る
 pastel	色分析/変換/操作 を生成するコマンドラインツール
@@ -6956,6 +6956,7 @@ xq	コマンドラインXML美化ツール及びコンテンツエクストラ�
 xqilla	XQuery/XPath2コマンドライン解釈プログラム
 xray	ネットワーク制限をバイパスするプロキシを構築する為のプラットフォーム
 xrdb	Xリソースデータベースユーティリティ
+xroar	Dragon及びTandy 8-bit コンピューターエミュレーター
 xrootd	高性能で拡張性のあるfault-tolerantデータアクセス
 xsane	グラフィカルスキャンフロントエンド
 xsd	C++のXMLデータbindings
