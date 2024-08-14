@@ -215,6 +215,7 @@ apple-juice	バッテリー残量などを表示するバッテリーゲージ
 applepi-baker	SDカードのバックアップと復元 USBドライブ/外付けHDD等
 applite	Homebrew用のユーザーに親しいGUIアプリ
 apppolice	実行中のプロセスのCPU使用率をすばやく制限する為のアプリ
+approf	pprofのネイティブアプリ
 appstore-quickview	App Storeのクイックビュー
 apptivate	ファイルとアプリケーションのグローバル ホットキーを作成する
 apptrap	AppTrap
@@ -2086,6 +2087,7 @@ kui	クラウドネイティブ開発の為の合成コマンドライン/UI開�
 kvirc	IRCクライアント
 kyokan-bob	名前オークションとDNSレコード管理の為のハンドシェイクウォレットGUI
 lab	ReactUIコンポーネント設計ツール
+labplot	データ視覚化及び分析ソフトウェア
 laconvolver	インパルス応答オーディオファイルを使用してオーディオストリームを畳み込む為のAUプラグイン
 lagrange	Geminispaceを閲覧する為のデスクトップGUIクライアント
 lando	Docker上に構築されたローカル開発環境とDevOpsツール
