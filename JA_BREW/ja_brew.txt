@@ -1290,7 +1290,6 @@ dfix	Dソースコードの自動アップグレードツール
 dfmt	Dソースコードの初期化装置
 dfu-programmer	Atmelチップのデバイスファームウェアupdate base USB programmer
 dfu-util	USB programmer
-dgen	セガ Genesis/Mega Drive エミュレータ
 dhall	Dhall言語の通訳
 dhall-bash	DhallをBashにコンパイルする
 dhall-json	DhalltoJSONコンパイラとDhalltoYAMLコンパイラ
@@ -1522,7 +1521,6 @@ easyrpg-player	RPGツクール 2000/2003 ゲーム通訳
 eatmemory	コマンドラインからメモリを割り当てる簡単なプログラム
 ebook-tools	幾つかの電子ブック形式にアクセスして変換する
 ebook2cw	電子ブックをモールス信号に変換します
-ec2-ami-tools	Amazon EC2 AMIツール(Amazonマシンイメージのバンドルに役立ちます)
 ecasound	マルチトラック対応のオーディオレコーダーとエフェクト計算機
 eccodes	GRIB 1/2 とBUFR 3/4 形式のメッセージをデコード及びエンコードします
 ecflow-ui	client/serverワークフローパッケージのユーザーインターフェイス
@@ -2766,7 +2764,6 @@ ios-deploy	コマンドラインからiPhoneアプリをインストールして
 ios-sim	iOS模擬装置のコマンドラインアプリケーションランチャー
 ios-webkit-debug-proxy	iOSデバイスのDevToolsプロキシ
 iowow	Cユーティリティライブラリと永続的な key/value ストレージ エンジン
-iozone	ファイルシステム基準比較ツール
 ip_relay	TCP転送量shaping relayアプリケーション
 ipbt	UNIXターミナルセッションを記録する為のプログラム
 ipcalc	特定のIPアドレスからさまざまなネットワークマスクなどを計算します
@@ -2914,7 +2911,6 @@ jsdoc3	JavaScriptのAPIドキュメント発生器
 jshon	シェルからJSONを 解析/読み取り/作成 します
 jsign	Windows実行可能ファイルに署名する為のツール インストーラー/スクリプト
 jslint4java	JavaScript Lint(jsl)のJavaラッパー
-jsmin	JavaScriptコードを縮小する
 jsmn	世界最速の JSON パーサー/トークナイザー
 json-c	CのJSONパーサー
 json-fortran	Fortran 2008 JSON API
@@ -4463,6 +4459,7 @@ numdiff	推定ファイル比較ツール
 numpy	Pythonを使用した科学計算用パッケージ
 nuraft	レプリケーションライブラリとしての Raftコアロジックの C++実装
 nushell	GitHub時代のモダンなシェル
+nuspell	高速かつ安全なスペルチェックC++ライブラリ
 nut	ネットワークUPSツール：さまざまなパワーデバイスのサポート
 nutcracker	memcachedとredisのプロキシ
 nuttcp	ネットワーク性能測定ツール
@@ -5349,7 +5346,6 @@ rdb	Redis RDB パーサー
 rdfind	コンテンツに基づいて重複ファイルを検索します(ファイル名ではありません)
 rdiff-backup	ネットワーク経由/ローカルでの逆差分バックアップツール
 rdkit	オープンソースの化学情報学スライブラリ
-rds-command-line-tools	Amazon RDSコマンドラインツールキット
 rdup	バックアップの作成に適したファイルリストを作成する為のユーティリティ
 re-flex	C++の正規表現中心の高速で柔軟なスキャナー発生器
 re2	PCREスタイルの正規表現エンジンをバックトラックする代わりの方法
@@ -6509,7 +6505,6 @@ umlet	このUMLツールは、UML図をすばやく作成する方法を提供�
 umple	モデル指向プログラミングを可能にするモデル化ツール/プログラミング言語
 unac	文字列からアクセントを削除するCライブラリとコマンド
 unar	複数の形式をサポートするコマンドラインアーカイブ解除ツール
-unarj	ARJファイルアーカイバ
 unbound	検証 再帰 DNSリゾルバーのキャッシュ
 uncover	複数の検索エンジンを使用してインターネット上に公開されたホストを検出するツール
 uncrustify	ソースコード美化
