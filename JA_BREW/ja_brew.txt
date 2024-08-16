@@ -1263,6 +1263,7 @@ deno	JavaScriptとTypeScriptの安全なランタイム
 denominator	DNSクラウドを操作する為のポータブルJavaライブラリ
 density	超高速圧縮ライブラリ
 dep-tree	ファイル間の依存関係を視覚化し、依存関係ルールを適用するツール
+dependabot	dependabot更新ジョブをテスト及びデバッグする為のツール
 dependency-check	OWASP依存関係チェック
 deployer	一般的なフレームワークをサポートするPHPで記述された展開ツール
 depqbf	定量化されたブール式(QBF)のSolver
@@ -2386,6 +2387,7 @@ graphqlviz	GraphQLサーバースキーマビジュアライザ
 graphqurl	自動補完を使用したGraphQL用のCurl サブスクリプション/GraphiQL
 graphqxl	大規模でスケーラブルなGraphQLサーバーサイドスキーマを作成する為の言語
 graphviz	AT＆T/ベル研究所のdotグラフ視覚化ソフトウェア
+graphviz2drawio	graphviz(dot)ファイルを draw.io/lucid(mxGraph)形式に変換します
 gravity	埋め込み可能なプログラミング言語
 grayskull	Condaのレシピジェネレーター
 grc	ログファイルとコマンド出力の色付け
@@ -2642,7 +2644,6 @@ hyperestraier	コミュニティの為の全文検索システム
 hyperfine	コマンドライン基準比較ツール
 hyperkit	アプリケーションにハイパーバイザー機能を埋め込む為のツールキット
 hyperscan	高性能正規表現マッチングライブラリ
-hyperspec	Common LispANSI標準のハイパースペック
 hypre	grid問題の為の並列マルチgrid法を特徴とするライブラリ
 hysteria	損失の多い不安定な接続用に最適化された機能満載のプロキシ/リレーツール
 hyx	コンソール用の強力な16進エディタ
@@ -6671,7 +6672,6 @@ vmtouch	ポータブルファイルシステムのキャッシュ診断と制御
 vncsnapshot	VNCスナップショットを作成する為のコマンドラインユーティリティ
 vnstat	コンソールベースのネットワーク転送量モニター
 vnu	Nu Markup Checker：コマンドラインとサーバーのHTML確認
-volatility	高度なメモリ科学調査フレームワーク
 voldemort	分散型Key-Value保管システム
 volk	カーネルの速度最適化ライブラリ
 volt	メタレベルのVimパッケージマネージャー
@@ -6833,7 +6833,6 @@ wownero	Wownero暗号通貨の公式ウォレット及びノードソフトウ�
 wp-cli	WordPressのコマンドラインインターフェイス
 wp-cli-completion	WpcliのBash補完
 wpebackend-fdo	WPE WebKitのFreedesktop.orgバックエンド
-wpscan	WordPressセキュリティスキャナー
 wput	ファイルをアップロードする為の小さなwgetの様なFTPクライアント
 wrangler	emacsとEclipseが統合されたErlangのRefactoringツール
 wren	小さくて高速なクラスベースの並行スクリプト言語
