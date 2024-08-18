@@ -1,7 +1,9 @@
 use strict;
 use warnings;
-use NDBM_File;
 use Fcntl ':DEFAULT';
+my $File;
+eval{ require GDBM_File; $File = 'GDBM_File' };
+if( $@ ){ require NDBM_File; $File = 'NDBM_File' }
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
 my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
@@ -48,7 +50,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  my( $Time,%NA,$i )  = [localtime];
   my $TIME = sprintf "%04d-%02d-%02d",$Time->[5]+=1900,++$Time->[4],$Time->[3];
    my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
- tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
+ tie my %tap,$File,"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
  unless( $ARGV[0] ){
   open my $K,'<',"$Cache/api/formula_aliases.txt" or die" 1 alias $!\n";
