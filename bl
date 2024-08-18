@@ -75,7 +75,7 @@ MAIN:{
     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
  }else{
   unless( $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} ){
-   $OS_Version =  $ENV{'OS_Ver'} || `sw_vers -productVersion`;
+   $OS_Version = $ENV{'OS_Ver'} || `sw_vers -productVersion`;
     die " Use Tiger Brew\n"
      unless $ENV{'OS_Ver'} or $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
       $ENV{'OS_Ver'} = $OS_Version;
@@ -403,15 +403,14 @@ sub Dirs_1{
  $bn;
 }
 
-sub Path_1{ my( $brew,$i );
+sub Path_1{ my $brew;
  for my $path( split ':',$ENV{'PATH'} ){
   opendir my $dir,$path or die " Path $!\n";
   for my $ls( sort readdir $dir ){
    if( $ls eq 'brew' ){
-    $brew = substr $path,0,-4;
-     $i++; last;
+    $brew = substr $path,0,-4; last;
    } last if substr($ls,0,1) ge 'c';
-  } last if $i;
+  } last if $brew;
  } $brew;
 }
 
@@ -540,7 +539,7 @@ sub m_search{
   sub _pri_1{
    my( $co,$re,$an ) = @_; my $s;
      if( $re->{'MAC'} ){ $s = $re->{'SP'} < 27 ? ' 'x ( 26 - $re->{'SP'} ) : '';
-                        print"$re->{'MENU'} \033[1mFormula $s Cask  $s  Font\033[0m\n";
+             print"$re->{'MENU'} \033[1mFormula $s Cask  $s  Font\033[0m\n";
      }else{ $s = ' 'x ( 27 - ( $re->{'SP'}||0 ));
              print"$re->{'MENU'} \033[1mFormula $s Font\033[0m\n";
      }
