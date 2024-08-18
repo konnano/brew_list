@@ -260,7 +260,9 @@ EOF
 
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
-  if [[ $NAME = Darwin ]];then
+  if [[ -f ~/.BREW_LIST/DBMG ]];then
+   mv ~/.BREW_LIST/DBMG ~/.BREW_LIST/DBM
+  elif [[ $NAME = Darwin ]];then
    mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
   else
    mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
