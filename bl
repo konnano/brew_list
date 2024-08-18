@@ -63,8 +63,8 @@ MAIN:{
  }elsif( $AR[0] eq '-ma' ){ $re->{'S_M'}= 2;
  }else{  Died_1();
  }
-  my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
-   unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} and not $re->{'S_O'};
+  my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
+   unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} and not $re->{'S_O'}; $ENV{'Name_M'} = $UNAME;
     $re->{'CEL'} = "$MY_BREW/Cellar";
      $re->{'BIN'} = "$MY_BREW/opt";
   my $repo = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
@@ -75,9 +75,11 @@ MAIN:{
     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
  }else{
   unless( $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} ){
-   $OS_Version =  `sw_vers -productVersion`;
-    die " Use Tiger Brew\n" unless $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
-     $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
+   $OS_Version =  $ENV{'OS_Ver'} || `sw_vers -productVersion`;
+    die " Use Tiger Brew\n"
+     unless $ENV{'OS_Ver'} or $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
+      $ENV{'OS_Ver'} = $OS_Version;
+       $OS_Version = "${OS_Version}M1" if $UNAME eq 'arm64';
   } $ref->{'CEL'} = "$MY_BREW/Caskroom";
  }
   die " \033[31mNot installed HOME BREW\033[0m\n" unless -d $re->{'CEL'};
@@ -89,7 +91,8 @@ MAIN:{
   }elsif( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $home or
                       $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
       $re->{'NEW'} ||= 1; Init_1( $re );
-  }
+  }elsif( $re->{'S_M'} ){ m_search( $re ) }
+
   if( $re->{'JA'} ){ my $op = $re->{'MAC'} ? '-t1' : '-w1';
    die " \033[31mNot connected\033[0m\n"
     if system "ping $op -c1 formulae.brew.sh >/dev/null 2>&1";
@@ -119,8 +122,7 @@ MAIN:{
      $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
 
-  if( $re->{'S_M'} ){ m_search( $re );
-  }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
+  if( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
     $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
      ( utf8::decode($AR[1]), $AR[1] ) : defined $AR[1] ? lc $AR[1] : Died_1();
       $name->{'L_OPT'} = $re->{'STDI'} =~ m|^/(.+)/$| ? $1 : "\Q$re->{'STDI'}\E";
@@ -223,7 +225,7 @@ sub Init_1{
  }
   if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} and not $re->{'COL'} ){
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
-    DB_2( $re ) unless $re->{'MAC'} and ( $re->{'BL'} or $re->{'COM'} or defined $re->{'S_OPT'} and not $re->{'S_O'} );
+    DB_2( $re ) unless $re->{'BL'} or $re->{'COM'} or defined $re->{'S_OPT'} and not $re->{'S_O'};
   }
   if( $re->{'INF'} and not $re->{'COL'} or
       $re->{'USE'} or $re->{'dep_s'} or $re->{'ana'} or $re->{'use'} or $re->{'BUI'} ){
@@ -2277,15 +2279,17 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
-my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
+my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(command -v brew);printf "\${CO%/bin/brew}" 2>/dev/null`||die" brew not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  unless( $ARGV[0] ){
-  $OS_Version = `sw_vers -productVersion`;
-   $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
-    $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
+  $OS_Version = $ENV{'OS_Ver'} || `sw_vers -productVersion`;
+   unless( $ENV{'OS_Ver'} ){
+    $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
+     $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
+   }
   $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
    $Xcode = `CC=\$(xcode-select -p)
              sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;q;}'\\
