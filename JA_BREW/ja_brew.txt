@@ -2272,6 +2272,7 @@ go@1.18	シンプル/信頼性/効率的なソフトウェアを構築する為�
 go@1.19	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 go@1.20	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 go@1.21	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
+go@1.22	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 goaccess	Apache Webサーバーのログ分析と対話的Viewer
 goawk	Goで記述されたPOSIX準拠のAWK解釈プログラム
 gobackup	データベースやファイルをクラウドストレージにバックアップする為のCLIツール
@@ -2364,6 +2365,7 @@ gptscript	自然言語でLLMアプリを開発する
 gptsync	GPT及びMBRパーティションテーブル同期ツール
 gputils	GNUPICユーティリティ
 gpx	Sailfishを実行している3DプリンターのGcodeからx3gへの変換器
+gql	Gitクエリ言語は.gitファイルに対してクエリを実行するSQLのような言語です。
 gqlplus	OracleSQLクライアントであるsqlplusのドロップイン置換
 gqview	画像ブラウザ
 grace	X11のWYSIWYG2D立案ツール
@@ -6285,7 +6287,7 @@ the_silver_searcher	ackに似たコード検索
 thefuck	入力ミスのあるコンソールコマンドをプログラムで修正する
 theharvester	公開ソースから資料を収集する(ペンテスター用)
 theora	オープンビデオ圧縮形式
-thors-serializer	C++の宣言型順番化ライブラリ(JSON/YAML)
+thors-mongo	Mongo APIとシリアルライブラリ
 thrax	文法を限定状態トランスデューサにコンパイルする為のツール
 threadweaver	マルチスレッドプログラミングのヘルパー
 three-body	Rustで書かれた三体プログラミング言語
@@ -6490,6 +6492,7 @@ udis86	x86用の最低限の逆アセンブラライブラリ
 udp2raw-multiplatform	udp2raw-tunnelクライアントのマルチプラットフォーム(クロスプラットフォーム)バージョン
 udptunnel	TCP接続を介してUDPパケットをトンネリングする
 udunits	Unidata単位変換ライブラリ
+ufbt	Flipper Zeroのアプリケーションを構築及びデバッグする為のコンパクトなツール
 uffizzi	k8s仮想クラスターを使用すると数か月ではなく数分でセルフサービス開発プラットフォームを実現できます
 ufraw	未確認のFlyingRAW：RAW画像処理ユーティリティ
 uftp	安全で信頼性が高く効率的なマルチキャストファイル転送プログラム
