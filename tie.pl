@@ -4,15 +4,17 @@ use NDBM_File;
 use Fcntl ':DEFAULT';
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
-my $UNAME = `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
+my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(command -v brew);printf "\${CO%/bin/brew}" 2>/dev/null`||die" brew not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  unless( $ARGV[0] ){
-  $OS_Version = `sw_vers -productVersion`;
-   $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
-    $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
+  $OS_Version = $ENV{'OS_Ver'} || `sw_vers -productVersion`;
+   unless( $ENV{'OS_Ver'} ){
+    $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
+     $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
+   }
   $OS_Version2 = $UNAME eq 'arm64' ? "${OS_Version}M1" : $OS_Version;
    $Xcode = `CC=\$(xcode-select -p)
              sed -nE '/ShortVersionString/{n;s/[^0-9]+([0-9.]+).+/\\1/;s/^([1-9]\\.)/0\\1/;p;q;}'\\
