@@ -63,6 +63,7 @@ MAIN:{
  }elsif( $AR[0] eq '-ma' ){ $re->{'S_M'}= 2;
  }else{  Died_1();
  }
+  my $DBM = -f "$re->{'HOME'}/DBM" ? "$re->{'HOME'}/DBM" : $re->{'LIN'} ? "$re->{'HOME'}/DBM.dir" : "$re->{'HOME'}/DBM.db";
   my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
    unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} and not $re->{'S_O'}; $ENV{'Name_M'} = $UNAME;
     $re->{'CEL'} = "$MY_BREW/Cellar";
@@ -88,8 +89,7 @@ MAIN:{
 
   if( $re->{'NEW'} and $AR[1] and $AR[1] eq '.' ){
       for(glob "$home/WAIT*"){ rmdir } exit;
-  }elsif( $re->{'NEW'} or $re->{'MAC'} and not -f "$re->{'HOME'}/DBM.db" or not -d $home or
-                      $re->{'LIN'} and not( -f "$re->{'HOME'}/DBM.dir" and -f $re->{'LFO'} ) ){
+  }elsif( $re->{'NEW'} or not -f $DBM or not -d $home or $re->{'LIN'} and not -f $re->{'LFO'} ){
       $re->{'NEW'} ||= 1; Init_1( $re );
   }elsif( $re->{'S_M'} ){ m_search( $re ) }
 
@@ -340,7 +340,7 @@ sub Wait_1{
     }
     unless( $loop ){
      waitpid $pid,0;
-     ( $re->{'MAC'} and -f "$re->{'HOME'}/DBM.db" or $re->{'LIN'} and -f "$re->{'HOME'}/DBM.dir" ) ?
+     ( -f "$re->{'HOME'}/DBM" or -f "$re->{'HOME'}/DBM.db" or -f "$re->{'HOME'}/DBM.dir" ) ?
      ( print "\x1B[?25h$dok" and exit ) : die "\x1B[?25h$not";
     }else{ print "\r",$re->{'SPA'}x2,"\r\x1B[?25h"; }
    } exit;
@@ -375,9 +375,10 @@ sub DB_1{
  }
 }
 
-sub DB_2{ require NDBM_File;
- my $re = shift;
-  tie my %tap,'NDBM_File',"$re->{'HOME'}/DBM",0,0 or die " Not read DBM $!\n";
+sub DB_2{ my $re = shift; my $File;
+ eval{ require GDBM_File; $File = 'GDBM_File' };
+ if( $@ ){ require NDBM_File; $File = 'NDBM_File' }
+  tie my %tap,$File,"$re->{'HOME'}/DBM",0,0 or die " Not read DBM $!\n";
    $re->{'OS'} = \%tap;
 }
 
@@ -2258,7 +2259,9 @@ EOF
 
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
-  if [[ $NAME = Darwin ]];then
+  if [[ -f ~/.BREW_LIST/DBMG ]];then
+   mv ~/.BREW_LIST/DBMG ~/.BREW_LIST/DBM
+  elif [[ $NAME = Darwin ]];then
    mv ~/.BREW_LIST/DBMG.db ~/.BREW_LIST/DBM.db
   else
    mv ~/.BREW_LIST/DBMG.dir ~/.BREW_LIST/DBM.dir
@@ -2274,8 +2277,10 @@ fi
 __TIE__
 use strict;
 use warnings;
-use NDBM_File;
 use Fcntl ':DEFAULT';
+my $File;
+eval{ require GDBM_File; $File = 'GDBM_File' };
+if( $@ ){ require NDBM_File; $File = 'NDBM_File' }
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
 my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
@@ -2322,7 +2327,7 @@ if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  my( $Time,%NA,$i )  = [localtime];
   my $TIME = sprintf "%04d-%02d-%02d",$Time->[5]+=1900,++$Time->[4],$Time->[3];
    my $DBM = $ARGV[0] ? 'DBM' : 'DBMG';
- tie my %tap,'NDBM_File',"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
+ tie my %tap,$File,"$ENV{'HOME'}/.BREW_LIST/$DBM",O_RDWR|O_CREAT,0666 or die " tie DBM $!\n";
 unless( $ENV{'HOMEBREW_NO_INSTALL_FROM_API'} ){
  unless( $ARGV[0] ){
   open my $K,'<',"$Cache/api/formula_aliases.txt" or die" 1 alias $!\n";
