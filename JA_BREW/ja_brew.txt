@@ -243,6 +243,7 @@ asimov	TimeMachineバックアップから開発の依存関係を自動的に�
 asio	非同期プログラミング用のクロスプラットフォームC++ライブラリ
 asitop	Apple Silicon用パフォーマンス監視CLIツール
 ask-cli	AlexaスキルキットのCLIツール
+asm6809	モトローラ6809及び日立6309をターゲットにしたクロスアセンブラ
 asmfmt	Goアセンブラーフォーマッタ
 asn	組織検索及びサーバーツール (ASN/IPv4/IPv6/プレフィックス/AS パス)
 asn1c	ASN.1仕様をCソースコードにコンパイルします
@@ -541,6 +542,7 @@ boost-build	C++ビルドシステム
 boost-mpi	相互運用性の為のC++ライブラリ C++/MPI
 boost-python3	相互運用性の為のC++ライブラリ C++/Python3
 boost@1.76	ポータブルC++ソースライブラリのコレクション
+boost@1.85	ポータブルC++ソースライブラリのコレクション
 boot-clj	Clojureのツールを構築する
 bootloadhid	AVRマイクロコントローラー用のHIDベースのUSBブートローダー
 bootterm	シリアルポートへの接続を容易にする、シンプルで信頼性の高い強力なターミナル
@@ -6334,6 +6336,7 @@ tlsx	TLSベースのデータ収集に重点を置いた高速で構成可能な
 tlx	洗練されたC++データ構造のコレクション アルゴリズム/ヘルパー
 tm	knativeオブジェクトを操作する為のTriggerMeshCLI
 tmate	即時端末共有
+tmpmail	POSIX shで書かれたターミナルからの一時的な電子メール
 tmpreaper	経過時間に基づいてディレクトリ内のファイルをクリーンアップします
 tmpwatch	指定された時間内にアクセスされなかったファイルを検索して削除します
 tmt	テスト管理ツール
