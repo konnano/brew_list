@@ -1476,6 +1476,7 @@ gearboy	Gearboy
 gearsystem	セガマスターシステム、ゲームギア、SG-1000エミュレータ
 geburtstagschecker	GeburtstagsChecker
 geekbench	コンピュータシステムのパフォーマンスを測定する為のツール
+geekbench-ai	AI ワークロードのパフォーマンスを評価する為のクロスプラットフォームAIベンチマーク
 geekbench-ml	AIワークロードのパフォーマンスを評価するためのクロスプラットフォームAIベンチマーク
 geektool	デスクトップカスタマイズツール
 gemini	重複した類似のファイルを見つけて削除するディスクスペースクリーナー
@@ -2767,6 +2768,7 @@ now-tv-player	ビデオストリーミングサービスプレーヤー
 noxappplayer	モバイルゲームをプレイする為のAndroidエミュレーター
 nozbe	プロジェクト管理アプリ
 nperf	インターネット速度テストユーティリティ
+nrf-connect	BLEデバイス開発の為のフレームワーク
 nrfutil	Nordic Semiconductor製品用の統合CLIユーティリティ
 nrlquaker-winbox	MikroTik Winbox
 nslogger	最新の柔軟なロギングツール
