@@ -63,8 +63,8 @@ MAIN:{
  }elsif( $AR[0] eq '-ma' ){ $re->{'S_M'}= 2;
  }else{  Died_1();
  }
-  my $DBM = -f "$re->{'HOME'}/DBM" ? "$re->{'HOME'}/DBM" : $re->{'LIN'} ? "$re->{'HOME'}/DBM.dir" : "$re->{'HOME'}/DBM.db";
-  my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
+  my $DBM = -f "$home/DBM" ? "$home/DBM" : $re->{'LIN'} ? "$home/DBM.dir" : "$home/DBM.db";
+  my $UNAME = $ENV{'Name_M'} || `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64'
    unless $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} and not $re->{'S_O'}; $ENV{'Name_M'} = $UNAME;
     $re->{'CEL'} = "$MY_BREW/Cellar";
      $re->{'BIN'} = "$MY_BREW/opt";
@@ -186,7 +186,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.26_7\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.26_8\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -2283,7 +2283,7 @@ eval{ require GDBM_File; $File = 'GDBM_File' };
 if( $@ ){ require NDBM_File; $File = 'NDBM_File' }
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
-my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
+my $UNAME = $ENV{'Name_M'} || `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(command -v brew);printf "\${CO%/bin/brew}" 2>/dev/null`||die" brew not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
