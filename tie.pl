@@ -6,7 +6,7 @@ eval{ require GDBM_File; $File = 'GDBM_File' };
 if( $@ ){ require NDBM_File; $File = 'NDBM_File' }
 
 my( $re,$OS_Version,$OS_Version2,%MAC_OS,%Mac_OS,$Xcode,%HAN,@BREW,@CASK,$NAM,$ACA,$FON,@FONT );
-my $UNAME = ( $ENV{'Name_M'} || `uname -m` ) !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
+my $UNAME = $ENV{'Name_M'} || `uname -m` !~ /arm64|aarch64/ ? 'x86_64' : 'arm64' unless $ARGV[0];
 my $MY_BREW = $ENV{'Perl_B'}||`CO=\$(command -v brew);printf "\${CO%/bin/brew}" 2>/dev/null`||die" brew not found\n";
 my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
