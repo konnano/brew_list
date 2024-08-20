@@ -4352,7 +4352,6 @@ netlify-cli	Netlifyコマンドラインツール
 netlistsvg	yosys JSONネットリストからSVG回路図を描画します
 netmask	IPアドレスネットマスク生成ユーティリティ
 netpbm	画像操作
-netperf	さまざまなタイプのネットワーキングの性能基準比較
 netris	テトリスのネットワーク化された変種
 netsurf-buildsystem	NetSurfプロジェクトによって共有されるMakefile
 nettle	低レベルの暗号化ライブラリ
@@ -4798,6 +4797,7 @@ pc6001vx	PC-6001エミュレータ
 pcal	XなしでPostscriptカレンダーを生成する
 pcalc	複数の拠点で作業するの為の電卓 サイズ/ビットに近い
 pcapplusplus	C++ネットワークsniffing パケット解析とcraftingフレームワーク
+pcaudiolib	ポータブルCオーディオライブラリ
 pcb	対話的プリント回路基板エディタ
 pcb2gcode	PCBsの分離/設定 の為のコマンドラインツール
 pce	PCエミュレーター
