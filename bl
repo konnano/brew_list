@@ -1033,9 +1033,11 @@ sub Uses_1{
  for my $ls( split '\t',$tap ){
   $HA->{$ls}++;
    push @{$AN},$ls if( $re->{'HASH'}{$ls} or $re->{'DMG'}{$ls} ) and $HA->{$ls} < 2;
+  if( $HA->{$ls} < 2 ){
    Uses_1( $re,$re->{'OS'}{"${ls}uses"},$HA,$AN ) if $re->{'OS'}{"${ls}uses"} and $re->{'HASH'}{$ls};
    Uses_1( $re,$re->{'OS'}{"${ls}u_form"},$HA,$AN ) if $re->{'OS'}{"${ls}u_form"} and $re->{'HASH'}{$ls};
    Uses_1( $re,$re->{'OS'}{"${ls}u_cask"},$HA,$AN ) if $re->{'OS'}{"${ls}u_cask"} and $re->{'DMG'}{$ls};
+  }
  }
 }
 
