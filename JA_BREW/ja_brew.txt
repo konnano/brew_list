@@ -1936,6 +1936,7 @@ g2	親しいgitクライアント
 g2o	グラフ最適化の一般的なフレームワーク
 g3log	非同期でクラッシュセーフで使いやすいロガー
 gabedit	計算化学パッケージへのGUI Gamess-US/Gaussianなど
+gabo	GitHub Actionsの定型文を生成する
 gaffitter	ファイル/フォルダ を固定サイズのボリューム(DVDなど)に効率的に適合させる
 galen	外観の自動テストとレスポンシブWebサイトの感知
 gallery-dl	画像ホスティングサイトのギャラリーとコレクション用のコマンドラインダウンローダー
@@ -3140,6 +3141,7 @@ lcrack	一般的なパスワードクラッカー
 lcs	風刺的なコンソールベースの政治的 ロールプレイング/戦略ゲーム
 ld-find-code-refs	LaunchDarklyに機能flagコード参照を送信する為のビルドツール
 ldapvi	テキストエディタでLDAPエントリを更新する
+ldb	LDAPのような組み込みデータベース
 ldc	ポータブルDプログラミング言語コンパイラ
 ldeep	LDAP列挙ユーティリティ
 ldid	Mach-Oバイナリで署名ブロックを操作できます
@@ -6258,6 +6260,7 @@ testkube	テストの定義と実行の為のKubernetes-nativeフレームワー
 testscript	.txtar形式のコマンドラインアプリケーションの統合テスト
 testssl	TLS/SSL暗号と欠陥のサポートをチェックするツール
 tetra	Tetragonインスタンスを 観察/管理/トラブルシューティングする為のTetragon CLI
+tevent	Talecメモリ管理ライブラリに基づくイベントシステム
 texapp	TTYtterに基づくApp.netクライアント
 texi2html	TeXinfoファイルをHTMLに変換する
 texi2mdoc	Texinfoデータをmdoc入力に変換する
