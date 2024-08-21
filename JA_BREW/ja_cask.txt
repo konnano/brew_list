@@ -2184,6 +2184,7 @@ loading	ネットワークアクティビティモニター
 loaf	アニメーションアイコンライブラリ
 local	FlywheelによるWordPressローカル開発ツール
 local@beta	FlywheelによるWordPressローカル開発ツール(beta)
+localcan	パブリックURL及び.localドメインを使用してアプリを開発する
 localizationeditor	iOSアプリローカリゼーションマネージャー
 localxpose	ローカルホストをインターネットに公開できる様にするリバースプロキシ
 locationsimulator	iOSを偽装するアプリケーション iPadOS/iPhoneSimulatorデバイスのLocation
