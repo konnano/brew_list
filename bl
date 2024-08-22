@@ -186,7 +186,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.26_8\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.26_9\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -584,15 +584,13 @@ sub m_search{
 }
 
 sub Proc_1{
- my( $re,$list,$cou ) = @_; my( $c,$d,$e,$m,@an1,@an2,@an3,@an4,$deps ) = ( 0,1,2,3 );
+ my( $re,$list,$cou ) = @_; my( $c,$d,@an1,@an2,$deps ) = ( 0,1 );
  for( my $i=0;$i<@{$list};$i++ ){
   next if $re->{'LIN'} and ( $$list[$i] eq 'glibc' or $$list[$i] eq 'linux-headers@5.15' );
    if( $re->{'OS'}{"$$list[$i]uses"} ){ $deps = split '\t',$re->{'OS'}{"$$list[$i]uses"};
-   }else{ $deps = 0; }
-    if( $m >= $c and $d >= $c and $e >= $c ){ push @an1,$$list[$i]; $c += $deps;
-    }elsif( $m >= $d and $e >= $d and $c >= $d ){ push @an2,$$list[$i]; $d += $deps;
-    }elsif( $m >= $e and $d >= $e and $c >= $e ){ push @an3,$$list[$i]; $e += $deps;
-    }elsif( $e >= $m and $d >= $m and $c >= $m ){ push @an4,$$list[$i]; $m += $deps; }
+   }else{ $deps = 0 }
+    if( $d >= $c ){ push @an1,$$list[$i]; $c += $deps;
+    }else{ push @an2,$$list[$i]; $d += $deps }
  }
   if( $cou and $re->{'LIN'} ){ push @an1,'glibc'; push @an2,'linux-headers@5.15' }
     sub _par{ my( $re,$an,$hand ) = @_;
@@ -607,24 +605,10 @@ sub Proc_1{
             }
 
  if( open my $FH,'-|' ){
-   if( open my $CH,'-|' ){
-     _par( $re,\@an1,$CH );
-    die " can't open process 1\n" if $?;
-   }else{ exit unless @an3;
-     _par( $re,\@an3 );
-   }
-    _par( $re,[],$FH );
-  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die " can't open process 3\n"; }
+    _par( $re,\@an1,$FH );
+  if( $? ){ waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die " can't open process\n" }
  }else{ exit unless @an2;
-   if( open my $DH,'-|' ){
-     _par( $re,\@an2,$DH );
-    die " can't open process 2\n" if $?;
-   }else{ exit unless @an4;
-     _par( $re,\@an4 );
-   }
-  for my $ls( @an2,@an4 ){ $re->{$ls}[0] ||= 0;
-    print"$ls\t@{$re->{$ls}}\n";
-  } exit;
+    _par( $re,\@an2 );
  }
 }
 
@@ -954,7 +938,7 @@ sub Like_1{
    $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for keys %{$re->{'DMG'}};
   }elsif( $re->{'COM'} or $re->{'IS'} ){
     $HA{$_}++ for keys %{$re->{'HASH'}};
-  }elsif( $re->{'TREE'} or $re->{'LINK'} ){
+  }elsif( $re->{'TREE'} or $re->{'LINK'} ){								##########
    for my $c2( @{$cat} ){ chomp $c2;
     if( $re->{'FOR'} ){
      $HA{$c2}++ if $re->{'OS'}{"${c2}deps"};
@@ -964,7 +948,7 @@ sub Like_1{
     }
     $HA{$c2}++ if $re->{'OS'}{"${c2}d_cask"};
     $HA{$c2}++ if $re->{'OS'}{"${c2}formula"};
-   }
+   }													##########
   }elsif( $re->{'ANA'} ){ my $min;
    if( $re->{'FOR'} ){ return if $$name =~ /^[1-8]$/;
     for my $c3( @{$cat} ){ chomp $c3;
@@ -1257,7 +1241,7 @@ sub Info_1{
    }
   }
   if( $re->{'MAC'} ){
-   unless( $re->{'OS'}{"${brew}deps"} ){
+   unless( $re->{'OS'}{"${brew}deps"} ){								##########
     if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
      my( $e,$i ) = $re->{'OS'}{"${brew}formula"} =~ tr/\t/\t/;
      for my $data3( split '\t',$re->{'OS'}{"${brew}formula"} ){ $i++;
@@ -1289,7 +1273,7 @@ sub Info_1{
      }
     }
    }
-  }
+  }													##########
  }
 }
 
