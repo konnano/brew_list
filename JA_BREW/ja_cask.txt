@@ -16,7 +16,6 @@
 4k-slideshow-maker	スライドショーメーカー
 4k-stogram	Instagramの写真をダウンロード アカウント/ハッシュタグ/Locations
 4k-video-downloader	Freeのビデオダウンローダー
-4k-video-downloaderplus	4Kビデオダウンローダープラス
 4k-video-to-mp3	ビデオをMP3に変換する
 4k-youtube-to-mp3	YouTubeリンクをMP3ファイルに変換する
 4peaks	DNA配列トレースファイルの視覚化と編集
@@ -1092,7 +1091,7 @@ eagle	電子設計自動化ソフトウェア
 eaglefiler	ファイルを整理する 電子メールをアーカイブする Webページとメモを保存する すべてを検索
 ealeksandrov-cd-to	ターミナルで現在のディレクトリを開く為のFinderツールバーアプリ
 ears	インスタントオーディオス切り替え
-easy-move-plus-resize	修飾キーとマウスドラッグを使用した移動とサイズ変更をサポートするユーティリティ
+easy-move+resize	修飾キーとマウスドラッグを使用した移動とサイズ変更をサポートするユーティリティ
 easydevo	コーディング用に構築されたエレガントなツール
 easydict	辞書と翻訳アプリ
 easyeda	PCB設計ツール
@@ -1775,7 +1774,6 @@ igdm	Instagram DM用のデスクトップアプリケーション
 iglance	ステータスバーのシステムモニター
 igv	ゲノムデータの視覚的探索
 iina	Freeのオープンソースメディアプレーヤー
-iina-plus	iinaの追加の弾幕サポート(iina 弾幕サポート)
 ilok-license-manager	iLokデバイス用のソフトウェア
 ilspy	Avalonia-based .NETデコンパイラー
 ilya-birman-typography-layout	キーボードレイアウトの体裁
@@ -1819,7 +1817,7 @@ instatus-out	メニューバーでサービスを監視する
 insync	GoogleドライブとOneDriveファイルを管理する
 integrity	壊れたリンクをチェックするWebサイトをスキャンするツール
 intel-haxm	ハードウェア支援仮想化エンジン(ハイパーバイザー)
-intel-psxe-ce-c-plus-plus	ソフトウェア開発ツール
+intel-psxe-ce-c++	ソフトウェア開発ツール
 intellidock	ドックがウィンドウと重なっているときにドックを非表示にします
 intellij-idea	JetBrainsによるJava IDE
 intellij-idea-ce	Java開発用IDE - コミュニティ版
@@ -2038,6 +2036,7 @@ kindavim	入力フィールドと非入力フィールドでVimを使用する
 kindle	電子書籍を読んだり同期したりする為のインターフェース
 kindle-comic-converter	電子ブックリーダー用のコミックとマンガの変換
 kindle-comic-creator	Kindleコミッククリエーター
+kindle-create	美しい本の作成がかつてないほど簡単に
 kindle-previewer	Kindle電子書籍のプレビューと監査
 kit	スクリプトを作成して実行する
 kitematic	Docker Container管理用のビジュアルユーザーインターフェイス
@@ -2193,7 +2192,7 @@ lockrattler	セキュリティシステムをチェックし、問題を報告�
 lofi	WebGLビジュアライゼーションを備えたミニSpotifyプレーヤー
 logdna-agent	エージェントはログファイルからLogDNAアカウントにストリーミングします
 logdna-cli	LogDNAのコマンドラインインターフェイス
-logi-options-plus	Logitechデバイス用のソフトウェア
+logi-options+	Logitechデバイス用ソフトウェア
 logicalshift-zoom	Z-Code用プレーヤー TADS/HUGOの物語やゲーム
 logicsniffer	Open Bench Logic Sniffer倫理分析ハードウェアのソフトウェアクライアント
 loginputmac	中国語入力方式
@@ -3301,7 +3300,7 @@ qgroundcontrol	ドローン用地上管制局
 qingg	五筆字型入力方式
 qlab	サウンド ビデオと照明の制御
 qladdict	字幕(.srt)ファイル用の、Quick Lookプラグイン
-qlc-plus	DMX又はアナログ照明システムを制御する
+qlc+	DMX又はアナログ照明システムの制御
 qlcolorcode	構文を強調表示してソースコードをレンダリングするQuickLookプラグイン
 qlcommonmark	CommonMark及びMarkdown用の、Quick Lookプラグイン
 qldds	DirectDraw Surface(DDS)テクスチャファイル用のQuickLookプラグイン
@@ -3906,7 +3905,7 @@ stack-stack	すべての生産性アプリを1か所から管理する為のワ�
 stand	1時間に1回立ち上がる様に通知します
 standard-notes	Freeのオープンソースの完全に暗号化されたメモアプリ
 starcraft	Starcraft
-starnet-plus-plus	MLモデルを使用して天体写真画像から星を削除します
+starnet++	MLモデルを使用して天体写真画像から星を削除します
 starnet2	MLモデルを使用して天体写真画像から星を削除します
 starsector	オープンワールドのシングルプレイヤー宇宙戦闘及びトレーディングRPG
 start	Tencentクラウドゲームプラットフォーム
@@ -4187,7 +4186,7 @@ tinypng4mac	TinyPNGクライアント
 tip	任意のアプリで使用できるプログラム可能なツールチップ
 tiptoi-manager	子供用 Ravensburgerチップとオーディオペンのデータを管理
 tl-legacy	TLレガシー
-tla-plus-toolbox	TLA+用のIDE
+tla+-toolbox	TLA+用のIDE
 tlv	Tableau ログを操作する為のツール
 tmpdisk	RAM ディスク管理
 tnefs-enough	MicrosoftTNEFファイルからファイルを読み取って抽出します
@@ -4652,7 +4651,7 @@ xnapper	スクリーンショットツール
 xnconvert	画像変換及びresizerツール
 xnviewmp	フォトビューアー 画面管理/画像リサイザーなど
 xonotic	アリーナスタイルの一人称シューティングゲーム
-xournal-plus-plus	手書きのメモ取りソフトウェア
+xournal++	手書きメモ作成ソフト
 xpra	画面とアプリケーションの転送システム
 xprocheck	マルウェア対策スキャンロギングツール
 xquartz	X.OrgXウィンドウシステムのオープンソースバージョン
