@@ -34,10 +34,10 @@ MAIN:{
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = 3;
  }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} =
-                            $ref->{'LIST'}= $ref->{'INF'}= $ref->{'LINK'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
+ }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} = $ref->{'LIST'} = $ref->{'INF'} =
+                            $ref->{'LINK'}=$re->{'Casc'} = $ref->{'Casc'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
-                            $ref->{'DEL'} = $re->{'DEL'} = 1;
+                            $ref->{'DEL'} = $re->{'DEL'} = $re->{'Casc'} = $ref->{'Casc'} = 1;
  }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'PP'} = 1;
  }elsif( $AR[0] eq '-tt' ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= 1; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
@@ -116,6 +116,7 @@ MAIN:{
    if( $name and $AR[2] and $AR[2] eq '.' and not( $re->{'deps'} or $re->{'INF'} ) ){ $name->{'KEN'} = 1;
    }elsif( $re->{'DAT'} and $AR[1] and $AR[1] eq '.' ){ $re->{'DAT'} = $ref->{'DAT'} = 2;
    }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2] =~ /^\d+$|^\.$/ ? $AR[2] : 0;
+                                                $re->{'Casc'} = 1 if index($AR[2],'-c') >= 0;
    }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){$name->{'KEN'} = 1}else{$re->{'dep_s'} = lc $AR[1]}
    }
     $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
@@ -138,7 +139,7 @@ MAIN:{
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
   if( $AR[2] and $AR[2] !~ /^\d+$/ and ( $re->{'LINK'} and $re->{'LINK'} == 7 or $re->{'DEL'} ) ){
-    DB_1( $re ); my $i = $AR[2] eq '.' ? 3 : 2;
+    DB_1( $re ); my $i = ( $AR[2] eq '.' or index($AR[2],'-c') >= 0 ) ? 3 : 2;
    for( ;$i<@AR;$i++ ){
     die " $AR[$i] Not Formula or Cask\n" unless $re->{'HASH'}{$AR[$i]} or $re->{'DMG'}{$AR[$i]};
      $re->{"${AR[$i]}undel"} = $ref->{"${AR[$i]}undel"} = 1;
@@ -248,7 +249,7 @@ sub Init_1{
     }
    }
    Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'},\$re->{'BUI'}],$cat ) if $name;
-  }
+  } $re->{'Casc'} = 1 if $re->{'INF'} and $re->{'OS'}{"$re->{'INF'}cask"} and not $re->{'OS'}{"$re->{'INF'}so_name"};
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
   if( $re->{'PRS'} or $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) ){
     $re->{'PID2'} = fork;
@@ -941,7 +942,7 @@ sub Like_1{
     $HA{$_}++ for keys %{$re->{'HASH'}};
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
    for my $c2( @{$cat} ){ chomp $c2;
-    if( $re->{'FOR'} ){
+    if( $re->{'FOR'} and ( $re->{'TREE'} and not $re->{'Casc'} or $re->{'LINK'} ) ){
      $HA{$c2}++ if $re->{'OS'}{"${c2}deps"};
       if( $re->{'OS'}{"${c2}deps_b"} and not $re->{'OS'}{"${c2}$OS_Version"} ){
        for(split "\t",$re->{'OS'}{"${c2}deps_b"}){ next if $re->{'HASH'}{$_}; $HA{$_}++ }
@@ -1042,8 +1043,8 @@ sub Dele_1{
    $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die "\x1B[?25h\n" };
   }
   unless( $re->{'PID2'} or $re->{'CAS'} ){ Wait_1( $re,$$ );
-  }else{
-   Info_1( $re,0,0,\@AN );
+  }else{ $re->{'Dele'} = 1;
+   Info_1( $re,0,0,\@AN ); undef $re->{'Dele'};
     Proc_1( $re,\@AN );
      my @list1 = sort @AN;
    for my $brew( @list1 ){
@@ -1064,7 +1065,7 @@ sub Dele_1{
    }
     waitpid $re->{'PID2'},0 if not $do and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
    if( $re->{'LINK'} and $do ){
-    $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = 0;
+    $re->{'DEL'} = $re->{'TREE'} = $re->{'INF'} = undef;
      $re->{'LIST'} = $re->{'COL'} = 1;
       Fork_1( $re );
    }elsif( $do or $re->{'DDD'} ){
@@ -1184,40 +1185,21 @@ sub Info_1{
      ( $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}" ) ? waitpid $re->{'PID2'},0 : 0 unless $spa;
 
  unless( $re->{"${brew}undel"} ){
-  if( not $re->{'DEL'} and $re->{'OS'}{"${brew}deps_b"} ){ my( $i,@deps_b );
-   for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){
-    $data = $re->{'OS'}{"${data}alia"} ? $re->{'OS'}{"${data}alia"} : $data;
-    if( not $re->{'OS'}{"${data}so_name"} and not $bottle and
-      ( not $re->{'HASH'}{$brew} or Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
-      ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
-         push @deps_b,$data; $i++;
-    }
-   }
-   for my $data( @deps_b ){ $i--;
-    if( $re->{'PP'} ){
-     if( $i and not $re->{'OS'}{"${brew}deps"} ){
-            Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
-     }elsif( not $re->{'OS'}{"${brew}deps"} ){
-            Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
-     }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
+  if( not $re->{'Casc'} or $re->{'LINK'} ){
+   if( not $re->{'DEL'} and $re->{'OS'}{"${brew}deps_b"} ){ my( $i,@deps_b );
+    for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){
+     $data = $re->{'OS'}{"${data}alia"} ? $re->{'OS'}{"${data}alia"} : $data;
+     if( not $re->{'OS'}{"${data}so_name"} and not $bottle and
+       ( not $re->{'HASH'}{$brew} or Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
+       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
+          push @deps_b,$data; $i++;
      }
-    }else{
-      Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN,$m );
     }
-   }
-  }
-  if( $re->{'DEL'} and $re->{'OS'}{"${brew}deps_b"} and
-    ( $re->{'KEN'} and $re->{'KEN'} eq '.' or not $re->{'KEN'} and ( $m == 1 or $re->{"${brew}delet"} ) ) ){
-   for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){ my @deps_a;
-    if( not $re->{'OS'}{"${brew}so_name"} and not $bottle and $re->{'OS'}{"${data}build"} ){
-     for my $data1(split '\t',$re->{'OS'}{"${data}build"} ){
-      $data1 = $re->{'OS'}{"${data1}alia"} ? $re->{'OS'}{"${data1}alia"} : $data1;
-       push @deps_a,$data if $re->{'HASH'}{$data1}
-     }
-   }
-    if( @deps_a == 1 ){
+    for my $data( @deps_b ){ $i--;
      if( $re->{'PP'} ){
-      if( not $re->{'OS'}{"${brew}deps"} ){
+      if( $i and not $re->{'OS'}{"${brew}deps"} ){
+             Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
+      }elsif( not $re->{'OS'}{"${brew}deps"} ){
              Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
       }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
       }
@@ -1226,50 +1208,69 @@ sub Info_1{
      }
     }
    }
-  }
-  if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){ my( $e,$i ) = $re->{'OS'}{"${brew}deps"} =~ tr/\t/\t/;
-   for my $data2( split '\t',$re->{'OS'}{"${brew}deps"} ){ $i++;
-    if( $re->{'PP'} ){
-     if( $i == $e ){
-            Unic_1( $re,\$data2,$spa.$re->{'`--'},$AN );
-            Info_1( $re,$data2,$spa.'    ',$AN,$m ) unless $data2 eq 'linux-headers@5.15';
-     }else{ Unic_1( $re,\$data2,$spa.$re->{'|--'},$AN );
-            Info_1( $re,$data2,$spa."$re->{'|'}   ",$AN,$m ) unless $data2 eq 'linux-headers@5.15';
-     }
-    }else{
-      Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN,$m ) unless $data2 eq 'linux-headers@5.15';
+   if( $re->{'DEL'} and $re->{'OS'}{"${brew}deps_b"} and
+     ( $re->{'KEN'} and $re->{'KEN'} eq '.' or not $re->{'KEN'} and ( $m == 1 or $re->{"${brew}delet"} ) ) ){
+    for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){ my @deps_a;
+     if( not $re->{'OS'}{"${brew}so_name"} and not $bottle and $re->{'OS'}{"${data}build"} ){
+      for my $data1(split '\t',$re->{'OS'}{"${data}build"} ){
+       $data1 = $re->{'OS'}{"${data1}alia"} ? $re->{'OS'}{"${data1}alia"} : $data1;
+        push @deps_a,$data if $re->{'HASH'}{$data1}
+      }
     }
-   }
-  }
-  if( $re->{'MAC'} ){
-   unless( $re->{'OS'}{"${brew}deps"} ){
-    if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
-     my( $e,$i ) = $re->{'OS'}{"${brew}formula"} =~ tr/\t/\t/;
-     for my $data3( split '\t',$re->{'OS'}{"${brew}formula"} ){ $i++;
+     if( @deps_a == 1 ){
       if( $re->{'PP'} ){
-       if( $i == $e and not $re->{'OS'}{"${brew}d_cask"} ){
-              Unic_1( $re,\$data3,$spa.$re->{'`--'},$AN ); Info_1( $re,$data3,$spa.'    ',$AN,$m );
-       }else{ Unic_1( $re,\$data3,$spa.$re->{'|--'},$AN ); Info_1( $re,$data3,$spa."$re->{'|'}   ",$AN,$m );
+       if( not $re->{'OS'}{"${brew}deps"} ){
+              Unic_1( $re,\$data,$spa.$re->{'`--'},$AN,1 ); Info_1( $re,$data,$spa.'    ',$AN,$m );
+       }else{ Unic_1( $re,\$data,$spa.$re->{'|--'},$AN,1 ); Info_1( $re,$data,$spa."$re->{'|'}   ",$AN,$m );
        }
       }else{
-        Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN,$m );
+        Unic_1( $re,\$data,$spa,$AN,1 ); Info_1( $re,$data,$spa,$AN,$m );
       }
      }
     }
-    if( $re->{'OS'}{"${brew}d_cask"} ){
-     my( $e,$i ) = $re->{'OS'}{"${brew}d_cask"} =~ tr/\t/\t/;
-     for my $data4( split '\t',$re->{'OS'}{"${brew}d_cask"} ){ $i++;
-      unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
-       if( $re->{'PP'} ){
-        if( $i == $e ){
-               Unic_1( $re,\$data4,$spa.$re->{'`--'},$AN );
-               Info_1( $re,$data4,$spa.'    ',$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
-        }else{ Unic_1( $re,\$data4,$spa.$re->{'|--'},$AN );
-               Info_1( $re,$data4,$spa."$re->{'|'}   ",$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
-        }
-       }else{
-         Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
+   }
+   if( $re->{'FOR'} and $re->{'OS'}{"${brew}deps"} ){ my( $e,$i ) = $re->{'OS'}{"${brew}deps"} =~ tr/\t/\t/;
+    for my $data2( split '\t',$re->{'OS'}{"${brew}deps"} ){ $i++;
+     if( $re->{'PP'} ){
+      if( $i == $e ){
+             Unic_1( $re,\$data2,$spa.$re->{'`--'},$AN );
+             Info_1( $re,$data2,$spa.'    ',$AN,$m ) unless $data2 eq 'linux-headers@5.15';
+      }else{ Unic_1( $re,\$data2,$spa.$re->{'|--'},$AN );
+             Info_1( $re,$data2,$spa."$re->{'|'}   ",$AN,$m ) unless $data2 eq 'linux-headers@5.15';
+      }
+     }else{
+       Unic_1( $re,\$data2,$spa,$AN ); Info_1( $re,$data2,$spa,$AN,$m ) unless $data2 eq 'linux-headers@5.15';
+     }
+    }
+   }
+  }
+  if( $re->{'MAC'} and $re->{'Casc'} ){ undef $re->{'Casc'} unless $re->{'Dele'};
+   if( $re->{'FOR'} and $re->{'OS'}{"${brew}formula"} ){
+    my( $e,$i ) = $re->{'OS'}{"${brew}formula"} =~ tr/\t/\t/;
+    for my $data3( split '\t',$re->{'OS'}{"${brew}formula"} ){ $i++;
+     if( $re->{'PP'} ){
+      if( $i == $e and not $re->{'OS'}{"${brew}d_cask"} ){
+             Unic_1( $re,\$data3,$spa.$re->{'`--'},$AN ); Info_1( $re,$data3,$spa.'    ',$AN,$m );
+      }else{ Unic_1( $re,\$data3,$spa.$re->{'|--'},$AN ); Info_1( $re,$data3,$spa."$re->{'|'}   ",$AN,$m );
+      }
+     }else{
+       Unic_1( $re,\$data3,$spa,$AN ); Info_1( $re,$data3,$spa,$AN,$m );
+     }
+    }
+   }
+   if( $re->{'OS'}{"${brew}d_cask"} ){
+    my( $e,$i ) = $re->{'OS'}{"${brew}d_cask"} =~ tr/\t/\t/;
+    for my $data4( split '\t',$re->{'OS'}{"${brew}d_cask"} ){ $i++;
+     unless( $re->{'FOR'} and $re->{'OS'}{"${data4}so_name"} and not $re->{'TREE'} ){
+      if( $re->{'PP'} ){
+       if( $i == $e ){
+              Unic_1( $re,\$data4,$spa.$re->{'`--'},$AN );
+              Info_1( $re,$data4,$spa.'    ',$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
+       }else{ Unic_1( $re,\$data4,$spa.$re->{'|--'},$AN );
+              Info_1( $re,$data4,$spa."$re->{'|'}   ",$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
        }
+      }else{
+        Unic_1( $re,\$data4,$spa,$AN ); Info_1( $re,$data4,$spa,$AN,$m ) unless $re->{'OS'}{"${data4}so_name"};
       }
      }
     }
@@ -1890,7 +1891,8 @@ sub Format_2{
    print STDERR " [ $re->{'INF'} ] and deps delete [y/n]:";
     exit if getc ne 'y';
    system "brew uninstall $re->{'INF'}"; exit 1 if $?;
-   for( @DEL ){ substr $_,-1,1,''; system "brew uninstall $_" if -d "$re->{'CEL'}/$_"; exit 1 if $? }
+   for( @DEL ){ substr $_,-1,1,''; system "brew uninstall $_"
+                if -d "$re->{'CEL'}/$_" or -d substr($re->{'CEL'},-6,6,'Caskroom'),"/$_"; exit 1 if $? }
   }
  }
 }
@@ -1904,8 +1906,11 @@ sub Format_3{
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
         $desc ? $desc : $re->{'OS'}{"${name}c_name"} ? $re->{'OS'}{"${name}c_name"} : '';
-      $name = -t STDOUT ? " \033[33mCan't install $name...\033[0m\n".$name :
-                          " Can't install $name....\n".$name if $re->{'OS'}{"${name}un_cask"};
+     my $co1 = -t STDOUT ? "\033[33m" : ''; my $co2 = -t STDOUT ? "\033[0m" : '';
+      $name = ( $re->{'OS'}{"${name}un_cask"} and $re->{'OS'}{"${name}so_name"} ) ?
+                " ${co1}Can't install $name...\n Some name $name....$co2\n".$name :
+                $re->{'OS'}{"${name}un_cask"} ? " ${co1}Can't install $name...$co2\n".$name :
+                $re->{'OS'}{"${name}so_name"} ? " ${co1}exists Formula and Cask $name....$co2\n".$name : $name;
       my $dn = $re->{'DMG'}{$name} ? ' (I)' : '';
 
     for( my $i=0;$i<@cas;$i++ ){ my $tap = $cas[$i];
