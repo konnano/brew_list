@@ -1800,6 +1800,7 @@ flawfinder	コードを調べてセキュリティ上の弱点の可能性を報
 flawz	セキュリティ脆弱性(CVE)を参照するためのターミナルUI
 fleet-cli	Kubernetesクラスターの大規模なfleetを管理する
 flex	高速字句分析器 スキャナーを生成します(tokenizers)
+flexiblas	実行時に交換可能なバックエンドを備えたBLAS及びLAPACKラッパーライブラリ
 flickcurl	Flickr APIのライブラリ
 flif	Freeで損失の無い画像フォーマット
 flint	数論の為のCライブラリ
@@ -2619,6 +2620,7 @@ httm	インタラクティブ ZFS/btrfs用のファイルレベルのTime Machin
 http-parser	CのHTTPパーサー 要求/応答
 http-prompt	自動補完と構文の強調表示を備えた対話的なコマンドラインHTTPクライアント
 http-server	シンプルなゼロ構成コマンドラインHTTPサーバー
+http-server-rs	シンプルで構成可能なコマンドラインHTTPサーバー
 http_load	並列fetchesを実行してWebサーバーのスループットをテストする
 httpd	Apache HTTPサーバー
 httpdiff	2つのHTTP(S)応答を比較する
@@ -3921,6 +3923,7 @@ mariadb@10.9	MySQLのドロップイン代替品
 mariadb@11.0	MySQLのドロップイン代替品
 mariadb@11.1	MySQLのドロップイン代替品
 mariadb@11.2	MySQLのドロップイン代替品
+mariadb@11.4	MySQLのドロップイン代替品
 markdown	テキストからHTMLへの変換ツール
 markdown-toc	Remarkableを使用してマークダウン目次を生成します
 markdownlint-cli	Node.jsスタイルチェッカーのCLI及びMarkdownファイルのlintツール
