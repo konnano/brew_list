@@ -942,7 +942,7 @@ sub Like_1{
     $HA{$_}++ for keys %{$re->{'HASH'}};
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
    for my $c2( @{$cat} ){ chomp $c2;
-    if( $re->{'FOR'} and ( $re->{'TREE'} and not $re->{'Casc'} or $re->{'LINK'} ) ){
+    if( $re->{'FOR'} ){
      $HA{$c2}++ if $re->{'OS'}{"${c2}deps"};
       if( $re->{'OS'}{"${c2}deps_b"} and not $re->{'OS'}{"${c2}$OS_Version"} ){
        for(split "\t",$re->{'OS'}{"${c2}deps_b"}){ next if $re->{'HASH'}{$_}; $HA{$_}++ }
@@ -985,7 +985,7 @@ sub Like_1{
   } @ARR = @FOR if @FOR;
  if( @ARR and @ARR < 2 ){
   $$name = $ARR[0];
-   print"$$name...\n" if $re->{'LINK'} or $re->{'USE'} or $re->{'BUI'} or $re->{'COM'};
+   print"$ARR[0]...\n" if $re->{'LINK'} or $re->{'USE'} or $re->{'BUI'} or $re->{'COM'};
  }else{
   if( @ARR ){
    $re->{'LIKE'} = -t STDOUT ? print"\033[33m much...\033[0m\n" : print" much...\n";
