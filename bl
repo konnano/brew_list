@@ -1188,7 +1188,7 @@ sub Info_1{
 
  unless( $re->{"${brew}undel"} ){
   if( not $re->{'Casc'} or $re->{'LINK'} ){
-   if( not $re->{'DEL'} and $re->{'OS'}{"${brew}deps_b"} ){ my( $i,@deps_b );
+   if( not( $re->{'CAS'} or $re->{'DEL'} ) and $re->{'OS'}{"${brew}deps_b"} ){ my( $i,@deps_b );
     for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){
      $data = $re->{'OS'}{"${data}alia"} ? $re->{'OS'}{"${data}alia"} : $data;
      if( not $re->{'OS'}{"${data}so_name"} and not $bottle and
