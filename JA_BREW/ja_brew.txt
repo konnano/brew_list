@@ -623,7 +623,7 @@ byteman	テスト/監視/トレース の為のJavaバイトコード操作ツ�
 bzip2	Freeで入手できる高品質のデータ圧縮機
 bzip3	BZip2のより優れた強力な後継
 bzt	BlazeMeter Taurus
-c	C スクリプトを一度にコンパイルして実行する
+c	Cスクリプトを一度にコンパイルして実行する
 c-ares	非同期DNSライブラリ
 c-blosc	Blocking、shufflingと損失の無い圧縮ライブラリ
 c-blosc2	C用の、高速/圧縮/永続的なバイナリデータストアライブラリ
@@ -666,7 +666,7 @@ capnp	データ交換フォーマットと機能ベースのRPCシステム
 capstone	Multi-platform、multi-architectureの分解フレームワーク
 caracal	スマートコントラクト用の静的アナライザー
 cargo-about	クレートのすべてのライセンスのリストを生成するCargoプラグイン
-cargo-all-features	すべての機能フラグの組み合わせを構築及びテストする為のCargoサブコマンド
+cargo-all-features	全ての機能フラグの組み合わせを構築及びテストする為のCargoサブコマンド
 cargo-audit	セキュリティの脆弱性があるCratesについてCargo.lockファイルを監査する
 cargo-auditable	本番環境のRustバイナリを監査可能にする
 cargo-binstall	Rustプロジェクト用のバイナリインストール
@@ -1688,6 +1688,7 @@ falcon	Multi-paradigmプログラミング言語とスクリプトエンジン
 fann	高速人工神経ネットワークライブラリ
 fantom	オブジェクト指向のポータブルプログラミング言語
 fanyi	コマンドラインの北京語と英語の翻訳ツール
+fast_float	数値型に対するC++ from_chars関数の高速かつ正確な実装
 fastapi	FastAPIフレームワーク用のCLI
 fastbit	NoSQL精神のオープンソースデータ処理ライブラリ
 fastd	高速で安全なトンネリングデーモン
@@ -2990,6 +2991,7 @@ kcov	コンパイルされたプログラムコードの範囲テスター Pytho
 kcptun	安定して安全 N：M多重化とFECを備えたKCPに基づくトンネル
 kdoctools	DocBookからドキュメントを作成する
 kdoctor	Kotlin Multiplatformモバイルアプリ開発の為の環境診断
+kea	DHCPサーバー
 keepassc	KeePassv.1.x及びKeePassX用のCursesベースのパスワードマネージャー
 keepkey-agent	Keepkeyハードウェアベースエージェント SSH/GPG
 keploy	テストツールキットはテストケースとデータモックを作成します API呼び出し/DBクエリ
@@ -3075,6 +3077,7 @@ kubent	非推奨のAPIの使用についてクラスターを簡単に確認す�
 kubergrunt	Terraform、Helm、Kubectl間のギャップを埋める為のコマンドのコレクション
 kubernetes-cli	Kubernetesコマンドラインインターフェース
 kubernetes-cli@1.29	Kubernetesコマンドラインインターフェイス
+kubernetes-cli@1.30	Kubernetesコマンドラインインターフェイス
 kubescape	NSA/CISAによる硬化ガイダンスに従ったKubernetesテスト
 kubeseal	一方向に暗号化された機密Kubernetesコントローラーとツール
 kubesess	複数の kubernetesクラスターを同時に管理する
@@ -4866,6 +4869,7 @@ pg_top	PostgreSQLプロセスを監視する
 pgbadger	PostgreSQLログ分析器
 pgbouncer	PostgreSQLの軽量接続Pooler
 pgcli	自動補完と構文の強調表示を備えたPostgresのCLI
+pgcopydb	Postgresデータベースを対象のPostgresサーバーにコピーする
 pgdbf	テーブルのPostgreSQLへの変換器 XBase/FoxPro
 pget	ファイルダウンロードクライアント
 pgformatter	PostgreSQL構文美化
@@ -6431,6 +6435,7 @@ triton	Joyent Triton CLI
 trivy	コンテナ画像の脆弱性スキャナー ファイルシステム/Git repos
 trojan-go	Goのトロイの木馬プロキシ
 truecrack	TrueCryptのブルートフォースパスワードクラッカー
+truetree	MacOSでpstreeのような出力を行うコマンドラインツール
 truffle	開発環境 イーサリアムのテストフレームワークとアセットパイプライン
 trufflehog	認証情報を検索して検証する
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
