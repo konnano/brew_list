@@ -1110,6 +1110,7 @@ croc	あるコンピュータから別のコンピュータに物を安全に送
 cromwell	ワークフロー記述言語を使用したワークフロー実行エンジン
 cronolog	Webログローテーション
 crosstool-ng	ツールチェーンを構築する為のツール
+crow	高速で使いやすいWebCrow用のマイクロフレームワーク
 crowdin	cloudin.comでリソースを管理できるコマンドラインツール
 cruft	テンプレートからプロジェクトを作成し、その後の作業を維持するユーティリティ
 crun	高速で軽量なフル機能のOCIランタイムとCライブラリ
@@ -1497,6 +1498,7 @@ dvdrtools	cdrtools DVDライターサポートのフォーク
 dvm	Dockerバージョンマネージャー
 dvorak7min	Dvorak(簡略化されたキーボードレイアウト)タイピングチューター
 dwarf	オブジェクトファイル操作ツール
+dwarfs	Linux/Windows/macOS 用の高速高圧縮読み取り専用ファイルシステム
 dwarfutils	ELFオブジェクトにDWARFデバッグ情報をダンプして生成します
 dwatch	プログラムを監視し、構成ファイルに基づいてアクションを実行します
 dwdiff	単語レベルで動作するdiff
@@ -4731,6 +4733,7 @@ p11-kit	PKCS#11モジュールをロードして列挙する為のライブラ�
 p7zip	7-Zip(高圧縮ファイルアーカイバ)の実装
 pacapt	Archのpacmanスタイルのパッケージマネージャー
 pachi	囲碁/韓国将棋/中国チェスのボードゲーム用ソフトウェア
+packcc	C用パーサージェネレーター
 packer	複数のプラットフォーム用に同一のマシンイメージを作成する為のツール
 packer-completion	PackerのBash補完
 packetbeat	ネットワークデータ用の軽量Shipper
@@ -5533,7 +5536,6 @@ ruby@3.2	オブジェクト指向のスクリプト言語 強力/クリーン
 rubyfmt	Rubyオート整形ツール
 ruff	Rustで書かれた非常に高速なPython解析ツール
 ruff-lsp	Ruffの言語サーバープロトコルの実装
-ruler	Exchangeサービスを乱用するツール
 run	小さなスクリプトとラッパーを簡単に管理及び呼び出す
 runcocoa	コマンドラインから実行する為のツール Cocoa/Objective-C/C
 rune	Rustに埋め込み可能な動的プログラミング言語
@@ -6435,7 +6437,6 @@ triton	Joyent Triton CLI
 trivy	コンテナ画像の脆弱性スキャナー ファイルシステム/Git repos
 trojan-go	Goのトロイの木馬プロキシ
 truecrack	TrueCryptのブルートフォースパスワードクラッカー
-truetree	MacOSでpstreeのような出力を行うコマンドラインツール
 truffle	開発環境 イーサリアムのテストフレームワークとアセットパイプライン
 trufflehog	認証情報を検索して検証する
 trunk	ビルド Rust WASMアプリケーションをバンドルしてWebに送信する
