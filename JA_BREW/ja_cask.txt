@@ -1476,7 +1476,6 @@ gearsystem	セガマスターシステム、ゲームギア、SG-1000エミュ�
 geburtstagschecker	GeburtstagsChecker
 geekbench	コンピュータシステムのパフォーマンスを測定する為のツール
 geekbench-ai	AI ワークロードのパフォーマンスを評価する為のクロスプラットフォームAIベンチマーク
-geekbench-ml	AIワークロードのパフォーマンスを評価するためのクロスプラットフォームAIベンチマーク
 geektool	デスクトップカスタマイズツール
 gemini	重複した類似のファイルを見つけて削除するディスクスペースクリーナー
 geneious-prime	生物情報科学ソフトウェアプラットフォーム
@@ -2951,6 +2950,7 @@ overt	アプリストアを開く
 ovito	科学データの視覚化及び分析ソフトウェア
 ovito-pro	科学データの視覚化及び分析ソフトウェア
 owncloud	ownCloud用のデスクトップ同期クライアント
+oxygen-xml-developer	XML編集用ツール
 oxygen-xml-editor	OxygenXML開発及び作成を含むXML編集用のツール
 p4	これを使用して操作に即座にアクセスしシステムを完全に制御します
 p4v	Helix Coreのビジュアルクライアント
@@ -4259,6 +4259,7 @@ trivial	多くのプロトコルをサポートするシンプルなファイル
 trojanx	グレートファイアウォールをバイパスするメカニズム
 trolcommander	muCommanderファイルマネージャーのフォーク
 tropy	研究写真管理
+truetree	pstreeのような出力を得る為のコマンドラインツール
 truhu	ディスプレイ調整ユーティリティ
 trunk-io	Trunkランチャー
 tsh	分散インフラストラクチャを管理するチーム向けのSSHサーバー
