@@ -94,7 +94,7 @@ bl -g|cat でパイプすれば brew leaves になります(Cask込み)
 
 -m : オプションで別の検索端末を開きます、カーソル移動はvimと同じです、終了は q になります
 
-Only 　Mac : Cask
+Only Mac : Cask
 
 -c : オプションでCaskのリストが表示されます  
 最初の引数はCaskや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
@@ -134,7 +134,7 @@ x,d : マークはインストールできないFormulaです
 
 t : マークはバージョンアップでインストール出来なくなったFormulaです
 
-Onle Mac : Cask
+Only Mac : Cask
 
 s : マークは同名のFormulaとCaskです : インストールには --caskオプション
 
