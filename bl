@@ -27,15 +27,14 @@ MAIN:{
  }elsif( $AR[0] eq '-cd' ){ $name = $ref; $ref->{'DEP'}  = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-cf' ){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-fc' ){ $name = $re;  $re->{'LIST'}  = $re->{'FTD'}  = 1; Died_1() if $re->{'MAC'};
- }elsif( $AR[0] eq '-cfp'){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = $ref->{'LINK'} = 8;
-                            Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-cfp'){ $name = $ref; $ref->{'LIST'} = $ref->{'TAP'} = $ref->{'LINK'} = 8; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-p'  ){ $name = $ref; $ref->{'PRE'}  = $ref->{'TAP'} = 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-lx' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = $re->{'MAC'} ? 1 : 2;
  }elsif( $AR[0] eq '-lb' ){ $name = $re;  $re->{'LIST'}  = $re->{'LINK'} = 3;
  }elsif( $AR[0] eq '-cx' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 4; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-cs' ){ $name = $ref; $ref->{'LIST'} = $ref->{'LINK'}= 5; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-in' ){ $re->{'LIST'} = $re->{'INF'} = $re->{'LINK'} = $ref->{'LIST'} = $ref->{'INF'} =
-                            $ref->{'LINK'}=$re->{'Casc'} = $ref->{'Casc'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
+                            $ref->{'LINK'}= $re->{'Casc'}= $ref->{'Casc'}= 6; $re->{'PRS'} = 1 if $re->{'LIN'};
  }elsif( $AR[0] eq '-de' ){ $re->{'INF'}  = $re->{'LINK'}= $ref->{'INF'} = $ref->{'LINK'}= 7;
                             $ref->{'DEL'} = $re->{'DEL'} = $re->{'Casc'} = $ref->{'Casc'} = 1;
  }elsif( $AR[0] eq '-t'  ){ $name = $re;  $re->{'INF'} = $re->{'TREE'}= $re->{'PP'} = 1;
@@ -43,21 +42,21 @@ MAIN:{
  }elsif( $AR[0] eq '-d'  ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = 1;
  }elsif( $AR[0] eq '-dd' ){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'DD'} = 1;
  }elsif( $AR[0] eq '-ddd'){ $name = $re;  $re->{'INF'} = $re->{'DEL'} = $re->{'DD'} = $re->{'DDD'} = 1;
- }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'} = 1; Died_1() if $re->{'LIN'};
- }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'}  = 1;
- }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'}  = 1;
- }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'} = $re->{'USE'} = 1;
- }elsif( $AR[0] eq '-bu' ){ $name = $re;  $re->{'BUI'}  = 1;
- }elsif( $AR[0] eq '-ul' ){ $name = $re;  $re->{'uses'} = 1;
- }elsif( $AR[0] eq '-ud' ){ $name = $re;  $re->{'deps'} = 1;
- }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'}  = 1;
- }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'}  = 1;
- }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}   = 1;
- }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'} = 1;
- }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'} = 1;
- }elsif( $AR[0] eq '-'   ){ $re->{'BL'} = $ref->{'BL'}  = 1;
+ }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'}= 1; Died_1() if $re->{'LIN'};
+ }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'} = 1;
+ }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'} = 1;
+ }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'}= $re->{'USE'} = 1;
+ }elsif( $AR[0] eq '-bu' ){ $name = $re;  $re->{'BUI'} = 1;
+ }elsif( $AR[0] eq '-ul' ){ $name = $re;  $re->{'uses'}= 1;
+ }elsif( $AR[0] eq '-ud' ){ $name = $re;  $re->{'deps'}= 1;
+ }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
+ }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'} = 1;
+ }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}  = 1;
+ }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'}= 1;
+ }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'}= 1;
+ }elsif( $AR[0] eq '-'   ){ $re->{'BL'} = $ref->{'BL'} = 1;
  }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
- }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'} = $re->{'S_OPT'}= 1;
+ }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'}= $re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }elsif( $AR[0] eq '-ma' ){ $re->{'S_M'}= 2;
@@ -186,7 +185,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.27_0\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.27_1\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -795,7 +794,9 @@ sub Top_1{
    }
   }
  } $re->{'MAC'} ? Mine_1( ' ==> homebrew/cask-fonts',$re,0 ) : Mine_1( ' ==> homebrew/linux-fonts',$re,0 ) if @font;
+  if( $re->{'FOR'} or $re->{'CAS'} and -t STDOUT ){
     Mine_1( $_,$re,0 ) for( @font );
+  }
   waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
  print "$top" if $top;
 }
