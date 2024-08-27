@@ -31,9 +31,9 @@ Formulaや正規表現 // は２番目の引数です .(dot) の全文検索は�
 
 -i : オプションでインストール済みFormulaのリストが表示されます
 
--s : オプションでFormulaの検索、引数はFormulaや正規表現です //
+-s : オプションでFormulaを検索します、引数はFormulaや正規表現です //
 
--ss : オプションでインストール出来るFormulaのみの検索、引数はFormulaや正規表現です //
+-ss : オプションでインストール出来るFormulaのみを検索します、引数はFormulaや正規表現です //
 
 -co : オプションでFormulaのライブラリーが表示されます  
 最初の引数はFormula、2番目の引数 .(dot) で $(brew --prefix)/bin 以下のみを表示します
