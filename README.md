@@ -37,7 +37,7 @@ Formulaや正規表現 // は２番目の引数です .(dot) の全文検索は�
 -s : オプションでFormulaかCaskかFontを検索します  
 引数はFormulaかCaskかFont、もしくは正規表現です //
 
--ss : オプションでインストール出来るFormulaかCaskかFontのみを検索します  
+-ss : オプションでインストール出来るFormulaかCaskのみや、Fontを検索します  
 引数はFormulaかCaskかFont、もしくは正規表現です //
 
 -co : オプションでFormulaのライブラリーが表示されます  
@@ -87,7 +87,7 @@ Formulaや正規表現 // は２番目の引数です .(dot) の全文検索は�
 
 -is : オプションでFormulaがサイズ順で表示されます  
 引数が無けれはインストールされてる全てのFormulaが表示されます  
-最初の引数でFormulaを指定すると、そのFormulaが必要とするFormulaを含めて表示します  
+最初の引数でFormulaを指定すると、そのFormulaが必要とするFormulaのみを含めて表示します  
 bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソートされます
 
 -g : オプションで依存されてないFormulaが表示されます  
