@@ -143,15 +143,15 @@ b : マークはボトルインストール出来るFormulaです
 
 k,kp : マークはkeg_onlyのFormulaです
 
-i : マークはインストール済みFormulaです
+i : マークはインストール済みFormulaやCaskです
 
-(i) : マークはバージョンアップのあるFormulaです
+(i) : マークはバージョンアップのあるFormulaやCaskです
 
 e : マークはダウンロードされてインストールされてないFormulaかビルドできないFormulaです
 
-x,d : マークはインストールできないFormulaです
+x,d : マークはインストールできないFormulaやCaskです
 
-t : マークはバージョンアップでインストール出来なくなったFormulaです
+t : マークはバージョンアップでインストール出来なくなったFormulaやCaskです
 
 Only Mac : Cask
 
