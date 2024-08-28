@@ -1895,8 +1895,9 @@ sub Format_2{
    print STDERR " [ $re->{'INF'} ] and deps delete [y/n]:";
     exit if getc ne 'y';
    system "brew uninstall $re->{'INF'} $ca"; exit 1 if $?;
+    my $dir = $re->{'CEL'}; substr($dir,-6,6,'Caskroom');
    for( @DEL ){ substr $_,-1,1,''; system "brew uninstall $_"
-                if -d "$re->{'CEL'}/$_" or -d substr($re->{'CEL'},-6,6,'Caskroom'),"/$_"; exit 1 if $? }
+                if -d "$re->{'CEL'}/$_" or -d "$dir/$_"; exit 1 if $? }
   }
  }
 }
