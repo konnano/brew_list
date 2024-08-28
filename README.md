@@ -46,7 +46,7 @@ Formulaや正規表現 // は２番目の引数です .(dot) の全文検索は�
 -in : オプションでインストールに必要なFormulaやCaksをリスト表示します  
 &emsp;&emsp;引数はFormulaかCaskです
 
--t : オプションでインストールに必要なFormulaやCaskがTree表示されます  
+-t : オプションでインストールに必要なFormulaやCaskをTree表示します  
 &emsp;&ensp;引数はFormulaかCaskです
 
 -tt : オプションでインストールに必要なFormulaやCaskのみをTree表示します  
@@ -57,17 +57,17 @@ Formulaや正規表現 // は２番目の引数です .(dot) の全文検索は�
 
 -d : オプションでアンインストール後に必要ないFormulaやCaskをTree表示します  
 &emsp;&ensp;最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
-&emsp;&ensp;２番目の引数に .(dot) を記入すればBuild Formulaも含まれます、その場合は  
+&emsp;&ensp;２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
 &emsp;&ensp;アンインストールしないFormulaやCaskは３番目以降の引数になります
 
 -dd : オプションでアンインストール後に必要ないFormulaやCaskのみをTree表示します  
 &emsp;&emsp;最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
-&emsp;&emsp;２番目の引数に .(dot) を記入すればBuild Formulaも含まれます、その場合は  
+&emsp;&emsp;２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
 &emsp;&emsp;アンインストールしないFormulaやCaskは３番目以降の引数になります
 
 -ddd : オプションでアンインストールで必要ないFormulaやCaskを順番にアンインストール出来ます  
 &emsp;&emsp;&emsp;最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
-&emsp;&emsp;&emsp;２番目の引数に .(dot) を記入すればBuild Formulaも含まれます、その場合は  
+&emsp;&emsp;&emsp;２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
 &emsp;&emsp;&emsp;アンインストールしないFormulaやCaskは３番目以降の引数になります
 
 　#### 削除は　-ddや　-deでよく確認して下さい ####
