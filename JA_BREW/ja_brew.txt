@@ -955,6 +955,7 @@ cmix	高い圧縮率のデータ圧縮プログラム
 cmocka	Cの単体テストフレームワーク
 cmockery	Cの単体テストと模擬ライブラリ
 cmockery2	Googleからcmockery単体テストフレームワークを復活させる
+cmrc	CMakeリソースコンパイラ
 cmt	カスタムテンプレートに基づいて一貫性のあるgitcommitメッセージを作成する
 cmu-pocketsphinx	モバイルデバイスの軽量音声認識エンジン
 cmu-sphinxbase	モバイルデバイスの軽量音声認識エンジン
@@ -5805,6 +5806,7 @@ skylighting	KDEXML構文記述を使用した柔軟な構文ハイライト
 skymaker	偽の天体画像を生成します
 sl	lsの代わりにslと入力すると、蒸気機関車がプリントされます
 slackcat	スニペットをSlackに投稿する為のコマンドラインユーティリティ
+slackdump	管理者権限無しでSlackのデータをエクスポートする
 slacknimate	Slackメッセージのテキストアニメーション
 slashem	NethackのFork/変換
 sleef	初等関数を評価する為のSIMDライブラリ
@@ -5948,6 +5950,7 @@ spirv-tools	SPIR-Vモジュールを処理する為のAPIとコマンド
 splint	安全なプログラミングリント
 sponge	標準入力を吸収してファイルに書き込む
 spoof-mac	MacOSでMACアドレスの偽装
+spoofdpi	Goで書かれたシンプルで高速な検閲対策ツール
 spot	LTL及び自動操作の為のプラットフォーム
 spotbugs	Java静的分析用ツール(FindBugsの後継)
 spotify-tui	Spotifyのターミナルベースのクライアント
