@@ -72,7 +72,9 @@ Formulaや正規表現 // は２番目の引数です .(dot) の全文検索は�
 
 　#### 削除は　-ddや　-deでよく確認して下さい ####
 
--u : オプションでFormulaに依存しているインストール済みのFormulaを表示します、引数はFormulaです
+-u : オプションでFormulaに依存してるインストール済みのFormulaを表示します、引数はFormulaです
+
+-bu : オプションでFormulaにビルド依存してるインストール済みのFormulaを表示します、引数はFormulaです
 
 -ua : オプションでFormulaに依存している全てのFormulaを表示します、引数はFormulaです
 
