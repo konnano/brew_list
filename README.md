@@ -1,4 +1,4 @@
-brew list コマンド拡張版
+brew list コマンド拡張版(高速)
 
 : 使用方法
 
@@ -96,7 +96,7 @@ bl -g|cat でパイプすれば brew leaves になります(Cask込み)
 -o : オプションで brew outdated コマンド  
 最初の引数で .(dot) で、outdated があればインストールされます
 
-\- : オプションで brew list コマンド
+\- : オプションで brew list(高速) コマンド
 
 -ai : オプションでFormulaの解析データが表示されます  
 引数が無ければ less で全て表示されます  
