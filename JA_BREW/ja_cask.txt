@@ -2458,6 +2458,7 @@ microsoft-onenote	デジタルノート作成アプリ
 microsoft-openjdk	MicrosoftからのOpenJDKディストリビューション
 microsoft-openjdk@11	MicrosoftのOpenJDKディストリビューション
 microsoft-openjdk@17	MicrosoftのOpenJDKディストリビューション
+microsoft-openjdk@21	MicrosoftのOpenJDKディストリビューション
 microsoft-outlook	メールクライアント
 microsoft-powerpoint	プレゼンテーションソフトウェア
 microsoft-remote-desktop	リモートデスクトップクライアント
@@ -2688,6 +2689,7 @@ ncar-ncl	科学データの分析と視覚化の為の通訳言語
 ndm	Node.jsパッケージマネージャー(NPM)のデスクトップマネージャー
 neat	デスクトップとメニューバーでのGitHubとリニアの通知
 neat-reader	読む ePubブックに注釈を付けて管理する
+neo-network-utility	ネットワーク情報及び診断ユーティリティ
 neo4j	Neo4jインスタンス用の開発者IDE/管理環境
 neofinder	デジタルメディアアセットマネージャー
 neovide	Neovimクライアント
@@ -3469,6 +3471,7 @@ resolutionator	ディスプレイで利用可能な解像度のいずれかを�
 responsively	動的Web開発に役立つ変更されたブラウザー
 restfox	オフライン優先のWeb HTTPクライアン
 restream-chat	ストリーミングチャットを1か所に保管する
+retcon	ドラッグアンドドロップのGit履歴エディター
 retro-virtual-machine	ZX Spectrum及びAmstrad CPCエミュレーター
 retroactive	互換性のないOSバージョンでAppleアプリを実行する
 retroarch	エミュレータフロントエンド(OpenGLグラフィックAPIバージョン)
