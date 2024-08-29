@@ -69,19 +69,22 @@ Formulaのライブラリーを表示します
 
 -d : オプション  
 アンインストール後に必要ないFormulaやCaskをTree表示します  
-最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
+最初の引数はアンインストールするFormulaかCaskです  
+アンインストールしないFormulaやCaskは２番目以降の引数になります  
 ２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
 アンインストールしないFormulaやCaskは３番目以降の引数になります
 
 -dd : オプション  
 アンインストール後に必要ないFormulaやCaskのみをTree表示します  
-最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
+最初の引数はアンインストールするFormulaかCaskです  
+アンインストールしないFormulaやCaskは２番目以降の引数になります  
 ２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
 アンインストールしないFormulaやCaskは３番目以降の引数になります
 
 -ddd : オプション  
 アンインストールで必要ないFormulaやCaskを順番にアンインストール出来ます  
-最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
+最初の引数はアンインストールするFormulaかCaskです  
+アンインストールしないFormulaやCaskは２番目以降の引数になります  
 ２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
 アンインストールしないFormulaやCaskは３番目以降の引数になります
 
