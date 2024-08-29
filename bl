@@ -90,6 +90,7 @@ MAIN:{
       for(glob "$home/WAIT*"){ rmdir } exit;
   }elsif( $re->{'NEW'} or not -f $DBM or not -d $home or $re->{'LIN'} and not -f $re->{'LFO'} ){
       $re->{'NEW'} ||= 1; Init_1( $re );
+  }elsif( $re->{'BL'} and $AR[1] ){ $name = $AR[1] eq 'c' ? $ref : $AR[1] eq 'f' ? $re : undef;
   }elsif( $re->{'S_M'} ){ $ENV{'Mser'} = 1; m_search( $re ) }
   unless( $ENV{'Mser'} ){
    if( $re->{'JA'} ){ my $op = $re->{'MAC'} ? '-t1' : '-w1';
