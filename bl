@@ -794,7 +794,7 @@ sub Top_1{
    }
   }
  } $re->{'MAC'} ? Mine_1( ' ==> homebrew/cask-fonts',$re,0 ) : Mine_1( ' ==> homebrew/linux-fonts',$re,0 ) if @font;
-  if( $re->{'LIN'} or $re->{'CAS'} and -t STDOUT ){
+  if( -t STDOUT and ( $re->{'LIN'} or $re->{'CAS'} ) ){
     Mine_1( $_,$re,0 ) for( @font );
   }
   waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
