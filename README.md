@@ -12,7 +12,7 @@ brew install konnano/brew_list/brew_list
 コマンドは<strong>`bl`</strong>です
 
 
-デフォルトは英語表示です bl -JA オプションで  
+標準は英語表示です bl -JA オプションで  
 ~/.JA_BREWがインストールされ日本語表示されます
 
 日本語版で英語表示させるには bl -l などで最初の引数をENにして下さい  
@@ -109,7 +109,8 @@ Formulaに依存されてるFormulaを表示します
 -ul : オプション  
 Formulaに依存されてるFormulaの数を表示します  
 引数が無けれはインストールされてる全てのFormulaを表示します  
-最初の引数でFormulaを指定すると、そのFormulaのみの数を表示します
+最初の引数でFormulaを指定すると、そのFormulaのみの数を表示します  
+標準は辞書順表示です、bl -ul|sort -t : -k 2 -r でパイプすれば数字順になります
 
 -is : オプション  
 Formulaをサイズ順で表示します  
