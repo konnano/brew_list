@@ -119,8 +119,8 @@ bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソ�
 
 -g : オプション  
 依存されてないFormulaやCask及びFontを表示します  
+( Linuxならtap linux-fontsも含まれます )  
 bl -g|cat でパイプすれば brew leaves (Cask込み) になります  
-( Linuxならtap linux-fontsも含まれます )
 
 -o : オプション  
 brew outdated コマンドです  
