@@ -185,7 +185,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.27_1\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.27_2\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -794,7 +794,7 @@ sub Top_1{
    }
   }
  } $re->{'MAC'} ? Mine_1( ' ==> homebrew/cask-fonts',$re,0 ) : Mine_1( ' ==> homebrew/linux-fonts',$re,0 ) if @font;
-  if( $re->{'CAS'} and -t STDOUT ){
+  if( $re->{'LIN'} or $re->{'CAS'} and -t STDOUT ){
     Mine_1( $_,$re,0 ) for( @font );
   }
   waitpid $re->{'PID2'},0 if not $re->{'PID'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
