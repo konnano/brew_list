@@ -65,7 +65,8 @@ Formulaのライブラリーを表示します
 
 -de : オプション  
 アンインストール後に必要ないFormulaやCaskをリスト表示します  
-最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目の引数です
+最初の引数はアンインストールするFormulaかCaskです  
+アンインストールしないFormulaやCaskは２番目以降の引数になります
 
 -d : オプション  
 アンインストール後に必要ないFormulaやCaskをTree表示します  
