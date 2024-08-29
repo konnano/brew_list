@@ -18,115 +18,149 @@ brew install konnano/brew_list/brew_list
 日本語版で英語表示させるには bl -l などで最初の引数をENにして下さい  
 Formulaや正規表現 // は２番目の引数です .(dot) の全文検索は３番目の引数になります
 
-- #### オプション
+- ### オプション
 
--l : オプションでFormulaのリストを表示します  
-&emsp;&ensp;引数が無ければ全てのリストを表示します  
-&emsp;&ensp;最初の引数はFormulaや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-l : オプション  
+Formulaのリストを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はFormulaや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
--lb : オプションでボトルインストールFormulaのリストを表示します  
-&emsp;&emsp;引数が無ければ全てのリストを表示します  
-&emsp;&emsp;最初の引数はFormulaや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-lb : オプション  
+ボトルインストールFormulaのリストを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はFormulaや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
--lx : オプションでインストー出来ないFormulaのリストを表示します  
-&emsp;&emsp;引数が無ければ全てのリストを表示します  
-&emsp;&emsp;最初の引数はFormulaや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-lx : オプション  
+インストー出来ないFormulaのリストを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はFormulaや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
--i : オプションでインストール済みFormulaのリストを表示します
+-i : オプション  
+インストール済みFormulaのリストを表示します  
+( Linuxならtap linux-fontsも含まれます )
 
--s : オプションでFormulaかCaskかFontを検索します  
-&emsp;&ensp;引数はFormulaかCaskかFont、もしくは正規表現です //
+-s : オプション  
+FormulaかCaskかFontを検索します  
+引数はFormulaかCaskかFont、もしくは正規表現です //
 
--ss : オプションでインストール出来るFormulaかCaskのみや、Fontを検索します  
-&emsp;&emsp;引数はFormulaかCaskかFont、もしくは正規表現です //
+-ss : オプション  
+インストール出来るFormulaかCaskのみや、Fontを検索します  
+引数はFormulaかCaskかFont、もしくは正規表現です //
 
--co : オプションでFormulaのライブラリーを表示します  
-&emsp;&emsp;最初の引数はFormulaです、2番目の引数 .(dot) で $(brew --prefix)/bin 以下のみを表示します
+-co : オプション  
+Formulaのライブラリーを表示します  
+最初の引数はFormulaです、2番目の引数 .(dot) で $(brew --prefix)/bin 以下のみを表示します
 
--in : オプションでインストールに必要なFormulaやCaksをリスト表示します  
-&emsp;&emsp;引数はFormulaかCaskです
+-in : オプション  
+インストールに必要なFormulaやCaksをリスト表示します  
+引数はFormulaかCaskです
 
--t : オプションでインストールに必要なFormulaやCaskをTree表示します  
-&emsp;&ensp;引数はFormulaかCaskです
+-t : オプション  
+インストールに必要なFormulaやCaskをTree表示します  
+引数はFormulaかCaskです
 
--tt : オプションでインストールに必要なFormulaやCaskのみをTree表示します  
-&emsp;&emsp;引数はFormulaかCaskです
+-tt : オプション  
+インストールに必要なFormulaやCaskのみをTree表示します  
+引数はFormulaかCaskです
 
--de : オプションでアンインストール後に必要ないFormulaやCaskをリスト表示します  
-&emsp;&emsp;最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目の引数です
+-de : オプション  
+アンインストール後に必要ないFormulaやCaskをリスト表示します  
+最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目の引数です
 
--d : オプションでアンインストール後に必要ないFormulaやCaskをTree表示します  
-&emsp;&ensp;最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
-&emsp;&ensp;２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
-&emsp;&ensp;アンインストールしないFormulaやCaskは３番目以降の引数になります
+-d : オプション  
+アンインストール後に必要ないFormulaやCaskをTree表示します  
+最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
+２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
+アンインストールしないFormulaやCaskは３番目以降の引数になります
 
--dd : オプションでアンインストール後に必要ないFormulaやCaskのみをTree表示します  
-&emsp;&emsp;最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
-&emsp;&emsp;２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
-&emsp;&emsp;アンインストールしないFormulaやCaskは３番目以降の引数になります
+-dd : オプション  
+アンインストール後に必要ないFormulaやCaskのみをTree表示します  
+最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
+２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
+アンインストールしないFormulaやCaskは３番目以降の引数になります
 
--ddd : オプションでアンインストールで必要ないFormulaやCaskを順番にアンインストール出来ます  
-&emsp;&emsp;&emsp;最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
-&emsp;&emsp;&emsp;２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
-&emsp;&emsp;&emsp;アンインストールしないFormulaやCaskは３番目以降の引数になります
+-ddd : オプション  
+アンインストールで必要ないFormulaやCaskを順番にアンインストール出来ます  
+最初の引数はFormulaかCaskです、アンインストールしないFormulaやCaskは２番目以降の引数です  
+２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
+アンインストールしないFormulaやCaskは３番目以降の引数になります
 
 　#### 削除は　-ddや　-deでよく確認して下さい ####
 
--u : オプションでFormulaに依存してるインストール済みのFormulaを表示します、引数はFormulaです
+-u : オプション  
+Formulaに依存してるインストール済みのFormulaを表示します、引数はFormulaです
 
--bu : オプションでFormulaにビルド依存してるFormulaを表示します、引数はFormulaです
+-bu : オプション  
+Formulaにビルド依存してるFormulaを表示します、引数はFormulaです
 
--ua : オプションでFormulaに依存している全てのFormulaを表示します、引数はFormulaです
+-ua : オプション  
+Formulaに依存している全てのFormulaを表示します、引数はFormulaです
 
--ud : オプションでFormulaに依存されてるFormulaを表示します  
-&emsp;&emsp;引数が無けれはインストールされてる全てのFormulaを表示します  
-&emsp;&emsp;最初の引数でFormulaを指定すると、そのFormulaのみを表示します  
-&emsp;&emsp;最初の引数が .(dot) の場合は依存を必要としないFormulaを表示します
+-ud : オプション  
+Formulaに依存されてるFormulaを表示します  
+引数が無けれはインストールされてる全てのFormulaを表示します  
+最初の引数でFormulaを指定すると、そのFormulaのみを表示します  
+最初の引数が .(dot) の場合は依存を必要としないFormulaを表示します
 
--ul : オプションでFormulaに依存されてるFormulaの数を表示します  
-&emsp;&emsp;引数が無けれはインストールされてる全てのFormulaを表示します  
-&emsp;&emsp;最初の引数でFormulaを指定すると、そのFormulaのみの数を表示します
+-ul : オプション  
+Formulaに依存されてるFormulaの数を表示します  
+引数が無けれはインストールされてる全てのFormulaを表示します  
+最初の引数でFormulaを指定すると、そのFormulaのみの数を表示します
 
--is : オプションでFormulaがサイズ順で表示されます  
-&emsp;&emsp;引数が無けれはインストールされてる全てのFormulaを表示します  
-&emsp;&emsp;最初の引数でFormulaを指定すると、そのFormulaに必要なFormulaのみを含めて表示します  
-&emsp;&emsp;bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソートされます
+-is : オプション  
+Formulaをサイズ順で表示します  
+引数が無けれはインストールされてる全てのFormulaを表示します  
+最初の引数でFormulaを指定すると、そのFormulaに依存するFormulaのみを表示します  
+bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソートされます
 
--g : オプションで依存されてないFormulaを表示します  
-&emsp;&ensp;bl -g|cat でパイプすれば brew leaves(Cask込み) になります
+-g : オプション  
+依存されてないFormulaやCask及びFontを表示します  
+bl -g|cat でパイプすれば brew leaves (Cask込み) になります  
+( Linuxならtap linux-fontsも含まれます )
 
--o : オプションで brew outdated コマンド  
-&emsp;&ensp;最初の引数 .(dot) で、outdated があればインストールされます
+-o : オプション  
+brew outdated コマンドです  
+最初の引数 .(dot) で、outdated があればインストールされます
 
-\- : オプションで brew list(高速) コマンド
+\- : オプション  
+brew list(高速) コマンドです  
+( Linuxならtap linux-fontsも含まれます )
 
--ai : オプションでFormulaの解析データを表示します  
-&emsp;&emsp;引数が無ければ less で表示されます、終了は q になります  
-&emsp;&emsp;( 引数 [0-8]でソートします ) もしくはFormulaです
+-ai : オプション  
+Formulaの解析データを表示します  
+引数が無ければ less で表示されます、終了は q になります  
+( 引数 [0-8]でソートします ) もしくはFormulaです
 
--m : オプションで別の端末を開きます、カーソル移動はvimと同じです、終了は q になります
+-m : オプション  
+別の検索端末を開きます、カーソル移動はvimと同じです、終了は q になります
 
 Only Mac : Cask
 
--c : オプションでCaskのリストを表示します  
-&emsp;&ensp;引数が無ければ全てのリストを表示します  
-&emsp;&ensp;最初の引数はCaskや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-c : オプション  
+Caskのリストを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はCaskや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
--cf : オプションでFontのリストを表示します  
-&emsp;&emsp;引数が無ければ全てのリストを表示します  
-&emsp;&emsp;最初の引数はFontや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-cf : オプション  
+Fontのリストを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はFontや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
--ci : オプションでインストール済みのCaskやFontをリスト表示します
+-ci : オプション  
+インストール済みのCaskやFontをリスト表示します
 
--cx : オプションでインストール出来ないCaskを表示します  
-&emsp;&emsp;引数が無ければ全てのリストを表示します  
-&emsp;&emsp;最初の引数はCaskや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-cx : オプション  
+インストール出来ないCaskを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はCaskや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
--cs : オプションで同名のFormulaとCaskを表示します  
-&emsp;&emsp;引数が無ければ全てのリストを表示します  
-&emsp;&emsp;最初の引数はCaskや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-cs : オプション  
+同名のFormulaとCaskを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はCaskや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
--cd : オプションでCaskが必要とするCaskとFormulaをTree表示します
+-cd : オプション  
+Caskが必要とするCaskとFormulaをTree表示します
 
 <details><summary>bl -cd ( Caskの依存関係です )</summary>
 
@@ -408,18 +442,21 @@ vv	Neovimクライアント
 
 </details>
 
--ac : オプションでCaskの解析データを表示します  
-&emsp;&emsp;引数が無ければ less で表示されます、終了は q になります  
-&emsp;&emsp;( 引数 [0-2]でソートします ) もしくはCaskです
+-ac : オプション  
+Caskの解析データを表示します  
+引数が無ければ less で表示されます、終了は q になります  
+( 引数 [0-2]でソートします ) もしくはCaskです
 
--p : オプションでFontをQuickLookプレビュー出来ます( 不安定 )  
-&emsp;&ensp;引数はFontです、タブ補完が出来ます
+-p : オプション  
+FontをQuickLookプレビュー出来ます( 不安定 )  
+引数はFontです、zshシェルならタブ補完が出来ます
 
--cfp : オプションでQuickLookプレビューできるFontリストを表示します  
-&emsp;&emsp;&ensp;引数が無ければ全てのリストを表示します  
-&emsp;&emsp;&ensp;最初の引数はFontや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
+-cfp : オプション  
+QuickLookプレビューできるFontリストを表示します  
+引数が無ければ全てのリストを表示します  
+最初の引数はFontや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます
 
-- #### 表示マーク
+- ### 表示マーク
 
 b : マークはボトルインストール出来るFormulaです
 
