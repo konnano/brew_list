@@ -12,7 +12,8 @@ my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  unless( $ARGV[0] ){
-  $OS_Version = $ENV{'OS_Ver'} || `sw_vers -productVersion`;
+  $OS_Version = $ENV{'OS_Ver'}||`sed -nE '/ProductUserVisibleVersion/{n;s/.+>([^<]+)<.+/\\1/p;q;}'\\
+                                 /System/Library/CoreServices/SystemVersion.plist 2>/dev/null`||`sw_vers -productVersion`;
    unless( $ENV{'OS_Ver'} ){
     $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
      $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
@@ -838,8 +839,10 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
     open my $CEL,'<',"$glob/INSTALL_RECEIPT.json" or die " GLOB $!\n";
      while(my $cel=<$CEL>){
       if( index($cel,"\n") < 0 ){
-       my( $col ) = $cel =~ /"runtime_dependencies":\[([^]]*)]/;
-       my @HE = $col =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
+       $tap{"${name}_tap"} = 1 if $cel =~ /"tap":"([^"]+)"/ and index($1,'homebrew/core') < 0;
+        $tap{"${name}idep"} = 1 if index($cel,'"installed_as_dependency":true') > 0;
+         my( $col ) = $cel =~ /"runtime_dependencies":\[([^]]*)]/;
+          my @HE = $col =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1( @HE ){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
@@ -877,6 +880,7 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
          }
         }
        }
+       $tap{"${name}idep"} = 1 if index($cel,'"installed_as_dependency": true') > 0;
        if( $cel =~ s/^\s+"tap":\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}_tap"} = 1 if index($cel,'homebrew/core') < 0; last;
        }
