@@ -75,7 +75,8 @@ MAIN:{
     $re->{'Q_TAP'} = "$home/Q_TAP.txt";
  }else{
   unless( $re->{'BL'} or $re->{'COM'} or $re->{'S_OPT'} ){
-   $OS_Version = $ENV{'OS_Ver'} || `sw_vers -productVersion`;
+   $OS_Version = $ENV{'OS_Ver'}||`sed -nE '/ProductUserVisibleVersion/{n;s/.+>([^<]+)<.+/\\1/p;q;}'\\
+                                  /System/Library/CoreServices/SystemVersion.plist 2>/dev/null`||`sw_vers -productVersion`;
     die " Use Tiger Brew\n"
      unless $ENV{'OS_Ver'} or $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/ or $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
       $ENV{'OS_Ver'} = $OS_Version;
@@ -92,6 +93,7 @@ MAIN:{
       $re->{'NEW'} ||= 1; Init_1( $re );
   }elsif( $re->{'BL'} and $AR[1] ){ $name = $AR[1] eq 'c' ? $ref : $AR[1] eq 'f' ? $re : undef;
   }elsif( $re->{'S_M'} ){ $ENV{'Mser'} = 1; m_search( $re ) }
+
   unless( $ENV{'Mser'} ){
    if( $re->{'JA'} ){ my $op = $re->{'MAC'} ? '-t1' : '-w1';
     die " \033[31mNot connected\033[0m\n"
@@ -123,6 +125,7 @@ MAIN:{
       $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
        ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
   }
+
   if( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
     $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
      ( utf8::decode($AR[1]), $AR[1] ) : defined $AR[1] ? lc $AR[1] : Died_1();
@@ -785,6 +788,7 @@ sub Top_1{
   next if $re->{'LIN'} and ( $ls eq 'glibc' or $ls eq 'linux-headers@5.15' );
   if( @{$re->{$ls}} and @{$re->{$ls}} < 2 ){
    my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"} and -t STDOUT;
+#    $re->{'Idep'} .= ": $ls " if $re->{'OS'}{"${ls}idep"} and not $re->{'OS'}{"${ls}build"}; ###
    Tap_2( $re,\$ls ) if $re->{'FOR'};
     for my $bui( @BUI ){ my $build = $bui;
      Tap_2( $re,\$bui ) if $re->{'FOR'};
@@ -1807,7 +1811,8 @@ sub Format_1{
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[0m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
-  Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
+#  print "\033[33mInstalled_as_dependency $re->{'Idep'}\033[0m\n" if $re->{'Idep'} and -t STDOUT; ###
+   Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
 sub Format_2{
@@ -2287,7 +2292,8 @@ my $MY_HOME = -d "$MY_BREW/Homebrew" ? "$MY_BREW/Homebrew" : $MY_BREW;
 
 if( $^O eq 'darwin' ){ $re->{'MAC'} = 1;
  unless( $ARGV[0] ){
-  $OS_Version = $ENV{'OS_Ver'} || `sw_vers -productVersion`;
+  $OS_Version = $ENV{'OS_Ver'}||`sed -nE '/ProductUserVisibleVersion/{n;s/.+>([^<]+)<.+/\\1/p;q;}'\\
+                                 /System/Library/CoreServices/SystemVersion.plist 2>/dev/null`||`sw_vers -productVersion`;
    unless( $ENV{'OS_Ver'} ){
     $OS_Version =~ s/^(10\.1[1-5]).*\n/$1/;
      $OS_Version =~ s/^(1[1-5]).+\n/$1.0/;
@@ -3113,8 +3119,10 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
     open my $CEL,'<',"$glob/INSTALL_RECEIPT.json" or die " GLOB $!\n";
      while(my $cel=<$CEL>){
       if( index($cel,"\n") < 0 ){
-       my( $col ) = $cel =~ /"runtime_dependencies":\[([^]]*)]/;
-       my @HE = $col =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
+       $tap{"${name}_tap"} = 1 if $cel =~ /"tap":"([^"]+)"/ and index($1,'homebrew/core') < 0;
+        $tap{"${name}idep"} = 1 if index($cel,'"installed_as_dependency":true') > 0;
+         my( $col ) = $cel =~ /"runtime_dependencies":\[([^]]*)]/;
+          my @HE = $col =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1( @HE ){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
@@ -3152,6 +3160,7 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
          }
         }
        }
+       $tap{"${name}idep"} = 1 if index($cel,'"installed_as_dependency": true') > 0;
        if( $cel =~ s/^\s+"tap":\s+"([^"]+)".*\n/$1/ ){
         $tap{"${name}_tap"} = 1 if index($cel,'homebrew/core') < 0; last;
        }
