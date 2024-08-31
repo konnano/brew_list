@@ -1563,7 +1563,6 @@ eless	より良い`less` EmacsビューモードとBashを使う
 eleventy	よりシンプルな静的サイト発生器
 elfutils	ELFオブジェクトを処理する為のライブラリとユーティリティ
 elfx86exts	x86バイナリ(ELF/Mach-O)をデコードし使用中のISA拡張機能を出力します
-elinks	テキストモードのWebブラウザ
 elixir	Erlang VM上に構築された機能的なメタプログラミング対応言語
 elixir-ls	Elixirの言語サーバーとデバッガー
 elm	ブラウザベースのGUIを構築する為の関数型プログラミング言語
@@ -1777,6 +1776,7 @@ findomain	クロスプラットフォームのサブドメイン列挙子
 findutils	GNUのコレクション find/xargs/locate
 fio	基準比較とストレステスト I/O
 firebase-cli	Firebaseコマンドラインツール
+firefly	ブロックチェーン相互作用の為のHyperledger FireFlyスタックの作成及び管理
 firefoxpwa	インストールするツール Mozilla Firefoxで進歩的なWebアプリを管理及び使用する
 fish	UNIXライクなオペレーティングシステム用のユーザーに親しいコマンドラインシェル
 fisher	Fishシェルのプラグインマネージャー
@@ -1980,7 +1980,6 @@ gcc@9	GNUコンパイラコレクション
 gcem	C++コンパイル時数学ライブラリ
 gcovr	gcovテストcoverageプログラムからの報告
 gcsfuse	Google Cloudとやり取りする為のユーザースペースファイルシステム
-gcutil	Google ComputeEngineリソースを管理する
 gcviewer	Javaガベージコレクション視覚化ツール
 gd	画像を動的に操作するグラフィックライブラリ
 gdal	地理空間データ抽象化ライブラリ
@@ -2274,7 +2273,6 @@ go-md2man	マークダウンをroffに変換します(manページ)
 go-size-analyzer	コンパイルされたGolangバイナリの依存関係を分析する
 go-statik	Go実行可能ファイルにファイルを埋め込む
 go-task	Taskはよりシンプルで使いやすいことを目的としたタスク ランナー/ビルド ツールです
-go@1.16	Goプログラミング環境(1.16)
 go@1.17	Goプログラミング環境(1.17)
 go@1.18	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
 go@1.19	シンプル/信頼性/効率的なソフトウェアを構築する為のオープンソースプログラミング言語
@@ -2917,7 +2915,9 @@ jrnl	コマンドラインnote taker
 jrsonnet	Jsonnet言語のRust実装
 jrtplib	RTP(Real-time Transport Protocol)用のフル機能のC++ライブラリ
 jruby	純粋なJavaでのRubyの実装
+js-beautify	JavaScript、CSS、HTMLの難読化解除機能と整形機能
 jsawk	awkと同様ですがJSONの場合、JavaScriptオブジェクトと配列を使用します
+jsbeautifier	JavaScriptの難読化解除機能と整形機能
 jscpd	ソースコードをプログラミングする為の コピー/ペースト 検出器
 jsdoc3	JavaScriptのAPIドキュメント発生器
 jshon	シェルからJSONを 解析/読み取り/作成 します
@@ -3145,7 +3145,6 @@ lcdproc	LCDにリアルタイムのシステム情報を表示する
 lci	lambda計算の通訳
 lcm	メッセージ経過とデータ進行の為のライブラリとツール
 lcov	GCCの範囲テストツール(gcov)のグラフィカルフロントエンド
-lcrack	一般的なパスワードクラッカー
 lcs	風刺的なコンソールベースの政治的 ロールプレイング/戦略ゲーム
 ld-find-code-refs	LaunchDarklyに機能flagコード参照を送信する為のビルドツール
 ldapvi	テキストエディタでLDAPエントリを更新する
@@ -4858,7 +4857,6 @@ perkeep	自分のものを永久に保管できます 生活の為に
 perl	高性能で機能豊富なプログラミング言語
 perl-build	Perlビルダー
 perl-xml-parser	XMLドキュメントを解析する為のPerlモジュール
-perl@5.18	高性能で機能豊富なプログラミング言語
 perltidy	Perlスクリプトをインデントして再フォーマットし読みやすくします
 peru	バージョン管理とアーカイブの為の依存関係Retriever
 petsc	科学計算の為のポータブルで拡張可能なツールキット(real)
@@ -4897,7 +4895,6 @@ phoronix-test-suite	オープンソースの自動ソフトウェア テスト/�
 php	汎用スクリプト言語
 php-code-sniffer	コーディング標準を確認してください PHP/JavaScript/CSS
 php-cs-fixer	PHPコーディング標準の問題を自動的に修正するツール
-php-cs-fixer@2	PHPコーディング標準の問題を自動的に修正するツール
 php@8.0	汎用スクリプト言語
 php@8.1	汎用スクリプト言語
 php@8.2	汎用スクリプト言語
@@ -5932,7 +5929,6 @@ speex	音声用に設計されたオーディオコーデック
 speexdsp	Speexオーディオ処理ライブラリ
 spek	音響スペクトラムアナライザ
 spglib	結晶の対称性を見つけて処理する為の、Cライブラリ
-sphinx	全文検索エンジン
 sphinx-doc	高度で美しいドキュメントを作成する為のツール
 spice-gtk	SPICEのGTKクライアント/ライブラリ
 spice-protocol	SPICE手続きのヘッダー
@@ -6255,7 +6251,6 @@ terraform-provider-libvirt	libvirtを使用しLinux KVMにTerraformを提供す�
 terraform-rover	Terraform Visualizer
 terraform_landscape	Terraformの計画出力を改善する
 terraformer	既存の基礎構造からTerraformファイルを生成するCLIツール
-terraforming	既存のAWSリソースをTerraformスタイル(tf、tfstate)に転送する
 terragrunt	Terraformの薄いラッパー(ロック状態など)
 terragrunt-atlantis-config	Terragruntプロジェクト用の Atlantis構成を生成する
 terrahash	設定で使用するTerraformモジュールのハッシュを作成して保存する
@@ -6377,7 +6372,6 @@ tokyo-cabinet	軽量データベースライブラリ
 tokyo-dystopia	軽量全文検索システム
 tomcat	JavaサーブレットとJavaServerPagesの実装
 tomcat-native	Tomcatが動作の為にネイティブリソースを使用できる様にします
-tomcat@7	JavaサーブレットとJavaServerPagesの実装
 tomcat@8	JavaサーブレットとJavaServerPagesの実装
 tomcat@9	JavaサーブレットとJavaServerPagesの実装
 tomee-plume	Apache TomEEプルーム
