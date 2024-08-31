@@ -92,6 +92,7 @@ MAIN:{
   }elsif( $re->{'NEW'} or not -f $DBM or not -d $home or $re->{'LIN'} and not -f $re->{'LFO'} ){
       $re->{'NEW'} ||= 1; Init_1( $re );
   }elsif( $re->{'BL'} and $AR[1] ){ $name = $AR[1] eq 'c' ? $ref : $AR[1] eq 'f' ? $re : undef;
+  }elsif( $re->{'TOP'} and $AR[1] and $AR[1] eq '.' ){ $re->{'TOP'} = 2;
   }elsif( $re->{'S_M'} ){ $ENV{'Mser'} = 1; m_search( $re ) }
 
   unless( $ENV{'Mser'} ){
@@ -788,7 +789,7 @@ sub Top_1{
   next if $re->{'LIN'} and ( $ls eq 'glibc' or $ls eq 'linux-headers@5.15' );
   if( @{$re->{$ls}} and @{$re->{$ls}} < 2 ){
    my @BUI = split '\t',$re->{'OS'}{"${ls}build"} if $re->{'OS'}{"${ls}build"} and -t STDOUT;
-#    $re->{'Idep'} .= ": $ls " if $re->{'OS'}{"${ls}idep"} and not $re->{'OS'}{"${ls}build"}; ###
+    $re->{'Idep'} .= ": $ls " if $re->{'TOP'} > 1 and $re->{'OS'}{"${ls}idep"} and not $re->{'OS'}{"${ls}build"};
    Tap_2( $re,\$ls ) if $re->{'FOR'};
     for my $bui( @BUI ){ my $build = $bui;
      Tap_2( $re,\$bui ) if $re->{'FOR'};
@@ -1811,7 +1812,7 @@ sub Format_1{
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[0m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
-#  print "\033[33mInstalled_as_dependency $re->{'Idep'}\033[0m\n" if $re->{'Idep'} and -t STDOUT; ###
+  print "\033[33mInstalled_as_dependency $re->{'Idep'}\033[0m\n" if $re->{'TOP'} > 1 and $re->{'Idep'} and -t STDOUT;
    Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
