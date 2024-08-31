@@ -119,8 +119,10 @@ Formulaをサイズ順で表示します
 bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソートされます
 
 -g : オプション  
-依存されてないFormulaやCask及びFontを表示します  
+引数が無ければ依存されてないFormulaやCask及びFontを表示します  
 ( Linuxならtap linux-fontsも含まれます )  
+引数 .(dot) は依存関係でインストールされて依存されなくなったFormulaがあれば表示します  
+ただ、INSTALL_RECEIPT.jsonの曖昧な情報を読むので不安定なります  
 bl -g|cat でパイプすれば brew leaves (Cask込み) になります  
 
 -o : オプション  
