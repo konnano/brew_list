@@ -1461,6 +1461,7 @@ garmin-basecamp	3Dマッピングアプリケーション
 garmin-express	地図とソフトウェアを更新しGarmin Connectと同期してデバイスを登録する
 gas-mask	ホストファイルエディター/マネージャー
 gather	仮想ビデオ通話スペース
+gauntlet	オープンソースのクロスプラットフォームアプリケーションランチャー
 gb-studio	レトロゲームクリエイターをドラッグアンドドロップします
 gcc-aarch64-embedded	64ビットArmプロセッサ用のビルド済みGNUベアメタルツールチェーン
 gcc-arm-embedded	32ビットArmプロセッサ用の構築済みGNUベアメタルツールチェーン
@@ -3060,6 +3061,7 @@ phoenix-code	コードエディタ
 phoenix-slides	フルスクリーンスライドショープログラム
 photoninja	プロフェッショナルRAW変換器
 photosrevive	古い白黒写真を自動的に色付けする
+photostickies	デスクトップに写真やカメラのフィードを表示
 photosweeper-x	類似/重複した写真を削除するツール
 photosync	PhotoSyncコンパニオン
 photozoom-pro	デジタル写真やグラフィックスを拡大及び縮小する為のソフトウェア
@@ -4555,6 +4557,7 @@ wifi-explorer	ワイヤレスネットワークのトラブルシューティン
 wifi-explorer-pro	ワイヤレスネットワークのトラブルシューティング スキャン/画面
 wifiman	ネットワーク監視及びトラブルシューティングツール
 wifispoof	コンピュータのMACアドレスを変更する
+winbox	MikroTik RouterOS用管理ツール
 winclone	BootCampのクローン作成とバックアップソリューション
 windows95	Electron Windows 95
 windscribe	安全なインターネットアクセスとプライベートブラウジングの為のVPNクライアント
@@ -4648,6 +4651,7 @@ xiv-on-mac	Wineラッパー FFXIVのセットアップツールとランチャ�
 xld	劣化無しオーディオデコーダー
 xliff-editor	ローカリゼーションファイルエディター
 xlplayer	ビデオプレーヤー
+xmenu	メニューバーからフォルダー、ファイル、テキストスニペットにアクセスします
 xmind	マインドマッピングとbrainstormingツール
 xmind@beta	マインドマッピングとbrainstormingツール
 xmplify	XMLエディター
