@@ -122,7 +122,7 @@ bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソ�
 引数が無ければ依存されてないFormulaやCask及びFontを表示します  
 ( Linuxならtap linux-fontsも含まれます )  
 引数 .(dot) は依存関係でインストールされて依存されなくなったFormulaがあれば表示します  
-ただ、INSTALL_RECEIPT.jsonの曖昧な情報を読むので ( 不安定 ) なります  
+ただ、INSTALL_RECEIPT.jsonの曖昧な情報を読み込むので ( 不安定 ) になります  
 bl -g|cat でパイプすれば brew leaves (Cask込み) になります  
 
 -o : オプション  
