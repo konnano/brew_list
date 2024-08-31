@@ -1812,7 +1812,8 @@ sub Format_1{
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[0m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
-  print "\033[33mInstalled_as_dependency $re->{'Idep'}\033[0m\n" if $re->{'TOP'} > 1 and $re->{'Idep'} and -t STDOUT;
+  print "\033[33mInstalled_as_dependency $re->{'Idep'}\033[0m\n"
+   if $re->{'TOP'} and $re->{'TOP'} > 1 and $re->{'Idep'} and -t STDOUT;
    Nohup_1( $re ) if $re->{'CAS'} or $re->{'FOR'};
 }
 
