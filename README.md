@@ -1,4 +1,4 @@
-brew list コマンド拡張版(高速)
+brew list (高速) コマンド 拡張版
 
 : 使用方法
 
@@ -102,19 +102,19 @@ Formulaに依存している全てのFormulaを表示します、引数はFormul
 
 -ud : オプション  
 Formulaに依存されてるFormulaを表示します  
-引数が無けれはインストールされてる全てのFormulaを表示します  
+引数が無ければインストールされてる全てのFormulaを表示します  
 最初の引数でFormulaを指定すると、そのFormulaのみを表示します  
 最初の引数が .(dot) の場合は依存を必要としないFormulaを表示します
 
 -ul : オプション  
 Formulaに依存されてるFormulaの数を表示します  
-引数が無けれはインストールされてる全てのFormulaを表示します  
+引数が無ければインストールされてる全てのFormulaを表示します  
 引数でFormulaを指定すると、そのFormulaのみの数を表示します  
 標準は辞書順表示です、bl -ul|sort -t : -k 2 -r でパイプすれば数字順になります
 
 -is : オプション  
 Formulaをサイズ順で表示します  
-引数が無けれはインストールされてる全てのFormulaを表示します  
+引数が無ければインストールされてる全てのFormulaを表示します  
 引数でFormulaを指定すると、そのFormulaに依存するFormulaのみを表示します  
 bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソートされます
 
@@ -124,11 +124,11 @@ bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソ�
 bl -g|cat でパイプすれば brew leaves (Cask込み) になります  
 
 -o : オプション  
-brew outdated コマンドです  
+引数が無ければ brew outdated コマンドです  
 引数に .(dot) を指定すると、outdated があればインストールされます
 
 \- : オプション  
-brew list (高速) コマンドです  
+引数が無ければ brew list (高速) コマンドです  
 引数に f なら Formulaのみ、c なら Cask のみを表示します  
 ( Linuxならtap linux-fontsも含まれます )
 
