@@ -841,8 +841,7 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
       if( index($cel,"\n") < 0 ){
        $tap{"${name}_tap"} = 1 if $cel =~ /"tap":"([^"]+)"/ and index($1,'homebrew/core') < 0;
         $tap{"${name}idep"} = 1 if index($cel,'"installed_as_dependency":true') > 0;
-         my( $col ) = $cel =~ /"runtime_dependencies":\[([^]]*)]/;
-          my @HE = $col =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
+         my @HE = $cel =~ /{"full_name":"([^"]+)","version":"[^"]+"}/g;
        for my $ls1( @HE ){ my( %HA,%AL,$ne );
         if( $tap{"${ls1}uses"} ){ $HA{$_}++ for split '\t',$tap{"${ls1}uses"} }
         unless( $HA{$name} ){
