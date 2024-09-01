@@ -1,15 +1,10 @@
-brew list (高速) コマンド 拡張版
-
-: 使用方法
-
-```
-brew install konnano/brew_list/brew_list
-```
+**brew list (高速) コマンド 拡張版**
 
 ![brew-ezgif com-video-to-gif-converter](https://github.com/konnano/brew_list/assets/73874687/10f3a2f8-9c02-46dc-a759-71a76304f131)
 
+- ### 使用方法
 
-コマンドは<strong>`bl`</strong>です
+コマンドは **`bl`** です
 
 
 標準は英語表示です bl -JA オプションで  
@@ -49,7 +44,7 @@ FormulaかCaskかFontを検索します
 
 -co : オプション  
 Formulaのライブラリーを表示します  
-最初の引数はFormulaです、2番目の引数 .(dot) で $(brew --prefix)/bin 以下のみを表示します
+最初の引数はFormulaです、2番目の引数 .(dot) なら $(brew --prefix)/bin 以下のみを表示します
 
 -in : オプション  
 インストールに必要なFormulaやCaksをリスト表示します  
@@ -57,11 +52,15 @@ Formulaのライブラリーを表示します
 
 -t : オプション  
 インストールに必要なFormulaやCaskをTree表示します  
-引数はFormulaかCaskです
+引数はFormulaかCaskです  
+同名のFormulaやCaskがあれば2番目の引数に -c でCaskをTree表示します  
+２番目の引数に数字なら検索階層を限定表示します
 
 -tt : オプション  
 インストールに必要なFormulaやCaskのみをTree表示します  
-引数はFormulaかCaskです
+引数はFormulaかCaskです  
+同名のFormulaやCaskがあれば2番目の引数に -c でCaskをTree表示します  
+２番目の引数に数字なら検索階層を限定表示します
 
 -de : オプション  
 アンインストール後に必要ないFormulaやCaskをリスト表示します  
@@ -73,23 +72,29 @@ Formulaのライブラリーを表示します
 最初の引数はアンインストールするFormulaかCaskです  
 アンインストールしないFormulaやCaskは２番目以降の引数になります  
 ２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
-アンインストールしないFormulaやCaskは３番目以降の引数になります
+アンインストールしないFormulaやCaskは３番目以降の引数になります  
+同名のFormulaやCaskがあれば2番目の引数に -c でCaskをTree表示します  
+２番目の引数に数字なら検索階層を限定表示します
 
 -dd : オプション  
 アンインストール後に必要ないFormulaやCaskのみをTree表示します  
 最初の引数はアンインストールするFormulaかCaskです  
 アンインストールしないFormulaやCaskは２番目以降の引数になります  
 ２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
-アンインストールしないFormulaやCaskは３番目以降の引数になります
+アンインストールしないFormulaやCaskは３番目以降の引数になります  
+同名のFormulaやCaskがあれば2番目の引数に -c でCaskをTree表示します  
+２番目の引数に数字なら検索階層を限定表示します
 
 -ddd : オプション  
 アンインストールで必要ないFormulaやCaskを順番にアンインストール出来ます  
 最初の引数はアンインストールするFormulaかCaskです  
 アンインストールしないFormulaやCaskは２番目以降の引数になります  
 ２番目の引数に .(dot) で Build Formulaも含まれます、その場合は  
-アンインストールしないFormulaやCaskは３番目以降の引数になります
+アンインストールしないFormulaやCaskは３番目以降の引数になります  
+同名のFormulaやCaskがあれば2番目の引数に -c でCaskに限定します    
+２番目の引数に数字なら階層を限定します
 
-　#### 削除は　-ddや　-deでよく確認して下さい ####
+　#### 削除は -dd や -de でよく確認して下さい ####
 
 -u : オプション  
 Formulaに依存してるインストール済みのFormulaを表示します、引数はFormulaです
@@ -107,7 +112,7 @@ Formulaに依存されてるFormulaを表示します
 最初の引数が .(dot) の場合は依存を必要としないFormulaを表示します
 
 -ul : オプション  
-Formulaに依存されてるFormulaの数を表示します  
+Formulaに依存してるFormulaの数を表示します  
 引数が無ければインストールされてる全てのFormulaを表示します  
 引数でFormulaを指定すると、そのFormulaのみの数を表示します  
 標準は辞書順表示です、bl -ul|sort -t : -k 2 -r でパイプすれば数字順になります
@@ -115,15 +120,15 @@ Formulaに依存されてるFormulaの数を表示します
 -is : オプション  
 Formulaをサイズ順で表示します  
 引数が無ければインストールされてる全てのFormulaを表示します  
-引数でFormulaを指定すると、そのFormulaに依存するFormulaのみを表示します  
+引数でFormulaを指定すると、そのFormulaに依存されてるFormulaのみを表示します  
 bl -is|sort -t : -k 3 でパイプすればインストールの日付順にソートされます
 
 -g : オプション  
 引数が無ければ依存されてないFormulaやCask及びFontを表示します  
 ( Linuxならtap linux-fontsも含まれます )  
 引数 .(dot) は依存関係でインストールされて依存されなくなったFormulaがあれば表示します  
-ただ、INSTALL_RECEIPT.jsonの曖昧な情報を読み込むので ( 不安定 ) になります  
-bl -g|cat でパイプすれば brew leaves (Cask込み) になります  
+ただ、INSTALL_RECEIPT.jsonの曖昧な情報なので ( 不安定 ) になります  
+bl -g|cat でパイプすれば brew leaves ( Cask込み ) になります  
 
 -o : オプション  
 引数が無ければ brew outdated コマンドです  
@@ -472,6 +477,12 @@ tap linux-fontsのリストを表示します
 引数が無ければ全てのリストを表示します  
 最初の引数はFontや正規表現です // 、2番目の引数 .(dot) で全文検索出来ます  
 ___  
+- ### インストール
+
+```
+brew install konnano/brew_list/brew_list
+```
+
 - ### 表示マーク
 
 b : マークはボトルインストール出来るFormulaです
@@ -497,3 +508,6 @@ f : マークはFormulaを必要とするCaskです
 c : マークはCaskaを必要とするCaskです
 
 p : マークはQuickLookでプレビューできるFontです
+
+- ### バグ  
+APIでは読み取れない要素があります
