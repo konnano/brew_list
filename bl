@@ -137,7 +137,7 @@ MAIN:{
   }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
                         ( $re->{'|'},$re->{'|--'},$re->{'`--'} ) = $Locale ? ( '│','├──','└──' ) : ( '|','|--','`--' );
-  }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
+  }elsif( $re->{'IS'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'IS'} = 2 }else{ $re->{'INF'} = lc $AR[1] }
   }elsif( $re->{'uses'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'uses'} = 2 }else{ $re->{'use'} = lc $AR[1] }
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
@@ -740,7 +740,7 @@ sub Ana_1{
 }
 
 sub Size_1{
- my( $re,$list ) = @_; my( %AR,@data,$size,$ls1,$ls2,$c );
+ my( $re,$list ) = @_; my( %AR,@data,@size,$size,$ls1,$ls2,$c );
   if( defined $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
   }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
    @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
@@ -776,8 +776,12 @@ sub Size_1{
        $size += $cou = sprintf "%.3f",$cou /= 1024;
         Tap_2( $re,\$name );
          Leng_1( $spa,\$name ) if $spa >= 5;
-     printf"%-${spa}s %8s%12s%3s%22s\n",$name,"size  : ","$cou MB","   ","install  :  $timer"
+     push @size,sprintf"%-${spa}s %8s%12s%3s%22s\n",$name,"size  : ","$cou MB","   ","install  :  $timer"
    }
+  if( $re->{'IS'} == 2 ){
+    sub _siz{ $_[0] =~ /.+:\s+([^\s]+)/; $1 }
+   for( sort{_siz($a) cmp _siz($b)} @size ){ print }
+  }else{ print for @size }
   printf" Totsl Size  %.2f MB  item %d\n",$size,$c if -t STDOUT;
  Nohup_1( $re );
 }
@@ -840,7 +844,7 @@ sub Brew_2{
    if( @an ){
     Tap_2( $re,\$re->{'use'} );
      Leng_1( $spa,\$re->{'use'} ) if $spa >= 5;
-      push @ls,sprintf"%${spa}s uses  :%4s formula\n",$re->{'use'},$#an;
+      printf"%${spa}s uses  :%4s formula\n",$re->{'use'},$#an;
    }
  }else{
   push @an,$_ for( sort keys %{$re->{'HASH'}} );
@@ -853,10 +857,9 @@ sub Brew_2{
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
   if( $re->{'uses'} == 2 ){
     sub _num{ $_[0] =~ /.+:[^\d]*(\d+)[^\d]+/; $1 }
-   for( sort{_num($a) <=> _num($b)} @ls ){ print } @ls = ();
-  }
+   for( sort{_num($a) <=> _num($b)} @ls ){ print }
+  }else{ print for @ls }
  }
- if( @ls ){ print for @ls }
  Nohup_1( $re );
 }
 
