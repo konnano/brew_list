@@ -120,7 +120,7 @@ MAIN:{
     }elsif( $re->{'DAT'} and $AR[1] and $AR[1] eq '.' ){ $re->{'DAT'} = $ref->{'DAT'} = 2;
     }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2] =~ /^\d+$|^\.$/ ? $AR[2] : 0;
                                                  $re->{'Casc'} = 1 if $AR[2] eq '-c';
-    }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){$name->{'KEN'} = 1}else{$re->{'dep_s'} = lc $AR[1]}
+    }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){ $name->{'KEN'} = 1 }else{ $re->{'dep_s'} = lc $AR[1] }
     }
      $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
       $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
@@ -138,7 +138,7 @@ MAIN:{
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
                         ( $re->{'|'},$re->{'|--'},$re->{'`--'} ) = $Locale ? ( '│','├──','└──' ) : ( '|','|--','`--' );
   }elsif( $re->{'IS'} and defined $AR[1] ){ $re->{'INF'} = lc $AR[1];
-  }elsif( $re->{'uses'} and defined $AR[1] ){ $re->{'use'} = lc $AR[1];
+  }elsif( $re->{'uses'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'uses'} = 2 }else{ $re->{'use'} = lc $AR[1] }
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
@@ -190,7 +190,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.27_3\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.27_4\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -831,7 +831,7 @@ sub Brew_1{
 }
 
 sub Brew_2{
- my $re = shift; my( $ls,@an,%ha );
+ my $re = shift; my( @ls,@an,%ha );
  exit if defined $re->{'use'} and not $re->{'HASH'}{$re->{'use'}};
  my $tput = `tput cols`;
   my $spa = $tput >= 66 ? 44 : $tput > 22 ? $tput - 22 : 0;
@@ -840,7 +840,7 @@ sub Brew_2{
    if( @an ){
     Tap_2( $re,\$re->{'use'} );
      Leng_1( $spa,\$re->{'use'} ) if $spa >= 5;
-      $ls = sprintf"%${spa}s uses  :%4s formula\n",$re->{'use'},$#an;
+      push @ls,sprintf"%${spa}s uses  :%4s formula\n",$re->{'use'},$#an;
    }
  }else{
   push @an,$_ for( sort keys %{$re->{'HASH'}} );
@@ -848,11 +848,15 @@ sub Brew_2{
   for my $key( sort keys %{$re->{'HASH'}} ){ my $keys = $key;
    Tap_2( $re,\$keys );
     Leng_1( $spa,\$keys ) if $spa >= 5;
-     $ls .= sprintf"%${spa}s uses  :%4s formula\n",$keys,$#{$re->{$key}};
+     push @ls,sprintf"%${spa}s uses  :%4s formula\n",$keys,$#{$re->{$key}};
   }
-  waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
+   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
+  if( $re->{'uses'} == 2 ){
+    sub _num{ $_[0] =~ /.+:[^\d]*(\d+)[^\d]+/; $1 }
+   for( sort{_num($a) <=> _num($b)} @ls ){ print } @ls = ();
+  }
  }
- print"$ls" if $ls;
+ if( @ls ){ print for @ls }
  Nohup_1( $re );
 }
 
