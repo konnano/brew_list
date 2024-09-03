@@ -1,4 +1,4 @@
-**brew list (高速) コマンド 拡張版**
+**brew list コマンド 拡張版**
 
 ![bl-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/03b2d350-67a1-4097-9faa-463c5d19a70e)
 
@@ -135,7 +135,7 @@ bl -g|cat でパイプすれば brew leaves ( Cask込み ) になります
 引数に .(dot) を指定すると、outdated があればインストールされます
 
 \- : オプション  
-引数が無ければ brew list (高速) コマンドです  
+引数が無ければ brew list コマンドです  
 引数に f なら Formulaのみ、c なら Cask のみを表示します  
 ( Linuxならtap linux-fontsも含まれます )
 
