@@ -1436,6 +1436,7 @@ dpkg	Debianパッケージ管理システム
 dpp	DソースコードにCヘッダーを直接含める
 dprint	Rustで記述されたプラグイン可能で構成可能なコードフォーマットプラットフォーム
 dps8m	Multics dps-8/m メインフレーム用の模擬装置
+dra	GitHubからリリースアセットをダウンロードするツール
 draco	3Dジオメトリックメッシュとポイントクラウド圧縮ライブラリ
 drafter	ネイティブC/C++ APIブループリントパーサー
 drake	データを作成することを目的としたデータワークフローツール
@@ -1763,6 +1764,7 @@ fheroes2	Free Heroes of Might and Magic IIは HoMM2ゲームエンジンを再�
 fibjs	Fiber上のJavaScript
 ficy	ストリームgrabber suite Icecast/Shoutcast
 field3d	voxelデータをディスク及びメモリに保存する為のライブラリ
+fierce	非連続IP空間を特定する為のDNS偵察ツール
 fifechan	ゲーム用に設計されたC++ GUIライブラリ
 fig2dev	xfigによって生成された図を他の形式に変換します
 figlet	バナーの様なプログラムは、文字列をASCIIアートとしてプリントします
@@ -2408,6 +2410,7 @@ grex	正規表現を生成する為のコマンドラインツール
 grin	Mimblewimble手続きの最低限の実装
 grin-wallet	暗号通貨Grinの公式ウォレット
 grip	GitHub Markdownプレビューア
+grizzly	Grafanaダッシュボードを管理及び自動化する為のコマンドラインツール
 groestlcoin	分散型 ピアツーピア決済ネットワーク
 groff	GNU troffテキストフォーマットシステム
 grok	正規表現と幾つかの DRY/RAD
@@ -3148,7 +3151,6 @@ lcov	GCCの範囲テストツール(gcov)のグラフィカルフロントエン
 lcs	風刺的なコンソールベースの政治的 ロールプレイング/戦略ゲーム
 ld-find-code-refs	LaunchDarklyに機能flagコード参照を送信する為のビルドツール
 ldapvi	テキストエディタでLDAPエントリを更新する
-ldb	LDAPのような組み込みデータベース
 ldc	ポータブルDプログラミング言語コンパイラ
 ldeep	LDAP列挙ユーティリティ
 ldid	Mach-Oバイナリで署名ブロックを操作できます
@@ -5233,6 +5235,7 @@ python@3.9	オブジェクト指向プログラミング言語 インタプリ�
 pythran	数値カーネル用のAheadofTimeコンパイラ
 pytorch	Tensorsと動的ニューラルネットワーク
 pytouhou	Touhou6エンジンのLibre実装
+pyupgrade	Pythonの新しいバージョンに対応した構文のアップグレード
 pyvim	純粋なPython Vimクローン
 pywhat	🐸 特定する物：メール、IPアドレスなど 🧙
 pyyaml	PythonのYAMLフレームワーク
@@ -5934,6 +5937,7 @@ spice-gtk	SPICEのGTKクライアント/ライブラリ
 spice-protocol	SPICE手続きのヘッダー
 spicetify-cli	Spotifyクライアントをカスタマイズする為のコマンドラインツール
 spidermonkey	JavaScript-Cエンジン
+spidermonkey@115	JavaScript-C Engine
 spidermonkey@91	JavaScript-C エンジン
 spigot	コマンドラインストリーミングの正確な実際の計算機
 spim	MIPS32模擬装置
@@ -6427,7 +6431,6 @@ tremor-runtime	非構造化データの初期段階のイベント処理シス�
 trezor-agent	ハードウェアSSH/GPGエージェント Trezor/Keepkey/Ledger
 trezor-bridge	Trezor通信デーモン
 triangle	Delaunay三角形分割を使用して、画像をコンピューターで生成されたアートに変換します
-trimage	PNG/JPGファイルを最適化する為のクロスプラットフォームツール
 trino	ビッグデータ用の分散SQLクエリエンジン
 trippy	mtrに触発されたネットワーク診断ツール
 triton	Joyent Triton CLI
