@@ -1445,7 +1445,7 @@ sub Search_1{ no warnings 'regexp';
        Mine_1( $brew_1,$re,0 ) if index($ls,'/') > 0 and $brew_1 =~ /$re->{'S_OPT'}/o;
        ( index($ls,'/') > 0 and not $re->{'S_O'} and $ls =~ /$re->{'S_OPT'}/o ) ? Mine_1( $ls,$re,1 ) :
        ( index($ls,'/') < 0 and $brew_1 =~ /$re->{'S_OPT'}/o ) ? Mine_1( $brew_1,$re,1 ) : 0;
-     }elsif( $re->{'BL'} ){ Mine_1( $brew_1,$re,0 );
+     }elsif( $re->{'BL'} ){ Mine_1( $brew_1,$re,0 ) if $re->{'HASH'}{$brew_1} or $re->{'DMG'}{$brew_1};
      } $pop = ++$in;
         $re->{'IN'}++ unless not $re->{'FTD'} and $re->{'OS'}{"${brew_1}_tap"};
         $re->{'CN'}++ if $mem and ( $re->{'FTD'} or not $re->{'OS'}{"${brew_1}_tap"} );
