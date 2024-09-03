@@ -7,7 +7,7 @@
                   rm -rf ~/.JA_BREWG ~/.BREW_LIST/{homebrew*,{0..19},parse,cparse,FONT_*,TIE_*,"WAIT$CO",LOCK}; }
 
 if [[ $1 = 1 && -d ~/.BREW_LIST/LOCK ]];then
- LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+120 ))
+ LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+60 ))
   (( $(date +%s) > LS1 )) && math_rm
 fi
 
@@ -22,7 +22,7 @@ if [[ $2 ]];then
   [[ ${WA: -1} = '*' ]] && continue || shopt -s extglob
   if [[ $WA =~ WAIT* ]];then
    [[ ! $TI ]] && TI=$(date +%s)
-   WS=$(( $(date -r "$WA" +%s)+1800 ))
+   WS=$(( $(date -r "$WA" +%s)+600 ))
    (( TI > WS )) && rmdir "$WA"
   fi
   if ! kill -0 "${WA/+(WAIT|Tree|File*=)/}" 2>/dev/null;then
