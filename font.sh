@@ -8,7 +8,7 @@
 
 if [[ $1 = 1 && -d ~/.BREW_LIST/LOCK ]];then
  LS1=$(( $(date -r ~/.BREW_LIST/LOCK +%s)+60 ))
-  (( $(date +%s) > LS1 )) && math_rm
+  (( $(date +%s) > LS1 )) && rmdir ~/.BREW_LIST/LOCK
 fi
 
 if [[ $2 ]];then
