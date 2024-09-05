@@ -3231,6 +3231,7 @@ libbitcoin-protocol	Bitcoinブロックチェーンクエリ手続き
 libbitcoin-server	Bitcoin Full Nodeとクエリサーバー
 libbitcoin-system	ビットコインクロスプラットフォーム C++開発ツールキット
 libbladerf	USB3.0スーパースピードソフトウェア無線源
+libblastrampoline	PLT trampolinesを使用してBLAS及びLAPACK多重化ライブラリを提供する
 libbluray	VLCなどのメディアプレーヤー用のBlu-Rayディスク再生ライブラリ
 libbpf	libbpfスタンドアロンビルド用の自動アップストリームミラー
 libbpg	JPEG品質とファイルサイズを改善することを目的とした画像形式
@@ -6867,6 +6868,7 @@ wtf	一般的なインターネットの頭字語を翻訳する
 wtfis	パッシブホストネーム/ドメイン/IP ルックアップツール
 wtfutil	端末の個人情報ダッシュボード
 wumpus	古来のBASIC Hunt the Wumpusゲームの正確なクローン
+wush	WireGuard経由でコンピュータ間でファイルを転送する
 wv	Microsoft Word文書にアクセスする為のプログラム
 wv2	Microsoft Word文書にアクセスする為のプログラム
 wwwoffle	断続的な接続があるコンピューターのブラウジングの改善
