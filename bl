@@ -272,9 +272,9 @@ sub Init_1{
                             $re->{'TR'} = $TR; return
     }
    unless( $re->{'ANA'} or $re->{'COM'} or $re->{'deps'} or $re->{'PRE'} ){
-     $list = ( defined $re->{'S_OPT'} or $re->{'BL'} and ( $re->{'CAS'} or -f $re->{'LFO'} ) ) ? Dirs_1( $re->{'CEL'},1 ) :
-             ( $re->{'TOP'} or $re->{'IS'} or $re->{'BL'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
-               Dirs_1( $re->{'CEL'},0,$re );
+     $list = ( defined $re->{'S_OPT'} or $re->{'BL'} and -f $re->{'LFO'} ) ? Dirs_1( $re->{'CEL'},1 ) :
+             ( $re->{'TOP'} or $re->{'IS'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+             ( not $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},0,$re ) : $re->{'FOR'} ? [%{$re->{'HASH'}}] : [%{$re->{'DMG'}}];
 
     @{$list} = $re->{'OS'}{"$re->{'USE'}uses"} ? split '\t',$re->{'OS'}{"$re->{'USE'}uses"} : () if $re->{'USE'};
     @{$list} = $re->{'OS'}{"$re->{'BUI'}build"} ? split '\t',$re->{'OS'}{"$re->{'BUI'}build"} : () if $re->{'BUI'};
@@ -294,9 +294,9 @@ sub Init_1{
   if( $pid and not $re->{'PID2'} ){ Wait_1( $re,$pid );
   }else{ select undef,undef,undef,0.1 if $re->{'LIN'} and $re->{'USE'} or $re->{'PRS'};
    $re->{'COM'} ? Command_1( $re ) :
-   ( $re->{'BL'} and $re->{'FOR'} and not -f $re->{'LFO'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ?
-    Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ?
-    Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
+   ( $re->{'BL'} and not -f $re->{'LFO'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ?
+     Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ?
+     Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
   }
  }
 }
@@ -814,14 +814,22 @@ sub Top_1{
 sub Brew_1{
  my( $re,$list ) = @_; my( %HA,@AN );
  return unless @{$list} or @{$re->{'cask'}};
-  for( my $i=0;$i<@{$list};$i++ ){ my $tap = $list->[$i];
-   Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
-    ( $re->{'HASH'}{$tap} and $re->{'BL'} ) ? Mine_1( $list->[$i],$re,0 ) :
-    ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'USE'} and not $re->{'USES'} ) ?
-      Uses_1( $re,$tap,\%HA,\@AN ) : $re->{'USES'} ? push @AN,$tap : 0;
-    $re->{'HASH'}{$tap} ? Mine_1( $list->[$i],$re,1 ) : Mine_1( $list->[$i],$re,0 )
-    if $re->{'BUI'} and not $re->{'OS'}{"${tap}$OS_Version"} and
-     ( $re->{'MAC'} and not $re->{'OS'}{"${tap}un_xcode"} or $re->{'LIN'} and not $re->{'OS'}{"${tap}un_Linux"} );
+  if( $re->{'BL'} ){
+   if( $re->{'FOR'} ){ for( sort keys %{$re->{'HASH'}} ){ Tap_2( $re,\$_ ); Mine_1( $_,$re,0 ) }
+   }else{ for( sort keys %{$re->{'DMG'}} ){ index($_,'font-') == 0 ? push @AN,$_ : Mine_1( $_,$re,0 ) }
+    if( @AN ){ Mine_1( ' ==> homebrew/cask-fonts',$re,0 );
+     Mine_1( $_,$re,0 ) for @AN;
+    }
+   }
+  }else{
+   for( my $i=0;$i<@{$list};$i++ ){ my $tap = $list->[$i];
+    Tap_2( $re,\$list->[$i] ) if $re->{'FOR'};
+     ( ( $re->{'DMG'}{$tap} or $re->{'HASH'}{$tap} ) and $re->{'USE'} and not $re->{'USES'} ) ?
+       Uses_1( $re,$tap,\%HA,\@AN ) : $re->{'USES'} ? push @AN,$tap : 0;
+       $re->{'HASH'}{$tap} ? Mine_1( $list->[$i],$re,1 ) : Mine_1( $list->[$i],$re,0 )
+     if $re->{'BUI'} and not $re->{'OS'}{"${tap}$OS_Version"} and
+      ( $re->{'MAC'} and not $re->{'OS'}{"${tap}un_xcode"} or $re->{'LIN'} and not $re->{'OS'}{"${tap}un_Linux"} );
+   }
   }
  if( $re->{'USE'} ){ my @cask;
   $re->{'KAI'} = 1 unless @AN = sort @AN;
@@ -1445,7 +1453,7 @@ sub Search_1{ no warnings 'regexp';
        Mine_1( $brew_1,$re,0 ) if index($ls,'/') > 0 and $brew_1 =~ /$re->{'S_OPT'}/o;
        ( index($ls,'/') > 0 and not $re->{'S_O'} and $ls =~ /$re->{'S_OPT'}/o ) ? Mine_1( $ls,$re,1 ) :
        ( index($ls,'/') < 0 and $brew_1 =~ /$re->{'S_OPT'}/o ) ? Mine_1( $brew_1,$re,1 ) : 0;
-     }elsif( $re->{'BL'} ){ Mine_1( $brew_1,$re,0 ) if $re->{'HASH'}{$brew_1} or $re->{'DMG'}{$brew_1};
+     }elsif( $re->{'BL'} ){ Mine_1( $brew_1,$re,0 ) if $re->{'HASH'}{$brew_1};
      } $pop = ++$in;
         $re->{'IN'}++ unless not $re->{'FTD'} and $re->{'OS'}{"${brew_1}_tap"};
         $re->{'CN'}++ if $mem and ( $re->{'FTD'} or not $re->{'OS'}{"${brew_1}_tap"} );
