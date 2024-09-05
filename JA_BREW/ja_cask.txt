@@ -629,6 +629,7 @@ chiaki	PlayStationリモートプレイクライアント
 chime	テキスト及びコードエディター
 chipmunk	ログ分析ツール
 chirp	アマチュア無線をプログラミングする為のツール
+choice-financial-terminal	財務情報取得プラットフォーム
 choosy	任意のブラウザーでリンクを開く
 chrome-devtools	スタンドアロンChrome開発ツール
 chrome-remote-desktop-host	Google Chromeブラウザーを介して別のコンピュータにリモートアクセスする
@@ -825,6 +826,7 @@ cro-mag-rally	Pangea Softwareの先史時代をテーマにした3Dレーシン�
 cronnix	CronniX
 crossover	Windowsソフトウェアを実行する為のツール
 crosspack-avr	AtmelのAVR®マイクロコントローラーの開発環境
+crosspaste	デバイスを超えたユニバーサルペーストボード
 crunch	非常識(非常に遅いbut wicked good)PNG画像の最適化
 crushftp	ファイル転送サーバー
 crypter	暗号化ソフトウェア
@@ -1346,6 +1348,7 @@ fluent-reader	RSS/Atom ニュース収集
 fluid	Webサイトをデスクトップアプリに変えるツール
 fluor	アクティブなアプリケーションに応じてfnキーの動作を変更します
 flutter	モバイル向けアプリケーションを構築する為のUIツールキット Web/デスクトップ
+flutterflow	ビジュアル開発プラットフォーム
 flux	画面の色温度コントローラー
 fly	Concourse CIの公式CLIツール
 flycast	Dreamcast、NaomiとAtomiswaveエミュレーター
@@ -3503,6 +3506,7 @@ ripme	さまざまなWebサイトのアルバムリッパー
 rippling	リップリング用のMDM
 ripx	音楽ステムの分離/修復ユーティリティ
 rive	機能的なグラフィックを作成するデザインツール
+rize	AI time tracker
 rnnoise	音声のノイズ抑制
 roam	バーチャルオフィス
 roam-research	ネットワーク化された思考の為のメモを取るツール
