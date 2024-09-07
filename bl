@@ -886,7 +886,7 @@ sub Brew_3{
     Tap_2( $re,\$key );
      $re->{'Casc'} = 1 if $ls;
   $re->{'INF'} = $key;
-   Info_1( $re,0,0,\@AN ); undef $re->{'TEST'};
+   Info_1( $re,0,0,\@AN ); delete $re->{'TEST'};
     @AN = sort @AN unless $ls;
      if( -t STDOUT and ( @AN or $re->{'KEN'} ) and not( $re->{'UD_S'} or $in ) ){ $in++;
        $ls ? print" == Cask ==\n" : print" == Formula ==\n";
