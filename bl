@@ -7,9 +7,9 @@ my $MY_BREW = Path_1() || die " brew not found\n";
 
 MAIN:{
  my $home = "$ENV{'HOME'}/.BREW_LIST";
- my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],'LEN2'=>1,
+ my $re  = { 'LEN1'=>1,'FOR'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'UNI'=>[],
              'HOME'=>$home,'TXT'=>"$home/brew.txt",'CAN'=>"$home/ana.txt",
-                                        'SPA'=>' 'x9,'LFO'=>"$home/font.zip" };
+                    'LEN2'=>1,'LEN3'=>1,'SPA'=>' 'x9,'LFO'=>"$home/font.zip" };
 
  my $ref = { 'LEN1'=>1,'CAS'=>1,'ARR'=>[],'IN'=>0,'UP'=>0,'ARY'=>[],'LEN2'=>1,
              'HOME'=>$home,'TXT'=>"$home/cask.txt",'CAN'=>"$home/cna.txt",
@@ -45,18 +45,18 @@ MAIN:{
  }elsif( $AR[0] eq '-ac' ){ $name = $ref; $ref->{'ANA'}= 1; Died_1() if $re->{'LIN'};
  }elsif( $AR[0] eq '-ai' ){ $name = $re;  $re->{'ANA'} = 1;
  }elsif( $AR[0] eq '-u'  ){ $name = $re;  $re->{'USE'} = 1;
- }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USES'}= $re->{'USE'} = 1;
+ }elsif( $AR[0] eq '-ua' ){ $name = $re;  $re->{'USE'} = $re->{'USES'}= 1;
  }elsif( $AR[0] eq '-bu' ){ $name = $re;  $re->{'BUI'} = 1;
- }elsif( $AR[0] eq '-ul' ){ $name = $re;  $re->{'uses'}= 1;
- }elsif( $AR[0] eq '-ud' ){ $name = $re;  $re->{'deps'}= 1;
+ }elsif( $AR[0] eq '-ul' ){ $name = $re;  $re->{'UL'}  = 1;
+ }elsif( $AR[0] eq '-ud' ){ $name = $re;  $re->{'UD'}  = 1;
  }elsif( $AR[0] eq '-co' ){ $name = $re;  $re->{'COM'} = 1;
  }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'} = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}  = 1;
+ }elsif( $AR[0] eq '-'   ){ $name = $re;  $re->{'BL'}  = 1;
  }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'}= 1;
  }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'}= 1;
- }elsif( $AR[0] eq '-'   ){ $re->{'BL'} = $ref->{'BL'} = 1;
- }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'} = 1;
- }elsif( $AR[0] eq '-ss' ){ $re->{'S_O'}= $ref->{'S_O'}= $re->{'S_OPT'}= 1;
+ }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'}=1;
+ }elsif( $AR[0] eq '-ss' ){ $re->{'S_OPT'}=$re->{'S_O'}= $ref->{'S_O'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }elsif( $AR[0] eq '-ma' ){ $re->{'S_M'}= 2;
@@ -91,8 +91,6 @@ MAIN:{
       for(glob "$home/WAIT*"){ rmdir } exit;
   }elsif( $re->{'NEW'} or not -f $DBM or not -d $home or $re->{'LIN'} and not -f $re->{'LFO'} ){
       $re->{'NEW'} ||= 1; Init_1( $re );
-  }elsif( $re->{'BL'} and $AR[1] ){ $name = $AR[1] eq 'c' ? $ref : $AR[1] eq 'f' ? $re : undef;
-  }elsif( $re->{'TOP'} and $AR[1] and $AR[1] eq '.' ){ $re->{'TOP'} = 2;
   }elsif( $re->{'S_M'} ){ $ENV{'Mser'} = 1; m_search( $re ) }
 
   unless( $ENV{'Mser'} ){
@@ -110,24 +108,23 @@ MAIN:{
     $name ? $name->{'EN'} = 1 : ( not $name ) ? $re->{'EN'} = $ref->{'EN'} = 1 : 0;
    }
 
-   if( $re->{'TOP'} or $re->{'DEL'} ){ $ENV{'Perl_B'} = $MY_BREW; system'perl ~/.BREW_LIST/tie.pl 2';
-   }elsif( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
+   if( $AR[1] and $AR[1] =~ m[/.*(\\Q|\\E).*/]i ){
     $AR[1] !~ /.*\\Q.+\\E.*/ ? die " nothing in regex\n" : $AR[1] =~ s|/(.*)\\Q(.+)\\E(.*)/|/$1\Q$2\E$3/|;
    }elsif( $AR[1] and my( $reg )= $AR[1] =~ m|^/(.+)/$| ){
     die " nothing in regex\n" if system "perl -e '$AR[1]=~/$reg/' 2>/dev/null";
    }
-    if( $name and $AR[2] and $AR[2] eq '.' and not( $re->{'deps'} or $re->{'INF'} ) ){ $name->{'KEN'} = 1;
-    }elsif( $re->{'DAT'} and $AR[1] and $AR[1] eq '.' ){ $re->{'DAT'} = $ref->{'DAT'} = 2;
+    if( $re->{'TOP'} and $AR[1] and $AR[1] eq '.' ){ $re->{'TOP'} = 2;
+    }elsif( $name and $AR[2] and $AR[2] eq '.' and not( $re->{'UD'} or $re->{'INF'} ) ){ $name->{'KEN'} = 1;
     }elsif( $name and $re->{'INF'} and $AR[2] ){ $name->{'KEN'} = $AR[2] =~ /^\d+$|^\.$/ ? $AR[2] : 0;
                                                  $re->{'Casc'} = 1 if $AR[2] eq '-c';
-    }elsif( $re->{'deps'} and defined $AR[1] ){ if($AR[1] eq '.'){ $name->{'KEN'} = 1 }else{ $re->{'dep_s'} = lc $AR[1] }
     }
      $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
       $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
-       ( $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'uses'} or $re->{'deps'} );
+       ( $re->{'BL'} or $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'UL'} or $re->{'UD'} );
   }
 
-  if( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
+  if( $re->{'TOP'} or $re->{'DEL'} ){ $ENV{'Perl_B'} = $MY_BREW; system'perl ~/.BREW_LIST/tie.pl 2';
+  }elsif( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
     $re->{'STDI'} = ( $name->{'KEN'} and $Locale == 2 and -d "$ENV{'HOME'}/.JA_BREW" ) ?
      ( utf8::decode($AR[1]), $AR[1] ) : defined $AR[1] ? lc $AR[1] : Died_1();
       $name->{'L_OPT'} = $re->{'STDI'} =~ m|^/(.+)/$| ? $1 : "\Q$re->{'STDI'}\E";
@@ -137,8 +134,11 @@ MAIN:{
   }elsif( $ref->{'PRE'}){ $ref->{'PRE'}= defined $AR[1] ? lc $AR[1] : Died_1();
   }elsif( $re->{'INF'} ){ $re->{'INF'} = $ref->{'INF'} = defined $AR[1] ? lc $AR[1] : Died_1();
                         ( $re->{'|'},$re->{'|--'},$re->{'`--'} ) = $Locale ? ( '│','├──','└──' ) : ( '|','|--','`--' );
-  }elsif( $re->{'IS'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'IS'} = 2 }else{ $re->{'INF'} = lc $AR[1] }
-  }elsif( $re->{'uses'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'uses'} = 2 }else{ $re->{'use'} = lc $AR[1] }
+  }elsif( $re->{'DAT'} and $AR[1] and $AR[1] eq '.' ){ $re->{'DAT'} = $ref->{'DAT'} = 2;
+  }elsif(  $re->{'BL'} and $AR[1] ){ $re->{'BL'} = $AR[1] eq 'f' ? 2 : $AR[1] eq 'c' ? 3 : 1;
+  }elsif(  $re->{'IS'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'IS'} = 2 }else{ $re->{'INF'} = lc $AR[1] }
+  }elsif(  $re->{'UL'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'UL'} = 2 }else{ $re->{'UL_S'}= lc $AR[1] }
+  }elsif(  $re->{'UD'} and defined $AR[1] ){ if($AR[1] eq '.'){ $re->{'KEN'}= 1 }else{ $re->{'UD_S'}= lc $AR[1] }
   }elsif( ( $re->{'ANA'} or $ref->{'ANA'} ) and $AR[1] ){ $re->{'ana'} = $ref->{'ana'} = lc $AR[1];
                $re->{'ana2'} = $AR[2] * 3 if $AR[1] !~ /^[1-8]$/ and $AR[2] and $AR[2] =~ /^[12]$/;
   }
@@ -232,8 +232,8 @@ sub Init_1{
     DB_2( $re ) unless $re->{'BL'} or $re->{'COM'} or defined $re->{'S_OPT'} and not $re->{'S_O'};
   }
   if( $re->{'INF'} and not $re->{'COL'} or
-      $re->{'USE'} or $re->{'dep_s'} or $re->{'ana'} or $re->{'use'} or $re->{'BUI'} ){
-      my $name = $re->{'INF'} || $re->{'USE'} || $re->{'dep_s'} || $re->{'ana'} || $re->{'use'} || $re->{'BUI'};
+      $re->{'USE'} or $re->{'UD_S'} or $re->{'ana'} or $re->{'UL_S'} or $re->{'BUI'} ){
+      my $name = $re->{'INF'} || $re->{'USE'} || $re->{'UD_S'} || $re->{'ana'} || $re->{'UL_S'} || $re->{'BUI'};
    if( $re->{'TREE'} or $re->{'LINK'} and $re->{'LINK'} == 6 or $re->{'USES'} or $re->{'BUI'} or
        $re->{'FOR'} and $re->{'ana'} and $re->{'ana'} !~ /^[1-8]$/ or
        $re->{'CAS'} and $re->{'ana'} and $re->{'ana'} !~ /^[12]$/ ){
@@ -252,7 +252,7 @@ sub Init_1{
                       push @{$cat},$_ } close $DIR2;
     }
    }
-   Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'dep_s'},\$re->{'ana'},\$re->{'use'},\$re->{'BUI'}],$cat ) if $name;
+   Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'UD_S'},\$re->{'ana'},\$re->{'UL_S'},\$re->{'BUI'}],$cat ) if $name;
   } $re->{'Casc'} = 1 if $re->{'INF'} and $re->{'OS'}{"$re->{'INF'}cask"} and not $re->{'OS'}{"$re->{'INF'}so_name"};
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
   if( $re->{'PRS'} or $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) ){
@@ -271,10 +271,10 @@ sub Init_1{
                            open my $TR,'<',"$re->{'HOME'}/Tree$$" or die " Tree2 $!\n";
                             $re->{'TR'} = $TR; return
     }
-   unless( $re->{'ANA'} or $re->{'COM'} or $re->{'deps'} or $re->{'PRE'} ){
+   unless( $re->{'ANA'} or $re->{'COM'} or $re->{'UD'} or $re->{'PRE'} ){
      $list = ( defined $re->{'S_OPT'} or $re->{'BL'} and -f $re->{'LFO'} ) ? Dirs_1( $re->{'CEL'},1 ) :
-             ( $re->{'TOP'} or $re->{'IS'} or $re->{'uses'} ) ? Dirs_1( $re->{'CEL'},3 ) :
-             ( not $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},0,$re ) : $re->{'FOR'} ? [%{$re->{'HASH'}}] : [%{$re->{'DMG'}}];
+             ( $re->{'TOP'} or $re->{'IS'} or $re->{'UL'} ) ? Dirs_1( $re->{'CEL'},3 ) :
+             ( not $re->{'BL'} ) ? Dirs_1( $re->{'CEL'},0,$re ) : [%{$re->{'HASH'}},%{$re->{'DMG'}}];
 
     @{$list} = $re->{'OS'}{"$re->{'USE'}uses"} ? split '\t',$re->{'OS'}{"$re->{'USE'}uses"} : () if $re->{'USE'};
     @{$list} = $re->{'OS'}{"$re->{'BUI'}build"} ? split '\t',$re->{'OS'}{"$re->{'BUI'}build"} : () if $re->{'BUI'};
@@ -285,7 +285,7 @@ sub Init_1{
       push @{$re->{'cask'}},( @list1,@list2 );
     }
    }
-  if( @{$list} and ( $re->{'TOP'} and not $re->{'PID'} or $re->{'uses'} and not defined $re->{'use'} or
+  if( @{$list} and ( $re->{'TOP'} and not $re->{'PID'} or $re->{'UL'} and not defined $re->{'UL_S'} or
                      $re->{'LIN'} and $re->{'USE'} and not $re->{'USES'} ) ){
     $re->{'PID2'} = fork;
      die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = $$;
@@ -294,9 +294,9 @@ sub Init_1{
   if( $pid and not $re->{'PID2'} ){ Wait_1( $re,$pid );
   }else{ select undef,undef,undef,0.1 if $re->{'LIN'} and $re->{'USE'} or $re->{'PRS'};
    $re->{'COM'} ? Command_1( $re ) :
-   ( $re->{'BL'} and not -f $re->{'LFO'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ?
-     Brew_1( $re,$list ) : $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ?
-     Ana_1( $re ) : $re->{'uses'} ? Brew_2( $re ) : $re->{'deps'} ? Brew_3( $re,'' ) : File_1( $re,$list );
+   ( $re->{'BL'} and $re->{'MAC'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ? Brew_1( $re,$list ) :
+     $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
+     $re->{'UL'} ? Brew_2( $re ) : $re->{'UD'} ? Brew_3( $re,'' ) : File_1( $re,$list );
   }
  }
 }
@@ -357,7 +357,7 @@ sub Wait_1{
 
 sub DB_1{
  my $re = shift;
- if( $re->{'FOR'} or $re->{'DEP' } ){
+ if( $re->{'FOR'} or $re->{'DEP' } ){ %{$re->{'HASH'}} = ();
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for my $ls( readdir $dir ){ next if index($ls,'.') == 0;
     my $hand = readlink "$re->{'BIN'}/$ls";
@@ -369,7 +369,7 @@ sub DB_1{
  }
  if( $re->{'CAS'} or $re->{'CELS'} ){ %{$re->{'DMG'}} = ();
   my $mem = $re->{'CEL'}, $re->{'CEL'} = $re->{'CELS'} if $re->{'CELS'};
-  my $dirs = Dirs_1( $re->{'CEL'},3 );
+   my $dirs = Dirs_1( $re->{'CEL'},3 );
   for( my $in=0;$in<@{$dirs};$in++ ){
    if( $$dirs[$in] and -d "$re->{'CEL'}/$$dirs[$in]/.metadata" ){
     my $meta = Dirs_1( "$re->{'CEL'}/$$dirs[$in]/.metadata",3 );
@@ -815,10 +815,15 @@ sub Brew_1{
  my( $re,$list ) = @_; my( %HA,@AN );
  return unless @{$list} or @{$re->{'cask'}};
   if( $re->{'BL'} ){
-   if( $re->{'FOR'} ){ for( sort keys %{$re->{'HASH'}} ){ Tap_2( $re,\$_ ); Mine_1( $_,$re,0 ) }
-   }else{ for( sort keys %{$re->{'DMG'}} ){ index($_,'font-') == 0 ? push @AN,$_ : Mine_1( $_,$re,0 ) }
-    if( @AN ){ Mine_1( ' ==> homebrew/cask-fonts',$re,0 );
-     Mine_1( $_,$re,0 ) for @AN;
+   if( $re->{'BL'} == 1 or $re->{'BL'} == 2 ){
+    for( sort keys %{$re->{'HASH'}} ){ Tap_2( $re,\$_ ); Mine_1( $_,$re,0 ) }
+   }
+   if( $re->{'BL'} == 1 or $re->{'BL'} == 3 ){
+    if( %{$re->{'DMG'}} ){ Mine_1( ' ==> homebrew/Cask',$re,0 );
+     for( sort keys %{$re->{'DMG'}} ){ index($_,'font-') == 0 ? push @AN,$_ : Mine_1( $_,$re,0 ) }
+     if( @AN ){ Mine_1( ' ==> homebrew/cask-fonts',$re,0 );
+      Mine_1( $_,$re,0 ) for @AN;
+     }
     }
    }
   }else{
@@ -844,15 +849,15 @@ sub Brew_1{
 
 sub Brew_2{
  my $re = shift; my( @ls,@an,%ha );
- exit if defined $re->{'use'} and not $re->{'HASH'}{$re->{'use'}};
+ exit if defined $re->{'UL_S'} and not $re->{'HASH'}{$re->{'UL_S'}};
  my $tput = `tput cols`;
   my $spa = $tput >= 66 ? 44 : $tput > 22 ? $tput - 22 : 0;
- if( $re->{'use'} ){
-  Uses_1( $re,$re->{'use'},\%ha,\@an) ;
+ if( $re->{'UL_S'} ){
+  Uses_1( $re,$re->{'UL_S'},\%ha,\@an) ;
    if( @an ){
-    Tap_2( $re,\$re->{'use'} );
-     Leng_1( $spa,\$re->{'use'} ) if $spa >= 5;
-      printf"%${spa}s uses  :%4s formula\n",$re->{'use'},$#an;
+    Tap_2( $re,\$re->{'UL_S'} );
+     Leng_1( $spa,\$re->{'UL_S'} ) if $spa >= 5;
+      printf"%${spa}s uses  :%4s formula\n",$re->{'UL_S'},$#an;
    }
  }else{
   push @an,$_ for( sort keys %{$re->{'HASH'}} );
@@ -863,7 +868,7 @@ sub Brew_2{
      push @ls,sprintf"%${spa}s uses  :%4s formula\n",$keys,$#{$re->{$key}};
   }
    waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
-  if( $re->{'uses'} == 2 ){
+  if( $re->{'UL'} == 2 ){
     sub _num{ $_[0] =~ /.+:[^\d]*(\d+)[^\d]+/; $1 }
    for( sort{_num($a) <=> _num($b)} @ls ){ print }
   }else{ print for @ls }
@@ -873,17 +878,18 @@ sub Brew_2{
 
 sub Brew_3{
  my( $re,$ls ) = @_; my( @AN,$mine,$in );
- exit if defined $re->{'dep_s'} and not ( $re->{'HASH'}{$re->{'dep_s'}} or $re->{'DMG'}{$re->{'dep_s'}} );
+ exit if defined $re->{'UD_S'} and not ( $re->{'HASH'}{$re->{'UD_S'}} or $re->{'DMG'}{$re->{'UD_S'}} );
  my $brew = $ls ? 'DMG' : 'HASH';
  for my $key( sort keys %{$re->{$brew}} ){
-  next if $re->{'dep_s'} and $re->{'dep_s'} ne $key;
+  next if $re->{'UD_S'} and $re->{'UD_S'} ne $key;
    $re->{'LENG'} = 0;
     Tap_2( $re,\$key );
+     $re->{'Casc'} = 1 if $ls;
   $re->{'INF'} = $key;
-   Info_1( $re,0,0,\@AN );
+   Info_1( $re,0,0,\@AN ); undef $re->{'TEST'};
     @AN = sort @AN unless $ls;
-     if( -t STDOUT and @AN and not( $re->{'dep_s'} or $in ) ){ $in++;
-       $ls ? print"\n == Cask ==\n" : print" == Formula ==\n";
+     if( -t STDOUT and ( @AN or $re->{'KEN'} ) and not( $re->{'UD_S'} or $in ) ){ $in++;
+       $ls ? print" == Cask ==\n" : print" == Formula ==\n";
      }
       print"$re->{'NOT'}" if $re->{'NOT'} and @AN and not $re->{'KEN'};
        for my $len( @AN ){
@@ -896,14 +902,14 @@ sub Brew_3{
      if( @AN and not $re->{'KEN'} ){
       -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n";
        Format_1( $re );
-        print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'dep_s'};
+        print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
      }
     $re->{"deps$_"} = $re->{'LEN1'} = 0 for @AN;
    @AN = @{$re->{'ARR'}} = ();
   $re->{'NOT'} = '';
  }
  print $mine if $re->{'KEN'} and $mine;
- Brew_3( $re,' ' ) unless $ls or $re->{'LIN'} or not $re->{'DMG'};
+ Brew_3( $re,' ' ) unless $ls or $re->{'LIN'} or not %{$re->{'DMG'}};
  Nohup_1( $re );
 }
 
@@ -915,17 +921,17 @@ sub Like_1{
  unless( $cat ){
   $HA{$_}++ for split '\t',$re->{'OS'}{'fontlist'};
  }else{
-  if( $re->{'USE'} and not $re->{'USES'} or $re->{'DEL'} and not $re->{'DDD'} or $re->{'use'} ){
+  if( $re->{'USE'} and not $re->{'USES'} or $re->{'DEL'} and not $re->{'DDD'} or $re->{'UL_S'} ){
    for my $key1( keys %{$re->{'HASH'}} ){
     if( $re->{'OS'}{"${key1}deps"} ){
-     unless( $re->{'uses'} ){
+     unless( $re->{'UL'} ){
       $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key1}deps"};
      }else{
       $re->{'HASH'}{$_} ? $HA{$_}++ : 0 for split '\t',$re->{'OS'}{"${key1}deps"};
      }
     }
    }
-   unless( $re->{'uses'} ){
+   unless( $re->{'UL'} ){
     for my $key2( keys %{$re->{'DMG'}} ){
      if( $re->{'OS'}{"${key2}d_cask"} ){
       $re->{'DEL'} ? $HAN{$_}++ : $HA{$_}++ for split '\t',$re->{'OS'}{"${key2}d_cask"};
@@ -957,7 +963,7 @@ sub Like_1{
      $ls = push @ARR,$key if $re->{'OS'}{"${key}d_cask"};
      push @ARR,$key if $re->{'OS'}{"${key}formula"} and not $ls;
     }
-  }elsif( $re->{'dep_s'} ){
+  }elsif( $re->{'UD_S'} ){
    $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
    $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for keys %{$re->{'DMG'}};
   }elsif( $re->{'COM'} or $re->{'IS'} ){
@@ -1180,7 +1186,7 @@ sub Unic_1{
    ( $re->{'TREE'} and $re->{'PP'} ) ? print"${spa} $name$ver\n" :
    ( $re->{'TREE'} and $build ) ? print $TR "${spa}-- $name [Build]$ver\n" :
      $re->{'TREE'} ? print $TR "${spa}-- $name$ver\n" : 1;
-  push @{$AN},$$brew if $re->{"deps$$brew"} < 2 and ( $re->{'DEL'} or $re->{'deps'} );
+  push @{$AN},$$brew if $re->{"deps$$brew"} < 2 and ( $re->{'DEL'} or $re->{'UD'} );
    $re->{"$re->{'INF'}deps"} .= "$$brew\t"
     if $re->{"deps$$brew"} < 2 and not $build and ( $re->{'HASH'}{$$brew} or $re->{'DMG'}{$$brew} );
  }
@@ -1195,18 +1201,19 @@ sub Info_1{
   if( not $file and $re->{'FOR'} and -t STDOUT and
   ( ( $re->{'MAC'} and ( $re->{'OS'}{"$re->{'INF'}un_xcode"} or $re->{'OS'}{"$re->{'INF'}un_cask"} ) ) or
     ( $re->{'LIN'} and $re->{'OS'}{"$re->{'INF'}un_Linux"} ) ) ){
-   $re->{'NOT'} = $re->{'deps'} ? " \033[33mCan't install $re->{'INF'}...\033[0m\n":
+   $re->{'NOT'} = $re->{'UD'} ? " \033[33mCan't install $re->{'INF'}...\033[0m\n":
     print " \033[33mCan't install $re->{'INF'}...\033[0m\n";
   }
  if( not $file and $re->{'FOR'} and -t STDOUT and $re->{'OS'}{"$re->{'INF'}so_name"} and not $re->{'DEL'} ){
-   $re->{'deps'} ? $re->{'NOT'} = " \033[33mexists Formula and Cask $re->{'INF'}...\033[0m\n" :
+   $re->{'NOT'} = $re->{'UD'} ? " \033[33mexists Formula and Cask $re->{'INF'}...\033[0m\n" :
     print " \033[33mexists Formula and Cask $re->{'INF'}...\033[0m\n";
  }
- my $brew = $file || $re->{'INF'} || exit;
-  $re->{'NEW'}++, Init_1( $re ) unless $brew;
-   my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
-    $spa .= $spa ? '   |' : '|' unless $re->{'PP'};
-     ( $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}" ) ? waitpid $re->{'PID2'},0 : 0 unless $spa;
+ my $brew = $file || $re->{'INF'} || exit; $re->{'TEST'}{$brew}++;
+  return if not $re->{'TREE'} and $re->{'TEST'}{$brew} > 1;
+   $re->{'NEW'}++, Init_1( $re ) unless $brew;
+    my $bottle =  $re->{'OS'}{"$brew$OS_Version"} ? 1 : 0;
+     $spa .= $spa ? '   |' : '|' unless $re->{'PP'};
+      ( $re->{'PID2'} and rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}" ) ? waitpid $re->{'PID2'},0 : 0 unless $spa;
 
  unless( $re->{"${brew}undel"} ){
   if( not $re->{'Casc'} or $re->{'LINK'} ){
@@ -1321,6 +1328,8 @@ sub Mine_1{
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
   }elsif( $re->{'BR'} and $re->{'BR'} eq 'cask-fonts' ){
    $re->{'LEN2'} = $re->{'LEN'}{$name} if $re->{'LEN2'} < $re->{'LEN'}{$name};
+  }elsif( $re->{'BR'} and $re->{'BR'} eq 'Cask' ){
+   $re->{'LEN3'} = $re->{'LEN'}{$name} if $re->{'LEN3'} < $re->{'LEN'}{$name};
   }else{
    $re->{'LEN1'} = $re->{'LEN'}{$name} if $re->{'LEN1'} < $re->{'LEN'}{$name};
   }
@@ -1775,7 +1784,7 @@ sub Format_1{
    my $leng = $re->{'LEN1'};
     $re->{'TPUT'} = `tput cols` unless $re->{'TPUT'};
      my( $size,$in ) = ( ( $re->{'TPUT'}/($leng+2) ) >> 0,1 );
-     ( $re->{'FOR'} and not $re->{'USE'} ) ? print" ==> Formula\n" :
+     ( $re->{'FOR'} and not( $re->{'UD'} or $re->{'USE'} ) ) ? print" ==> Formula\n" :
        $re->{'PRE'} ? print" ==> Fonts\n" : $re->{'CAS'} ? print" ==> Casks\n" : 0
         if @{$re->{'ARR'}} and index($re->{'ARR'}[0],'homebrew/') < 0;
      for(my $e=0;$e<@{$re->{'ARR'}};$e++ ){
@@ -1800,13 +1809,21 @@ sub Format_1{
          if( index($re->{'ARR'}[$e],' ') == 0 ){
           print"$re->{'ARR'}[$e]\n" if index($re->{'ARR'}[$e + 1],'homebrew/') != 0; next;
          }else{ print" ==> brew tap : homebrew/linux-fonts\n"; }
+        }elsif( not $ss and index($re->{'ARR'}[$e],'homebrew/Cask') >= 0 ){
+         next if index($re->{'ARR'}[$e],' ') == 0 and ( not $re->{'ARR'}[$e+1] or index($re->{'ARR'}[$e+1],' ') == 0 );
+          print"\n" if $ze;
+           $leng = $re->{'LEN3'};
+            $size = ( $re->{'TPUT'}/($leng+2) ) >> 0;  $in = $ss = 1;
+         if( index($re->{'ARR'}[$e],' ') == 0 ){
+          if( index($re->{'ARR'}[$e + 1],'homebrew/') != 0 ){ $re->{'ARR'}[$e] =~ s|homebrew/||; print"$re->{'ARR'}[$e]\n" } next;
+         }
         }
        }
         for( my $i=$re->{'LEN'}{$re->{'ARR'}[$e]};$i<$leng+2;$i++ ){
          $re->{'ARR'}[$e] .= ' ';
         }
         print $re->{'ARR'}[$e];
-         if( $re->{'deps'} and not $re->{'dep_s'} ){
+         if( $re->{'UD'} and not $re->{'UD_S'} ){
           my $leng1 = $leng * ( $size ? $in % $size + 1 : 1 );
            $re->{'LENG'} = $leng1 if $re->{'LENG'} < $leng1;
          }
@@ -1823,7 +1840,7 @@ sub Format_1{
    ( index($_,' ==> homebrew/') == 0 or index($_,' ==> Formula') == 0 or index($_,' ==> Cask') == 0 ) ?
      next : print"$_\n" for @{$re->{'ARR'}};
   }
-  return if $re->{'deps'} or $re->{'LIKE'};
+  return if $re->{'UD'} or $re->{'LIKE'};
   $re->{'FOR'} = 0 if $re->{'MAC'};
  }
  print "\033[33m$re->{'FILE'}\033[0m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
