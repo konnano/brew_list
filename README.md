@@ -1,6 +1,6 @@
 **brew list コマンド 拡張版**
 
-![bl-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/03b2d350-67a1-4097-9faa-463c5d19a70e)
+![tree-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6659d148-0018-4cd5-9501-fdfc8a6d4b68)
 
 - ### 使用方法
 
