@@ -446,6 +446,7 @@ blockblock	一般的な永続性のLocationsを監視します
 blockstack	ブロックスタック
 blockstream-green	マルチプラットフォームのビットコインとリキッドウォレット
 blocs	ビジュアルWebデザインソフトウェア
+blood-on-the-clocktower-online	Blood on the Clocktower ゲームのクライアント
 bloodhound	ドメイン管理者のSix Degrees
 bloomrpc	GRPCサービス用のGUIクライアント
 bloop	コード検索エンジン
@@ -958,6 +959,7 @@ devtoys	一般的な開発タスクを容易にする為に設計されたユー
 devtunnel	ローカルサービスを共有する為の安全なトンネルを開発者に提供します
 devutils	開発者向けのオフラインツールボックス
 dexed	DX7FMシンセサイザー
+dfcf	株式取引プラットフォーム
 dhs	dylibハイジャックのスキャン
 dia	構造図を描く
 diagnostics	診断(クラッシュ)レポートビューア
@@ -4517,6 +4519,7 @@ wavesurfer	サウンドの視覚化と操作の為のツール
 wch-ch34x-usb-serial-driver	USBシリアルドライバー
 wd-security	ハードウェア暗号化機能でWestern Digital外付ドライブを、ロック/ロック解除
 weakauras-companion	Wago.ioからオーラを更新しそれらの定期的なバックアップを作成します
+wealthfolio	投資ポートフォリオトラッカー
 weasis	医療画像を表示及び分析する為のFree DICOMビューア
 webcamoid	ウェブカメラセット
 webcatalog	デスクトップアプリの様なWebアプリを実行する為のツール
