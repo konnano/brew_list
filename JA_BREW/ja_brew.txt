@@ -422,6 +422,7 @@ bbftp-client	大きなファイルに最適化された安全なファイル転�
 bbot	OSINT自動化ツール
 bbtools	読み取りを操作する為のBrian Bushnellのツール
 bc	任意精度の数値処理言語
+bc-gh	GNU及びBSD 拡張機能を使用した Unix dc及びPOSIX bc の実装
 bcal	記憶装置変換及び数式計算機
 bcftools	BCF/VCF ファイルのツールとsamtoolsからの変換呼び出し
 bchunk	CDイメージを.bin/.cueから.iso/.cdrに変換します
@@ -438,6 +439,7 @@ beancount-language-server	Beancountファイル用の言語サーバー
 beanstalkd	もともとWebの待ち時間を短縮する為に設計された汎用ワークキュー
 bear	clangツールのコンパイルデータベースを生成する
 beast	ベイズ進化分析サンプリングツリー
+bed	Goで書かれたバイナリエディタ
 bedops	任意のスケールのゲノムデータの設定及び統計演算
 bedtools	ゲノム演算の為のツール(ゲノムの集合論)
 bee	データベースの変更を管理する為のツール
@@ -531,7 +533,6 @@ bochs	C++オープンソースのIA-32(x86)PCエミュレーター
 bogofilter	統計分析によるメールフィルター
 bombadillo	増え続ける手順のリスト用に設計された非Webブラウザ
 bomber	ソフトウェア部品表をスキャンしてセキュリティの脆弱性を検出します
-bond	スキーマ化されたデータを操作する為のクロスプラットフォームフレームワーク
 bonnie++	ファイルシステムとハードドライブの基準比較パッケージ
 bookloupe	Project Gutenberg対象ファイルの一般的なフォーマットエラーを一覧表示します
 boolector	固定サイズのビットベクトル用のSMTソルバー
@@ -749,7 +750,6 @@ cdrdao	Disk-At-OnceモードでCDを録音する
 cdrtools	プリマスタリング及びレコーディングソフトウェア CD/DVD/Blu-ray
 cdsclient	CDSデータベースを照会する為のツール
 cdxgen	プロジェクトのCycloneDXソフトウェア部品表(SBOM)を作成します
-cedille	従属ラムダ除去の計算に基づく言語
 cekit	Container進化キット
 celero	C++オーサリング基準比較 Library/Framework
 censys	Censys API のコマンドライン インターフェイス(censys.io)
@@ -2047,7 +2047,6 @@ gh	GitHubコマンドラインツール
 ghc	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.10	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.6	Glorious Glasgow Haskellコンパイルシステム
-ghc@8.8	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.2	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.4	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.6	Glorious Glasgow Haskellコンパイルシステム
@@ -2730,6 +2729,7 @@ imgdiff	ピクセルごとの画像差分ツール
 imgproxy	リモート画像のサイズ変更と変換の為の高速で安全なサーバー
 imlib2	画像の読み込みと解釈のライブラリ
 immer	C++で書かれた永続的かつ不変のデータ構造のライブラリ
+immich-cli	自己ホスト型写真マネージャー Immichのコマンドラインインターフェイス
 immortal	OSにとらわれない(*nix)クロスプラットフォーム管理
 immudb	軽量で高速な不変のデータベース
 imposm3	OpenStreetMapデータをPostgreSQL/PostGISデータベースにインポートします
@@ -4496,6 +4496,7 @@ nyx	Torのコマンドラインモニター
 nzbget	nzbファイル用のバイナリnewsgrabber
 oak	表現力豊かで単純な動的計画法言語
 oakc	コンパクトな中間表現を備えたポータブルプログラミング言語
+oasdiff	OpenAPIの差分と重大な変更点
 oath-toolkit	ワンタイムパスワード認証システム用のツール
 oauth2_proxy	OAuth2プロバイダーを介してユーザーを認証する為の逆プロキシ
 oauth2c	OAuth2の使いやすいCLI
@@ -4758,7 +4759,6 @@ pan	テキストとバイナリの両方に優れたUsenetニュースリーダ�
 pandemics	簡略化されたフレームワークでマークダウンドキュメントを変換します
 pandoc	マークアップ形式変換の万能ナイフ
 pandoc-crossref	番号付けと相互参照の為のPandocフィルター
-pandoc-include-code	ソースファイルからのコードを含める為のPandocフィルター
 pandoc-plot	多くの立案ツールキットを使用してPandocドキュメントを解釈して含めます
 pandocomatic	pandocの使用を自動化する
 pango	i18nテキストのレイアウトと解釈の為のフレームワーク
