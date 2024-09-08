@@ -1,5 +1,7 @@
 **brew list コマンド 拡張版**
 
+**brew rmtree との比較**
+
 ![tree-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6659d148-0018-4cd5-9501-fdfc8a6d4b68)
 
 - ### 使用方法
@@ -138,6 +140,8 @@ bl -g|cat でパイプすれば brew leaves ( Cask込み ) になります
 引数が無ければ brew list コマンドです  
 引数に f なら Formulaのみ、c なら Cask のみを表示します  
 ( Linuxならtap linux-fontsも含まれます )
+
+**brew list との比較**
 
 ![brew-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/6a9b4e5e-7dee-4b32-8faa-6076646b559d)
 
