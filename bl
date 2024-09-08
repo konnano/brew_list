@@ -890,31 +890,32 @@ sub Brew_3{
   $re->{'INF'} = $key;
    Info_1( $re,0,0,\@AN ); delete $re->{'TEST'};
     @AN = sort @AN unless $ls;
-     if( -t STDOUT and ( @AN or $re->{'KEN'} ) and not( $re->{'UD_S'} or $in ) ){ $in++;
-       $ls ? print" == Cask ==\n" : print" == Formula ==\n";
-     }
-      print"$re->{'NOT'}" if $re->{'NOT'} and @AN and not $re->{'KEN'};
-       unless( $re->{'KEN'} ){
-        for my $len( @AN ){
-         $re->{'LEN'}{$len} = length $len;
-          $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
-           push @{$re->{'ARR'}},$len;
-        }
-        if( @AN ){
-         -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n";
-          Format_1( $re );
-           print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
-        }
-       }
-      $mine .= ( not @AN and $re->{'NOT'} ) ? "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
-                 not( @AN or $re->{'NOT'} ) ? "$ls   Not require dependencies...\t: $key\n" : '' if $re->{'KEN'};
+  if( -t STDOUT and ( @AN or $re->{'KEN'} ) and not( $re->{'UD_S'} or $in ) ){ $in++;
+    $ls ? print" == Cask ==\n" : print" == Formula ==\n";
+  }
+   unless( $re->{'KEN'} ){
+    for my $len( @AN ){
+     $re->{'LEN'}{$len} = length $len;
+      $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
+       push @{$re->{'ARR'}},$len;
+    }
+    if( @AN ){
+     print"$re->{'NOT'}" if $re->{'NOT'};
+     -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n";
+      Format_1( $re );
+       print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
+    }
     $re->{"deps$_"} = $re->{'LEN1'} = 0 for @AN;
+   }else{
+    $mine .= ( not @AN and $re->{'NOT'} ) ? "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
+               not( @AN or $re->{'NOT'} ) ? "$ls   Not require dependencies...\t: $key\n" : '';
+   }
    @AN = @{$re->{'ARR'}} = ();
   $re->{'NOT'} = '';
  }
  print $mine if $mine;
- Brew_3( $re,' ' ) unless $ls or $re->{'LIN'} or not %{$re->{'DMG'}};
- Nohup_1( $re );
+  Brew_3( $re,' ' ) unless $ls or $re->{'LIN'} or not %{$re->{'DMG'}};
+   Nohup_1( $re );
 }
 
 sub Like_1{
