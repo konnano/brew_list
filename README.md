@@ -139,7 +139,7 @@ bl -g|cat でパイプすれば brew leaves ( Cask込み ) になります
 引数に f なら Formulaのみ、c なら Cask のみを表示します  
 ( Linuxならtap linux-fontsも含まれます )
 
-![brew-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/cf91c043-483e-4680-9706-b22db23911c8)
+![brew-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/6a9b4e5e-7dee-4b32-8faa-6076646b559d)
 
 -ai : オプション  
 Formulaの解析データを表示します  
