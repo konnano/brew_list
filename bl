@@ -53,10 +53,10 @@ MAIN:{
  }elsif( $AR[0] eq '-new'){ $name = $re;  $re->{'NEW'} = 1;
  }elsif( $AR[0] eq '-is' ){ $name = $re;  $re->{'IS'}  = 1;
  }elsif( $AR[0] eq '-'   ){ $name = $re;  $re->{'BL'}  = 1;
+ }elsif( $AR[0] eq '-ss' ){ $re->{'S_OPT'}= $re->{'S_O'}= $ref->{'S_O'}= 1;
+ }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'}= 1;
  }elsif( $AR[0] eq '-o'  ){ $re->{'DAT'}= $ref->{'DAT'}= 1;
  }elsif( $AR[0] eq '-g'  ){ $re->{'TOP'}= $ref->{'TOP'}= 1;
- }elsif( $AR[0] eq '-s'  ){ $re->{'S_OPT'}= 1;
- }elsif( $AR[0] eq '-ss' ){ $re->{'S_OPT'}= $re->{'S_O'}= $ref->{'S_O'}= 1;
  }elsif( $AR[0] eq '-JA' ){ $re->{'JA'} = 1;
  }elsif( $AR[0] eq '-m'  ){ $re->{'S_M'}= 1;
  }elsif( $AR[0] eq '-ma' ){ $re->{'S_M'}= 2;
@@ -121,7 +121,7 @@ MAIN:{
     }
      $ref->{'BIN'} = $re->{'BIN'} if $ref->{'DEP'};
       $re->{'CELS'} = $ref->{'CEL'} if $re->{'MAC'} and
-       ( $re->{'BL'} or $re->{'TOP'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'UL'} or $re->{'UD'} );
+       ( $re->{'BL'} or $re->{'USE'} or $re->{'DEL'} or $re->{'TREE'} or $re->{'UL'} or $re->{'UD'} );
   }
 
   if( $re->{'COM'} or $re->{'S_OPT'} or defined $AR[1] and $name and $name->{'LIST'} ){
@@ -190,7 +190,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.27_6\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.27_7\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -230,6 +230,8 @@ sub Init_1{
   if( ( not $re->{'TREE'} or $re->{'TREE'} < 2 ) and not $re->{'ANA'} and not $re->{'COL'} ){
    DB_1( $re ) unless $re->{'PRE'} or $re->{'HASH'} or $re->{'DMG'};
     DB_2( $re ) unless $re->{'BL'} or $re->{'COM'} or defined $re->{'S_OPT'} and not $re->{'S_O'};
+     exit if ( $re->{'IS'} or $re->{'UL'} ) and not %{$re->{'HASH'}};
+      return if $re->{'TOP'} and not( %{$re->{'HASH'}} or %{$re->{'DMG'}} );
   }
   if( $re->{'INF'} and not $re->{'COL'} or
       $re->{'USE'} or $re->{'UD_S'} or $re->{'ana'} or $re->{'UL_S'} or $re->{'BUI'} ){
@@ -356,8 +358,8 @@ sub Wait_1{
 }
 
 sub DB_1{
- my $re = shift;
- if( $re->{'FOR'} or $re->{'DEP' } ){ %{$re->{'HASH'}} = ();
+ my $re = shift; %{$re->{'HASH'}} = %{$re->{'DMG'}} = ();
+ if( $re->{'FOR'} or $re->{'DEP' } ){
   opendir my $dir,$re->{'BIN'} or die " DB_1 $!\n";
    for my $ls( readdir $dir ){ next if index($ls,'.') == 0;
     my $hand = readlink "$re->{'BIN'}/$ls";
@@ -367,7 +369,7 @@ sub DB_1{
    }
   closedir $dir;
  }
- if( $re->{'CAS'} or $re->{'CELS'} ){ %{$re->{'DMG'}} = ();
+ if( $re->{'CAS'} or $re->{'CELS'} ){
   my $mem = $re->{'CEL'}, $re->{'CEL'} = $re->{'CELS'} if $re->{'CELS'};
    my $dirs = Dirs_1( $re->{'CEL'},3 );
   for( my $in=0;$in<@{$dirs};$in++ ){
@@ -848,20 +850,20 @@ sub Brew_1{
 }
 
 sub Brew_2{
- my $re = shift; my( @ls,@an,%ha );
+ my $re = shift; my( @ls,@AN,%HA );
  exit if defined $re->{'UL_S'} and not $re->{'HASH'}{$re->{'UL_S'}};
  my $tput = `tput cols`;
   my $spa = $tput >= 66 ? 44 : $tput > 22 ? $tput - 22 : 0;
  if( $re->{'UL_S'} ){
-  Uses_1( $re,$re->{'UL_S'},\%ha,\@an) ;
-   if( @an ){
+  Uses_1( $re,$re->{'UL_S'},\%HA,\@AN) ;
+   if( @AN ){
     Tap_2( $re,\$re->{'UL_S'} );
      Leng_1( $spa,\$re->{'UL_S'} ) if $spa >= 5;
-      printf"%${spa}s uses  :%4s formula\n",$re->{'UL_S'},$#an;
+      printf"%${spa}s uses  :%4s formula\n",$re->{'UL_S'},$#AN;
    }
  }else{
-  push @an,$_ for( sort keys %{$re->{'HASH'}} );
-   Proc_1( $re,\@an,1 );
+  push @AN,$_ for( sort keys %{$re->{'HASH'}} );
+   Proc_1( $re,\@AN,1 );
   for my $key( sort keys %{$re->{'HASH'}} ){ my $keys = $key;
    Tap_2( $re,\$keys );
     Leng_1( $spa,\$keys ) if $spa >= 5;
@@ -892,23 +894,25 @@ sub Brew_3{
        $ls ? print" == Cask ==\n" : print" == Formula ==\n";
      }
       print"$re->{'NOT'}" if $re->{'NOT'} and @AN and not $re->{'KEN'};
-       for my $len( @AN ){
-        $re->{'LEN'}{$len} = length $len;
-         $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
-          push @{$re->{'ARR'}},$len;
+       unless( $re->{'KEN'} ){
+        for my $len( @AN ){
+         $re->{'LEN'}{$len} = length $len;
+          $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
+           push @{$re->{'ARR'}},$len;
+        }
+        if( @AN ){
+         -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n";
+          Format_1( $re );
+           print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
+        }
        }
-     ( not @AN and $re->{'NOT'} ) ? $mine .= "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
-       not( @AN or $re->{'NOT'} ) ? $mine .= "$ls   Not require dependencies...\t: $key\n" : 0;
-     if( @AN and not $re->{'KEN'} ){
-      -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n";
-       Format_1( $re );
-        print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
-     }
+      $mine .= ( not @AN and $re->{'NOT'} ) ? "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
+                 not( @AN or $re->{'NOT'} ) ? "$ls   Not require dependencies...\t: $key\n" : '' if $re->{'KEN'};
     $re->{"deps$_"} = $re->{'LEN1'} = 0 for @AN;
    @AN = @{$re->{'ARR'}} = ();
   $re->{'NOT'} = '';
  }
- print $mine if $re->{'KEN'} and $mine;
+ print $mine if $mine;
  Brew_3( $re,' ' ) unless $ls or $re->{'LIN'} or not %{$re->{'DMG'}};
  Nohup_1( $re );
 }
