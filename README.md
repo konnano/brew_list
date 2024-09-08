@@ -1,13 +1,8 @@
 **brew list コマンド 拡張版**
 
-**brew rmtree との比較**
-
-![tree-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6659d148-0018-4cd5-9501-fdfc8a6d4b68)
-
 - ### 使用方法
 
 コマンドは **`bl`** です
-
 
 標準は英語表示です bl -JA オプションで  
 ~/.JA_BREWがインストールされ日本語表示されます
@@ -87,6 +82,10 @@ Formulaのライブラリーを表示します
 同名のFormulaやCaskがあれば2番目の引数に -c でCaskをTree表示します  
 ２番目の引数に数字なら検索階層を限定表示します
 
+brew rmtree : bl -dd との比較
+
+![tree-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6659d148-0018-4cd5-9501-fdfc8a6d4b68)
+
 -ddd : オプション  
 アンインストールで必要ないFormulaやCaskを順番にアンインストール出来ます  
 最初の引数はアンインストールするFormulaかCaskです  
@@ -141,7 +140,7 @@ bl -g|cat でパイプすれば brew leaves ( Cask込み ) になります
 引数に f なら Formulaのみ、c なら Cask のみを表示します  
 ( Linuxならtap linux-fontsも含まれます )
 
-**brew list との比較**
+brew list : bl - との比較
 
 ![brew-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/6a9b4e5e-7dee-4b32-8faa-6076646b559d)
 
