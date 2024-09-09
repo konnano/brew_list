@@ -1,5 +1,9 @@
 **brew list コマンド 拡張版**
 
+brew rmtree : bl -dd との比較
+
+![tree-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6659d148-0018-4cd5-9501-fdfc8a6d4b68)
+
 - ### 使用方法
 
 コマンドは **`bl`** です
@@ -81,10 +85,6 @@ Formulaのライブラリーを表示します
 アンインストールしないFormulaやCaskは３番目以降の引数になります  
 同名のFormulaやCaskがあれば2番目の引数に -c でCaskをTree表示します  
 ２番目の引数に数字なら検索階層を限定表示します
-
-brew rmtree : bl -dd との比較
-
-![tree-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6659d148-0018-4cd5-9501-fdfc8a6d4b68)
 
 -ddd : オプション  
 アンインストールで必要ないFormulaやCaskを順番にアンインストール出来ます  
