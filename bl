@@ -190,7 +190,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.27_7\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.27_8\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -295,7 +295,7 @@ sub Init_1{
   }
   if( $pid and not $re->{'PID2'} ){ Wait_1( $re,$pid );
   }else{ select undef,undef,undef,0.1 if $re->{'LIN'} and $re->{'USE'} or $re->{'PRS'};
-   $re->{'COM'} ? Command_1( $re ) :
+     $re->{'COM'} ? Command_1( $re ) :
    ( $re->{'BL'} and $re->{'MAC'} or defined $re->{'USE'} or defined $re->{'BUI'} ) ? Brew_1( $re,$list ) :
      $re->{'TOP'} ? Top_1( $re,$list ) : $re->{'IS'} ? Size_1( $re,$list ) : $re->{'ANA'} ? Ana_1( $re ) :
      $re->{'UL'} ? Brew_2( $re ) : $re->{'UD'} ? Brew_3( $re,'' ) : File_1( $re,$list );
@@ -1951,7 +1951,7 @@ sub Format_3{
  my( $file,$re ) = @_; my( $flag1,$flag2,$ca,$fo );
   my( $line1,$line2 ) = $Locale ? ( '├──','└──' ) : ( '|--','`--' );
   for( my $m=0;$m<@{$file};$m++ ){
-   my( $name,$ver,$desc ) = split '\t',$$file[$m];
+   my( $name,$vers,$desc ) = split '\t',$$file[$m];
     my @cas = split '\t',$re->{'OS'}{"${name}d_cask"} if $re->{'OS'}{"${name}d_cask"};
     my @fom = split '\t',$re->{'OS'}{"${name}formula"} if $re->{'OS'}{"${name}formula"};
      my $desc1 = $JA{$name} ? $JA{$name} : $re->{'OS'}{"${name}c_desc"} ? $re->{'OS'}{"${name}c_desc"} :
@@ -1983,12 +1983,13 @@ sub Format_3{
    unless( $re->{'OS'}{"${name}d_cask"} ){
     for( my $d=0;$d<@fom;$d++ ){
      my $mem = $re->{'OS'}{"${fom[$d]}alia"} ? $re->{'OS'}{"${fom[$d]}alia"} : $fom[$d];
+     my $ver = ( $re->{'OS'}{"${fom[$d]}alia"} and $re->{'OS'}{"${mem}ver"} ) ? ' ('.$re->{'OS'}{"${mem}ver"}.')' : '';
       my $in = $re->{'HASH'}{$mem} ? ' (I)' : '';
      my $desc4 = $JA{$mem} ? $JA{$mem} : $re->{'OS'}{"${mem}f_desc"} ?
         $re->{'OS'}{"${mem}f_desc"} : $re->{'OS'}{"${mem}f_name"} ? $re->{'OS'}{"${mem}f_name"} : '';
      $fo .= "$name$dn\t$desc1\n" if not $flag2 or $flag2 and $flag2 ne $name;
-     $fo .= ( $#fom > 0 and $d != $#fom ) ? "$line1 f $fom[$d]$in\t$desc4\n" :
-                                            "$line2 f $fom[$d]$in\t$desc4\n\n";
+     $fo .= ( $#fom > 0 and $d != $#fom ) ? "$line1 f $fom[$d]$ver$in\t$desc4\n" :
+                                            "$line2 f $fom[$d]$ver$in\t$desc4\n\n";
      $flag2 = $name;
     }
    }
