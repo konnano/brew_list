@@ -1529,6 +1529,7 @@ gitify	デスクトップにGitHub通知を表示するアプリ
 gitkraken	生産性に焦点を当てたGitクライアント
 gitkraken-cli	GitKrakenのCLI
 gitkraken-on-premise-serverless	生産性を重視したGitクライアント
+gitlight	GitHub及びGitLabのデスクトップ通知
 gitnote	gitnote
 gitpigeon	GitPigeon
 gitscout	Gitscout
@@ -4730,6 +4731,7 @@ zed	マルチプレイヤーコードエディター
 zed@preview	マルチプレイヤーコードエディター
 zeebe-modeler	BPMNを使用してZeebeワークフローをモデル化する為のデスクトップアプリケーション
 zeitgeist	Vercelの展開に注意してください
+zen-browser	GeckoベースのWebブラウザ
 zenbeats	音楽作成アプリ
 zenmap	公式のNmapセキュリティスキャナー用のマルチプラットフォームグラフィカルインターフェイス
 zenmate-vpn	VPNクライアント
