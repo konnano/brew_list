@@ -603,6 +603,7 @@ buildpulse-test-reporter	CIをBuildPulseに接続して、不安定なテスト�
 buku	強力なコマンドラインブックマークマネージャー
 bulk_extractor	ストリームベースの科学調査ツール
 bullet	物理SDK
+bump-my-version	Pythonプロジェクトのバージョンアップ
 bumpversion	SemVer用語でバージョン番号を増やす
 bundler-completion	BundlerのBash補完
 bundletool	Androidアプリバンドルを操作する為のコマンドラインツール
@@ -1707,6 +1708,7 @@ fastp	超高速オールインワンFASTQ前処理プログラム
 fastq-tools	fastq連続ファイルを操作する為の小さなユーティリティ
 fastqc	高性能連続データの品質管理ツール
 fasttext	高速テキスト表現と分類の為のライブラリ
+fatal	Facebookテンプレートライブラリ
 fatsort	FAT16/FAT32パーティションを並べ替えます
 faudio	オープンプラットフォーム向けの精度重視のXAudio再実装
 fauna-shell	FaunaDBの対話的シェル
@@ -3063,6 +3065,7 @@ ktfmt	Kotlinコードフォーマッタ
 ktlint	整形ツール内蔵のAnti-bikeshedding Kotlin静的解析ツール
 ktmpl	KubernetesマニフェストのParameterizedされたテンプレート
 ktoblzcheck	German bankの為のライブラリ
+ktor	コマンドラインインターフェイスを介してKtorプロジェクトを生成します
 kube-linter	KubernetesYAMLファイルとHelmチャートの静的分析ツール
 kube-ps1	Kubernetesはbashとzshの情報をプロンプトします
 kube-score	信頼性とセキュリティを向上させる為のKubernetesオブジェクト分析の推奨事項
@@ -5498,7 +5501,7 @@ roswell	主要な環境向けのLispインストーラーとランチャー
 roundup	単体テストツール
 rover	Apollo Studioでデータグラフを管理/保守する為のCLI
 rp	PE/Elf/Mach-O x86/x64 binaries でROP順序を検索する為のツール
-rpcgen	手続きコンパイラ
+rpcsvc-proto	glibcからのRpcsvcプロトコル定義
 rpg-cli	ダンジョンとしてのファイルシステム！
 rpki-client	OpenBSDポータブルrpki-client
 rpl	テキスト置換ユーティリティ
