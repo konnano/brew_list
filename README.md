@@ -2,7 +2,7 @@
 
 brew rmtree : bl -dd との比較
 
-![tree-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/6659d148-0018-4cd5-9501-fdfc8a6d4b68)
+![brew-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ca1b3d92-45f1-428e-a290-a9b26db319cb)
 
 - ### 使用方法
 
