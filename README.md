@@ -144,7 +144,7 @@ bl -g|cat でパイプすれば brew leaves ( Cask込み ) になります
 
 brew list : bl - との比較
 
-![brew-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/6a9b4e5e-7dee-4b32-8faa-6076646b559d)
+![brew-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/46cede98-dfab-44db-9635-b2b7aa3a20d3)
 
 -ai : オプション  
 Formulaの解析データを表示します  
