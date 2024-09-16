@@ -131,7 +131,7 @@ Formulaをサイズ順で表示します
 ( Linuxならtap linux-fontsも含まれます )  
 引数 .(dot) は依存関係でインストールされて依存されなくなったFormulaがあれば表示します  
 ただ、INSTALL_RECEIPT.jsonの曖昧な情報なので ( 不安定 ) になります  
-bl -g|cat でパイプすれば brew leaves ( Cask込み ) になります  
+bl -g|cat でパイプすれば brew leaves になります  
 
 -o : オプション  
 引数が無ければ brew outdated コマンドです  
