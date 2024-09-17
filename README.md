@@ -63,7 +63,7 @@ Formulaのライブラリーを表示します
 同名のFormulaやCaskがあれば2番目の引数に -c でCaskをTree表示します  
 ２番目の引数に数字なら検索階層を限定表示します
 
-![brew_1-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/2101df11-ce76-4334-b803-a354c2eecf85)
+![brew-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/4e46b10d-1a48-454a-bc52-6011ab03ca15)
 
 -de : オプション  
 アンインストール後に必要ないFormulaやCaskをリスト表示します  
