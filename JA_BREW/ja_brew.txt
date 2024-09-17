@@ -2048,7 +2048,6 @@ ggshield	コード内の機密データと機密データをスキャンする
 gh	GitHubコマンドラインツール
 ghc	Glorious Glasgow Haskellコンパイルシステム
 ghc@8.10	Glorious Glasgow Haskellコンパイルシステム
-ghc@8.6	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.2	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.4	Glorious Glasgow Haskellコンパイルシステム
 ghc@9.6	Glorious Glasgow Haskellコンパイルシステム
@@ -2303,6 +2302,7 @@ golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
 golangci-lint-langserver	'golangci-lint'用の言語サーバー
 golines	長い行を修正するGolangフォーマッタ
+gollama	あなたのOllamaモデルをGoで管理する
 gollum	Go n：mメッセージ 多重装置
 golo	JVMの軽量動的言語
 gom	SQLiteのGObjectラッパー
