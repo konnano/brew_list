@@ -891,7 +891,7 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
  } Glob_1;
 }
 
-unless( $ARGV[0] ){
+unless( $ARGV[0] ){ $tap{'Size_B'} = $ENV{'Size_B'};
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
  if( $re->{'MAC'} ){ my %HA;
   for( @{$re->{'OS'}} ){
