@@ -190,7 +190,7 @@ sub Died_1{
    # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew" :
    "\n   # Uninstall : rm -rf ~/.BREW_LIST $MY_BREW/share/zsh/site-functions/_bl\n   $brew";
   print"\033[?7l" if -t STDOUT;
-  print"  Enhanced brew list : version 1.27_9\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
+  print"  Enhanced brew list : version 1.28_0\n   Option\n  -new\t:  creat new cache : argument '.' rmdir WAIT
   -l\t:  formula list : First argument Formula search : Second argument '.' Full-text search
   -i\t:  instaled formula list\n  -\t:  brew list command\n  -lb\t:  bottled install formula list
   -lx\t:  can't install formula list\n  -s\t:  type search formula name
@@ -257,7 +257,7 @@ sub Init_1{
    Like_1( $re,[\$re->{'INF'},\$re->{'USE'},\$re->{'UD_S'},\$re->{'ana'},\$re->{'UL_S'},\$re->{'BUI'}],$cat ) if $name;
   } $re->{'Casc'} = 1 if $re->{'INF'} and $re->{'OS'}{"$re->{'INF'}cask"} and not $re->{'OS'}{"$re->{'INF'}so_name"};
    Dele_1( $re ) if $re->{'DEL'} and $re->{'DEL'} < 2;
-  if( $re->{'PRS'} or $re->{'IS'} and ( not defined $re->{'INF'} or $re->{'HASH'}{$re->{'INF'}} ) ){
+  if( $re->{'PRS'} ){
     $re->{'PID2'} = fork;
      die " IS Not fork : $!\n" unless defined $re->{'PID2'}; $pid = $$;
    $SIG{'HUP'} = $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'TERM'} = sub{ rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}"; die "\x1B[?25h\n" };
@@ -742,29 +742,24 @@ sub Ana_1{
 }
 
 sub Size_1{
- my( $re,$list ) = @_; my( %AR,@data,@size,$size,$ls1,$ls2,$c );
+ my( $re,$list ) = @_; my( %AR,$data,@size,$size,$ls1,$ls2,$c );
+ my @list = $re->{'OS'}{'Size_B'} ? split '\n',$re->{'OS'}{'Size_B'} : exit;
   if( defined $re->{'INF'} and not $re->{'HASH'}{$re->{'INF'}} ){ exit;
-  }elsif( $re->{'INF'} and $re->{'HASH'}{$re->{'INF'}} ){
-   @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
-    push @data,$re->{'INF'};
-  }
-   my $an = @data ? \@data : $list;
-    exit unless @{$an};
-     my $tput = `tput cols`;
-      my $spa = $tput >= 88 ? 40 : $tput > 48 ? $tput - 48 : 0;
-   for( my $i=0;$i<@{$an};$i++ ){
-    @{$AR{$$an[$i]}} = glob "$re->{'CEL'}/$$an[$i]/*";
-     if( $i & 1 ){ $ls2 .= "$re->{'CEL'}/$$an[$i] ";
-     }else{ $ls1 .= "$re->{'CEL'}/$$an[$i] "; }
+  }elsif( defined $re->{'INF'} ){
+   my @data = split '\t',$re->{"$re->{'INF'}deps"} if $re->{"$re->{'INF'}deps"};
+    push @data,$re->{'INF'}; my $i = 0;
+   for( ;$i<@data;$i++ ){
+    for( @list ){ push ( @{$data},$_ ),last if $_ =~ m|/$data[$i]$| }
    }
-   my $pid = ( open my $FH,'-|' ) // Perr_1( $re,'Size' );
-    if( $pid ){ @data = `du -ks $ls1`;
-      push @data,<$FH>; close $FH;
-    }else{ print`du -ks $ls2` if $ls2; exit }
-
-   waitpid $re->{'PID2'},0 if rmdir "$re->{'HOME'}/WAIT$re->{'PID2'}";
+  }else{ $data = \@list }
+   my $tput = `tput cols`;
+    my $spa = $tput >= 88 ? 40 : $tput > 48 ? $tput - 48 : 0;
+   for( @{$data} ){
+    my( $name ) = m|.+/(.+)|;
+     @{$AR{$name}} = glob "$_/*";
+   }
     sub _cmp{ $_[0] =~ /(\d+)\s/; $1 }
-   for( sort{_cmp($b) <=> _cmp($a)} @data ){ my $utime; $c++;
+   for( sort{_cmp($b) <=> _cmp($a)} @{$data} ){ my $utime; $c++;
     my( $cou,$name ) = m|(\d+)\s.+/(.+)|;
     for my $json( @{$AR{$name}} ){
      if( -f "$json/INSTALL_RECEIPT.json" ){
@@ -1847,7 +1842,7 @@ sub Format_1{
      next : print"$_\n" for @{$re->{'ARR'}};
   }
   return if $re->{'UD'} or $re->{'LIKE'};
-  $re->{'FOR'} = 0 if $re->{'MAC'};
+  $re->{'FOR'} = 0 if $re->{'MAC'} and not $re->{'BL'};
  }
  print "\033[33m$re->{'FILE'}\033[0m" if $re->{'FILE'} and ( $re->{'ALL'} or $re->{'EXC'} or $re->{'KXC'} );
   print "\033[33mInstalled_as_dependency $re->{'Idep'}\033[0m\n"
@@ -2301,6 +2296,7 @@ perl<<"EOF"
 EOF
  (( $? != 0 )) && math_rm 1 && ${die:?perl 3 error}
 
+  Size_B=$(echo $Perl_B/Cellar/*|xargs -n2 -P4 du -ks) export Size_B
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
   if [[ -f ~/.BREW_LIST/DBMG ]];then
@@ -3212,7 +3208,7 @@ if( not $ARGV[0] or $ARGV[0] == 2 ){
  } Glob_1;
 }
 
-unless( $ARGV[0] ){
+unless( $ARGV[0] ){ $tap{'Size_B'} = $ENV{'Size_B'};
  rmdir "$ENV{'HOME'}/.BREW_LIST/18";
  if( $re->{'MAC'} ){ my %HA;
   for( @{$re->{'OS'}} ){
