@@ -16,6 +16,7 @@
 4k-slideshow-maker	スライドショーメーカー
 4k-stogram	Instagramの写真をダウンロード アカウント/ハッシュタグ/Locations
 4k-video-downloader	Freeのビデオダウンローダー
+4k-video-downloader+	Free ビデオダウンローダー
 4k-video-to-mp3	ビデオをMP3に変換する
 4k-youtube-to-mp3	YouTubeリンクをMP3ファイルに変換する
 4peaks	DNA配列トレースファイルの視覚化と編集
@@ -1271,6 +1272,7 @@ fbreader	ブックリーダー
 fedistar	デスクトップ用の複数列の Mastodon、Pleroma、及び Friendicaクライアント
 fedora-media-writer	Fedoraイメージをポータブルメディアファイルに書き込む為のツール
 feed-the-beast	Minecraft modダウンローダー及びマネージャー
+feedflow	RSSリーダー
 feem	ローカルファイル転送
 feishu	プロジェクト管理ソフトウェア
 fellow	共同会議の議事 ノート/アクションアイテム
@@ -1780,6 +1782,7 @@ igdm	Instagram DM用のデスクトップアプリケーション
 iglance	ステータスバーのシステムモニター
 igv	ゲノムデータの視覚的探索
 iina	Freeのオープンソースメディアプレーヤー
+iina+	iinaへの追加danmakuサポート(iina 弹幕サポート)
 ilok-license-manager	iLokデバイス用のソフトウェア
 ilspy	Avalonia-based .NETデコンパイラー
 ilya-birman-typography-layout	キーボードレイアウトの体裁
@@ -3004,6 +3007,7 @@ parallels@15	デスクトップ仮想化ソフトウェア
 parallels@16	デスクトップ仮想化ソフトウェア
 parallels@17	デスクトップ仮想化ソフトウェア
 parallels@18	デスクトップ仮想化ソフトウェア
+parallels@19	デスクトップ仮想化ソフトウェア
 paraview	データ分析及び視覚化アプリケーション
 parse	Parse
 parsec	リモートデスクトップ
@@ -3239,6 +3243,7 @@ progressive-downloader	ダウンロードマネジャー
 projectlibre	ブラウザーのMicrosoft Project
 projector	Swingアプリケーションをリモートで実行する為の一般的なクライアント関連のコード
 prolific-pl2303	PL2303 USB-to-シリアルドライバ
+pronotes	Apple Notes拡張機能
 pronterface	PCから3Dプリンターを制御する
 propresenter	ライブイベントのプレゼンテーション及び制作アプリケーション
 propresenter@beta	ライブイベントのプレゼンテーション及び制作アプリケーション
@@ -3468,6 +3473,7 @@ renpy	Pythonのビジュアルノベルエンジン
 repetier-host	3Dプリントアプリケーション
 replacicon	アプリアイコン置換ユーティリティ
 replay	タイムトラベルデバッグ
+replaywebpage	WARC及びWACZファイル用のWebアーカイブビューア
 replit	ソフトウェア開発及び配置プラットフォーム
 repoz	Zero-confgitリポジトリハブ
 reqable	高度なAPIデバッグプロキシ
@@ -3917,8 +3923,8 @@ stack-stack	すべての生産性アプリを1か所から管理する為のワ�
 stand	1時間に1回立ち上がる様に通知します
 standard-notes	Freeのオープンソースの完全に暗号化されたメモアプリ
 starcraft	Starcraft
-starnet++	MLモデルを使用して天体写真画像から星を削除します
 starnet2	MLモデルを使用して天体写真画像から星を削除します
+starnet++	MLモデルを使用して天体写真画像から星を削除します
 starsector	オープンワールドのシングルプレイヤー宇宙戦闘及びトレーディングRPG
 start	Tencentクラウドゲームプラットフォーム
 startupizer	ログインアイテムハンドラ
