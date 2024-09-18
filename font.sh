@@ -258,7 +258,7 @@ perl<<"EOF"
 EOF
  (( $? != 0 )) && math_rm 1 && ${die:?perl 3 error}
 
-  Size_B=$(echo $Perl_B/Cellar/*|xargs -n2 -P4 du -ks) export Size_B
+  Size_B=$(echo "$Perl_B"/Cellar/*|xargs -n2 -P4 du -ks 2>/dev/null) export Size_B
   perl ~/.BREW_LIST/tie.pl || { math_rm 1 && ${die:?perl tie1 error}; }
 
   if [[ -f ~/.BREW_LIST/DBMG ]];then
