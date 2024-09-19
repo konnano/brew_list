@@ -896,8 +896,8 @@ sub Brew_3{
        $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
         push @{$re->{'ARR'}},$len;
      }
-     if( @AN ){
-      -t STDOUT ? print" \033[36m$key\033[0m : ",$#AN+1," depends\n" : print" $key : ",$#AN+1," depends\n";
+     if( @AN ){ my $bo = $re->{'OS'}{"$key$OS_Version"} ? ' (b)' : '';
+      -t STDOUT ? print" \033[36m$key\033[0m$bo : ",$#AN+1," depends\n" : print" $key$bo : ",$#AN+1," depends\n";
        Format_1( $re );
         print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
      }
@@ -1221,9 +1221,9 @@ sub Info_1{
    if( not( $re->{'CAS'} or $re->{'DEL'} ) and $re->{'OS'}{"${brew}deps_b"} ){ my( $i,@deps_b );
     for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){
      $data = $re->{'OS'}{"${data}alia"} ? $re->{'OS'}{"${data}alia"} : $data;
-     if( not $re->{'OS'}{"${data}so_name"} and not $bottle and
+     if( not( $re->{'OS'}{"${data}so_name"} or $bottle ) and ( $re->{'UD'} or $re->{'LINK'} and $re->{'LINK'} == 6 or
        ( not $re->{'HASH'}{$brew} or Version_1( $re->{'OS'}{"${brew}ver"},$re->{'HASH'}{$brew} ) ) and
-       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ){
+       ( not $re->{'HASH'}{$data} or Version_1( $re->{'OS'}{"${data}ver"},$re->{'HASH'}{$data} ) ) ) ){
           push @deps_b,$data; $i++;
      }
     }
