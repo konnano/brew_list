@@ -985,6 +985,7 @@ unless( $ARGV[0] ){ $tap{'Size_B'} = $ENV{'Size_B'};
     $HAU{$_}++ for split '\t',$tap{"${br}deps"};
      $DEP .= "$br \\\n";
    } $COM .= "$br \\\n";
+   $DEP .= "$br \\\n" if $tap{"${br}deps_b"} and not $tap{"$br$OS_Version2"};
   }
  if( $re->{'MAC'} ){
   for my $ca( @CASK ){
