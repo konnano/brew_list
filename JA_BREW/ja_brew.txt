@@ -1623,6 +1623,7 @@ erlang	高度に拡張性のあるリアルタイムシステムの為のプロ�
 erlang@22	高度に拡張性のあるリアルタイムシステムの為のプログラミング言語
 erlang@24	高度スケーラブルなリアルタイムシステムの為のプログラミング言語
 erlang@25	拡張性の高いリアルタイムシステム用のプログラミング言語
+erlang@26	拡張性の高いリアルタイム システム用のプログラミング言語
 erlang_ls	Erlang言語サーバー
 erofs-utils	拡張読み取り専用ファイルシステムのユーティリティ
 esbuild	非常に高速なJavaScript bundler and minifier
@@ -3279,6 +3280,7 @@ libdc1394	IEEE 1394カメラ用りのAPIを提供します
 libdca	DTS Coherent Acousticsストリームをデコードする為のライブラリ
 libde265	h.265ビデオコーデックの実装を開く
 libdeflate	大幅に最適化された圧縮と解凍 DEFLATE/zlib/gzip
+libdex	GLibベースアプリケーションの為の未来志向プログラミング
 libdicom	DICOM WSI読み取りライブラ
 libdill	Cでの構造化同時実行
 libdiscid	MusicBrainz及びfreedbディスクIDを作成する為のCライブラリ
@@ -4291,6 +4293,7 @@ nali	IP地理情報とCDNプロバイダーを照会する為のツール
 name-that-hash	最新のハッシュ識別システム
 naml	Kubernetes YAMLをGolangに変換する
 nano	FreeのPicoテキストエディタ(GNU)代替品
+nanobind	小さくて効率的なC++/Pythonバインディング
 nanoflann	KDツリーを使用した最近傍検索用のヘッダーのみのライブラリ
 nanomsg	Cのソケットライブラリ
 nanomsgxx	C++11のNanomsg bindings
@@ -6641,6 +6644,7 @@ verilator	Verilog模擬装置
 vermin	コードの実行に必要なPythonの最低バージョンを同時に検出する
 verovio	コマンドラインMEI楽譜エングレーバー
 vert.x	JVMでリアクティブアプリケーションを構築する為のツールキット
+veryfasttree	大規模な分類データセットに対する効率的な系統樹推論
 vespa-cli	Vespa.aiのコマンドラインツール
 vet	オープンソースの依存関係をポリシーに基づいて精査する
 vexctl	VEXメタデータを、作成/変換/証明するツール
@@ -6662,6 +6666,7 @@ vilistextum	HTMLからテキストへの変換器
 vim	多くの追加機能を備えたVi'workalike'
 vimpager	PagerとしてViMを使用する
 vimpc	Viを備えたkeybindingsの様なNcursesベースのmpdクライアント
+vimtutor-sequel	中級vimユーザー向けの高度なvimtutor
 vineyard	インメモリの不変データ マネージャー(CNCF傘下のプロジェクト)
 vint	VimスクリプトLanguage Lint
 vip	パイプラインでの対話的な編集を提供するプログラム
