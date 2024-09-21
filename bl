@@ -896,10 +896,12 @@ sub Brew_3{
        $re->{'LEN1'} = $re->{'LEN'}{$len} if $re->{'LEN1'} < $re->{'LEN'}{$len};
         push @{$re->{'ARR'}},$len;
      }
-     if( @AN ){ my $bo = $re->{'OS'}{"$key$OS_Version"} ? ' (b)' : '';
-      -t STDOUT ? print" \033[36m$key\033[0m$bo : ",$#AN+1," depends\n" : print" $key$bo : ",$#AN+1," depends\n";
-       Format_1( $re );
-        print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
+     if( @AN ){
+       my $bo = ( $re->{'OS'}{"$key$OS_Version"} and -t STDOUT ) ? "\033[33m (B)\033[0m" : $re->{'OS'}{"$key$OS_Version"} ? ' (b)' : '';
+        my $bd = $bo ? "depends" : " source build and depends";
+       -t STDOUT ? print" \033[36m$key\033[0m$bo : ",$#AN+1," $bd\n" : print" $key$bo : ",$#AN+1," $bd\n";
+        Format_1( $re );
+         print '_' x $re->{'LENG'},"\n" if -t STDOUT and not $re->{'UD_S'};
      }
     }else{
      $mine .= ( not @AN and $re->{'NOT'} ) ? "$re->{'NOT'}$ls   Not require dependencies...\t: $key\n" :
@@ -966,6 +968,7 @@ sub Like_1{
     }
   }elsif( $re->{'UD_S'} ){
    $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
+   $re->{'OS'}{"${_}deps_b"} ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
    $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for keys %{$re->{'DMG'}};
   }elsif( $re->{'COM'} or $re->{'IS'} ){
     $HA{$_}++ for keys %{$re->{'HASH'}};
@@ -973,9 +976,7 @@ sub Like_1{
    for my $c2( @{$cat} ){ chomp $c2;
     if( $re->{'FOR'} ){
      $HA{$c2}++ if $re->{'OS'}{"${c2}deps"};
-      if( $re->{'OS'}{"${c2}deps_b"} and not $re->{'OS'}{"${c2}$OS_Version"} ){
-       for(split "\t",$re->{'OS'}{"${c2}deps_b"}){ next if $re->{'HASH'}{$_}; $HA{$_}++ }
-      }
+      if( $re->{'OS'}{"${c2}deps_b"} and not $re->{'OS'}{"${c2}$OS_Version"} ){	$HA{$c2}++ }
     }
     $HA{$c2}++ if $re->{'OS'}{"${c2}d_cask"};
     $HA{$c2}++ if $re->{'OS'}{"${c2}formula"};
@@ -1241,9 +1242,9 @@ sub Info_1{
     }
    }
    if( $re->{'DEL'} and $re->{'OS'}{"${brew}deps_b"} and
-     ( $re->{'KEN'} and $re->{'KEN'} eq '.' or not $re->{'KEN'} and ( $m == 1 or $re->{"${brew}delet"} ) ) ){
+     ( $re->{'KEN'} and $re->{'KEN'} eq '.' or not $re->{'KEN'} and ( $m == 1 or not $re->{'OS'}{"${brew}deps"} ) ) ){
     for my $data( split '\t',$re->{'OS'}{"${brew}deps_b"} ){ my @deps_a;
-     if( not $re->{'OS'}{"${brew}so_name"} and not $bottle and $re->{'OS'}{"${data}build"} ){
+     if( not( $re->{'OS'}{"${brew}so_name"} and $re->{'Casc'} ) and not $bottle and $re->{'OS'}{"${data}build"} ){
       for my $data1(split '\t',$re->{'OS'}{"${data}build"} ){
        $data1 = $re->{'OS'}{"${data1}alia"} ? $re->{'OS'}{"${data1}alia"} : $data1;
         push @deps_a,$data if $re->{'HASH'}{$data1}
@@ -3302,6 +3303,7 @@ unless( $ARGV[0] ){ $tap{'Size_B'} = $ENV{'Size_B'};
     $HAU{$_}++ for split '\t',$tap{"${br}deps"};
      $DEP .= "$br \\\n";
    } $COM .= "$br \\\n";
+   $DEP .= "$br \\\n" if $tap{"${br}deps_b"} and not $tap{"$br$OS_Version2"};
   }
  if( $re->{'MAC'} ){
   for my $ca( @CASK ){
