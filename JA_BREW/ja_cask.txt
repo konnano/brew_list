@@ -233,6 +233,7 @@ arc	Chromiumベースのブラウザ
 archaeology	バイナリファイルを掘り下げる為のツール
 archipelago	Webテクノロジに基づいて構築されたターミナルエミュレータ
 archiver	アーカイブを開く ファイルを圧縮する ファイルを分割して結合するだけでなく
+archivewebpage	Webを閲覧しながら、Web ページを手動でWARC又はWACZファイルにアーカイブします
 archy	YAMLプロセッサ
 arctic	Final Cut Pro X ライブラリの表示と管理
 arctype	SQLクライアント及びデータベース管理ツール
@@ -552,6 +553,7 @@ cacher	コードスニペットオーガナイザー
 cad-assistant	CADアシスタント
 caffeine	システムがスリープ状態になるのを防ぐユーティリティ
 cahier	研究の為のネイティブサポートを備えたナレッジベース
+caido	Webセキュリティ監査ツールキット
 cakebrew	HomebrewのGUIアプリ
 cakebrewjs	electronで書かれたHomebrew GUIアプリ
 calcservice	サービス対応アプリに計算を入力します
@@ -3532,6 +3534,7 @@ rocket-typist	一般的なフレーズのテキストエキスパンダー
 rocks-n-diamonds	アーケードスタイルのゲーム
 rode-central	RØDEコンパニオンアプリ
 rode-connect	ポッドキャスティングソフトウェア
+rode-unify	バーチャルミキシングソフトウェア
 rodeo	Python用データサイエンスIDE
 roku-remote-tool	Rokuリモートツール
 rolisteam	仮想卓上ソフトウェア
@@ -4693,7 +4696,6 @@ yandex-cloud-cli	Yandex Cloud CLI
 yandex-disk	クラウドストレージ
 yandex-music	Yandex Musicに耳を傾けて個人的なお勧めを入手してください
 yandex-music-unofficial	Yandex ミュージック非公式
-yass	さらに別のシャドウソケット
 yate	メディアファイルタグエディター
 yattee	代替のプライバシーに優しいYouTubeフロントエンド
 yealink-meeting	ビデオコミュニケーション及び仮想会議プラットフォーム
