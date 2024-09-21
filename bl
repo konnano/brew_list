@@ -968,8 +968,8 @@ sub Like_1{
     }
   }elsif( $re->{'UD_S'} ){
    $re->{'OS'}{"${_}deps"} ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
-   $re->{'OS'}{"${_}deps_b"} ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
    $re->{'OS'}{"${_}d_cask"} ? $HA{$_}++ : 0 for keys %{$re->{'DMG'}};
+ ( $re->{'OS'}{"${_}deps_b"} and not $re->{'OS'}{"${_}$OS_Version"} ) ? $HA{$_}++ : 0 for keys %{$re->{'HASH'}};
   }elsif( $re->{'COM'} or $re->{'IS'} ){
     $HA{$_}++ for keys %{$re->{'HASH'}};
   }elsif( $re->{'TREE'} or $re->{'LINK'} ){
