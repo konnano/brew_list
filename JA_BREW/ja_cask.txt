@@ -4759,6 +4759,7 @@ zoho-mail	メールクライアント
 zoho-workdrive	Zohoクラウドストレージサービスのクライアント
 zoom	ビデオ通信及び仮想会議プラットフォーム
 zoom-for-it-admins	ビデオ通信/仮想会議プラットフォーム
+zoom-m3-edit-and-play	ZOOM M3 MicTrak用ソフトウェア
 zotero	研究ソースを共有する 収集/整理/引用
 zotero@beta	研究ソースを収集、整理、引用、共有する
 zprint	Clojure及びClojurescriptのソースコードとS式を再フォーマットする為のライブラリ
