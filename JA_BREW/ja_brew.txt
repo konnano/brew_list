@@ -2351,6 +2351,7 @@ govc	VMwarev Sphereのコマンドラインツール
 govulncheck	Go脆弱性データベース用のデータベースクライアントとツール
 gowsdl	WSDL2Goコード生成とそのSOAPプロキシ
 gox	クロスコンパイルツールに移動します
+goyacc	Go用パーサージェネレーター
 gpa	GnuPGのグラフィカルユーザーインターフェイス
 gpac	研究及び学術目的のマルチメディアフレームワーク
 gpatch	オリジナルにdiffファイルを適用します
@@ -2983,6 +2984,7 @@ kakoune	選択ベースの様式のテキストエディタ
 kalign	生物学的配列の為の高速複数配列アラインメントプログラム
 kalker	数学構文を備えたフル機能の電卓
 kallisto	RNA-Seqデータから転写産物の量を定量化する
+kamal-proxy	Kamal用の軽量プロキシサーバー
 kamel	Apache Camel K CLI
 kanif	クラスター管理/管理ツール
 kapacitor	オープンソースの時系列データ計算機
@@ -5763,6 +5765,7 @@ shyaml	コマンドラインYAMLパーサー
 sic	最低限の多重化IRCクライアント
 sickchill	テレビ番組用の自動ビデオライブラリマネージャー
 sickle	品質を使用したFASTQファイルのウィンドウ化された適応トリミング
+sidekick	VPSにアプリケーションを展開します
 siege	HTTP回帰テストと基準比較ユーティリティ
 sift	grepに代わる高速で強力なオープンソース
 sigi	整理が苦手な端末愛好家のための整理ツール
@@ -6777,7 +6780,6 @@ wayland-protocols	Wayland手続きの追加
 waypoint	構築するツール 配備 任意のプラットフォームで任意のアプリケーションをリリースします
 wazero	ゼロ依存WebAssemblyランタイム
 wb32-dfu-updater_cli	USBデバイスとの間でファームウェアをダウンロードとアップロードする為のUSBプログラマー
-wbox	HTTPテストツールと構成不要のHTTPサーバー
 wcslib	FITS世界座標系のライブラリとユーティリティ
 wcurl	ファイルを簡単にダウンロードする為のCurlのラッパー
 wdc	WebDAVクライアントは簡単でWebDAVサーバーでの作業に便利
