@@ -1183,6 +1183,7 @@ cycode	シークレットスキャン、SAST/SCA/IaC によってソフトウェ
 cyctl	Kubernetesワークロード向けにカスタマイズ可能なUI
 cyme	システムのUSBバスとデバイスをリストする
 cypher-shell	Neo4jに対してCypherを実行できるコマンドラインシェル
+cyphernetes	Kubernetesクエリ言語
 cyrus-sasl	シンプルな認証とセキュリティレイヤー
 cython	Python言語のC機能拡張を作成する為のコンパイラ
 czg	標準化されたコミットメッセージを生成するインタラクティブなCommitizen CLI
@@ -2136,6 +2137,7 @@ git-secret	gitリポジトリ内にプライベートデータを保存する為
 git-secrets	機密情報をgitリポジトリにコミットすることを防ぎます
 git-series	パッチシリーズへの変更を経時的に追跡する
 git-sizer	Gitリポジトリのさまざまなサイズmetricsを計算する
+git-spice	スタックされたGitブランチを管理する
 git-split-diffs	ターミナル内の差分を並べて強調表示した構文
 git-ssh	SSH経由でgitリポジトリを提供する為のプロキシ
 git-standup	スタンドアップミーティングの報告を生成するGit機能拡張
@@ -2299,6 +2301,7 @@ gofumpt	より厳格なgofmt
 gojq	jqのPureGo実装
 gokart	Goコードを保護する為の静的コード分析
 gokey	Goのシンプルなボールトレスパスワードマネージャー
+goku	HTTP負荷テストツール
 golang-migrate	データベース移行CLIツール
 golangci-lint	Goで高速に静的解析ツールが走る
 golangci-lint-langserver	'golangci-lint'用の言語サーバー
@@ -3069,6 +3072,7 @@ ktlint	整形ツール内蔵のAnti-bikeshedding Kotlin静的解析ツール
 ktmpl	KubernetesマニフェストのParameterizedされたテンプレート
 ktoblzcheck	German bankの為のライブラリ
 ktor	コマンドラインインターフェイスを介してKtorプロジェクトを生成します
+kty	Kubernetes用ターミナル
 kube-linter	KubernetesYAMLファイルとHelmチャートの静的分析ツール
 kube-ps1	Kubernetesはbashとzshの情報をプロンプトします
 kube-score	信頼性とセキュリティを向上させる為のKubernetesオブジェクト分析の推奨事項
@@ -3468,6 +3472,7 @@ libnghttp2	HTTP/2 Cライブラリ
 libnghttp3	Cで書かれたHTTP/3ライブラ
 libngspice	SPICE回路模擬装置共有ライブラリ
 libnice	GLib ICEの実装
+libnice-gstreamer	libnice用のGStreamerプラグイン
 libnids	ネットワーク侵入検知システムのEコンポーネントを実装します
 libnl	ネットリンクライブラリーセット
 libnotify	デスクトップ通知を通知デーモンに送信するライブラリ
@@ -3778,6 +3783,7 @@ llvm@14	次世代基礎構造コンパイラ
 llvm@15	次世代基礎構造コンパイラ
 llvm@16	次世代基礎構造コンパイラ
 llvm@17	次世代基礎構造コンパイラ
+llvm@18	次世代基礎構造コンパイラ
 llvm@9	次世代基礎構造コンパイラ
 lm-sensors	温度を監視する為のツール 電圧/ファン
 lm4tools	TI StellarisLaunchpadボード用のツール
@@ -5559,7 +5565,6 @@ rust-analyzer	IDEの実験的なRustコンパイラフロントエンド
 rust-parallel	RustのTokioフレームワークと並行してコマンドを実行する
 rustc-completion	rustcのbash補完
 rustcat	最新のポートリスナーとリバースシェル
-rustfmt	Rustコードをフォーマットする
 rustls-ffi	Rustls TLSライブラリのFFIバインディング
 rustscan	現代のポートスキャナー
 rustup	Rustツールチェーンインストーラー
