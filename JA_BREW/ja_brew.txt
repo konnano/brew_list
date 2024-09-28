@@ -69,6 +69,7 @@ aha	ANSIHTMLアダプター
 ahcpd	IPv6とIPv6/IPv4 ネットワークの自動構成手続き
 ahoy	YAMLファイルのコマンドから自己文書化CLIプログラムを作成します
 aichat	ChatGPT cli
+aicommit	AIを活用したコミットメッセージジェネレーター
 aicommits	AIを使用してgitコミットメッセージを書き込みます
 aide	ファイルとディレクトリの整合性チェッカー
 aider	端末内でAIペアプログラミング
@@ -939,8 +940,6 @@ clpbar	コマンドラインプログレスバー
 clucene	LuceneのC++ポート：高性能でフル機能のテキスト検索エンジン
 clusterawsadm	Cluster API Provider AWS clusterawsadmのブートストラップ AMI/EKS/その他のヘルパーのホーム
 clusterctl	sig-cluster-lifecycleのサブプロジェクトであるクラスター管理API作業のホーム
-clutter	一般的で高レベルのキャンバスライブラリ
-clutter-gtk	ClutterのGTK+統合ライブラリ
 clzip	lzipのC言語バージョン
 cmake	クロスプラットフォーム Make
 cmake-docs	CMakeのドキュメント
@@ -1118,7 +1117,6 @@ cruft	テンプレートからプロジェクトを作成し、その後の作�
 crun	高速で軽量なフル機能のOCIランタイムとCライブラリ
 crunch	ワードリスト発生器
 crunchy-cli	Crunchyroll用のコマンドラインダウンローダー
-crush-tools	区切られたテキストデータを処理する為のコマンドラインツール
 cryfs	ファイルを暗号化してDropboxやiCloudなどに安全に保存できる様にします。
 cryptography	Pythonの暗号化レシピとプリミティブ
 cryptol	暗号化アルゴリズムを指定する為のドメイン固有言語
@@ -1202,7 +1200,6 @@ dante	SOCKSサーバーとクライアント RFC 1928及び関連標準を実装
 daq	ネットワーク侵入防止及び検出システム
 dar	バックアップディレクトリツリーとファイル
 darcs	Haskellを介して変更を追跡する分散バージョン管理システム
-darglint	Python docstring引数静的解析ツール
 dark-mode	コマンドラインからMacOSダークモードを制御する
 darkhttpd	CGIのない小さな静的ウェブサーバー
 darkice	ライブオーディオストリーマー
@@ -1267,7 +1264,6 @@ delve	Goプログラミング言語のデバッガー
 demumble	より強力なシンボルデマングラー(c++filt風)
 deno	JavaScriptとTypeScriptの安全なランタイム
 denominator	DNSクラウドを操作する為のポータブルJavaライブラリ
-density	超高速圧縮ライブラリ
 dep-tree	ファイル間の依存関係を視覚化し、依存関係ルールを適用するツール
 dependabot	dependabot更新ジョブをテスト及びデバッグする為のツール
 dependency-check	OWASP依存関係チェック
@@ -1920,7 +1916,6 @@ fstrm	Cでのフレームストリームの実装
 fsw	複数のバックエンドを備えたファイル変更モニター
 fswatch	ディレクトリの変更を監視し、シェルコマンドを実行します
 ftgl	Freetype/OpenGL ブリッジ
-ftjam	Makeの代わりに使用できるビルドツール
 ftnchek	Fortran 77プログラムチェッカー
 fuc	モダン、パフォーマンス重視のUNIXコマンド
 fuego	囲碁のゲーム用のC++ライブラリのコレクション
@@ -2700,7 +2695,6 @@ id3tool	ID3編集ツール
 id3v2	コマンドラインエディタ
 ideviceinstaller	iOSデバイスでアプリを管理する為のツール
 idnits	インターネットdraftフォーマットの問題を探します
-idris	依存型を持つ純粋な関数型プログラミング言語
 idris2	依存型を持つ純粋な関数型プログラミング言語
 idutils	IDデータベースとクエリツール
 ievms	Microsoft IE AppCompat仮想マシンの自動インストール
@@ -3262,7 +3256,6 @@ libcds	同時データ構造のC++ライブラリ
 libcec	TVリモコンとHDMIケーブルを備えた制御装置
 libcello	Cでの高級プログラミング
 libcerf	複雑な誤差関数の数値ライブラリ
-libchamplain	マップを表示する為のClutterActor
 libchaos	ランダム化/ハッシュ/統計分析 の高度なライブラリ
 libchewing	高度な音声入力方式ライブラリ
 libclc	OpenCL Cプログラミング言語のライブラリ要件の実装
@@ -3743,7 +3736,6 @@ lilv	LV2プラグインを使用するCライブラリ
 lilypond	音楽彫刻プログラム
 lima	Linux仮想マシン
 limesuite	LimeSDRのデバイスドライバーユーティリティとインターフェイス層
-lincity-ng	都市シミュレーションゲーム
 link-grammar	Carnegie Mellon Universityのリンク文法パーサー
 linkerd	linkerdと対話する為のコマンドラインユーティリティ
 linklint	リンクチェッカーとWebサイトのメンテナンスツール
@@ -3975,6 +3967,7 @@ maxwell	JSONからKafkaへMySQLのbinlogを読み取り行の更新を書き込�
 mbedtls	暗号化と SSL/TLS ライブラリ
 mbedtls@2	暗号化と SSL/TLS ライブラリ
 mbelib	P25 1段階及びProVoice vocoder
+mbpoll	ModBusスレーブ(RTU又はTCP)と通信するためのコマンドラインユーティリティ
 mbt	クラウドアプリケーション用のマルチターゲットアプリケーション(MTA)ビルドツール
 mbw	メモリ帯域幅ベンチマーク
 mcabber	コンソールJabberクライアント
@@ -5058,6 +5051,7 @@ postgresql@13	オブジェクトリレーショナルデータベースシステ
 postgresql@14	オブジェクトリレーショナルデータベースシステム
 postgresql@15	オブジェクトリレーショナルデータベースシステム
 postgresql@16	オブジェクトリレーショナルデータベースシステム
+postgresql@17	オブジェクトリレーショナルデータベースシステム
 postgrest	既存のPostgreSQLデータベースから完全にRESTfulなAPIを提供します
 potrace	ビットマップをベクターグラフィックに変換する
 poutine	ビルドパイプラインの脆弱性を検出するセキュリティスキャナー
@@ -5217,11 +5211,9 @@ pyspelling	スペルチェッカー自動化ツール
 pystring	Pythonの文字列クラスメソッドのインターフェイス用 C++関数コレクション
 python-argcomplete	Python argparseのタブ補完
 python-build	単純 正しいPEP517ビルドフロントエンド
-python-charset-normalizer	Real First Universal Charset Detector、Chardetの代替として維持されています
 python-dateutil	標準Python日時機能の便利な拡張機能
 python-gdbm@3.11	gdbmへのPythonインターフェイス
 python-gdbm@3.12	gdbmへのPythonインターフェイス
-python-idna	アプリケーションの国際化ドメイン名(IDNA)
 python-launcher	Pythonインタープリターを、遅延/スマートな方法で起動する
 python-lsp-server	言語サーバープロトコル用のPython言語サーバー
 python-lxml	libxml2/libxsltライブラリのPythonバインディング
@@ -5231,7 +5223,6 @@ python-packaging	Pythonパッケージのコアユーティリティ
 python-ply	Python Lex & Yacc
 python-psutil	Pythonでプロセスとシステムを監視する為のクロスプラットフォームライブラリ
 python-pytz	クロスプラットフォームのタイムゾーン用のPythonライブラリ
-python-requests	Python HTTP for Humans
 python-setuptools	Pythonパッケージを簡単に、ダウンロード/ビルド/インストール/アップグレード/アンインストール
 python-tabulate	Pythonで表形式のデータをきれいにプリントする
 python-tk@3.10	Tcl/TkへのPythonインターフェース
@@ -5240,7 +5231,6 @@ python-tk@3.12	Tcl/TkへのPythonインターフェース
 python-tk@3.9	Tcl/TkへのPythonインターフェース
 python-trove-classifiers	PyPI上の分類器の正規ソース
 python-typing-extensions	Pythonのバックポート及び実験的な型ヒント
-python-urllib3	スレッドセーフな接続プーリング、ファイルポストなどを備えたHTTPライブラリ
 python-yq	jqをラップするコマンドライン YAML/XML計算機
 python@3.10	オブジェクト指向プログラミング言語 インタプリタ/対話的
 python@3.11	オブジェクト指向プログラミング言語 インタプリタ/対話的
@@ -5511,6 +5501,7 @@ rospo	🐸 組み込みのsshサーバーを備えたシンプルで信頼性の
 roswell	主要な環境向けのLispインストーラーとランチャー
 roundup	単体テストツール
 rover	Apollo Studioでデータグラフを管理/保守する為のCLI
+roxctl	StackroxのCLI
 rp	PE/Elf/Mach-O x86/x64 binaries でROP順序を検索する為のツール
 rpcsvc-proto	glibcからのRpcsvcプロトコル定義
 rpg-cli	ダンジョンとしてのファイルシステム！
@@ -6882,6 +6873,7 @@ wstunnel	Websocket又はHTTP2経由で全てのトラフィックをトンネリ
 wtf	一般的なインターネットの頭字語を翻訳する
 wtfis	パッシブホストネーム/ドメイン/IP ルックアップツール
 wtfutil	端末の個人情報ダッシュボード
+wthrr	ターミナル気象コンパニオン
 wumpus	古来のBASIC Hunt the Wumpusゲームの正確なクローン
 wush	WireGuard経由でコンピュータ間でファイルを転送する
 wv	Microsoft Word文書にアクセスする為のプログラム
@@ -6928,7 +6920,6 @@ xcode-build-server	Xcodeをsourcekit-lspと統合するためのサーバープ�
 xcode-kotlin	KotlinネイティブXcodeプラグイン
 xcodegen	スペックファイルとフォルダ構造からXcodeプロジェクトを生成します
 xcodes	Xcodeの複数のバージョンをインストールして切り替える為の最適なコマンドラインツール
-xcproj	Xcodeプロジェクトファイルを操作する
 xcprojectlint	Xcodeプロジェクトの静的解析ツール
 xctesthtmlreport	ユニット/UIテスト用のXcode-like HTMLレポート
 xcv	Cut Bashでファイルをコピーペースト
@@ -6943,7 +6934,6 @@ xerces-c	XMLパーサーの検証
 xfig	統計の対話的な生成の為の機能
 xgboost	拡張可能なポータブルで分散型の勾配ブースティングライブラリ
 xh	HTTPリクエストを送信する為の親しく高速なツール
-xhyve	FreeBSDのbhyveに基づく軽量のMacOS仮想化ソリューション
 xidel	XPath/XQuery 3.0 データを抽出するJSONiq解釈プログラム HTML/XML/JSON
 xinit	Xウィンドウシステムサーバーを起動します。
 xinput	X入力デバイスを構成及びテストする為のユーティリティ
