@@ -1029,6 +1029,7 @@ convertlit	Microsoft Reader形式の電子書籍をオープン形式に変換�
 convmv	ファイル名エンコーディング変換ツール
 convox	Convox PaaSのコマンドラインインターフェイス
 cookiecutter	テンプレートからプロジェクトを作成するユーティリティ
+coordgen	Schrodingerが開発した2次元座標生成
 copa	脆弱性スキャンの結果が与えられたコンテナーイメージに直接パッチを適用するツール
 copier	プロジェクトテンプレートを解釈する為のユーティリティ
 copilot	Amazon ECS/AWS FargateのCLIツール
@@ -3000,6 +3001,7 @@ kcptun	安定して安全 N：M多重化とFECを備えたKCPに基づくトン�
 kdoctools	DocBookからドキュメントを作成する
 kdoctor	Kotlin Multiplatformモバイルアプリ開発の為の環境診断
 kea	DHCPサーバー
+keep-sorted	選択した行を並べ替える言語に依存しないフォーマッタ
 keepassc	KeePassv.1.x及びKeePassX用のCursesベースのパスワードマネージャー
 keepkey-agent	Keepkeyハードウェアベースエージェント SSH/GPG
 keploy	テストツールキットはテストケースとデータモックを作成します API呼び出し/DBクエリ
@@ -3884,6 +3886,7 @@ mactop	Golangで書かれたApple Silicon Monitor Top
 macvim	MacOS用に作られたVimのGUI
 mad	MPEGオーディオデコーダー
 madplay	MPEGオーディオデコーダー
+maeparser	Maestroファイルパーサー
 mafft	高速Fourier変換による多角的な調整
 mage	Goを使用したビルドツール Make/rake-like
 magic-wormhole	コンピュータ間で安全にデータを転送します
