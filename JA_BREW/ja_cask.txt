@@ -2100,6 +2100,7 @@ kui	クラウドネイティブ開発の為の合成コマンドライン/UI開�
 kvirc	IRCクライアント
 kyokan-bob	名前オークションとDNSレコード管理の為のハンドシェイクウォレットGUI
 lab	ReactUIコンポーネント設計ツール
+label-live	ラベルデザイン及びプリンターソフトウェア
 labplot	データ視覚化及び分析ソフトウェア
 laconvolver	インパルス応答オーディオファイルを使用してオーディオストリームを畳み込む為のAUプラグイン
 lagrange	Geminispaceを閲覧する為のデスクトップGUIクライアント
@@ -2514,6 +2515,7 @@ minitimer	目立たない軽量タイマー
 minitube	YouTubeアプリケーション
 miniwol	Wake on LAN(WOL)ネットワークパケットを送信する為の小さなメニューバーツール
 minizincide	オープンソースの制約モデリング言語とIDE
+minstaller	MotionVFX製品のダウンローダー及びマネージャー
 mints	ロギングツールセット
 mipony	ダウンロードマネジャー
 miro	オンラインコラボレーティブ共同ホワイトボードプラットフォーム
